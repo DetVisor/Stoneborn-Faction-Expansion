@@ -134,7 +134,7 @@
 
       <ThingDef ParentName="ApparelArmorPowerBase">
         <defName>DV_Apparel_PowerplateArmor</defName>
-        <label>Powerplate armor</label>
+        <label>powerplate armor</label>
         <description>A suit of powered armor. Layered plasteel-weave plates are very effective at stopping attacks, with few vulnerable joint sections. Neuro-memetic assistors allow a human to wear the armor and still move easily.\n\nArmor like this is often used by rapid-incursion space marines.</description>
         <graphicData>
           <texPath>Things/Pawn/Apparel/PowerPlate/PowerPlate</texPath>
@@ -164,6 +164,60 @@
         <recipeMaker>
           <displayPriority>105</displayPriority>
         </recipeMaker>
+      </ThingDef>
+
+      <ThingDef ParentName="ApparelArmorPowerBase">
+        <defName>DV_Apparel_FireproofGambeson</defName>
+        <label>firedrake ambeson</label>
+        <description>A suit of powered armor. Layered plasteel-weave plates are very effective at stopping attacks, with few vulnerable joint sections. Neuro-memetic assistors allow a human to wear the armor and still move easily.\n\nArmor like this is often used by rapid-incursion space marines.</description>
+        <graphicData>
+          <texPath>Things/Pawn/Apparel/FireproofGambeson/FireproofGambeson</texPath>
+          <shaderType>CutoutComplex</shaderType>
+          <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <recipeMaker Inherit="False">
+          <unfinishedThingDef>UnfinishedApparel</unfinishedThingDef>
+          <skillRequirements>
+            <Crafting>7</Crafting>
+          </skillRequirements>
+          <recipeUsers Inherit="False">
+            <li>FabricationBench</li>
+          </recipeUsers>
+          <displayPriority>105</displayPriority>
+        </recipeMaker>
+        <statBases>
+          <WorkToMake>12000</WorkToMake>
+          <MaxHitPoints>200</MaxHitPoints>
+          <Mass>1.2</Mass>
+          <Flammability>0</Flammability>
+          <ArmorRating_Sharp>1.06</ArmorRating_Sharp>
+          <ArmorRating_Blunt>0.45</ArmorRating_Blunt>
+          <ArmorRating_Heat>200</ArmorRating_Heat>
+          <Insulation_Cold>4</Insulation_Cold>
+          <Insulation_Heat>2</Insulation_Heat>
+          <EquipDelay>4</EquipDelay>
+        </statBases>
+        <apparel Inherit="False">
+            <bodyPartGroups>
+                <li>Torso</li>
+                <li>Shoulders</li>
+                <li>Arms</li>
+              </bodyPartGroups>
+              <wornGraphicPath>Things/Pawn/Apparel/FireproofGambeson/FireproofGambeson</wornGraphicPath>
+              <useWornGraphicMask>true</useWornGraphicMask>
+              <layers>
+                <li>Middle</li>
+                <li>Shell</li>
+              </layers>
+              <tags>
+                <li>DwarfGambeson</li>
+              </tags>
+            <defaultOutfitTags>
+              <li>Dwarf</li>
+            </defaultOutfitTags>
+            <canBeDesiredForIdeo>false</canBeDesiredForIdeo>
+            <useDeflectMetalEffect>false</useDeflectMetalEffect>
+          </apparel>
       </ThingDef>
 
       <ThingDef ParentName="HatMakeableBase">
