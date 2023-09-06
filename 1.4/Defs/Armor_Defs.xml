@@ -14,7 +14,7 @@
           <li>Armor</li>
         </tradeTags>
         <graphicData>
-            <texPath>Things/Pawn/Appael/BeardedHelmet/BeardedHelmet</texPath>
+            <texPath>Things/Pawn/Apparel/BeardedHelmet/BeardedHelmet</texPath>
             <shaderType>CutoutComplex</shaderType>
             <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
@@ -22,7 +22,7 @@
             <bodyPartGroups>
               <li>FullHead</li>
             </bodyPartGroups>
-            <wornGraphicPath>Things/Pawn/Appael/BeardedHelmet/BeardedHelmet</wornGraphicPath>
+            <wornGraphicPath>Things/Pawn/Apparel/BeardedHelmet/BeardedHelmet</wornGraphicPath>
             <useWornGraphicMask>true</useWornGraphicMask>
             <layers>
               <li>Overhead</li>
@@ -45,14 +45,14 @@
           <li>Armor</li>
         </tradeTags>
         <graphicData>
-            <texPath>Things/Pawn/Appael/DwarvenHelm/DwarvenHelm</texPath>
+            <texPath>Things/Pawn/Apparel/DwarvenHelm/DwarvenHelm</texPath>
             <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
         <apparel Inherit="False">
             <bodyPartGroups>
                 <li>UpperHead</li>
             </bodyPartGroups>
-            <wornGraphicPath>Things/Pawn/Appael/DwarvenHelm/DwarvenHelm</wornGraphicPath>
+            <wornGraphicPath>Things/Pawn/Apparel/DwarvenHelm/DwarvenHelm</wornGraphicPath>
             <layers>
               <li>Overhead</li>
             </layers>
@@ -77,7 +77,7 @@
           <li>Armor</li>
         </tradeTags>
         <graphicData>
-            <texPath>Things/Pawn/Appael/GildedDwarvenHelm/GildedDwarvenHelm</texPath>
+            <texPath>Things/Pawn/Apparel/GildedDwarvenHelm/GildedDwarvenHelm</texPath>
             <shaderType>CutoutComplex</shaderType>
             <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
@@ -85,7 +85,7 @@
             <bodyPartGroups>
                 <li>UpperHead</li>
             </bodyPartGroups>
-            <wornGraphicPath>Things/Pawn/Appael/GildedDwarvenHelm/GildedDwarvenHelm</wornGraphicPath>
+            <wornGraphicPath>Things/Pawn/Apparel/GildedDwarvenHelm/GildedDwarvenHelm</wornGraphicPath>
             <useWornGraphicMask>true</useWornGraphicMask>
             <layers>
               <li>Overhead</li>
@@ -115,7 +115,7 @@
                 <li>Arms</li>
                 <li>Legs</li>
               </bodyPartGroups>
-              <wornGraphicPath>Things/Pawn/Appael/IronbreakerArmor/IronbreakerArmor</wornGraphicPath>
+              <wornGraphicPath>Things/Pawn/Apparel/IronbreakerArmor/IronbreakerArmor</wornGraphicPath>
               <layers>
                 <li>Middle</li>
               </layers>
@@ -137,7 +137,7 @@
         <label>Powerplate armor</label>
         <description>A suit of powered armor. Layered plasteel-weave plates are very effective at stopping attacks, with few vulnerable joint sections. Neuro-memetic assistors allow a human to wear the armor and still move easily.\n\nArmor like this is often used by rapid-incursion space marines.</description>
         <graphicData>
-          <texPath>Things/Pawn/Appael/PowerPlate/PowerPlate</texPath>
+          <texPath>Things/Pawn/Apparel/PowerPlate/PowerPlate</texPath>
           <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
         <apparel Inherit="False">
@@ -148,7 +148,7 @@
                 <li>Arms</li>
                 <li>Legs</li>
               </bodyPartGroups>
-              <wornGraphicPath>Things/Pawn/Appael/PowerPlate/PowerPlate</wornGraphicPath>
+              <wornGraphicPath>Things/Pawn/Apparel/PowerPlate/PowerPlate</wornGraphicPath>
               <layers>
                 <li>Middle</li>
                 <li>Shell</li>
@@ -171,7 +171,7 @@
         <label>bandana</label>
         <description>A light, airy wrap. Soaks up sweat and helps with heat.</description>
         <graphicData>
-          <texPath>Things/Pawn/Appael/Bandana/Bandana</texPath>
+          <texPath>Things/Pawn/Apparel/Bandana/Bandana</texPath>
           <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
         <uiIconScale>1.25</uiIconScale>
@@ -199,7 +199,7 @@
           <bodyPartGroups>
             <li>UpperHead</li>
           </bodyPartGroups>
-          <wornGraphicPath>Things/Pawn/Appael/Bandana/Bandana</wornGraphicPath>
+          <wornGraphicPath>Things/Pawn/Apparel/Bandana/Bandana</wornGraphicPath>
           <layers>
             <li>Overhead</li>
           </layers>
@@ -263,7 +263,7 @@
           <displayPriority>220</displayPriority>
         </recipeMaker>
         <graphicData>
-          <texPath>Things/Pawn/Appael/CrystalCrown/CrystalCrown</texPath>
+          <texPath>Things/Pawn/Apparel/CrystalCrown/CrystalCrown</texPath>
           <graphicClass>Graphic_Single</graphicClass>
           <drawSize>(0.8, 0.8)</drawSize>
         </graphicData>
@@ -288,7 +288,7 @@
           <bodyPartGroups>
             <li>UpperHead</li>
           </bodyPartGroups>
-          <wornGraphicPath>Things/Pawn/Appael/CrystalCrown/CrystalCrown</wornGraphicPath>
+          <wornGraphicPath>Things/Pawn/Apparel/CrystalCrown/CrystalCrown</wornGraphicPath>
           <hatRenderedFrontOfFace>true</hatRenderedFrontOfFace>
           <layers>
             <li>Overhead</li>
@@ -315,7 +315,7 @@
           <li>HeadgearNoble</li>
         </thingCategories>
         <graphicData>
-          <texPath>Things/Pawn/Appael/MountainCrown/MountainCrown</texPath>
+          <texPath>Things/Pawn/Apparel/MountainCrown/MountainCrown</texPath>
           <shaderType>CutoutComplex</shaderType>
           <graphicClass>Graphic_Single</graphicClass>
           <drawSize>(0.9, 0.9)</drawSize>
@@ -337,7 +337,7 @@
           <bodyPartGroups>
             <li>UpperHead</li>
           </bodyPartGroups>
-          <wornGraphicPath>Things/Pawn/Appael/MountainCrown/MountainCrown</wornGraphicPath>
+          <wornGraphicPath>Things/Pawn/Apparel/MountainCrown/MountainCrown</wornGraphicPath>
           <useWornGraphicMask>true</useWornGraphicMask>
           <layers>
             <li>Overhead</li>
@@ -360,7 +360,7 @@
         <label>robe</label>
         <description>A long, layered robe adorned with beautiful patterns.</description>
         <graphicData>
-          <texPath>Things/Pawn/Appael/GildedRobe/GildedRobe</texPath>
+          <texPath>Things/Pawn/Apparel/GildedRobe/GildedRobe</texPath>
           <shaderType>CutoutComplex</shaderType>
           <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
@@ -388,7 +388,7 @@
             <li>Arms</li>
             <li>Legs</li>
           </bodyPartGroups>
-          <wornGraphicPath>Things/Pawn/Appael/GildedRobe/GildedRobe</wornGraphicPath>
+          <wornGraphicPath>Things/Pawn/Apparel/GildedRobe/GildedRobe</wornGraphicPath>
           <useWornGraphicMask>true</useWornGraphicMask>
           <layers>
             <li>Shell</li>
@@ -420,7 +420,7 @@
           <li>Armor</li>
         </tradeTags>
         <graphicData>
-            <texPath>Things/Pawn/Appael/HammererHelmet/HammererHelmet</texPath>
+            <texPath>Things/Pawn/Apparel/HammererHelmet/HammererHelmet</texPath>
             <shaderType>CutoutComplex</shaderType>
             <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
@@ -428,7 +428,7 @@
             <bodyPartGroups>
                 <li>FullHead</li>
             </bodyPartGroups>
-            <wornGraphicPath>Things/Pawn/Appael/HammererHelmet/HammererHelmet</wornGraphicPath>
+            <wornGraphicPath>Things/Pawn/Apparel/HammererHelmet/HammererHelmet</wornGraphicPath>
             <useWornGraphicMask>true</useWornGraphicMask>
             <layers>
               <li>Overhead</li>
