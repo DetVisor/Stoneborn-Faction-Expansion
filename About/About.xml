@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>Stoneborn - Faction Expansion</name>
+	<author>DetVisor</author>
+	<supportedVersions>
+		<li>1.4</li>
+	</supportedVersions>
+	<loadAfter>
+		<li>Ludeon.RimWorld</li>
+		<li>Ludeon.RimWorld.Royalty</li>
+		<li>Ludeon.RimWorld.Biotech</li>
+		<li>brrainz.harmony</li>
+		<li>OskarPotocki.VanillaFactionsExpanded.Core</li>
+		<li>det.stoneborn</li>
+	</loadAfter>
+	<modDependencies>
+		<li>
+		 <packageId>det.stoneborn</packageId>
+		 <displayName>Det's Xenotypes - Stoneborn</displayName>
+		 <steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2903359518</steamWorkshopUrl>
+		</li>
+	</modDependencies>
+	<packageId>det.stonebornfaction</packageId>
+	<description>This mod expands on the several new xenotypes added by the Biotech DLC, adding the dwarf-like stoneborn, a race of burly and short-tempered miners.</description>
+</ModMetaData>
