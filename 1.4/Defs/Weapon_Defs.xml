@@ -94,8 +94,7 @@
     <defName>DV_MeleeWeapon_BulwarkBreaker</defName>
     <label>bulwark breaker</label>
     <description>A stunningly well made, robust, and heavy hammer, decorated with the head of a ram. As the very icon of craftdwarfship, it makes for a fine display piece and a powerful blunt weapon. \n\nAs an ancestral weapon, none beside the stoneborn have the skill to create it, and it must be bought, stolen or acquired from a quest.</description>
-    <techLevel>Medieval</techLevel>
-    <costStuffCount>175</costStuffCount>
+    <techLevel>Spacer</techLevel>
     <thingSetMakerTags><li>RewardStandardMidFreq</li></thingSetMakerTags>
     <statBases>
       <WorkToMake>20000</WorkToMake>
@@ -144,10 +143,64 @@
   </ThingDef>
 
   <ThingDef ParentName="BaseMeleeWeapon_Sharp_Quality">
+    <defName>DV_MeleeWeapon_Slicerwing</defName>
+    <label>slicerwing</label>
+    <description>A shiny and finely forged staff decorated with the shape of an anvil, which exudes authorithy. Although initially unassuming, the bearded axe blade can prove to be quite the effective weapon in close combat. \n\nAs an ancestral weapon, none beside the stoneborn have the skill to create it, and it must be bought, stolen or acquired from a quest.</description>
+    <techLevel>Spacer</techLevel>
+    <thingSetMakerTags><li>RewardStandardMidFreq</li></thingSetMakerTags>
+    <statBases>
+      <WorkToMake>15500</WorkToMake>
+      <Mass>2.5</Mass>
+    </statBases>
+    <recipeMaker IsNull="True" />
+    <weaponTags>
+      <li>DwarfMeleeRoyal</li>
+    </weaponTags>
+    <tools>
+      <li>
+        <label>handle</label>
+        <capacities>
+          <li>Poke</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+      <li>
+        <label>edge</label>
+        <labelUsedInLogging>false</labelUsedInLogging>
+        <capacities>
+          <li>Cut</li>
+          <li>Stab</li>
+        </capacities>
+        <power>25</power>
+        <cooldownTime>2.2</cooldownTime>
+      </li>
+    </tools>
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponMelee/InsectBlade</texPath>
+      <drawSize>1.4</drawSize>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <modExtensions>
+      <li Class="AthenaFramework.DamageModifierExtension">
+        <modifiers>
+          <li>
+            <fleshTypes>
+              <li>Mechanoid</li>
+            </fleshTypes>
+            <modifier>3</modifier>
+          </li>
+        </modifiers>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseMeleeWeapon_Sharp_Quality">
     <defName>DV_MeleeWeapon_AxeStaff</defName>
     <label>battlestaff</label>
     <description>A shiny and finely forged staff decorated with the shape of an anvil, which exudes authorithy. Although initially unassuming, the bearded axe blade can prove to be quite the effective weapon in close combat. \n\nAs an ancestral weapon, none beside the stoneborn have the skill to create it, and it must be bought, stolen or acquired from a quest.</description>
-    <techLevel>Industrial</techLevel>
+    <techLevel>Spacer</techLevel>
     <costStuffCount>120</costStuffCount>
     <thingSetMakerTags><li>RewardStandardMidFreq</li></thingSetMakerTags>
     <statBases>
@@ -552,6 +605,7 @@
         <graphicData>
           <texPath>Things/Item/Equipment/WeaponRanged/Flameblaster</texPath>
           <graphicClass>Graphic_Single</graphicClass>
+          <drawSize>1.1</drawSize>
         </graphicData>
         <statBases>
           <Mass>3.4</Mass>

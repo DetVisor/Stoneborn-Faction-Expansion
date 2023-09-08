@@ -131,6 +131,7 @@
           <li>Apparel_FlakJacket</li>
           <li>Apparel_FlakVest</li>
           <li>Apparel_FlakPants</li>
+          <li>DV_Apparel_DwarvenHelm</li>
         </apparelRequired>
         <initialWillRange>3~4</initialWillRange>
       </PawnKindDef>
@@ -138,7 +139,7 @@
       <PawnKindDef ParentName="StonebornSoldierBase">
         <defName>Stoneborn_Ranger</defName>
         <label>ranger</label>
-        <apparelColor>(101,87,60)</apparelColor>
+        <apparelColor>(90,90,90)</apparelColor>
         <specificApparelRequirements>
           <li>
             <bodyPartGroup>UpperHead</bodyPartGroup>
@@ -165,10 +166,60 @@
         <initialResistanceRange>15~24</initialResistanceRange>
       </PawnKindDef>
     
+      <!-- Toxwyrm -->
+    
+      <PawnKindDef ParentName="StonebornSoldierBase">
+        <defName>Stoneborn_Elite_Toxwyrm</defName>
+        <label>toxwyrm</label>
+        <apparelColor>(101,88,67)</apparelColor>
+        <canBeSapper>false</canBeSapper>
+        <isGoodBreacher>false</isGoodBreacher>
+        <combatPower>220</combatPower>
+        <weaponTags Inherit="False">
+          <li>HeavyTox</li>
+        </weaponTags>
+        <apparelMoney>6000~9000</apparelMoney>
+        <apparelRequired Inherit="False">
+          <li>DV_Apparel_BeardedHelmet</li>
+          <li>DV_Apparel_FireproofGambeson</li>
+        </apparelRequired>
+        <specificApparelRequirements Inherit="False">
+          <li>
+            <bodyPartGroup>FullHead</bodyPartGroup>
+            <color>(188,201,139)</color>
+          </li>
+          <li>
+            <bodyPartGroup>Torso</bodyPartGroup>
+            <apparelLayer>OnSkin</apparelLayer>
+            <stuff>DevilstrandCloth</stuff>
+          </li>
+          <li>
+            <bodyPartGroup>Legs</bodyPartGroup>
+            <apparelLayer>OnSkin</apparelLayer>
+            <stuff>DevilstrandCloth</stuff>
+          </li>
+        </specificApparelRequirements>
+        <techHediffsTags>
+          <li>ImplantEmpireCommon</li>
+        </techHediffsTags>
+        <skills>
+          <li>
+            <skill>Shooting</skill>
+            <range>6~12</range>
+          </li>
+        </skills>
+        <disallowedTraits>
+          <li>Brawler</li>
+        </disallowedTraits>
+        <initialWillRange>2~4</initialWillRange>
+        <initialResistanceRange>20~25</initialResistanceRange>
+      </PawnKindDef>
+    
+
       <!-- Firedrake -->
     
       <PawnKindDef ParentName="StonebornSoldierBase">
-        <defName>Stoneborn_Firedrake</defName>
+        <defName>Stoneborn_Elite_Firedrake</defName>
         <label>firedrake</label>
         <apparelColor>(68,68,68)</apparelColor>
         <canBeSapper>false</canBeSapper>
@@ -180,7 +231,7 @@
         <apparelMoney>6000~9000</apparelMoney>
         <apparelRequired Inherit="False">
           <li>DV_Apparel_BeardedHelmet</li>
-          <li>Apparel_PowerArmor</li>
+          <li>DV_Apparel_FireproofGambeson</li>
         </apparelRequired>
         <specificApparelRequirements Inherit="False">
           <li>
@@ -190,12 +241,12 @@
           <li>
             <bodyPartGroup>Torso</bodyPartGroup>
             <apparelLayer>OnSkin</apparelLayer>
-            <stuff>Devilstrand</stuff>
+            <stuff>DevilstrandCloth</stuff>
           </li>
           <li>
             <bodyPartGroup>Legs</bodyPartGroup>
             <apparelLayer>OnSkin</apparelLayer>
-            <stuff>Devilstrand</stuff>
+            <stuff>DevilstrandCloth</stuff>
           </li>
         </specificApparelRequirements>
         <techHediffsTags>
@@ -239,14 +290,14 @@
       </PawnKindDef>
     
       <PawnKindDef ParentName="StonebornKnightBase">
-        <defName>Stoneborn_Thunderer</defName>
+        <defName>Stoneborn_Elite_Thunderer</defName>
         <label>thunderer</label>
         <techHediffsTags>
           <li>ImplantEmpireCommon</li>
         </techHediffsTags>
         <specificApparelRequirements Inherit="False">
           <li>
-            <color>(90,90,90)</color>
+            <color>(68,68,68)</color>
             <alternateTagChoices>
               <li>
                 <tag>Gunlink</tag>
@@ -268,7 +319,7 @@
             <bodyPartGroup>Torso</bodyPartGroup>
             <apparelLayer>Middle</apparelLayer>
             <requiredTag>DwarfArmor</requiredTag>
-            <color>(60,60,60)</color>
+            <color>(68,68,68)</color>
           </li>
           <li>
             <bodyPartGroup>Torso</bodyPartGroup>
@@ -324,7 +375,7 @@
      <!-- Aegisbreaker -->
 
      <PawnKindDef ParentName="StonebornSoldierBase">
-      <defName>Stoneborn_Aegisbreaker</defName>
+      <defName>Stoneborn_Elite_Aegisbreaker</defName>
       <label>aegisbreaker</label>
       <maxGenerationAge>50</maxGenerationAge>
       <combatPower>120</combatPower>
@@ -343,7 +394,7 @@
           <color>(138, 51, 36)</color>
         </li>
       </specificApparelRequirements>
-      <apparelColor>(60,60,60)</apparelColor>
+      <apparelColor>(110,110,110)</apparelColor>
       <apparelTags Inherit="False" />
       <techHediffsTags>
         <li>Advanced</li>
@@ -352,7 +403,7 @@
       <skills>
         <li>
           <skill>Melee</skill>
-          <range>11~18</range>
+          <range>12~18</range>
         </li>
       </skills>
       <initialWillRange>3~5</initialWillRange>
@@ -373,14 +424,12 @@
             </categories>
           </li>
         </backstoryFiltersOverride>
-        <royalTitleChance>1</royalTitleChance>
+        <royalTitleChance>0</royalTitleChance>
         <chemicalAddictionChance>0.05</chemicalAddictionChance>
         <itemQuality>Excellent</itemQuality>
         <combatPower>50</combatPower>
         <weaponMoney>2600~3100</weaponMoney>
         <weaponTags>
-          <li>UltratechMelee</li>
-          <li>Bladelink</li>
           <li>DwarfMeleeRoyal</li>
           <li>DwarfRangedRoyal</li>
         </weaponTags>
@@ -567,8 +616,6 @@
         <label>underlord</label>
         <factionLeader>true</factionLeader>
         <weaponTags>
-          <li>UltratechMelee</li>
-          <li>Bladelink</li>
           <li>DwarfMeleeRoyal</li>
           <li>DwarfRangedRoyal</li>
         </weaponTags>
@@ -577,7 +624,7 @@
             <bodyPartGroup>UpperHead</bodyPartGroup>
             <requiredTag>DwarfRoyalTier2</requiredTag>
             <color>(138, 51, 36)</color>
-            <stuff>Gold</stuff>
+            <stuff>Hyperweave</stuff>
           </li>
           <li>
             <bodyPartGroup>Torso</bodyPartGroup>

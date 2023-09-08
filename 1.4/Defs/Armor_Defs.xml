@@ -3,13 +3,22 @@
 
     <ThingDef ParentName="ApparelArmorHelmetPowerBase">
         <defName>DV_Apparel_BeardedHelmet</defName>
-        <label>bearded helmet</label>
-        <description>A marine armor helmet, with a built-in status computer and layered plasteel-weave plates.\n\nArmor like this is often used by rapid-incursion space marines.</description>
-        <apparel>
-          <tags>
-            <li>SpacerMilitary</li>
-          </tags>
-        </apparel>
+        <label>firedrake mask</label>
+        <description>A complex air-tight rig with a built-in rebreather and oxygen pump. The mask completely nullifies the effects of tox gas and protects the wearer from noxious substances. n\n\Masks like these are used by stoneborn workers and exterminators, but their most frequent and most infamous users are the menacing firedrakes.</description>
+        <statBases>
+          <WorkToMake>10000</WorkToMake>
+          <MaxHitPoints>150</MaxHitPoints>
+          <Mass>0.8</Mass>
+          <Flammability>0</Flammability>
+          <ArmorRating_Sharp>0.32</ArmorRating_Sharp>
+          <ArmorRating_Blunt>0.20</ArmorRating_Blunt>
+          <ArmorRating_Heat>2.00</ArmorRating_Heat>
+          <Insulation_Heat>2</Insulation_Heat>
+          <EquipDelay>2</EquipDelay>
+        </statBases>
+        <equippedStatOffsets>
+          <ToxicEnvironmentResistance>1</ToxicEnvironmentResistance>
+        </equippedStatOffsets>
         <tradeTags>
           <li>Armor</li>
         </tradeTags>
@@ -31,6 +40,7 @@
               <li>Dwarf</li>
             </defaultOutfitTags>
             <useDeflectMetalEffect>true</useDeflectMetalEffect>
+            <immuneToToxGasExposure>true</immuneToToxGasExposure>
           </apparel>
         <recipeMaker>
           <displayPriority>100</displayPriority>
@@ -39,8 +49,8 @@
 
       <ThingDef ParentName="ApparelArmorHelmetPowerBase">
         <defName>DV_Apparel_DwarvenHelm</defName>
-        <label>dwarven helm</label>
-        <description>A marine armor helmet, with a built-in status computer and layered plasteel-weave plates.\n\nArmor like this is often used by rapid-incursion space marines.</description>
+        <label>browed helm</label>
+        <description>An armored plasteel-weave helmet with a large, steel brow. Quite protective, although it leaves the jaw and neck uncovered. \n\nHelmets like these are standard-issue for stoneborn rangers and soldiers.</description>
         <tradeTags>
           <li>Armor</li>
         </tradeTags>
@@ -71,8 +81,8 @@
 
       <ThingDef ParentName="ApparelArmorHelmetPowerBase">
         <defName>DV_Apparel_GildedDwarvenHelm</defName>
-        <label>gilded dwarven helm</label>
-        <description>A marine armor helmet, with a built-in status computer and layered plasteel-weave plates.\n\nArmor like this is often used by rapid-incursion space marines.</description>
+        <label>gilded browed helm</label>
+        <description>A finely decorated and etched plasteel-weave helmet with a large, golden brow. Quite protective, although it leaves the jaw and neck uncovered. \n\nHelmets like these are worn as a status symbol by Thunderers and noble warriors.</description>
         <tradeTags>
           <li>Armor</li>
         </tradeTags>
@@ -135,11 +145,14 @@
       <ThingDef ParentName="ApparelArmorPowerBase">
         <defName>DV_Apparel_PowerplateArmor</defName>
         <label>powerplate armor</label>
-        <description>A suit of powered armor. Layered plasteel-weave plates are very effective at stopping attacks, with few vulnerable joint sections. Neuro-memetic assistors allow a human to wear the armor and still move easily.\n\nArmor like this is often used by rapid-incursion space marines.</description>
+        <description>A heavy suit of powered plate armour. Highly refined plasteel-uranium plates layered over the body allow for a decent range of motion while protecting joints and organs. Despite the built-in servomotors, the plates still hinder moving speed and make it harder to aim accurately.</description>
         <graphicData>
           <texPath>Things/Pawn/Apparel/PowerPlate/PowerPlate</texPath>
           <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
+        <equippedStatOffsets>
+          <Flammability>-50</Flammability>
+        </equippedStatOffsets>  
         <apparel Inherit="False">
             <bodyPartGroups>
                 <li>Torso</li>
@@ -168,8 +181,8 @@
 
       <ThingDef ParentName="ApparelArmorPowerBase">
         <defName>DV_Apparel_FireproofGambeson</defName>
-        <label>firedrake ambeson</label>
-        <description>A suit of powered armor. Layered plasteel-weave plates are very effective at stopping attacks, with few vulnerable joint sections. Neuro-memetic assistors allow a human to wear the armor and still move easily.\n\nArmor like this is often used by rapid-incursion space marines.</description>
+        <label>firedrake gambeson</label>
+        <description>A dense gambeson made out of a devilstrand-plasteel weave: although entirely fireproof, the padded jack offers very little protection from actual weaponry, and it's far too thick to wear armor on top of.</description>
         <graphicData>
           <texPath>Things/Pawn/Apparel/FireproofGambeson/FireproofGambeson</texPath>
           <shaderType>CutoutComplex</shaderType>
@@ -190,18 +203,23 @@
           <MaxHitPoints>200</MaxHitPoints>
           <Mass>1.2</Mass>
           <Flammability>0</Flammability>
-          <ArmorRating_Sharp>1.06</ArmorRating_Sharp>
-          <ArmorRating_Blunt>0.45</ArmorRating_Blunt>
-          <ArmorRating_Heat>200</ArmorRating_Heat>
+          <ArmorRating_Sharp>0.35</ArmorRating_Sharp>
+          <ArmorRating_Blunt>0.12</ArmorRating_Blunt>
+          <ArmorRating_Heat>5.00</ArmorRating_Heat>
           <Insulation_Cold>4</Insulation_Cold>
-          <Insulation_Heat>2</Insulation_Heat>
-          <EquipDelay>4</EquipDelay>
+          <Insulation_Heat>12</Insulation_Heat>
+          <EquipDelay>2.5</EquipDelay>
         </statBases>
+        <equippedStatOffsets>
+          <Flammability>-50</Flammability>
+        </equippedStatOffsets>        
         <apparel Inherit="False">
             <bodyPartGroups>
                 <li>Torso</li>
                 <li>Shoulders</li>
                 <li>Arms</li>
+                <li>Legs</li>
+                <li>Neck</li>
               </bodyPartGroups>
               <wornGraphicPath>Things/Pawn/Apparel/FireproofGambeson/FireproofGambeson</wornGraphicPath>
               <useWornGraphicMask>true</useWornGraphicMask>
@@ -296,6 +314,12 @@
         <label>crystal crown</label>
         <description>A small crown-like piece of headwear made of metal.</description>
         <smeltable>true</smeltable>
+        <graphicData>
+          <texPath>Things/Pawn/Apparel/CrystalCrown/CrystalCrown</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+          <drawSize>(0.8, 0.8)</drawSize>
+        </graphicData>
+        <generateCommonality>0.1</generateCommonality>
         <recipeMaker>
           <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
           <workSkill>Crafting</workSkill>
@@ -313,14 +337,8 @@
               <li>Uranium</li>
             </disallowedThingDefs>
           </defaultIngredientFilter>
-          <researchPrerequisite>RoyalApparel</researchPrerequisite>
           <displayPriority>220</displayPriority>
         </recipeMaker>
-        <graphicData>
-          <texPath>Things/Pawn/Apparel/CrystalCrown/CrystalCrown</texPath>
-          <graphicClass>Graphic_Single</graphicClass>
-          <drawSize>(0.8, 0.8)</drawSize>
-        </graphicData>
         <uiIconScale>1.15</uiIconScale>
         <costStuffCount>50</costStuffCount>
         <stuffCategories>
@@ -363,7 +381,7 @@
       <ThingDef ParentName="ApparelBase">
         <defName>DV_Apparel_CrownMountan</defName>
         <label>summit crown</label>
-        <description>A grand crown of metal with an elaborate, overbearing design.</description>
+        <description>A grand fabric crown worn by high stoneborn aristocracy. It is used to distinguish royalty from nobility by adding an imposing sense of height to the wearer.</description>
         <smeltable>true</smeltable>
         <thingCategories>
           <li>HeadgearNoble</li>
@@ -374,10 +392,12 @@
           <graphicClass>Graphic_Single</graphicClass>
           <drawSize>(0.9, 0.9)</drawSize>
         </graphicData>
+        <generateCommonality>0.1</generateCommonality>
         <stuffCategories>
-          <li>Metallic</li>
+          <li>Fabric</li>
+          <li>Leathery</li>
         </stuffCategories>
-        <costStuffCount>85</costStuffCount>
+        <costStuffCount>90</costStuffCount>
         <statBases>
           <MaxHitPoints>80</MaxHitPoints>
           <Mass>0.9</Mass>
@@ -397,6 +417,14 @@
             <li>Overhead</li>
           </layers>
           <tags>
+            <li>Royal</li>
+            <li>RoyalTier1</li>
+            <li>RoyalTier2</li>
+            <li>RoyalTier3</li>
+            <li>RoyalTier4</li>
+            <li>RoyalTier5</li>
+            <li>RoyalTier6</li>
+            <li>RoyalTier7</li>
             <li>DwarfRoyalTier2</li>
           </tags>
           <canBeDesiredForIdeo>false</canBeDesiredForIdeo>
@@ -418,13 +446,14 @@
           <shaderType>CutoutComplex</shaderType>
           <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
+        <generateCommonality>0.1</generateCommonality>
         <costStuffCount>80</costStuffCount>
         <stuffCategories>
           <li>Fabric</li>
           <li>Leathery</li>
         </stuffCategories>
         <statBases>
-          <MaxHitPoints>100</MaxHitPoints>
+          <MaxHitPoints>125</MaxHitPoints>
           <WorkToMake>5000</WorkToMake>
           <Mass>0.75</Mass>
           <StuffEffectMultiplierArmor>0.2</StuffEffectMultiplierArmor>
@@ -453,6 +482,14 @@
           <canBeGeneratedToSatisfyWarmth>false</canBeGeneratedToSatisfyWarmth>
           <canBeGeneratedToSatisfyToxicEnvironmentResistance>false</canBeGeneratedToSatisfyToxicEnvironmentResistance>
           <tags>
+            <li>Royal</li>
+            <li>RoyalTier1</li>
+            <li>RoyalTier2</li>
+            <li>RoyalTier3</li>
+            <li>RoyalTier4</li>
+            <li>RoyalTier5</li>
+            <li>RoyalTier6</li>
+            <li>RoyalTier7</li>
             <li>DwarfRoyal</li>
           </tags>
         </apparel>
