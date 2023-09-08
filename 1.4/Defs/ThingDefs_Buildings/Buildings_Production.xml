@@ -1,3 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
 <ThingDef ParentName="BuildingBase">
     <defName>DV_CoreDrill</defName>
     <label>core drill</label>
@@ -18,8 +21,6 @@
     <passability>Impassable</passability>
     <pathCost>50</pathCost>
     <fillPercent>0.5</fillPercent>
-    <hasInteractionCell>true</hasInteractionCell>
-    <interactionCellOffset>(0,0,-2)</interactionCellOffset>
     <designationCategory>Production</designationCategory>
     <designationHotKey>Misc12</designationHotKey>
     <specialDisplayRadius>2.6</specialDisplayRadius> <!-- 21 closest cells, must be in sync with CompDeepDrill -->
@@ -53,7 +54,7 @@
     <statBases>
       <MaxHitPoints>300</MaxHitPoints>
       <WorkToBuild>10000</WorkToBuild>
-      <Flammability>0.5</Flammability>
+      <Flammability>0</Flammability>
       <Beauty>-25</Beauty>
       <Mass>35</Mass>
     </statBases>
@@ -64,7 +65,9 @@
         <compClass>CompPowerTrader</compClass>
         <basePowerConsumption>350</basePowerConsumption>
       </li>
-      <li Class="CompProperties_DeepDrill" />
+      <li Class="StonebornExpansion.CompProperties_AutoDrill" />
       <li Class="CompProperties_CreatesInfestations" />
     </comps>
   </ThingDef>
+
+</Defs>
