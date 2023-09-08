@@ -11,11 +11,13 @@ namespace StonebornExpansion
 {
     public class CompAutoDrill : ThingComp
     {
+        private CompProperties_AutoDrill Props => props as CompProperties_AutoDrill;
+
         public CompPowerTrader powerComp;
         public float portionProgress;
         public bool usedLastTick;
 
-        public float ProgressToNextPortionPercent => portionProgress / 10000f;
+        public float ProgressToNextPortionPercent => portionProgress / Props.ticksPerPortion;
 
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
@@ -47,7 +49,7 @@ namespace StonebornExpansion
             portionProgress += 1f;
             usedLastTick = true;
 
-            if (portionProgress > 10000f)
+            if (portionProgress > Props.ticksPerPortion)
             {
                 TryProducePortion();
                 portionProgress = 0f;
@@ -109,15 +111,18 @@ namespace StonebornExpansion
 
         public bool CanDrillNow()
         {
+            Log.Message("1");
             if (powerComp != null && !powerComp.PowerOn)
             {
                 return false;
             }
+            Log.Message("2");
 
             if (DeepDrillUtility.GetBaseResource(parent.Map, parent.Position) != null)
             {
                 return true;
             }
+            Log.Message("3");
 
             return ValuableResourcesPresent();
         }
@@ -143,5 +148,7 @@ namespace StonebornExpansion
         {
             compClass = typeof(CompAutoDrill);
         }
+
+        public int ticksPerPortion = 10000;
     }
 }
