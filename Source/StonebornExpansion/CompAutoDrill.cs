@@ -111,18 +111,15 @@ namespace StonebornExpansion
 
         public bool CanDrillNow()
         {
-            Log.Message("1");
             if (powerComp != null && !powerComp.PowerOn)
             {
                 return false;
             }
-            Log.Message("2");
 
             if (DeepDrillUtility.GetBaseResource(parent.Map, parent.Position) != null)
             {
                 return true;
             }
-            Log.Message("3");
 
             return ValuableResourcesPresent();
         }
