@@ -400,6 +400,7 @@
         <weaponTags Inherit="False">
           <li>SlugGun</li>
           <li>Minigun</li>
+          <li>RocketLauncher</li>
           <li>GunHeavy</li>
         </weaponTags>
         <apparelRequired Inherit="False">

@@ -149,10 +149,9 @@
   <comps>
     <li Class="AthenaFramework.CompProperties_ShieldEquipment">
       <maxEnergy>250</maxEnergy>
-      <energyRechargeRate>0</energyRechargeRate>
+      <energyRechargeRate>0.05</energyRechargeRate>
       <energyPerDamageModifier>0.3</energyPerDamageModifier>
-      <resetDelay>500</resetDelay>
-      <energyOnReset>0.2</energyOnReset>
+      <resetDelay>3200</resetDelay>
 
       <blocksMeleeDamage>false</blocksMeleeDamage>
       <blocksExplosions>true</blocksExplosions>
@@ -161,6 +160,10 @@
       <shatterOn>
         <li>EMP</li>
       </shatterOn>
+
+      <explosionOnShieldBreak>true</explosionOnShieldBreak>
+      <explosionDef>EMP</explosionDef>
+      <explosionRadius>3.9</explosionRadius>
 
       <absorbFleck>ExplosionFlash</absorbFleck>
       <breakFleck>ExplosionFlash</breakFleck>
@@ -182,8 +185,8 @@
       <graphicData>
         <texPath>Things/Other/AbsorptionShield</texPath>
         <graphicClass>Graphic_Single</graphicClass>
-        <shaderType>TransparentPostLight</shaderType>
-        <color>(33, 99, 255, 0.7)</color>
+        <shaderType>Transparent</shaderType>
+        <color>(1, 1, 1, 0.8)</color>
       </graphicData>
 <!--
       <additionalGraphics>

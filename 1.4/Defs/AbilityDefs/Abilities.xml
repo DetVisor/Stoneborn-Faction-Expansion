@@ -96,6 +96,7 @@
       <violent>false</violent>
       <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
       <warmupTime>0.6</warmupTime>
+      <minRange>5</minRange>
       <range>12.9</range>
       <warmupEffecter>JumpWarmupEffect</warmupEffecter>
       <requireLineOfSight>true</requireLineOfSight>

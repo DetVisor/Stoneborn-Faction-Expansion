@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-
+<!--
+   People who make patches for this mod (unless you're just creeping in here for fun.)
+⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠛⠛⠛⠋⠉⠈⠉⠉⠉⠉⠛⠻⢿⣿⣿
+⣿⣿⣿⣿⣿⡿⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠛⢿⣿⣿⣿⣿
+⣿⣿⣿⣿⡏⣀⠀⠀⠀⠀⠀⠀⠀⣀⣤⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠙⢿⣿⣿
+⣿⣿⣿⢏⣴⣿⣷⠀⠀⠀⠀⠀⢾⣿⣿⣿⣿⣿⣿⡆⠀⠀⠀⠀⠀⠀⠀⠈⣿⣿
+⣿⣿⣟⣾⣿⡟⠁⠀⠀⠀⠀⠀⢀⣾⣿⣿⣿⣿⣿⣷⢢⠀⠀⠀⠀⠀⠀⠀⢸⣿
+⣿⣿⣿⣿⣟⠀⡴⠄⠀⠀⠀⠀⠀⠀⠙⠻⣿⣿⣿⣿⣷⣄⠀⠀⠀⠀⠀⠀⠀⣿
+⣿⣿⣿⠟⠻⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠶⢴⣿⣿⣿⣿⣿⣧⠀⠀⠀⠀⠀⠀⣿
+⣿⣁⡀⠀⠀⢰⢠⣦⠀⠀⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⡄⠀⣴⣶⣿⡄⣿
+⣿⡋⠀⠀⠀⠎⢸⣿⡆⠀⠀⠀⠀⠀⠀⣴⣿⣿⣿⣿⣿⣿⣿⠗⢘⣿⣟⠛⠿⣼
+⣿⣿⠋⢀⡌⢰⣿⡿⢿⡀⠀⠀⠀⠀⠀⠙⠿⣿⣿⣿⣿⣿⡇⠀⢸⣿⣿⣧⢀⣼
+⣿⣿⣷⢻⠄⠘⠛⠋⠛⠃⠀⠀⠀⠀⠀⢿⣧⠈⠉⠙⠛⠋⠀⠀⠀⣿⣿⣿⣿⣿
+⣿⣿⣧⠀⠈⢸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠟⠀⠀⠀⠀⢀⢃⠀⠀⢸⣿⣿⣿⣿
+⣿⣿⡿⠀⠴⢗⣠⣤⣴⡶⠶⠖⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡸⠀⣿⣿⣿⣿
+⣿⣿⣿⡀⢠⣾⣿⠏⠀⠠⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠛⠉⠀⣿⣿⣿⣿
+⣿⣿⣿⣧⠈⢹⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⣿⣿⣿⣿
+⣿⣿⣿⣿⡄⠈⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣴⣾⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣧⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣦⣄⣀⣀⣀⣀⠀⠀⠀⠀⠘⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⡄⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⠀⠀⠀⠙⣿⣿⡟⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇⠀⠁⠀⠀⠹⣿⠃⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⡿⠛⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⢐⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⠿⠛⠉⠉⠁⠀⢻⣿⡇⠀⠀⠀⠀⠀⠀⢀⠈⣿⣿⡿⠉⠛⠛⠛⠉⠉
+⣿⡿⠋⠁⠀⠀⢀⣀⣠⡴⣸⣿⣇⡄⠀⠀⠀⠀⢀⡿⠄⠙⠛⠀⣀⣠⣤⣤⠄
+-->
   <!-- Ancestral weapons -->
 
   <ThingDef ParentName="BaseBullet">
@@ -780,7 +807,7 @@
         <generateCommonality>1.3</generateCommonality>
         <soundInteract>Interact_Shotgun</soundInteract>
         <weaponClasses>
-          <li>ShortShots</li>
+          <li>LongShots</li>
         </weaponClasses>
         <recipeMaker>
           <researchPrerequisite>GasOperation</researchPrerequisite>
@@ -811,7 +838,7 @@
             <defaultProjectile>Bullet_Slug</defaultProjectile>
             <warmupTime>1.6</warmupTime>
             <range>21.9</range>
-            <soundCast>Shot_Shotgun</soundCast>
+            <soundCast>Shot_TurretSniper</soundCast>
             <soundCastTail>GunTail_Heavy</soundCastTail>
             <muzzleFlashScale>9</muzzleFlashScale>
           </li>
@@ -885,7 +912,7 @@
             <range>16.9</range>
             <burstShotCount>3</burstShotCount>
             <ticksBetweenBurstShots>11</ticksBetweenBurstShots>
-            <soundCast>Shot_Shotgun</soundCast>
+            <soundCast>Shot_TurretSniper</soundCast>
             <soundCastTail>GunTail_Heavy</soundCastTail>
             <muzzleFlashScale>9</muzzleFlashScale>
           </li>
@@ -929,7 +956,104 @@
           <speed>52</speed>
         </projectile>
       </ThingDef>
-    
-    
+
+
+      <ThingDef ParentName="BaseGun">
+        <defName>DV_Gun_RocketLauncher</defName>
+        <label>rocket launcher</label>
+        <description>A single-use rocket launcher that fires three large-bore explosive rockets. Good against small groups of tough targets.\n\nBecause of its unwieldiness, single-use limitation, and the massive destruction it causes, it's said that one must be slightly crazy to use this weapon.</description>
+        <tickerType>Normal</tickerType>
+        <smeltable>false</smeltable>
+        <graphicData>
+          <texPath>Things/Item/Equipment/WeaponRanged/RocketLauncher</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <statBases>
+          <MarketValue>800</MarketValue>
+          <Mass>5.1</Mass>
+          <RangedWeapon_Cooldown>4</RangedWeapon_Cooldown>
+        </statBases>
+        <techLevel>Spacer</techLevel>
+        <weaponTags>
+          <li>RocketLauncher</li>
+        </weaponTags>
+        <weaponClasses>
+          <li>RangedHeavy</li>
+        </weaponClasses>
+        <tradeTags>
+          <li>ExoticMisc</li>
+          <li>WeaponRanged</li>
+        </tradeTags>
+        <thingSetMakerTags>
+          <li>RewardStandardLowFreq</li>
+        </thingSetMakerTags>
+        <relicChance>0</relicChance>
+        <verbs>
+          <li>
+            <verbClass>Verb_Shoot</verbClass>
+            <hasStandardCommand>true</hasStandardCommand>
+            <defaultProjectile>Proj_RocketSmall</defaultProjectile>
+            <forcedMissRadius>2.1</forcedMissRadius>
+            <warmupTime>4.5</warmupTime>
+            <ai_AvoidFriendlyFireRadius>5</ai_AvoidFriendlyFireRadius>
+            <range>30.9</range>
+            <soundCast>RocketswarmLauncher_Fire</soundCast>
+            <soundCastTail>GunTail_Heavy</soundCastTail>
+            <stopBurstWithoutLos>false</stopBurstWithoutLos>
+            <targetParams>
+              <canTargetLocations>true</canTargetLocations>
+            </targetParams>
+            <muzzleFlashScale>14</muzzleFlashScale>
+          </li>
+        </verbs>
+        <tools>
+          <li>
+            <label>barrel</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>11.7</power>
+            <cooldownTime>2.6</cooldownTime>
+          </li>
+        </tools>
+        <comps>
+          <li Class="CompProperties_Explosive">
+            <explosiveRadius>3.9</explosiveRadius>
+            <explosiveDamageType>Bomb</explosiveDamageType>
+            <requiredDamageTypeToExplode>Flame</requiredDamageTypeToExplode>
+          </li>
+          <li Class="CompProperties_Biocodable"/>
+        </comps>
+      </ThingDef>
+
+      <ThingDef>
+        <defName>Proj_RocketSmall</defName>
+        <label>rocket</label>
+        <thingClass>Projectile_Explosive</thingClass>
+        <category>Projectile</category>
+        <tickerType>Normal</tickerType>
+        <altitudeLayer>Projectile</altitudeLayer>
+        <useHitPoints>False</useHitPoints>
+        <neverMultiSelect>True</neverMultiSelect>
+        <graphicData>
+          <texPath>Things/Projectile/Rocket_Swarm</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+          <drawSize>1.1</drawSize>
+        </graphicData>
+        <projectile>
+          <damageDef>Bomb</damageDef>
+          <explosionRadius>2.1</explosionRadius>
+          <speed>40</speed>
+          <damageAmountBase>21</damageAmountBase>
+          <arcHeightFactor>0.4</arcHeightFactor>
+          <soundExplode>Explosion_Rocket</soundExplode>
+        </projectile>
+        <comps>
+          <li Class="AthenaFramework.CompProperties_ProjectileTrail">
+            <trailFleck>SmokeRocket</trailFleck>
+          </li>
+        </comps>
+      </ThingDef>
+
 
 </Defs>
