@@ -25,6 +25,7 @@
     <designationHotKey>Misc12</designationHotKey>
     <specialDisplayRadius>2.6</specialDisplayRadius> <!-- 21 closest cells, must be in sync with CompDeepDrill -->
     <rotatable>true</rotatable>
+    <tickerType>Normal</tickerType>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
     <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
     <uiIconOffset>(0, 0.03)</uiIconOffset>
@@ -36,9 +37,6 @@
       </buildingTags>
       <destroySound>BuildingDestroyed_Metal_Small</destroySound>
     </building>
-    <thingCategories>
-      <li>BuildingsProduction</li>
-    </thingCategories>
     <costList>
       <Steel>300</Steel>
       <ComponentIndustrial>2</ComponentIndustrial>

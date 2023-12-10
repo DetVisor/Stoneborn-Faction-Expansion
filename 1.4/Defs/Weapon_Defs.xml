@@ -148,6 +148,7 @@
     <description>A shiny and finely forged staff decorated with the shape of an anvil, which exudes authorithy. Although initially unassuming, the bearded axe blade can prove to be quite the effective weapon in close combat. \n\nAs an ancestral weapon, none beside the stoneborn have the skill to create it, and it must be bought, stolen or acquired from a quest.</description>
     <techLevel>Spacer</techLevel>
     <thingSetMakerTags><li>RewardStandardMidFreq</li></thingSetMakerTags>
+    <smeltable>false</smeltable>
     <statBases>
       <WorkToMake>15500</WorkToMake>
       <Mass>2.5</Mass>
@@ -184,14 +185,14 @@
     </graphicData>
     <modExtensions>
       <li Class="AthenaFramework.DamageModifierExtension">
-        <modifiers>
+        <outgoingModifiers>
           <li>
             <fleshTypes>
               <li>Mechanoid</li>
             </fleshTypes>
-            <modifier>3</modifier>
+            <modifier>2</modifier>
           </li>
-        </modifiers>
+        </outgoingModifiers>
       </li>
     </modExtensions>
   </ThingDef>
@@ -298,10 +299,73 @@
             <cooldownTime>2.2</cooldownTime>
             <armorPenetration>0.5</armorPenetration>
           </li>
+          <li>
+            <label>point</label>
+            <capacities>
+              <li>Stab</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>2.2</cooldownTime>
+            <armorPenetration>0.3</armorPenetration>
+          </li>
         </tools>
         <equippedAngleOffset>-65</equippedAngleOffset>
         <graphicData>
           <texPath>Things/Item/Equipment/WeaponMelee/Warpick</texPath>
+          <drawSize>1.2</drawSize>
+          <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+      </ThingDef>
+
+      <ThingDef ParentName="BaseMeleeWeapon_Sharp_Quality">
+        <defName>DV_MeleeWeapon_Greatspear</defName>
+        <label>greatspear</label>
+        <description>One of mankind's most ancient of tools, repurposed and reinforced for war. This hefty mining implement can break through metal with as much ease as regular stones and ore. The sheer weight behind each swing makes it capable of piercing through armor just as effectively, if not more so, than most guns.</description>
+        <techLevel>Industrial</techLevel>
+        <costStuffCount>120</costStuffCount>
+        <thingSetMakerTags><li>RewardStandardQualitySuper</li></thingSetMakerTags>
+        <statBases>
+          <WorkToMake>12000</WorkToMake>
+          <Mass>1.9</Mass>
+        </statBases>
+        <recipeMaker>
+          <researchPrerequisite>Smithing</researchPrerequisite>
+          <skillRequirements>
+            <Crafting>5</Crafting>
+          </skillRequirements>
+          <displayPriority>430</displayPriority>
+        </recipeMaker>
+        <stuffCategories>
+          <li>Metallic</li>
+          <li>Woody</li>
+        </stuffCategories>
+        <weaponTags>
+          <li>DwarfMeleeAdvanced</li>
+          <li>MedievalMeleeAdvanced</li>
+        </weaponTags>
+        <tools>
+          <li>
+            <label>handle</label>
+            <capacities>
+              <li>Poke</li>
+            </capacities>
+            <power>9</power>
+            <cooldownTime>2</cooldownTime>
+          </li>
+          <li>
+            <label>point</label>
+            <capacities>
+              <li>Stab</li>
+              <li>Cut</li>
+            </capacities>
+            <power>21</power>
+            <cooldownTime>2</cooldownTime>
+            <armorPenetration>0.4</armorPenetration>
+          </li>
+        </tools>
+        <equippedAngleOffset>-10</equippedAngleOffset>
+        <graphicData>
+          <texPath>Things/Item/Equipment/WeaponMelee/Greatspear</texPath>
           <drawSize>1.2</drawSize>
           <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
@@ -351,15 +415,6 @@
             <power>21</power>
             <cooldownTime>2.1</cooldownTime>
             <armorPenetration>0.22</armorPenetration>
-          </li>
-          <li>
-            <label>point</label>
-            <capacities>
-              <li>Stab</li>
-            </capacities>
-            <power>17</power>
-            <cooldownTime>2.2</cooldownTime>
-            <armorPenetration>0.3</armorPenetration>
           </li>
         </tools>
         <equippedAngleOffset>-65</equippedAngleOffset>
@@ -637,6 +692,244 @@
           </li>
         </verbs>
       </ThingDef>
+<!--
+      <ThingDef ParentName="BaseHumanMakeableGun">
+        <defName>DV_Gun_Autoslugger</defName>
+        <label>autoslugger</label>
+        <description>A magazine-fed fully automatic shotgun. It is even shorter-ranged than a typical shotgun, but is extraordinarily dangerous due to burst fire.</description>
+        <graphicData>
+          <texPath>Things/Item/Equipment/WeaponRanged/Autoslugger</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+          <drawSize>1.1</drawSize>
+        </graphicData>
+        <generateCommonality>0.4</generateCommonality>
+        <soundInteract>Interact_Shotgun</soundInteract>
+        <weaponClasses>
+          <li>ShortShots</li>
+        </weaponClasses>
+        <recipeMaker>
+          <researchPrerequisite>GasOperation</researchPrerequisite>
+          <skillRequirements>
+            <Crafting>8</Crafting>
+          </skillRequirements>
+          <displayPriority>435</displayPriority>
+        </recipeMaker>
+        <thingSetMakerTags><li>RewardStandardQualitySuper</li></thingSetMakerTags>
+        <statBases>
+          <WorkToMake>31000</WorkToMake>
+          <Mass>4.5</Mass>
+          <AccuracyTouch>0.60</AccuracyTouch>
+          <AccuracyShort>0.70</AccuracyShort>
+          <AccuracyMedium>0.54</AccuracyMedium>
+          <AccuracyLong>0.40</AccuracyLong>
+          <RangedWeapon_Cooldown>1.35</RangedWeapon_Cooldown>
+        </statBases>
+        <costList>
+          <Steel>60</Steel>
+          <Uranium>25</Uranium>
+          <ComponentSpacer>5</ComponentSpacer>
+        </costList>
+        <verbs>
+          <li>
+            <verbClass>Verb_Shoot</verbClass>
+            <hasStandardCommand>true</hasStandardCommand>
+            <defaultProjectile>ArmCannonProjectile</defaultProjectile>
+            <warmupTime>1.5</warmupTime>
+            <range>10.9</range>
+            <burstShotCount>4</burstShotCount>
+            <ticksBetweenBurstShots>9</ticksBetweenBurstShots>
+            <soundCast>Shot_Shotgun</soundCast>
+            <soundCastTail>GunTail_Heavy</soundCastTail>
+            <muzzleFlashScale>9</muzzleFlashScale>
+          </li>
+        </verbs>
+        <weaponTags>
+          <li>SpacerGun</li>
+          <li>SlugGun</li>
+        </weaponTags>
+        <tools>
+          <li>
+            <label>stock</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>9</power>
+            <cooldownTime>2</cooldownTime>
+          </li>
+          <li>
+            <label>barrel</label>
+            <capacities>
+              <li>Blunt</li>
+              <li>Poke</li>
+            </capacities>
+            <power>9</power>
+            <cooldownTime>2</cooldownTime>
+          </li>
+        </tools>
+      </ThingDef>
+    -->
+      <ThingDef ParentName="BaseHumanMakeableGun">
+        <defName>DV_Gun_SlugCaster</defName>
+        <label>slug caster</label>
+        <description>A magazine-fed fully automatic shotgun. It is even shorter-ranged than a typical shotgun, but is extraordinarily dangerous due to burst fire.</description>
+        <graphicData>
+          <texPath>Things/Item/Equipment/WeaponRanged/SlugCaster</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+          <drawSize>1.2</drawSize>
+        </graphicData>
+        <generateCommonality>1.3</generateCommonality>
+        <soundInteract>Interact_Shotgun</soundInteract>
+        <weaponClasses>
+          <li>ShortShots</li>
+        </weaponClasses>
+        <recipeMaker>
+          <researchPrerequisite>GasOperation</researchPrerequisite>
+          <skillRequirements>
+            <Crafting>8</Crafting>
+          </skillRequirements>
+          <displayPriority>435</displayPriority>
+        </recipeMaker>
+        <thingSetMakerTags><li>RewardStandardQualitySuper</li></thingSetMakerTags>
+        <statBases>
+          <WorkToMake>31000</WorkToMake>
+          <Mass>4.5</Mass>
+          <AccuracyTouch>0.57</AccuracyTouch>
+          <AccuracyShort>0.62</AccuracyShort>
+          <AccuracyMedium>0.74</AccuracyMedium>
+          <AccuracyLong>0.81</AccuracyLong>
+          <RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+        </statBases>
+        <costList>
+          <Steel>60</Steel>
+          <Uranium>25</Uranium>
+          <ComponentSpacer>5</ComponentSpacer>
+        </costList>
+        <verbs>
+          <li>
+            <verbClass>Verb_Shoot</verbClass>
+            <hasStandardCommand>true</hasStandardCommand>
+            <defaultProjectile>Bullet_Slug</defaultProjectile>
+            <warmupTime>1.6</warmupTime>
+            <range>21.9</range>
+            <soundCast>Shot_Shotgun</soundCast>
+            <soundCastTail>GunTail_Heavy</soundCastTail>
+            <muzzleFlashScale>9</muzzleFlashScale>
+          </li>
+        </verbs>
+        <weaponTags>
+          <li>SlugGunLong</li>
+        </weaponTags>
+        <tools>
+          <li>
+            <label>stock</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>9</power>
+            <cooldownTime>2</cooldownTime>
+          </li>
+          <li>
+            <label>barrel</label>
+            <capacities>
+              <li>Blunt</li>
+              <li>Poke</li>
+            </capacities>
+            <power>9</power>
+            <cooldownTime>2</cooldownTime>
+          </li>
+        </tools>
+      </ThingDef>
+
+      <ThingDef ParentName="BaseHumanMakeableGun">
+        <defName>DV_Gun_SlugRifle</defName>
+        <label>slug rifle</label>
+        <description>A magazine-fed fully automatic shotgun. It is even shorter-ranged than a typical shotgun, but is extraordinarily dangerous due to burst fire.</description>
+        <graphicData>
+          <texPath>Things/Item/Equipment/WeaponRanged/SlugRifle</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+          <drawSize>1</drawSize>
+        </graphicData>
+        <generateCommonality>1.6</generateCommonality>
+        <soundInteract>Interact_Shotgun</soundInteract>
+        <weaponClasses>
+          <li>ShortShots</li>
+        </weaponClasses>
+        <recipeMaker>
+          <researchPrerequisite>GasOperation</researchPrerequisite>
+          <skillRequirements>
+            <Crafting>8</Crafting>
+          </skillRequirements>
+          <displayPriority>435</displayPriority>
+        </recipeMaker>
+        <thingSetMakerTags><li>RewardStandardQualitySuper</li></thingSetMakerTags>
+        <statBases>
+          <WorkToMake>31000</WorkToMake>
+          <Mass>4.5</Mass>
+          <AccuracyTouch>0.54</AccuracyTouch>
+          <AccuracyShort>0.60</AccuracyShort>
+          <AccuracyMedium>0.70</AccuracyMedium>
+          <AccuracyLong>0.59</AccuracyLong>
+          <RangedWeapon_Cooldown>1.35</RangedWeapon_Cooldown>
+        </statBases>
+        <costList>
+          <Steel>60</Steel>
+          <Uranium>25</Uranium>
+          <ComponentSpacer>5</ComponentSpacer>
+        </costList>
+        <verbs>
+          <li>
+            <verbClass>Verb_Shoot</verbClass>
+            <hasStandardCommand>true</hasStandardCommand>
+            <defaultProjectile>Bullet_Slug</defaultProjectile>
+            <warmupTime>1.3</warmupTime>
+            <range>16.9</range>
+            <burstShotCount>3</burstShotCount>
+            <ticksBetweenBurstShots>11</ticksBetweenBurstShots>
+            <soundCast>Shot_Shotgun</soundCast>
+            <soundCastTail>GunTail_Heavy</soundCastTail>
+            <muzzleFlashScale>9</muzzleFlashScale>
+          </li>
+        </verbs>
+        <weaponTags>
+          <li>SlugGun</li>
+        </weaponTags>
+        <tools>
+          <li>
+            <label>stock</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>9</power>
+            <cooldownTime>2</cooldownTime>
+          </li>
+          <li>
+            <label>barrel</label>
+            <capacities>
+              <li>Blunt</li>
+              <li>Poke</li>
+            </capacities>
+            <power>9</power>
+            <cooldownTime>2</cooldownTime>
+          </li>
+        </tools>
+      </ThingDef>
+
+      <ThingDef ParentName="BaseBullet">
+        <defName>Bullet_Slug</defName>
+        <label>slug</label>
+        <graphicData>
+          <texPath>Things/Projectiles/Bullet_Snapshot</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile>
+          <damageDef>Bullet</damageDef>
+          <damageAmountBase>15</damageAmountBase>
+          <stoppingPower>3</stoppingPower>
+          <armorPenetrationBase>0.35</armorPenetrationBase>
+          <speed>52</speed>
+        </projectile>
+      </ThingDef>
+    
     
 
 </Defs>

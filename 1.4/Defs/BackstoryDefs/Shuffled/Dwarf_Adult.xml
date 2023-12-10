@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <BackstoryDef>
+    <defName>Extermitnator92</defName>
+    <title>exterminator</title>
+    <titleShort>exterminator</titleShort>
+    <baseDesc>Taken in as a simple soldier by a particularly zealous wing of religious believers, [PAWN_nameDef] was schooled in the arts of strategy, war, and medicine, serving in an army as both a reliable medic and a powerful general.
+      /nThough that life is now long behind, [PAWN_nameDef] still finds it hard to change [PAWN_possessive] mind on various theological topics.</baseDesc>
+    <slot>Adulthood</slot>
+    <skillGains>
+      <li><key>Melee</key><value>3</value></li>
+      <li><key>Medicine</key><value>3</value></li>
+      <li><key>Intellectual</key><value>2</value></li>
+    </skillGains>
+    <spawnCategories>
+      <li>DwarfCommon</li>
+      <li>DwarfFighter</li>
+    </spawnCategories>
+    <requiredWorkTags>
+      <li>Violent</li>
+      <li>Caring</li>
+    </requiredWorkTags>
+    <shuffleable>true</shuffleable>
+</BackstoryDef>
+
+  <BackstoryDef>
+    <defName>Warcleric48</defName>
+    <title>warcleric</title>
+    <titleShort>warcleric</titleShort>
+    <baseDesc>Taken in as a simple soldier by a particularly zealous wing of religious believers, [PAWN_nameDef] was schooled in the arts of strategy, war, and medicine, serving in an army as both a reliable medic and a powerful general.
+      /nThough that life is now long behind, [PAWN_nameDef] still finds it hard to change [PAWN_possessive] mind on various theological topics.</baseDesc>
+    <slot>Adulthood</slot>
+    <skillGains>
+      <li><key>Melee</key><value>3</value></li>
+      <li><key>Medicine</key><value>3</value></li>
+      <li><key>Intellectual</key><value>2</value></li>
+    </skillGains>
+    <spawnCategories>
+      <li>DwarfCommon</li>
+      <li>DwarfFighter</li>
+    </spawnCategories>
+    <requiredWorkTags>
+      <li>Violent</li>
+      <li>Caring</li>
+    </requiredWorkTags>
+    <shuffleable>true</shuffleable>
+</BackstoryDef>
+
+  <BackstoryDef>
+    <defName>Goldguard44</defName>
+    <title>goldguard</title>
+    <titleShort>goldguard</titleShort>
+    <baseDesc>[PAWN_nameDef] once stood guard for a large gold-filled treasury in the core of an ancient underground fortress in which [PAWN_pronoun] thrived in, keeping it safe from thieves and raiders 
+    \nThe nights spent alone have taken a toll on [PAWN_possessive] speech.</baseDesc>
+    <slot>Adulthood</slot>
+    <skillGains>
+      <li><key>Shooting</key><value>4</value></li>
+      <li><key>Social</key><value>-2</value></li>
+    </skillGains>
+    <spawnCategories>
+      <li>DwarfCommon</li>
+      <li>DwarfFighter</li>
+    </spawnCategories>
+    <requiredWorkTags>
+      <li>Violent</li>
+    </requiredWorkTags>
+    <forcedTraits>
+      <Recluse>0</Recluse>
+    </forcedTraits>
+    <shuffleable>true</shuffleable>
+</BackstoryDef>
+
+  <BackstoryDef>
+    <defName>Inquisitor84</defName>
+    <title>inquisitor</title>
+    <titleShort>inquisitor</titleShort>
+    <baseDesc>Under the cruel hand of a malicious lord, [PAWN_nameDef] slaughtered and assassinated many religious enemies who refused to be subjugated. Treated as nothing more than a weapon by [PAWN_possessive] masters, [PAWN_pronoun] now suffers when it comes to socialization.</baseDesc>
+    <slot>Adulthood</slot>
+    <skillGains>
+      <li><key>Shooting</key><value>2</value></li>
+      <li><key>Melee</key><value>2</value></li>
+      <li><key>Social</key><value>-2</value></li>
+    </skillGains>
+    <spawnCategories>
+      <li>DwarfCommon</li>
+      <li>DwarfFighter</li>
+    </spawnCategories>
+    <requiredWorkTags>
+      <li>Violent</li>
+    </requiredWorkTags>
+    <forcedTraits>
+      <Psychopath>0</Psychopath>
+    </forcedTraits>
+    <shuffleable>true</shuffleable>
+</BackstoryDef>
+
+  <BackstoryDef>
+    <defName>Gatekeeper34</defName>
+    <title>gatekeeper</title>
+    <titleShort>gatekeeper</titleShort>
+    <baseDesc>[PAWN_nameDef], along with various comrades, guarded a large deepgate which served as an entrance to an underground fortress. [PAWN_pronoun] discovered many things and interesting people in those days.</baseDesc>
+    <slot>Adulthood</slot>
+    <skillGains>
+      <li><key>Social</key><value>2</value></li>
+      <li><key>Melee</key><value>3</value></li>
+    </skillGains>
+    <spawnCategories>
+      <li>DwarfCommon</li>
+      <li>DwarfFighter</li>
+    </spawnCategories>
+    <requiredWorkTags>
+      <li>Mining</li>
+      <li>Violent</li>
+    </requiredWorkTags>
+    <shuffleable>true</shuffleable>
+</BackstoryDef>
+
+  <BackstoryDef>
+    <defName>InsectHunter24</defName>
+    <title>insect hunter</title>
+    <titleShort>hunter</titleShort>
+    <baseDesc>Hunting, dispatching and harvesting insectoids is second nature to [PAWN_nameDef]. [PAWN_pronoun] knows exactly how megaspiders think and act, and knows everything about their anatomy.</baseDesc>
+    <slot>Adulthood</slot>
+    <skillGains>
+      <li><key>Animals</key><value>6</value></li>
+      <li><key>Mining</key><value>2</value></li>
+    </skillGains>
+    <spawnCategories>
+      <li>DwarfCommon</li>
+      <li>DwarfFighter</li>
+    </spawnCategories>
+    <requiredWorkTags>
+      <li>ManualDumb</li>
+      <li>Caring</li>
+      <li>Mining</li>
+    </requiredWorkTags>
+    <shuffleable>true</shuffleable>
+</BackstoryDef>
+
+  <BackstoryDef>
+    <defName>AbyssalMarine42</defName>
+    <title>abyssal marine</title>
+    <titleShort>marine</titleShort>
+    <baseDesc>[PAWN_nameDef] suffered weeks of ruthless training in the unforgiving depths of a shell-world, fighting other trainees in the darkness.</baseDesc>
+    <slot>Adulthood</slot>
+    <spawnCategories>
+      <li>DwarfCommon</li>
+      <li>DwarfFighter</li>
+    </spawnCategories>
+    <forcedTraits>
+      <Undergrounder>0</Undergrounder>
+    </forcedTraits>
+    <shuffleable>true</shuffleable>
+  </BackstoryDef>
+
+</Defs>

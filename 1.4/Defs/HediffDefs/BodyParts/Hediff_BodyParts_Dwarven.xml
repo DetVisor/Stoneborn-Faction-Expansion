@@ -1,0 +1,628 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef Name="BodyPartProstheticDwarven" ParentName="BodyPartBase" Abstract="True">
+    <techLevel>Spacer</techLevel>
+    <thingCategories>
+      <li>BodyPartsBionic</li>
+    </thingCategories>
+    <graphicData>
+      <texPath>Things/Item/Health/DwarvenProsthetic</texPath>
+      <shaderType>CutoutComplex</shaderType>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>0.90</drawSize>
+      <color>(189,169,118)</color>
+    </graphicData>
+    <tradeTags>
+      <li>Bionic</li>
+    </tradeTags>
+    <techHediffsTags>
+      <li>Advanced</li>
+    </techHediffsTags>
+    <statBases>
+      <WorkToMake>30000</WorkToMake>
+    </statBases>
+    <recipeMaker>
+      <displayPriority>600</displayPriority>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <recipeUsers>
+        <li>TableMachining</li>
+      </recipeUsers>
+      <skillRequirements>
+        <Crafting>8</Crafting>
+      </skillRequirements>
+      <unfinishedThingDef>UnfinishedHealthItemProsthetic</unfinishedThingDef>
+      <researchPrerequisite>Prosthetics</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+
+  <!-- Dustifier -->
+
+<HediffDef ParentName="ImplantHediffBase">
+    <defName>DV_DeathDustifier</defName>
+    <label>death dustifier</label>
+    <labelNoun>a death dustifier</labelNoun>
+    <description>An installed death dustifier.</description>
+    <descriptionHyperlinks><ThingDef>DV_DeathDustifier</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>DeathAcidifier</spawnThingOnRemoved>
+    <comps>
+      <li Class="HediffCompProperties_DissolveGearOnDeath">
+        <fleck>DustPuff</fleck>
+        <moteCount>12</moteCount>
+        <moteOffsetRange>0.25~0.75</moteOffsetRange>
+        <filth>Filth_Dirt</filth>
+        <sound>DeathAcidifier</sound>
+        <injuryCreatedOnDeath>Shredded</injuryCreatedOnDeath>
+        <injuryCount>1~2</injuryCount>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <ThingDef ParentName="BodyPartBase">
+    <defName>DV_DeathDustifier</defName>
+    <label>death dustifier</label>
+    <description>A chest implant for preventing enemy use of captured equipment. Upon the user's death, it releases powerful chemicals that dissolve gear in contact with the user's body. It doesn't damage others.</description>
+    <descriptionHyperlinks><RecipeDef>InstallDeathDustifier</RecipeDef></descriptionHyperlinks>
+    <techLevel>Spacer</techLevel>
+    <graphicData>
+      <texPath>Things/Item/Health/HealthItem</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>0.80</drawSize>
+      <color>(189,169,118)</color>
+    </graphicData>
+    <statBases>
+      <MarketValue>400</MarketValue>
+    </statBases>
+    <tradeTags>
+        <li>ImplantDwarvenCommon</li>
+      </tradeTags>
+      <techHediffsTags>
+        <li>ImplantDwarvenCommon</li>
+      </techHediffsTags>
+    <thingCategories>
+      <li>BodyPartsBionic</li>
+    </thingCategories>
+  </ThingDef>
+
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>InstallDeathDustifier</defName>
+    <label>install death dustifier</label>
+    <description>Install a death dustifier.</description>
+    <descriptionHyperlinks>
+      <ThingDef>DV_DeathDustifier</ThingDef>
+      <HediffDef>DV_DeathDustifier</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing death dustifier.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>DV_DeathDustifier</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>DV_DeathDustifier</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>DV_DeathDustifier</addsHediff>
+  </RecipeDef>
+
+  <!-- Ironskin -->  
+
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>DV_IronskinGland</defName>
+    <label>ironskin former</label>
+    <labelNoun>an ironskin former</labelNoun>
+    <description>An installed ironskin former.</description>
+    <descriptionHyperlinks><ThingDef>DV_IronskinGland</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>DV_IronskinGland</spawnThingOnRemoved>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Moving</capacity>
+            <postFactor>0.80</postFactor>
+          </li>
+        </capMods>
+        <statOffsets>
+          <ArmorRating_Sharp>0.75</ArmorRating_Sharp>
+          <ArmorRating_Blunt>0.15</ArmorRating_Blunt>
+          <ArmorRating_Heat>0.60</ArmorRating_Heat>
+          <PawnBeauty>-2.5</PawnBeauty>
+        </statOffsets>
+      </li>
+    </stages>
+    <tags><li>ArmorGlandDwarf</li></tags>
+  </HediffDef>
+
+  <ThingDef ParentName="BodyPartProstheticDwarven">
+    <defName>DV_IronskinGland</defName>
+    <label>ironskin former</label>
+    <description>This bionic former upon implanting immediately releases waves of programmed nanomachines and mixed chemicals which transform the implantee's skin into a tough and scaly natural chainmail, making them highly resistant to blades, but lowering their beauty considerably.</description>
+    <descriptionHyperlinks><RecipeDef>InstallIronskinGland</RecipeDef></descriptionHyperlinks>
+    <thingSetMakerTags><li>RewardStandardMidFreq</li></thingSetMakerTags>
+    <costList>
+      <Plasteel>35</Plasteel>
+      <ComponentSpacer>12</ComponentSpacer>
+    </costList>
+    <tradeTags>
+      <li>ImplantDwarvenCommon</li>
+    </tradeTags>
+    <techHediffsTags>
+      <li>ImplantDwarvenCommon</li>
+      <li>ImplantDwarvenMilitary</li>
+    </techHediffsTags>
+  </ThingDef>
+
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>InstallIronskinGland</defName>
+    <label>install ironskin former</label>
+    <description>Install an ironskin former.</description>
+    <descriptionHyperlinks>
+      <ThingDef>DV_IronskinGland</ThingDef>
+      <HediffDef>DV_IronskinGland</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing ironskin former.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>DV_IronskinGland</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>DV_IronskinGland</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>DV_IronskinGland</addsHediff>
+    <incompatibleWithHediffTags>
+      <li>ArmorGland</li>
+    </incompatibleWithHediffTags>
+  </RecipeDef>
+
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>RemoveIronskinGland</defName>
+    <label>remove ironskin former</label>
+    <description>Remove ironskin former.</description>
+    <descriptionHyperlinks><ThingDef>DV_IronskinGland</ThingDef></descriptionHyperlinks>
+    <jobString>Removing ironskin former.</jobString>
+    <removesHediff>DV_IronskinGland</removesHediff>
+  </RecipeDef>
+
+  <!-- Steelbone -->
+
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>DV_SteelboneInjector</defName>
+    <label>steelbone injector</label>
+    <labelNoun>a steelbone injector</labelNoun>
+    <description>An installed steelbone injector.</description>
+    <descriptionHyperlinks><ThingDef>DV_SteelboneInjector</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>DV_SteelboneInjector</spawnThingOnRemoved>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Moving</capacity>
+            <postFactor>0.90</postFactor>
+          </li>
+        </capMods>
+        <statOffsets>
+            <MeleeDodgeChance>0.8</MeleeDodgeChance>
+            <ArmorRating_Blunt>0.75</ArmorRating_Blunt>
+            <ArmorRating_Heat>0.10</ArmorRating_Heat>
+        </statOffsets>
+      </li>
+    </stages>
+    <tags><li>BoneGlandDwarf</li></tags>
+  </HediffDef>
+
+  <ThingDef ParentName="BodyPartProstheticDwarven">
+    <defName>DV_SteelboneInjector</defName>
+    <label>steelbone injector</label>
+    <description>This bionic gland releases chemical and nanomachines that transform the user's skin into a built-in suit of armor. The whole epidermis thickens and hardens to resist burns, while jointed exterior keratin plates form everywhere they can - including the head and face. While it's very difficult to physically hurt someone using this implant, the plates and hard skin significantly reduces the user's physical attractiveness.</description>
+    <descriptionHyperlinks><RecipeDef>InstallSteelboneInjector</RecipeDef></descriptionHyperlinks>
+    <thingSetMakerTags><li>RewardStandardMidFreq</li></thingSetMakerTags>
+    <costList>
+      <Plasteel>35</Plasteel>
+      <Plasteel>30</Plasteel>
+      <ComponentSpacer>12</ComponentSpacer>
+    </costList>
+    <tradeTags>
+      <li>ImplantDwarvenCommon</li>
+    </tradeTags>
+    <techHediffsTags>
+      <li>ImplantDwarvenCommon</li>
+      <li>ImplantDwarvenMilitary</li>
+    </techHediffsTags>
+  </ThingDef>
+
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>InstallSteelboneInjector</defName>
+    <label>install steelbone injector</label>
+    <description>Install a steelbone injector.</description>
+    <descriptionHyperlinks>
+      <ThingDef>DV_SteelboneInjector</ThingDef>
+      <HediffDef>DV_SteelboneInjector</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing steelbone injector.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>DV_SteelboneInjector</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>DV_SteelboneInjector</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Spine</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>DV_SteelboneInjector</addsHediff>
+  </RecipeDef>
+
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>RemoveSteelboneInjector</defName>
+    <label>remove steelbone injector</label>
+    <description>Remove steelbone injector.</description>
+    <descriptionHyperlinks><ThingDef>DV_SteelboneInjector</ThingDef></descriptionHyperlinks>
+    <jobString>Removing steelbone injector.</jobString>
+    <removesHediff>DV_SteelboneInjector</removesHediff>
+  </RecipeDef>
+
+    <!-- Wrist flamer  -->
+
+    <HediffDef ParentName="AddedBodyPartBase">
+      <defName>DV_WristFlamer</defName>
+      <label>wrist flamer</label>
+      <labelNoun>a wrist flamer</labelNoun>
+      <description>An installed wrist flamer.</description>
+      <descriptionHyperlinks><ThingDef>DV_WristFlamer</ThingDef></descriptionHyperlinks>
+      <addedPartProps>
+        <solid>true</solid>
+      </addedPartProps>
+      <stages>
+        <li>
+          <capMods>
+            <li>
+              <capacity>Manipulation</capacity>
+              <offset>-0.1</offset>
+            </li>
+            <li>
+              <capacity>Moving</capacity>
+              <offset>-0.05</offset>
+            </li>
+          </capMods>
+        </li>
+      </stages>
+      <comps>
+        <li Class="HediffCompProperties_GiveAbility">
+          <abilityDefs>
+            <li>WristFlamerAbility</li>
+          </abilityDefs>
+        </li>
+      </comps>
+      <spawnThingOnRemoved>DV_WristFlamer</spawnThingOnRemoved>
+    </HediffDef>
+  
+    <ThingDef ParentName="BodyPartProstheticDwarven">
+      <defName>DV_WristFlamer</defName>
+      <label>wrist flamer</label>
+      <description>A mechanical arm replacement for speeding up mining. It has a built-in snake drill, which allows the miner to rapidly find and exploit weak lines in the rock. It also has a general-purpose manipulator. It is somewhat ungainly, which slows down movement slightly.</description>
+      <descriptionHyperlinks><RecipeDef>InstallWristFlamer</RecipeDef></descriptionHyperlinks>
+      <thingSetMakerTags><li>RewardStandardLowFreq</li></thingSetMakerTags>
+      <costList>
+        <Steel>70</Steel>
+        <ComponentIndustrial>12</ComponentIndustrial>
+        <Chemfuel>12</Chemfuel>
+      </costList>
+      <tradeTags>
+        <li>ImplantDwarvenMilitary</li>
+      </tradeTags>
+      <techHediffsTags>
+        <li>ImplantDwarvenMilitary</li>
+      </techHediffsTags>
+    </ThingDef>
+  
+    <RecipeDef ParentName="SurgeryInstallBodyPartProstheticBase">
+      <defName>InstallWristFlamer</defName>
+      <label>install wrist flamer</label>
+      <description>Install a wrist flamer.</description>
+      <descriptionHyperlinks>
+        <ThingDef>DV_WristFlamer</ThingDef>
+        <HediffDef>DV_WristFlamer</HediffDef>
+      </descriptionHyperlinks>
+      <jobString>Installing wrist flamer.</jobString>
+      <ingredients>
+        <li>
+          <filter>
+            <thingDefs>
+              <li>DV_WristFlamer</li>
+            </thingDefs>
+          </filter>
+          <count>1</count>
+        </li>
+      </ingredients>
+      <fixedIngredientFilter>
+        <thingDefs>
+          <li>DV_WristFlamer</li>
+        </thingDefs>
+      </fixedIngredientFilter>
+      <appliedOnFixedBodyParts>
+        <li>Arm</li>
+      </appliedOnFixedBodyParts>
+      <addsHediff>DV_WristFlamer</addsHediff>
+    </RecipeDef>
+
+        <!-- Arm cannon  -->
+
+        <HediffDef ParentName="AddedBodyPartBase">
+          <defName>DV_ArmCannon</defName>
+          <label>arm slugger</label>
+          <labelNoun>an arm slugger</labelNoun>
+          <description>An installed arm slugger.</description>
+          <descriptionHyperlinks><ThingDef>DV_ArmCannon</ThingDef></descriptionHyperlinks>
+          <addedPartProps>
+            <solid>true</solid>
+          </addedPartProps>
+          <stages>
+            <li>
+              <capMods>
+                <li>
+                  <capacity>Manipulation</capacity>
+                  <offset>-0.15</offset>
+                </li>
+                <li>
+                  <capacity>Moving</capacity>
+                  <offset>-0.1</offset>
+                </li>
+              </capMods>
+            </li>
+          </stages>
+          <comps>
+            <li Class="HediffCompProperties_GiveAbility">
+              <abilityDefs>
+                <li>ArmCannonAbility</li>
+              </abilityDefs>
+            </li>
+          </comps>
+          <spawnThingOnRemoved>DV_ArmCannon</spawnThingOnRemoved>
+        </HediffDef>
+      
+        <ThingDef ParentName="BodyPartProstheticDwarven">
+          <defName>DV_ArmCannon</defName>
+          <label>arm slugger</label>
+          <description>A mechanical arm replacement for speeding up mining. It has a built-in snake drill, which allows the miner to rapidly find and exploit weak lines in the rock. It also has a general-purpose manipulator. It is somewhat ungainly, which slows down movement slightly.</description>
+          <descriptionHyperlinks><RecipeDef>InstallArmCannon</RecipeDef></descriptionHyperlinks>
+          <thingSetMakerTags><li>RewardStandardLowFreq</li></thingSetMakerTags>
+          <costList>
+            <Steel>75</Steel>
+            <ComponentIndustrial>10</ComponentIndustrial>
+          </costList>
+          <tradeTags>
+            <li>ImplantDwarvenMilitary</li>
+          </tradeTags>
+          <techHediffsTags>
+            <li>ImplantDwarvenMilitary</li>
+          </techHediffsTags>
+        </ThingDef>
+      
+        <RecipeDef ParentName="SurgeryInstallBodyPartProstheticBase">
+          <defName>InstallArmCannon</defName>
+          <label>install arm slugger</label>
+          <description>Install an arm slugger.</description>
+          <descriptionHyperlinks>
+            <ThingDef>DV_ArmCannon</ThingDef>
+            <HediffDef>DV_ArmCannon</HediffDef>
+          </descriptionHyperlinks>
+          <jobString>Installing arm slugger.</jobString>
+          <ingredients>
+            <li>
+              <filter>
+                <thingDefs>
+                  <li>DV_ArmCannon</li>
+                </thingDefs>
+              </filter>
+              <count>1</count>
+            </li>
+          </ingredients>
+          <fixedIngredientFilter>
+            <thingDefs>
+              <li>DV_ArmCannon</li>
+            </thingDefs>
+          </fixedIngredientFilter>
+          <appliedOnFixedBodyParts>
+            <li>Arm</li>
+          </appliedOnFixedBodyParts>
+          <addsHediff>DV_ArmCannon</addsHediff>
+        </RecipeDef>
+
+          <!-- Prospector eye -->
+
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>DV_ProspectorEye</defName>
+    <label>prospector eye</label>
+    <labelNoun>a prospector eye</labelNoun>
+    <description>An installed prospector eye.</description>
+    <descriptionHyperlinks><ThingDef>DV_ProspectorEye</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>DV_ProspectorEye</spawnThingOnRemoved>
+    <woundAnchorRange>0</woundAnchorRange>
+    <displayWound>true</displayWound>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.30</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <stages>
+      <li>
+            <statOffsets>
+              <MiningSpeed>1.0</MiningSpeed>
+              <DeepDrillingSpeed>0.25</DeepDrillingSpeed>
+            </statOffsets>
+      </li>
+    </stages>
+    <eyeGraphicSouth>
+      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>Things/Pawn/Wounds/ProspectorEye_south</texPath>
+      <drawOffset>(0, -0.01, 0)</drawOffset>
+    </eyeGraphicSouth>
+    <eyeGraphicEast>
+      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>Things/Pawn/Wounds/ProspectorEye_east</texPath>
+      <drawOffset>(0, -0.1, 0)</drawOffset>
+    </eyeGraphicEast>
+    <eyeGraphicScale>0.2</eyeGraphicScale>
+  </HediffDef>
+
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>DV_ProspectorEye</defName>
+    <label>prospector eye</label>
+    <description>An advanced artificial eye. With its biogel nerve-link, internal signal pre-processor, and wide-spectrum sensors, it is better than a biological eye in almost every way. A lattice-dust healing system allows it to recover from damage.</description>
+    <descriptionHyperlinks><RecipeDef>InstallProspectorEye</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>20</Plasteel>
+      <Steel>12</Steel>
+      <ComponentSpacer>4</ComponentSpacer>
+    </costList>
+    <thingSetMakerTags><li>RewardStandardMidFreq</li></thingSetMakerTags>
+    <statBases>
+      <Mass>0.5</Mass>
+    </statBases>
+  </ThingDef>
+
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>InstallProspectorEye</defName>
+    <label>install prospector eye</label>
+    <description>Install a prospector eye.</description>
+    <descriptionHyperlinks>
+      <ThingDef>DV_ProspectorEye</ThingDef>
+      <HediffDef>DV_ProspectorEye</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing prospector eye.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>DV_ProspectorEye</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>DV_ProspectorEye</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Eye</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>DV_ProspectorEye</addsHediff>
+  </RecipeDef>
+  
+          <!-- Crystal eye -->
+
+          <HediffDef ParentName="AddedBodyPartBase">
+            <defName>DV_CrystalEye</defName>
+            <label>crystal eye</label>
+            <labelNoun>a crystal eye</labelNoun>
+            <description>An installed crystal eye.</description>
+            <descriptionHyperlinks><ThingDef>DV_CrystalEye</ThingDef></descriptionHyperlinks>
+            <spawnThingOnRemoved>DV_CrystalEye</spawnThingOnRemoved>
+            <woundAnchorRange>0</woundAnchorRange>
+            <displayWound>true</displayWound>
+            <addedPartProps>
+              <solid>true</solid>
+              <partEfficiency>0.90</partEfficiency>
+              <betterThanNatural>false</betterThanNatural>
+            </addedPartProps>
+            <stages>
+              <li>
+                    <statOffsets>
+                      <PawnBeauty>1</PawnBeauty>
+                      <SocialImpact>0.35</SocialImpact>
+                    </statOffsets>
+              </li>
+            </stages>
+            <eyeGraphicSouth>
+              <graphicClass>Graphic_Single</graphicClass>
+              <texPath>Things/Pawn/Wounds/CrystalEye_south</texPath>
+              <drawOffset>(0, -0.01, 0)</drawOffset>
+            </eyeGraphicSouth>
+            <eyeGraphicEast>
+              <graphicClass>Graphic_Single</graphicClass>
+              <texPath>Things/Pawn/Wounds/CrystalEye_east</texPath>
+              <drawOffset>(0, -0.1, 0)</drawOffset>
+            </eyeGraphicEast>
+            <eyeGraphicScale>0.2</eyeGraphicScale>
+          </HediffDef>
+        
+          <ThingDef ParentName="BodyPartBionicBase">
+            <defName>DV_CrystalEye</defName>
+            <label>crystal eye</label>
+            <description>An advanced artificial eye. With its biogel nerve-link, internal signal pre-processor, and wide-spectrum sensors, it is better than a biological eye in almost every way. A lattice-dust healing system allows it to recover from damage.</description>
+            <descriptionHyperlinks><RecipeDef>InstallCrystalEye</RecipeDef></descriptionHyperlinks>
+            <costList>
+              <Plasteel>20</Plasteel>
+              <Steel>12</Steel>
+              <ComponentSpacer>4</ComponentSpacer>
+            </costList>
+            <thingSetMakerTags><li>RewardStandardMidFreq</li></thingSetMakerTags>
+            <statBases>
+              <Mass>0.5</Mass>
+            </statBases>
+          </ThingDef>
+        
+          <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+            <defName>InstallCrystalEye</defName>
+            <label>install crystal eye</label>
+            <description>Install a crystal eye.</description>
+            <descriptionHyperlinks>
+              <ThingDef>DV_CrystalEye</ThingDef>
+              <HediffDef>DV_CrystalEye</HediffDef>
+            </descriptionHyperlinks>
+            <jobString>Installing crystal eye.</jobString>
+            <ingredients>
+              <li>
+                <filter>
+                  <thingDefs>
+                    <li>DV_CrystalEye</li>
+                  </thingDefs>
+                </filter>
+                <count>1</count>
+              </li>
+            </ingredients>
+            <fixedIngredientFilter>
+              <thingDefs>
+                <li>DV_CrystalEye</li>
+              </thingDefs>
+            </fixedIngredientFilter>
+            <appliedOnFixedBodyParts>
+              <li>Eye</li>
+            </appliedOnFixedBodyParts>
+            <addsHediff>DV_CrystalEye</addsHediff>
+          </RecipeDef>
+
+</Defs>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <AbilityDef>
+        <defName>WristFlamerAbility</defName>
+        <label>wrist flamer</label>
+        <description>Spray a sticky acid substance from glands in the neck up through the mouth and all over the target area. The acid will stick to targets and burn them.</description>
+        <iconPath>UI/Abilities/WristFlamer</iconPath>
+        <aiCanUse>true</aiCanUse>
+        <displayOrder>300</displayOrder>
+        <warmupStartSound>FireSpew_Warmup</warmupStartSound>
+        <verbProperties>
+          <verbClass>Verb_CastAbility</verbClass>
+          <hasStandardCommand>true</hasStandardCommand>
+          <warmupTime>0</warmupTime>
+          <range>4.9</range>
+          <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+          <burstShotCount>15</burstShotCount>
+          <soundCast>Shot_MiniFlameblaster</soundCast>
+          <muzzleFlashScale>9</muzzleFlashScale>
+          <targetParams>
+            <canTargetLocations>true</canTargetLocations>
+          </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="CompProperties_AbilityFireSpew">
+              <range>4.9</range>
+              <lineWidthEnd>3</lineWidthEnd>
+            </li>
+            <li Class="AthenaFramework.CompProperties_AbilityReloadable">
+                <maxCharges>1</maxCharges>
+                <ammoDef>Chemfuel</ammoDef>
+                <ammoPerCharge>15</ammoPerCharge>
+                <reloadDuration>100</reloadDuration>
+                <reloadSound>Standard_Reload</reloadSound>
+                <noChargesRemaining>Flamer empty.</noChargesRemaining>
+              </li>
+          </comps>
+      </AbilityDef>
+
+  <AbilityDef>
+    <defName>ArmCannonAbility</defName>
+    <label>arm slugger</label>
+    <description>Allan, you know what to do.</description>
+    <iconPath>UI/Abilities/ArmSlugger</iconPath>
+    <cooldownTicksRange>60</cooldownTicksRange>
+    <displayOrder>200</displayOrder>
+    <aiCanUse>true</aiCanUse>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <range>4.9</range>
+      <warmupTime>0.8</warmupTime>
+      <soundCast>Shot_Shotgun</soundCast>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilityLaunchProjectile">
+        <projectileDef>ArmCannonProjectile</projectileDef>
+      </li>
+      <li Class="AthenaFramework.CompProperties_AbilityReloadable">
+        <maxCharges>2</maxCharges>
+        <ammoDef>Steel</ammoDef>
+        <ammoPerCharge>15</ammoPerCharge>
+        <reloadDuration>60</reloadDuration>
+        <reloadSound>Standard_Reload</reloadSound>
+        <noChargesRemaining>Slugger empty.</noChargesRemaining>
+      </li>
+    </comps>
+  </AbilityDef>
+  <ThingDef ParentName="BaseBullet">
+    <defName>ArmCannonProjectile</defName>
+    <label>slugs</label>
+    <graphicData>
+      <texPath>Things/Projectiles/Bullet_Slugger</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>12</damageAmountBase>
+      <stoppingPower>2.5</stoppingPower>
+      <armorPenetrationBase>0.2</armorPenetrationBase>
+      <speed>55</speed>
+    </projectile>
+  </ThingDef>
+
+  <AbilityDef Name="DEVLongJump">
+    <defName>DEVLongjump</defName>
+    <label>thrustjump</label>
+    <description>Jump to a distant location using super-strong hemogen-powered legs.</description>
+    <iconPath>UI/Abilities/Longjump</iconPath>
+    <cooldownTicksRange>200</cooldownTicksRange>
+    <aiCanUse>true</aiCanUse>
+    <hostile>false</hostile>
+    <verbProperties>
+      <verbClass>Verb_CastAbilityJump</verbClass>
+      <label>boost</label>
+      <violent>false</violent>
+      <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+      <warmupTime>0.6</warmupTime>
+      <range>12.9</range>
+      <warmupEffecter>JumpWarmupEffect</warmupEffecter>
+      <requireLineOfSight>true</requireLineOfSight>
+      <flightEffecterDef>BoostkitEffect</flightEffecterDef>
+      <soundCast>Longjump_Jump</soundCast>
+      <soundLanding>Longjump_Land</soundLanding>
+      <flyWithCarriedThing>true</flyWithCarriedThing>
+      <targetParams>
+        <canTargetLocations>true</canTargetLocations>
+        <canTargetPawns>false</canTargetPawns>
+        <canTargetBuildings>false</canTargetBuildings>
+      </targetParams>
+    </verbProperties>
+    <jobDef>CastJump</jobDef>
+  </AbilityDef>
+</Defs>

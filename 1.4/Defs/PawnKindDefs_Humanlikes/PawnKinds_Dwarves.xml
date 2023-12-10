@@ -5,7 +5,7 @@
         <race>Human</race>
         <defaultFactionType>OutlanderRoughStoneborn</defaultFactionType>
         <invNutrition>3.2</invNutrition>
-        <chemicalAddictionChance>0.5</chemicalAddictionChance>
+        <chemicalAddictionChance>0.25</chemicalAddictionChance>
         <combatEnhancingDrugsChance>0</combatEnhancingDrugsChance>	
         <chronologicalAgeRange>100~500</chronologicalAgeRange>
         <xenotypeSet>
@@ -45,7 +45,7 @@
             <categories>
               <li>Offworld</li>
               <li>Outlander</li>
-              <li>ImperialCommon</li>
+              <li>Dwarf</li>
             </categories>
           </li>
         </backstoryFiltersOverride>		
@@ -57,7 +57,7 @@
           <li>Poor</li>
           <li>Simple</li>
         </techHediffsTags>
-        <techHediffsChance>0.1</techHediffsChance>
+        <techHediffsChance>0.2</techHediffsChance>
         <apparelDisallowTags>
           <li>Western</li>
         </apparelDisallowTags>
@@ -68,16 +68,17 @@
         <initialResistanceRange>20~30</initialResistanceRange>
       </PawnKindDef>
     
-      <!--===================== Elven fighter castes =========================-->
+      <!--===================== Dwarven fighter castes =========================-->
     
       <PawnKindDef Name="StonebornWarriorBase" ParentName="StonebornBase" Abstract="True">
         <race>Human</race>
         <maxGenerationAge>55</maxGenerationAge>
         <backstoryCryptosleepCommonality>0.08</backstoryCryptosleepCommonality>
+        <chemicalAddictionChance>0.05</chemicalAddictionChance>
         <backstoryFiltersOverride>
           <li>
             <categories>
-              <li>ImperialFighter</li>
+              <li>DwarfFighter</li>
             </categories>
           </li>
         </backstoryFiltersOverride>
@@ -114,12 +115,12 @@
             <stuff>Cloth</stuff>
           </li>
         </specificApparelRequirements>
-        <techHediffsChance>0.35</techHediffsChance>
+        <techHediffsChance>0.50</techHediffsChance>
         <techHediffsMoney>1000~1500</techHediffsMoney>
         <biocodeWeaponChance>0.3</biocodeWeaponChance>
       </PawnKindDef>
     
-      <!-- ranger -->
+      <!-- Ranger -->
     
       <PawnKindDef Name="StonebornSoldierBase" Abstract="True" ParentName="StonebornWarriorBase">
         <combatPower>65</combatPower>
@@ -151,8 +152,10 @@
             </alternateTagChoices>
           </li>
         </specificApparelRequirements>
+        <techHediffsChance>0.75</techHediffsChance>
         <techHediffsTags>
-          <li>ImplantEmpireCommon</li>
+          <li>Advanced</li>
+          <li>ImplantDwarvenCommon</li>
         </techHediffsTags>
         <skills>
           <li>
@@ -200,7 +203,9 @@
           </li>
         </specificApparelRequirements>
         <techHediffsTags>
-          <li>ImplantEmpireCommon</li>
+          <li>Advanced</li>
+          <li>ImplantDwarvenCommon</li>
+          <li>ImplantDwarvenMilitary</li>
         </techHediffsTags>
         <skills>
           <li>
@@ -225,6 +230,13 @@
         <canBeSapper>false</canBeSapper>
         <isGoodBreacher>false</isGoodBreacher>
         <combatPower>220</combatPower>
+        <backstoryFiltersOverride>
+          <li>
+            <categoriesAdulthood>
+              <li>DwarfFighter</li>
+            </categoriesAdulthood>
+          </li>
+        </backstoryFiltersOverride>
         <weaponTags Inherit="False">
           <li>Flameblaster</li>
         </weaponTags>
@@ -250,7 +262,9 @@
           </li>
         </specificApparelRequirements>
         <techHediffsTags>
-          <li>ImplantEmpireCommon</li>
+          <li>Advanced</li>
+          <li>ImplantDwarvenCommon</li>
+          <li>ImplantDwarvenMilitary</li>
         </techHediffsTags>
         <skills>
           <li>
@@ -267,17 +281,18 @@
     
       <!-- Thunderer -->
     
-      <PawnKindDef Name="StonebornKnightBase" Abstract="True" ParentName="StonebornSoldierBase">
+      <PawnKindDef Name="StonebornThundererBase" Abstract="True" ParentName="StonebornSoldierBase">
         <combatPower>100</combatPower>
-        <weaponMoney>1550~2700</weaponMoney>
+        <weaponMoney>2000~2700</weaponMoney>
         <weaponTags>
           <li>IndustrialGunAdvanced</li>
           <li>SpacerGun</li>
           <li>SniperRifle</li>
+          <li>SlugGunLong</li>
         </weaponTags>
         <apparelMoney>6000~9000</apparelMoney>
         <apparelRequired Inherit="False">
-          <li>DV_Apparel_GildedDwarfHelm</li>
+          <li>DV_Apparel_GildedDwarvenHelm</li>
           <li>Apparel_Bandolier</li>
           <li>DV_Apparel_IronbreakerArmor</li>
         </apparelRequired>
@@ -289,11 +304,13 @@
         </disallowedTraits>
       </PawnKindDef>
     
-      <PawnKindDef ParentName="StonebornKnightBase">
+      <PawnKindDef ParentName="StonebornThundererBase">
         <defName>Stoneborn_Elite_Thunderer</defName>
         <label>thunderer</label>
         <techHediffsTags>
-          <li>ImplantEmpireCommon</li>
+          <li>Advanced</li>
+          <li>ImplantDwarvenCommon</li>
+          <li>ImplantDwarvenMilitary</li>
         </techHediffsTags>
         <specificApparelRequirements Inherit="False">
           <li>
@@ -351,21 +368,59 @@
         <combatPower>120</combatPower>
         <weaponTags Inherit="False">
           <li>DwarfMeleeAdvanced</li>
-          <li>UltratechMelee</li>
         </weaponTags>
         <apparelRequired Inherit="False">
-          <li>Apparel_PlateArmor</li>
+          <li>DV_Apparel_PowerplateArmor</li>
+          <li>DV_Apparel_DwarvenHelm</li>
           <li>Apparel_ShieldBelt</li>
         </apparelRequired>
         <apparelColor>(133, 105, 51)</apparelColor>
         <techHediffsTags>
           <li>Advanced</li>
-          <li>ImplantEmpireCommon</li>
+          <li>ImplantDwarvenCommon</li>
+          <li>ImplantDwarvenMilitary</li>
         </techHediffsTags>
         <skills>
           <li>
             <skill>Melee</skill>
             <range>7~11</range>
+          </li>
+        </skills>
+        <initialWillRange>3~5</initialWillRange>
+        <initialResistanceRange>25~30</initialResistanceRange>
+      </PawnKindDef>
+
+      <!-- Menhir -->
+    
+      <PawnKindDef ParentName="StonebornSoldierBase">
+        <defName>Stoneborn_Menhir</defName>
+        <label>menhir</label>
+        <maxGenerationAge>80</maxGenerationAge>
+        <combatPower>200</combatPower>
+        <weaponTags Inherit="False">
+          <li>SlugGun</li>
+          <li>Minigun</li>
+          <li>GunHeavy</li>
+        </weaponTags>
+        <apparelRequired Inherit="False">
+          <li>DV_Apparel_PowerplateArmor</li>
+          <li>DV_Apparel_PowerPlateHelmet</li>
+          <li>DV_Apparel_AbsorptionShield</li>
+        </apparelRequired>
+        <apparelColor>(133, 105, 51)</apparelColor>
+        <techHediffsTags>
+          <li>Advanced</li>
+          <li>ImplantDwarvenCommon</li>
+          <li>ImplantDwarvenMilitary</li>
+        </techHediffsTags>
+        <skills>
+          <li>
+            <skill>Shooting</skill>
+            <range>8~12</range>
+          </li>
+          <li>
+            <skill>Melee</skill>
+            <range>6~10</range>
           </li>
         </skills>
         <initialWillRange>3~5</initialWillRange>
@@ -385,20 +440,21 @@
       </weaponTags>
       <apparelRequired Inherit="False">
         <li>DV_Apparel_PowerplateArmor</li>
-        <li>DV_Apparel_Bandana</li>
+        <li>DV_Apparel_HammererHelm</li>
         <li>Apparel_ShieldBelt</li>
       </apparelRequired>
       <specificApparelRequirements>
         <li>
           <bodyPartGroup>UpperHead</bodyPartGroup>
-          <color>(138, 51, 36)</color>
+          <color>(110,110,110)</color>
         </li>
       </specificApparelRequirements>
       <apparelColor>(110,110,110)</apparelColor>
       <apparelTags Inherit="False" />
       <techHediffsTags>
         <li>Advanced</li>
-        <li>ImplantEmpireCommon</li>
+        <li>ImplantDwarvenCommon</li>
+        <li>ImplantDwarvenMilitary</li>
       </techHediffsTags>
       <skills>
         <li>
@@ -442,12 +498,13 @@
         <apparelDisallowTags>
           <li>Western</li>
         </apparelDisallowTags>
-        <techHediffsChance>0.45</techHediffsChance>
+        <techHediffsChance>0.60</techHediffsChance>
         <techHediffsMoney>2000~4000</techHediffsMoney>
         <techHediffsTags>
           <li>Advanced</li>
-          <li>ImplantEmpireRoyal</li>
-          <li>ImplantEmpireCommon</li>
+          <li>ImplantDwarvenRoyal</li>
+          <li>ImplantDwarvenCommon</li>
+          <li>ImplantDwarvenMilitary</li>
         </techHediffsTags>
         <techHediffsDisallowTags>
           <li>PainCauser</li>
@@ -509,7 +566,8 @@
         </specificApparelRequirements>
         <techHediffsTags>
           <li>Advanced</li>
-          <li>ImplantEmpireCommon</li>
+          <li>ImplantDwarvenCommon</li>
+          <li>ImplantDwarvenMilitary</li>
         </techHediffsTags>
         <initialWillRange>3~5</initialWillRange>
         <initialResistanceRange>25~30</initialResistanceRange>
@@ -557,7 +615,8 @@
         </specificApparelRequirements>
         <techHediffsTags>
           <li>Advanced</li>
-          <li>ImplantEmpireCommon</li>
+          <li>ImplantDwarvenCommon</li>
+          <li>ImplantDwarvenMilitary</li>
         </techHediffsTags>
         <initialWillRange>3~5</initialWillRange>
         <initialResistanceRange>25~30</initialResistanceRange>
@@ -605,7 +664,8 @@
         </specificApparelRequirements>
         <techHediffsTags>
           <li>Advanced</li>
-          <li>ImplantEmpireCommon</li>
+          <li>ImplantDwarvenCommon</li>
+          <li>ImplantDwarvenMilitary</li>
         </techHediffsTags>
         <initialWillRange>3~5</initialWillRange>
         <initialResistanceRange>25~30</initialResistanceRange>
@@ -655,7 +715,8 @@
         </specificApparelRequirements>
         <techHediffsTags>
           <li>Advanced</li>
-          <li>ImplantEmpireCommon</li>
+          <li>ImplantDwarvenCommon</li>
+          <li>ImplantDwarvenMilitary</li>
         </techHediffsTags>
         <initialWillRange>3~5</initialWillRange>
         <initialResistanceRange>25~30</initialResistanceRange>
