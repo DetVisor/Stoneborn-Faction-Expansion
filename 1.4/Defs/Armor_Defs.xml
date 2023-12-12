@@ -114,18 +114,16 @@
       </ThingDef>
 
       <ThingDef ParentName="ApparelArmorPowerBase">
-        <defName>DV_Apparel_IronbreakerArmor</defName>
-        <label>ironbreaker armor</label>
+        <defName>DV_Apparel_PowerCuirass</defName>
+        <label>power cuirass</label>
         <description>A suit of powered armor. Layered plasteel-weave plates are very effective at stopping attacks, with few vulnerable joint sections. Neuro-memetic assistors allow a human to wear the armor and still move easily.\n\nArmor like this is often used by rapid-incursion space marines.</description>
         <apparel Inherit="False">
             <bodyPartGroups>
-                <li>Torso</li>
-                <li>Neck</li>
-                <li>Shoulders</li>
-                <li>Arms</li>
-                <li>Legs</li>
+              <li>Torso</li>
+              <li>Neck</li>
+              <li>Shoulders</li>
               </bodyPartGroups>
-              <wornGraphicPath>Things/Pawn/Apparel/IronbreakerArmor/IronbreakerArmor</wornGraphicPath>
+              <wornGraphicPath>Things/Pawn/Apparel/PowerCuirass/PowerCuirass</wornGraphicPath>
               <layers>
                 <li>Middle</li>
               </layers>
@@ -140,6 +138,10 @@
         <recipeMaker>
           <displayPriority>105</displayPriority>
         </recipeMaker>
+        <graphicData>
+          <texPath>Things/Pawn/Apparel/PowerCuirass/PowerCuirass</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
       </ThingDef>
 
       <ThingDef ParentName="ApparelArmorPowerBase">
@@ -437,7 +439,7 @@
       <ThingDef ParentName="ApparelArmorHelmetPowerBase">
         <defName>DV_Apparel_HammererHelm</defName>
         <label>aegis helm</label>
-        <description>A marine armor helmet, with a built-in status computer and layered plasteel-weave plates.\n\nArmor like this is often used by rapid-incursion space marines.</description>
+        <description>An exquisitely crafted and heavily-armored plasteel plate powered helmet, with beautifully polished gold trims. The solid layers of plasteel-woven plates combined with the built-in visual system allow full head protection while still providing a complete range of sight. The helmet of choice for stoneborn Aegisbreakers, whom guard and protect the Underlord wherever he goes.</description>
         <tradeTags>
           <li>Armor</li>
         </tradeTags>

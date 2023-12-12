@@ -376,6 +376,90 @@
       <addsHediff>DV_WristFlamer</addsHediff>
     </RecipeDef>
 
+            <!-- Rocket fist  -->
+
+            <HediffDef ParentName="AddedBodyPartBase">
+              <defName>DV_RocketFist</defName>
+              <label>rocket fist</label>
+              <labelNoun>a rocket fist</labelNoun>
+              <description>An installed rocket fist.</description>
+              <descriptionHyperlinks><ThingDef>DV_RocketFist</ThingDef></descriptionHyperlinks>
+              <comps>
+                <li Class="HediffCompProperties_VerbGiver">
+                  <tools>
+                    <li>
+                      <label>fist</label>
+                      <capacities>
+                        <li>Blunt</li>
+                      </capacities>
+                      <power>12</power>
+                      <cooldownTime>2</cooldownTime>
+                      <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+                      <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+                    </li>
+                  </tools>
+                </li>
+                <li Class="HediffCompProperties_GiveAbility">
+                  <abilityDefs>
+                    <li>RocketFistAbility</li>
+                  </abilityDefs>
+                </li>
+              </comps>
+              <addedPartProps>
+                <solid>true</solid>
+                <partEfficiency>0.25</partEfficiency>
+              </addedPartProps>
+              <spawnThingOnRemoved>DV_RocketFist</spawnThingOnRemoved>
+            </HediffDef>
+          
+            <ThingDef ParentName="BodyPartProstheticDwarven">
+              <defName>DV_RocketFist</defName>
+              <label>rocket fist</label>
+              <description>A mechanical arm replacement for speeding up mining. It has a built-in snake drill, which allows the miner to rapidly find and exploit weak lines in the rock. It also has a general-purpose manipulator. It is somewhat ungainly, which slows down movement slightly.</description>
+              <descriptionHyperlinks><RecipeDef>InstallRocketFist</RecipeDef></descriptionHyperlinks>
+              <thingSetMakerTags><li>RewardStandardLowFreq</li></thingSetMakerTags>
+              <costList>
+                <Steel>75</Steel>
+                <ComponentIndustrial>10</ComponentIndustrial>
+              </costList>
+              <tradeTags>
+                <li>ImplantDwarvenMilitary</li>
+              </tradeTags>
+              <techHediffsTags>
+                <li>ImplantDwarvenMilitary</li>
+              </techHediffsTags>
+            </ThingDef>
+          
+            <RecipeDef ParentName="SurgeryInstallBodyPartProstheticBase">
+              <defName>InstallRocketFist</defName>
+              <label>install rocket fist</label>
+              <description>Install a rocket fist.</description>
+              <descriptionHyperlinks>
+                <ThingDef>DV_RocketFist</ThingDef>
+                <HediffDef>DV_RocketFist</HediffDef>
+              </descriptionHyperlinks>
+              <jobString>Installing rocket fist.</jobString>
+              <ingredients>
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>DV_RocketFist</li>
+                    </thingDefs>
+                  </filter>
+                  <count>1</count>
+                </li>
+              </ingredients>
+              <fixedIngredientFilter>
+                <thingDefs>
+                  <li>DV_RocketFist</li>
+                </thingDefs>
+              </fixedIngredientFilter>
+              <appliedOnFixedBodyParts>
+                <li>Arm</li>
+              </appliedOnFixedBodyParts>
+              <addsHediff>DV_RocketFist</addsHediff>
+            </RecipeDef>
+
         <!-- Arm cannon  -->
 
         <HediffDef ParentName="AddedBodyPartBase">

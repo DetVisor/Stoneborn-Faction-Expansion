@@ -294,7 +294,7 @@
         <apparelRequired Inherit="False">
           <li>DV_Apparel_GildedDwarvenHelm</li>
           <li>Apparel_Bandolier</li>
-          <li>DV_Apparel_IronbreakerArmor</li>
+          <li>DV_Apparel_PowerCuirass</li>
         </apparelRequired>
         <disallowedTraits>
           <li>Brawler</li>
@@ -329,14 +329,23 @@
           <li>
             <bodyPartGroup>Torso</bodyPartGroup>
             <apparelLayer>Shell</apparelLayer>
-            <requiredTag>Cape</requiredTag>
             <color>(108, 78, 55)</color>
+            <alternateTagChoices>
+              <li>
+                <tag>Apparel_Yttakin</tag>
+                <chance>0.3</chance>
+              </li>
+              <li>
+                <tag>Cape</tag>
+                <chance>0.8</chance>
+              </li>
+            </alternateTagChoices>
           </li>
           <li>
             <bodyPartGroup>Torso</bodyPartGroup>
             <apparelLayer>Middle</apparelLayer>
             <requiredTag>DwarfArmor</requiredTag>
-            <color>(68,68,68)</color>
+            <color>(154, 122, 59)</color>
           </li>
           <li>
             <bodyPartGroup>Torso</bodyPartGroup>
@@ -408,7 +417,23 @@
           <li>DV_Apparel_PowerPlateHelmet</li>
           <li>DV_Apparel_AbsorptionShield</li>
         </apparelRequired>
-        <apparelColor>(133, 105, 51)</apparelColor>
+        <specificApparelRequirements Inherit="False">
+          <li>
+            <bodyPartGroup>UpperHead</bodyPartGroup>
+            <color>(154, 122, 59)</color>
+          </li>
+          <li>
+            <bodyPartGroup>Torso</bodyPartGroup>
+            <apparelLayer>OnSkin</apparelLayer>
+            <stuff>DevilstrandCloth</stuff>
+          </li>
+          <li>
+            <bodyPartGroup>Legs</bodyPartGroup>
+            <apparelLayer>OnSkin</apparelLayer>
+            <stuff>DevilstrandCloth</stuff>
+          </li>
+        </specificApparelRequirements>
+        <apparelColor>(68,68,68)</apparelColor>
         <techHediffsTags>
           <li>Advanced</li>
           <li>ImplantDwarvenCommon</li>
@@ -442,15 +467,15 @@
       <apparelRequired Inherit="False">
         <li>DV_Apparel_PowerplateArmor</li>
         <li>DV_Apparel_HammererHelm</li>
-        <li>Apparel_ShieldBelt</li>
+        <li>DV_Apparel_AbsorptionShield</li>
       </apparelRequired>
       <specificApparelRequirements>
         <li>
-          <bodyPartGroup>UpperHead</bodyPartGroup>
-          <color>(110,110,110)</color>
+          <bodyPartGroup>FullHead</bodyPartGroup>
+          <color>(114, 28, 31)</color>
         </li>
       </specificApparelRequirements>
-      <apparelColor>(110,110,110)</apparelColor>
+      <apparelColor>(154, 122, 59)</apparelColor>
       <apparelTags Inherit="False" />
       <techHediffsTags>
         <li>Advanced</li>
@@ -684,7 +709,7 @@
           <li>
             <bodyPartGroup>UpperHead</bodyPartGroup>
             <requiredTag>DwarfRoyalTier2</requiredTag>
-            <color>(138, 51, 36)</color>
+            <color>(114, 28, 31)</color>
             <stuff>Hyperweave</stuff>
           </li>
           <li>
@@ -697,13 +722,13 @@
             <bodyPartGroup>Torso</bodyPartGroup>
             <apparelLayer>Middle</apparelLayer>
             <requiredTag>RoyalTier5</requiredTag>
-            <color>(138, 51, 36)</color>
+            <color>(114, 28, 31)</color>
           </li>
           <li>
             <bodyPartGroup>Torso</bodyPartGroup>
             <apparelLayer>OnSkin</apparelLayer>
             <requiredTag>RoyalTier2</requiredTag>
-            <color>(138, 51, 36)</color>
+            <color>(114, 28, 31)</color>
           </li>
           <li>
             <bodyPartGroup>Torso</bodyPartGroup>
