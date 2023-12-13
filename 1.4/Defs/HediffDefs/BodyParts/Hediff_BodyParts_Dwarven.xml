@@ -54,7 +54,7 @@
         <moteCount>12</moteCount>
         <moteOffsetRange>0.25~0.75</moteOffsetRange>
         <filth>Filth_Dirt</filth>
-        <sound>DeathAcidifier</sound>
+        <sound>DV_DeathDustifier</sound>
         <injuryCreatedOnDeath>Shredded</injuryCreatedOnDeath>
         <injuryCount>1~2</injuryCount>
       </li>

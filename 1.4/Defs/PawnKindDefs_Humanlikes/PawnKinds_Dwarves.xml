@@ -4,7 +4,7 @@
       <PawnKindDef Name="StonebornBase" Abstract="True">
         <race>Human</race>
         <defaultFactionType>OutlanderRoughStoneborn</defaultFactionType>
-        <invNutrition>3.2</invNutrition>
+        <invNutrition>3</invNutrition>
         <chemicalAddictionChance>0.25</chemicalAddictionChance>
         <combatEnhancingDrugsChance>0</combatEnhancingDrugsChance>	
         <chronologicalAgeRange>100~500</chronologicalAgeRange>
@@ -28,6 +28,51 @@
       </PawnKindDef>
     
       <!--===================== Basic Dwarves =========================-->
+
+      <PawnKindDef  ParentName="StonebornBase">
+        <defName>Stoneborn_Merchant</defName>
+        <label>merchant</label>
+        <maxGenerationAge>65</maxGenerationAge>
+        <trader>true</trader>
+        <isFighter>false</isFighter>
+        <backstoryCryptosleepCommonality>0.08</backstoryCryptosleepCommonality>
+        <chemicalAddictionChance>0.02</chemicalAddictionChance>
+        <combatEnhancingDrugsChance>0.15</combatEnhancingDrugsChance>
+        <invNutrition>2.5</invNutrition>
+        <itemQuality>Normal</itemQuality>
+        <inventoryOptions>
+         <skipChance>0.70</skipChance>
+         <subOptionsTakeAll>
+           <li>
+             <thingDef>Silver</thingDef>
+             <countRange>30~110</countRange>
+           </li>
+         </subOptionsTakeAll>
+       </inventoryOptions>
+        <combatPower>40</combatPower>
+        <weaponTags>
+          <li>SimpleGun</li>
+        </weaponTags>
+        <weaponMoney>1100~3500</weaponMoney>
+        <apparelMoney>1250~2500</apparelMoney>
+        <apparelTags>
+          <li>IndustrialBasic</li>
+          <li>IndustrialAdvanced</li>
+          <li>IndustrialMilitaryBasic</li>
+          <li>IndustrialMilitaryAdvanced</li>
+        </apparelTags>
+        <apparelDisallowTags>
+          <li>Western</li>
+        </apparelDisallowTags>
+        <techHediffsChance>0.15</techHediffsChance>
+        <techHediffsMoney>1000~1800</techHediffsMoney>
+        <techHediffsTags>
+          <li>Advanced</li>
+          <li>ImplantDwarvenCommon</li>
+        </techHediffsTags>
+        <initialWillRange>3~5</initialWillRange>
+        <initialResistanceRange>16~25</initialResistanceRange>
+      </PawnKindDef>
     
       <PawnKindDef ParentName="StonebornBase">
         <defName>Stoneborn_Worker</defName>
@@ -134,6 +179,9 @@
           <li>Apparel_FlakPants</li>
           <li>DV_Apparel_DwarvenHelm</li>
         </apparelRequired>
+        <techHediffsRequired>
+          <li>DV_DeathDustifier</li>
+        </techHediffsRequired>
         <initialWillRange>3~4</initialWillRange>
       </PawnKindDef>
     
@@ -177,7 +225,7 @@
         <apparelColor>(101,88,67)</apparelColor>
         <canBeSapper>false</canBeSapper>
         <isGoodBreacher>false</isGoodBreacher>
-        <combatPower>220</combatPower>
+        <combatPower>160</combatPower>
         <weaponTags Inherit="False">
           <li>HeavyTox</li>
         </weaponTags>
@@ -207,6 +255,9 @@
           <li>ImplantDwarvenCommon</li>
           <li>ImplantDwarvenMilitary</li>
         </techHediffsTags>
+        <techHediffsRequired>
+          <li>DV_SteelboneInjector</li>
+        </techHediffsRequired>
         <skills>
           <li>
             <skill>Shooting</skill>
@@ -229,7 +280,7 @@
         <apparelColor>(68,68,68)</apparelColor>
         <canBeSapper>false</canBeSapper>
         <isGoodBreacher>false</isGoodBreacher>
-        <combatPower>220</combatPower>
+        <combatPower>150</combatPower>
         <backstoryFiltersOverride>
           <li>
             <categoriesAdulthood>
@@ -266,6 +317,9 @@
           <li>ImplantDwarvenCommon</li>
           <li>ImplantDwarvenMilitary</li>
         </techHediffsTags>
+        <techHediffsRequired>
+          <li>DV_SteelboneInjector</li>
+        </techHediffsRequired>
         <skills>
           <li>
             <skill>Shooting</skill>
@@ -296,6 +350,9 @@
           <li>Apparel_Bandolier</li>
           <li>DV_Apparel_PowerCuirass</li>
         </apparelRequired>
+        <techHediffsRequired>
+          <li>DV_IronskinGland</li>
+        </techHediffsRequired>
         <disallowedTraits>
           <li>Brawler</li>
           <li>Wimp</li>
@@ -439,6 +496,10 @@
           <li>ImplantDwarvenCommon</li>
           <li>ImplantDwarvenMilitary</li>
         </techHediffsTags>
+        <techHediffsRequired>
+          <li>DV_SteelboneInjector</li>
+          <li>DV_IronskinGland</li>
+        </techHediffsRequired>
         <skills>
           <li>
             <skill>Shooting</skill>
@@ -482,6 +543,10 @@
         <li>ImplantDwarvenCommon</li>
         <li>ImplantDwarvenMilitary</li>
       </techHediffsTags>
+      <techHediffsRequired>
+        <li>DV_SteelboneInjector</li>
+        <li>DV_IronskinGland</li>
+      </techHediffsRequired>
       <skills>
         <li>
           <skill>Melee</skill>
