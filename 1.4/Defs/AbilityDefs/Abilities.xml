@@ -1,10 +1,51 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
+    <AbilityDef>
+        <defName>ShockFistAbility</defName>
+        <label>shock discharge</label>
+        <description>Spray a burst of flaming chemfuel that sets everything in range ablaze.</description>
+        <iconPath>UI/Abilities/ShockDischarge</iconPath>
+        <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
+        <cooldownTicksRange>12000</cooldownTicksRange><!--The cooldown of the ability -->
+        <canUseAoeToGetTargets>false</canUseAoeToGetTargets>
+        <jobDef>CastAbilityOnThing</jobDef>
+        <targetRequired>False</targetRequired>
+        <aiCanUse>true</aiCanUse>
+        <displayOrder>300</displayOrder>
+
+        <verbProperties>
+          <verbClass>Verb_CastAbilityTouch</verbClass>
+          <hasStandardCommand>false</hasStandardCommand>
+          <range>-1</range>
+          <warmupTime>0</warmupTime>
+          <soundCast>Shot_MiniFlameblaster</soundCast>
+          <drawAimPie>false</drawAimPie>      
+          <requireLineOfSight>false</requireLineOfSight>
+          <targetParams>
+            <canTargetSelf>True</canTargetSelf>
+          </targetParams>
+        </verbProperties>
+
+        <comps>
+            <li Class="AthenaFramework.CompProperties_AbilityShockwave">
+              <explosionDamageDef>EMP</explosionDamageDef>
+              <explosionDamage>28</explosionDamage>
+              <explosionPenetration>1</explosionPenetration>
+              <explosionRadius>5</explosionRadius>
+            </li>
+            <li Class="CompProperties_AbilityEffecterOnTarget">
+              <effecterDef>BlastEMPShockwave</effecterDef>
+              <maintainForTicks>60</maintainForTicks>
+              <scale>1</scale>
+            </li>
+          </comps>
+
+      </AbilityDef>
 
     <AbilityDef>
         <defName>WristFlamerAbility</defName>
         <label>wrist flamer</label>
-        <description>Spray a sticky acid substance from glands in the neck up through the mouth and all over the target area. The acid will stick to targets and burn them.</description>
+        <description>Spray a burst of flaming chemfuel that sets everything in range ablaze.</description>
         <iconPath>UI/Abilities/WristFlamer</iconPath>
         <aiCanUse>true</aiCanUse>
         <displayOrder>300</displayOrder>
@@ -41,7 +82,7 @@
   <AbilityDef>
     <defName>ArmCannonAbility</defName>
     <label>arm slugger</label>
-    <description>Allan, you know what to do.</description>
+    <description>Fire a volley of uranium slugs at an enemy.</description>
     <iconPath>UI/Abilities/ArmSlugger</iconPath>
     <cooldownTicksRange>60</cooldownTicksRange>
     <displayOrder>200</displayOrder>
@@ -80,6 +121,64 @@
       <armorPenetrationBase>0.2</armorPenetrationBase>
       <speed>55</speed>
     </projectile>
+  </ThingDef>
+
+  <AbilityDef>
+    <defName>RocketFistAbility</defName>
+    <label>rocket punch</label>
+    <description>Launch your rocket fist at an enemy or location, which explodes in a small radius.</description>
+    <iconPath>UI/Abilities/RocketPunch</iconPath>
+    <cooldownTicksRange>60</cooldownTicksRange>
+    <displayOrder>200</displayOrder>
+    <aiCanUse>true</aiCanUse>
+
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <range>12.2</range>
+      <warmupTime>1.4</warmupTime>
+      <ai_AvoidFriendlyFireRadius>5</ai_AvoidFriendlyFireRadius>
+      <soundCast>RocketswarmLauncher_Fire</soundCast>
+      <targetParams>
+        <canTargetLocations>true</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    
+    <comps>
+      <li Class="CompProperties_AbilityLaunchProjectile">
+        <projectileDef>RocketFistProjectile</projectileDef>
+      </li>
+      <li Class="AthenaFramework.CompProperties_AbilityReloadable">
+        <maxCharges>1</maxCharges>
+        <ammoDef>Steel</ammoDef>
+        <ammoPerCharge>20</ammoPerCharge>
+        <reloadDuration>60</reloadDuration>
+        <reloadSound>Standard_Reload</reloadSound>
+        <noChargesRemaining>Missing rocket fist.</noChargesRemaining>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <ThingDef ParentName="BaseBullet">
+    <defName>RocketFistProjectile</defName>
+    <label>rocket fist</label>
+    <thingClass>Projectile_Explosive</thingClass>
+    <graphicData>
+      <texPath>Things/Projectiles/Bullet_RocketFist</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bomb</damageDef>
+      <explosionRadius>1.4</explosionRadius>
+      <speed>45</speed>
+      <damageAmountBase>10</damageAmountBase>
+      <arcHeightFactor>0.1</arcHeightFactor>
+      <soundExplode>Explosion_Rocket</soundExplode>
+    </projectile>
+    <comps>
+      <li Class="AthenaFramework.CompProperties_ProjectileTrail">
+        <trailFleck>SmokeRocket</trailFleck>
+      </li>
+    </comps>
   </ThingDef>
 
   <AbilityDef Name="DEVLongJump">

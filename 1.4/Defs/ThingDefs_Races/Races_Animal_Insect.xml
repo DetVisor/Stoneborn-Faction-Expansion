@@ -3,8 +3,8 @@
 
 <ThingDef ParentName="BaseInsect">
     <defName>DV_Goreflea</defName>
-    <label>goreflea</label>
-    <description>Not actually a spider, the megaspider is a genetically-engineered giant insectoid the size of a bear. Designed for heavy work and combat, its thick chitinous armor makes it hard to kill, while its long ripper-blades make it deadly at close quarters. It is, however, quite slow in open terrain.</description>
+    <label>razorbug</label>
+    <description>A monstrosity artificially grown by experienced stoneborn gene-seers, created with carefully curated insect genomes. These fiercely loyal war beasts are employed to pursue and maim their targets, whether it be prey for hunting parties or enemies for warbands. With razor-sharp claws and powerful mandibles, they can easily lacerate naked flesh- surprising baseliners when they witness the intimate nuzzles they give to their owners.</description>
     <statBases>
       <MoveSpeed>3.75</MoveSpeed>
       <ComfyTemperatureMin>-32</ComfyTemperatureMin>
@@ -45,18 +45,11 @@
       <lifeExpectancy>8</lifeExpectancy>
       <wildness>0.2</wildness>
       <trainability>Advanced</trainability>
+      <nuzzleMtbHours>12</nuzzleMtbHours>
       <lifeStageAges>
         <li>
-          <def>EusocialInsectLarva</def>
-          <minAge>0</minAge>
-        </li>
-        <li>
-          <def>EusocialInsectJuvenile</def>
-          <minAge>0.03</minAge>
-        </li>
-        <li>
           <def>EusocialInsectAdult</def>
-          <minAge>0.2</minAge>
+          <minAge>0</minAge>
           <soundWounded>Pawn_BigInsect_Pain</soundWounded>
           <soundDeath>Pawn_BigInsect_Death</soundDeath>
           <soundCall>Pawn_BigInsect_Call</soundCall>
@@ -68,53 +61,30 @@
       <soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
     </race>
     <tradeTags>
-      <li>AnimalInsect</li>
+      <li>AnimalStoneborn</li>
     </tradeTags>
   </ThingDef>
 
   <PawnKindDef ParentName="AnimalKindBase">
     <defName>DV_Goreflea</defName>
-    <label>goreflea</label>
+    <label>razorbug</label>
     <race>DV_Goreflea</race>
-    <combatPower>130</combatPower>
+    <combatPower>120</combatPower>
     <canArriveManhunter>false</canArriveManhunter>
     <ecoSystemWeight>0.40</ecoSystemWeight>
     <lifeStages>
       <li>
         <bodyGraphicData>
-          <texPath>Things/Pawn/Animal/Megaspider/Megaspider</texPath>
-          <drawSize>1</drawSize>
-          <color>(108,51,40)</color>
-        </bodyGraphicData>
-        <dessicatedBodyGraphicData>
-          <texPath>Things/Pawn/Animal/Megaspider/Dessicated_Megaspider</texPath>
-          <drawSize>1</drawSize>
-        </dessicatedBodyGraphicData>
-      </li>
-      <li>
-        <bodyGraphicData>
-          <texPath>Things/Pawn/Animal/Megaspider/Megaspider</texPath>
-          <drawSize>1.3</drawSize>
-          <color>(108,51,40)</color>
-        </bodyGraphicData>
-        <dessicatedBodyGraphicData>
-          <texPath>Things/Pawn/Animal/Megaspider/Dessicated_Megaspider</texPath>
-          <drawSize>1.3</drawSize>
-        </dessicatedBodyGraphicData>
-      </li>
-      <li>
-        <bodyGraphicData>
-          <texPath>Things/Pawn/Animal/Megaspider/Megaspider</texPath>
+          <texPath>Things/Pawn/Animal/Razorbug/Razorbug</texPath>
           <drawSize>2</drawSize>
-          <color>(108,51,40)</color>
           <shadowData>
             <volume>(0.5, 0.7, 0.43)</volume>
             <offset>(0,0,-0.1)</offset>
           </shadowData>
         </bodyGraphicData>
         <dessicatedBodyGraphicData>
-          <texPath>Things/Pawn/Animal/Megaspider/Dessicated_Megaspider</texPath>
-          <drawSize>2</drawSize>
+          <texPath>Things/Pawn/Animal/Razorbug/Dessicated_Razorbug</texPath>
+          <drawSize>2.15</drawSize>
         </dessicatedBodyGraphicData>
       </li>
     </lifeStages>

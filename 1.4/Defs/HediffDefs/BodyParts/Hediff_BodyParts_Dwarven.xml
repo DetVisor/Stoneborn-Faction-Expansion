@@ -68,17 +68,15 @@
     <descriptionHyperlinks><RecipeDef>InstallDeathDustifier</RecipeDef></descriptionHyperlinks>
     <techLevel>Spacer</techLevel>
     <graphicData>
-      <texPath>Things/Item/Health/HealthItem</texPath>
+      <texPath>Things/Item/Health/DwarvenProsthetic</texPath>
+      <shaderType>CutoutComplex</shaderType>
       <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>0.80</drawSize>
+      <drawSize>0.90</drawSize>
       <color>(189,169,118)</color>
     </graphicData>
     <statBases>
       <MarketValue>400</MarketValue>
     </statBases>
-    <tradeTags>
-        <li>ImplantDwarvenCommon</li>
-      </tradeTags>
       <techHediffsTags>
         <li>ImplantDwarvenCommon</li>
       </techHediffsTags>
@@ -240,7 +238,6 @@
     <descriptionHyperlinks><RecipeDef>InstallSteelboneInjector</RecipeDef></descriptionHyperlinks>
     <thingSetMakerTags><li>RewardStandardMidFreq</li></thingSetMakerTags>
     <costList>
-      <Plasteel>35</Plasteel>
       <Plasteel>30</Plasteel>
       <ComponentSpacer>12</ComponentSpacer>
     </costList>
@@ -407,7 +404,7 @@
               </comps>
               <addedPartProps>
                 <solid>true</solid>
-                <partEfficiency>0.25</partEfficiency>
+                <partEfficiency>0.60</partEfficiency>
               </addedPartProps>
               <spawnThingOnRemoved>DV_RocketFist</spawnThingOnRemoved>
             </HediffDef>
@@ -455,7 +452,7 @@
                 </thingDefs>
               </fixedIngredientFilter>
               <appliedOnFixedBodyParts>
-                <li>Arm</li>
+                <li>Hand</li>
               </appliedOnFixedBodyParts>
               <addsHediff>DV_RocketFist</addsHediff>
             </RecipeDef>
@@ -543,6 +540,98 @@
           <addsHediff>DV_ArmCannon</addsHediff>
         </RecipeDef>
 
+
+            <!-- Shock fist  -->
+
+            <HediffDef ParentName="AddedBodyPartBase">
+              <defName>DV_ShockFist</defName>
+              <label>shock fist</label>
+              <labelNoun>a shock fist</labelNoun>
+              <description>An installed shock fist.</description>
+              <descriptionHyperlinks><ThingDef>DV_ShockFist</ThingDef></descriptionHyperlinks>
+              <comps>
+                <li Class="HediffCompProperties_VerbGiver">
+                  <tools>
+                    <li>
+                      <label>fist</label>
+                      <capacities>
+                        <li>Blunt</li>
+                      </capacities>
+                      <power>12</power>
+                      <cooldownTime>2</cooldownTime>
+                      <extraMeleeDamages>
+                        <li>
+                          <def>EMP</def>
+                          <amount>9</amount>
+                        </li>
+                      </extraMeleeDamages>
+                      <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+                      <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+                      <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+                    </li>
+                  </tools>
+                </li>
+                <li Class="HediffCompProperties_GiveAbility">
+                  <abilityDefs>
+                    <li>ShockFistAbility</li>
+                  </abilityDefs>
+                </li>
+              </comps>
+              <addedPartProps>
+                <solid>true</solid>
+                <partEfficiency>0.80</partEfficiency>
+              </addedPartProps>
+              <spawnThingOnRemoved>DV_ShockFist</spawnThingOnRemoved>
+            </HediffDef>
+          
+            <ThingDef ParentName="BodyPartProstheticDwarven">
+              <defName>DV_ShockFist</defName>
+              <label>shock fist</label>
+              <description>A mechanical arm replacement for speeding up mining. It has a built-in snake drill, which allows the miner to rapidly find and exploit weak lines in the rock. It also has a general-purpose manipulator. It is somewhat ungainly, which slows down movement slightly.</description>
+              <descriptionHyperlinks><RecipeDef>InstallShockFist</RecipeDef></descriptionHyperlinks>
+              <thingSetMakerTags><li>RewardStandardLowFreq</li></thingSetMakerTags>
+              <costList>
+                <Steel>75</Steel>
+                <ComponentIndustrial>10</ComponentIndustrial>
+              </costList>
+              <tradeTags>
+                <li>ImplantDwarvenMilitary</li>
+              </tradeTags>
+              <techHediffsTags>
+                <li>ImplantDwarvenMilitary</li>
+              </techHediffsTags>
+            </ThingDef>
+          
+            <RecipeDef ParentName="SurgeryInstallBodyPartProstheticBase">
+              <defName>InstallShockFist</defName>
+              <label>install shock fist</label>
+              <description>Install a shock fist.</description>
+              <descriptionHyperlinks>
+                <ThingDef>DV_ShockFist</ThingDef>
+                <HediffDef>DV_ShockFist</HediffDef>
+              </descriptionHyperlinks>
+              <jobString>Installing shock fist.</jobString>
+              <ingredients>
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>DV_ShockFist</li>
+                    </thingDefs>
+                  </filter>
+                  <count>1</count>
+                </li>
+              </ingredients>
+              <fixedIngredientFilter>
+                <thingDefs>
+                  <li>DV_ShockFist</li>
+                </thingDefs>
+              </fixedIngredientFilter>
+              <appliedOnFixedBodyParts>
+                <li>Hand</li>
+              </appliedOnFixedBodyParts>
+              <addsHediff>DV_ShockFist</addsHediff>
+            </RecipeDef>
+
           <!-- Prospector eye -->
 
   <HediffDef ParentName="AddedBodyPartBase">
@@ -585,11 +674,21 @@
     <label>prospector eye</label>
     <description>An advanced artificial eye. With its biogel nerve-link, internal signal pre-processor, and wide-spectrum sensors, it is better than a biological eye in almost every way. A lattice-dust healing system allows it to recover from damage.</description>
     <descriptionHyperlinks><RecipeDef>InstallProspectorEye</RecipeDef></descriptionHyperlinks>
+    <graphicData>
+      <texPath>Things/Item/Health/DwarvenProsthetic</texPath>
+      <shaderType>CutoutComplex</shaderType>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>0.90</drawSize>
+      <color>(189,169,118)</color>
+    </graphicData>
     <costList>
       <Plasteel>20</Plasteel>
       <Steel>12</Steel>
       <ComponentSpacer>4</ComponentSpacer>
     </costList>
+    <tradeTags>
+      <li>ImplantDwarvenCommon</li>
+    </tradeTags>
     <thingSetMakerTags><li>RewardStandardMidFreq</li></thingSetMakerTags>
     <statBases>
       <Mass>0.5</Mass>
@@ -668,6 +767,13 @@
             <label>crystal eye</label>
             <description>An advanced artificial eye. With its biogel nerve-link, internal signal pre-processor, and wide-spectrum sensors, it is better than a biological eye in almost every way. A lattice-dust healing system allows it to recover from damage.</description>
             <descriptionHyperlinks><RecipeDef>InstallCrystalEye</RecipeDef></descriptionHyperlinks>
+            <graphicData>
+              <texPath>Things/Item/Health/DwarvenProsthetic</texPath>
+              <shaderType>CutoutComplex</shaderType>
+              <graphicClass>Graphic_Single</graphicClass>
+              <drawSize>0.90</drawSize>
+              <color>(189,169,118)</color>
+            </graphicData>
             <costList>
               <Plasteel>20</Plasteel>
               <Steel>12</Steel>

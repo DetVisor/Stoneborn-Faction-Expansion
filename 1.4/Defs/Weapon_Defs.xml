@@ -55,8 +55,10 @@
     </graphicData>
     <uiIconScale>1.4</uiIconScale>
     <soundInteract>Interact_Revolver</soundInteract>
+    <recipeMaker IsNull="True" />
     <statBases>
       <WorkToMake>7000</WorkToMake>
+      <Beauty>3</Beauty>
       <Mass>1.6</Mass>
       <AccuracyTouch>0.72</AccuracyTouch>
       <AccuracyShort>0.85</AccuracyShort>
@@ -71,6 +73,9 @@
     <weaponClasses>
       <li>RangedLight</li>
     </weaponClasses>
+    <tradeTags>
+      <li>DwarfWeaponAncient</li>
+    </tradeTags>
     <thingSetMakerTags>
       <li>RewardStandardMidFreq</li>
     </thingSetMakerTags>
@@ -78,12 +83,6 @@
       <Steel>60</Steel>
       <ComponentIndustrial>8</ComponentIndustrial>
     </costList>
-    <recipeMaker>
-      <skillRequirements>
-        <Crafting>8</Crafting>
-      </skillRequirements>
-      <displayPriority>400</displayPriority>
-    </recipeMaker>
     <verbs>
       <li>
         <verbClass>Verb_Shoot</verbClass>
@@ -119,12 +118,13 @@
 
   <ThingDef ParentName="BaseMeleeWeapon_Blunt_Quality">
     <defName>DV_MeleeWeapon_BulwarkBreaker</defName>
-    <label>bulwark breaker</label>
+    <label>guardsledge</label>
     <description>A stunningly well made, robust, and heavy hammer, decorated with the head of a ram. As the very icon of craftdwarfship, it makes for a fine display piece and a powerful blunt weapon. \n\nAs an ancestral weapon, none beside the stoneborn have the skill to create it, and it must be bought, stolen or acquired from a quest.</description>
     <techLevel>Spacer</techLevel>
     <thingSetMakerTags><li>RewardStandardMidFreq</li></thingSetMakerTags>
     <statBases>
       <WorkToMake>20000</WorkToMake>
+      <Beauty>3</Beauty>
       <Mass>7.3</Mass>
     </statBases>
     <recipeMaker IsNull="True" />
@@ -139,6 +139,9 @@
     <weaponClasses>
       <li>Melee</li>
     </weaponClasses>
+    <tradeTags>
+      <li>DwarfWeaponAncient</li>
+    </tradeTags>
     <tools>
       <li>
         <label>handle</label>
@@ -178,12 +181,19 @@
     <smeltable>false</smeltable>
     <statBases>
       <WorkToMake>15500</WorkToMake>
+      <Beauty>3</Beauty>
       <Mass>2.5</Mass>
     </statBases>
     <recipeMaker IsNull="True" />
     <weaponTags>
       <li>DwarfMeleeRoyal</li>
     </weaponTags>
+    <weaponClasses>
+      <li>Melee</li>
+    </weaponClasses>
+    <tradeTags>
+      <li>DwarfWeaponAncient</li>
+    </tradeTags>
     <tools>
       <li>
         <label>handle</label>
@@ -233,6 +243,7 @@
     <thingSetMakerTags><li>RewardStandardMidFreq</li></thingSetMakerTags>
     <statBases>
       <WorkToMake>15500</WorkToMake>
+      <Beauty>3</Beauty>
       <Mass>2.5</Mass>
     </statBases>
     <recipeMaker IsNull="True" />
@@ -243,6 +254,12 @@
       <li>DwarfMeleeRoyal</li>
       <li>Battlestaff</li>
     </weaponTags>
+    <weaponClasses>
+      <li>Melee</li>
+    </weaponClasses>
+    <tradeTags>
+      <li>DwarfWeaponAncient</li>
+    </tradeTags>
     <tools>
       <li>
         <label>handle</label>
@@ -274,7 +291,7 @@
     <ThingDef ParentName="BaseMeleeWeapon_Sharp_Quality">
         <defName>DV_MeleeWeapon_Warpick</defName>
         <label>warpick</label>
-        <description>One of mankind's most ancient of tools, repurposed and reinforced for war. This hefty mining implement can break through metal with as much ease as regular stones and ore. The sheer weight behind each swing makes it capable of piercing through armor just as effectively, if not more so, than most guns.</description>
+        <description>A giant pickaxe that requires two hands to wield. While not easy to swing around, each blow it delivers carries enough weight to shatter stone. Great for both being used as a heavy duty mining tool and for breaking through defenses.</description>
         <techLevel>Industrial</techLevel>
         <costStuffCount>120</costStuffCount>
         <thingSetMakerTags><li>RewardStandardQualitySuper</li></thingSetMakerTags>
@@ -297,6 +314,12 @@
           <li>DwarfMeleeAdvanced</li>
           <li>MedievalMeleeAdvanced</li>
         </weaponTags>
+        <weaponClasses>
+          <li>Melee</li>
+        </weaponClasses>
+        <tradeTags>
+          <li>DwarfWeaponMelee</li>
+        </tradeTags>
         <tools>
           <li>
             <label>handle</label>
@@ -313,7 +336,7 @@
               <li>Demolish</li>
             </capacities>
             <power>17</power>
-            <cooldownTime>2.2</cooldownTime>
+            <cooldownTime>2.3</cooldownTime>
             <armorPenetration>0.5</armorPenetration>
           </li>
           <li>
@@ -323,7 +346,7 @@
               <li>Demolish</li>
             </capacities>
             <power>17</power>
-            <cooldownTime>2.2</cooldownTime>
+            <cooldownTime>2.3</cooldownTime>
             <armorPenetration>0.5</armorPenetration>
           </li>
           <li>
@@ -331,7 +354,7 @@
             <capacities>
               <li>Stab</li>
             </capacities>
-            <power>12</power>
+            <power>11</power>
             <cooldownTime>2.2</cooldownTime>
             <armorPenetration>0.3</armorPenetration>
           </li>
@@ -347,7 +370,7 @@
       <ThingDef ParentName="BaseMeleeWeapon_Sharp_Quality">
         <defName>DV_MeleeWeapon_Greatspear</defName>
         <label>greatspear</label>
-        <description>One of mankind's most ancient of tools, repurposed and reinforced for war. This hefty mining implement can break through metal with as much ease as regular stones and ore. The sheer weight behind each swing makes it capable of piercing through armor just as effectively, if not more so, than most guns.</description>
+        <description>A large spear requiring two hands to wield. While unwieldy to use, the weight it possesses allows jabs with it to carry incredible force. Excellent for slipping through cracks in armor, or for simply punching through it if there are no weaknesses to exploit.</description>
         <techLevel>Industrial</techLevel>
         <costStuffCount>120</costStuffCount>
         <thingSetMakerTags><li>RewardStandardQualitySuper</li></thingSetMakerTags>
@@ -370,6 +393,12 @@
           <li>DwarfMeleeAdvanced</li>
           <li>MedievalMeleeAdvanced</li>
         </weaponTags>
+        <weaponClasses>
+          <li>Melee</li>
+        </weaponClasses>
+        <tradeTags>
+          <li>DwarfWeaponMelee</li>
+        </tradeTags>
         <tools>
           <li>
             <label>handle</label>
@@ -401,7 +430,7 @@
       <ThingDef ParentName="BaseMeleeWeapon_Sharp_Quality">
         <defName>DV_MeleeWeapon_Greataxe</defName>
         <label>greataxe</label>
-        <description>One of mankind's most ancient of tools, repurposed and reinforced for war. This hefty mining implement can break through metal with as much ease as regular stones and ore. The sheer weight behind each swing makes it capable of piercing through armor just as effectively, if not more so, than most guns.</description>
+        <description>A hefty axe that requires two hands to wield. Its weight allows the wielder to attack with devastating force, ideal for cracking insect shells or heavy imperial armor.</description>
         <techLevel>Industrial</techLevel>
         <costStuffCount>120</costStuffCount>
         <thingSetMakerTags><li>RewardStandardQualitySuper</li></thingSetMakerTags>
@@ -425,6 +454,12 @@
           <li>MedievalMeleeAdvanced</li>
           <li>Axe</li>
         </weaponTags>
+        <weaponClasses>
+          <li>Melee</li>
+        </weaponClasses>
+        <tradeTags>
+          <li>DwarfWeaponMelee</li>
+        </tradeTags>
         <tools>
           <li>
             <label>handle</label>
@@ -455,7 +490,7 @@
       <ThingDef ParentName="BaseMeleeWeapon_Blunt_Quality">
         <defName>DV_MeleeWeapon_Greathammer</defName>
         <label>greathammer</label>
-        <description>A long polearm topped with a brutal hammer. The powerful blunt impacts can pulverize an enemy's insides, even through armor.</description>
+        <description>A hammer that dwarfs even the warhammer, the greathammer requires two hands to wield. Moving it around is a challenge in itself, but anything caught in its swing will likely be shattered on impact. Useful for breaking structures, armor, and bones alike.</description>
         <techLevel>Medieval</techLevel>
         <costStuffCount>175</costStuffCount>
         <thingSetMakerTags><li>RewardStandardQualitySuper</li></thingSetMakerTags>
@@ -481,6 +516,9 @@
         <weaponClasses>
           <li>Melee</li>
         </weaponClasses>
+        <tradeTags>
+          <li>DwarfWeaponMelee</li>
+        </tradeTags>
         <tools>
           <li>
             <label>handle</label>
@@ -508,86 +546,6 @@
           <drawSize>1.2</drawSize>
           <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
-      </ThingDef>
-
-      <ThingDef ParentName="BaseWeaponNeolithic">
-        <defName>DV_Javelins</defName>
-        <label>javelins</label>
-        <description>Pila are spears for throwing. They take a long time to throw, but one hit can do heavy damage. This weapon represents a bundle of pila and can be thrown over and over. The singular of pila is pilum.</description>
-        <graphicData>
-          <texPath>Things/Item/Equipment/WeaponRanged/Javelin</texPath>
-          <graphicClass>Graphic_Single</graphicClass>
-        </graphicData>
-        <soundInteract>Interact_BeatFire</soundInteract>
-        <costList>
-          <WoodLog>95</WoodLog>
-        </costList>
-        <relicChance>1</relicChance>
-        <statBases>
-          <WorkToMake>10000</WorkToMake>
-          <Mass>5.2</Mass>
-          <AccuracyTouch>0.45</AccuracyTouch>
-          <AccuracyShort>0.75</AccuracyShort>
-          <AccuracyMedium>0.62</AccuracyMedium>
-          <AccuracyLong>0.37</AccuracyLong>
-          <RangedWeapon_Cooldown>4</RangedWeapon_Cooldown>
-        </statBases>
-        <weaponTags>
-          <li>DwarfRangedAdvanced</li>
-        </weaponTags>
-        <weaponClasses>
-          <li>Ranged</li>
-        </weaponClasses>
-        <recipeMaker>
-          <skillRequirements>
-            <Crafting>4</Crafting>
-          </skillRequirements>
-          <displayPriority>500</displayPriority>
-        </recipeMaker>
-        <verbs>
-          <li>
-            <verbClass>Verb_Shoot</verbClass>
-            <hasStandardCommand>true</hasStandardCommand>
-            <defaultProjectile>DV_Javelin_Thrown</defaultProjectile>
-            <warmupTime>4.2</warmupTime>
-            <range>22.8</range>
-            <soundCast>Interact_BeatFire</soundCast>
-            <rangedFireRulepack>Combat_RangedFire_Thrown</rangedFireRulepack>
-          </li>
-        </verbs>
-        <tools>
-          <li>
-            <label>shaft</label>
-            <capacities>
-              <li>Blunt</li>
-            </capacities>
-            <power>9</power>
-             <cooldownTime>2</cooldownTime>
-          </li>
-          <li>
-            <label>point</label>
-            <capacities>
-              <li>Stab</li>
-            </capacities>
-            <power>11</power>
-             <cooldownTime>2.2</cooldownTime>
-          </li>
-        </tools>
-      </ThingDef>
-      <ThingDef ParentName="BaseProjectileNeolithic">
-        <defName>DV_Javelin_Thrown</defName>
-        <label>javelin</label>
-        <graphicData>
-          <texPath>Things/Projectiles/JavelinThrown</texPath>
-          <graphicClass>Graphic_Single</graphicClass>
-        </graphicData>
-        <projectile>
-          <damageDef>RangedStab</damageDef>
-          <damageAmountBase>29</damageAmountBase>
-          <stoppingPower>3</stoppingPower>
-          <armorPenetrationBase>0.2</armorPenetrationBase>
-          <speed>28</speed>
-        </projectile>
       </ThingDef>
 
       <ThingDef ParentName="BaseHumanMakeableGun">
@@ -627,7 +585,7 @@
           <li>SpacerGun</li>
         </weaponTags>
         <tradeTags>
-          <li>WeaponRanged</li>
+          <li>DwarfWeaponRanged</li>
         </tradeTags>
         <weaponClasses>
           <li>RangedHeavy</li>
@@ -683,7 +641,7 @@
       <ThingDef ParentName="BaseHumanMakeableGun">
         <defName>DV_Gun_Flameblaster</defName>
         <label>flameblaster</label>
-        <description>A small burst-oriented flamethrower used by mechanoids.</description>
+        <description>A sizable burst-oriented flamethrower with a built-in chemfuel tank. It launches a deluge of flaming chemfuel wherever it is aimed, ensuring that the flames produced burn long and hot no matter what the terrain may be. Stoneborn firedrakes commonly employ these to create raging infernos near their targets, blocking off avenues of escape while giving the firedrakes ample room to manuever in.</description>
         <graphicData>
           <texPath>Things/Item/Equipment/WeaponRanged/Flameblaster</texPath>
           <graphicClass>Graphic_Single</graphicClass>
@@ -706,6 +664,9 @@
         <weaponTags>
           <li>Flameblaster</li>
         </weaponTags>
+        <tradeTags>
+          <li>DwarfWeaponRanged</li>
+        </tradeTags>
         <verbs>
           <li>
             <verbClass>Verb_SpewFire</verbClass>
@@ -798,7 +759,7 @@
       <ThingDef ParentName="BaseHumanMakeableGun">
         <defName>DV_Gun_SlugCaster</defName>
         <label>slug caster</label>
-        <description>A magazine-fed fully automatic shotgun. It is even shorter-ranged than a typical shotgun, but is extraordinarily dangerous due to burst fire.</description>
+        <description>A rifle that is designed to fire slug rounds. While heavy and unwieldy to use, it is capable of launching devastating uranium slugs great distances. Stoneborn thunderers use these to ensure the elimination of their targets while maintaining a healthy distance from any danger.</description>
         <graphicData>
           <texPath>Things/Item/Equipment/WeaponRanged/SlugCaster</texPath>
           <graphicClass>Graphic_Single</graphicClass>
@@ -809,6 +770,9 @@
         <weaponClasses>
           <li>LongShots</li>
         </weaponClasses>
+        <tradeTags>
+          <li>DwarfWeaponRanged</li>
+        </tradeTags>
         <recipeMaker>
           <researchPrerequisite>GasOperation</researchPrerequisite>
           <skillRequirements>
@@ -870,7 +834,7 @@
       <ThingDef ParentName="BaseHumanMakeableGun">
         <defName>DV_Gun_SlugRifle</defName>
         <label>slug rifle</label>
-        <description>A magazine-fed fully automatic shotgun. It is even shorter-ranged than a typical shotgun, but is extraordinarily dangerous due to burst fire.</description>
+        <description>A short ranged rifle built to fire slug rounds. While heavy and unwieldy to use, it is capable of firing multiple rounds of devastating uranium slugs in quick succession. Stoneborn menhirs often employ these to make sure that whatever they are targeting will be rapidly and sufficiently pulverized.</description>
         <graphicData>
           <texPath>Things/Item/Equipment/WeaponRanged/SlugRifle</texPath>
           <graphicClass>Graphic_Single</graphicClass>
@@ -881,6 +845,9 @@
         <weaponClasses>
           <li>ShortShots</li>
         </weaponClasses>
+        <tradeTags>
+          <li>DwarfWeaponRanged</li>
+        </tradeTags>
         <recipeMaker>
           <researchPrerequisite>GasOperation</researchPrerequisite>
           <skillRequirements>
@@ -961,7 +928,7 @@
       <ThingDef ParentName="BaseGun">
         <defName>DV_Gun_RocketLauncher</defName>
         <label>rocket launcher</label>
-        <description>A single-use rocket launcher that fires three large-bore explosive rockets. Good against small groups of tough targets.\n\nBecause of its unwieldiness, single-use limitation, and the massive destruction it causes, it's said that one must be slightly crazy to use this weapon.</description>
+        <description>A bulky weapon capable of firing a single unguided rocket-propelled grenade, which detonates upon impact. Used across the galaxy and throughout the ages, rocket launchers are an old-school staple of human warfare, and have been wielded by virtually every kind of combatant from child soldiers to revolutionaries.</description>
         <tickerType>Normal</tickerType>
         <smeltable>false</smeltable>
         <graphicData>
@@ -982,7 +949,7 @@
         </weaponClasses>
         <tradeTags>
           <li>ExoticMisc</li>
-          <li>WeaponRanged</li>
+          <li>DwarfWeaponRanged</li>
         </tradeTags>
         <thingSetMakerTags>
           <li>RewardStandardLowFreq</li>

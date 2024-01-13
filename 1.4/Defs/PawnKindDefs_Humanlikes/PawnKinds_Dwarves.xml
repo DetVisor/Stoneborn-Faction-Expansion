@@ -13,6 +13,14 @@
             <Stoneborn>999</Stoneborn>
           </xenotypeChances>
         </xenotypeSet>
+        <backstoryFiltersOverride>
+          <li>
+            <categories>
+              <li>Offworld</li>
+              <li>DwarfCommon</li>
+            </categories>
+          </li>
+        </backstoryFiltersOverride>	
       </PawnKindDef>
     
       <PawnKindDef ParentName="SlaveBase">
@@ -29,16 +37,103 @@
     
       <!--===================== Basic Dwarves =========================-->
 
+      <PawnKindDef ParentName="StonebornBase">
+        <defName>Stoneborn_Settler</defName>
+        <label>settler</label>
+        <race>Human</race>
+        <defaultFactionType>OutlanderRoughStoneborn</defaultFactionType>
+        <maxGenerationAge>65</maxGenerationAge>
+        <combatPower>30</combatPower>
+        <backstoryCryptosleepCommonality>0.08</backstoryCryptosleepCommonality>
+        <forceNormalGearQuality>true</forceNormalGearQuality>
+        <isFighter>false</isFighter>
+        <apparelTags>
+          <li>IndustrialBasic</li>
+        </apparelTags>
+        <apparelMoney>200~1000</apparelMoney>
+        <gearHealthRange>1~1</gearHealthRange>
+        <apparelAllowHeadgearChance>0</apparelAllowHeadgearChance>
+        <techHediffsMoney>50~800</techHediffsMoney>
+        <techHediffsTags>
+          <li>Simple</li>
+          <li>Advanced</li>
+          <li>ImplantDwarvenCommon</li>
+        </techHediffsTags>
+        <techHediffsChance>0.1</techHediffsChance>
+        <apparelDisallowTags>
+          <li>Western</li>
+        </apparelDisallowTags>
+        <disallowedTraits>
+          <li>Nudist</li>
+        </disallowedTraits>
+        <initialWillRange>1~3</initialWillRange>
+        <initialResistanceRange>10~17</initialResistanceRange>
+      </PawnKindDef>
+
+      <PawnKindDef  ParentName="StonebornBase">
+        <defName>Stoneborn_Merchant</defName>
+        <label>merchant</label>
+        <race>Human</race>
+        <defaultFactionType>OutlanderRoughStoneborn</defaultFactionType>
+        <maxGenerationAge>65</maxGenerationAge>
+        <trader>true</trader>
+        <isFighter>false</isFighter>
+        <backstoryCryptosleepCommonality>0.08</backstoryCryptosleepCommonality>
+        <chemicalAddictionChance>0.1</chemicalAddictionChance>
+        <combatEnhancingDrugsChance>0.15</combatEnhancingDrugsChance>
+        <invNutrition>2.55</invNutrition>
+        <itemQuality>Normal</itemQuality>
+        <inventoryOptions>
+         <skipChance>0.70</skipChance>
+         <subOptionsTakeAll>
+           <li>
+             <thingDef>Silver</thingDef>
+             <countRange>50~120</countRange>
+           </li>
+         </subOptionsTakeAll>
+       </inventoryOptions>
+        <combatPower>40</combatPower>
+        <weaponTags>
+          <li>SimpleGun</li>
+        </weaponTags>
+        <weaponMoney>1100~3500</weaponMoney>
+        <apparelMoney>1250~2500</apparelMoney>
+        <apparelTags>
+          <li>IndustrialBasic</li>
+          <li>IndustrialAdvanced</li>
+          <li>IndustrialMilitaryBasic</li>
+          <li>IndustrialMilitaryAdvanced</li>
+        </apparelTags>
+        <apparelDisallowTags>
+          <li>Western</li>
+        </apparelDisallowTags>
+        <techHediffsChance>0.15</techHediffsChance>
+        <techHediffsMoney>1000~1800</techHediffsMoney>
+        <techHediffsTags>
+          <li>Advanced</li>
+          <li>ImplantDwarvenCommon</li>
+        </techHediffsTags>
+        <initialWillRange>3~5</initialWillRange>
+        <initialResistanceRange>16~25</initialResistanceRange>
+        <xenotypeSet>
+          <xenotypeChances>
+            <Stoneborn>999</Stoneborn>
+          </xenotypeChances>
+        </xenotypeSet>
+      </PawnKindDef>
+<!--
       <PawnKindDef  ParentName="StonebornBase">
         <defName>Stoneborn_Merchant</defName>
         <label>merchant</label>
         <maxGenerationAge>65</maxGenerationAge>
+        <race>Human</race>
+        <defaultFactionType>OutlanderRoughStoneborn</defaultFactionType>
         <trader>true</trader>
         <isFighter>false</isFighter>
         <backstoryCryptosleepCommonality>0.08</backstoryCryptosleepCommonality>
         <chemicalAddictionChance>0.02</chemicalAddictionChance>
         <combatEnhancingDrugsChance>0.15</combatEnhancingDrugsChance>
-        <invNutrition>2.5</invNutrition>
+        <invNutrition>2.55</invNutrition>
         <itemQuality>Normal</itemQuality>
         <inventoryOptions>
          <skipChance>0.70</skipChance>
@@ -73,7 +168,7 @@
         <initialWillRange>3~5</initialWillRange>
         <initialResistanceRange>16~25</initialResistanceRange>
       </PawnKindDef>
-    
+    -->
       <PawnKindDef ParentName="StonebornBase">
         <defName>Stoneborn_Worker</defName>
         <label>stoneborn worker</label>
@@ -89,8 +184,7 @@
           <li>
             <categories>
               <li>Offworld</li>
-              <li>Outlander</li>
-              <li>Dwarf</li>
+              <li>DwarfCommon</li>
             </categories>
           </li>
         </backstoryFiltersOverride>		
@@ -168,7 +262,7 @@
       <!-- Ranger -->
     
       <PawnKindDef Name="StonebornSoldierBase" Abstract="True" ParentName="StonebornWarriorBase">
-        <combatPower>65</combatPower>
+        <combatPower>100</combatPower>
         <apparelMoney>5000~8000</apparelMoney>
         <weaponTags>
           <li>IndustrialGunAdvanced</li>
@@ -336,7 +430,7 @@
       <!-- Thunderer -->
     
       <PawnKindDef Name="StonebornThundererBase" Abstract="True" ParentName="StonebornSoldierBase">
-        <combatPower>100</combatPower>
+        <combatPower>130</combatPower>
         <weaponMoney>2000~2700</weaponMoney>
         <weaponTags>
           <li>IndustrialGunAdvanced</li>
@@ -431,14 +525,13 @@
         <defName>Stoneborn_Slayer</defName>
         <label>slayer</label>
         <maxGenerationAge>50</maxGenerationAge>
-        <combatPower>120</combatPower>
+        <combatPower>90</combatPower>
         <weaponTags Inherit="False">
           <li>DwarfMeleeAdvanced</li>
         </weaponTags>
         <apparelRequired Inherit="False">
           <li>DV_Apparel_PowerplateArmor</li>
           <li>DV_Apparel_DwarvenHelm</li>
-          <li>Apparel_ShieldBelt</li>
         </apparelRequired>
         <apparelColor>(133, 105, 51)</apparelColor>
         <techHediffsTags>
@@ -462,7 +555,7 @@
         <defName>Stoneborn_Menhir</defName>
         <label>menhir</label>
         <maxGenerationAge>80</maxGenerationAge>
-        <combatPower>200</combatPower>
+        <combatPower>130</combatPower>
         <weaponTags Inherit="False">
           <li>SlugGun</li>
           <li>Minigun</li>
@@ -520,7 +613,7 @@
       <defName>Stoneborn_Elite_Aegisbreaker</defName>
       <label>aegisbreaker</label>
       <maxGenerationAge>50</maxGenerationAge>
-      <combatPower>120</combatPower>
+      <combatPower>150</combatPower>
       <apparelAllowHeadgearChance>0</apparelAllowHeadgearChance>
       <weaponTags Inherit="False">
         <li>BulwarkBreaker</li>
@@ -537,7 +630,6 @@
         </li>
       </specificApparelRequirements>
       <apparelColor>(154, 122, 59)</apparelColor>
-      <apparelTags Inherit="False" />
       <techHediffsTags>
         <li>Advanced</li>
         <li>ImplantDwarvenCommon</li>
@@ -766,6 +858,7 @@
         <defName>Stoneborn_Underlord</defName>
         <label>underlord</label>
         <factionLeader>true</factionLeader>
+        <factionHostileOnDeath>true</factionHostileOnDeath>
         <weaponTags>
           <li>DwarfMeleeRoyal</li>
           <li>DwarfRangedRoyal</li>

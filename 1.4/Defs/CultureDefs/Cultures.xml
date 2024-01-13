@@ -6,9 +6,9 @@
     <label>grottalik</label>
     <description>A traditional, gritty neo-spacer culture shared by many a caveworld dwellers.</description>
     <ideoNameMaker MayRequire="Ludeon.RimWorld.Ideology">NamerIdeoRustican</ideoNameMaker>
-    <deityNameMaker MayRequire="Ludeon.RimWorld.Ideology">NamerDeityRustican</deityNameMaker>
+    <deityNameMaker MayRequire="Ludeon.RimWorld.Ideology">NamerDeitySophian</deityNameMaker>
     <deityTypeMaker MayRequire="Ludeon.RimWorld.Ideology">DeityTypeMakerRustican</deityTypeMaker>
-    <leaderTitleMaker MayRequire="Ludeon.RimWorld.Ideology">LeaderTitleMaker_Rustican</leaderTitleMaker>
+    <leaderTitleMaker MayRequire="Ludeon.RimWorld.Ideology">LeaderTitleMaker_Stoneborn</leaderTitleMaker>
     <festivalNameMaker MayRequire="Ludeon.RimWorld.Ideology">NamerFestivalRustican</festivalNameMaker>
     <allowedPlaceTags>
       <li>OriginSpacer</li>
@@ -16,9 +16,9 @@
     </allowedPlaceTags>
     <iconPath>World/WorldObjects/Expanding/Town</iconPath>
     <thingStyleCategories>
-      <li MayRequire="Ludeon.RimWorld.Ideology">
-        <category>Rustic</category>
-        <priority>2</priority>
+      <li MayRequire="det.dwarvenstyle">
+        <category>DV_Dwarven</category>
+        <priority>999</priority>
       </li>
     </thingStyleCategories>
     <styleItemTags>

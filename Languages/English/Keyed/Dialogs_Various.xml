@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+      <!-- Faction specific comms overrides -->
+  <StonebornFactionGreetingHostile>{0} slurs a bunch of unintelligible insults into the microphone and disconnects.</StonebornFactionGreetingHostile>
+  <StonebornFactionGreetingHostileAppreciative>{0} unleashes a string of very elaborate and creative insults as {0_pronoun} picks up the microphone.\n\nIn the brief gaps between the litany of curses, {0_pronoun} demands that you make a gesture of goodwill, such as bringing gifts to one of {0_possessive} settlements or releasing {0_possessive} faction's prisoners unharmed. Until then, {0_pronoun} will refuse to communicate in any civil manner.\n\nAfter audibly downing a cup of ale, {0_pronoun} disconnects.</StonebornFactionGreetingHostileAppreciative>
+  <StonebornFactionGreetingWary>{0} grumbles a greeting into the microphone and demands to know what you're calling {0_objective} for.</StonebornFactionGreetingWary>
+  <StonebornFactionGreetingWarm>After loudly belching into the microphone, {0} jollily greets {NEGOTIATOR_labelShort} with a loud ground-shaking "BROTHER!"\n\nSoon after, {0_pronoun} asks what {0_pronoun} can do to help you.</StonebornFactionGreetingWarm>
+  <StonebornMilitaryAidSent>{0} yells out a loud warcry as {LEADER_pronoun} agrees to send a troop of dwarven soldiers to aid you. </StonebornMilitaryAidSent>
+
+</LanguageData>

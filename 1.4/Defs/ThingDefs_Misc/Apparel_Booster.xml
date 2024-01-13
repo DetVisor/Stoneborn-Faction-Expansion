@@ -1,106 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-<!--
-<ThingDef ParentName="ApparelBase">
-    <defName>TESTApparel_BoosterBelt</defName>
-    <label>booster belt</label>
-    <description>A projectile-repulsion device. It will attempt to stop incoming projectiles or shrapnel, but does nothing against melee attacks or heat. It prevents the wearer from firing out, and shuts down instantly if hit by EMP.</description>
-    <thingClass>Apparel</thingClass>
-    <graphicData>
-      <texPath>Things/Pawn/Humanlike/Apparel/ShieldBelt/ShieldBelt</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-    </graphicData>
-    <tickerType>Normal</tickerType>
-    <techLevel>Spacer</techLevel>
-    <comps>
-      <li Class="AthenaFramework.CompProperties_EquippableAbility">
-        <ability>DEVLongjump</ability>
-      </li>
-    </comps>
-    <statBases>
-      <Mass>3</Mass>
-      <WorkToMake>14000</WorkToMake>
-      <Flammability>0.4</Flammability>
-      <EnergyShieldRechargeRate>0.13</EnergyShieldRechargeRate>
-      <EnergyShieldEnergyMax>1.1</EnergyShieldEnergyMax>
-      <EquipDelay>2</EquipDelay>
-    </statBases>
-    <thingSetMakerTags>
-      <li>RewardStandardQualitySuper</li>
-    </thingSetMakerTags>
-    <costList>
-      <ComponentIndustrial>2</ComponentIndustrial>
-      <Steel>50</Steel>
-      <Plasteel>20</Plasteel>
-    </costList>
-    <recipeMaker>
-      <unfinishedThingDef>UnfinishedBelt</unfinishedThingDef>
-      <researchPrerequisite>ShieldBelt</researchPrerequisite>
-      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-      <workSkill>Crafting</workSkill>
-      <effectWorking>Smith</effectWorking>
-      <soundWorking>Recipe_Machining</soundWorking>
-      <recipeUsers>
-        <li>TableMachining</li>
-      </recipeUsers>
-      <useIngredientsForColor>false</useIngredientsForColor>
-      <skillRequirements>
-        <Crafting>6</Crafting>
-      </skillRequirements>
-      <displayPriority>300</displayPriority>
-    </recipeMaker>
-    <thingCategories>
-      <li>ApparelUtility</li>
-    </thingCategories>
-    <apparel>
-      <countsAsClothingForNudity>false</countsAsClothingForNudity>
-      <careIfWornByCorpse>false</careIfWornByCorpse>
-      <careIfDamaged>false</careIfDamaged>
-      <wearPerDay>0</wearPerDay>
-      <bodyPartGroups>
-        <li>Waist</li>
-      </bodyPartGroups>
-      <layers>
-        <li>Belt</li>
-      </layers>
-      <tags>
-        <li>BeltDefense</li>
-      </tags>
-      <developmentalStageFilter>Child, Adult</developmentalStageFilter>
-    </apparel>
-    <colorGenerator Class="ColorGenerator_Options">
-      <options>
-        <li>
-          <weight>10</weight>
-          <only>(0.33,0.33,0.33,1)</only>
-        </li>
-        <li>
-          <weight>10</weight>
-          <only>(0.65,0.65,0.65,1)</only>
-        </li>
-        <li>
-          <weight>6</weight>
-          <min>(0.3,0.3,0.3,1)</min>
-          <max>(0.5,0.5,0.5,1)</max>
-        </li>
-        <li>
-          <weight>10</weight>
-          <only>(0.9,0.9,0.9,1)</only>
-        </li>
-      </options>
-    </colorGenerator>
-    <allowedArchonexusCount>1</allowedArchonexusCount>
-    <tradeTags>
-      <li>Armor</li>
-    </tradeTags>
-  </ThingDef>
--->
-
 <ThingDef ParentName="ApparelBase">
   <defName>DV_Apparel_AbsorptionShield</defName>
   <label>absorption shield</label>
-  <description>A mechanoid-built projectile-repulsion device. The user can shoot out, but the shield will block shots coming in. This shield only protects the user, not those around them. It does nothing against melee attacks or heat. The shield will break instantly if hit by EMP.</description>
+  <description>A heavy duty shield belt designed by the stoneborn. It not only boasts a larger shield capacitor than a standard shield belt, it also allows projectiles to exit its field while still preventing them from entering. However, these modifications have made the components in it unstable, causing it to release an EMP blast upon breaking. This can lead to a chain reaction of breaking shields, but such concerns are nothing to worry about if the shield is too strong to break in the first place.</description>
   <thingClass>Apparel</thingClass>
   <graphicData>
     <texPath>Things/Pawn/Mechanoid/Apparel/HeavyPersonalShield</texPath>

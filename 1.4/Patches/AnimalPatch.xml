@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+    <!-- Temperate biomes -->
+        <Operation Class="PatchOperationAdd">
+          <xpath>Defs/BiomeDef[defName="TemperateForest"]/allowedPackAnimals</xpath>
+          <value>
+            <li>DV_Browbull</li>
+          </value>
+        </Operation>
+
+        <Operation Class="PatchOperationAdd">
+            <xpath>Defs/BiomeDef[defName="TemperateSwamp"]/allowedPackAnimals</xpath>
+            <value>
+              <li>DV_Browbull</li>
+            </value>
+          </Operation>
+
+    <!-- Cold biomes -->
+          <Operation Class="PatchOperationAdd">
+            <xpath>Defs/BiomeDef[defName="Tundra"]/allowedPackAnimals</xpath>
+            <value>
+              <li>DV_Browbull</li>
+            </value>
+          </Operation>
+
+          <Operation Class="PatchOperationAdd">
+            <xpath>Defs/BiomeDef[defName="BorealForest"]/allowedPackAnimals</xpath>
+            <value>
+              <li>DV_Browbull</li>
+            </value>
+          </Operation>
+
+          <Operation Class="PatchOperationAdd">
+            <xpath>Defs/BiomeDef[defName="ColdBog"]/allowedPackAnimals</xpath>
+            <value>
+              <li>DV_Browbull</li>
+            </value>
+          </Operation>
+
+    <!-- Warm biomes -->
+
+          <Operation Class="PatchOperationAdd">
+            <xpath>Defs/BiomeDef[defName="TropicalRainforest"]/allowedPackAnimals</xpath>
+            <value>
+              <li>DV_Browbull</li>
+            </value>
+          </Operation>
+
+          <Operation Class="PatchOperationAdd">
+            <xpath>Defs/BiomeDef[defName="TropicalSwamp"]/allowedPackAnimals</xpath>
+            <value>
+              <li>DV_Browbull</li>
+            </value>
+          </Operation>
+
+    <!-- Warm arid biomes -->
+
+          <Operation Class="PatchOperationAdd">
+            <xpath>Defs/BiomeDef[defName="AridShrubland"]/allowedPackAnimals</xpath>
+            <value>
+              <li>DV_Browbull</li>
+            </value>
+          </Operation>
+
+          <Operation Class="PatchOperationAdd">
+            <xpath>Defs/BiomeDef[defName="Desert"]/allowedPackAnimals</xpath>
+            <value>
+              <li>DV_Browbull</li>
+            </value>
+          </Operation>
+</Patch>

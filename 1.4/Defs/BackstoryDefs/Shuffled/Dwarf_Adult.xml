@@ -2,39 +2,414 @@
 <Defs>
 
   <BackstoryDef>
-    <defName>Extermitnator92</defName>
-    <title>exterminator</title>
-    <titleShort>exterminator</titleShort>
-    <baseDesc>Taken in as a simple soldier by a particularly zealous wing of religious believers, [PAWN_nameDef] was schooled in the arts of strategy, war, and medicine, serving in an army as both a reliable medic and a powerful general.
-      /nThough that life is now long behind, [PAWN_nameDef] still finds it hard to change [PAWN_possessive] mind on various theological topics.</baseDesc>
+    <defName>Earthcarver65</defName>
+    <title>earthcarver</title>
+    <titleShort>earthcarver</titleShort>
+    <baseDesc>[PAWN_nameDef] hewed the very earth to his design. From hollowing out rooms in the side of a cave to sculpting art from solid rock, [PAWN_pronoun] was adept in all methods  of manipulating stone. For the rare occasion where natural stone was not enough, [PAWN_nameDef] also had practice with bricklaying as well.</baseDesc>
     <slot>Adulthood</slot>
     <skillGains>
-      <li><key>Melee</key><value>3</value></li>
-      <li><key>Medicine</key><value>3</value></li>
-      <li><key>Intellectual</key><value>2</value></li>
+      <li><key>Construction</key><value>6</value></li>
+      <li><key>Mining</key><value>6</value></li>
+      <li><key>Artistic</key><value>4</value></li>
     </skillGains>
     <spawnCategories>
       <li>DwarfCommon</li>
-      <li>DwarfFighter</li>
     </spawnCategories>
     <requiredWorkTags>
-      <li>Violent</li>
+      <li>Mining</li>
+      <li>ManualDumb</li>
+      <li>ManualSkilled</li>
+    </requiredWorkTags>
+    <shuffleable>true</shuffleable>
+</BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ClanFlesher29</defName>
+    <title>clan flesher</title>
+    <titleShort>flesher</titleShort>
+    <baseDesc>[PAWN_nameDef] was a butcher by trade. [PAWN_pronoun] often slaughtered the animals he was going to prepare, but [PAWN_possessive] main job was to prepare carcasses into sellable cuts of meat. [PAWN_nameDef] used the scraps to make salami, which [PAWN_pronoun] often kept for [PAWN_objective]self.</baseDesc>
+    <slot>Adulthood</slot>
+    <skillGains>
+      <li><key>Cooking</key><value>6</value></li>
+      <li><key>Animals</key><value>2</value></li>
+    </skillGains>
+    <spawnCategories>
+      <li>DwarfCommon</li>
+    </spawnCategories>
+    <requiredWorkTags>
       <li>Caring</li>
     </requiredWorkTags>
     <shuffleable>true</shuffleable>
 </BackstoryDef>
 
   <BackstoryDef>
+    <defName>InsectRearer85</defName>
+    <title>insect rearer</title>
+    <titleShort>rearer</titleShort>
+    <baseDesc>[PAWN_nameDef] farmed insects for a living. [PAWN_pronoun] herded them, collected insect jelly from their hives, and occasionally sold some of [PAWN_possessive] herd when the population was becoming unmanageable. It was tough work, but [PAWN_nameDef] enjoyed providing food for the stoneborn.</baseDesc>
+    <slot>Adulthood</slot>
+    <skillGains>
+      <li><key>Animals</key><value>6</value></li>
+      <li><key>Plants</key><value>3</value></li>
+    </skillGains>
+    <spawnCategories>
+      <li>DwarfCommon</li>
+    </spawnCategories>
+    <requiredWorkTags>
+      <li>Mining</li>
+      <li>Caring</li>
+    </requiredWorkTags>
+    <shuffleable>true</shuffleable>
+</BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ClanHealer26</defName>
+    <title>clan healer</title>
+    <titleShort>healer</titleShort>
+    <baseDesc>[PAWN_nameDef] worked in a stoneborn medical ward. There, [PAWN_pronoun] learned how to treat all manner of injuries, from respiratory issues caused from ore dust and gas leaks to brutal industrial accidents. But the wounds [PAWN_pronoun] treated the most by far were the ones that were sustained from drunken brawls.</baseDesc>
+    <slot>Adulthood</slot>
+    <skillGains>
+      <li><key>Medicine</key><value>4</value></li>
+      <li><key>Plants</key><value>2</value></li>
+    </skillGains>
+    <spawnCategories>
+      <li>DwarfCommon</li>
+    </spawnCategories>
+    <requiredWorkTags>
+      <li>Caring</li>
+      <li>ManualSkilled</li>
+    </requiredWorkTags>
+    <shuffleable>true</shuffleable>
+</BackstoryDef>
+
+  <BackstoryDef>
+    <defName>Runesmith63</defName>
+    <title>runesmith</title>
+    <titleShort>runemsith</titleShort>
+    <baseDesc>[PAWN_nameDef] was trained in the delicate art of runesmithing. Only certain weapons and armor were of high enough quality to be adorned with runes, and [PAWN_pronoun] was one of the individuals that fashioned them. Due to the significance that rune-smithed equipment held to the stoneborn, [PAWN_possessive] services were always in high demand.</baseDesc>
+    <slot>Adulthood</slot>
+    <skillGains>
+      <li><key>Artistic</key><value>2</value></li>
+      <li><key>Crafting</key><value>3</value></li>
+    </skillGains>
+    <spawnCategories>
+      <li>DwarfCommon</li>
+    </spawnCategories>
+    <requiredWorkTags>
+      <li>ManualSkilled</li>
+    </requiredWorkTags>
+    <shuffleable>true</shuffleable>
+</BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ClanChef44</defName>
+    <title>clan chef</title>
+    <titleShort>chef</titleShort>
+    <baseDesc>[PAWN_nameDef] was a cook for the stoneborn underhalls. [PAWN_pronoun] baked rockbread, cooked mushrooms, prepared pastries, and brewed alcohol, often on the same day. And then when all the food [PAWN_pronoun] prepared was consumed, [PAWN_pronoun] would repeat the same process the next day. This brutal cooking gauntlet made [PAWN_nameDef] quite skilled at [PAWN_possessive] craft, but it also made [PAWN_objective] quite short-tempered, even for a stoneborn.</baseDesc>
+    <slot>Adulthood</slot>
+    <skillGains>
+      <li><key>Animals</key><value>2</value></li>
+      <li><key>Cooking</key><value>3</value></li>
+    </skillGains>
+    <spawnCategories>
+      <li>DwarfCommon</li>
+    </spawnCategories>
+    <requiredWorkTags>
+      <li>ManualSkilled</li>
+    </requiredWorkTags>
+    <shuffleable>true</shuffleable>
+</BackstoryDef>
+
+  <BackstoryDef>
+    <defName>Underbanker26</defName>
+    <title>underbanker</title>
+    <titleShort>underbanker</titleShort>
+    <baseDesc>[PAWN_nameDef] helped to manage the funds of his clan. [PAWN_possessive] days were filled with counting the silver in the clan vault, parsing through ledgers, and keeping track of the wealth each clan member had.</baseDesc>
+    <slot>Adulthood</slot>
+    <skillGains>
+      <li><key>Intellectual</key><value>5</value></li>
+      <li><key>Social</key><value>4</value></li>
+    </skillGains>
+    <spawnCategories>
+      <li>DwarfCommon</li>
+    </spawnCategories>
+    <requiredWorkTags>
+      <li>ManualSkilled</li>
+    </requiredWorkTags>
+    <shuffleable>true</shuffleable>
+</BackstoryDef>
+
+  <BackstoryDef>
+    <defName>Goldsmith41</defName>
+    <title>goldsmith</title>
+    <titleShort>goldsmith</titleShort>
+    <baseDesc>[PAWN_nameDef] worked with a staggering amount of gold and other valuable metals to create various novelties. Silverware, clan crests, and extravagant decorations were [PAWN_possessive] domain, making [PAWN_objective] quite popular with stoneborn nobility.</baseDesc>
+    <slot>Adulthood</slot>
+    <skillGains>
+      <li><key>Crafting</key><value>1</value></li>
+      <li><key>Artistic</key><value>3</value></li>
+      <li><key>Social</key><value>2</value></li>
+    </skillGains>
+    <spawnCategories>
+      <li>DwarfCommon</li>
+    </spawnCategories>
+    <requiredWorkTags>
+      <li>ManualSkilled</li>
+    </requiredWorkTags>
+    <shuffleable>true</shuffleable>
+</BackstoryDef>
+
+  <BackstoryDef>
+    <defName>Jeweler51</defName>
+    <title>jeweler</title>
+    <titleShort>jeweler</titleShort>
+    <baseDesc>[PAWN_nameDef] crafted delicate pieces of jewelry from gems and precious metals. [PAWN_possessive] jewelry was in high demand from stoneborn nobility, and [PAWN_pronoun] often had to haggle with them to get a fair price.</baseDesc>
+    <slot>Adulthood</slot>
+    <skillGains>
+      <li><key>Artistic</key><value>2</value></li>
+      <li><key>Social</key><value>3</value></li>
+    </skillGains>
+    <spawnCategories>
+      <li>DwarfCommon</li>
+    </spawnCategories>
+    <requiredWorkTags>
+      <li>ManualDumb</li>
+      <li>ManualSkilled</li>
+    </requiredWorkTags>
+    <shuffleable>true</shuffleable>
+</BackstoryDef>
+
+  <BackstoryDef>
+    <defName>Metallurgist43</defName>
+    <title>metallurgist</title>
+    <titleShort>metallurgist</titleShort>
+    <baseDesc>Rather than forging equipment from metal, [PAWN_nameDef] worked with the very metal itself. [PAWN_pronoun] made sure the smelters were at the correct temperatures and monitored the metal ratios in alloys. On occasion, [PAWN_nameDef] would experiment with the smelting process to see if [PAWN_pronoun] could cut out any inefficiencies, to varying degrees of success.</baseDesc>
+    <slot>Adulthood</slot>
+    <skillGains>
+      <li><key>Crafting</key><value>3</value></li>
+      <li><key>Intellectual</key><value>3</value></li>
+    </skillGains>
+    <spawnCategories>
+      <li>DwarfCommon</li>
+    </spawnCategories>
+    <requiredWorkTags>
+      <li>ManualDumb</li>
+      <li>ManualSkilled</li>
+    </requiredWorkTags>
+    <shuffleable>true</shuffleable>
+</BackstoryDef>
+
+  <BackstoryDef>
+    <defName>Forgemaster64</defName>
+    <title>forgemaster</title>
+    <titleShort>forgemaster</titleShort>
+    <baseDesc>[PAWN_nameDef] helped manage the workers in one of the underforges. When [PAWN_pronoun] was not examining and critiquing the output of the smiths, [PAWN_nameDef] was barking orders to the laborers. [PAWN_nameDef] took [PAWN_possessive] position very seriously, and [PAWN_pronoun] ensured everyone under [PAWN_possessive] was working to their fullest extent.</baseDesc>
+    <slot>Adulthood</slot>
+    <skillGains>
+      <li><key>Crafting</key><value>4</value></li>
+      <li><key>Social</key><value>2</value></li>
+    </skillGains>
+    <spawnCategories>
+      <li>DwarfCommon</li>
+    </spawnCategories>
+    <requiredWorkTags>
+      <li>ManualDumb</li>
+      <li>ManualSkilled</li>
+    </requiredWorkTags>
+    <shuffleable>true</shuffleable>
+</BackstoryDef>
+
+  <BackstoryDef>
+    <defName>SporeAlchemist52</defName>
+    <title>spore alchemist</title>
+    <titleShort>alchemist</titleShort>
+    <baseDesc>[PAWN_nameDef] experimented with various fungi to see what [PAWN_pronoun] could make. On occasion, [PAWN_nameDef] found a mushroom with medicinal properties. But for the most part, [PAWN_pronoun] ended up brewing a lot of mushroom alcohol.</baseDesc>
+    <slot>Adulthood</slot>
+    <skillGains>
+      <li><key>Plants</key><value>3</value></li>
+      <li><key>Medicine</key><value>2</value></li>
+    </skillGains>
+    <spawnCategories>
+      <li>DwarfCommon</li>
+    </spawnCategories>
+    <requiredWorkTags>
+      <li>ManualDumb</li>
+      <li>ManualSkilled</li>
+    </requiredWorkTags>
+    <shuffleable>true</shuffleable>
+</BackstoryDef>
+
+  <BackstoryDef>
+    <defName>MineshaftCanary35</defName>
+    <title>mineshaft canary</title>
+    <titleShort>canary</titleShort>
+    <baseDesc>[PAWN_nameDef] interpreted the results of gas-detecting equipment to determine whether mine shafts were safe to mine in or not. Unfortunately for [PAWN_objective], that also meant that [PAWN_pronoun] had to place the equipment in said mine shafts to get readings in the first place. [PAWN_nameDef] has had a few close brushes with death, but [PAWN_pronoun] has also gotten quite good at running away from gas leaks.</baseDesc>
+    <slot>Adulthood</slot>
+    <skillGains>
+      <li><key>Construction</key><value>3</value></li>
+      <li><key>Cooking</key><value>2</value></li>
+    </skillGains>
+    <spawnCategories>
+      <li>DwarfCommon</li>
+    </spawnCategories>
+    <requiredWorkTags>
+      <li>ManualDumb</li>
+      <li>ManualSkilled</li>
+    </requiredWorkTags>
+    <shuffleable>true</shuffleable>
+</BackstoryDef>
+
+  <BackstoryDef>
+    <defName>GasGiantSkimmer22</defName>
+    <title>gas giant skimmer</title>
+    <titleShort>skimmer</titleShort>
+    <baseDesc>[PAWN_nameDef] was often stationed in orbit around a local gas giant. [PAWN_possessive] job was to go down to the surface of the planet, harvest gas, fly it back home, fly back to the gas giant, and repeat. [PAWN_nameDef] had to pick up a variety of skills to survive the brutal task [PAWN_pronoun] had, including producing his own food.</baseDesc>
+    <slot>Adulthood</slot>
+    <skillGains>
+      <li><key>Mining</key><value>3</value></li>
+      <li><key>Cooking</key><value>2</value></li>
+    </skillGains>
+    <spawnCategories>
+      <li>DwarfCommon</li>
+    </spawnCategories>
+    <requiredWorkTags>
+      <li>ManualDumb</li>
+      <li>ManualSkilled</li>
+    </requiredWorkTags>
+    <shuffleable>true</shuffleable>
+</BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ClanCrafter64</defName>
+    <title>clan crafter</title>
+    <titleShort>crafter</titleShort>
+    <baseDesc>[PAWN_nameDef] was a dedicated crafter for a stoneborn clan. Rather than working in the underforges, [PAWN_pronoun] manufactured armaments in a private forge to be used solely by [PAWN_possessive] clan. This gave [PAWN_nameDef] connections that most other stoneborn could only dream of.</baseDesc>
+    <slot>Adulthood</slot>
+    <skillGains>
+      <li><key>Crafting</key><value>3</value></li>
+      <li><key>Construction</key><value>3</value></li>
+    </skillGains>
+    <spawnCategories>
+      <li>DwarfCommon</li>
+    </spawnCategories>
+    <requiredWorkTags>
+      <li>ManualDumb</li>
+      <li>ManualSkilled</li>
+    </requiredWorkTags>
+    <shuffleable>true</shuffleable>
+</BackstoryDef>
+
+  <BackstoryDef>
+    <defName>Gilder34</defName>
+    <title>gilder</title>
+    <titleShort>gilder</titleShort>
+    <baseDesc>[PAWN_nameDef] enjoyed crafting as much as any other stoneborn, but [PAWN_possessive] true passion was in decorating finished weapons and armor with gold. The process of carefully inlaying gold and making it durable enough to stay on during a battle was an art [PAWN_pronoun] excelled at.</baseDesc>
+    <slot>Adulthood</slot>
+    <skillGains>
+      <li><key>Crafting</key><value>4</value></li>
+      <li><key>Artistic</key><value>2</value></li>
+    </skillGains>
+    <spawnCategories>
+      <li>DwarfCommon</li>
+    </spawnCategories>
+    <requiredWorkTags>
+      <li>ManualDumb</li>
+      <li>ManualSkilled</li>
+    </requiredWorkTags>
+    <shuffleable>true</shuffleable>
+</BackstoryDef>
+
+  <BackstoryDef>
+    <defName>RefineryWorker73</defName>
+    <title>refinery worker</title>
+    <titleShort>refinery worker</titleShort>
+    <baseDesc>[PAWN_nameDef] was a simple laborer in the underforges, mainly tasked to haul metal, clear slag, and refuel machines, among other menial tasks. [PAWN_pronoun] may not have had the most glamorous or prestigious position, but it was a vital task nonetheless. [PAWN_nameDef] became quite experienced in breaking apart slag, and [PAWN_pronoun] even managed to pick up some of the crafting techniques the smiths in the underforges used.</baseDesc>
+    <slot>Adulthood</slot>
+    <skillGains>
+      <li><key>Mining</key><value>2</value></li>
+      <li><key>Crafting</key><value>3</value></li>
+    </skillGains>
+    <spawnCategories>
+      <li>DwarfCommon</li>
+    </spawnCategories>
+    <requiredWorkTags>
+      <li>ManualDumb</li>
+      <li>ManualSkilled</li>
+    </requiredWorkTags>
+    <shuffleable>true</shuffleable>
+</BackstoryDef>
+
+  <BackstoryDef>
+    <defName>DeepMiner62</defName>
+    <title>deep miner</title>
+    <titleShort>miner</titleShort>
+    <baseDesc>Every stoneborn knows how to mine, but [PAWN_nameDef] was especially talented at it. [PAWN_possessive] skills with digging far outstripped most of [PAWN_possessive] peers, which is why [PAWN_pronoun] was often selected to go on particularly deep and dangerous mining excursions.</baseDesc>
+    <slot>Adulthood</slot>
+    <skillGains>
+      <li><key>Mining</key><value>4</value></li>
+    </skillGains>
+    <spawnCategories>
+      <li>DwarfCommon</li>
+    </spawnCategories>
+    <requiredWorkTags>
+      <li>ManualDumb</li>
+      <li>ManualSkilled</li>
+    </requiredWorkTags>
+    <shuffleable>true</shuffleable>
+</BackstoryDef>
+
+  <BackstoryDef>
+    <defName>MushroomFarmer24</defName>
+    <title>mushroom farmer</title>
+    <titleShort>farmer</titleShort>
+    <baseDesc>[PAWN_nameDef] was a humble mushroom cultivator in one of the stoneborn’s many underground fungus farms. [PAWN_possessive] waking hours were spent either tending to the mushrooms or maintaining the very soil they grew in, never taking a break for [PAWN_objective]self. [PAWN_nameDef] never complained however, as [PAWN_pronoun] knew how important [PAWN_objective] job was for the survival of the stoneborn.</baseDesc>
+    <slot>Adulthood</slot>
+    <skillGains>
+      <li><key>Animals</key><value>2</value></li>
+      <li><key>Plants</key><value>4</value></li>
+    </skillGains>
+    <spawnCategories>
+      <li>DwarfCommon</li>
+    </spawnCategories>
+    <requiredWorkTags>
+      <li>ManualDumb</li>
+      <li>ManualSkilled</li>
+    </requiredWorkTags>
+    <shuffleable>true</shuffleable>
+</BackstoryDef>
+
+  <BackstoryDef>
+    <defName>Weaponsmith69</defName>
+    <title>weaponsmith</title>
+    <titleShort>weaponsmith</titleShort>
+    <baseDesc>[PAWN_nameDef] was a smith in the grand stoneborn underforges. While [PAWN_pronoun] received training in all methods of crafting, [PAWN_possessive] true speciality was in crafting the finest armaments for the military. Thanks to extensive practice and experience, [PAWN_nameDef] struck a near perfect balance between quality and quantity with producing weaponry.</baseDesc>
+    <slot>Adulthood</slot>
+    <skillGains>
+      <li><key>Melee</key><value>2</value></li>
+      <li><key>Crafting</key><value>2</value></li>
+    </skillGains>
+    <spawnCategories>
+      <li>DwarfCommon</li>
+    </spawnCategories>
+    <requiredWorkTags>
+      <li>ManualDumb</li>
+      <li>ManualSkilled</li>
+    </requiredWorkTags>
+    <shuffleable>true</shuffleable>
+</BackstoryDef>
+
+<!-- ==== Military backstories for dwarves ====  -->
+
+  <BackstoryDef>
     <defName>Warcleric48</defName>
     <title>warcleric</title>
     <titleShort>warcleric</titleShort>
-    <baseDesc>Taken in as a simple soldier by a particularly zealous wing of religious believers, [PAWN_nameDef] was schooled in the arts of strategy, war, and medicine, serving in an army as both a reliable medic and a powerful general.
-      /nThough that life is now long behind, [PAWN_nameDef] still finds it hard to change [PAWN_possessive] mind on various theological topics.</baseDesc>
+    <baseDesc>[PAWN_nameDef] channeled [PAWN_possessive] faith both on and off the battlefield. Whether residing at home or taking cover from enemy fire, [PAWN_pronoun] could often be heard reciting relevant lines from various holy texts.\n\nNo matter the situation, [PAWN_nameDef]’s devoutness was unyielding to the point where it bolstered the resolve and morale of his compatriots, even if they possessed differing ideals.</baseDesc>
     <slot>Adulthood</slot>
     <skillGains>
-      <li><key>Melee</key><value>3</value></li>
+      <li><key>Melee</key><value>5</value></li>
       <li><key>Medicine</key><value>3</value></li>
-      <li><key>Intellectual</key><value>2</value></li>
+      <li><key>Intellectual</key><value>3</value></li>
     </skillGains>
     <spawnCategories>
       <li>DwarfCommon</li>
@@ -51,12 +426,13 @@
     <defName>Goldguard44</defName>
     <title>goldguard</title>
     <titleShort>goldguard</titleShort>
-    <baseDesc>[PAWN_nameDef] once stood guard for a large gold-filled treasury in the core of an ancient underground fortress in which [PAWN_pronoun] thrived in, keeping it safe from thieves and raiders 
-    \nThe nights spent alone have taken a toll on [PAWN_possessive] speech.</baseDesc>
+    <baseDesc>[PAWN_nameDef] held the important job of guarding the vault of [PAWN_possessive] clan. Most of [PAWN_possessive] shifts were peaceful, dotted with the rare robbery attempt that [PAWN_pronoun] easily thwarted. While [PAWN_pronoun] stood guard, [PAWN_nameDef] often passed the time by listening to the clan underbankers crunch numbers.</baseDesc>
     <slot>Adulthood</slot>
     <skillGains>
-      <li><key>Shooting</key><value>4</value></li>
+      <li><key>Shooting</key><value>2</value></li>
+      <li><key>Melee</key><value>5</value></li>
       <li><key>Social</key><value>-2</value></li>
+      <li><key>Intellectual</key><value>-2</value></li>
     </skillGains>
     <spawnCategories>
       <li>DwarfCommon</li>
@@ -75,11 +451,11 @@
     <defName>Inquisitor84</defName>
     <title>inquisitor</title>
     <titleShort>inquisitor</titleShort>
-    <baseDesc>Under the cruel hand of a malicious lord, [PAWN_nameDef] slaughtered and assassinated many religious enemies who refused to be subjugated. Treated as nothing more than a weapon by [PAWN_possessive] masters, [PAWN_pronoun] now suffers when it comes to socialization.</baseDesc>
+    <baseDesc>[PAWN_nameDef] was a particularly zealous proponent of [PAWN_possessive] faith. [PAWN_pronoun] often traveled around to proselytize to others, and if [PAWN_possessive] not seem sufficiently interested in what [PAWN_pronoun] talking about, [PAWN_nameDef] was more than happy to utilize a more physical approach for conversion.</baseDesc>
     <slot>Adulthood</slot>
     <skillGains>
-      <li><key>Shooting</key><value>2</value></li>
-      <li><key>Melee</key><value>2</value></li>
+      <li><key>Shooting</key><value>4</value></li>
+      <li><key>Melee</key><value>3</value></li>
       <li><key>Social</key><value>-2</value></li>
     </skillGains>
     <spawnCategories>
@@ -99,11 +475,11 @@
     <defName>Gatekeeper34</defName>
     <title>gatekeeper</title>
     <titleShort>gatekeeper</titleShort>
-    <baseDesc>[PAWN_nameDef], along with various comrades, guarded a large deepgate which served as an entrance to an underground fortress. [PAWN_pronoun] discovered many things and interesting people in those days.</baseDesc>
+    <baseDesc>[PAWN_nameDef] guarded the entrances of various places. Most days, [PAWN_pronoun] was positioned near the base entrance, where [PAWN_pronoun] would stand for hours at a time with no excitement besides talking to the people who walked by./nHowever, [PAWN_nameDef] was occasionally moved to more interesting and dangerous locations where [PAWN_pronoun] would get to flex [PAWN_possessive] muscles and crack some heads.</baseDesc>
     <slot>Adulthood</slot>
     <skillGains>
-      <li><key>Social</key><value>2</value></li>
-      <li><key>Melee</key><value>3</value></li>
+      <li><key>Social</key><value>3</value></li>
+      <li><key>Melee</key><value>6</value></li>
     </skillGains>
     <spawnCategories>
       <li>DwarfCommon</li>
@@ -120,11 +496,13 @@
     <defName>InsectHunter24</defName>
     <title>insect hunter</title>
     <titleShort>hunter</titleShort>
-    <baseDesc>Hunting, dispatching and harvesting insectoids is second nature to [PAWN_nameDef]. [PAWN_pronoun] knows exactly how megaspiders think and act, and knows everything about their anatomy.</baseDesc>
+    <baseDesc>[PAWN_nameDef] was part of an insectoid kill squadron. [PAWN_possessive] job was to enter mineshafts that were infested with insectoids in order to fully clear them out. One of [PAWN_objective] favorite insectoid killing methods was to smoke the insects out with a flamethrower before funneling them into her shotgun-armed squadmates./n[PAWN_nameDef] also enjoyed simply caving insectoid heads in with a large hammer.</baseDesc>
     <slot>Adulthood</slot>
     <skillGains>
-      <li><key>Animals</key><value>6</value></li>
+      <li><key>Animals</key><value>2</value></li>
       <li><key>Mining</key><value>2</value></li>
+      <li><key>Melee</key><value>4</value></li>
+      <li><key>Shooting</key><value>4</value></li>
     </skillGains>
     <spawnCategories>
       <li>DwarfCommon</li>
@@ -132,7 +510,7 @@
     </spawnCategories>
     <requiredWorkTags>
       <li>ManualDumb</li>
-      <li>Caring</li>
+      <li>Violent</li>
       <li>Mining</li>
     </requiredWorkTags>
     <shuffleable>true</shuffleable>
@@ -142,8 +520,13 @@
     <defName>AbyssalMarine42</defName>
     <title>abyssal marine</title>
     <titleShort>marine</titleShort>
-    <baseDesc>[PAWN_nameDef] suffered weeks of ruthless training in the unforgiving depths of a shell-world, fighting other trainees in the darkness.</baseDesc>
+    <baseDesc>[PAWN_nameDef] trained to engage his opponents in wide open areas, such as sprawling caverns and ravines. While [PAWN_pronoun] had general combat training, firing upon the enemy where they had trouble reaching [PAWN_objective] was where [PAWN_nameDef] excelled.</baseDesc>
     <slot>Adulthood</slot>
+    <skillGains>
+      <li><key>Mining</key><value>2</value></li>
+      <li><key>Melee</key><value>3</value></li>
+      <li><key>Shooting</key><value>6</value></li>
+    </skillGains>
     <spawnCategories>
       <li>DwarfCommon</li>
       <li>DwarfFighter</li>
@@ -151,6 +534,133 @@
     <forcedTraits>
       <Undergrounder>0</Undergrounder>
     </forcedTraits>
+    <requiredWorkTags>
+      <li>Violent</li>
+      <li>Mining</li>
+    </requiredWorkTags>
+    <shuffleable>true</shuffleable>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>StygialSoldier77</defName>
+    <title>stygial soldier</title>
+    <titleShort>soldier</titleShort>
+    <baseDesc>[PAWN_nameDef] was trained to battle in close quarters in tight underground spaces, such as narrow caves and corridors. [PAWN_pronoun] was knowledgeable in conventional combat techniques, but navigating and engaging the enemy in such small spaces was where [PAWN_nameDef] truly felt at home.</baseDesc>
+    <slot>Adulthood</slot>
+    <skillGains>
+      <li><key>Mining</key><value>2</value></li>
+      <li><key>Melee</key><value>6</value></li>
+      <li><key>Shooting</key><value>3</value></li>
+    </skillGains>
+    <spawnCategories>
+      <li>DwarfCommon</li>
+      <li>DwarfFighter</li>
+    </spawnCategories>
+    <forcedTraits>
+      <Undergrounder>0</Undergrounder>
+    </forcedTraits>
+    <requiredWorkTags>
+      <li>Violent</li>
+      <li>Mining</li>
+    </requiredWorkTags>
+    <shuffleable>true</shuffleable>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>MineSentinel41</defName>
+    <title>mine sentinel</title>
+    <titleShort>sentinel</titleShort>
+    <baseDesc>[PAWN_nameDef] was tasked with watching over the mines that stoneborn were actively working in. For the most part, this meant that [PAWN_pronoun] would make sure that the miners were working efficiently while breaking up the occasional brawl. But when insectoids inevitably burrowed into a mineshaft, [PAWN_nameDef] would eliminate them with ruthless efficiency before they caused too much damage.</baseDesc>
+    <slot>Adulthood</slot>
+    <skillGains>
+      <li><key>Melee</key><value>5</value></li>
+      <li><key>Shooting</key><value>3</value></li>
+    </skillGains>
+    <spawnCategories>
+      <li>DwarfCommon</li>
+      <li>DwarfFighter</li>
+    </spawnCategories>
+    <forcedTraits>
+      <Undergrounder>0</Undergrounder>
+    </forcedTraits>
+    <requiredWorkTags>
+      <li>Violent</li>
+      <li>Mining</li>
+    </requiredWorkTags>
+    <shuffleable>true</shuffleable>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ShipDriller92</defName>
+    <title>ship driller</title>
+    <titleShort>driller</titleShort>
+    <baseDesc>[PAWN_nameDef] participated in ship-to-ship combat. [PAWN_possessive]’s role was to man a wardrill pod and steer it right into the enemy ship. After breaching the hull, [PAWN_nameDef] would move methodically through the ship to take out any crew that [PAWN_pronoun] could before having to withdraw.</baseDesc>
+    <slot>Adulthood</slot>
+    <bodyTypeMale>Hulk</bodyTypeMale>
+    <bodyTypeFemale>Hulk</bodyTypeFemale>
+    <skillGains>
+      <li><key>Melee</key><value>5</value></li>
+      <li><key>Shooting</key><value>3</value></li>
+      <li><key>Mining</key><value>4</value></li>
+    </skillGains>
+    <spawnCategories>
+      <li>DwarfCommon</li>
+      <li>DwarfFighter</li>
+    </spawnCategories>
+    <forcedTraits>
+      <Undergrounder>0</Undergrounder>
+    </forcedTraits>
+    <requiredWorkTags>
+      <li>Violent</li>
+      <li>Mining</li>
+    </requiredWorkTags>
+    <shuffleable>true</shuffleable>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>Runewarrior28</defName>
+    <title>rune warrior</title>
+    <titleShort>warrior</titleShort>
+    <baseDesc>[PAWN_nameDef] possessed enough influence and combat prowess to be allowed to wield rune-smithed equipment. Such an honor was quite uncommon in stoneborn society due to the quality and price of such items, which made [PAWN_objective] especially stand out from the usual rank-and-file soldiers. A mere glance of [PAWN_nameDef] was enough to inspire fervent bravery in [PAWN_possessive] allies and fear in [PAWN_possessive] foes.</baseDesc>
+    <slot>Adulthood</slot>
+    <bodyTypeMale>Hulk</bodyTypeMale>
+    <bodyTypeFemale>Hulk</bodyTypeFemale>
+    <skillGains>
+      <li><key>Melee</key><value>6</value></li>
+      <li><key>Shooting</key><value>2</value></li>
+      <li><key>Social</key><value>3</value></li>
+    </skillGains>
+    <spawnCategories>
+      <li>DwarfCommon</li>
+      <li>DwarfFighter</li>
+    </spawnCategories>
+    <requiredWorkTags>
+      <li>Violent</li>
+      <li>Mining</li>
+    </requiredWorkTags>
+    <shuffleable>true</shuffleable>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>Psyhunter61</defName>
+    <title>psyhunter</title>
+    <titleShort>psyhunter</titleShort>
+    <baseDesc>[PAWN_nameDef] practiced the delicate art of slaying psycasters. Of course, while [PAWN_possessive] natural psychic inertness was helpful, [PAWN_pronoun] was no match for a psycaster in direct combat. Thus, [PAWN_nameDef] hunted down psycasters in long range engagements, as psychic powers were not particularly dangerous when they could not reach [PAWN_possessive].</baseDesc>
+    <slot>Adulthood</slot>
+    <bodyTypeMale>Male</bodyTypeMale>
+    <bodyTypeFemale>Male</bodyTypeFemale>
+    <skillGains>
+      <li><key>Melee</key><value>4</value></li>
+      <li><key>Shooting</key><value>4</value></li>
+    </skillGains>
+    <spawnCategories>
+      <li>DwarfCommon</li>
+      <li>DwarfFighter</li>
+    </spawnCategories>
+    <requiredWorkTags>
+      <li>Violent</li>
+      <li>Mining</li>
+    </requiredWorkTags>
     <shuffleable>true</shuffleable>
   </BackstoryDef>
 

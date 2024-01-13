@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Callouts</li>
+    </mods>
+    <match Class="PatchOperationSequence">
+      <success>Always</success>
+        <operations>
+
+          <li Class="PatchOperationAdd">
+            <xpath>Defs/RulePackDef[defName="CM_Callouts_RulePack_Attack_Common"]/rulePack/rulesStrings</xpath>
+            <value>
+                <li>rule(Dwarven_Callouts==true,p=1000)->I'll make burgers out of ye, runt!</li>
+                <li>rule(Dwarven_Callouts==true,p=1000)->You can run and hide, but I can dig!</li>
+                <li>rule(Dwarven_Callouts==true,p=1000)->Suck on some stalagmites!</li>
+                <li>rule(Dwarven_Callouts==true,p=1000)->Your mouth spits more crap than a browbull's arse!</li>
+                <li>rule(Dwarven_Callouts==true,p=1000)->Quit runnin', and fight me like a man!</li>
+                <li>rule(Dwarven_Callouts==true,p=1000)->Dirty leaf-lover!</li>
+                <li>rule(Dwarven_Callouts==true,p=1000)->I'll gnaw on your [BodyPart]!</li>
+                <li>rule(Dwarven_Callouts==true,p=1000)->Touch some concrete, disgusting treehugger!</li>
+                <li>rule(Dwarven_Callouts==true,p=1000)->Goddamn knife-ear!</li>
+                <li>rule(Dwarven_Callouts==true,p=1000)->This is for my underlord!</li>
+                <li>rule(Dwarven_Callouts==true,p=1000)->Feel the cold edge of my [INITIATOR_WEAPON_stuffLabel] [INITIATOR_WEAPON_label]</li>
+                <li>rule(Dwarven_Callouts==true,p=1000)->For the bladefather's will!</li>
+                <li>rule(Dwarven_Callouts==true,p=1000)->For Grugni!</li>
+                <li>rule(Dwarven_Callouts==true,p=1000)->I'll gut you like an insectoid!</li>
+                <li>rule(Dwarven_Callouts==true,p=1000)->You're weaker than a megascarab!</li>
+                <li>rule(Dwarven_Callouts==true,p=1000)->You run like a slug!</li>
+                <li>rule(Dwarven_Callouts==true,p=1000)->I can smell your fear!</li>
+                <li>rule(Dwarven_Callouts==true,p=1000)->You and your people will die!</li>
+                <li>rule(Dwarven_Callouts==true,p=1000)->Come here, disgusting [INITIATOR_alienRace]!</li>
+                <li>rule(Dwarven_Callouts==true,p=1000)->Diggy diggy skull!</li>
+                <li>rule(Dwarven_Callouts==true,p=1000)->I was forged to kill!</li>
+                <li>rule(Dwarven_Callouts==true,p=1000)->I'll mine you like slate!</li>
+                <li>rule(Dwarven_Callouts==true,p=1000)->Your mother would be ashamed!</li>
+                <li>rule(Dwarven_Callouts==true,p=1000)->Fight me!</li>
+                <li>rule(Dwarven_Callouts==true,p=1000)->Is that all you got, slag?!</li>
+                <li>rule(Dwarven_Callouts==true,p=1000)->Do you hug your mother with those weak arms?!</li>
+                <li>rule(Dwarven_Callouts==true,p=1000)->I am a proud [INITIATOR_kind]!</li>
+                <li>rule(Dwarven_Callouts==true,p=1000)->For [INITIATOR_factionName]!</li>
+                <li>rule(Dwarven_Callouts==true,p=1000)->Die by the [INITIATOR_WEAPON_label] of [INITIATOR_nameFull]!</li>
+                <li>rule(Dwarven_Callouts==true,p=1000)->You're puny, dreg!</li>
+                <li>rule(Dwarven_Callouts==true,p=1000)->Scrawnier than a gnoblin's arms!</li>
+                <li>rule(Dwarven_Callouts==true,p=1000)->Skinnier than an elf!</li>
+                <li>rule(Dwarven_Callouts==true,p=1000)->Where is your fighting spirit?!</li>
+                <li>rule(Dwarven_Callouts==true,p=1000)->Do you feel pride in your weakness?!</li>
+                <li>rule(Dwarven_Callouts==true,p=1000)->Scrapped!</li>
+                <li>rule(Dwarven_Callouts==true,p=1000)->Slagged!</li>
+                <li>rule(Dwarven_Callouts==true,p=1000)->Melted!</li>
+
+            </value>
+          </li>
+
+          <li Class="PatchOperationAdd">
+            <xpath>/Defs/RulePackDef[defName="CM_Callouts_RulePack_Ranged_Attack"]/rulePack/rulesStrings</xpath>
+            <value>
+              <li>rule(Dwarven_Callouts==true,p=1000)->Target locked and loaded!</li>
+              <li>rule(Dwarven_Callouts==true,p=1000)->I've got you in my sight!</li>
+              <li>rule(Dwarven_Callouts==true,p=1000)->I've shot flies stronger than you!</li>
+              <li>rule(Dwarven_Callouts==true,p=1000)->You can't outsmart bullets!</li>
+              <li>rule(Dwarven_Callouts==true,p=1000)->With my [INITIATOR_WEAPON_label], I will defeat you!</li>
+              <li>rule(Dwarven_Callouts==true,p=1000)->Bullets course through my veins!</li>
+              <li>rule(Dwarven_Callouts==true,p=1000)->I eat and shit runts like you!</li>
+              <li>rule(Dwarven_Callouts==true,p=1000)->Can't outrun my lead!</li>
+              <li>rule(Dwarven_Callouts==true,p=1000)->You think you've got what it takes?!</li>
+              <li>rule(Dwarven_Callouts==true,p=1000)->You're worthless!</li>
+              <li>rule(Dwarven_Callouts==true,p=1000)->I'll turn you into a cheese-grater!</li>
+              <li>rule(Dwarven_Callouts==true,p=1000)->Rain hell on them!</li>
+              <li>rule(Dwarven_Callouts==true,p=1000)->Spelopedes are more threatening than you!</li>
+              <li>rule(Dwarven_Callouts==true,p=1000)->Who's up for some ale after this?!</li>
+              <li>rule(Dwarven_Callouts==true,p=1000)->For the underlord!</li>
+              <li>rule(Dwarven_Callouts==true,p=1000)->For the forge!</li>
+              <li>rule(Dwarven_Callouts==true,p=1000)->For Grugni!</li>
+              <li>rule(Dwarven_Callouts==true,p=1000)->Just come here, it'll all be over soon!</li>
+              <li>rule(Dwarven_Callouts==true,p=1000)->This could be a lot simpler!</li>
+              <li>rule(Dwarven_Callouts==true,p=1000)->I've got more mags than beardhairs!</li>
+              <li>rule(Dwarven_Callouts==true,p=1000)->I could do this all day!</li>
+              <li>rule(Dwarven_Callouts==true,p=1000)->No escape!</li>
+              <li>rule(Dwarven_Callouts==true,p=1000)->It's killed or be killed, and I'm not planning on dying!</li>
+              <li>rule(Dwarven_Callouts==true,p=1000)->I'm [AdjectiveBadass]!</li>
+              <li>rule(Dwarven_Callouts==true,p=1000)->Hope you enjoyed having a functioning [BodyPart]!</li>
+              <li>rule(Dwarven_Callouts==true,p=1000)->Die, die die!</li>
+              <li>rule(Dwarven_Callouts==true,p=1000)->I'm unstoppable!</li>
+              <li>rule(Dwarven_Callouts==true,p=1000)->Let's show them what's what!</li>
+              <li>rule(Dwarven_Callouts==true,p=1000)->Stand your ground until the end!</li>
+              <li>rule(Dwarven_Callouts==true,p=1000)->Scrapped!</li>
+              <li>rule(Dwarven_Callouts==true,p=1000)->Slagged!</li>
+              <li>rule(Dwarven_Callouts==true,p=1000)->Melted!</li>
+            </value>
+          </li>
+
+          <li Class="PatchOperationAdd">
+            <xpath>/Defs/RulePackDef[defName="CM_Callouts_RulePack_Ranged_Attack"]/rulePack/rulesStrings</xpath>
+            <value>
+              <li>rule(Dwarven_CalloutsFire==true,p=1000)->Flame!</li>
+              <li>rule(Dwarven_CalloutsFire==true,p=1000)->Fire!</li>
+              <li>rule(Dwarven_CalloutsFire==true,p=1000)->Burn!</li>
+              <li>rule(Dwarven_CalloutsFire==true,p=1000)->Let my flames purge you!</li>
+              <li>rule(Dwarven_CalloutsFire==true,p=1000)->My will is as fiery as my [INITIATOR_WEAPON_label]!</li>
+              <li>rule(Dwarven_CalloutsFire==true,p=1000)->Perfectly cooked!</li>
+              <li>rule(Dwarven_CalloutsFire==true,p=1000)->Well roasted, if a little unseasoned!</li>
+              <li>rule(Dwarven_CalloutsFire==true,p=1000)->No wall can stand my flames!</li>
+              <li>rule(Dwarven_CalloutsFire==true,p=1000)->I've burnt more forests than you could ever imagine!</li>
+            </value>
+          </li>
+
+        </operations>
+      </match>
+    </Operation>
+    
+	
+</Patch>
