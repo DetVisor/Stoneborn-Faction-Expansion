@@ -57,7 +57,6 @@
       <Mass>35</Mass>
     </statBases>
     <comps>
-      <li Class="CompProperties_Forbiddable"/>
       <li Class="CompProperties_Flickable"/>
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
@@ -68,8 +67,12 @@
       <li Class="CompProperties_Refuelable">
         <fuelLabel>Reserve drill bits</fuelLabel>
         <fuelGizmoLabel>Drill bit durability</fuelGizmoLabel>
-        <fuelCapacity>3.0</fuelCapacity>
+        <fuelConsumptionRate>0.8</fuelConsumptionRate>
+        <fuelCapacity>1.0</fuelCapacity>
+        <initialFuelPercent>1</initialFuelPercent>
         <showFuelGizmo>true</showFuelGizmo>
+        <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+        <externalTicking>true</externalTicking>
         <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
         <outOfFuelMessage>Cannot drill: Drill bits broken.</outOfFuelMessage>
         <fuelIconPath>UI/Overlays/Chemfuel</fuelIconPath>
@@ -80,7 +83,11 @@
         </fuelFilter>
       </li>
       <li Class="CompProperties_SmokeCloudMaker">
-        <sourceStreamEffect>BurnbongSmoke</sourceStreamEffect>
+        <sourceStreamEffect>DrillAutomatic</sourceStreamEffect>
+        <cloudRadius>0</cloudRadius>
+        <fleckScale>0</fleckScale>
+        <cloudFleck>FlashRed</cloudFleck>
+        <fleckSpawnMTB>0</fleckSpawnMTB>
       </li>
     </comps>
   </ThingDef>
