@@ -59,6 +59,7 @@
     </statBases>
     <comps>
       <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_Breakdownable"/>
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
         <basePowerConsumption>350</basePowerConsumption>
@@ -66,17 +67,17 @@
       <li Class="StonebornExpansion.CompProperties_AutoDrill" />
       <li Class="CompProperties_CreatesInfestations" />
       <li Class="CompProperties_Refuelable">
-        <fuelLabel>Reserve drill bits</fuelLabel>
-        <fuelGizmoLabel>Drill bit durability</fuelGizmoLabel>
-        <fuelConsumptionRate>0.8</fuelConsumptionRate>
+        <fuelLabel>Drill bit durability</fuelLabel>
+        <fuelGizmoLabel>Drill durability</fuelGizmoLabel>
+        <fuelConsumptionRate>0.2</fuelConsumptionRate>
         <fuelCapacity>1.0</fuelCapacity>
         <initialFuelPercent>1</initialFuelPercent>
         <showFuelGizmo>true</showFuelGizmo>
         <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
         <externalTicking>true</externalTicking>
         <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
-        <outOfFuelMessage>Cannot drill: Drill bits broken.</outOfFuelMessage>
-        <fuelIconPath>UI/Overlays/Chemfuel</fuelIconPath>
+        <outOfFuelMessage>Cannot drill: Drill bit worn down.</outOfFuelMessage>
+        <fuelIconPath>UI/Overlays/DrillBit</fuelIconPath>
         <fuelFilter>
           <thingDefs>
             <li>DV_ReinforcedDrillBit</li>

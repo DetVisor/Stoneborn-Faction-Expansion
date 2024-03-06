@@ -218,10 +218,9 @@
         </createMatingPair>
       </li>
 
-      <!-- Archite capsules -->
-      <li MayRequire="Ludeon.RimWorld.Biotech" Class="StockGenerator_SingleDef">
-        <thingDef>ArchiteCapsule</thingDef>
-        <countRange>-1~2</countRange> <!-- 50% chance for 1~2 -->
+      <li Class="StockGenerator_SingleDef">
+        <thingDef>DV_ReinforcedDrillBit</thingDef>
+        <countRange>1~5</countRange>
       </li>
 
       <!-- Buying -->
