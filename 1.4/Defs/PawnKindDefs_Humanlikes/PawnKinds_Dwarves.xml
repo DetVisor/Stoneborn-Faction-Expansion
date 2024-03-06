@@ -92,6 +92,9 @@
            </li>
          </subOptionsTakeAll>
        </inventoryOptions>
+       <apparelRequired Inherit="False">
+        <li>DV_Apparel_Goggles</li>
+      </apparelRequired>
         <combatPower>40</combatPower>
         <weaponTags>
           <li>SimpleGun</li>

@@ -3,8 +3,8 @@
 
 <ThingDef ParentName="ResourceBase">
     <defName>DV_Orichalcum</defName>
-    <label>orichalcum</label>
-    <description>An ancient and famed stoneborn alloy. Orichalcum is an extremely reliable metal, which absorbs blows and strikes with eases, and is easy to forge into mighty weapons.</description>
+    <label>mithrium</label>
+    <description>An ancient and famed stoneborn alloy. Mithrium is an extremely reliable metal, which absorbs blows and strikes with eases, and is easy to forge into mighty weapons.</description>
     <graphicData>
       <texPath>Things/Item/Resource/Orichalcum</texPath>
       <graphicClass>Graphic_StackCount</graphicClass>

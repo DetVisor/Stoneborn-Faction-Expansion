@@ -17,7 +17,7 @@
       </shadowData>
     </graphicData>
     <size>(3,3)</size>
-    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <altitudeLayer>Building</altitudeLayer>
     <passability>Impassable</passability>
     <pathCost>50</pathCost>
     <fillPercent>0.5</fillPercent>
@@ -65,6 +65,23 @@
       </li>
       <li Class="StonebornExpansion.CompProperties_AutoDrill" />
       <li Class="CompProperties_CreatesInfestations" />
+      <li Class="CompProperties_Refuelable">
+        <fuelLabel>Reserve drill bits</fuelLabel>
+        <fuelGizmoLabel>Drill bit durability</fuelGizmoLabel>
+        <fuelCapacity>3.0</fuelCapacity>
+        <showFuelGizmo>true</showFuelGizmo>
+        <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+        <outOfFuelMessage>Cannot drill: Drill bits broken.</outOfFuelMessage>
+        <fuelIconPath>UI/Overlays/Chemfuel</fuelIconPath>
+        <fuelFilter>
+          <thingDefs>
+            <li>DV_ReinforcedDrillBit</li>
+          </thingDefs>
+        </fuelFilter>
+      </li>
+      <li Class="CompProperties_SmokeCloudMaker">
+        <sourceStreamEffect>BurnbongSmoke</sourceStreamEffect>
+      </li>
     </comps>
   </ThingDef>
 

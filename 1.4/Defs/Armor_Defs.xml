@@ -56,6 +56,7 @@
           </apparel>
 
         <recipeMaker>
+          <researchPrerequisite Inherit="False">DV_Research_FiredrakeDwarvenArmor</researchPrerequisite>
           <displayPriority>100</displayPriority>
         </recipeMaker>
       </ThingDef>
@@ -73,6 +74,7 @@
           <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
         <recipeMaker Inherit="False">
+          <researchPrerequisite Inherit="False">DV_Research_FiredrakeDwarvenArmor</researchPrerequisite>
           <unfinishedThingDef>UnfinishedApparel</unfinishedThingDef>
           <skillRequirements>
             <Crafting>7</Crafting>
@@ -163,6 +165,7 @@
             <useDeflectMetalEffect>true</useDeflectMetalEffect>
           </apparel>
         <recipeMaker>
+          <researchPrerequisite Inherit="False">DV_Research_LightDwarvenArmor</researchPrerequisite>
           <displayPriority>100</displayPriority>
         </recipeMaker>
       </ThingDef>
@@ -251,6 +254,7 @@
             <Plasteel>20</Plasteel>
           </costList>
         <recipeMaker>
+          <researchPrerequisite Inherit="False">DV_Research_LightDwarvenArmor</researchPrerequisite>
           <displayPriority>105</displayPriority>
         </recipeMaker>
         <graphicData>
@@ -311,6 +315,7 @@
             <useDeflectMetalEffect>true</useDeflectMetalEffect>
           </apparel>
         <recipeMaker>
+          <researchPrerequisite Inherit="False">DV_Research_HeavyDwarvenArmor</researchPrerequisite>
           <displayPriority>105</displayPriority>
         </recipeMaker>
       </ThingDef>
@@ -642,6 +647,7 @@
             <useDeflectMetalEffect>true</useDeflectMetalEffect>
           </apparel>
         <recipeMaker>
+          <researchPrerequisite Inherit="False">DV_Research_HeavyDwarvenArmor</researchPrerequisite>
           <displayPriority>100</displayPriority>
         </recipeMaker>
       </ThingDef>

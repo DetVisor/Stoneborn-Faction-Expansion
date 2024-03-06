@@ -35,7 +35,7 @@
         <Crafting>8</Crafting>
       </skillRequirements>
       <unfinishedThingDef>UnfinishedHealthItemProsthetic</unfinishedThingDef>
-      <researchPrerequisite>Prosthetics</researchPrerequisite>
+      <researchPrerequisite Inherit="False">DV_Research_DwarvenBionics</researchPrerequisite>
     </recipeMaker>
   </ThingDef>
 
