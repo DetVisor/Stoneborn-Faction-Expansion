@@ -57,6 +57,7 @@
       <Version>1.4.3580</Version>
     </PackageReference>
     <PackageReference Include="Lib.Harmony">
+      <ExcludeAssets>runtime</ExcludeAssets>
       <Version>2.2.2</Version>
     </PackageReference>
   </ItemGroup>
