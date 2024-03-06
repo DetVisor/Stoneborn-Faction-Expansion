@@ -39,7 +39,8 @@
     </building>
     <costList>
       <Steel>300</Steel>
-      <ComponentIndustrial>2</ComponentIndustrial>
+      <ComponentIndustrial>5</ComponentIndustrial>
+      <DV_ReinforcedDrillBit>1</DV_ReinforcedDrillBit>
     </costList>
     <placeWorkers>
       <li>PlaceWorker_DeepDrill</li>
