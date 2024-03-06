@@ -1,9 +1,4 @@
 ﻿using RimWorld;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 using Verse;
 
@@ -14,6 +9,9 @@ namespace StonebornExpansion
         private CompProperties_AutoDrill Props => props as CompProperties_AutoDrill;
 
         public CompPowerTrader powerComp;
+        public CompRefuelable refuelableComp;
+        private CompBreakdownable breakdownableComp;
+
         public float portionProgress;
         public bool usedLastTick;
 
@@ -22,7 +20,10 @@ namespace StonebornExpansion
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
             powerComp = parent.TryGetComp<CompPowerTrader>();
+            refuelableComp = parent.TryGetComp<CompRefuelable>();
+            breakdownableComp = parent.TryGetComp<CompBreakdownable>();
         }
+
         public override void PostExposeData()
         {
             Scribe_Values.Look(ref portionProgress, "portionProgress");
@@ -48,6 +49,7 @@ namespace StonebornExpansion
 
             portionProgress += 1f;
             usedLastTick = true;
+            refuelableComp?.Notify_UsedThisTick();
 
             if (portionProgress > Props.ticksPerPortion)
             {
@@ -66,11 +68,13 @@ namespace StonebornExpansion
             {
                 return;
             }
+
             int num = Mathf.Min(countPresent, resDef.deepCountPerPortion);
             if (nextResource)
             {
                 parent.Map.deepResourceGrid.SetAt(cell, resDef, countPresent - num);
             }
+
             int stackCount = Mathf.Max(1, GenMath.RoundRandom((float)num));
             Thing thing = ThingMaker.MakeThing(resDef);
             thing.stackCount = stackCount;
@@ -79,12 +83,15 @@ namespace StonebornExpansion
             {
                 return;
             }
+
             if (DeepDrillUtility.GetBaseResource(parent.Map, parent.Position) == null)
             {
                 Messages.Message("DeepDrillExhaustedNoFallback".Translate(), parent, MessageTypeDefOf.TaskCompletion);
                 return;
             }
-            Messages.Message("DeepDrillExhausted".Translate(Find.ActiveLanguageWorker.Pluralize(DeepDrillUtility.GetBaseResource(parent.Map, parent.Position).label)), parent, MessageTypeDefOf.TaskCompletion);
+
+            Messages.Message("DeepDrillExhausted".Translate(Find.ActiveLanguageWorker.Pluralize(DeepDrillUtility.GetBaseResource(parent.Map, parent.Position).label)), parent,
+                MessageTypeDefOf.TaskCompletion);
             for (int i = 0; i < 21; i++)
             {
                 IntVec3 c = cell + GenRadial.RadialPattern[i];
@@ -109,12 +116,11 @@ namespace StonebornExpansion
             return DeepDrillUtility.GetNextResource(parent.Position, parent.Map, out resDef, out countPresent, out cell);
         }
 
+        public bool Usable => (powerComp?.PowerOn ?? true) && (refuelableComp?.HasFuel ?? true) && !(breakdownableComp?.BrokenDown ?? false);
+
         public bool CanDrillNow()
         {
-            if (powerComp != null && !powerComp.PowerOn)
-            {
-                return false;
-            }
+            if (!Usable) return false;
 
             if (DeepDrillUtility.GetBaseResource(parent.Map, parent.Position) != null)
             {
@@ -133,8 +139,11 @@ namespace StonebornExpansion
                 {
                     return "DeepDrillNoResources".Translate();
                 }
-                return "ResourceBelow".Translate() + ": " + resDef.LabelCap + "\n" + "ProgressToNextPortion".Translate() + ": " + ProgressToNextPortionPercent.ToStringPercent("F0");
+
+                return "ResourceBelow".Translate() + ": " + resDef.LabelCap + "\n" + "ProgressToNextPortion".Translate() + ": " +
+                       ProgressToNextPortionPercent.ToStringPercent("F0");
             }
+
             return null;
         }
     }
