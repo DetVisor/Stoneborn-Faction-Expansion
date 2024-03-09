@@ -49,5 +49,14 @@
     </statBases>
     <filthLeaving>Filth_RubbleBuilding</filthLeaving>
     <repairEffect>ConstructDirt</repairEffect>
+    <comps>
+      <li Class="CompProperties_SmokeCloudMaker">
+        <sourceStreamEffect>DrillAutomatic</sourceStreamEffect>
+        <cloudRadius>0</cloudRadius>
+        <fleckScale>0</fleckScale>
+        <cloudFleck>FlashRed</cloudFleck>
+        <fleckSpawnMTB>0</fleckSpawnMTB>
+      </li>
+    </comps>
   </ThingDef>
 </Defs>

@@ -620,6 +620,18 @@
             <cooldownTime>2</cooldownTime>
           </li>
         </tools>
+        <modExtensions>
+          <li Class="AthenaFramework.DamageModifierExtension">
+            <outgoingModifiers>
+              <li>
+                <fleshTypes>
+                  <li>Insectoid</li>
+                </fleshTypes>
+                <modifier>2</modifier>
+              </li>
+            </outgoingModifiers>
+          </li>
+        </modExtensions>
       </ThingDef>
       <ThingDef ParentName="BaseBullet">
         <defName>Bullet_CrossbowSabot</defName>
@@ -634,7 +646,7 @@
           <damageAmountBase>24</damageAmountBase>
           <armorPenetrationBase>0.45</armorPenetrationBase>
           <stoppingPower>1.5</stoppingPower>
-          <speed>110</speed>
+          <speed>90</speed>
         </projectile>
       </ThingDef>
 
@@ -758,7 +770,7 @@
     -->
       <ThingDef ParentName="BaseHumanMakeableGun">
         <defName>DV_Gun_SlugCaster</defName>
-        <label>slug caster</label>
+        <label>coilslug caster</label>
         <description>A rifle that is designed to fire slug rounds. While heavy and unwieldy to use, it is capable of launching devastating uranium slugs great distances. Stoneborn thunderers use these to ensure the elimination of their targets while maintaining a healthy distance from any danger.</description>
         <graphicData>
           <texPath>Things/Item/Equipment/WeaponRanged/SlugCaster</texPath>
@@ -799,7 +811,7 @@
           <li>
             <verbClass>Verb_Shoot</verbClass>
             <hasStandardCommand>true</hasStandardCommand>
-            <defaultProjectile>Bullet_Slug</defaultProjectile>
+            <defaultProjectile>Bullet_SlugHeavy</defaultProjectile>
             <warmupTime>1.6</warmupTime>
             <range>21.9</range>
             <soundCast>Shot_TurretSniper</soundCast>
@@ -829,11 +841,24 @@
             <cooldownTime>2</cooldownTime>
           </li>
         </tools>
+        <modExtensions>
+          <li Class="AthenaFramework.DamageModifierExtension">
+            <outgoingModifiers>
+              <li>
+                <fleshTypes>
+                  <li>Mechanoid</li>
+                  <li MayRequire="VexedTrees980.RimRobots">VexedMechanical</li>
+                </fleshTypes>
+                <modifier>2</modifier>
+              </li>
+            </outgoingModifiers>
+          </li>
+        </modExtensions>
       </ThingDef>
 
       <ThingDef ParentName="BaseHumanMakeableGun">
         <defName>DV_Gun_SlugRifle</defName>
-        <label>slug rifle</label>
+        <label>coilslug rifle</label>
         <description>A short ranged rifle built to fire slug rounds. While heavy and unwieldy to use, it is capable of firing multiple rounds of devastating uranium slugs in quick succession. Stoneborn menhirs often employ these to make sure that whatever they are targeting will be rapidly and sufficiently pulverized.</description>
         <graphicData>
           <texPath>Things/Item/Equipment/WeaponRanged/SlugRifle</texPath>
@@ -906,6 +931,19 @@
             <cooldownTime>2</cooldownTime>
           </li>
         </tools>
+        <modExtensions>
+          <li Class="AthenaFramework.DamageModifierExtension">
+            <outgoingModifiers>
+              <li>
+                <fleshTypes>
+                  <li>Mechanoid</li>
+                  <li MayRequire="VexedTrees980.RimRobots">VexedMechanical</li>
+                </fleshTypes>
+                <modifier>2</modifier>
+              </li>
+            </outgoingModifiers>
+          </li>
+        </modExtensions>
       </ThingDef>
 
       <ThingDef ParentName="BaseBullet">
@@ -916,12 +954,33 @@
           <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
         <projectile>
-          <damageDef>Bullet</damageDef>
+          <damageDef>Blunt</damageDef>
           <damageAmountBase>15</damageAmountBase>
           <stoppingPower>3</stoppingPower>
           <armorPenetrationBase>0.35</armorPenetrationBase>
-          <speed>52</speed>
+          <speed>72</speed>
         </projectile>
+      </ThingDef>
+
+      <ThingDef ParentName="BaseBullet">
+        <defName>Bullet_SlugHeavy</defName>
+        <label>slug</label>
+        <graphicData>
+          <texPath>Things/Projectiles/Bullet_Sabot</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile>
+          <damageDef>Blunt</damageDef>
+          <damageAmountBase>18</damageAmountBase>
+          <stoppingPower>0.2</stoppingPower>
+          <armorPenetrationBase>0.65</armorPenetrationBase>
+          <speed>110</speed>
+        </projectile>
+        <comps>
+          <li Class="AthenaFramework.CompProperties_ProjectileTrail">
+            <trailFleck>SlugShockwaveDistortion</trailFleck>
+          </li>
+        </comps>
       </ThingDef>
 
 

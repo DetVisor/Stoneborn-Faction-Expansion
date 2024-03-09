@@ -45,6 +45,37 @@
     <growthRate>0.005</growthRate>
   </FleckDef>
 
+  <FleckDef ParentName="FleckBase_Thrown">
+    <defName>SlugShockwave</defName>
+    <graphicData>
+      <texPath>Things/Mote/Shockwave</texPath>
+      <renderInstanced>true</renderInstanced>
+    </graphicData>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <fadeInTime>0.50</fadeInTime>
+    <solidTime>0.5</solidTime>
+    <fadeOutTime>0.25</fadeOutTime>
+    <growthRate>0.20</growthRate>
+  </FleckDef>
+
+  <FleckDef ParentName="FleckGlowDistortBackground">
+    <defName>SlugShockwaveDistortion</defName>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <fadeInTime>0.05</fadeInTime>
+    <fadeOutTime>0.8</fadeOutTime>
+    <solidTime>0.12</solidTime>
+    <growthRate>1</growthRate>
+    <graphicData>
+      <texPath>Things/Mote/Black</texPath>
+      <shaderParameters>
+        <_DistortionTex>/Things/Mote/Distortion</_DistortionTex>
+        <_distortionIntensity>0.07</_distortionIntensity>
+        <_brightnessMultiplier>1.2</_brightnessMultiplier>
+      </shaderParameters>
+      <drawSize>2</drawSize>
+    </graphicData>
+  </FleckDef>
+
   <EffecterDef>
     <defName>BlastEMPShockwave</defName>
     <children>
