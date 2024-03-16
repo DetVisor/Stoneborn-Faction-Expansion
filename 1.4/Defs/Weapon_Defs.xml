@@ -902,7 +902,7 @@
             <defaultProjectile>Bullet_Slug</defaultProjectile>
             <warmupTime>1.3</warmupTime>
             <range>16.9</range>
-            <burstShotCount>3</burstShotCount>
+            <burstShotCount>5</burstShotCount>
             <ticksBetweenBurstShots>11</ticksBetweenBurstShots>
             <soundCast>Shot_TurretSniper</soundCast>
             <soundCastTail>GunTail_Heavy</soundCastTail>
@@ -991,7 +991,7 @@
         <tickerType>Normal</tickerType>
         <smeltable>false</smeltable>
         <graphicData>
-          <texPath>Things/Item/Equipment/WeaponRanged/RocketLauncher</texPath>
+          <texPath>Things/Item/Equipment/WeaponRanged/DwarfRocketLauncher</texPath>
           <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
         <statBases>

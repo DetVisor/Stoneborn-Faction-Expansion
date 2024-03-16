@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+<!--
+<ThingDef ParentName="CrateBase">
+    <defName>DV_HermeticCanister</defName>
+    <label>hermetic canister</label>
+    <description>A self-powered hermetically-sealed crate for preserving valuable items. These can preserve their contents for a long time.</description>
+    <size>(2, 1)</size>
+    <fillPercent>0.40</fillPercent>
+    <graphicData>
+      <texPath>Things/Building/Ruins/HermeticCanister</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2, 1)</drawSize>
+      <shadowData>
+        <volume>(1, 0.45, 2)</volume>
+      </shadowData>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <WorkToBuild>1000</WorkToBuild>
+    </statBases>  
+    <interactionCellOffset>(0,0,2)</interactionCellOffset>
+    <building>
+      <openingEffect>HermeticCrateOpened</openingEffect>
+    </building>
+    <comps>
+      <li Class="CompProperties_EmptyStateGraphic">
+        <graphicData>
+          <texPath>Things/Building/Ruins/HermeticCanister_open</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+          <drawSize>(2, 1)</drawSize>
+        </graphicData>
+      </li>
+      <li Class="CompProperties_ThrownFleckEmitter">
+        <fleck>TerminalScreenLensFlare</fleck>
+        <offsetMin>(-0.3,0,-0.7)</offsetMin>
+        <offsetMax>(0.3,0,-0.7)</offsetMax>
+        <emissionInterval>90</emissionInterval>
+        <scale>1~1.1</scale>
+        <colorA>(239,133,50,255)</colorA>
+        <colorB>(239,133,50,255)</colorB>
+      </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>3</glowRadius>
+        <glowColor>(239,133,50,0)</glowColor>
+      </li>
+    </comps>
+    <tickerType>Normal</tickerType>
+  </ThingDef>
+-->
+
+
+  <ThingDef ParentName="CrateBase">
+    <defName>DV_HermeticCanister</defName>
+    <label>hermetic canister</label>
+    <description>A self-powered hermetically-sealed crate for preserving valuable items. These can preserve their contents for a long time.</description>
+    <size>(1, 1)</size>
+    <fillPercent>0.40</fillPercent>
+    <graphicData>
+      <texPath>Things/Building/Ruins/Canister</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2, 2)</drawSize>
+      <shadowData>
+        <volume>(0.8, 0.8, 0.8)</volume>
+      </shadowData>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <WorkToBuild>1000</WorkToBuild>
+    </statBases>  
+    <interactionCellOffset>(0,0,0)</interactionCellOffset>
+    <building>
+      <openingEffect>HermeticCrateOpened</openingEffect>
+    </building>
+    <comps>
+      <li Class="CompProperties_Hackable">
+        <defence>800</defence>  <!-- ~ 1 hour for 10 intellect hacker -->
+        <effectHacking>HackingTerminal</effectHacking>
+      </li>
+      <li Class="CompProperties_EmptyStateGraphic">
+        <graphicData>
+          <texPath>Things/Building/Ruins/CanisterEmpty</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+          <drawSize>(2, 2)</drawSize>
+        </graphicData>
+      </li>
+      <li Class="CompProperties_ThrownFleckEmitter">
+        <fleck>TerminalScreenLensFlare</fleck>
+        <offsetMin>(-0.3,0,-0.7)</offsetMin>
+        <offsetMax>(0.3,0,-0.7)</offsetMax>
+        <emissionInterval>90</emissionInterval>
+        <scale>1~1.1</scale>
+        <colorA>(239,133,50,255)</colorA>
+        <colorB>(239,133,50,255)</colorB>
+      </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>2</glowRadius>
+        <glowColor>(239,133,50,0)</glowColor>
+      </li>
+    </comps>
+    <tickerType>Normal</tickerType>
+  </ThingDef>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>DV_TremorbrewBarrel</defName>
+    <label>tremorbrew barrel</label>
+    <description>An ancient, broken barrel that looks like it once contained waste of some sort. The only thing it contains now is a smear of dried sludge.</description>
+    <rotatable>false</rotatable>
+    <thingCategories>
+      <li>BuildingsSecurity</li>
+    </thingCategories>
+    <graphicData>
+      <texPath>Things/Building/Ruins/TremorbrewBarrel</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1,1)</drawSize>
+      <shadowData>
+        <volume>(0.7, 0.5, 0.7)</volume>
+      </shadowData>
+    </graphicData>
+    <size>(1, 1)</size>
+    <fillPercent>0.30</fillPercent>
+    <altitudeLayer>Building</altitudeLayer>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <statBases>
+      <Mass>6</Mass>
+      <MaxHitPoints>100</MaxHitPoints>
+      <WorkToBuild>200</WorkToBuild>
+      <Flammability>1</Flammability>
+    </statBases>
+    <passability>PassThroughOnly</passability>
+    <pathCost>50</pathCost>
+    <tickerType>Normal</tickerType>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <wickTicks>200</wickTicks>
+        <explosiveRadius>2.9</explosiveRadius>
+        <explosiveDamageType>Bomb</explosiveDamageType>
+        <chanceNeverExplodeFromDamage>0</chanceNeverExplodeFromDamage>
+      </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>1</glowRadius>
+        <glowColor>(255,7,7,0)</glowColor>
+      </li>
+    </comps>
+  </ThingDef>
+
+
+</Defs>

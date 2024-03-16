@@ -59,4 +59,107 @@
       </li>
     </comps>
   </ThingDef>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>DV_FallenPillar</defName>
+    <label>hall pillar</label>
+    <description>A column capable of holding a roof. Does not block sight or movement and looks quite nice.</description>
+    <designationCategory>Misc</designationCategory>
+    <altitudeLayer>Building</altitudeLayer>
+    <uiOrder>2040</uiOrder>
+    <blockLight>false</blockLight>
+    <passability>PassThroughOnly</passability>
+    <castEdgeShadows>false</castEdgeShadows>
+    <fillPercent>0.75</fillPercent>
+    <pathCost>0</pathCost>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <WorkToBuild>1550</WorkToBuild>
+      <Mass>30</Mass>
+      <Flammability>1.0</Flammability>
+      <Beauty>5</Beauty>
+      <StyleDominance MayRequire="Ludeon.RimWorld.Ideology">10</StyleDominance>
+    </statBases>
+    <stuffCategories>
+      <li>Metallic</li>
+      <li>Woody</li>
+      <li>Stony</li>
+    </stuffCategories>
+    <costStuffCount>100</costStuffCount>
+    <holdsRoof>true</holdsRoof>
+    <canOverlapZones>false</canOverlapZones>
+    <rotatable>false</rotatable>
+    <fertility>0</fertility>
+    <building>
+      <isInert>true</isInert>
+      <ai_chillDestination>false</ai_chillDestination>
+      <paintable>true</paintable>
+    </building>
+    <size>(1,1)</size>
+    <graphicData>
+      <drawSize>(3,3)</drawSize>
+      <drawOffset>(0,0,1)</drawOffset>
+      <texPath>Things/Building/Ruins/FallenPillar</texPath>
+      <graphicClass>Graphic_Random</graphicClass>
+      <shadowData>
+        <volume>(1, 1, 1)</volume>
+        <offset>(0,0,-0.23)</offset>
+      </shadowData>
+      <damageData>
+        <rect>(0.2,0.2,0.6,0.6)</rect>
+      </damageData>
+    </graphicData>
+  </ThingDef>
+
+<ThingDef ParentName="BuildingBase">
+  <defName>DV_Scrollshelf</defName>
+  <label>scrollshelf</label>
+  <description>A column capable of holding a roof. Does not block sight or movement and looks quite nice.</description>
+  <designationCategory>Furniture</designationCategory>
+  <altitudeLayer>Building</altitudeLayer>
+  <uiOrder>2040</uiOrder>
+  <blockLight>false</blockLight>
+  <passability>PassThroughOnly</passability>
+  <castEdgeShadows>false</castEdgeShadows>
+  <fillPercent>0.75</fillPercent>
+  <pathCost>0</pathCost>
+  <statBases>
+    <MaxHitPoints>250</MaxHitPoints>
+    <WorkToBuild>1550</WorkToBuild>
+    <Mass>30</Mass>
+    <Flammability>1.0</Flammability>
+    <Beauty>5</Beauty>
+    <StyleDominance MayRequire="Ludeon.RimWorld.Ideology">10</StyleDominance>
+  </statBases>
+  <stuffCategories>
+    <li>Woody</li>
+    <li>Stony</li>
+  </stuffCategories>
+  <costStuffCount>130</costStuffCount>
+  <holdsRoof>false</holdsRoof>
+  <canOverlapZones>false</canOverlapZones>
+  <rotatable>false</rotatable>
+  <fertility>0</fertility>
+  <building>
+    <isInert>true</isInert>
+    <ai_chillDestination>false</ai_chillDestination>
+    <paintable>true</paintable>
+  </building>
+  <size>(2, 1)</size>
+  <graphicData>
+    <drawSize>(4,4)</drawSize>
+    <drawOffset>(0,0,0.6)</drawOffset>
+    <texPath>Things/Building/Ruins/Scrollshelf</texPath>
+    <graphicClass>Graphic_Random</graphicClass>
+    <shaderType>CutoutComplex</shaderType>
+    <shadowData>
+      <volume>(1, 1, 1)</volume>
+      <offset>(0,0,-0.23)</offset>
+    </shadowData>
+    <damageData>
+      <rect>(0.2,0.2,0.6,0.6)</rect>
+    </damageData>
+  </graphicData>
+</ThingDef>
+
 </Defs>

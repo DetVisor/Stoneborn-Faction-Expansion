@@ -15,11 +15,21 @@
 	</loadAfter>
 	<modDependencies>
 		<li>
-		 <packageId>det.stoneborn</packageId>
-		 <displayName>Det's Xenotypes - Stoneborn</displayName>
-		 <steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2903359518</steamWorkshopUrl>
+		   <packageId>det.stoneborn</packageId>
+		   <displayName>Det's Xenotypes - Stoneborn</displayName>
+		   <steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2903359518</steamWorkshopUrl>
 		</li>
+		<li>
+			<packageId>Ludeon.RimWorld.Ideology</packageId>
+			<displayName>Ideology</displayName>
+			<steamWorkshopUrl>https://store.steampowered.com/app/1392840/RimWorld__Ideology/</steamWorkshopUrl>
+		</li>
+		<li>
+			<packageId>smartkar.athenaframework</packageId>
+			<displayName>Athena Framework</displayName>
+			<steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2903359518</steamWorkshopUrl>
+		</li>   
 	</modDependencies>
 	<packageId>det.stonebornfaction</packageId>
-	<description>This mod expands on the several new xenotypes added by the Biotech DLC, adding the dwarf-like stoneborn, a race of burly and short-tempered miners.</description>
+	<description>Long live the dwarven clan! This addon to the Stoneborn xenotype introduces a large set of new dwarven weapons and armors, along with an upgrade to the basic faction, with new pawnkinds, new traders and new research!</description>
 </ModMetaData>

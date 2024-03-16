@@ -2,8 +2,8 @@
 <Defs>
 
     <ThingDef ParentName="AnimalThingBase">
-        <defName>DV_Greatmole</defName>
-        <label>greatmole</label>
+        <defName>DV_Molemutt</defName>
+        <label>molemutt</label>
         <devNote>pig-1</devNote>
         <description>A fuzzy descendant of common moles far better evolved to live on the surface.\n\nIt's giant claws are useful for picking the earth for bugs and worms, and their advanced sense of smell, when combined with their developed brain, allows them to be trained for complex tasks such as hauling and rescuing.\n\nBut beware, as greatmoles, like their ancestors, possess a special toxic saliva that can seep into wounds, causing severe damage.</description>
         <statBases>
@@ -125,7 +125,7 @@
           <wildness>0.4</wildness>
           <roamMtbDays>2</roamMtbDays>
           <trainability>Advanced</trainability>
-          <meatLabel>greatmole meat</meatLabel>
+          <meatLabel>molemutt meat</meatLabel>
           <leatherDef>Leather_Heavy</leatherDef>
           <nuzzleMtbHours>15</nuzzleMtbHours>
           <nameOnTameChance>1</nameOnTameChance>
@@ -178,42 +178,42 @@
       </ThingDef>
       
       <PawnKindDef ParentName="AnimalKindBase">
-        <defName>DV_Greatmole</defName>
-        <label>greatmole</label>
-        <race>DV_Greatmole</race>
+        <defName>DV_Molemutt</defName>
+        <label>molemutt</label>
+        <race>DV_Molemutt</race>
         <combatPower>60</combatPower>
         <ecoSystemWeight>0.5</ecoSystemWeight>
-        <wildGroupSize>2~3</wildGroupSize>
+        <wildGroupSize>4~5</wildGroupSize>
         <lifeStages>
           <li>
             <bodyGraphicData>
-              <texPath>Things/Pawn/Animal/Greatmole/Greatmole</texPath>
+              <texPath>Things/Pawn/Animal/Molemutt/Molemutt</texPath>
               <drawSize>1.2</drawSize>
               <shadowData>
                 <volume>(0.30, 0.25, 0.20)</volume>
               </shadowData>
             </bodyGraphicData>
             <dessicatedBodyGraphicData>
-              <texPath>Things/Pawn/Animal/Greatmole/Dessicated_Greatmole</texPath>
+              <texPath>Things/Pawn/Animal/Molemutt/Dessicated_Molemutt</texPath>
               <drawSize>1.5</drawSize>
             </dessicatedBodyGraphicData>
           </li>
           <li>
             <bodyGraphicData>
-              <texPath>Things/Pawn/Animal/Greatmole/Greatmole</texPath>
+              <texPath>Things/Pawn/Animal/Molemutt/Molemutt</texPath>
               <drawSize>1.55</drawSize>
               <shadowData>
                 <volume>(0.375, 0.375, 0.375)</volume>
               </shadowData>
             </bodyGraphicData>
             <dessicatedBodyGraphicData>
-              <texPath>Things/Pawn/Animal/Greatmole/Dessicated_Greatmole</texPath>
+              <texPath>Things/Pawn/Animal/Molemutt/Dessicated_Molemutt</texPath>
               <drawSize>2.25</drawSize>
             </dessicatedBodyGraphicData>
           </li>
           <li>
             <bodyGraphicData>
-              <texPath>Things/Pawn/Animal/Greatmole/Greatmole</texPath>
+              <texPath>Things/Pawn/Animal/Molemutt/Molemutt</texPath>
               <drawSize>1.80</drawSize>
               <shadowData>
                 <volume>(0.5, 0.5, 0.4)</volume>
@@ -221,7 +221,7 @@
               </shadowData>
             </bodyGraphicData>
             <dessicatedBodyGraphicData>
-              <texPath>Things/Pawn/Animal/Greatmole/Dessicated_Greatmole</texPath>
+              <texPath>Things/Pawn/Animal/Molemutt/Dessicated_Molemutt</texPath>
               <drawSize>2.65</drawSize>
             </dessicatedBodyGraphicData>
           </li>
