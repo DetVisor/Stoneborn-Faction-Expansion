@@ -954,7 +954,7 @@
           <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
         <projectile>
-          <damageDef>Blunt</damageDef>
+          <damageDef>Bullet</damageDef>
           <damageAmountBase>15</damageAmountBase>
           <stoppingPower>3</stoppingPower>
           <armorPenetrationBase>0.35</armorPenetrationBase>
@@ -970,17 +970,12 @@
           <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
         <projectile>
-          <damageDef>Blunt</damageDef>
+          <damageDef>Bullet</damageDef>
           <damageAmountBase>18</damageAmountBase>
           <stoppingPower>0.2</stoppingPower>
           <armorPenetrationBase>0.65</armorPenetrationBase>
           <speed>110</speed>
         </projectile>
-        <comps>
-          <li Class="AthenaFramework.CompProperties_ProjectileTrail">
-            <trailFleck>SlugShockwaveDistortion</trailFleck>
-          </li>
-        </comps>
       </ThingDef>
 
 

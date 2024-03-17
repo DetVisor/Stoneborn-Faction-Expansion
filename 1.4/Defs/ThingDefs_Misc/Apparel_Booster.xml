@@ -7,21 +7,23 @@
   <description>A heavy duty shield belt designed by the stoneborn. It not only boasts a larger shield capacitor than a standard shield belt, it also allows projectiles to exit its field while still preventing them from entering. However, these modifications have made the components in it unstable, causing it to release an EMP blast upon breaking. This can lead to a chain reaction of breaking shields, but such concerns are nothing to worry about if the shield is too strong to break in the first place.</description>
   <thingClass>Apparel</thingClass>
   <graphicData>
-    <texPath>Things/Pawn/Mechanoid/Apparel/HeavyPersonalShield</texPath>
+    <texPath>Things/Pawn/Apparel/Belts/AbsorptionShield</texPath>
     <graphicClass>Graphic_Single</graphicClass>
   </graphicData>
   <tickerType>Normal</tickerType>
+  <techLevel>Spacer</techLevel>
   <statBases>
     <Mass>3</Mass>
     <Flammability>0</Flammability>
+    <EquipDelay>2.5</EquipDelay>
   </statBases>
   <thingSetMakerTags>
     <li>RewardStandardQualitySuper</li>
   </thingSetMakerTags>
   <costList>
-    <ComponentIndustrial>2</ComponentIndustrial>
-    <Steel>50</Steel>
-    <Plasteel>20</Plasteel>
+    <ComponentIndustrial>5</ComponentIndustrial>
+    <Steel>75</Steel>
+    <Plasteel>30</Plasteel>
   </costList>
   <recipeMaker>
     <unfinishedThingDef>UnfinishedBelt</unfinishedThingDef>
@@ -35,11 +37,18 @@
     </recipeUsers>
     <useIngredientsForColor>false</useIngredientsForColor>
     <skillRequirements>
-      <Crafting>6</Crafting>
+      <Crafting>8</Crafting>
     </skillRequirements>
     <displayPriority>300</displayPriority>
   </recipeMaker>
+  <thingCategories>
+    <li>ApparelUtility</li>
+  </thingCategories>
   <apparel>
+    <countsAsClothingForNudity>false</countsAsClothingForNudity>
+    <careIfWornByCorpse>false</careIfWornByCorpse>
+    <careIfDamaged>false</careIfDamaged>
+    <wearPerDay>0</wearPerDay>
     <bodyPartGroups>
       <li>Waist</li>
     </bodyPartGroups>
@@ -49,12 +58,34 @@
     <tags>
       <li>BeltDefense</li>
     </tags>
+    <developmentalStageFilter>Child, Adult</developmentalStageFilter>
   </apparel>
+  <colorGenerator Class="ColorGenerator_Options">
+    <options>
+      <li>
+        <weight>10</weight>
+        <only>(0.33,0.33,0.33,1)</only>
+      </li>
+      <li>
+        <weight>10</weight>
+        <only>(0.65,0.65,0.65,1)</only>
+      </li>
+      <li>
+        <weight>6</weight>
+        <min>(0.3,0.3,0.3,1)</min>
+        <max>(0.5,0.5,0.5,1)</max>
+      </li>
+      <li>
+        <weight>10</weight>
+        <only>(0.9,0.9,0.9,1)</only>
+      </li>
+    </options>
+  </colorGenerator>
   <comps>
     <li Class="AthenaFramework.CompProperties_ShieldEquipment">
       <maxEnergy>250</maxEnergy>
       <energyRechargeRate>0.05</energyRechargeRate>
-      <energyPerDamageModifier>0.3</energyPerDamageModifier>
+      <energyPerDamageModifier>3</energyPerDamageModifier>
       <resetDelay>3200</resetDelay>
 
       <blocksMeleeDamage>false</blocksMeleeDamage>
@@ -92,31 +123,12 @@
         <shaderType>Transparent</shaderType>
         <color>(1, 1, 1, 0.8)</color>
       </graphicData>
-<!--
-      <additionalGraphics>
-        <li>
-          <graphicData></graphicData>
-          <firstMask>ParentGradient</firstMask>
-          <gradient>
-            <li>
-              <position>1.0</position>
-              <color>(33, 99, 255)</color>
-            </li>
-            <li>
-              <position>0.5</position>
-              <color>(243, 255, 33)</color>
-            </li>
-            <li>
-              <position>0.0</position>
-              <color>(255, 62, 33)</color>
-            </li>
-          </gradient>
-          <gradientVariants>20</gradientVariants>
-        </li>
-      </additionalGraphics>
-    -->
     </li>
   </comps>  
+  <allowedArchonexusCount>1</allowedArchonexusCount>
+  <tradeTags>
+    <li>Armor</li>
+  </tradeTags>
 </ThingDef>
 
 </Defs>

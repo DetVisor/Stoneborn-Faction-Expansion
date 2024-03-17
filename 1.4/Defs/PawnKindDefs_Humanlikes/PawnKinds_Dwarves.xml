@@ -277,7 +277,7 @@
           <li>DV_Apparel_DwarvenHelm</li>
         </apparelRequired>
         <techHediffsRequired>
-          <li>DV_DeathDustifier</li>
+          <li>DeathAcidifier</li>
         </techHediffsRequired>
         <initialWillRange>3~4</initialWillRange>
       </PawnKindDef>
@@ -466,6 +466,9 @@
           <li>ImplantDwarvenCommon</li>
           <li>ImplantDwarvenMilitary</li>
         </techHediffsTags>
+        <apparelRequired Inherit="False">
+          <li>SmokepopBelt</li>
+        </apparelRequired>
         <specificApparelRequirements Inherit="False">
           <li>
             <color>(68,68,68)</color>
