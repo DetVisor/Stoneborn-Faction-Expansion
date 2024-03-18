@@ -3,8 +3,8 @@
     <HediffDef ParentName="DiseaseBase">
         <defName>Electrified_Hediff</defName>
         <label>electrified</label>
-        <defaultLabelColor>(0.9, 0.9, 0.5)</defaultLabelColor>
-        <description>This target is electrified by electrically charged damage.</description>
+        <defaultLabelColor>(160, 202, 253)</defaultLabelColor>
+        <description>This target is electrified.</description>
         <isBad>true</isBad>
         <initialSeverity>0.01</initialSeverity>
         <maxSeverity>1</maxSeverity>
@@ -13,7 +13,8 @@
           <stateEffecter>ElectrifiedEffect</stateEffecter>
         </li>   
         <li Class="HediffCompProperties_SeverityPerDay">
-            <severityPerDay>-1.0</severityPerDay>
+            <severityPerDay>-3.0</severityPerDay>
+            <showHoursToRecover>true</showHoursToRecover>
          </li>
         </comps>
         <stages>

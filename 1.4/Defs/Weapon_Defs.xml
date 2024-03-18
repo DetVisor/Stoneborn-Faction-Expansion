@@ -778,7 +778,7 @@
           <drawSize>1.2</drawSize>
         </graphicData>
         <generateCommonality>1.3</generateCommonality>
-        <soundInteract>Interact_Shotgun</soundInteract>
+        <soundInteract>CoilslugCaster_Pickup</soundInteract>
         <weaponClasses>
           <li>LongShots</li>
         </weaponClasses>
@@ -816,7 +816,7 @@
             <range>21.9</range>
             <burstShotCount>3</burstShotCount>
             <ticksBetweenBurstShots>14</ticksBetweenBurstShots>
-            <soundCast>Shot_TurretSniper</soundCast>
+            <soundCast>Shot_Coilslug</soundCast>
             <soundCastTail>GunTail_Heavy</soundCastTail>
             <muzzleFlashScale>9</muzzleFlashScale>
           </li>
@@ -859,7 +859,7 @@
             <projectiles>
                <li>
                  <projectile>Bullet_SlugHeavy</projectile>
-                 <probability>5</probability>
+                 <probability>8</probability>
                </li>
                <li>
                  <projectile>Bullet_SlugHeavyCharged</projectile>
@@ -880,7 +880,7 @@
           <drawSize>1</drawSize>
         </graphicData>
         <generateCommonality>1.6</generateCommonality>
-        <soundInteract>Interact_Shotgun</soundInteract>
+        <soundInteract>CoilslugRifle_Pickup</soundInteract>
         <weaponClasses>
           <li>ShortShots</li>
         </weaponClasses>
@@ -918,7 +918,7 @@
             <range>16.9</range>
             <burstShotCount>6</burstShotCount>
             <ticksBetweenBurstShots>11</ticksBetweenBurstShots>
-            <soundCast>Shot_TurretSniper</soundCast>
+            <soundCast>Shot_Coilslug</soundCast>
             <soundCastTail>GunTail_Heavy</soundCastTail>
             <muzzleFlashScale>9</muzzleFlashScale>
           </li>

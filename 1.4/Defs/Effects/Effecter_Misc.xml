@@ -166,8 +166,17 @@
         <attachToSpawnThing>true</attachToSpawnThing>
         <rotateTowardsTargetCenter>true</rotateTowardsTargetCenter>
       </li>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+        <positionRadius>0.0</positionRadius>
+        <fleckDef>ElectricalSpark</fleckDef>
+        <burstCount>1</burstCount>
+        <scale>0.83</scale>
+        <spawnLocType>OnSource</spawnLocType>
+      </li>
     </children>
   </EffecterDef>
+  
 
   <ThingDef ParentName="MoteBase">
     <defName>Mote_ElectrifiedBody</defName>
