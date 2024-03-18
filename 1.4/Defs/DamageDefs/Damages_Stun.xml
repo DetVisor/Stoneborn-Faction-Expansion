@@ -22,4 +22,31 @@
     <combatLogRules>Damage_MechBandShockwave</combatLogRules>
   </DamageDef>
 
+  <DamageDef>
+    <defName>StunCoilslug</defName>
+    <label>electrified</label>
+    <workerClass>DamageWorker_AddInjury</workerClass>
+    <externalViolence>true</externalViolence>
+    <deathMessage>{0} has been electrified to death.</deathMessage>
+    <hediff>Burn</hediff>
+     <harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+  <additionalHediffs>
+    <li>
+      <hediff>Electrified_Hediff</hediff>
+      <severityPerDamageDealt>0.01</severityPerDamageDealt>
+    </li>
+  </additionalHediffs>
+    <impactSoundType>Electric</impactSoundType>
+    <armorCategory>Heat</armorCategory>
+    <overkillPctToDestroyPart>0~0.7</overkillPctToDestroyPart>
+    <isRanged>true</isRanged>
+    <makesAnimalsFlee>true</makesAnimalsFlee>
+    <defaultDamage>10</defaultDamage>
+	<explosionCellFleck>BlastEMP</explosionCellFleck>
+    <defaultArmorPenetration>0.1</defaultArmorPenetration>
+	<defaultStoppingPower>2</defaultStoppingPower>
+    <buildingDamageFactorPassable>0.2</buildingDamageFactorPassable>
+	<soundExplosion>Explosion_Stun</soundExplosion>
+  </DamageDef>
+
 </Defs>

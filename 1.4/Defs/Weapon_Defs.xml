@@ -809,11 +809,13 @@
         </costList>
         <verbs>
           <li>
-            <verbClass>Verb_Shoot</verbClass>
+            <verbClass>AthenaFramework.Verb_RandomShot</verbClass>
             <hasStandardCommand>true</hasStandardCommand>
             <defaultProjectile>Bullet_SlugHeavy</defaultProjectile>
             <warmupTime>1.6</warmupTime>
             <range>21.9</range>
+            <burstShotCount>3</burstShotCount>
+            <ticksBetweenBurstShots>14</ticksBetweenBurstShots>
             <soundCast>Shot_TurretSniper</soundCast>
             <soundCastTail>GunTail_Heavy</soundCastTail>
             <muzzleFlashScale>9</muzzleFlashScale>
@@ -852,6 +854,18 @@
                 <modifier>2</modifier>
               </li>
             </outgoingModifiers>
+          </li>
+          <li Class="AthenaFramework.RandomShotExtension">
+            <projectiles>
+               <li>
+                 <projectile>Bullet_SlugHeavy</projectile>
+                 <probability>5</probability>
+               </li>
+               <li>
+                 <projectile>Bullet_SlugHeavyCharged</projectile>
+                 <probability>1</probability>
+               </li>
+            </projectiles>
           </li>
         </modExtensions>
       </ThingDef>
@@ -897,12 +911,12 @@
         </costList>
         <verbs>
           <li>
-            <verbClass>Verb_Shoot</verbClass>
+            <verbClass>AthenaFramework.Verb_RandomShot</verbClass>
             <hasStandardCommand>true</hasStandardCommand>
             <defaultProjectile>Bullet_Slug</defaultProjectile>
             <warmupTime>1.3</warmupTime>
             <range>16.9</range>
-            <burstShotCount>5</burstShotCount>
+            <burstShotCount>6</burstShotCount>
             <ticksBetweenBurstShots>11</ticksBetweenBurstShots>
             <soundCast>Shot_TurretSniper</soundCast>
             <soundCastTail>GunTail_Heavy</soundCastTail>
@@ -943,6 +957,18 @@
               </li>
             </outgoingModifiers>
           </li>
+          <li Class="AthenaFramework.RandomShotExtension">
+            <projectiles>
+               <li>
+                 <projectile>Bullet_Slug</projectile>
+                 <probability>5</probability>
+               </li>
+               <li>
+                 <projectile>Bullet_SlugCharged</projectile>
+                 <probability>1</probability>
+               </li>
+            </projectiles>
+          </li>
         </modExtensions>
       </ThingDef>
 
@@ -955,27 +981,72 @@
         </graphicData>
         <projectile>
           <damageDef>Bullet</damageDef>
-          <damageAmountBase>15</damageAmountBase>
-          <stoppingPower>3</stoppingPower>
-          <armorPenetrationBase>0.35</armorPenetrationBase>
+          <damageAmountBase>14</damageAmountBase>
+          <stoppingPower>1.1</stoppingPower>
+          <armorPenetrationBase>0.55</armorPenetrationBase>
           <speed>72</speed>
         </projectile>
+      </ThingDef>
+      EMPElectricityArc
+
+      <ThingDef ParentName="BaseBullet">
+        <defName>Bullet_SlugCharged</defName>
+        <label>slug</label>
+        <graphicData>
+          <texPath>Things/Projectiles/Bullet_SlugShort</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+          <shaderType>MoteGlow</shaderType>
+        </graphicData>
+        <projectile>
+          <damageDef>StunCoilslug</damageDef>
+          <damageAmountBase>12</damageAmountBase>
+          <stoppingPower>1.3</stoppingPower>
+          <armorPenetrationBase>0.40</armorPenetrationBase>
+          <speed>72</speed>
+        </projectile>
+        <comps>
+          <li Class="AthenaFramework.CompProperties_ProjectileTrail">
+            <attachedMote>Mote_EMPSparkArch</attachedMote>
+          </li>
+        </comps>
       </ThingDef>
 
       <ThingDef ParentName="BaseBullet">
         <defName>Bullet_SlugHeavy</defName>
         <label>slug</label>
         <graphicData>
-          <texPath>Things/Projectiles/Bullet_Sabot</texPath>
+          <texPath>Things/Projectiles/Bullet_SlugHeavy</texPath>
           <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
         <projectile>
           <damageDef>Bullet</damageDef>
           <damageAmountBase>18</damageAmountBase>
-          <stoppingPower>0.2</stoppingPower>
+          <stoppingPower>0.7</stoppingPower>
           <armorPenetrationBase>0.65</armorPenetrationBase>
           <speed>110</speed>
         </projectile>
+      </ThingDef>
+
+      <ThingDef ParentName="BaseBullet">
+        <defName>Bullet_SlugHeavyCharged</defName>
+        <label>slug</label>
+        <graphicData>
+          <texPath>Things/Projectiles/Bullet_SlugLong</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+          <shaderType>MoteGlow</shaderType>
+        </graphicData>
+        <projectile>
+          <damageDef>StunCoilslug</damageDef>
+          <damageAmountBase>15</damageAmountBase>
+          <stoppingPower>0.9</stoppingPower>
+          <armorPenetrationBase>0.50</armorPenetrationBase>
+          <speed>110</speed>
+        </projectile>
+        <comps>
+          <li Class="AthenaFramework.CompProperties_ProjectileTrail">
+            <attachedMote>Mote_EMPSparkArch</attachedMote>
+          </li>
+        </comps>
       </ThingDef>
 
 

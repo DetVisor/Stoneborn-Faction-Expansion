@@ -1,6 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Defs>
 
+  <ThingDef ParentName="BuildingBase">
+    <defName>DV_TemporaryBarricade</defName>
+    <label>temporary barrier</label>
+    <description>A waist-high barrier for use as cover from incoming shots. Barricades are ugly, but provide better cover than other low objects. Barricades will block certain kinds of animals the same way that fences do.</description>
+    <thingClass>Building</thingClass>
+    <graphicData>
+      <texPath>Things/Building/Ruins/TempBarrier</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2,2)</drawSize>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <pathCost>60</pathCost>
+    <pathCostIgnoreRepeat>true</pathCostIgnoreRepeat>
+    <passability>PassThroughOnly</passability>
+    <castEdgeShadows>true</castEdgeShadows>
+    <fillPercent>0.55</fillPercent>
+    <canOverlapZones>true</canOverlapZones>
+    <uiOrder>10</uiOrder>
+    <tickerType>Normal</tickerType>
+    <minifiedDef IsNull="True" />
+    <costList>
+      <Steel>50</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <Beauty>-5</Beauty>
+      <Flammability>0</Flammability>
+    </statBases>
+    <building>
+      <ai_chillDestination>false</ai_chillDestination>
+      <isInert>true</isInert>
+    </building>
+    <filthLeaving>Filth_RubbleBuilding</filthLeaving>
+    <rotatable>false</rotatable>
+    <selectable>true</selectable>
+    <neverMultiSelect>true</neverMultiSelect>
+    <useStuffTerrainAffordance>true</useStuffTerrainAffordance>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded> <!-- Best affordance needed for stone -->
+    <designationCategory>Security</designationCategory>
+    <staticSunShadowHeight>0.20</staticSunShadowHeight>
+    <designationHotKey>Misc1</designationHotKey>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <wickTicks>250</wickTicks>
+        <explosiveRadius>0.9</explosiveRadius>
+        <explosiveDamageType>Bomb</explosiveDamageType>
+        <chanceNeverExplodeFromDamage>0</chanceNeverExplodeFromDamage>
+        <explodeOnKilled>true</explodeOnKilled>
+      </li>
+      <li Class="CompProperties_DestroyAfterDelay">
+        <delayTicks>3000</delayTicks>
+        <destroyMode>KillFinalize</destroyMode>
+        <countdownLabel>Deconstructs in</countdownLabel>
+      </li>
+    </comps>
+  </ThingDef>
+
 <ThingDef ParentName="BuildingBase">
     <defName>DV_CoreDrillFake</defName>
     <label>core drill</label>

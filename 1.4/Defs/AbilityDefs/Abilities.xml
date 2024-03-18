@@ -1,5 +1,40 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
+<!--
+  <AbilityDef>
+    <defName>InfestationCallerAbility</defName>
+    <label>call infestation</label>
+    <description>Fire a volley of uranium slugs at an enemy.</description>
+    <iconPath>UI/Abilities/ArmSlugger</iconPath>
+    <cooldownTicksRange>60</cooldownTicksRange>
+    <canUseAoeToGetTargets>false</canUseAoeToGetTargets>
+    <jobDef>CastAbilityOnThing</jobDef>
+   	<targetRequired>False</targetRequired>
+    <displayOrder>200</displayOrder>
+    <aiCanUse>true</aiCanUse>
+    <verbProperties>
+      <verbClass>Verb_CastAbilityTouch</verbClass>
+      <hasStandardCommand>false</hasStandardCommand>
+      <range>-1</range>
+      <drawAimPie>false</drawAimPie>      
+      <requireLineOfSight>false</requireLineOfSight>
+      <warmupTime>0.8</warmupTime>
+      <soundCast>Shot_Shotgun</soundCast>
+      <targetParams>
+        <canTargetSelf>True</canTargetSelf>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="AthenaFramework.CompProperties_AbilityThingScatter">
+        <thingDef>TunnelHiveSpawner</thingDef>
+        <spawnAmount>5</spawnAmount>
+        <thingCount>1</thingCount>
+        <radius>3</radius>
+      </li>
+    </comps>
+  </AbilityDef>
+-->
+
     <AbilityDef>
         <defName>ShockFistAbility</defName>
         <label>shock discharge</label>
@@ -121,6 +156,61 @@
       <armorPenetrationBase>0.2</armorPenetrationBase>
       <speed>55</speed>
     </projectile>
+  </ThingDef>
+
+  <AbilityDef>
+    <defName>TempBarrierAbility</defName>
+    <label>barrier kit</label>
+    <description>Launch a quick-deploy barrier at a location.</description>
+    <iconPath>UI/Abilities/BarrierThrow</iconPath>
+    <cooldownTicksRange>40</cooldownTicksRange>
+    <displayOrder>200</displayOrder>
+    <aiCanUse>false</aiCanUse>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <range>4.2</range>
+      <warmupTime>1.5</warmupTime>
+      <ai_AvoidFriendlyFireRadius>5</ai_AvoidFriendlyFireRadius>
+      <soundCast>RocketswarmLauncher_Fire</soundCast>
+      <targetParams>
+        <canTargetLocations>true</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilityLaunchProjectile">
+        <projectileDef>TempBarrierProjectile</projectileDef>
+      </li>
+      <li Class="AthenaFramework.CompProperties_AbilityReloadable">
+        <maxCharges>3</maxCharges>
+        <ammoDef>Steel</ammoDef>
+        <ammoPerCharge>25</ammoPerCharge>
+        <reloadDuration>60</reloadDuration>
+        <reloadSound>Standard_Reload</reloadSound>
+        <noChargesRemaining>Empty barrier kit.</noChargesRemaining>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <ThingDef ParentName="BaseBullet">
+    <defName>TempBarrierProjectile</defName>
+    <label>barrier kit</label>
+    <graphicData>
+      <drawSize>1.5</drawSize>
+      <texPath>Things/Projectiles/Bullet_Barrier</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Blunt</damageDef>
+      <damageAmountBase>2</damageAmountBase>
+	    <armorPenetrationBase>0</armorPenetrationBase>
+      <speed>42</speed>
+    </projectile>
+    <comps>
+      <li Class="AthenaFramework.CompProperties_ProjectileThingSpawner">
+        <spawnedDef>DV_TemporaryBarricade</spawnedDef>
+        <previousTile>true</previousTile>
+      </li>
+    </comps>
   </ThingDef>
 
   <AbilityDef>

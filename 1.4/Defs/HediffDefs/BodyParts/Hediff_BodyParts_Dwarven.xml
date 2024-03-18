@@ -70,7 +70,7 @@
   <ThingDef ParentName="BodyPartProstheticDwarven">
     <defName>DV_IronskinGland</defName>
     <label>ironskin former</label>
-    <description>This bionic former upon implanting immediately releases waves of programmed nanomachines and mixed chemicals which transform the implantee's skin into a tough and scaly natural chainmail, making them highly resistant to blades, but lowering their beauty considerably.</description>
+    <description>An advanced bionic gland which upon being implanted releases consistent waves of specially programmed nanomachines that transform the user's skin into a sort of natural chainmail, highly resistant to cuts and slices. The skin however becomes scaly and rough, making the user particularly unappealing.</description>
     <descriptionHyperlinks><RecipeDef>InstallIronskinGland</RecipeDef></descriptionHyperlinks>
     <thingSetMakerTags><li>RewardStandardMidFreq</li></thingSetMakerTags>
     <costList>
@@ -158,12 +158,12 @@
   <ThingDef ParentName="BodyPartProstheticDwarven">
     <defName>DV_SteelboneInjector</defName>
     <label>steelbone injector</label>
-    <description>This bionic gland releases chemical and nanomachines that transform the user's skin into a built-in suit of armor. The whole epidermis thickens and hardens to resist burns, while jointed exterior keratin plates form everywhere they can - including the head and face. While it's very difficult to physically hurt someone using this implant, the plates and hard skin significantly reduces the user's physical attractiveness.</description>
+    <description>A powerful bionic organ implanted within the base of the spine, once fully accepted by the body it meticulously begins releasing nanomachines and various chemical concoctions that reinforce the user's skeletal structure, making them tougher, heavier, and more resistant to blunt damages. Due to the added weight, it also lowers the speed of the user.</description>
     <descriptionHyperlinks><RecipeDef>InstallSteelboneInjector</RecipeDef></descriptionHyperlinks>
     <thingSetMakerTags><li>RewardStandardMidFreq</li></thingSetMakerTags>
     <costList>
       <Plasteel>30</Plasteel>
-      <ComponentSpacer>12</ComponentSpacer>
+      <ComponentSpacer>6</ComponentSpacer>
     </costList>
     <tradeTags>
       <li>ImplantDwarvenCommon</li>
@@ -251,13 +251,13 @@
     <ThingDef ParentName="BodyPartProstheticDwarven">
       <defName>DV_WristFlamer</defName>
       <label>wrist flamer</label>
-      <description>A mechanical arm replacement for speeding up mining. It has a built-in snake drill, which allows the miner to rapidly find and exploit weak lines in the rock. It also has a general-purpose manipulator. It is somewhat ungainly, which slows down movement slightly.</description>
+      <description>A forearm replacement with a built-in short range flameblaster capable of firing a single burst of flame before needing to be reloaded. Due to it's size and utilitarian design, the replacement arm makes finer motor functions more difficult, lowering manipulation.</description>
       <descriptionHyperlinks><RecipeDef>InstallWristFlamer</RecipeDef></descriptionHyperlinks>
       <thingSetMakerTags><li>RewardStandardLowFreq</li></thingSetMakerTags>
       <costList>
-        <Steel>70</Steel>
+        <Steel>50</Steel>
         <ComponentIndustrial>12</ComponentIndustrial>
-        <Chemfuel>12</Chemfuel>
+        <Chemfuel>15</Chemfuel>
       </costList>
       <tradeTags>
         <li>ImplantDwarvenMilitary</li>
@@ -336,12 +336,13 @@
             <ThingDef ParentName="BodyPartProstheticDwarven">
               <defName>DV_RocketFist</defName>
               <label>rocket fist</label>
-              <description>A mechanical arm replacement for speeding up mining. It has a built-in snake drill, which allows the miner to rapidly find and exploit weak lines in the rock. It also has a general-purpose manipulator. It is somewhat ungainly, which slows down movement slightly.</description>
+              <description>A hand and wrist replacement that gives the user the option for completely fire off their new metallic mitten to cause an explosion. The hand is large and well-armored, and it is filled with explosive material that, when fired, becomes volatile, making it effectively a pocket rocket launcher. The hand is large and hard to move, lowering general manipulation capabilities. The hand must obviously be reconstructed after every shot.</description>
               <descriptionHyperlinks><RecipeDef>InstallRocketFist</RecipeDef></descriptionHyperlinks>
               <thingSetMakerTags><li>RewardStandardLowFreq</li></thingSetMakerTags>
               <costList>
-                <Steel>75</Steel>
+                <Steel>50</Steel>
                 <ComponentIndustrial>10</ComponentIndustrial>
+                <Chemfuel>10</Chemfuel>
               </costList>
               <tradeTags>
                 <li>ImplantDwarvenMilitary</li>
@@ -419,12 +420,13 @@
         <ThingDef ParentName="BodyPartProstheticDwarven">
           <defName>DV_ArmCannon</defName>
           <label>arm slugger</label>
-          <description>A mechanical arm replacement for speeding up mining. It has a built-in snake drill, which allows the miner to rapidly find and exploit weak lines in the rock. It also has a general-purpose manipulator. It is somewhat ungainly, which slows down movement slightly.</description>
+          <description>A complete arm replacement with an advanced set of barrels and complex auto-loaders that allows the user to fire a spread of small bullets at short range; underestimated by most, it is mainly effective against unarmored foes. The added heft of the arm and the simplistic, tough design make it harder for the user to move and to complete finer manipulation tasks. It can fire off 2 charges before needing to be reloaded with steel.</description>
           <descriptionHyperlinks><RecipeDef>InstallArmCannon</RecipeDef></descriptionHyperlinks>
           <thingSetMakerTags><li>RewardStandardLowFreq</li></thingSetMakerTags>
           <costList>
-            <Steel>75</Steel>
+            <Steel>55</Steel>
             <ComponentIndustrial>10</ComponentIndustrial>
+            <Plasteel>15</Plasteel>
           </costList>
           <tradeTags>
             <li>ImplantDwarvenMilitary</li>
@@ -511,7 +513,7 @@
             <ThingDef ParentName="BodyPartProstheticDwarven">
               <defName>DV_ShockFist</defName>
               <label>shock fist</label>
-              <description>A mechanical arm replacement for speeding up mining. It has a built-in snake drill, which allows the miner to rapidly find and exploit weak lines in the rock. It also has a general-purpose manipulator. It is somewhat ungainly, which slows down movement slightly.</description>
+              <description>A bionic hand replacement with a powerful built-in EMP capacitor capable of stunning mechanoids and turrets alike in a large radius, to be activated it needs to be punched into the ground, creating a powerful shockwave of EMP energy. Needs no reloading, but it takes a long time to fully recharge. The hand is rough and robust, mainly built to resist the impact, which makes it less useful for finer manipulation-related tasks.</description>
               <descriptionHyperlinks><RecipeDef>InstallShockFist</RecipeDef></descriptionHyperlinks>
               <thingSetMakerTags><li>RewardStandardLowFreq</li></thingSetMakerTags>
               <costList>
@@ -738,5 +740,90 @@
             </appliedOnFixedBodyParts>
             <addsHediff>DV_CrystalEye</addsHediff>
           </RecipeDef>
+
+                      <!-- Temp. Barrier  -->
+
+            <HediffDef ParentName="AddedBodyPartBase">
+              <defName>DV_BarrierKit</defName>
+              <label>barrier kit</label>
+              <labelNoun>a barrier kit</labelNoun>
+              <description>An installed barrier kit.</description>
+              <descriptionHyperlinks><ThingDef>DV_BarrierKit</ThingDef></descriptionHyperlinks>
+              <comps>
+                <li Class="HediffCompProperties_VerbGiver">
+                  <tools>
+                    <li>
+                      <label>fist</label>
+                      <capacities>
+                        <li>Blunt</li>
+                      </capacities>
+                      <power>10</power>
+                      <cooldownTime>2</cooldownTime>
+                      <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+                      <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+                    </li>
+                  </tools>
+                </li>
+                <li Class="HediffCompProperties_GiveAbility">
+                  <abilityDefs>
+                    <li>TempBarrierAbility</li>
+                  </abilityDefs>
+                </li>
+              </comps>
+              <addedPartProps>
+                <solid>true</solid>
+                <partEfficiency>0.60</partEfficiency>
+              </addedPartProps>
+              <spawnThingOnRemoved>DV_BarrierKit</spawnThingOnRemoved>
+            </HediffDef>
+          
+            <ThingDef ParentName="BodyPartProstheticDwarven">
+              <defName>DV_BarrierKit</defName>
+              <label>barrier kit</label>
+              <description>A complete, heavy arm replacement that allows the user to throw 3 quick-deploy barriers in quick successsion; the barriers are waist-high and can be useful during shoot-outs and battles, after which they'll self-destruct giving back some resources. The bionic is large and simplistic, making it difficult to complete any manipulation tasks.</description>
+              <descriptionHyperlinks><RecipeDef>InstallBarrierKit</RecipeDef></descriptionHyperlinks>
+              <thingSetMakerTags><li>RewardStandardLowFreq</li></thingSetMakerTags>
+              <costList>
+                <Steel>75</Steel>
+                <ComponentIndustrial>10</ComponentIndustrial>
+                <ComponentSpacer>5</ComponentSpacer>
+              </costList>
+              <tradeTags>
+                <li>ImplantDwarvenMilitary</li>
+              </tradeTags>
+              <techHediffsTags>
+                <li>ImplantDwarvenMilitary</li>
+              </techHediffsTags>
+            </ThingDef>
+          
+            <RecipeDef ParentName="SurgeryInstallBodyPartProstheticBase">
+              <defName>InstallBarrierKit</defName>
+              <label>install barrier kit</label>
+              <description>Install a barrier kit.</description>
+              <descriptionHyperlinks>
+                <ThingDef>DV_BarrierKit</ThingDef>
+                <HediffDef>DV_BarrierKit</HediffDef>
+              </descriptionHyperlinks>
+              <jobString>Installing barrier kit.</jobString>
+              <ingredients>
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>DV_BarrierKit</li>
+                    </thingDefs>
+                  </filter>
+                  <count>1</count>
+                </li>
+              </ingredients>
+              <fixedIngredientFilter>
+                <thingDefs>
+                  <li>DV_BarrierKit</li>
+                </thingDefs>
+              </fixedIngredientFilter>
+              <appliedOnFixedBodyParts>
+                <li>Arm</li>
+              </appliedOnFixedBodyParts>
+              <addsHediff>DV_BarrierKit</addsHediff>
+            </RecipeDef>
 
 </Defs>

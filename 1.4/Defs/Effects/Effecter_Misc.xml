@@ -151,6 +151,42 @@
     </children>
   </EffecterDef>
 
+  <EffecterDef>
+    <defName>ElectrifiedEffect</defName>
+    <children>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
+        <moteDef>Mote_EMPSparkArch</moteDef>
+        <burstCount>1</burstCount>
+        <chancePerTick>0.02</chancePerTick>
+        <rotation>-150~-150</rotation>
+        <spawnLocType>OnTarget</spawnLocType>
+        <scale>0.5~0.7</scale>
+        <positionRadius>0.7</positionRadius>
+        <attachToSpawnThing>true</attachToSpawnThing>
+        <rotateTowardsTargetCenter>true</rotateTowardsTargetCenter>
+      </li>
+    </children>
+  </EffecterDef>
+
+  <ThingDef ParentName="MoteBase">
+    <defName>Mote_ElectrifiedBody</defName>
+    <thingClass>MoteAttached</thingClass>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <mote>
+      <fadeInTime>1</fadeInTime>
+      <fadeOutTime>1</fadeOutTime>
+      <solidTime>1</solidTime>
+      <needsMaintenance>True</needsMaintenance>
+    </mote>
+    <graphicData>
+      <graphicClass>Graphic_PawnBodySilhouette</graphicClass>
+      <color>(160, 202, 253)</color>
+      <shaderType>GlowAnimated</shaderType>
+      <texPath>Things/Mote/Transparent</texPath>
+    </graphicData>
+  </ThingDef>
+
 <ThingDef ParentName="MoteBase"> 
   <defName>Mote_EMPSparkArch</defName>
   <thingClass>MoteAttached</thingClass>
