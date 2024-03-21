@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+  <PipeSystem.PipeNetDef>
+    <defName>DV_OleicineNet</defName>
+    <noStorageAlert>true</noStorageAlert>
+    <resource>
+      <name>Oleicine</name>
+      <unit>liters</unit>
+      <color>(50, 73, 74)</color>
+      <onlyShowStored>true</onlyShowStored>
+      <offTexPath>Things/Item/Resource/Oleicine/Oleicine_a</offTexPath>
+    </resource>
+    <pipeDefs>
+      <li>DV_OleicinePipes</li>
+    </pipeDefs>
+    <designator>
+      <deconstructIconPath>Things/Building/Linked/OleicinePipes/OleicinePipes_Deconstruct</deconstructIconPath>
+      <designationCategoryDef>DV_OleicineNetwork</designationCategoryDef>
+    </designator>
+    <overlayOptions>
+      <overlayColor>(50, 73, 74)</overlayColor>
+    </overlayOptions>
+  </PipeSystem.PipeNetDef>
+</Defs>
