@@ -6,7 +6,7 @@
     <resource>
       <name>Oleicine</name>
       <unit>liters</unit>
-      <color>(50, 73, 74)</color>
+      <color>(44, 77, 35)</color>
       <onlyShowStored>true</onlyShowStored>
       <offTexPath>Things/Item/Resource/Oleicine/Oleicine_a</offTexPath>
     </resource>
@@ -18,7 +18,7 @@
       <designationCategoryDef>DV_OleicineNetwork</designationCategoryDef>
     </designator>
     <overlayOptions>
-      <overlayColor>(50, 73, 74)</overlayColor>
+      <overlayColor>(44, 77, 35)</overlayColor>
     </overlayOptions>
   </PipeSystem.PipeNetDef>
 </Defs>
