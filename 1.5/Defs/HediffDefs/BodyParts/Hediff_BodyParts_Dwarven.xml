@@ -9,8 +9,31 @@
     <defName>DV_ConstructorArmThing</defName>
     <label>constructing multi-arm</label>
     <description>An advanced bionic gland which upon being implanted releases consistent waves of specially programmed nanomachines that transform the user's skin into a sort of natural chainmail, highly resistant to cuts and slices. The skin however becomes scaly and rough, making the user particularly unappealing.</description>
-    <descriptionHyperlinks><RecipeDef>InstallMinerMultiarm</RecipeDef></descriptionHyperlinks>
     <thingSetMakerTags><li>RewardStandardMidFreq</li></thingSetMakerTags>
+    <graphicData>
+      <texPath>Things/Item/Health/ConstructorArm_Item</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>0.90</drawSize>
+    </graphicData>
+    <comps>
+      <li Class="CompProperties_Usable">
+        <compClass>AthenaFramework.CompUsable_HediffModule</compClass>
+        <useJob>Athena_InstallModule</useJob>
+        <useDuration>50</useDuration>
+      </li>
+      <li Class="AthenaFramework.CompProperties_UseEffectHediffModule">
+        <slotIDs>
+          <li>armSocket</li>
+        </slotIDs>
+        <requiredCapacity>1</requiredCapacity>
+        <ejectable>false</ejectable>
+        <installSound></installSound>
+        <ejectSound>MetalDrop</ejectSound>
+        <hediffs>
+          <li>DV_ConstructorMultiarm</li>
+        </hediffs>
+      </li>
+    </comps>
     <costList>
       <Plasteel>40</Plasteel>
       <Steel>40</Steel>
@@ -23,7 +46,7 @@
       <li>ImplantDwarvenWork</li>
     </techHediffsTags>
   </ThingDef>
-
+<!--
   <RecipeDef ParentName="SurgeryInstallImplantBase">
     <defName>InstallConstructorMultiarm</defName>
     <label>install constructoid multi-arm</label>
@@ -66,7 +89,8 @@
     <removesHediff>DV_ConstructorMultiarm</removesHediff>
   </RecipeDef>
 
-  <HediffDef ParentName="AddedBodyPartBase">
+-->
+  <HediffDef ParentName="ImplantHediffBase">
     <defName>DV_ConstructorMultiarm</defName>
     <label>constructor multi-arm</label>
     <labelNoun>a constructor arm</labelNoun>
@@ -156,8 +180,31 @@
     <defName>DV_MinerArmThing</defName>
     <label>mining multi-arm</label>
     <description>An advanced bionic gland which upon being implanted releases consistent waves of specially programmed nanomachines that transform the user's skin into a sort of natural chainmail, highly resistant to cuts and slices. The skin however becomes scaly and rough, making the user particularly unappealing.</description>
-    <descriptionHyperlinks><RecipeDef>InstallMinerMultiarm</RecipeDef></descriptionHyperlinks>
     <thingSetMakerTags><li>RewardStandardMidFreq</li></thingSetMakerTags>
+    <graphicData>
+      <texPath>Things/Item/Health/MinerArm_Item</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>0.90</drawSize>
+    </graphicData>
+    <comps>
+      <li Class="CompProperties_Usable">
+        <compClass>AthenaFramework.CompUsable_HediffModule</compClass>
+        <useJob>Athena_InstallModule</useJob>
+        <useDuration>50</useDuration>
+      </li>
+      <li Class="AthenaFramework.CompProperties_UseEffectHediffModule">
+        <slotIDs>
+          <li>armSocket</li>
+        </slotIDs>
+        <requiredCapacity>1</requiredCapacity>
+        <ejectable>false</ejectable>
+        <installSound></installSound>
+        <ejectSound>MetalDrop</ejectSound>
+        <hediffs>
+          <li>DV_MinerMultiarm</li>
+        </hediffs>
+      </li>
+    </comps>
     <costList>
       <Plasteel>30</Plasteel>
       <Steel>50</Steel>
@@ -166,11 +213,8 @@
     <tradeTags>
       <li>ImplantDwarvenWork</li>
     </tradeTags>
-    <techHediffsTags>
-      <li>ImplantDwarvenWork</li>
-    </techHediffsTags>
   </ThingDef>
-
+<!--
   <RecipeDef ParentName="SurgeryInstallImplantBase">
     <defName>InstallMinerMultiarm</defName>
     <label>install miner multi-arm</label>
@@ -212,8 +256,8 @@
     <jobString>Removing mining multi-arm.</jobString>
     <removesHediff>DV_MinerMultiarm</removesHediff>
   </RecipeDef>
-
-  <HediffDef ParentName="AddedBodyPartBase">
+-->
+  <HediffDef ParentName="ImplantHediffBase">
     <defName>DV_MinerMultiarm</defName>
     <label>miner multi-arm</label>
     <labelNoun>a mining arm</labelNoun>
@@ -304,8 +348,32 @@
     <defName>DV_CrafterArmThing</defName>
     <label>crafting multi-arm</label>
     <description>An advanced bionic gland which upon being implanted releases consistent waves of specially programmed nanomachines that transform the user's skin into a sort of natural chainmail, highly resistant to cuts and slices. The skin however becomes scaly and rough, making the user particularly unappealing.</description>
-    <descriptionHyperlinks><RecipeDef>InstallCrafterMultiarm</RecipeDef></descriptionHyperlinks>
+    <descriptionHyperlinks><RecipeDef>DV_CrafterMultiarm</RecipeDef></descriptionHyperlinks>
     <thingSetMakerTags><li>RewardStandardMidFreq</li></thingSetMakerTags>
+    <graphicData>
+      <texPath>Things/Item/Health/CrafterArm_Item</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>0.90</drawSize>
+    </graphicData>
+    <comps>
+      <li Class="CompProperties_Usable">
+        <compClass>AthenaFramework.CompUsable_HediffModule</compClass>
+        <useJob>Athena_InstallModule</useJob>
+        <useDuration>50</useDuration>
+      </li>
+      <li Class="AthenaFramework.CompProperties_UseEffectHediffModule">
+        <slotIDs>
+          <li>armSocket</li>
+        </slotIDs>
+        <requiredCapacity>1</requiredCapacity>
+        <ejectable>false</ejectable>
+        <installSound></installSound>
+        <ejectSound>MetalDrop</ejectSound>
+        <hediffs>
+          <li>DV_CrafterMultiarm</li>
+        </hediffs>
+      </li>
+    </comps>
     <costList>
       <Plasteel>40</Plasteel>
       <Steel>40</Steel>
@@ -314,11 +382,9 @@
     <tradeTags>
       <li>ImplantDwarvenWork</li>
     </tradeTags>
-    <techHediffsTags>
-      <li>ImplantDwarvenWork</li>
-    </techHediffsTags>
   </ThingDef>
 
+<!--
   <RecipeDef ParentName="SurgeryInstallImplantBase">
     <defName>InstallCrafterMultiarm</defName>
     <label>install crafter multi-arm</label>
@@ -361,7 +427,9 @@
     <removesHediff>DV_CrafterMultiarm</removesHediff>
   </RecipeDef>
 
-  <HediffDef ParentName="AddedBodyPartBase">
+-->
+
+  <HediffDef ParentName="ImplantHediffBase">
     <defName>DV_CrafterMultiarm</defName>
     <label>crafter arm</label>
     <labelNoun>a crafter arm</labelNoun>
@@ -445,6 +513,92 @@
     </addedPartProps>
   </HediffDef>
 
+    <!--Socket surgery -->
+
+  
+    <ThingDef ParentName="MultiArmBionicDwarven">
+      <defName>DV_SocketJointThing</defName>
+      <label>multi-arm socket joint</label>
+      <description>An advanced bionic gland which upon being implanted releases consistent waves of specially programmed nanomachines that transform the user's skin into a sort of natural chainmail, highly resistant to cuts and slices. The skin however becomes scaly and rough, making the user particularly unappealing.</description>
+      <descriptionHyperlinks><RecipeDef>InstallSocketJoint</RecipeDef></descriptionHyperlinks>
+      <thingSetMakerTags><li>RewardStandardMidFreq</li></thingSetMakerTags>
+      <costList>
+        <Plasteel>40</Plasteel>
+        <Steel>40</Steel>
+        <ComponentSpacer>15</ComponentSpacer>
+      </costList>
+      <tradeTags>
+        <li>ImplantDwarvenWork</li>
+      </tradeTags>
+      <techHediffsTags>
+        <li>ImplantDwarvenWork</li>
+      </techHediffsTags>
+    </ThingDef>
+  
+    <RecipeDef ParentName="SurgeryInstallImplantBase">
+      <defName>InstallSocketJoint</defName>
+      <label>install socket joint</label>
+      <description>Install a multi-arm socket joint.</description>
+      <descriptionHyperlinks>
+        <ThingDef>DV_SocketJointThing</ThingDef>
+        <HediffDef>DV_SocketJoint_Shoulder</HediffDef>
+      </descriptionHyperlinks>
+      <jobString>Installing multi-arm.</jobString>
+      <ingredients>
+        <li>
+          <filter>
+            <thingDefs>
+              <li>DV_CrafterArmThing</li>
+            </thingDefs>
+          </filter>
+          <count>1</count>
+        </li>
+      </ingredients>
+      <fixedIngredientFilter>
+        <thingDefs>
+          <li>DV_CrafterArmThing</li>
+        </thingDefs>
+      </fixedIngredientFilter>
+      <appliedOnFixedBodyParts>
+        <li>Shoulder</li>
+      </appliedOnFixedBodyParts>
+      <addsHediff>DV_SocketJoint_Shoulder</addsHediff>
+      <incompatibleWithHediffTags>
+        <li>MultiArms</li>
+      </incompatibleWithHediffTags>
+    </RecipeDef>
+  
+    <RecipeDef ParentName="SurgeryRemoveImplantBase">
+      <defName>RemoveSocketJoint</defName>
+      <label>remove socket joint</label>
+      <description>Remove multi-arm socket..</description>
+      <descriptionHyperlinks><ThingDef>DV_SocketJointThing</ThingDef></descriptionHyperlinks>
+      <jobString>Removing multi-arm socket joit.</jobString>
+      <removesHediff>DV_SocketJoint_Shoulder</removesHediff>
+    </RecipeDef>
+  
+    <HediffDef ParentName="AddedBodyPartBase">
+      <defName>DV_SocketJoint_Shoulder</defName>
+      <label>multi-arm socket</label>
+      <labelNoun>a multi-arm socket</labelNoun>
+      <description>A fleshy, muscled tentacle resembling a partial transformation into a fleshbeast. The tentacle is excellent at manipulation.\n\nThe flesh tentacle has its own neural structures and may become dangerous if removed.</description>
+      <defaultInstallPart>Shoulder</defaultInstallPart>
+      <comps>
+        <li Class="AthenaFramework.HediffCompProperties_Modular">
+          <slots>
+            <li>
+              <slotID>armSocket</slotID>
+              <slotName>Arm Socket</slotName>
+              <capacity>1</capacity>
+            </li>
+          </slots>
+        </li>
+      </comps>
+      <addedPartProps>
+        <solid>true</solid>
+        <partEfficiency>0.9</partEfficiency>
+      </addedPartProps>
+    </HediffDef>
   
   <ThingDef Name="MultiArmBionicDwarven" ParentName="BodyPartBase" Abstract="True">
     <techLevel>Spacer</techLevel>
