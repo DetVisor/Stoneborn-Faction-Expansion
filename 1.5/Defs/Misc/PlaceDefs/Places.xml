@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-    <PlaceDef>
+    <PlaceDef MayRequire="Ludeon.RimWorld.Ideology">
         <defName>Grugni</defName>
         <tags>
           <li>OriginSpacer</li>

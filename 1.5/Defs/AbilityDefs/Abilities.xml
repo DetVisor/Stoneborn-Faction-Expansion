@@ -271,34 +271,4 @@
     </comps>
   </ThingDef>
 
-  <AbilityDef Name="DEVLongJump">
-    <defName>DEVLongjump</defName>
-    <label>thrustjump</label>
-    <description>Jump to a distant location using super-strong hemogen-powered legs.</description>
-    <iconPath>UI/Abilities/Longjump</iconPath>
-    <cooldownTicksRange>200</cooldownTicksRange>
-    <aiCanUse>true</aiCanUse>
-    <hostile>false</hostile>
-    <verbProperties>
-      <verbClass>Verb_CastAbilityJump</verbClass>
-      <label>boost</label>
-      <violent>false</violent>
-      <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
-      <warmupTime>0.6</warmupTime>
-      <minRange>5</minRange>
-      <range>12.9</range>
-      <warmupEffecter>JumpWarmupEffect</warmupEffecter>
-      <requireLineOfSight>true</requireLineOfSight>
-      <flightEffecterDef>BoostkitEffect</flightEffecterDef>
-      <soundCast>Longjump_Jump</soundCast>
-      <soundLanding>Longjump_Land</soundLanding>
-      <flyWithCarriedThing>true</flyWithCarriedThing>
-      <targetParams>
-        <canTargetLocations>true</canTargetLocations>
-        <canTargetPawns>false</canTargetPawns>
-        <canTargetBuildings>false</canTargetBuildings>
-      </targetParams>
-    </verbProperties>
-    <jobDef>CastJump</jobDef>
-  </AbilityDef>
 </Defs>
