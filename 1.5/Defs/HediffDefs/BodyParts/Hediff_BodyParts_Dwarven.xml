@@ -215,7 +215,7 @@
 
   <HediffDef ParentName="AddedBodyPartBase">
     <defName>DV_MinerMultiarm</defName>
-    <label>miner arm</label>
+    <label>miner multi-arm</label>
     <labelNoun>a mining arm</labelNoun>
     <description>A fleshy, muscled tentacle resembling a partial transformation into a fleshbeast. The tentacle is excellent at manipulation.\n\nThe flesh tentacle has its own neural structures and may become dangerous if removed.</description>
     <defaultInstallPart>Shoulder</defaultInstallPart>
