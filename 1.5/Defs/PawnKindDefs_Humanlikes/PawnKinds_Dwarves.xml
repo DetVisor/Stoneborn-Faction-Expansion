@@ -1,0 +1,965 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+      <PawnKindDef Name="StonebornBase" Abstract="True">
+        <race>Human</race>
+        <defaultFactionType>OutlanderRoughStoneborn</defaultFactionType>
+        <invNutrition>3</invNutrition>
+        <chemicalAddictionChance>0.25</chemicalAddictionChance>
+        <combatEnhancingDrugsChance>0</combatEnhancingDrugsChance>	
+        <chronologicalAgeRange>100~500</chronologicalAgeRange>
+        <xenotypeSet>
+          <xenotypeChances>
+            <Stoneborn>999</Stoneborn>
+          </xenotypeChances>
+        </xenotypeSet>
+        <backstoryFiltersOverride>
+          <li>
+            <categories>
+              <li>Offworld</li>
+              <li>DwarfCommon</li>
+            </categories>
+          </li>
+        </backstoryFiltersOverride>	
+      </PawnKindDef>
+    
+      <PawnKindDef ParentName="SlaveBase">
+        <defName>Slave_Stoneborn</defName>
+        <xenotypeSet Inherit="False">
+          <xenotypeChances>
+            <Gnoblin MayRequire="VexedTrees980.RimGnoblinsBiotech">0.50</Gnoblin>	
+            <Neanderthal>0.125</Neanderthal>
+            <Yttakin>0.125</Yttakin>
+            <Hussar>0.125</Hussar>
+          </xenotypeChances>
+        </xenotypeSet>
+      </PawnKindDef>
+    
+      <!--===================== Basic Dwarves =========================-->
+
+      <PawnKindDef ParentName="StonebornBase">
+        <defName>Stoneborn_Settler</defName>
+        <label>settler</label>
+        <race>Human</race>
+        <defaultFactionType>OutlanderRoughStoneborn</defaultFactionType>
+        <maxGenerationAge>65</maxGenerationAge>
+        <combatPower>30</combatPower>
+        <backstoryCryptosleepCommonality>0.08</backstoryCryptosleepCommonality>
+        <forceNormalGearQuality>true</forceNormalGearQuality>
+        <isFighter>false</isFighter>
+        <apparelTags>
+          <li>IndustrialBasic</li>
+        </apparelTags>
+        <apparelMoney>200~1000</apparelMoney>
+        <gearHealthRange>1~1</gearHealthRange>
+        <apparelAllowHeadgearChance>0</apparelAllowHeadgearChance>
+        <techHediffsMoney>50~800</techHediffsMoney>
+        <techHediffsTags>
+          <li>Simple</li>
+          <li>Advanced</li>
+          <li>ImplantDwarvenCommon</li>
+        </techHediffsTags>
+        <techHediffsChance>0.1</techHediffsChance>
+        <apparelDisallowTags>
+          <li>Western</li>
+        </apparelDisallowTags>
+        <disallowedTraits>
+          <li>Nudist</li>
+        </disallowedTraits>
+        <initialWillRange>1~3</initialWillRange>
+        <initialResistanceRange>10~17</initialResistanceRange>
+      </PawnKindDef>
+
+      <PawnKindDef  ParentName="StonebornBase">
+        <defName>Stoneborn_Merchant</defName>
+        <label>merchant</label>
+        <race>Human</race>
+        <defaultFactionType>OutlanderRoughStoneborn</defaultFactionType>
+        <maxGenerationAge>65</maxGenerationAge>
+        <trader>true</trader>
+        <isFighter>false</isFighter>
+        <backstoryCryptosleepCommonality>0.08</backstoryCryptosleepCommonality>
+        <chemicalAddictionChance>0.1</chemicalAddictionChance>
+        <combatEnhancingDrugsChance>0.15</combatEnhancingDrugsChance>
+        <invNutrition>2.55</invNutrition>
+        <itemQuality>Normal</itemQuality>
+        <inventoryOptions>
+         <skipChance>0.70</skipChance>
+         <subOptionsTakeAll>
+           <li>
+             <thingDef>Silver</thingDef>
+             <countRange>50~120</countRange>
+           </li>
+         </subOptionsTakeAll>
+       </inventoryOptions>
+       <apparelRequired Inherit="False">
+        <li>DV_Apparel_Goggles</li>
+      </apparelRequired>
+        <combatPower>40</combatPower>
+        <weaponTags>
+          <li>SimpleGun</li>
+        </weaponTags>
+        <weaponMoney>1100~3500</weaponMoney>
+        <apparelMoney>1250~2500</apparelMoney>
+        <apparelTags>
+          <li>IndustrialBasic</li>
+          <li>IndustrialAdvanced</li>
+          <li>IndustrialMilitaryBasic</li>
+          <li>IndustrialMilitaryAdvanced</li>
+        </apparelTags>
+        <apparelDisallowTags>
+          <li>Western</li>
+        </apparelDisallowTags>
+        <techHediffsChance>0.15</techHediffsChance>
+        <techHediffsMoney>1000~1800</techHediffsMoney>
+        <techHediffsTags>
+          <li>Advanced</li>
+          <li>ImplantDwarvenCommon</li>
+        </techHediffsTags>
+        <initialWillRange>3~5</initialWillRange>
+        <initialResistanceRange>16~25</initialResistanceRange>
+        <xenotypeSet>
+          <xenotypeChances>
+            <Stoneborn>999</Stoneborn>
+          </xenotypeChances>
+        </xenotypeSet>
+      </PawnKindDef>
+<!--
+      <PawnKindDef  ParentName="StonebornBase">
+        <defName>Stoneborn_Merchant</defName>
+        <label>merchant</label>
+        <maxGenerationAge>65</maxGenerationAge>
+        <race>Human</race>
+        <defaultFactionType>OutlanderRoughStoneborn</defaultFactionType>
+        <trader>true</trader>
+        <isFighter>false</isFighter>
+        <backstoryCryptosleepCommonality>0.08</backstoryCryptosleepCommonality>
+        <chemicalAddictionChance>0.02</chemicalAddictionChance>
+        <combatEnhancingDrugsChance>0.15</combatEnhancingDrugsChance>
+        <invNutrition>2.55</invNutrition>
+        <itemQuality>Normal</itemQuality>
+        <inventoryOptions>
+         <skipChance>0.70</skipChance>
+         <subOptionsTakeAll>
+           <li>
+             <thingDef>Silver</thingDef>
+             <countRange>30~110</countRange>
+           </li>
+         </subOptionsTakeAll>
+       </inventoryOptions>
+        <combatPower>40</combatPower>
+        <weaponTags>
+          <li>SimpleGun</li>
+        </weaponTags>
+        <weaponMoney>1100~3500</weaponMoney>
+        <apparelMoney>1250~2500</apparelMoney>
+        <apparelTags>
+          <li>IndustrialBasic</li>
+          <li>IndustrialAdvanced</li>
+          <li>IndustrialMilitaryBasic</li>
+          <li>IndustrialMilitaryAdvanced</li>
+        </apparelTags>
+        <apparelDisallowTags>
+          <li>Western</li>
+        </apparelDisallowTags>
+        <techHediffsChance>0.15</techHediffsChance>
+        <techHediffsMoney>1000~1800</techHediffsMoney>
+        <techHediffsTags>
+          <li>Advanced</li>
+          <li>ImplantDwarvenCommon</li>
+        </techHediffsTags>
+        <initialWillRange>3~5</initialWillRange>
+        <initialResistanceRange>16~25</initialResistanceRange>
+      </PawnKindDef>
+    -->
+      <PawnKindDef ParentName="StonebornBase">
+        <defName>Stoneborn_Worker</defName>
+        <label>stoneborn worker</label>
+        <maxGenerationAge>75</maxGenerationAge>	
+        <combatPower>30</combatPower>
+        <backstoryCryptosleepCommonality>0.08</backstoryCryptosleepCommonality>
+        <forceNormalGearQuality>true</forceNormalGearQuality>
+        <isFighter>false</isFighter>
+        <apparelTags>
+          <li>IndustrialBasic</li>
+        </apparelTags>
+        <backstoryFiltersOverride>
+          <li>
+            <categories>
+              <li>Offworld</li>
+              <li>DwarfCommon</li>
+            </categories>
+          </li>
+        </backstoryFiltersOverride>		
+        <apparelMoney>200~800</apparelMoney>
+        <gearHealthRange>1~1</gearHealthRange>
+        <apparelAllowHeadgearChance>0</apparelAllowHeadgearChance>
+        <techHediffsMoney>100~1000</techHediffsMoney>
+        <techHediffsTags>
+          <li>Poor</li>
+          <li>Simple</li>
+        </techHediffsTags>
+        <techHediffsChance>0.2</techHediffsChance>
+        <apparelDisallowTags>
+          <li>Western</li>
+        </apparelDisallowTags>
+        <disallowedTraits>
+          <li>Nudist</li>
+        </disallowedTraits>
+        <initialWillRange>2~3</initialWillRange>
+        <initialResistanceRange>20~30</initialResistanceRange>
+      </PawnKindDef>
+    
+      <!--===================== Dwarven fighter castes =========================-->
+    
+      <PawnKindDef Name="StonebornWarriorBase" ParentName="StonebornBase" Abstract="True">
+        <race>Human</race>
+        <maxGenerationAge>55</maxGenerationAge>
+        <backstoryCryptosleepCommonality>0.08</backstoryCryptosleepCommonality>
+        <chemicalAddictionChance>0.05</chemicalAddictionChance>
+        <backstoryFiltersOverride>
+          <li>
+            <categories>
+              <li>DwarfFighter</li>
+            </categories>
+          </li>
+        </backstoryFiltersOverride>
+        <styleItemTags>
+          <li>
+            <tag>Soldier</tag>
+            <baseWeight>1</baseWeight>
+            <weightFactor>1</weightFactor>
+          </li>
+          <li>
+            <tag>BeardRural</tag>
+            <baseWeight>1</baseWeight>
+            <weightFactor>1</weightFactor>
+          </li>
+          <li>
+            <tag>BeardLong</tag>
+            <baseWeight>0.8</baseWeight>
+            <weightFactor>1</weightFactor>
+          </li>
+          <li>
+            <tag>BeardTribal</tag>
+            <baseWeight>0.8</baseWeight>
+            <weightFactor>1</weightFactor>
+          </li>
+          <li>
+            <tag>BeardUrban</tag>
+            <baseWeight>1</baseWeight>
+            <weightFactor>1</weightFactor>
+          </li>
+          <li>
+            <tag>BeardBushy</tag>
+            <baseWeight>1</baseWeight>
+            <weightFactor>1</weightFactor>
+          </li>
+          <li>
+            <tag>Furskin</tag>
+            <baseWeight>0</baseWeight>
+            <weightFactor>1</weightFactor>
+          </li>
+        </styleItemTags>
+        <invNutrition>3</invNutrition>
+        <itemQuality>Good</itemQuality>
+        <weaponMoney>1300~2500</weaponMoney>
+        <apparelAllowHeadgearChance>0.5</apparelAllowHeadgearChance>
+        <apparelMoney>1250~2500</apparelMoney>
+        <apparelTags>
+          <li>IndustrialBasic</li>
+          <li>IndustrialAdvanced</li>
+          <li>IndustrialMilitaryBasic</li>
+          <li>IndustrialMilitaryAdvanced</li>
+        </apparelTags>
+        <apparelDisallowTags>
+          <li>Western</li>
+        </apparelDisallowTags>
+        <specificApparelRequirements>
+          <li>
+            <bodyPartGroup>Torso</bodyPartGroup>
+            <apparelLayer>OnSkin</apparelLayer>
+            <stuff>Cloth</stuff>
+          </li>
+          <li>
+            <bodyPartGroup>Legs</bodyPartGroup>
+            <apparelLayer>OnSkin</apparelLayer>
+            <stuff>Cloth</stuff>
+          </li>
+        </specificApparelRequirements>
+        <techHediffsChance>0.50</techHediffsChance>
+        <techHediffsMoney>1000~1500</techHediffsMoney>
+        <biocodeWeaponChance>0.3</biocodeWeaponChance>
+      </PawnKindDef>
+    
+      <!-- Ranger -->
+    
+      <PawnKindDef Name="StonebornSoldierBase" Abstract="True" ParentName="StonebornWarriorBase">
+        <combatPower>100</combatPower>
+        <apparelMoney>5000~8000</apparelMoney>
+        <weaponTags>
+          <li>IndustrialGunAdvanced</li>
+        </weaponTags>
+        <apparelRequired>
+          <li>Apparel_FlakJacket</li>
+          <li>Apparel_FlakVest</li>
+          <li>Apparel_FlakPants</li>
+          <li>DV_Apparel_DwarvenHelm</li>
+        </apparelRequired>
+        <techHediffsRequired>
+          <li>DeathAcidifier</li>
+        </techHediffsRequired>
+        <initialWillRange>3~4</initialWillRange>
+      </PawnKindDef>
+    
+      <PawnKindDef ParentName="StonebornSoldierBase">
+        <defName>Stoneborn_Ranger</defName>
+        <label>ranger</label>
+        <apparelColor>(90,90,90)</apparelColor>
+        <specificApparelRequirements>
+          <li>
+            <bodyPartGroup>UpperHead</bodyPartGroup>
+            <alternateTagChoices>
+              <li>
+                <tag>DwarfHelmetRanger</tag>
+                <chance>0.25</chance>
+              </li>
+            </alternateTagChoices>
+          </li>
+        </specificApparelRequirements>
+        <techHediffsChance>0.75</techHediffsChance>
+        <techHediffsTags>
+          <li>Advanced</li>
+          <li>ImplantDwarvenCommon</li>
+        </techHediffsTags>
+        <skills>
+          <li>
+            <skill>Shooting</skill>
+            <range>4~10</range>
+          </li>
+        </skills>
+        <disallowedTraits>
+          <li>Brawler</li>
+        </disallowedTraits>
+        <initialResistanceRange>15~24</initialResistanceRange>
+      </PawnKindDef>
+    
+      <!-- Toxwyrm -->
+    
+      <PawnKindDef ParentName="StonebornSoldierBase">
+        <defName>Stoneborn_Elite_Toxwyrm</defName>
+        <label>toxwyrm</label>
+        <apparelColor>(101,88,67)</apparelColor>
+        <canBeSapper>false</canBeSapper>
+        <isGoodBreacher>false</isGoodBreacher>
+        <combatPower>160</combatPower>
+        <weaponTags Inherit="False">
+          <li>HeavyTox</li>
+        </weaponTags>
+        <apparelMoney>6000~9000</apparelMoney>
+        <apparelRequired Inherit="False">
+          <li>DV_Apparel_BeardedHelmet</li>
+          <li>DV_Apparel_FireproofGambeson</li>
+        </apparelRequired>
+        <specificApparelRequirements Inherit="False">
+          <li>
+            <bodyPartGroup>FullHead</bodyPartGroup>
+            <color>(188,201,139)</color>
+          </li>
+          <li>
+            <bodyPartGroup>Torso</bodyPartGroup>
+            <apparelLayer>OnSkin</apparelLayer>
+            <stuff>DevilstrandCloth</stuff>
+          </li>
+          <li>
+            <bodyPartGroup>Legs</bodyPartGroup>
+            <apparelLayer>OnSkin</apparelLayer>
+            <stuff>DevilstrandCloth</stuff>
+          </li>
+        </specificApparelRequirements>
+        <techHediffsTags>
+          <li>Advanced</li>
+          <li>ImplantDwarvenCommon</li>
+          <li>ImplantDwarvenMilitary</li>
+        </techHediffsTags>
+        <techHediffsRequired>
+          <li>DV_SteelboneInjector</li>
+        </techHediffsRequired>
+        <skills>
+          <li>
+            <skill>Shooting</skill>
+            <range>6~12</range>
+          </li>
+        </skills>
+        <disallowedTraits>
+          <li>Brawler</li>
+        </disallowedTraits>
+        <initialWillRange>2~4</initialWillRange>
+        <initialResistanceRange>20~25</initialResistanceRange>
+      </PawnKindDef>
+    
+
+      <!-- Firedrake -->
+    
+      <PawnKindDef ParentName="StonebornSoldierBase">
+        <defName>Stoneborn_Elite_Firedrake</defName>
+        <label>firedrake</label>
+        <apparelColor>(68,68,68)</apparelColor>
+        <canBeSapper>false</canBeSapper>
+        <isGoodBreacher>false</isGoodBreacher>
+        <combatPower>150</combatPower>
+        <backstoryFiltersOverride>
+          <li>
+            <categoriesAdulthood>
+              <li>DwarfFighter</li>
+            </categoriesAdulthood>
+          </li>
+        </backstoryFiltersOverride>
+        <weaponTags Inherit="False">
+          <li>Flameblaster</li>
+        </weaponTags>
+        <apparelMoney>6000~9000</apparelMoney>
+        <apparelRequired Inherit="False">
+          <li>DV_Apparel_BeardedHelmet</li>
+          <li>DV_Apparel_FireproofGambeson</li>
+        </apparelRequired>
+        <specificApparelRequirements Inherit="False">
+          <li>
+            <bodyPartGroup>FullHead</bodyPartGroup>
+            <color>(156,69,31)</color>
+          </li>
+          <li>
+            <bodyPartGroup>Torso</bodyPartGroup>
+            <apparelLayer>OnSkin</apparelLayer>
+            <stuff>DevilstrandCloth</stuff>
+          </li>
+          <li>
+            <bodyPartGroup>Legs</bodyPartGroup>
+            <apparelLayer>OnSkin</apparelLayer>
+            <stuff>DevilstrandCloth</stuff>
+          </li>
+        </specificApparelRequirements>
+        <techHediffsTags>
+          <li>Advanced</li>
+          <li>ImplantDwarvenCommon</li>
+          <li>ImplantDwarvenMilitary</li>
+        </techHediffsTags>
+        <techHediffsRequired>
+          <li>DV_SteelboneInjector</li>
+        </techHediffsRequired>
+        <skills>
+          <li>
+            <skill>Shooting</skill>
+            <range>6~12</range>
+          </li>
+        </skills>
+        <disallowedTraits>
+          <li>Brawler</li>
+        </disallowedTraits>
+        <initialWillRange>2~4</initialWillRange>
+        <initialResistanceRange>20~25</initialResistanceRange>
+      </PawnKindDef>
+    
+      <!-- Thunderer -->
+    
+      <PawnKindDef Name="StonebornThundererBase" Abstract="True" ParentName="StonebornSoldierBase">
+        <combatPower>130</combatPower>
+        <weaponMoney>2000~2700</weaponMoney>
+        <weaponTags>
+          <li>IndustrialGunAdvanced</li>
+          <li>SpacerGun</li>
+          <li>SniperRifle</li>
+          <li>SlugGunLong</li>
+        </weaponTags>
+        <apparelMoney>6000~9000</apparelMoney>
+        <apparelRequired Inherit="False">
+          <li>DV_Apparel_GildedDwarvenHelm</li>
+          <li>Apparel_Bandolier</li>
+          <li>DV_Apparel_PowerCuirass</li>
+        </apparelRequired>
+        <techHediffsRequired>
+          <li>DV_IronskinGland</li>
+        </techHediffsRequired>
+        <disallowedTraits>
+          <li>Brawler</li>
+          <li>Wimp</li>
+          <li>Nudist</li>
+          <li>BodyPurist</li>
+        </disallowedTraits>
+      </PawnKindDef>
+    
+      <PawnKindDef ParentName="StonebornThundererBase">
+        <defName>Stoneborn_Elite_Thunderer</defName>
+        <label>thunderer</label>
+        <techHediffsTags>
+          <li>Advanced</li>
+          <li>ImplantDwarvenCommon</li>
+          <li>ImplantDwarvenMilitary</li>
+        </techHediffsTags>
+        <apparelRequired Inherit="False">
+          <li>Apparel_SmokepopBelt</li>
+        </apparelRequired>
+        <specificApparelRequirements Inherit="False">
+          <li>
+            <color>(68,68,68)</color>
+            <alternateTagChoices>
+              <li>
+                <tag>Gunlink</tag>
+                <chance>0.3</chance>
+              </li>
+              <li>
+                <tag>GildedDwarfHelmet</tag>
+                <chance>0.8</chance>
+              </li>
+            </alternateTagChoices>
+          </li>
+          <li>
+            <bodyPartGroup>Torso</bodyPartGroup>
+            <apparelLayer>Shell</apparelLayer>
+            <color>(108, 78, 55)</color>
+            <alternateTagChoices>
+              <li>
+                <tag>Apparel_Yttakin</tag>
+                <chance>0.3</chance>
+              </li>
+              <li>
+                <tag>Cape</tag>
+                <chance>0.8</chance>
+              </li>
+            </alternateTagChoices>
+          </li>
+          <li>
+            <bodyPartGroup>Torso</bodyPartGroup>
+            <apparelLayer>Middle</apparelLayer>
+            <requiredTag>DwarfArmor</requiredTag>
+            <color>(154, 122, 59)</color>
+          </li>
+          <li>
+            <bodyPartGroup>Torso</bodyPartGroup>
+            <apparelLayer>OnSkin</apparelLayer>
+            <stuff>Cloth</stuff>
+          </li>
+          <li>
+            <bodyPartGroup>Legs</bodyPartGroup>
+            <apparelLayer>OnSkin</apparelLayer>
+            <stuff>Cloth</stuff>
+          </li>
+        </specificApparelRequirements>
+        <skills>
+          <li>
+            <skill>Shooting</skill>
+            <range>9~15</range>
+          </li>
+        </skills>
+        <initialWillRange>3~5</initialWillRange>
+        <initialResistanceRange>13~21</initialResistanceRange>
+      </PawnKindDef>
+    
+      <!-- Slayer -->
+    
+      <PawnKindDef ParentName="StonebornSoldierBase">
+        <defName>Stoneborn_Slayer</defName>
+        <label>slayer</label>
+        <maxGenerationAge>50</maxGenerationAge>
+        <combatPower>90</combatPower>
+        <weaponTags Inherit="False">
+          <li>DwarfMeleeAdvanced</li>
+        </weaponTags>
+        <apparelRequired Inherit="False">
+          <li>DV_Apparel_PowerplateArmor</li>
+          <li>DV_Apparel_DwarvenHelm</li>
+        </apparelRequired>
+        <apparelColor>(133, 105, 51)</apparelColor>
+        <techHediffsTags>
+          <li>Advanced</li>
+          <li>ImplantDwarvenCommon</li>
+          <li>ImplantDwarvenMilitary</li>
+        </techHediffsTags>
+        <skills>
+          <li>
+            <skill>Melee</skill>
+            <range>7~11</range>
+          </li>
+        </skills>
+        <initialWillRange>3~5</initialWillRange>
+        <initialResistanceRange>25~30</initialResistanceRange>
+      </PawnKindDef>
+
+      <!-- Menhir -->
+    
+      <PawnKindDef ParentName="StonebornSoldierBase">
+        <defName>Stoneborn_Menhir</defName>
+        <label>menhir</label>
+        <maxGenerationAge>80</maxGenerationAge>
+        <combatPower>130</combatPower>
+        <weaponTags Inherit="False">
+          <li>SlugGun</li>
+          <li>Minigun</li>
+          <li>RocketLauncher</li>
+          <li>GunHeavy</li>
+        </weaponTags>
+        <apparelRequired Inherit="False">
+          <li>DV_Apparel_PowerplateArmor</li>
+          <li>DV_Apparel_PowerPlateHelmet</li>
+          <li>DV_Apparel_AbsorptionShield</li>
+        </apparelRequired>
+        <specificApparelRequirements Inherit="False">
+          <li>
+            <bodyPartGroup>UpperHead</bodyPartGroup>
+            <color>(154, 122, 59)</color>
+          </li>
+          <li>
+            <bodyPartGroup>Torso</bodyPartGroup>
+            <apparelLayer>OnSkin</apparelLayer>
+            <stuff>DevilstrandCloth</stuff>
+          </li>
+          <li>
+            <bodyPartGroup>Legs</bodyPartGroup>
+            <apparelLayer>OnSkin</apparelLayer>
+            <stuff>DevilstrandCloth</stuff>
+          </li>
+        </specificApparelRequirements>
+        <apparelColor>(68,68,68)</apparelColor>
+        <techHediffsTags>
+          <li>Advanced</li>
+          <li>ImplantDwarvenCommon</li>
+          <li>ImplantDwarvenMilitary</li>
+        </techHediffsTags>
+        <techHediffsRequired>
+          <li>DV_SteelboneInjector</li>
+          <li>DV_IronskinGland</li>
+        </techHediffsRequired>
+        <skills>
+          <li>
+            <skill>Shooting</skill>
+            <range>8~12</range>
+          </li>
+          <li>
+            <skill>Melee</skill>
+            <range>6~10</range>
+          </li>
+        </skills>
+        <initialWillRange>3~5</initialWillRange>
+        <initialResistanceRange>25~30</initialResistanceRange>
+      </PawnKindDef>
+
+     <!-- Aegisbreaker -->
+
+     <PawnKindDef ParentName="StonebornSoldierBase">
+      <defName>Stoneborn_Elite_Aegisbreaker</defName>
+      <label>aegisbreaker</label>
+      <maxGenerationAge>50</maxGenerationAge>
+      <combatPower>150</combatPower>
+      <apparelAllowHeadgearChance>0</apparelAllowHeadgearChance>
+      <weaponTags Inherit="False">
+        <li>BulwarkBreaker</li>
+      </weaponTags>
+      <apparelRequired Inherit="False">
+        <li>DV_Apparel_PowerplateArmor</li>
+        <li>DV_Apparel_HammererHelm</li>
+        <li>DV_Apparel_AbsorptionShield</li>
+      </apparelRequired>
+      <specificApparelRequirements>
+        <li>
+          <bodyPartGroup>FullHead</bodyPartGroup>
+          <color>(114, 28, 31)</color>
+        </li>
+      </specificApparelRequirements>
+      <apparelColor>(154, 122, 59)</apparelColor>
+      <techHediffsTags>
+        <li>Advanced</li>
+        <li>ImplantDwarvenCommon</li>
+        <li>ImplantDwarvenMilitary</li>
+      </techHediffsTags>
+      <techHediffsRequired>
+        <li>DV_SteelboneInjector</li>
+        <li>DV_IronskinGland</li>
+      </techHediffsRequired>
+      <skills>
+        <li>
+          <skill>Melee</skill>
+          <range>12~18</range>
+        </li>
+      </skills>
+      <initialWillRange>3~5</initialWillRange>
+      <initialResistanceRange>25~30</initialResistanceRange>
+    </PawnKindDef>
+    
+      <!-- Royals -->
+    
+      <PawnKindDef Name="NobilityStonebornBase" Abstract="True">
+        <race>Human</race>
+        <defaultFactionType>OutlanderRoughStoneborn</defaultFactionType>
+        <maxGenerationAge>120</maxGenerationAge>
+        <backstoryCryptosleepCommonality>0.08</backstoryCryptosleepCommonality>
+        <backstoryFiltersOverride>
+          <li>
+            <categories>
+              <li>ImperialRoyal</li>
+            </categories>
+          </li>
+        </backstoryFiltersOverride>
+        <royalTitleChance>0</royalTitleChance>
+        <chemicalAddictionChance>0.05</chemicalAddictionChance>
+        <itemQuality>Excellent</itemQuality>
+        <combatPower>50</combatPower>
+        <weaponMoney>2600~3100</weaponMoney>
+        <weaponTags>
+          <li>DwarfMeleeRoyal</li>
+          <li>DwarfRangedRoyal</li>
+        </weaponTags>
+        <apparelAllowHeadgearChance>0.5</apparelAllowHeadgearChance>
+        <apparelMoney>1000~1500</apparelMoney>
+        <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
+        <apparelTags>
+          <li>IndustrialBasic</li>
+        </apparelTags>
+        <apparelDisallowTags>
+          <li>Western</li>
+        </apparelDisallowTags>
+        <techHediffsChance>0.60</techHediffsChance>
+        <techHediffsMoney>2000~4000</techHediffsMoney>
+        <techHediffsTags>
+          <li>Advanced</li>
+          <li>ImplantDwarvenRoyal</li>
+          <li>ImplantDwarvenCommon</li>
+          <li>ImplantDwarvenMilitary</li>
+        </techHediffsTags>
+        <techHediffsDisallowTags>
+          <li>PainCauser</li>
+        </techHediffsDisallowTags>
+        <styleItemTags>
+          <li>
+            <tag>Royalty</tag>
+            <baseWeight>1</baseWeight>
+            <weightFactor>1</weightFactor>
+          </li>
+          <li>
+            <tag>BeardRural</tag>
+            <baseWeight>1</baseWeight>
+            <weightFactor>1</weightFactor>
+          </li>
+          <li>
+            <tag>BeardLong</tag>
+            <baseWeight>1</baseWeight>
+            <weightFactor>1</weightFactor>
+          </li>
+          <li>
+            <tag>BeardTribal</tag>
+            <baseWeight>0.4</baseWeight>
+            <weightFactor>1</weightFactor>
+          </li>
+          <li>
+            <tag>BeardUrban</tag>
+            <baseWeight>1</baseWeight>
+            <weightFactor>1</weightFactor>
+          </li>
+        </styleItemTags>
+        <disallowedTraits>
+          <li>Nudist</li>
+          <li>BodyPurist</li>
+          <li>Brawler</li>
+          <li>Wimp</li>
+        </disallowedTraits>
+      </PawnKindDef>
+
+      <PawnKindDef ParentName="NobilityStonebornBase">
+        <defName>Stoneborn_Feastfather</defName>
+        <label>feastfather</label>
+        <factionLeader>false</factionLeader>
+        <weaponTags Inherit="False">
+          <li>Snapshot</li>
+        </weaponTags>
+        <specificApparelRequirements>
+          <li>
+            <bodyPartGroup>UpperHead</bodyPartGroup>
+            <requiredTag>DwarfRoyalTier1</requiredTag>
+            <stuff>Gold</stuff>
+          </li>
+          <li>
+            <bodyPartGroup>Torso</bodyPartGroup>
+            <apparelLayer>Shell</apparelLayer>
+            <requiredTag>DwarfRoyal</requiredTag>
+            <color>(86, 76, 57)</color>
+          </li>
+          <li>
+            <bodyPartGroup>Torso</bodyPartGroup>
+            <apparelLayer>Middle</apparelLayer>
+            <requiredTag>RoyalTier5</requiredTag>
+            <color>(86, 93, 76)</color>
+          </li>
+          <li>
+            <bodyPartGroup>Torso</bodyPartGroup>
+            <apparelLayer>OnSkin</apparelLayer>
+            <requiredTag>RoyalTier2</requiredTag>
+            <color>(86, 93, 76)</color>
+          </li>
+          <li>
+            <bodyPartGroup>Torso</bodyPartGroup>
+            <stuff>Hyperweave</stuff>
+          </li>
+          <li>
+            <bodyPartGroup>Legs</bodyPartGroup>
+            <stuff>Hyperweave</stuff>
+          </li>
+        </specificApparelRequirements>
+        <techHediffsTags>
+          <li>Advanced</li>
+          <li>ImplantDwarvenCommon</li>
+          <li>ImplantDwarvenMilitary</li>
+        </techHediffsTags>
+        <initialWillRange>3~5</initialWillRange>
+        <initialResistanceRange>25~30</initialResistanceRange>
+      </PawnKindDef>
+
+      <PawnKindDef ParentName="NobilityStonebornBase">
+        <defName>Stoneborn_Minefather</defName>
+        <label>minefather</label>
+        <factionLeader>false</factionLeader>
+        <weaponTags Inherit="False">
+          <li>BulwarkBreaker</li>
+        </weaponTags>
+        <specificApparelRequirements>
+          <li>
+            <bodyPartGroup>UpperHead</bodyPartGroup>
+            <requiredTag>DwarfRoyalTier1</requiredTag>
+            <stuff>Uranium</stuff>
+          </li>
+          <li>
+            <bodyPartGroup>Torso</bodyPartGroup>
+            <apparelLayer>Shell</apparelLayer>
+            <requiredTag>DwarfRoyal</requiredTag>
+            <color>(108, 78, 55)</color>
+          </li>
+          <li>
+            <bodyPartGroup>Torso</bodyPartGroup>
+            <apparelLayer>Middle</apparelLayer>
+            <requiredTag>RoyalTier5</requiredTag>
+            <color>(67, 81, 101)</color>
+          </li>
+          <li>
+            <bodyPartGroup>Torso</bodyPartGroup>
+            <apparelLayer>OnSkin</apparelLayer>
+            <requiredTag>RoyalTier2</requiredTag>
+            <color>(67, 81, 101)</color>
+          </li>
+          <li>
+            <bodyPartGroup>Torso</bodyPartGroup>
+            <stuff>Hyperweave</stuff>
+          </li>
+          <li>
+            <bodyPartGroup>Legs</bodyPartGroup>
+            <stuff>Hyperweave</stuff>
+          </li>
+        </specificApparelRequirements>
+        <techHediffsTags>
+          <li>Advanced</li>
+          <li>ImplantDwarvenCommon</li>
+          <li>ImplantDwarvenMilitary</li>
+        </techHediffsTags>
+        <initialWillRange>3~5</initialWillRange>
+        <initialResistanceRange>25~30</initialResistanceRange>
+      </PawnKindDef>
+
+      <PawnKindDef ParentName="NobilityStonebornBase">
+        <defName>Stoneborn_Bladefather</defName>
+        <label>bladefather</label>
+        <factionLeader>false</factionLeader>
+        <weaponTags Inherit="False">
+          <li>Battlestaff</li>
+        </weaponTags>
+        <specificApparelRequirements>
+          <li>
+            <bodyPartGroup>UpperHead</bodyPartGroup>
+            <requiredTag>DwarfRoyalTier1</requiredTag>
+            <stuff>Plasteel</stuff>
+          </li>
+          <li>
+            <bodyPartGroup>Torso</bodyPartGroup>
+            <apparelLayer>Shell</apparelLayer>
+            <requiredTag>DwarfRoyal</requiredTag>
+            <color>(70, 70, 70)</color>
+          </li>
+          <li>
+            <bodyPartGroup>Torso</bodyPartGroup>
+            <apparelLayer>Middle</apparelLayer>
+            <requiredTag>RoyalTier5</requiredTag>
+            <color>(132, 84, 72))</color>
+          </li>
+          <li>
+            <bodyPartGroup>Torso</bodyPartGroup>
+            <apparelLayer>OnSkin</apparelLayer>
+            <requiredTag>RoyalTier2</requiredTag>
+            <color>(132, 84, 72)</color>
+          </li>
+          <li>
+            <bodyPartGroup>Torso</bodyPartGroup>
+            <stuff>Hyperweave</stuff>
+          </li>
+          <li>
+            <bodyPartGroup>Legs</bodyPartGroup>
+            <stuff>Hyperweave</stuff>
+          </li>
+        </specificApparelRequirements>
+        <techHediffsTags>
+          <li>Advanced</li>
+          <li>ImplantDwarvenCommon</li>
+          <li>ImplantDwarvenMilitary</li>
+        </techHediffsTags>
+        <initialWillRange>3~5</initialWillRange>
+        <initialResistanceRange>25~30</initialResistanceRange>
+      </PawnKindDef>
+
+      <PawnKindDef ParentName="NobilityStonebornBase">
+        <defName>Stoneborn_Underlord</defName>
+        <label>underlord</label>
+        <factionLeader>true</factionLeader>
+        <factionHostileOnDeath>true</factionHostileOnDeath>
+        <weaponTags>
+          <li>DwarfMeleeRoyal</li>
+          <li>DwarfRangedRoyal</li>
+        </weaponTags>
+        <specificApparelRequirements>
+          <li>
+            <bodyPartGroup>UpperHead</bodyPartGroup>
+            <requiredTag>DwarfRoyalTier2</requiredTag>
+            <color>(114, 28, 31)</color>
+            <stuff>Hyperweave</stuff>
+          </li>
+          <li>
+            <bodyPartGroup>Torso</bodyPartGroup>
+            <apparelLayer>Shell</apparelLayer>
+            <requiredTag>DwarfRoyal</requiredTag>
+            <color>(108, 78, 55)</color>
+          </li>
+          <li>
+            <bodyPartGroup>Torso</bodyPartGroup>
+            <apparelLayer>Middle</apparelLayer>
+            <requiredTag>RoyalTier5</requiredTag>
+            <color>(114, 28, 31)</color>
+          </li>
+          <li>
+            <bodyPartGroup>Torso</bodyPartGroup>
+            <apparelLayer>OnSkin</apparelLayer>
+            <requiredTag>RoyalTier2</requiredTag>
+            <color>(114, 28, 31)</color>
+          </li>
+          <li>
+            <bodyPartGroup>Torso</bodyPartGroup>
+            <stuff>Hyperweave</stuff>
+          </li>
+          <li>
+            <bodyPartGroup>Legs</bodyPartGroup>
+            <stuff>Hyperweave</stuff>
+          </li>
+        </specificApparelRequirements>
+        <techHediffsTags>
+          <li>Advanced</li>
+          <li>ImplantDwarvenCommon</li>
+          <li>ImplantDwarvenMilitary</li>
+        </techHediffsTags>
+        <initialWillRange>3~5</initialWillRange>
+        <initialResistanceRange>25~30</initialResistanceRange>
+      </PawnKindDef>
+
+</Defs>

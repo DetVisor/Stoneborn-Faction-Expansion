@@ -3,7 +3,7 @@
 	<name>Stoneborn - Faction Expansion</name>
 	<author>DetVisor, Feldoh</author>
 	<supportedVersions>
-		<li>1.4</li>
+		<li>1.5</li>
 	</supportedVersions>
 	<loadAfter>
 		<li>brrainz.harmony</li>
@@ -20,11 +20,6 @@
 		   <packageId>det.stoneborn</packageId>
 		   <displayName>Det's Xenotypes - Stoneborn</displayName>
 		   <steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2903359518</steamWorkshopUrl>
-		</li>
-		<li>
-			<packageId>Ludeon.RimWorld.Ideology</packageId>
-			<displayName>Ideology</displayName>
-			<steamWorkshopUrl>https://store.steampowered.com/app/1392840/RimWorld__Ideology/</steamWorkshopUrl>
 		</li>
 		<li>
 			<packageId>smartkar.athenaframework</packageId>
