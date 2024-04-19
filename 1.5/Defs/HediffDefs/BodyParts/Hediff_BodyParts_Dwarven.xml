@@ -3,6 +3,135 @@
 
   <!-- Multi-arms-->
 
+  <!-- General purpose arm-->
+
+  <ThingDef ParentName="MultiArmBionicDwarven">
+    <defName>DV_AssistantArmThing</defName>
+    <label>assistant multi-arm</label>
+    <description>An advanced bionic gland which upon being implanted releases consistent waves of specially programmed nanomachines that transform the user's skin into a sort of natural chainmail, highly resistant to cuts and slices. The skin however becomes scaly and rough, making the user particularly unappealing.</description>
+    <thingSetMakerTags><li>RewardStandardMidFreq</li></thingSetMakerTags>
+    <graphicData>
+      <texPath>Things/Item/Health/ConstructorArm_Item</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>0.90</drawSize>
+    </graphicData>
+    <comps>
+      <li Class="CompProperties_Usable">
+        <compClass>AthenaFramework.CompUsable_HediffModule</compClass>
+        <useJob>Athena_InstallModule</useJob>
+        <useDuration>50</useDuration>
+      </li>
+      <li Class="AthenaFramework.CompProperties_UseEffectHediffModule">
+        <slotIDs>
+          <li>armSocket</li>
+        </slotIDs>
+        <requiredCapacity>1</requiredCapacity>
+        <ejectable>true</ejectable>
+        <installSound></installSound>
+        <ejectSound>MetalDrop</ejectSound>
+        <hediffs>
+          <li>DV_AssistantMultiarm</li>
+        </hediffs>
+      </li>
+    </comps>
+    <costList>
+      <Plasteel>30</Plasteel>
+      <Steel>30</Steel>
+      <ComponentSpacer>12</ComponentSpacer>
+    </costList>
+    <tradeTags>
+      <li>ImplantDwarvenWork</li>
+    </tradeTags>
+    <techHediffsTags>
+      <li>ImplantDwarvenWork</li>
+    </techHediffsTags>
+  </ThingDef>
+
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>DV_AssistantMultiarm</defName>
+    <label>assistant multi-arm</label>
+    <labelNoun>an assistant arm</labelNoun>
+    <description>A fleshy, muscled tentacle resembling a partial transformation into a fleshbeast. The tentacle is excellent at manipulation.\n\nThe flesh tentacle has its own neural structures and may become dangerous if removed.</description>
+    <defaultInstallPart>Shoulder</defaultInstallPart>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>-0.08</offset>
+          </li>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>1.15</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+    <renderNodeProperties>
+      <li Class="PawnRenderNodeProperties_Spastic">
+        <texPath>Things/Pawn/Humanlike/BodyAttachments/Multiarms/GeneralArm</texPath>
+        <parentTagDef>Body</parentTagDef>
+        <overrideMeshSize>1</overrideMeshSize>
+        <drawSize>1.2</drawSize>
+        <rotationRange>-10~12</rotationRange>
+        <durationTicksRange>10~35</durationTicksRange>
+        <nextSpasmTicksRange>10~50</nextSpasmTicksRange>
+        <drawData>
+          <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+          <useHediffAnchor>true</useHediffAnchor>
+          <childScale>0.7</childScale>
+          <bodyTypeScales>
+            <Hulk>1.1</Hulk>
+            <Fat>1.3</Fat>
+            <Thin>0.8</Thin>
+          </bodyTypeScales>
+          <defaultData>
+            <layer>80</layer>
+          </defaultData>
+          <dataNorth>
+            <rotationOffset>-2</rotationOffset>
+            <flip>true</flip>
+            <layer>100</layer>
+          </dataNorth>
+          <dataEast>
+            <rotationOffset>270</rotationOffset>
+            <offset>(0, 0, -0.1)</offset>
+          </dataEast>
+          <dataSouth>
+            <rotationOffset>160</rotationOffset>
+            <layer>0</layer>
+            <flip>true</flip>
+          </dataSouth>
+          <dataWest>
+            <rotationOffset>270</rotationOffset>
+            <offset>(0, 0, -0.1)</offset>
+          </dataWest>
+        </drawData>
+      </li>
+    </renderNodeProperties>
+    <comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>assistant arm</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>11</power>
+            <cooldownTime>2.8</cooldownTime>
+            <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.10</partEfficiency>
+    </addedPartProps>
+  </HediffDef>
+
   <!-- Constructor arm-->
 
   <ThingDef ParentName="MultiArmBionicDwarven">
@@ -26,7 +155,7 @@
           <li>armSocket</li>
         </slotIDs>
         <requiredCapacity>1</requiredCapacity>
-        <ejectable>false</ejectable>
+        <ejectable>true</ejectable>
         <installSound></installSound>
         <ejectSound>MetalDrop</ejectSound>
         <hediffs>
@@ -197,7 +326,7 @@
           <li>armSocket</li>
         </slotIDs>
         <requiredCapacity>1</requiredCapacity>
-        <ejectable>false</ejectable>
+        <ejectable>true</ejectable>
         <installSound></installSound>
         <ejectSound>MetalDrop</ejectSound>
         <hediffs>
@@ -366,7 +495,7 @@
           <li>armSocket</li>
         </slotIDs>
         <requiredCapacity>1</requiredCapacity>
-        <ejectable>false</ejectable>
+        <ejectable>true</ejectable>
         <installSound></installSound>
         <ejectSound>MetalDrop</ejectSound>
         <hediffs>

@@ -111,7 +111,7 @@
       <gizmoTitle>Absorption Shield</gizmoTitle>
       <gizmoTip>A powerful shield belt that can absorb up to 250 damage, or more.</gizmoTip>
 
-      <onlyRenderWhenDrafted>false</onlyRenderWhenDrafted>
+      <onlyRenderWhenDrafted>true</onlyRenderWhenDrafted>
       <minDrawSize>1.5</minDrawSize>
       <maxDrawSize>1.8</maxDrawSize>
       <scaleWithOwner>true</scaleWithOwner>
