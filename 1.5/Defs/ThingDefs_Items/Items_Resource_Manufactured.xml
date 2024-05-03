@@ -4,7 +4,7 @@
 <ThingDef ParentName="ResourceBase">
     <defName>DV_ReinforcedDrillBit</defName>
     <label>reinforced drill bit</label>
-    <description>A large barrel for projectile-based weapons like mortars. In order to hold the high launch pressures, it is specially reinforced and cannot be manufactured at a small scale.</description>
+    <description>A heavy-duty drilling head used by large machines for mining. It is specially equipped with poly-crystalline diamond teeth which allow it to dig and break rock with ease but make it impossible to manufacture at a small scale.</description>
     <graphicData>
       <texPath>Things/Item/Resource/ReinforcedDrillBit</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -17,6 +17,7 @@
       <Flammability>0.1</Flammability>
       <DeteriorationRate>1.0</DeteriorationRate>
     </statBases>
+    <intricate>true</intricate>
     <thingCategories>
       <li>ItemsMisc</li>
     </thingCategories>

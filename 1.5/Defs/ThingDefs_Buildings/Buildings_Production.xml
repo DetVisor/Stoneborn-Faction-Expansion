@@ -42,6 +42,10 @@
       <ComponentIndustrial>5</ComponentIndustrial>
       <DV_ReinforcedDrillBit>1</DV_ReinforcedDrillBit>
     </costList>
+    <killedLeavings>
+      <Steel>150</Steel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+    </killedLeavings>
     <placeWorkers>
       <li>PlaceWorker_DeepDrill</li>
       <li>PlaceWorker_PreventInteractionSpotOverlap</li>

@@ -143,10 +143,25 @@
             <texPath>Things/Pawn/Apparel/DwarvenHelm/DwarvenHelm</texPath>
             <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
+        <statBases>
+          <WorkToMake>21000</WorkToMake>
+          <MaxHitPoints>150</MaxHitPoints>
+          <Mass>2.2</Mass>
+          <Flammability>0.4</Flammability>
+          <ArmorRating_Sharp>1.02</ArmorRating_Sharp>
+          <ArmorRating_Blunt>0.58</ArmorRating_Blunt>
+          <ArmorRating_Heat>0.60</ArmorRating_Heat>
+          <Insulation_Cold>2</Insulation_Cold>
+          <Insulation_Heat>0</Insulation_Heat>
+          <EquipDelay>4</EquipDelay>
+        </statBases>
+        <equippedStatOffsets>
+          <SlaveSuppressionOffset MayRequire="Ludeon.RimWorld.Ideology">-0.1</SlaveSuppressionOffset>
+        </equippedStatOffsets>
         <costList>
-          <Steel>20</Steel>
           <ComponentSpacer>1</ComponentSpacer>
-          <Plasteel>10</Plasteel>
+          <Plasteel>30</Plasteel>
+          <Steel>30</Steel>
         </costList>
         <apparel Inherit="False">
             <bodyPartGroups>
@@ -607,6 +622,26 @@
             <shaderType>CutoutComplex</shaderType>
             <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
+        <statBases Inherit="False">
+          <WorkToMake>30000</WorkToMake>
+          <MaxHitPoints>200</MaxHitPoints>
+          <Mass>5</Mass>
+          <Flammability>0.2</Flammability>
+          <ArmorRating_Sharp>1.10</ArmorRating_Sharp>
+          <ArmorRating_Blunt>0.80</ArmorRating_Blunt>
+          <ArmorRating_Heat>0.65</ArmorRating_Heat>
+          <Insulation_Cold>8</Insulation_Cold>
+          <Insulation_Heat>4</Insulation_Heat>
+          <EquipDelay>8</EquipDelay>
+        </statBases>
+        <equippedStatOffsets>
+          <MoveSpeed>-0.4</MoveSpeed>
+        </equippedStatOffsets>
+        <costList>
+          <ComponentSpacer>3</ComponentSpacer>
+          <Plasteel>30</Plasteel>
+          <DV_Orichalcum>30</DV_Orichalcum>
+        </costList>
         <apparel Inherit="False">
             <bodyPartGroups>
                 <li>FullHead</li>
@@ -643,9 +678,30 @@
             <shaderType>CutoutComplex</shaderType>
             <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
+        <statBases>
+          <WorkToMake>25000</WorkToMake>
+          <MaxHitPoints>175</MaxHitPoints>
+          <Mass>5</Mass>
+          <Flammability>0.3</Flammability>
+          <ArmorRating_Sharp>1.15</ArmorRating_Sharp>
+          <ArmorRating_Blunt>0.78</ArmorRating_Blunt>
+          <ArmorRating_Heat>0.70</ArmorRating_Heat>
+          <Insulation_Cold>2</Insulation_Cold>
+          <Insulation_Heat>2</Insulation_Heat>
+          <EquipDelay>8</EquipDelay>
+        </statBases>
+        <equippedStatOffsets>
+          <MoveSpeed>-0.2</MoveSpeed>
+          <ArrestSuccessChance>0.1</ArrestSuccessChance>
+        </equippedStatOffsets>
+        <costList>
+          <ComponentSpacer>2</ComponentSpacer>
+          <Plasteel>50</Plasteel>
+          <Steel>30</Steel>
+        </costList>
         <apparel Inherit="False">
             <bodyPartGroups>
-                <li>UpperHead</li>
+                <li>FullHead</li>
             </bodyPartGroups>
             <wornGraphicPath>Things/Pawn/Apparel/PowerplateHelmet/PowerPlateHelmet</wornGraphicPath>
             <renderSkipFlags>
