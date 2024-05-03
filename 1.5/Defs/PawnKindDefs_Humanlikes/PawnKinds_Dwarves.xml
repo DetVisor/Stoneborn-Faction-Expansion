@@ -606,7 +606,7 @@
         </apparelRequired>
         <specificApparelRequirements Inherit="False">
           <li>
-            <bodyPartGroup>UpperHead</bodyPartGroup>
+            <bodyPartGroup>FullHead</bodyPartGroup>
             <color>(154, 122, 59)</color>
           </li>
           <li>

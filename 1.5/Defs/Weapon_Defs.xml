@@ -986,9 +986,9 @@
           <RangedWeapon_Cooldown>1.35</RangedWeapon_Cooldown>
         </statBases>
         <costList>
-          <Steel>60</Steel>
-          <Uranium>25</Uranium>
-          <ComponentSpacer>5</ComponentSpacer>
+          <Steel>50</Steel>
+          <Uranium>20</Uranium>
+          <ComponentSpacer>4</ComponentSpacer>
         </costList>
         <verbs>
           <li>
