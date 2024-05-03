@@ -597,6 +597,7 @@
           <li>Minigun</li>
           <li>RocketLauncher</li>
           <li>GunHeavy</li>
+          <li>DwarfMeleeSpacer</li>
         </weaponTags>
         <apparelRequired Inherit="False">
           <li>DV_Apparel_PowerplateArmor</li>
@@ -684,6 +685,83 @@
       <initialWillRange>3~5</initialWillRange>
       <initialResistanceRange>25~30</initialResistanceRange>
     </PawnKindDef>
+
+         <!-- Anvil Prophet -->
+
+         <PawnKindDef ParentName="StonebornSoldierBase">
+          <defName>Stoneborn_Elite_AnvilProphet</defName>
+          <label>anvil prophet</label>
+          <maxGenerationAge>80</maxGenerationAge>
+          <minGenerationAge>30</minGenerationAge>
+          <combatPower>150</combatPower>
+          <apparelAllowHeadgearChance>0</apparelAllowHeadgearChance>
+          <weaponTags Inherit="False">
+            <li>Battlestaff</li>
+            <li>SlugGun</li>
+          </weaponTags>
+          <specificApparelRequirements>
+            <li>
+              <bodyPartGroup>UpperHead</bodyPartGroup>
+              <requiredTag>AnvilProphetHood</requiredTag>
+              <stuff>Hyperweave</stuff>
+              <color>(114, 28, 31)</color>
+            </li>
+            <li>
+              <bodyPartGroup>Torso</bodyPartGroup>
+              <apparelLayer>Shell</apparelLayer>
+              <requiredTag>DwarfRoyal</requiredTag>
+              <color>(114, 28, 31)</color>
+            </li>
+            <li>
+              <bodyPartGroup>Torso</bodyPartGroup>
+              <apparelLayer>Middle</apparelLayer>
+              <requiredTag>DwarfCuirass</requiredTag>
+              <color>(154, 122, 59)</color>
+            </li>
+            <li>
+              <bodyPartGroup>Torso</bodyPartGroup>
+              <apparelLayer>OnSkin</apparelLayer>
+              <color>(114, 28, 31)</color>
+            </li>
+            <li>
+              <bodyPartGroup>Legs</bodyPartGroup>
+              <stuff>Hyperweave</stuff>
+              <color>(114, 28, 31)</color>
+            </li>
+          </specificApparelRequirements>
+          <apparelColor>(154, 122, 59)</apparelColor>
+          <techHediffsTags>
+            <li>Advanced</li>
+            <li>ImplantDwarvenCommon</li>
+            <li>ImplantDwarvenMilitary</li>
+            <li>ImplantDwarvenWork</li>
+          </techHediffsTags>
+          <techHediffsChance>1</techHediffsChance>
+          <techHediffsMoney>5000~8000</techHediffsMoney>
+          <techHediffsMaxAmount>3</techHediffsMaxAmount>
+          <techHediffsRequired>
+            <li>DV_IronskinGland</li>
+            <li>DV_SocketJointThing</li>
+            <li>DV_SocketJointThing</li>
+          </techHediffsRequired>
+          <startingHediffs>
+            <li>
+              <def>DV_CrafterMultiarm</def>
+            </li>
+          </startingHediffs>
+          <skills>
+            <li>
+              <skill>Melee</skill>
+              <range>12~14</range>
+            </li>
+            <li>
+              <skill>Crafting</skill>
+              <range>12~14</range>
+            </li>
+          </skills>
+          <initialWillRange>3~5</initialWillRange>
+          <initialResistanceRange>25~30</initialResistanceRange>
+        </PawnKindDef>
     
       <!-- Royals -->
     

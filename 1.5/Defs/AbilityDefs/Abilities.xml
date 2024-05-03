@@ -88,10 +88,8 @@
         <verbProperties>
           <verbClass>Verb_CastAbility</verbClass>
           <hasStandardCommand>true</hasStandardCommand>
-          <warmupTime>0</warmupTime>
+          <warmupTime>0.2</warmupTime>
           <range>4.9</range>
-          <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
-          <burstShotCount>15</burstShotCount>
           <soundCast>Shot_MiniFlameblaster</soundCast>
           <muzzleFlashScale>9</muzzleFlashScale>
           <targetParams>
@@ -101,7 +99,11 @@
         <comps>
             <li Class="CompProperties_AbilityFireSpew">
               <range>4.9</range>
-              <lineWidthEnd>3</lineWidthEnd>
+              <lineWidthEnd>4</lineWidthEnd>
+              <filthDef>Filth_Fuel</filthDef>
+              <damAmount>12</damAmount>
+              <effecterDef>Fire_Spew</effecterDef>
+              <canHitFilledCells>true</canHitFilledCells>
             </li>
             <li Class="AthenaFramework.CompProperties_AbilityReloadable">
                 <maxCharges>1</maxCharges>
@@ -117,31 +119,38 @@
   <AbilityDef>
     <defName>ArmCannonAbility</defName>
     <label>arm slugger</label>
-    <description>Fire a volley of uranium slugs at an enemy.</description>
+    <description>Fire a volley of projectiles at an enemy.</description>
     <iconPath>UI/Abilities/ArmSlugger</iconPath>
+    <writeCombatLog>True</writeCombatLog>
+    <showPsycastEffects>False</showPsycastEffects>
     <cooldownTicksRange>60</cooldownTicksRange>
     <displayOrder>200</displayOrder>
     <aiCanUse>true</aiCanUse>
     <verbProperties>
       <verbClass>Verb_CastAbility</verbClass>
+      <defaultProjectile>ArmCannonProjectile</defaultProjectile>
       <range>4.9</range>
-      <warmupTime>0.8</warmupTime>
       <soundCast>Shot_Shotgun</soundCast>
+      <soundCastTail>GunTail_Medium</soundCastTail>
+      <muzzleFlashScale>9</muzzleFlashScale>
+      <warmupTime>0.4</warmupTime>
+      <ai_IsWeapon>true</ai_IsWeapon>
     </verbProperties>
     <comps>
       <li Class="CompProperties_AbilityLaunchProjectile">
         <projectileDef>ArmCannonProjectile</projectileDef>
       </li>
       <li Class="AthenaFramework.CompProperties_AbilityReloadable">
-        <maxCharges>2</maxCharges>
+        <maxCharges>3</maxCharges>
         <ammoDef>Steel</ammoDef>
-        <ammoPerCharge>15</ammoPerCharge>
+        <ammoPerCharge>10</ammoPerCharge>
         <reloadDuration>60</reloadDuration>
         <reloadSound>Standard_Reload</reloadSound>
         <noChargesRemaining>Slugger empty.</noChargesRemaining>
       </li>
     </comps>
   </AbilityDef>
+  
   <ThingDef ParentName="BaseBullet">
     <defName>ArmCannonProjectile</defName>
     <label>slugs</label>

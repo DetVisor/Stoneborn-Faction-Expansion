@@ -4,7 +4,7 @@
   <ResearchProjectDef>
     <defName>DV_Research_LightDwarvenArmor</defName>
     <label>light powersmithing</label>
-    <description>Forge light dwarve-desined power armor, like th</description>
+    <description>Discover how to forge light dwarven-made power armor like the power cuirass or the browed helm.</description>
     <baseCost>1200</baseCost>
     <tab>StonebornTab</tab>
     <techLevel>Spacer</techLevel>
@@ -22,7 +22,7 @@
   <ResearchProjectDef>
     <defName>DV_Research_HeavyDwarvenArmor</defName>
     <label>complex armor engineering</label>
-    <description>The technology needed for your mechanitor to create and control basic-tier mechanoids.</description>
+    <description>Research the complex ways to manufacture heavy dwarven power armor, like the famou powerplate.</description>
     <baseCost>2000</baseCost>
     <tab>StonebornTab</tab>
     <techLevel>Spacer</techLevel>
@@ -41,7 +41,7 @@
   <ResearchProjectDef>
     <defName>DV_Research_FiredrakeDwarvenArmor</defName>
     <label>specialized protection</label>
-    <description>The technology needed for your mechanitor to create and control basic-tier mechanoids.</description>
+    <description>Construct and weave firedrake apparel like the firedrake gambeson and mask.</description>
     <baseCost>1500</baseCost>
     <tab>StonebornTab</tab>
     <techLevel>Spacer</techLevel>
@@ -62,7 +62,7 @@
   <ResearchProjectDef>
     <defName>DV_Research_GreatWeapons</defName>
     <label>heavy melee forging</label>
-    <description>The technology needed for your mechanitor to create and control basic-tier mechanoids.</description>
+    <description>Forge dwarven-designed greatweapons like the greatspear or greathammer.</description>
     <baseCost>1500</baseCost>
     <tab>StonebornTab</tab>
     <techLevel>Spacer</techLevel>
@@ -80,7 +80,7 @@
   <ResearchProjectDef>
     <defName>DV_Research_UraniumSlugWeapons</defName>
     <label>coilslug weaponry</label>
-    <description>The technology needed for your mechanitor to create and control basic-tier mechanoids.</description>
+    <description>Build unique coilslug weapons capable of electrifying enemies, designed to counter the mechanoid menace.</description>
     <baseCost>1800</baseCost>
     <tab>StonebornTab</tab>
     <techLevel>Spacer</techLevel>
@@ -96,14 +96,32 @@
   </ResearchProjectDef>
 
   <ResearchProjectDef>
+    <defName>DV_Research_ShellcrackWeapons</defName>
+    <label>shellcrack weaponry</label>
+    <description>Build unique hydraulic weapons with high armor penetration, designed to counter the mechanoid menace.</description>
+    <baseCost>1800</baseCost>
+    <tab>StonebornTab</tab>
+    <techLevel>Spacer</techLevel>
+    <researchViewX>2.00</researchViewX>
+    <researchViewY>2.05</researchViewY>
+    <prerequisites>
+      <li>GasOperation</li>
+    </prerequisites>
+    <requiredAnalyzed>
+        <li>DV_RedTechscroll</li>
+    </requiredAnalyzed>
+    <heldByFactionCategoryTags Inherit="False" />
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
     <defName>DV_Research_DwarvenBionics</defName>
     <label>weapon bionics</label>
-    <description>The technology needed for your mechanitor to create and control basic-tier mechanoids.</description>
+    <description>Create weapon bionics designed by the dwarves for their frontliners.</description>
     <baseCost>1300</baseCost>
     <tab>StonebornTab</tab>
     <techLevel>Spacer</techLevel>
     <researchViewX>1.00</researchViewX>
-    <researchViewY>0.25</researchViewY>
+    <researchViewY>0.10</researchViewY>
     <prerequisites>
       <li>Prosthetics</li>
     </prerequisites>
@@ -116,12 +134,12 @@
   <ResearchProjectDef>
     <defName>DV_Research_MultiArms</defName>
     <label>multi-arms</label>
-    <description>The technology needed for your mechanitor to create and control basic-tier mechanoids.</description>
+    <description>Manufacture multi-arms, unique bionic arms which can act as extra limbs and aid in various tasks.</description>
     <baseCost>1800</baseCost>
     <tab>StonebornTab</tab>
     <techLevel>Spacer</techLevel>
-    <researchViewX>1.30</researchViewX>
-    <researchViewY>0.25</researchViewY>
+    <researchViewX>2.00</researchViewX>
+    <researchViewY>0.10</researchViewY>
     <prerequisites>
       <li>Prosthetics</li>
     </prerequisites>

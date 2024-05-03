@@ -3,15 +3,143 @@
 
   <!-- Multi-arms-->
 
+  <!-- Carrier/Hammer Arm -->
+
+  <ThingDef ParentName="MultiArmBionicDwarven">
+    <defName>DV_CarrierArmThing</defName>
+    <label>carrier multi-arm</label>
+    <description>A heavy bionic multi-arm designed to be mounted on the shoulder blades to aid in various tasks, with neural conduits passing through the arm's body that let the user control its actions. This arm is designed for carrying heavy things, it's hydraulic muscles and tough joints make lifting anything a piece of cake, The metal fists also make them great emergency weapons.</description>
+    <thingSetMakerTags><li>RewardStandardMidFreq</li></thingSetMakerTags>
+    <graphicData>
+      <texPath>Things/Item/Health/HammerArm_Item</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>0.90</drawSize>
+    </graphicData>
+    <comps>
+      <li Class="CompProperties_Usable">
+        <compClass>AthenaFramework.CompUsable_HediffModule</compClass>
+        <useJob>Athena_InstallModule</useJob>
+        <useDuration>50</useDuration>
+      </li>
+      <li Class="AthenaFramework.CompProperties_UseEffectHediffModule">
+        <slotIDs>
+          <li>armSocket</li>
+        </slotIDs>
+        <requiredCapacity>1</requiredCapacity>
+        <ejectable>true</ejectable>
+        <installSound></installSound>
+        <ejectSound>MetalDrop</ejectSound>
+        <hediffs>
+          <li>DV_CarrierMultiarm</li>
+        </hediffs>
+      </li>
+    </comps>
+    <costList>
+      <Plasteel>35</Plasteel>
+      <Steel>50</Steel>
+      <ComponentSpacer>6</ComponentSpacer>
+    </costList>
+    <tradeTags>
+      <li>ImplantDwarvenWork</li>
+    </tradeTags>
+    <techHediffsTags>
+      <li>ImplantDwarvenWork</li>
+    </techHediffsTags>
+  </ThingDef>
+
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>DV_CarrierMultiarm</defName>
+    <label>carrier multi-arm</label>
+    <labelNoun>a carrier arm</labelNoun>
+    <description>A heavy bionic multi-arm designed to aid in lifting and carrying.</description>
+    <defaultInstallPart>Shoulder</defaultInstallPart>
+    <stages>
+      <li>
+        <statOffsets>
+          <CarryingCapacity>1.3</CarryingCapacity>
+        </statOffsets>
+        <capMods>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>-0.1</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+    <renderNodeProperties>
+      <li Class="PawnRenderNodeProperties_Spastic">
+        <texPath>Things/Pawn/Humanlike/BodyAttachments/Multiarms/HammerArm</texPath>
+        <parentTagDef>Body</parentTagDef>
+        <overrideMeshSize>1</overrideMeshSize>
+        <drawSize>1.4</drawSize>
+        <rotationRange>-6~8</rotationRange>
+        <durationTicksRange>10~35</durationTicksRange>
+        <nextSpasmTicksRange>10~50</nextSpasmTicksRange>
+        <drawData>
+          <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+          <useHediffAnchor>true</useHediffAnchor>
+          <childScale>0.7</childScale>
+          <bodyTypeScales>
+            <Hulk>1.1</Hulk>
+            <Fat>1.2</Fat>
+            <Thin>0.8</Thin>
+          </bodyTypeScales>
+          <defaultData>
+            <layer>80</layer>
+          </defaultData>
+          <dataNorth>
+            <rotationOffset>-2</rotationOffset>
+            <flip>true</flip>
+            <layer>100</layer>
+          </dataNorth>
+          <dataEast>
+            <rotationOffset>270</rotationOffset>
+            <offset>(-0.12, 0, -0.1)</offset>
+          </dataEast>
+          <dataSouth>
+            <rotationOffset>160</rotationOffset>
+            <layer>0</layer>
+            <flip>true</flip>
+          </dataSouth>
+          <dataWest>
+            <rotationOffset>270</rotationOffset>
+            <offset>(0.12, 0, -0.1)</offset>
+          </dataWest>
+        </drawData>
+      </li>
+    </renderNodeProperties>
+    <comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>carrier arm</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>16</power>
+            <cooldownTime>2.5</cooldownTime>
+            <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+            <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+            <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.10</partEfficiency>
+    </addedPartProps>
+  </HediffDef>
+
   <!-- General purpose arm-->
 
   <ThingDef ParentName="MultiArmBionicDwarven">
     <defName>DV_AssistantArmThing</defName>
     <label>assistant multi-arm</label>
-    <description>An advanced bionic gland which upon being implanted releases consistent waves of specially programmed nanomachines that transform the user's skin into a sort of natural chainmail, highly resistant to cuts and slices. The skin however becomes scaly and rough, making the user particularly unappealing.</description>
+    <description>A heavy bionic multi-arm designed to be mounted on the shoulder blades to aid in various tasks, with neural conduits passing through the arm's body that let the user control its actions. This arm is designed for aiding in general labor, from crafting weapons to brewing drinks, it is versatile and quite articulated.</description>
     <thingSetMakerTags><li>RewardStandardMidFreq</li></thingSetMakerTags>
     <graphicData>
-      <texPath>Things/Item/Health/ConstructorArm_Item</texPath>
+      <texPath>Things/Item/Health/AssistantArm_Item</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>0.90</drawSize>
     </graphicData>
@@ -37,7 +165,7 @@
     <costList>
       <Plasteel>30</Plasteel>
       <Steel>30</Steel>
-      <ComponentSpacer>12</ComponentSpacer>
+      <ComponentSpacer>5</ComponentSpacer>
     </costList>
     <tradeTags>
       <li>ImplantDwarvenWork</li>
@@ -51,7 +179,7 @@
     <defName>DV_AssistantMultiarm</defName>
     <label>assistant multi-arm</label>
     <labelNoun>an assistant arm</labelNoun>
-    <description>A fleshy, muscled tentacle resembling a partial transformation into a fleshbeast. The tentacle is excellent at manipulation.\n\nThe flesh tentacle has its own neural structures and may become dangerous if removed.</description>
+    <description>A heavy bionic multi-arm designed to aid in general labor.</description>
     <defaultInstallPart>Shoulder</defaultInstallPart>
     <stages>
       <li>
@@ -62,7 +190,7 @@
           </li>
           <li>
             <capacity>Manipulation</capacity>
-            <offset>1.15</offset>
+            <postFactor>1.12</postFactor>
           </li>
         </capMods>
       </li>
@@ -137,7 +265,7 @@
   <ThingDef ParentName="MultiArmBionicDwarven">
     <defName>DV_ConstructorArmThing</defName>
     <label>constructing multi-arm</label>
-    <description>An advanced bionic gland which upon being implanted releases consistent waves of specially programmed nanomachines that transform the user's skin into a sort of natural chainmail, highly resistant to cuts and slices. The skin however becomes scaly and rough, making the user particularly unappealing.</description>
+    <description>A heavy bionic multi-arm designed to be mounted on the shoulder blades to aid in various tasks, with neural conduits passing through the arm's body that let the user control its actions. This arm is designed for helping in construction and building, with a large drill and a nailgun to aid in quickly setting up new structures.</description>
     <thingSetMakerTags><li>RewardStandardMidFreq</li></thingSetMakerTags>
     <graphicData>
       <texPath>Things/Item/Health/ConstructorArm_Item</texPath>
@@ -164,9 +292,9 @@
       </li>
     </comps>
     <costList>
-      <Plasteel>40</Plasteel>
+      <Plasteel>30</Plasteel>
       <Steel>40</Steel>
-      <ComponentSpacer>16</ComponentSpacer>
+      <ComponentSpacer>5</ComponentSpacer>
     </costList>
     <tradeTags>
       <li>ImplantDwarvenWork</li>
@@ -175,55 +303,12 @@
       <li>ImplantDwarvenWork</li>
     </techHediffsTags>
   </ThingDef>
-<!--
-  <RecipeDef ParentName="SurgeryInstallImplantBase">
-    <defName>InstallConstructorMultiarm</defName>
-    <label>install constructoid multi-arm</label>
-    <description>Install a constructing multi-arm.</description>
-    <descriptionHyperlinks>
-      <ThingDef>DV_ConstructorArmThing</ThingDef>
-      <HediffDef>DV_ConstructorMultiarm</HediffDef>
-    </descriptionHyperlinks>
-    <jobString>Installing constructing multi-arm.</jobString>
-    <ingredients>
-      <li>
-        <filter>
-          <thingDefs>
-            <li>DV_ConstructorArmThing</li>
-          </thingDefs>
-        </filter>
-        <count>1</count>
-      </li>
-    </ingredients>
-    <fixedIngredientFilter>
-      <thingDefs>
-        <li>DV_ConstructorArmThing</li>
-      </thingDefs>
-    </fixedIngredientFilter>
-    <appliedOnFixedBodyParts>
-      <li>Shoulder</li>
-    </appliedOnFixedBodyParts>
-    <addsHediff>DV_ConstructorMultiarm</addsHediff>
-    <incompatibleWithHediffTags>
-      <li>MultiArms</li>
-    </incompatibleWithHediffTags>
-  </RecipeDef>
 
-  <RecipeDef ParentName="SurgeryRemoveImplantBase">
-    <defName>RemoveConstructorMultiarm</defName>
-    <label>remove constructor multi-arm</label>
-    <description>Remove constructing multi-arm.</description>
-    <descriptionHyperlinks><ThingDef>DV_ConstructorArmThing</ThingDef></descriptionHyperlinks>
-    <jobString>Removing constructing multi-arm.</jobString>
-    <removesHediff>DV_ConstructorMultiarm</removesHediff>
-  </RecipeDef>
-
--->
   <HediffDef ParentName="ImplantHediffBase">
     <defName>DV_ConstructorMultiarm</defName>
     <label>constructor multi-arm</label>
     <labelNoun>a constructor arm</labelNoun>
-    <description>A fleshy, muscled tentacle resembling a partial transformation into a fleshbeast. The tentacle is excellent at manipulation.\n\nThe flesh tentacle has its own neural structures and may become dangerous if removed.</description>
+    <description>A heavy bionic multi-arm designed to aid in construction.</description>
     <defaultInstallPart>Shoulder</defaultInstallPart>
     <stages>
       <li>
@@ -308,7 +393,7 @@
   <ThingDef ParentName="MultiArmBionicDwarven">
     <defName>DV_MinerArmThing</defName>
     <label>mining multi-arm</label>
-    <description>An advanced bionic gland which upon being implanted releases consistent waves of specially programmed nanomachines that transform the user's skin into a sort of natural chainmail, highly resistant to cuts and slices. The skin however becomes scaly and rough, making the user particularly unappealing.</description>
+    <description>A heavy bionic multi-arm designed to be mounted on the shoulder blades to aid in various tasks, with neural conduits passing through the arm's body that let the user control its actions. This arm is designed for helping in mining operations, with a powerful jackhammer capable of breaking rock and ore with ease.</description>
     <thingSetMakerTags><li>RewardStandardMidFreq</li></thingSetMakerTags>
     <graphicData>
       <texPath>Things/Item/Health/MinerArm_Item</texPath>
@@ -337,65 +422,24 @@
     <costList>
       <Plasteel>30</Plasteel>
       <Steel>50</Steel>
-      <ComponentSpacer>18</ComponentSpacer>
+      <ComponentSpacer>5</ComponentSpacer>
     </costList>
     <tradeTags>
       <li>ImplantDwarvenWork</li>
     </tradeTags>
   </ThingDef>
-<!--
-  <RecipeDef ParentName="SurgeryInstallImplantBase">
-    <defName>InstallMinerMultiarm</defName>
-    <label>install miner multi-arm</label>
-    <description>Install a mining multi-arm.</description>
-    <descriptionHyperlinks>
-      <ThingDef>DV_MinerArmThing</ThingDef>
-      <HediffDef>DV_MinerMultiarm</HediffDef>
-    </descriptionHyperlinks>
-    <jobString>Installing mining multi-arm.</jobString>
-    <ingredients>
-      <li>
-        <filter>
-          <thingDefs>
-            <li>DV_MinerArmThing</li>
-          </thingDefs>
-        </filter>
-        <count>1</count>
-      </li>
-    </ingredients>
-    <fixedIngredientFilter>
-      <thingDefs>
-        <li>DV_MinerArmThing</li>
-      </thingDefs>
-    </fixedIngredientFilter>
-    <appliedOnFixedBodyParts>
-      <li>Shoulder</li>
-    </appliedOnFixedBodyParts>
-    <addsHediff>DV_MinerMultiarm</addsHediff>
-    <incompatibleWithHediffTags>
-      <li>MultiArms</li>
-    </incompatibleWithHediffTags>
-  </RecipeDef>
 
-  <RecipeDef ParentName="SurgeryRemoveImplantBase">
-    <defName>RemoveMinerMultiarm</defName>
-    <label>remove miner multi-arm</label>
-    <description>Remove mining multi-arm.</description>
-    <descriptionHyperlinks><ThingDef>DV_MinerArmThing</ThingDef></descriptionHyperlinks>
-    <jobString>Removing mining multi-arm.</jobString>
-    <removesHediff>DV_MinerMultiarm</removesHediff>
-  </RecipeDef>
--->
   <HediffDef ParentName="ImplantHediffBase">
     <defName>DV_MinerMultiarm</defName>
     <label>miner multi-arm</label>
     <labelNoun>a mining arm</labelNoun>
-    <description>A fleshy, muscled tentacle resembling a partial transformation into a fleshbeast. The tentacle is excellent at manipulation.\n\nThe flesh tentacle has its own neural structures and may become dangerous if removed.</description>
+    <description>A heavy bionic multi-arm designed to aid in mining.</description>
     <defaultInstallPart>Shoulder</defaultInstallPart>
     <stages>
       <li>
         <statOffsets>
           <MiningSpeed>1.5</MiningSpeed>
+          <DeepDrillingSpeed>0.5</DeepDrillingSpeed>
         </statOffsets>
         <capMods>
           <li>
@@ -476,8 +520,7 @@
   <ThingDef ParentName="MultiArmBionicDwarven">
     <defName>DV_CrafterArmThing</defName>
     <label>crafting multi-arm</label>
-    <description>An advanced bionic gland which upon being implanted releases consistent waves of specially programmed nanomachines that transform the user's skin into a sort of natural chainmail, highly resistant to cuts and slices. The skin however becomes scaly and rough, making the user particularly unappealing.</description>
-    <descriptionHyperlinks><RecipeDef>DV_CrafterMultiarm</RecipeDef></descriptionHyperlinks>
+    <description>A heavy bionic multi-arm designed to be mounted on the shoulder blades to aid in various tasks, with neural conduits passing through the arm's body that let the user control its actions. This arm is designed to assist in crafting and smithing, equipped with an industrial clamp that can double as a hammer to speed up smithing and manufacturing.</description>
     <thingSetMakerTags><li>RewardStandardMidFreq</li></thingSetMakerTags>
     <graphicData>
       <texPath>Things/Item/Health/CrafterArm_Item</texPath>
@@ -506,63 +549,21 @@
     <costList>
       <Plasteel>40</Plasteel>
       <Steel>40</Steel>
-      <ComponentSpacer>15</ComponentSpacer>
+      <ComponentSpacer>5</ComponentSpacer>
     </costList>
     <tradeTags>
       <li>ImplantDwarvenWork</li>
     </tradeTags>
+    <techHediffsTags>
+      <li>ImplantDwarvenWork</li>
+    </techHediffsTags>
   </ThingDef>
-
-<!--
-  <RecipeDef ParentName="SurgeryInstallImplantBase">
-    <defName>InstallCrafterMultiarm</defName>
-    <label>install crafter multi-arm</label>
-    <description>Install a crafting multi-arm.</description>
-    <descriptionHyperlinks>
-      <ThingDef>DV_CrafterArmThing</ThingDef>
-      <HediffDef>DV_CrafterMultiarm</HediffDef>
-    </descriptionHyperlinks>
-    <jobString>Installing crafting multi-arm.</jobString>
-    <ingredients>
-      <li>
-        <filter>
-          <thingDefs>
-            <li>DV_CrafterArmThing</li>
-          </thingDefs>
-        </filter>
-        <count>1</count>
-      </li>
-    </ingredients>
-    <fixedIngredientFilter>
-      <thingDefs>
-        <li>DV_CrafterArmThing</li>
-      </thingDefs>
-    </fixedIngredientFilter>
-    <appliedOnFixedBodyParts>
-      <li>Shoulder</li>
-    </appliedOnFixedBodyParts>
-    <addsHediff>DV_CrafterMultiarm</addsHediff>
-    <incompatibleWithHediffTags>
-      <li>MultiArms</li>
-    </incompatibleWithHediffTags>
-  </RecipeDef>
-
-  <RecipeDef ParentName="SurgeryRemoveImplantBase">
-    <defName>RemoveCrafterMultiarm</defName>
-    <label>remove crafter multi-arm</label>
-    <description>Remove crafting multi-arm.</description>
-    <descriptionHyperlinks><ThingDef>DV_CrafterArmThing</ThingDef></descriptionHyperlinks>
-    <jobString>Removing crafting multi-arm.</jobString>
-    <removesHediff>DV_CrafterMultiarm</removesHediff>
-  </RecipeDef>
-
--->
 
   <HediffDef ParentName="ImplantHediffBase">
     <defName>DV_CrafterMultiarm</defName>
     <label>crafter arm</label>
     <labelNoun>a crafter arm</labelNoun>
-    <description>A fleshy, muscled tentacle resembling a partial transformation into a fleshbeast. The tentacle is excellent at manipulation.\n\nThe flesh tentacle has its own neural structures and may become dangerous if removed.</description>
+    <description>A heavy bionic multi-arm designed to aid in crafting.</description>
     <defaultInstallPart>Shoulder</defaultInstallPart>
     <stages>
       <li>
@@ -648,13 +649,13 @@
     <ThingDef ParentName="MultiArmBionicDwarven">
       <defName>DV_SocketJointThing</defName>
       <label>multi-arm socket joint</label>
-      <description>An advanced bionic gland which upon being implanted releases consistent waves of specially programmed nanomachines that transform the user's skin into a sort of natural chainmail, highly resistant to cuts and slices. The skin however becomes scaly and rough, making the user particularly unappealing.</description>
+      <description>A shoulder replacement with a built-in multi-arm socket which allows the implantee to slot in different multi-arms freely. However, the replacement makes the natural arm impossible to modify due to it's necessary neural pathways which are required to control the multi-arms.</description>
       <descriptionHyperlinks><RecipeDef>InstallSocketJoint</RecipeDef></descriptionHyperlinks>
       <thingSetMakerTags><li>RewardStandardMidFreq</li></thingSetMakerTags>
       <costList>
-        <Plasteel>40</Plasteel>
+        <Plasteel>30</Plasteel>
         <Steel>40</Steel>
-        <ComponentSpacer>15</ComponentSpacer>
+        <ComponentSpacer>6</ComponentSpacer>
       </costList>
       <tradeTags>
         <li>ImplantDwarvenWork</li>
@@ -677,7 +678,7 @@
         <li>
           <filter>
             <thingDefs>
-              <li>DV_CrafterArmThing</li>
+              <li>DV_SocketJointThing</li>
             </thingDefs>
           </filter>
           <count>1</count>
@@ -685,7 +686,7 @@
       </ingredients>
       <fixedIngredientFilter>
         <thingDefs>
-          <li>DV_CrafterArmThing</li>
+          <li>DV_SocketJointThing</li>
         </thingDefs>
       </fixedIngredientFilter>
       <appliedOnFixedBodyParts>
@@ -710,7 +711,7 @@
       <defName>DV_SocketJoint_Shoulder</defName>
       <label>multi-arm socket</label>
       <labelNoun>a multi-arm socket</labelNoun>
-      <description>A fleshy, muscled tentacle resembling a partial transformation into a fleshbeast. The tentacle is excellent at manipulation.\n\nThe flesh tentacle has its own neural structures and may become dangerous if removed.</description>
+      <description>A shoulder replacement multi-arm socket.</description>
       <defaultInstallPart>Shoulder</defaultInstallPart>
       <comps>
         <li Class="AthenaFramework.HediffCompProperties_Modular">
@@ -725,7 +726,7 @@
       </comps>
       <addedPartProps>
         <solid>true</solid>
-        <partEfficiency>0.9</partEfficiency>
+        <partEfficiency>1</partEfficiency>
       </addedPartProps>
     </HediffDef>
   
@@ -738,8 +739,6 @@
       <texPath>Things/Item/Health/DwarvenProsthetic</texPath>
       <shaderType>CutoutComplex</shaderType>
       <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>0.90</drawSize>
-      <color>(189,169,118)</color>
     </graphicData>
     <tradeTags>
       <li>Bionic</li>
@@ -841,7 +840,7 @@
     <thingSetMakerTags><li>RewardStandardMidFreq</li></thingSetMakerTags>
     <costList>
       <Plasteel>35</Plasteel>
-      <ComponentSpacer>12</ComponentSpacer>
+      <ComponentSpacer>5</ComponentSpacer>
     </costList>
     <tradeTags>
       <li>ImplantDwarvenCommon</li>
@@ -1020,8 +1019,11 @@
       <description>A forearm replacement with a built-in short range flameblaster capable of firing a single burst of flame before needing to be reloaded. Due to it's size and utilitarian design, the replacement arm makes finer motor functions more difficult, lowering manipulation.</description>
       <descriptionHyperlinks><RecipeDef>InstallWristFlamer</RecipeDef></descriptionHyperlinks>
       <thingSetMakerTags><li>RewardStandardLowFreq</li></thingSetMakerTags>
+      <graphicData>
+        <color>(154,124,104)</color>
+      </graphicData>
       <costList>
-        <Steel>50</Steel>
+        <Steel>30</Steel>
         <ComponentIndustrial>12</ComponentIndustrial>
         <Chemfuel>15</Chemfuel>
       </costList>
@@ -1105,6 +1107,9 @@
               <description>A hand and wrist replacement that gives the user the option for completely fire off their new metallic mitten to cause an explosion. The hand is large and well-armored, and it is filled with explosive material that, when fired, becomes volatile, making it effectively a pocket rocket launcher. The hand is large and hard to move, lowering general manipulation capabilities. The hand must obviously be reconstructed after every shot.</description>
               <descriptionHyperlinks><RecipeDef>InstallRocketFist</RecipeDef></descriptionHyperlinks>
               <thingSetMakerTags><li>RewardStandardLowFreq</li></thingSetMakerTags>
+              <graphicData>
+                <color>(154,124,104)</color>
+              </graphicData>
               <costList>
                 <Steel>50</Steel>
                 <ComponentIndustrial>10</ComponentIndustrial>
@@ -1189,6 +1194,9 @@
           <description>A complete arm replacement with an advanced set of barrels and complex auto-loaders that allows the user to fire a spread of small bullets at short range; underestimated by most, it is mainly effective against unarmored foes. The added heft of the arm and the simplistic, tough design make it harder for the user to move and to complete finer manipulation tasks. It can fire off 2 charges before needing to be reloaded with steel.</description>
           <descriptionHyperlinks><RecipeDef>InstallArmCannon</RecipeDef></descriptionHyperlinks>
           <thingSetMakerTags><li>RewardStandardLowFreq</li></thingSetMakerTags>
+          <graphicData>
+            <color>(154,124,104)</color>
+          </graphicData>
           <costList>
             <Steel>55</Steel>
             <ComponentIndustrial>10</ComponentIndustrial>
@@ -1282,6 +1290,9 @@
               <description>A bionic hand replacement with a powerful built-in EMP capacitor capable of stunning mechanoids and turrets alike in a large radius, to be activated it needs to be punched into the ground, creating a powerful shockwave of EMP energy. Needs no reloading, but it takes a long time to fully recharge. The hand is rough and robust, mainly built to resist the impact, which makes it less useful for finer manipulation-related tasks.</description>
               <descriptionHyperlinks><RecipeDef>InstallShockFist</RecipeDef></descriptionHyperlinks>
               <thingSetMakerTags><li>RewardStandardLowFreq</li></thingSetMakerTags>
+              <graphicData>
+                <color>(154,124,104)</color>
+              </graphicData>
               <costList>
                 <Steel>75</Steel>
                 <ComponentIndustrial>10</ComponentIndustrial>
@@ -1342,10 +1353,10 @@
     </addedPartProps>
     <stages>
       <li>
-            <statOffsets>
-              <MiningSpeed>1.0</MiningSpeed>
-              <DeepDrillingSpeed>0.25</DeepDrillingSpeed>
-            </statOffsets>
+        <statOffsets>
+          <MiningSpeed>0.2</MiningSpeed>
+          <MiningYield>0.15</MiningYield>
+        </statOffsets>
       </li>
     </stages>
       <renderNodeProperties>
@@ -1377,7 +1388,7 @@
       <shaderType>CutoutComplex</shaderType>
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>0.90</drawSize>
-      <color>(189,169,118)</color>
+      <color>(104,154,151)</color>
     </graphicData>
     <costList>
       <Plasteel>20</Plasteel>
@@ -1476,7 +1487,7 @@
               <shaderType>CutoutComplex</shaderType>
               <graphicClass>Graphic_Single</graphicClass>
               <drawSize>0.90</drawSize>
-              <color>(189,169,118)</color>
+              <color>(104,154,151)</color>
             </graphicData>
             <costList>
               <Plasteel>20</Plasteel>
@@ -1542,22 +1553,17 @@
                     </li>
                   </tools>
                 </li>
-                <!--
                 <li Class="HediffCompProperties_GiveAbility">
                   <abilityDefs>
                     <li>TempBarrierAbility</li>
                   </abilityDefs>
                 </li>
-                -->
               </comps>
               <addedPartProps>
                 <solid>true</solid>
                 <partEfficiency>0.60</partEfficiency>
               </addedPartProps>
               <spawnThingOnRemoved>DV_BarrierKit</spawnThingOnRemoved>
-              <abilities>
-                <li>TempBarrierAbility</li>
-              </abilities>
             </HediffDef>
           
             <ThingDef ParentName="BodyPartProstheticDwarven">
@@ -1566,6 +1572,9 @@
               <description>A complete, heavy arm replacement that allows the user to throw 3 quick-deploy barriers in quick successsion; the barriers are waist-high and can be useful during shoot-outs and battles, after which they'll self-destruct giving back some resources. The bionic is large and simplistic, making it difficult to complete any manipulation tasks.</description>
               <descriptionHyperlinks><RecipeDef>InstallBarrierKit</RecipeDef></descriptionHyperlinks>
               <thingSetMakerTags><li>RewardStandardLowFreq</li></thingSetMakerTags>
+              <graphicData>
+                <color>(154,124,104)</color>
+              </graphicData>
               <costList>
                 <Steel>75</Steel>
                 <ComponentIndustrial>10</ComponentIndustrial>

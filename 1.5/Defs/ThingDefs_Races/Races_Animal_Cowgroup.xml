@@ -97,7 +97,7 @@
               <li>Bite</li>
             </capacities>
             <power>8.2</power>
-            <cooldownTime>2.6</cooldownTime>
+            <cooldownTime>3</cooldownTime>
             <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
             <chanceFactor>0.7</chanceFactor>
           </li>
@@ -108,7 +108,7 @@
               <li>Stab</li>
             </capacities>
             <power>9.6</power>
-            <cooldownTime>2</cooldownTime>
+            <cooldownTime>3.2</cooldownTime>
             <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
             <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
             <chanceFactor>0.8</chanceFactor>
@@ -128,7 +128,7 @@
               <li>Poke</li>
             </capacities>
             <power>8</power>
-            <cooldownTime>2</cooldownTime>
+            <cooldownTime>2.4</cooldownTime>
             <linkedBodyPartsGroup>FrontLeftLeg</linkedBodyPartsGroup>
           </li>
           <li>
@@ -138,7 +138,7 @@
               <li>Poke</li>
             </capacities>
             <power>8</power>
-            <cooldownTime>2</cooldownTime>
+            <cooldownTime>2.4</cooldownTime>
             <linkedBodyPartsGroup>FrontRightLeg</linkedBodyPartsGroup>
           </li>
         </tools>

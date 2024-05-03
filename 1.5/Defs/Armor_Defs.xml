@@ -235,6 +235,7 @@
                 <li>Middle</li>
               </layers>
               <tags>
+                <li>DwarfCuirass</li>
                 <li>DwarfArmor</li>
               </tags>
             <defaultOutfitTags>
@@ -665,6 +666,61 @@
         <recipeMaker>
           <researchPrerequisite Inherit="False">DV_Research_HeavyDwarvenArmor</researchPrerequisite>
           <displayPriority>100</displayPriority>
+        </recipeMaker>
+      </ThingDef>
+
+  <!--==== Anvilprophet hood ====-->
+
+      <ThingDef ParentName="HatMakeableBase">
+        <defName>DV_Apparel_AnvilProphetHood</defName>
+        <label>anvil prophet hood</label>
+        <description>A draped hood which covers the head and ears.</description>
+        <graphicData>
+          <texPath>Things/Pawn/Apparel/AnvilprophetHood/AnvilprophetHood</texPath>
+          <shaderType>CutoutComplex</shaderType>
+          <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <uiIconScale>1.15</uiIconScale>
+        <statBases>
+          <MaxHitPoints>120</MaxHitPoints>
+          <WorkToMake>7500</WorkToMake>
+          <Mass>1.4</Mass>
+          <EquipDelay>0.8</EquipDelay>
+          <StuffEffectMultiplierArmor>0.2</StuffEffectMultiplierArmor>
+          <StuffEffectMultiplierInsulation_Cold>0.10</StuffEffectMultiplierInsulation_Cold>
+          <StuffEffectMultiplierInsulation_Heat>0.25</StuffEffectMultiplierInsulation_Heat>
+        </statBases>
+        <costList>
+         <DV_Orichalcum>15</DV_Orichalcum>
+        </costList>
+        <equippedStatOffsets>
+          <SocialImpact>0.2</SocialImpact>
+        </equippedStatOffsets>
+        <costStuffCount>50</costStuffCount>
+        <stuffCategories>
+          <li>Fabric</li>
+          <li>Leathery</li>
+        </stuffCategories>
+        <apparel>
+          <developmentalStageFilter>Child, Adult</developmentalStageFilter>
+          <wornGraphicPath>Things/Pawn/Apparel/AnvilprophetHood/AnvilprophetHood</wornGraphicPath>
+          <useWornGraphicMask>true</useWornGraphicMask>
+          <bodyPartGroups>
+            <li>UpperHead</li>
+          </bodyPartGroups>
+          <layers>
+            <li>Overhead</li>
+          </layers>
+          <tags>
+            <li>AnvilProphetHood</li>
+          </tags>
+        </apparel>
+        <colorGenerator Class="ColorGenerator_StandardApparel" />
+        <tradeTags>
+          <li>DwarfNobleClothing</li>
+        </tradeTags>
+        <recipeMaker>
+          <displayPriority>125</displayPriority>
         </recipeMaker>
       </ThingDef>
 
