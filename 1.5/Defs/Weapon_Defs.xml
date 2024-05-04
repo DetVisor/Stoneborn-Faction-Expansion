@@ -57,6 +57,7 @@
     <soundInteract>Interact_Revolver</soundInteract>
     <recipeMaker IsNull="True" />
     <statBases>
+      <MarketValue>1500</MarketValue>
       <WorkToMake>7000</WorkToMake>
       <Beauty>3</Beauty>
       <Mass>1.6</Mass>
@@ -123,8 +124,9 @@
     <techLevel>Spacer</techLevel>
     <thingSetMakerTags><li>RewardStandardMidFreq</li></thingSetMakerTags>
     <statBases>
+      <MarketValue>2000</MarketValue>
       <WorkToMake>20000</WorkToMake>
-      <Beauty>3</Beauty>
+      <Beauty>5</Beauty>
       <Mass>7.3</Mass>
     </statBases>
     <recipeMaker IsNull="True" />
@@ -180,6 +182,7 @@
     <thingSetMakerTags><li>RewardStandardMidFreq</li></thingSetMakerTags>
     <smeltable>false</smeltable>
     <statBases>
+      <MarketValue>2000</MarketValue>
       <WorkToMake>15500</WorkToMake>
       <Beauty>3</Beauty>
       <Mass>2.5</Mass>
@@ -242,6 +245,7 @@
     <costStuffCount>120</costStuffCount>
     <thingSetMakerTags><li>RewardStandardMidFreq</li></thingSetMakerTags>
     <statBases>
+      <MarketValue>2000</MarketValue>
       <WorkToMake>15500</WorkToMake>
       <Beauty>3</Beauty>
       <Mass>2.5</Mass>

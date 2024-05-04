@@ -69,6 +69,7 @@
       <paintable>true</paintable>
     </building>
     <size>(1,1)</size>
+    <uiIconScale>0.4</uiIconScale>
     <graphicData>
       <drawSize>(3,3)</drawSize>
       <drawOffset>(0,0,1)</drawOffset>
