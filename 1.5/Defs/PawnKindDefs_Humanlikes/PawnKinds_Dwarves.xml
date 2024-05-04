@@ -651,6 +651,7 @@
       <label>aegisbreaker</label>
       <maxGenerationAge>50</maxGenerationAge>
       <combatPower>150</combatPower>
+      <weaponMoney>2200~3000</weaponMoney>
       <apparelAllowHeadgearChance>0</apparelAllowHeadgearChance>
       <weaponTags Inherit="False">
         <li>BulwarkBreaker</li>
