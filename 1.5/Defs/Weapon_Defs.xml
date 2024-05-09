@@ -635,7 +635,7 @@
       <ThingDef ParentName="BaseHumanMakeableGun">
         <defName>DV_Gun_HydraulicCrossbow</defName>
         <label>hydraulic crossbow</label>
-        <description>A crossbow that utilizes hydraulic components. The stiff metal limbs and metallic string are far too rigid for a person to pull back by themselves, but the built in hydraulics provide just enough assistance to make it possible. This complex design allows loaded bolts to be fired at a blinding speed, giving each bolt devastating power and armor penetration matched only by specialized rifle calibers.</description>
+        <description>A long-range, advanced blazenail crossbow. Utilizing various hydraulic mechanisms to draw the large metallic limbs, it can fire heavy steel nails at blinding speeds, piercing armor and flesh. The complex mechanisms may sometimes overheat, purging all the energy into the projectile as it is fired, burning flesh and setting anything it touches aflame.\n\nA weapon found in the arsenal of all stoneborn insect slayers as the incredible piercing potential of each nail makes dealing with bugs a cakewalk.</description>
         <techLevel>Spacer</techLevel>
         <graphicData>
           <texPath>Things/Item/Equipment/WeaponRanged/HydraulicCrossbow</texPath>
@@ -650,7 +650,7 @@
           <AccuracyShort>0.66</AccuracyShort>
           <AccuracyMedium>0.76</AccuracyMedium>
           <AccuracyLong>0.80</AccuracyLong>
-          <RangedWeapon_Cooldown>2.6</RangedWeapon_Cooldown>
+          <RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
           <WorkToMake>53000</WorkToMake>
         </statBases>
         <recipeMaker>
@@ -668,7 +668,7 @@
           <ComponentSpacer>6</ComponentSpacer>
         </costList>
         <weaponTags>
-          <li>DwarfSpacerGun</li>
+          <li>BlazenailLong</li>
         </weaponTags>
         <tradeTags>
           <li>DwarfWeaponRanged</li>
@@ -682,8 +682,8 @@
             <verbClass>AthenaFramework.Verb_RandomShot</verbClass>
             <hasStandardCommand>true</hasStandardCommand>
             <defaultProjectile>DV_Bullet_NailLong</defaultProjectile>
-            <warmupTime>2</warmupTime>
-            <range>27.9</range>
+            <warmupTime>0.8</warmupTime>
+            <range>22.9</range>
             <burstShotCount>5</burstShotCount>
             <ticksBetweenBurstShots>23</ticksBetweenBurstShots>
             <soundCast>Bow_Large</soundCast>
@@ -738,7 +738,7 @@
       <ThingDef ParentName="BaseHumanMakeableGun">
         <defName>DV_Gun_SpringBolter</defName>
         <label>spring bolter</label>
-        <description>A crossbow that utilizes hydraulic components. The stiff metal limbs and metallic string are far too rigid for a person to pull back by themselves, but the built in hydraulics provide just enough assistance to make it possible. This complex design allows loaded bolts to be fired at a blinding speed, giving each bolt devastating power and armor penetration matched only by specialized rifle calibers.</description>
+        <description>A short-range blazenail pistol. Utilizing various hydraulic mechanisms to draw the internal springs, it can fire a spread of sharp steel nails, piercing armor and flesh. The complex mechanisms may sometimes overheat, purging all the energy into the projectile as it is fired, burning flesh and setting anything it touches aflame.\n\nCommonly found on stoneborn guards and breachers when protecting vital locations from infestations due to it's utility in close quarters.</description>
         <techLevel>Spacer</techLevel>
         <graphicData>
           <texPath>Things/Item/Equipment/WeaponRanged/SpringBolter</texPath>
@@ -752,7 +752,7 @@
           <AccuracyShort>0.85</AccuracyShort>
           <AccuracyMedium>0.77</AccuracyMedium>
           <AccuracyLong>0.62</AccuracyLong>
-          <RangedWeapon_Cooldown>2.4</RangedWeapon_Cooldown>
+          <RangedWeapon_Cooldown>1.9</RangedWeapon_Cooldown>
           <WorkToMake>53000</WorkToMake>
         </statBases>
         <recipeMaker>
@@ -770,7 +770,7 @@
           <ComponentSpacer>6</ComponentSpacer>
         </costList>
         <weaponTags>
-          <li>DwarfSpacerGun</li>
+          <li>BlazenailShort</li>
         </weaponTags>
         <tradeTags>
           <li>DwarfWeaponRanged</li>
@@ -784,10 +784,10 @@
             <verbClass>AthenaFramework.Verb_RandomShot</verbClass>
             <hasStandardCommand>true</hasStandardCommand>
             <defaultProjectile>DV_Bullet_NailSmall</defaultProjectile>
-            <warmupTime>1.9</warmupTime>
-            <range>24.9</range>
-            <burstShotCount>3</burstShotCount>
-            <ticksBetweenBurstShots>20</ticksBetweenBurstShots>
+            <warmupTime>1.7</warmupTime>
+            <range>16.9</range>
+            <burstShotCount>4</burstShotCount>
+            <ticksBetweenBurstShots>18</ticksBetweenBurstShots>
             <soundCast>Bow_Large</soundCast>
             <soundCastTail>GunTail_Heavy</soundCastTail>
             <muzzleFlashScale>0</muzzleFlashScale>
@@ -1081,7 +1081,7 @@
           </li>
         </verbs>
         <weaponTags>
-          <li>SlugGunLong</li>
+          <li>CoilslugLong</li>
         </weaponTags>
         <tools>
           <li>
@@ -1161,7 +1161,7 @@
           <AccuracyShort>0.60</AccuracyShort>
           <AccuracyMedium>0.70</AccuracyMedium>
           <AccuracyLong>0.59</AccuracyLong>
-          <RangedWeapon_Cooldown>1.35</RangedWeapon_Cooldown>
+          <RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
         </statBases>
         <costList>
           <Steel>50</Steel>
@@ -1183,7 +1183,7 @@
           </li>
         </verbs>
         <weaponTags>
-          <li>SlugGun</li>
+          <li>CoilslugShort</li>
         </weaponTags>
         <tools>
           <li>

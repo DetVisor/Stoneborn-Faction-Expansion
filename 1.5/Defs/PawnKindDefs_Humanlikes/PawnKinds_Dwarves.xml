@@ -469,7 +469,8 @@
           <li>IndustrialGunAdvanced</li>
           <li>SpacerGun</li>
           <li>SniperRifle</li>
-          <li>SlugGunLong</li>
+          <li>CoilslugLong</li>
+          <li>BlazenailLong</li>
         </weaponTags>
         <apparelMoney>6000~9000</apparelMoney>
         <apparelRequired Inherit="False">
@@ -593,7 +594,8 @@
         <maxGenerationAge>80</maxGenerationAge>
         <combatPower>130</combatPower>
         <weaponTags Inherit="False">
-          <li>SlugGun</li>
+          <li>CoilslugShort</li>
+          <li>BlazenailShort</li>
           <li>Minigun</li>
           <li>RocketLauncher</li>
           <li>GunHeavy</li>
@@ -698,7 +700,9 @@
           <apparelAllowHeadgearChance>0</apparelAllowHeadgearChance>
           <weaponTags Inherit="False">
             <li>Battlestaff</li>
-            <li>SlugGun</li>
+            <li>CoilslugShort</li>
+            <li>BlazenailShort</li>
+            <li>BlazenailLong</li>
           </weaponTags>
           <specificApparelRequirements>
             <li>
