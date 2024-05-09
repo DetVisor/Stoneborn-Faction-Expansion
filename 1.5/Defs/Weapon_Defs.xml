@@ -640,16 +640,17 @@
         <graphicData>
           <texPath>Things/Item/Equipment/WeaponRanged/HydraulicCrossbow</texPath>
           <graphicClass>Graphic_Single</graphicClass>
+          <drawSize>1.1</drawSize>
         </graphicData>
         <soundInteract>Interact_ChargeLance</soundInteract>
         <thingSetMakerTags><li>RewardStandardQualitySuper</li></thingSetMakerTags>
         <statBases>
           <Mass>8</Mass>
           <AccuracyTouch>0.63</AccuracyTouch>
-          <AccuracyShort>0.85</AccuracyShort>
-          <AccuracyMedium>0.83</AccuracyMedium>
-          <AccuracyLong>0.72</AccuracyLong>
-          <RangedWeapon_Cooldown>2.9</RangedWeapon_Cooldown>
+          <AccuracyShort>0.66</AccuracyShort>
+          <AccuracyMedium>0.76</AccuracyMedium>
+          <AccuracyLong>0.80</AccuracyLong>
+          <RangedWeapon_Cooldown>2.6</RangedWeapon_Cooldown>
           <WorkToMake>53000</WorkToMake>
         </statBases>
         <recipeMaker>
@@ -667,21 +668,24 @@
           <ComponentSpacer>6</ComponentSpacer>
         </costList>
         <weaponTags>
-          <li>SpacerGun</li>
+          <li>DwarfSpacerGun</li>
         </weaponTags>
         <tradeTags>
           <li>DwarfWeaponRanged</li>
         </tradeTags>
         <weaponClasses>
-          <li>RangedHeavy</li>
+          <li>Ranged</li>
+          <li>RangedLight</li>
         </weaponClasses>
         <verbs>
           <li>
-            <verbClass>Verb_Shoot</verbClass>
+            <verbClass>AthenaFramework.Verb_RandomShot</verbClass>
             <hasStandardCommand>true</hasStandardCommand>
-            <defaultProjectile>Bullet_CrossbowSabot</defaultProjectile>
-            <warmupTime>1.9</warmupTime>
-            <range>29.9</range>
+            <defaultProjectile>DV_Bullet_NailLong</defaultProjectile>
+            <warmupTime>2</warmupTime>
+            <range>27.9</range>
+            <burstShotCount>5</burstShotCount>
+            <ticksBetweenBurstShots>23</ticksBetweenBurstShots>
             <soundCast>Bow_Large</soundCast>
             <soundCastTail>GunTail_Heavy</soundCastTail>
             <muzzleFlashScale>0</muzzleFlashScale>
@@ -716,22 +720,192 @@
               </li>
             </outgoingModifiers>
           </li>
+          <li Class="AthenaFramework.RandomShotExtension">
+            <projectiles>
+               <li>
+                 <projectile>DV_Bullet_NailLong</projectile>
+                 <probability>6</probability>
+               </li>
+               <li>
+                 <projectile>DV_Bullet_NailLongHot</projectile>
+                 <probability>1</probability>
+               </li>
+            </projectiles>
+          </li>
         </modExtensions>
       </ThingDef>
-      <ThingDef ParentName="BaseBullet">
-        <defName>Bullet_CrossbowSabot</defName>
-        <label>sabot</label>
+
+      <ThingDef ParentName="BaseHumanMakeableGun">
+        <defName>DV_Gun_SpringBolter</defName>
+        <label>spring bolter</label>
+        <description>A crossbow that utilizes hydraulic components. The stiff metal limbs and metallic string are far too rigid for a person to pull back by themselves, but the built in hydraulics provide just enough assistance to make it possible. This complex design allows loaded bolts to be fired at a blinding speed, giving each bolt devastating power and armor penetration matched only by specialized rifle calibers.</description>
+        <techLevel>Spacer</techLevel>
         <graphicData>
-          <texPath>Things/Projectiles/Bullet_Sabot</texPath>
+          <texPath>Things/Item/Equipment/WeaponRanged/SpringBolter</texPath>
           <graphicClass>Graphic_Single</graphicClass>
-          <drawSize>1.2</drawSize>
+        </graphicData>
+        <soundInteract>Interact_ChargeLance</soundInteract>
+        <thingSetMakerTags><li>RewardStandardQualitySuper</li></thingSetMakerTags>
+        <statBases>
+          <Mass>8</Mass>
+          <AccuracyTouch>0.63</AccuracyTouch>
+          <AccuracyShort>0.85</AccuracyShort>
+          <AccuracyMedium>0.77</AccuracyMedium>
+          <AccuracyLong>0.62</AccuracyLong>
+          <RangedWeapon_Cooldown>2.4</RangedWeapon_Cooldown>
+          <WorkToMake>53000</WorkToMake>
+        </statBases>
+        <recipeMaker>
+          <researchPrerequisite>DV_Research_ShellcrackWeapons</researchPrerequisite>
+          <skillRequirements>
+            <Crafting>7</Crafting>
+          </skillRequirements>
+          <recipeUsers Inherit="False">
+            <li>FabricationBench</li>
+          </recipeUsers>
+          <displayPriority>210</displayPriority>
+        </recipeMaker>
+        <costList>
+          <Steel>60</Steel>
+          <ComponentSpacer>6</ComponentSpacer>
+        </costList>
+        <weaponTags>
+          <li>DwarfSpacerGun</li>
+        </weaponTags>
+        <tradeTags>
+          <li>DwarfWeaponRanged</li>
+        </tradeTags>
+        <weaponClasses>
+          <li>Ranged</li>
+          <li>RangedLight</li>
+        </weaponClasses>
+        <verbs>
+          <li>
+            <verbClass>AthenaFramework.Verb_RandomShot</verbClass>
+            <hasStandardCommand>true</hasStandardCommand>
+            <defaultProjectile>DV_Bullet_NailSmall</defaultProjectile>
+            <warmupTime>1.9</warmupTime>
+            <range>24.9</range>
+            <burstShotCount>3</burstShotCount>
+            <ticksBetweenBurstShots>20</ticksBetweenBurstShots>
+            <soundCast>Bow_Large</soundCast>
+            <soundCastTail>GunTail_Heavy</soundCastTail>
+            <muzzleFlashScale>0</muzzleFlashScale>
+          </li>
+        </verbs>
+        <tools>
+          <li>
+            <label>limb</label>
+            <capacities>
+              <li>Poke</li>
+            </capacities>
+            <power>9</power>
+            <cooldownTime>2</cooldownTime>
+          </li>
+          <li>
+            <label>barrel</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>9</power>
+            <cooldownTime>2</cooldownTime>
+          </li>
+        </tools>
+        <modExtensions>
+          <li Class="AthenaFramework.DamageModifierExtension">
+            <outgoingModifiers>
+              <li>
+                <fleshTypes>
+                  <li>Insectoid</li>
+                </fleshTypes>
+                <modifier>2</modifier>
+              </li>
+            </outgoingModifiers>
+          </li>
+          <li Class="AthenaFramework.RandomShotExtension">
+            <projectiles>
+               <li>
+                 <projectile>DV_Bullet_NailSmall</projectile>
+                 <probability>8</probability>
+               </li>
+               <li>
+                 <projectile>DV_Bullet_NailSmallHot</projectile>
+                 <probability>1</probability>
+               </li>
+            </projectiles>
+          </li>
+        </modExtensions>
+      </ThingDef>
+
+      <ThingDef ParentName="BaseBullet">
+        <defName>DV_Bullet_NailLong</defName>
+        <label>nail</label>
+        <graphicData>
+          <texPath>Things/Projectiles/Bullet_NailLong</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+          <drawSize>1.1</drawSize>
         </graphicData>
         <projectile>
-          <damageDef>Arrow</damageDef>
-          <damageAmountBase>24</damageAmountBase>
-          <armorPenetrationBase>0.45</armorPenetrationBase>
-          <stoppingPower>1.5</stoppingPower>
+          <damageDef>DV_Nail</damageDef>
+          <damageAmountBase>21</damageAmountBase>
+          <armorPenetrationBase>0.75</armorPenetrationBase>
+          <stoppingPower>2</stoppingPower>
           <speed>90</speed>
+        </projectile>
+      </ThingDef>
+
+      <ThingDef ParentName="BaseBullet">
+        <defName>DV_Bullet_NailLongHot</defName>
+        <label>hot nail</label>
+        <graphicData>
+          <texPath>Things/Projectiles/Bullet_NailLong_Hot</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+          <shaderType>MoteGlow</shaderType>
+          <drawSize>1.1</drawSize>
+        </graphicData>
+        <projectile>
+          <damageDef>DV_NailHot</damageDef>
+          <damageAmountBase>17</damageAmountBase>
+          <armorPenetrationBase>0.85</armorPenetrationBase>
+          <stoppingPower>1.7</stoppingPower>
+          <bulletChanceToStartFire>1</bulletChanceToStartFire>
+          <speed>90</speed>
+        </projectile>
+      </ThingDef>
+
+      <ThingDef ParentName="BaseBullet">
+        <defName>DV_Bullet_NailSmall</defName>
+        <label>nail</label>
+        <graphicData>
+          <texPath>Things/Projectiles/Bullet_NailSmall</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+          <drawSize>1.1</drawSize>
+        </graphicData>
+        <projectile>
+          <damageDef>DV_Nail</damageDef>
+          <damageAmountBase>19</damageAmountBase>
+          <armorPenetrationBase>0.60</armorPenetrationBase>
+          <stoppingPower>1.5</stoppingPower>
+          <speed>82</speed>
+        </projectile>
+      </ThingDef>
+
+      <ThingDef ParentName="BaseBullet">
+        <defName>DV_Bullet_NailSmallHot</defName>
+        <label>hot nail</label>
+        <graphicData>
+          <texPath>Things/Projectiles/Bullet_NailSmall_Hot</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+          <shaderType>MoteGlow</shaderType>
+          <drawSize>1.1</drawSize>
+        </graphicData>
+        <projectile>
+          <damageDef>DV_NailHot</damageDef>
+          <damageAmountBase>14</damageAmountBase>
+          <armorPenetrationBase>0.70</armorPenetrationBase>
+          <stoppingPower>1.2</stoppingPower>
+          <bulletChanceToStartFire>1</bulletChanceToStartFire>
+          <speed>82</speed>
         </projectile>
       </ThingDef>
 
@@ -856,11 +1030,11 @@
       <ThingDef ParentName="BaseHumanMakeableGun">
         <defName>DV_Gun_SlugCaster</defName>
         <label>coilslug caster</label>
-        <description>A rifle that is designed to fire slug rounds. While heavy and unwieldy to use, it is capable of launching devastating uranium slugs great distances. Stoneborn thunderers use these to ensure the elimination of their targets while maintaining a healthy distance from any danger.</description>
+        <description>A long-range, powerful coilslug rifle. While heavy and unwieldy, the weapon can launch metallic slugs with devastating force over great distances. Occasionally the electromagnetic coils overcharge the projectile as it is fired, delivering a deadly shock to anything struck by it.\n\nA weapon favoured by stoneborn thunderers for its electrifying effect, which comes in handy against mechanoids.</description>
         <graphicData>
           <texPath>Things/Item/Equipment/WeaponRanged/SlugCaster</texPath>
           <graphicClass>Graphic_Single</graphicClass>
-          <drawSize>1.2</drawSize>
+          <drawSize>1.1</drawSize>
         </graphicData>
         <generateCommonality>1.3</generateCommonality>
         <soundInteract>CoilslugCaster_Pickup</soundInteract>
@@ -896,7 +1070,7 @@
           <li>
             <verbClass>AthenaFramework.Verb_RandomShot</verbClass>
             <hasStandardCommand>true</hasStandardCommand>
-            <defaultProjectile>Bullet_SlugHeavy</defaultProjectile>
+            <defaultProjectile>DV_Bullet_SlugHeavy</defaultProjectile>
             <warmupTime>1.6</warmupTime>
             <range>25.9</range>
             <burstShotCount>3</burstShotCount>
@@ -943,11 +1117,11 @@
           <li Class="AthenaFramework.RandomShotExtension">
             <projectiles>
                <li>
-                 <projectile>Bullet_SlugHeavy</projectile>
+                 <projectile>DV_Bullet_SlugHeavy</projectile>
                  <probability>8</probability>
                </li>
                <li>
-                 <projectile>Bullet_SlugHeavyCharged</projectile>
+                 <projectile>DV_Bullet_SlugHeavyCharged</projectile>
                  <probability>1</probability>
                </li>
             </projectiles>
@@ -958,7 +1132,7 @@
       <ThingDef ParentName="BaseHumanMakeableGun">
         <defName>DV_Gun_SlugRifle</defName>
         <label>coilslug rifle</label>
-        <description>A short ranged rifle built to fire slug rounds. While heavy and unwieldy to use, it is capable of firing multiple rounds of devastating uranium slugs in quick succession. Stoneborn menhirs often employ these to make sure that whatever they are targeting will be rapidly and sufficiently pulverized.</description>
+        <description>A short-range coilslug assault rifle. While heavy and unwieldy, the weapon can launch bursts of metallic slugs in quick succession. Occasionally the electromagnetic coils overcharge the projectile as it is fired, delivering a deadly shocks to anything struck by it.\n\nA weapon most often used by stoneborn menhirs, who make full use of its electrifying ammunition to make short work of mechanoid infantry.</description>
         <graphicData>
           <texPath>Things/Item/Equipment/WeaponRanged/SlugRifle</texPath>
           <graphicClass>Graphic_Single</graphicClass>
@@ -998,7 +1172,7 @@
           <li>
             <verbClass>AthenaFramework.Verb_RandomShot</verbClass>
             <hasStandardCommand>true</hasStandardCommand>
-            <defaultProjectile>Bullet_Slug</defaultProjectile>
+            <defaultProjectile>DV_Bullet_Slug</defaultProjectile>
             <warmupTime>1.3</warmupTime>
             <range>19.9</range>
             <burstShotCount>6</burstShotCount>
@@ -1045,11 +1219,11 @@
           <li Class="AthenaFramework.RandomShotExtension">
             <projectiles>
                <li>
-                 <projectile>Bullet_Slug</projectile>
+                 <projectile>DV_Bullet_Slug</projectile>
                  <probability>5</probability>
                </li>
                <li>
-                 <projectile>Bullet_SlugCharged</projectile>
+                 <projectile>DV_Bullet_SlugCharged</projectile>
                  <probability>1</probability>
                </li>
             </projectiles>
@@ -1058,7 +1232,7 @@
       </ThingDef>
 
       <ThingDef ParentName="BaseBullet">
-        <defName>Bullet_Slug</defName>
+        <defName>DV_Bullet_Slug</defName>
         <label>slug</label>
         <graphicData>
           <texPath>Things/Projectiles/Bullet_Snapshot</texPath>
@@ -1075,7 +1249,7 @@
       EMPElectricityArc
 
       <ThingDef ParentName="BaseBullet">
-        <defName>Bullet_SlugCharged</defName>
+        <defName>DV_Bullet_SlugCharged</defName>
         <label>slug</label>
         <graphicData>
           <texPath>Things/Projectiles/Bullet_SlugShort</texPath>
@@ -1083,7 +1257,7 @@
           <shaderType>MoteGlow</shaderType>
         </graphicData>
         <projectile>
-          <damageDef>StunCoilslug</damageDef>
+          <damageDef>DV_StunCoilslug</damageDef>
           <damageAmountBase>12</damageAmountBase>
           <stoppingPower>1.3</stoppingPower>
           <armorPenetrationBase>0.40</armorPenetrationBase>
@@ -1097,7 +1271,7 @@
       </ThingDef>
 
       <ThingDef ParentName="BaseBullet">
-        <defName>Bullet_SlugHeavy</defName>
+        <defName>DV_Bullet_SlugHeavy</defName>
         <label>slug</label>
         <graphicData>
           <texPath>Things/Projectiles/Bullet_SlugHeavy</texPath>
@@ -1113,7 +1287,7 @@
       </ThingDef>
 
       <ThingDef ParentName="BaseBullet">
-        <defName>Bullet_SlugHeavyCharged</defName>
+        <defName>DV_Bullet_SlugHeavyCharged</defName>
         <label>slug</label>
         <graphicData>
           <texPath>Things/Projectiles/Bullet_SlugLong</texPath>
@@ -1121,7 +1295,7 @@
           <shaderType>MoteGlow</shaderType>
         </graphicData>
         <projectile>
-          <damageDef>StunCoilslug</damageDef>
+          <damageDef>DV_StunCoilslug</damageDef>
           <damageAmountBase>15</damageAmountBase>
           <stoppingPower>0.9</stoppingPower>
           <armorPenetrationBase>0.50</armorPenetrationBase>

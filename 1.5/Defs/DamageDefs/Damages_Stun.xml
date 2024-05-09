@@ -23,7 +23,7 @@
   </DamageDef>
 
   <DamageDef>
-    <defName>StunCoilslug</defName>
+    <defName>DV_StunCoilslug</defName>
     <label>electrified</label>
     <workerClass>DamageWorker_AddInjury</workerClass>
     <externalViolence>true</externalViolence>
@@ -47,6 +47,50 @@
 	<defaultStoppingPower>2</defaultStoppingPower>
     <buildingDamageFactorPassable>0.2</buildingDamageFactorPassable>
 	<soundExplosion>Explosion_Stun</soundExplosion>
+  </DamageDef>
+
+  <DamageDef>
+    <defName>DV_NailHot</defName>
+    <label>hot nail</label>
+    <workerClass>DamageWorker_AddInjury</workerClass>
+    <externalViolence>true</externalViolence>
+    <deathMessage>{0} has been killed by a nail.</deathMessage>
+    <hediff>Cut</hediff>
+    <hediffSolid>Crack</hediffSolid>
+     <harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+    <impactSoundType>Bullet</impactSoundType>
+    <armorCategory>Sharp</armorCategory>
+    <overkillPctToDestroyPart>0~0.7</overkillPctToDestroyPart>
+    <isRanged>true</isRanged>
+    <makesAnimalsFlee>true</makesAnimalsFlee>
+    <defaultDamage>10</defaultDamage>
+	<explosionCellFleck>BlastFlame</explosionCellFleck>
+    <defaultArmorPenetration>0.1</defaultArmorPenetration>
+	<defaultStoppingPower>2</defaultStoppingPower>
+    <buildingDamageFactorPassable>0.2</buildingDamageFactorPassable>
+	<soundExplosion>Explosion_Flame</soundExplosion>
+  </DamageDef>
+
+  <DamageDef>
+    <defName>DV_Nail</defName>
+    <label>nail</label>
+    <workerClass>DamageWorker_AddInjury</workerClass>
+    <externalViolence>true</externalViolence>
+    <deathMessage>{0} has been killed by a nail.</deathMessage> <!--Nailed through the HEART, and you're to blame, darlin' you give love.. a bad name.-->
+    <hediff>Cut</hediff>
+    <hediffSolid>Crack</hediffSolid>
+     <harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+    <impactSoundType>Bullet</impactSoundType>
+    <armorCategory>Sharp</armorCategory>
+    <overkillPctToDestroyPart>0~0.7</overkillPctToDestroyPart>
+    <isRanged>true</isRanged>
+    <makesAnimalsFlee>true</makesAnimalsFlee>
+    <defaultDamage>10</defaultDamage>
+	<explosionCellFleck>BlastFlame</explosionCellFleck>
+    <defaultArmorPenetration>0.1</defaultArmorPenetration>
+	<defaultStoppingPower>2</defaultStoppingPower>
+    <buildingDamageFactorPassable>0.2</buildingDamageFactorPassable>
+	<soundExplosion>Explosion_Flame</soundExplosion>
   </DamageDef>
 
 </Defs>

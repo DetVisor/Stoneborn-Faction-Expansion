@@ -74,7 +74,7 @@
               <filter>
                 <thingDefs>
                   <li>DV_Gun_Flameblaster</li>
-                  <li>DV_Gun_HydraulicCrossbow</li>
+                  <li>DV_Gun_SpringBolter</li>
                   <li>DV_Gun_SlugRifle</li>
                   <li>DV_Gun_SlugCaster</li>
                   <li>DV_Gun_RocketLauncher</li>
