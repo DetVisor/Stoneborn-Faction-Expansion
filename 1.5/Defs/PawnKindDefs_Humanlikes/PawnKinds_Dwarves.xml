@@ -599,7 +599,6 @@
           <li>Minigun</li>
           <li>RocketLauncher</li>
           <li>GunHeavy</li>
-          <li>DwarfMeleeSpacer</li>
         </weaponTags>
         <apparelRequired Inherit="False">
           <li>DV_Apparel_PowerplateArmor</li>
