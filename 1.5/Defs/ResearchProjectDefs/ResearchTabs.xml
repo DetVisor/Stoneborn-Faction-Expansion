@@ -6,6 +6,8 @@
   <ResearchTabDef>
     <defName>StonebornTab</defName>
     <label>Stoneborn</label>
+    <generalTitle>Stoneborn research projects</generalTitle>
+    <generalDescription>Discover new stoneborn-created technologies by analyzing techscrolls and research them at a research bench.</generalDescription>
   </ResearchTabDef>
 
 </Defs>

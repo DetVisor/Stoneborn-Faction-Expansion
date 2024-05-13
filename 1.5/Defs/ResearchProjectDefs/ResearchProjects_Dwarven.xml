@@ -13,6 +13,18 @@
     <prerequisites>
       <li>ReconArmor</li>
     </prerequisites>
+    <generalRules>
+      <rulesStrings>
+        <li>subject->light powersmithing</li>
+
+        <li>subject_story->forged the best power cuirass on the planet</li>
+        <li>subject_story->armed an entire platoon with power cuirasses</li>
+        <li>subject_story->wore a fine browed helm to battle and won</li>
+        <li>subject_story->was able to survive a scyther's strike thanks to the large metal brow of a browed helm</li>
+
+        <li>subject_gerund->powerforging</li>
+      </rulesStrings>
+    </generalRules>
     <requiredAnalyzed>
         <li>DV_BlueTechscroll</li>
     </requiredAnalyzed>
@@ -32,6 +44,18 @@
       <li>DV_Research_LightDwarvenArmor</li>
       <li>PoweredArmor</li>
     </prerequisites>
+    <generalRules>
+      <rulesStrings>
+        <li>subject->heavy powerplate</li>
+
+        <li>subject_story->created such durable powerplate that it could even protect againt meteors</li>
+        <li>subject_story->fought against a swarm of insectoids with a legion of powerplate-wearing crusaders</li>
+        <li>subject_story->headbutted a centipede so hard with a menhir helm that it shut off on the spot</li>
+        <li>subject_story->met an ancient monk-smith amongst the mountains that taught the ancient arts of powersmithing</li>
+
+        <li>subject_gerund->powerforging</li>
+      </rulesStrings>
+    </generalRules>
     <requiredAnalyzed>
         <li>DV_BlueTechscroll</li>
     </requiredAnalyzed>
@@ -51,6 +75,18 @@
       <li>DV_Research_LightDwarvenArmor</li>
       <li>PoweredArmor</li>
     </prerequisites>
+    <generalRules>
+      <rulesStrings>
+        <li>subject->firedrake gear</li>
+
+        <li>subject_story->survived a firenado thanks to their firedrake gambeson</li>
+        <li>subject_story->was saved by a squad of firedrakes and soon joined them, climbing their ranks</li>
+        <li>subject_story->gassed a megahive alone, slaughtering millions of insects, earning them a prestigious award</li>
+        <li>subject_story->survived a graser beam straight to the head</li>
+
+        <li>subject_gerund->fireproof weaving</li>
+      </rulesStrings>
+    </generalRules>
     <requiredAnalyzed>
         <li>DV_BlueTechscroll</li>
     </requiredAnalyzed>
@@ -71,6 +107,18 @@
     <prerequisites>
       <li>Smithing</li>
     </prerequisites>
+    <generalRules>
+      <rulesStrings>
+        <li>subject->greatweapons</li>
+
+        <li>subject_story->struck the earth with a greathammer with such strength, it created continents</li>
+        <li>subject_story->pieced a lancer's shot with a greatspear, splitting it in half</li>
+        <li>subject_story->cut a man directly in half with a greataxe</li>
+        <li>subject_story->dug out of the stomach of a hivebeast with a warpick</li>
+
+        <li>subject_gerund->melee forging</li>
+      </rulesStrings>
+    </generalRules>
     <requiredAnalyzed>
         <li>DV_RedTechscroll</li>
     </requiredAnalyzed>
@@ -89,6 +137,18 @@
     <prerequisites>
       <li>GasOperation</li>
     </prerequisites>
+    <generalRules>
+      <rulesStrings>
+        <li>subject->coilslug tech</li>
+
+        <li>subject_story->electrified an entire lake, disabling an entire mech cluster</li>
+        <li>subject_story->nailed a shot directly to a megaspider's brain, electrifying it and frying it to death</li>
+        <li>subject_story->shot the hands, feet and then the head off a lancer</li>
+        <li>subject_story->killed 7 men with only a single coilslug shot</li>
+
+        <li>subject_gerund->coilsmithing</li>
+      </rulesStrings>
+    </generalRules>
     <requiredAnalyzed>
         <li>DV_RedTechscroll</li>
     </requiredAnalyzed>
@@ -107,6 +167,18 @@
     <prerequisites>
       <li>GasOperation</li>
     </prerequisites>
+    <generalRules>
+      <rulesStrings>
+        <li>subject->blazenail tech</li>
+
+        <li>subject_story->pierced through 4 different centipedes with a single hot nail</li>
+        <li>subject_story->survived on a crashed jungleworld with only a spring bolter</li>
+        <li>subject_story->won an important battle by nailing the opposing warchief to a tree</li>
+        <li>subject_story->assassinated various influencial leaders with their customized hydraulic crossbow</li>
+
+        <li>subject_gerund->hydraulic accelleration</li>
+      </rulesStrings>
+    </generalRules>
     <requiredAnalyzed>
         <li>DV_RedTechscroll</li>
     </requiredAnalyzed>
@@ -125,6 +197,21 @@
     <prerequisites>
       <li>Prosthetics</li>
     </prerequisites>
+    <generalRules>
+      <rulesStrings>
+        <li>subject->built-in weapons</li>
+        <li>subject->weapon bionics</li>
+        <li>subject->weapon limbs</li>
+
+        <li>subject_story->defended their rescue ship with only an arm slugger</li>
+        <li>subject_story->crashed a fighter vessel with a rocket fist, nailing it's engine</li>
+        <li>subject_story->fended off a scyther swarm, protecting their entire squad with an EMP shockwave</li>
+        <li>subject_story->killed an ancient insectoid queen with a half-loaded wristflamer</li>
+        <li>subject_story->sealed a gate by blocking it with barricades, assuring the safety of thousands of people</li>
+
+        <li>subject_gerund->weapon limb replacing</li>
+      </rulesStrings>
+    </generalRules>
     <requiredAnalyzed>
         <li>DV_GreenTechscroll</li>
     </requiredAnalyzed>
@@ -143,6 +230,22 @@
     <prerequisites>
       <li>Prosthetics</li>
     </prerequisites>
+    <generalRules>
+      <rulesStrings>
+        <li>subject->multi-arms</li>
+        <li>subject->robot arms</li>
+        <li>subject->assist-arms</li>
+
+        <li>subject_story->used a crafter multi-arm to pry open an ancient treasure, revealing incredible riches</li>
+        <li>subject_story->crumbled down a cave with only a mining multi-arm</li>
+        <li>subject_story->implanted various multi-arms into themselves, becoming a monstrous cyborg</li>
+        <li>subject_story->fixed a turret just in time with a construction multi-arm</li>
+        <li>subject_story->fought off a termite bare-handed thanks to double carrier multi-arms</li>
+        <li>subject_story->was stranded on beachworld and became friends with their assistant multi-arm</li>
+
+        <li>subject_gerund->weapon limb replacing</li>
+      </rulesStrings>
+    </generalRules>
     <requiredAnalyzed>
         <li>DV_GreenTechscroll</li>
     </requiredAnalyzed>

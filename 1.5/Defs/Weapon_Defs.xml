@@ -560,7 +560,7 @@
         <thingSetMakerTags><li>RewardStandardQualitySuper</li></thingSetMakerTags>
         <statBases>
           <WorkToMake>12000</WorkToMake>
-          <Mass>2.2</Mass>
+          <Mass>10.2</Mass>
         </statBases>
         <recipeMaker>
           <researchPrerequisite>DV_Research_ShellcrackWeapons</researchPrerequisite>
@@ -596,7 +596,6 @@
             <label>nail</label>
             <capacities>
               <li>Stab</li>
-              <li>Blunt</li>
             </capacities>
             <power>25</power>
             <cooldownTime>2.8</cooldownTime>
@@ -951,82 +950,94 @@
           </li>
         </verbs>
       </ThingDef>
-<!--
-      <ThingDef ParentName="BaseHumanMakeableGun">
-        <defName>DV_Gun_Autoslugger</defName>
-        <label>autoslugger</label>
-        <description>A magazine-fed fully automatic shotgun. It is even shorter-ranged than a typical shotgun, but is extraordinarily dangerous due to burst fire.</description>
-        <graphicData>
-          <texPath>Things/Item/Equipment/WeaponRanged/Autoslugger</texPath>
-          <graphicClass>Graphic_Single</graphicClass>
-          <drawSize>1.1</drawSize>
-        </graphicData>
-        <generateCommonality>0.4</generateCommonality>
-        <soundInteract>Interact_Shotgun</soundInteract>
-        <weaponClasses>
-          <li>ShortShots</li>
-        </weaponClasses>
-        <recipeMaker>
-          <researchPrerequisite>GasOperation</researchPrerequisite>
-          <skillRequirements>
-            <Crafting>8</Crafting>
-          </skillRequirements>
-          <displayPriority>435</displayPriority>
-        </recipeMaker>
+
+      <ThingDef ParentName="BaseMeleeWeapon_Blunt_Quality">
+        <defName>DV_MeleeWeapon_Electromace</defName>
+        <label>electromace</label>
+        <description>A giant pickaxe that requires two hands to wield. While not easy to swing around, each blow it delivers carries enough weight to shatter stone. Great for both being used as a heavy duty mining tool and for breaking through defenses.</description>
+        <techLevel>Spacer</techLevel>
         <thingSetMakerTags><li>RewardStandardQualitySuper</li></thingSetMakerTags>
         <statBases>
-          <WorkToMake>31000</WorkToMake>
-          <Mass>4.5</Mass>
-          <AccuracyTouch>0.60</AccuracyTouch>
-          <AccuracyShort>0.70</AccuracyShort>
-          <AccuracyMedium>0.54</AccuracyMedium>
-          <AccuracyLong>0.40</AccuracyLong>
-          <RangedWeapon_Cooldown>1.35</RangedWeapon_Cooldown>
+          <WorkToMake>1000</WorkToMake>
+          <Mass>5.2</Mass>
         </statBases>
+        <recipeMaker>
+          <researchPrerequisite>DV_Research_UraniumSlugWeapons</researchPrerequisite>
+          <skillRequirements>
+            <Crafting>6</Crafting>
+          </skillRequirements>
+          <displayPriority>430</displayPriority>
+        </recipeMaker>
         <costList>
-          <Steel>60</Steel>
-          <Uranium>25</Uranium>
-          <ComponentSpacer>5</ComponentSpacer>
+          <Steel>35</Steel>
+          <Plasteel>20</Plasteel>
+          <ComponentSpacer>4</ComponentSpacer>
         </costList>
-        <verbs>
-          <li>
-            <verbClass>Verb_Shoot</verbClass>
-            <hasStandardCommand>true</hasStandardCommand>
-            <defaultProjectile>ArmCannonProjectile</defaultProjectile>
-            <warmupTime>1.5</warmupTime>
-            <range>10.9</range>
-            <burstShotCount>4</burstShotCount>
-            <ticksBetweenBurstShots>9</ticksBetweenBurstShots>
-            <soundCast>Shot_Shotgun</soundCast>
-            <soundCastTail>GunTail_Heavy</soundCastTail>
-            <muzzleFlashScale>9</muzzleFlashScale>
-          </li>
-        </verbs>
         <weaponTags>
-          <li>SpacerGun</li>
-          <li>SlugGun</li>
+          <li>DwarfMeleeSpacer</li>
         </weaponTags>
+        <weaponClasses>
+          <li>Melee</li>
+        </weaponClasses>
+        <tradeTags>
+          <li>DwarfWeaponMelee</li>
+        </tradeTags>
         <tools>
           <li>
-            <label>stock</label>
+            <label>handle</label>
             <capacities>
-              <li>Blunt</li>
-            </capacities>
-            <power>9</power>
-            <cooldownTime>2</cooldownTime>
-          </li>
-          <li>
-            <label>barrel</label>
-            <capacities>
-              <li>Blunt</li>
               <li>Poke</li>
             </capacities>
             <power>9</power>
             <cooldownTime>2</cooldownTime>
           </li>
+          <li>
+            <label>coilhead</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <extraMeleeDamages>
+              <li>
+                <def>DV_StunCoilslug</def>
+                <amount>12</amount>
+                <chance>0.8</chance>
+              </li>
+            </extraMeleeDamages>
+            <power>20</power>
+            <cooldownTime>2.1</cooldownTime>
+            <armorPenetration>0.2</armorPenetration>
+          </li>
+          <li>
+            <label>top</label>
+            <capacities>
+              <li>Blunt</li>
+              <li>Poke</li>
+            </capacities>
+            <power>8</power>
+            <cooldownTime>2.1</cooldownTime>
+          </li>
         </tools>
+        <modExtensions>
+          <li Class="AthenaFramework.DamageModifierExtension">
+            <outgoingModifiers>
+              <li>
+                <fleshTypes>
+                  <li>Mechanoid</li>
+                  <li MayRequire="VexedTrees980.RimRobots">VexedMechanical</li>
+                </fleshTypes>
+                <modifier>2</modifier>
+              </li>
+            </outgoingModifiers>
+          </li>
+        </modExtensions>
+        <equippedAngleOffset>-65</equippedAngleOffset>
+        <graphicData>
+          <texPath>Things/Item/Equipment/WeaponMelee/Electromace</texPath>
+          <drawSize>1.4</drawSize>
+          <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
       </ThingDef>
-    -->
+
       <ThingDef ParentName="BaseHumanMakeableGun">
         <defName>DV_Gun_SlugCaster</defName>
         <label>coilslug caster</label>

@@ -37,16 +37,22 @@
     </li>
   </additionalHediffs>
     <impactSoundType>Electric</impactSoundType>
-    <armorCategory>Heat</armorCategory>
+    <armorCategory>Blunt</armorCategory>
     <overkillPctToDestroyPart>0~0.7</overkillPctToDestroyPart>
     <isRanged>true</isRanged>
     <makesAnimalsFlee>true</makesAnimalsFlee>
+    <explosionColorEdge>(0.8, 0.8, 0.8, 0.8)</explosionColorEdge>
+    <explosionInteriorFleck>ElectricalSpark</explosionInteriorFleck>
     <defaultDamage>10</defaultDamage>
-	<explosionCellFleck>BlastEMP</explosionCellFleck>
+    <explosionCenterEffecter>BlastEMPShockwave</explosionCenterEffecter>
+    <explosionCellEffecter>EMPElectricityArc</explosionCellEffecter>
+   	<explosionCellFleck>BlastEMP</explosionCellFleck>
     <defaultArmorPenetration>0.1</defaultArmorPenetration>
-	<defaultStoppingPower>2</defaultStoppingPower>
+    <explosionCellEffecterChance>0.1</explosionCellEffecterChance>
+    <explosionCellEffecterMaxRadius>10</explosionCellEffecterMaxRadius>
+  	<defaultStoppingPower>2</defaultStoppingPower>
     <buildingDamageFactorPassable>0.2</buildingDamageFactorPassable>
-	<soundExplosion>Explosion_Stun</soundExplosion>
+    <soundExplosion>Explosion_MechBandShockwave</soundExplosion>
   </DamageDef>
 
   <DamageDef>
@@ -86,11 +92,43 @@
     <isRanged>true</isRanged>
     <makesAnimalsFlee>true</makesAnimalsFlee>
     <defaultDamage>10</defaultDamage>
-	<explosionCellFleck>BlastFlame</explosionCellFleck>
     <defaultArmorPenetration>0.1</defaultArmorPenetration>
-	<defaultStoppingPower>2</defaultStoppingPower>
+   	<defaultStoppingPower>2</defaultStoppingPower>
     <buildingDamageFactorPassable>0.2</buildingDamageFactorPassable>
-	<soundExplosion>Explosion_Flame</soundExplosion>
   </DamageDef>
+
+  <DamageDef Name="BluntBase">
+    <defName>DV_ShockwaveDamage</defName>
+    <label>shockwave</label>
+    <workerClass>DamageWorker_Blunt</workerClass>
+    <externalViolence>true</externalViolence>
+    <deathMessage>{0} has been shockwaved to death.</deathMessage>
+    <hediff>Crush</hediff>
+    <hediffSkin>Bruise</hediffSkin>
+    <hediffSolid>Crack</hediffSolid>
+    <harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+    <soundExplosion>Explosion_Bomb</soundExplosion>
+    <impactSoundType>Blunt</impactSoundType>
+    <armorCategory>Sharp</armorCategory>
+    <overkillPctToDestroyPart>0.4~1.0</overkillPctToDestroyPart>
+    <buildingDamageFactor>1.5</buildingDamageFactor>
+    <bluntStunDuration>2.0</bluntStunDuration>
+    <bluntInnerHitChance>0.4</bluntInnerHitChance>
+    <bluntInnerHitDamageFractionToConvert>0.1~0.2</bluntInnerHitDamageFractionToConvert>
+    <bluntInnerHitDamageFractionToAdd>0.2~0.35</bluntInnerHitDamageFractionToAdd>
+    <bluntStunChancePerDamagePctOfCorePartToHeadCurve>
+      <points>
+        <li>(0.04, 0.20)</li>
+        <li>(0.5, 1)</li>
+      </points>
+    </bluntStunChancePerDamagePctOfCorePartToHeadCurve>
+    <bluntStunChancePerDamagePctOfCorePartToBodyCurve>
+      <points>
+        <li>(0.4, 0)</li>
+        <li>(0.9, 0.15)</li>
+      </points>
+    </bluntStunChancePerDamagePctOfCorePartToBodyCurve>
+  </DamageDef>
+
 
 </Defs>
