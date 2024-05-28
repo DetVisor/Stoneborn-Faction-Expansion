@@ -947,6 +947,11 @@
             <burstShotCount>15</burstShotCount>
             <soundCast>Shot_MiniFlameblaster</soundCast>
             <muzzleFlashScale>9</muzzleFlashScale>
+            <targetParams>
+              <canTargetLocations>true</canTargetLocations>
+              <canTargetPawns>true</canTargetPawns>
+              <canTargetBuildings>true</canTargetBuildings>
+            </targetParams>
           </li>
         </verbs>
       </ThingDef>
@@ -954,7 +959,7 @@
       <ThingDef ParentName="BaseMeleeWeapon_Blunt_Quality">
         <defName>DV_MeleeWeapon_Electromace</defName>
         <label>electromace</label>
-        <description>A giant pickaxe that requires two hands to wield. While not easy to swing around, each blow it delivers carries enough weight to shatter stone. Great for both being used as a heavy duty mining tool and for breaking through defenses.</description>
+        <description>An heavy mace with an electrically-charged coil head. Fairly easy and fast to swing, each hit may deliver powerful electric shocks to the target.</description>
         <techLevel>Spacer</techLevel>
         <thingSetMakerTags><li>RewardStandardQualitySuper</li></thingSetMakerTags>
         <statBases>
