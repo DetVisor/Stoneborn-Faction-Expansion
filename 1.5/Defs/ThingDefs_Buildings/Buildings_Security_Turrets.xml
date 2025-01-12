@@ -159,7 +159,7 @@
         <rect>(0.2,0.2,0.6,0.6)</rect>
       </damageData>
       <shadowData>
-        <volume>(1.5,0.35,1.4)</volume>
+        <volume>(0.7,0.35,0.7)</volume>
         <offset>(0,0,-0.05)</offset>
       </shadowData>
     </graphicData>    
@@ -273,6 +273,7 @@
       <DeteriorationRate>0</DeteriorationRate>
       <Mass>40</Mass>
       <Flammability>0</Flammability>
+      <EBSG_DamageFactor_Mechanoid>2</EBSG_DamageFactor_Mechanoid>
     </statBases>
     <verbs>
       <li>
@@ -290,19 +291,6 @@
         <consumeFuelPerShot>1</consumeFuelPerShot>
       </li>
     </verbs>
-    <modExtensions>
-      <li Class="AthenaFramework.DamageModifierExtension">
-        <outgoingModifiers>
-          <li>
-            <fleshTypes>
-              <li>Mechanoid</li>
-              <li MayRequire="VexedTrees980.RimRobots">VexedMechanical</li>
-            </fleshTypes>
-            <modifier>2</modifier>
-          </li>
-        </outgoingModifiers>
-      </li>
-    </modExtensions>
   </ThingDef>
 
   <ThingDef ParentName="BaseBullet">
@@ -322,11 +310,12 @@
       <armorPenetrationBase>0.40</armorPenetrationBase>
       <speed>72</speed>
     </projectile>
-    <comps>
-      <li Class="AthenaFramework.CompProperties_ProjectileTrail">
-        <attachedMote>Mote_EMPSparkArch</attachedMote>
-      </li>
-    </comps>
+        <comps>
+          <li Class="CompProperties_MoteEmitter">
+           <mote>Mote_EMPSparkArch</mote>
+           <maintain>True</maintain>
+          </li>       
+        </comps>
   </ThingDef>
 
   <ThingDef ParentName="HeavyStonebornTurretBase">
@@ -399,6 +388,7 @@
       <DeteriorationRate>0</DeteriorationRate>
       <Mass>40</Mass>
       <Flammability>0</Flammability>
+      <EBSG_DamageFactor_Insect>2</EBSG_DamageFactor_Insect>
     </statBases>
     <verbs>
       <li>
@@ -416,19 +406,6 @@
         <consumeFuelPerShot>1</consumeFuelPerShot>
       </li>
     </verbs>
-    <modExtensions>
-      <li Class="AthenaFramework.DamageModifierExtension">
-        <outgoingModifiers>
-          <li>
-            <fleshTypes>
-              <li>Mechanoid</li>
-              <li MayRequire="VexedTrees980.RimRobots">VexedMechanical</li>
-            </fleshTypes>
-            <modifier>2</modifier>
-          </li>
-        </outgoingModifiers>
-      </li>
-    </modExtensions>
   </ThingDef>
 
   

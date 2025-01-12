@@ -17,11 +17,11 @@
     </graphicData>
     <comps>
       <li Class="CompProperties_Usable">
-        <compClass>AthenaFramework.CompUsable_HediffModule</compClass>
-        <useJob>Athena_InstallModule</useJob>
+        <compClass>EBSGFramework.CompUsable_HediffModule</compClass>
+        <useJob>EBSG_InstallItem</useJob>
         <useDuration>50</useDuration>
       </li>
-      <li Class="AthenaFramework.CompProperties_UseEffectHediffModule">
+      <li Class="EBSGFramework.CompProperties_UseEffectHediffModule">
         <slotIDs>
           <li>armSocket</li>
         </slotIDs>
@@ -145,11 +145,11 @@
     </graphicData>
     <comps>
       <li Class="CompProperties_Usable">
-        <compClass>AthenaFramework.CompUsable_HediffModule</compClass>
-        <useJob>Athena_InstallModule</useJob>
+        <compClass>EBSGFramework.CompUsable_HediffModule</compClass>
+        <useJob>EBSG_InstallItem</useJob>
         <useDuration>50</useDuration>
       </li>
-      <li Class="AthenaFramework.CompProperties_UseEffectHediffModule">
+      <li Class="EBSGFramework.CompProperties_UseEffectHediffModule">
         <slotIDs>
           <li>armSocket</li>
         </slotIDs>
@@ -274,11 +274,11 @@
     </graphicData>
     <comps>
       <li Class="CompProperties_Usable">
-        <compClass>AthenaFramework.CompUsable_HediffModule</compClass>
-        <useJob>Athena_InstallModule</useJob>
+        <compClass>EBSGFramework.CompUsable_HediffModule</compClass>
+        <useJob>EBSG_InstallItem</useJob>
         <useDuration>50</useDuration>
       </li>
-      <li Class="AthenaFramework.CompProperties_UseEffectHediffModule">
+      <li Class="EBSGFramework.CompProperties_UseEffectHediffModule">
         <slotIDs>
           <li>armSocket</li>
         </slotIDs>
@@ -402,11 +402,11 @@
     </graphicData>
     <comps>
       <li Class="CompProperties_Usable">
-        <compClass>AthenaFramework.CompUsable_HediffModule</compClass>
-        <useJob>Athena_InstallModule</useJob>
+        <compClass>EBSGFramework.CompUsable_HediffModule</compClass>
+        <useJob>EBSG_InstallItem</useJob>
         <useDuration>50</useDuration>
       </li>
-      <li Class="AthenaFramework.CompProperties_UseEffectHediffModule">
+      <li Class="EBSGFramework.CompProperties_UseEffectHediffModule">
         <slotIDs>
           <li>armSocket</li>
         </slotIDs>
@@ -529,11 +529,11 @@
     </graphicData>
     <comps>
       <li Class="CompProperties_Usable">
-        <compClass>AthenaFramework.CompUsable_HediffModule</compClass>
-        <useJob>Athena_InstallModule</useJob>
+        <compClass>EBSGFramework.CompUsable_HediffModule</compClass>
+        <useJob>EBSG_InstallItem</useJob>
         <useDuration>50</useDuration>
       </li>
-      <li Class="AthenaFramework.CompProperties_UseEffectHediffModule">
+      <li Class="EBSGFramework.CompProperties_UseEffectHediffModule">
         <slotIDs>
           <li>armSocket</li>
         </slotIDs>
@@ -714,7 +714,7 @@
       <description>A shoulder replacement multi-arm socket.</description>
       <defaultInstallPart>Shoulder</defaultInstallPart>
       <comps>
-        <li Class="AthenaFramework.HediffCompProperties_Modular">
+        <li Class="EBSGFramework.HediffCompProperties_Modular">
           <slots>
             <li>
               <slotID>armSocket</slotID>

@@ -10,6 +10,10 @@
       <texPath>Things/Building/Ruins/TempBarrier</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(2,2)</drawSize>
+      <shadowData>
+        <volume>(0.1,0.1,0.1)</volume>
+        <offset>(0,0,-0.05)</offset>
+      </shadowData>      
     </graphicData>
     <altitudeLayer>Building</altitudeLayer>
     <pathCost>60</pathCost>
@@ -22,8 +26,7 @@
     <tickerType>Normal</tickerType>
     <minifiedDef IsNull="True" />
     <costList>
-      <Steel>50</Steel>
-      <ComponentIndustrial>2</ComponentIndustrial>
+      <Steel>10</Steel>
     </costList>
     <statBases>
       <MaxHitPoints>250</MaxHitPoints>

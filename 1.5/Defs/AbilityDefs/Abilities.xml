@@ -8,7 +8,6 @@
     <iconPath>UI/Abilities/RocketBoost</iconPath>
     <displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
     <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
-    <charges>3</charges>
     <cooldownTicksRange>25000</cooldownTicksRange><!-- 8h -->
     <hostile>false</hostile>
     <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
@@ -22,6 +21,16 @@
       <soundLanding>JumpMechLand</soundLanding>
       <soundCast Inherit="False" />
     </verbProperties>
+        <comps>
+            <li Class="EBSGFramework.CompProperties_AbilityReloadable">
+                <maxCharges>3</maxCharges>
+                <ammoDef>Chemfuel</ammoDef>
+                <ammoPerCharge>10</ammoPerCharge>
+                <reloadDuration>100</reloadDuration>
+                <reloadSound>Standard_Reload</reloadSound>
+                <noChargesRemaining>Boots empty.</noChargesRemaining>
+              </li>
+          </comps>    
     <jobDef>CastJump</jobDef>
   </AbilityDef>
 
@@ -67,8 +76,9 @@
         <iconPath>UI/Abilities/ShockDischarge</iconPath>
         <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
         <cooldownTicksRange>12000</cooldownTicksRange><!--The cooldown of the ability -->
-        <canUseAoeToGetTargets>false</canUseAoeToGetTargets>
-        <jobDef>CastAbilityOnThing</jobDef>
+        <canUseAoeToGetTargets>true</canUseAoeToGetTargets>
+        <jobDef>CastAbilityOnThingWithoutWeapon</jobDef>
+        <ai_SearchAOEForTargets>true</ai_SearchAOEForTargets>
         <targetRequired>False</targetRequired>
         <aiCanUse>true</aiCanUse>
         <displayOrder>300</displayOrder>
@@ -87,11 +97,12 @@
         </verbProperties>
 
         <comps>
-            <li Class="AthenaFramework.CompProperties_AbilityShockwave">
-              <explosionDamageDef>EMP</explosionDamageDef>
-              <explosionDamage>28</explosionDamage>
-              <explosionPenetration>1</explosionPenetration>
-              <explosionRadius>5</explosionRadius>
+            <li Class="EBSGFramework.CompProperties_EBSGBurst">
+              <damageDef>EMP</damageDef>
+              <damageAmount>28</damageAmount>
+              <armorPenetration>1</armorPenetration>
+              <extraGasType>None</extraGasType>
+              <radius>5</radius>
             </li>
             <li Class="CompProperties_AbilityEffecterOnTarget">
               <effecterDef>BlastEMPShockwave</effecterDef>
@@ -130,7 +141,7 @@
               <effecterDef>Fire_Spew</effecterDef>
               <canHitFilledCells>true</canHitFilledCells>
             </li>
-            <li Class="AthenaFramework.CompProperties_AbilityReloadable">
+            <li Class="EBSGFramework.CompProperties_AbilityReloadable">
                 <maxCharges>1</maxCharges>
                 <ammoDef>Chemfuel</ammoDef>
                 <ammoPerCharge>15</ammoPerCharge>
@@ -165,7 +176,7 @@
       <li Class="CompProperties_AbilityLaunchProjectile">
         <projectileDef>ArmCannonProjectile</projectileDef>
       </li>
-      <li Class="AthenaFramework.CompProperties_AbilityReloadable">
+      <li Class="EBSGFramework.CompProperties_AbilityReloadable">
         <maxCharges>3</maxCharges>
         <ammoDef>Steel</ammoDef>
         <ammoPerCharge>10</ammoPerCharge>
@@ -214,7 +225,7 @@
       <li Class="CompProperties_AbilityLaunchProjectile">
         <projectileDef>TempBarrierProjectile</projectileDef>
       </li>
-      <li Class="AthenaFramework.CompProperties_AbilityReloadable">
+      <li Class="EBSGFramework.CompProperties_AbilityReloadable">
         <maxCharges>3</maxCharges>
         <ammoDef>Steel</ammoDef>
         <ammoPerCharge>25</ammoPerCharge>
@@ -228,6 +239,7 @@
   <ThingDef ParentName="BaseBullet">
     <defName>TempBarrierProjectile</defName>
     <label>barrier kit</label>
+    <thingClass>Projectile_SpawnsThing</thingClass>
     <graphicData>
       <drawSize>1.5</drawSize>
       <texPath>Things/Projectiles/Bullet_Barrier</texPath>
@@ -237,14 +249,10 @@
       <damageDef>Blunt</damageDef>
       <damageAmountBase>2</damageAmountBase>
 	    <armorPenetrationBase>0</armorPenetrationBase>
+      <spawnsThingDef>DV_TemporaryBarricade</spawnsThingDef>
+      <tryAdjacentFreeSpaces>true</tryAdjacentFreeSpaces>
       <speed>42</speed>
     </projectile>
-    <comps>
-      <li Class="AthenaFramework.CompProperties_ProjectileThingSpawner">
-        <spawnedDef>DV_TemporaryBarricade</spawnedDef>
-        <previousTile>true</previousTile>
-      </li>
-    </comps>
   </ThingDef>
 
   <AbilityDef>
@@ -271,7 +279,7 @@
       <li Class="CompProperties_AbilityLaunchProjectile">
         <projectileDef>RocketFistProjectile</projectileDef>
       </li>
-      <li Class="AthenaFramework.CompProperties_AbilityReloadable">
+      <li Class="EBSGFramework.CompProperties_AbilityReloadable">
         <maxCharges>1</maxCharges>
         <ammoDef>Steel</ammoDef>
         <ammoPerCharge>20</ammoPerCharge>
@@ -299,8 +307,8 @@
       <soundExplode>Explosion_Rocket</soundExplode>
     </projectile>
     <comps>
-      <li Class="AthenaFramework.CompProperties_ProjectileTrail">
-        <trailFleck>SmokeRocket</trailFleck>
+      <li Class="CompProperties_ProjectileEffecter">
+        <effecterDef>Rocket_SmokeStream</effecterDef>
       </li>
     </comps>
   </ThingDef>

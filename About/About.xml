@@ -22,9 +22,9 @@
 		   <steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2903359518</steamWorkshopUrl>
 		</li>
 		<li>
-			<packageId>smartkar.athenaframework</packageId>
-			<displayName>Athena Framework</displayName>
-			<steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2903359518</steamWorkshopUrl>
+			<packageId>ebsg.framework</packageId>
+			<displayName>EBSG Framework</displayName>
+			<steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=3112549163</steamWorkshopUrl>
 		</li>   
 		<li>
             <packageId>OskarPotocki.VanillaFactionsExpanded.Core</packageId>

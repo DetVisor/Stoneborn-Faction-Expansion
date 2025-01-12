@@ -96,6 +96,22 @@
     <growthRate>0.005</growthRate>
   </FleckDef>
 
+    <EffecterDef>
+    <defName>Rocket_SmokeStream</defName>
+    <children>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
+        <fleckDef>SmokeRocket</fleckDef>
+        <scale>.6~1</scale>
+        <chancePerTick>.7</chancePerTick>
+        <spawnLocType>OnSource</spawnLocType>
+        <absoluteAngle>true</absoluteAngle>
+        <angle>-30~30</angle>
+        <rotation>-30~30</rotation>
+      </li>
+    </children>
+  </EffecterDef>
+
   <FleckDef ParentName="FleckBase_Thrown">
     <defName>SlugShockwave</defName>
     <graphicData>
@@ -115,7 +131,7 @@
     <fadeInTime>0.05</fadeInTime>
     <fadeOutTime>0.8</fadeOutTime>
     <solidTime>0.12</solidTime>
-    <growthRate>1</growthRate>
+    <growthRate>0.8</growthRate>
     <graphicData>
       <texPath>Things/Mote/Black</texPath>
       <shaderParameters>
@@ -190,12 +206,12 @@
     <defName>EMPElectricityArc</defName>
     <children>
       <li>
-        <subEffecterClass>SubEffecter_SprayerTriggeredChance</subEffecterClass>
+        <subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
         <moteDef>Mote_EMPSparkArch</moteDef>
         <burstCount>1</burstCount>
         <chancePerTick>1</chancePerTick>
         <rotation>-150~-50</rotation>
-        <spawnLocType>OnTarget</spawnLocType>
+        <spawnLocType>OnSource</spawnLocType>
         <scale>1.1~1.4</scale>
         <rotateTowardsTargetCenter>true</rotateTowardsTargetCenter>
       </li>

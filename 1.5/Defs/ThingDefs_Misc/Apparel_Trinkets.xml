@@ -14,7 +14,7 @@
 		<tradeability>Sellable</tradeability>
 		<generateCommonality>0</generateCommonality>
     <comps>
-      <li Class="AthenaFramework.CompProperties_EquippableAbility">
+      <li Class="EBSGFramework.CompProperties_EquippableAbility">
         <ability>DV_RocketBoots_Boost</ability>
       </li>
     </comps>
@@ -88,6 +88,8 @@
     <Mass>3</Mass>
     <Flammability>0</Flammability>
     <EquipDelay>2.5</EquipDelay>
+    <EnergyShieldEnergyMax>2.5</EnergyShieldEnergyMax>
+     <EnergyShieldRechargeRate>0.05</EnergyShieldRechargeRate>    
   </statBases>
   <thingSetMakerTags>
     <li>RewardStandardQualitySuper</li>
@@ -154,10 +156,8 @@
     </options>
   </colorGenerator>
   <comps>
-    <li Class="AthenaFramework.CompProperties_ShieldEquipment">
-      <maxEnergy>250</maxEnergy>
-      <energyRechargeRate>0.05</energyRechargeRate>
-      <energyPerDamageModifier>3</energyPerDamageModifier>
+    <li Class="EBSGFramework.CompProperties_ShieldEquipment">
+      <energyPerDamageModifier>0.03</energyPerDamageModifier>
       <resetDelay>3200</resetDelay>
 
       <blocksMeleeDamage>false</blocksMeleeDamage>
@@ -165,12 +165,14 @@
       <blocksRangedDamage>true</blocksRangedDamage>
 
       <shatterOn>
-        <li>EMP</li>
+        <li>Bomb</li>
       </shatterOn>
 
-      <explosionOnShieldBreak>true</explosionOnShieldBreak>
-      <explosionDef>EMP</explosionDef>
-      <explosionRadius>3.9</explosionRadius>
+      <shieldBreakExplosion>
+        <damageDef>EMP</damageDef>
+        <extraGasType>None</extraGasType>
+        <radius>2.9</radius>
+      </shieldBreakExplosion>      
 
       <absorbFleck>ExplosionFlash</absorbFleck>
       <breakFleck>ExplosionFlash</breakFleck>

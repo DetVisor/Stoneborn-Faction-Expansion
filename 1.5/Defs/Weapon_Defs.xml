@@ -186,6 +186,7 @@
       <WorkToMake>15500</WorkToMake>
       <Beauty>3</Beauty>
       <Mass>2.5</Mass>
+      <EBSG_DamageFactor_Mechanoid>2</EBSG_DamageFactor_Mechanoid>
     </statBases>
     <recipeMaker IsNull="True" />
     <weaponTags>
@@ -223,18 +224,6 @@
       <drawSize>1.4</drawSize>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
-    <modExtensions>
-      <li Class="AthenaFramework.DamageModifierExtension">
-        <outgoingModifiers>
-          <li>
-            <fleshTypes>
-              <li>Mechanoid</li>
-            </fleshTypes>
-            <modifier>2</modifier>
-          </li>
-        </outgoingModifiers>
-      </li>
-    </modExtensions>
   </ThingDef>
 
   <ThingDef ParentName="BaseMeleeWeapon_Sharp_Quality">
@@ -561,6 +550,7 @@
         <statBases>
           <WorkToMake>12000</WorkToMake>
           <Mass>10.2</Mass>
+          <EBSG_DamageFactor_Insect>2</EBSG_DamageFactor_Insect>
         </statBases>
         <recipeMaker>
           <researchPrerequisite>DV_Research_ShellcrackWeapons</researchPrerequisite>
@@ -611,18 +601,6 @@
             <armorPenetration>0.3</armorPenetration>
           </li>
         </tools>
-        <modExtensions>
-          <li Class="AthenaFramework.DamageModifierExtension">
-            <outgoingModifiers>
-              <li>
-                <fleshTypes>
-                  <li>Insectoid</li>
-                </fleshTypes>
-                <modifier>2</modifier>
-              </li>
-            </outgoingModifiers>
-          </li>
-        </modExtensions>
         <equippedAngleOffset>-65</equippedAngleOffset>
         <graphicData>
           <texPath>Things/Item/Equipment/WeaponMelee/Naildriver</texPath>
@@ -651,6 +629,7 @@
           <AccuracyLong>0.80</AccuracyLong>
           <RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
           <WorkToMake>53000</WorkToMake>
+          <EBSG_DamageFactor_Insect>2</EBSG_DamageFactor_Insect>
         </statBases>
         <recipeMaker>
           <researchPrerequisite>DV_Research_ShellcrackWeapons</researchPrerequisite>
@@ -678,7 +657,7 @@
         </weaponClasses>
         <verbs>
           <li>
-            <verbClass>AthenaFramework.Verb_RandomShot</verbClass>
+            <verbClass>EBSGFramework.Verb_RandomShot</verbClass>
             <hasStandardCommand>true</hasStandardCommand>
             <defaultProjectile>DV_Bullet_NailLong</defaultProjectile>
             <warmupTime>0.8</warmupTime>
@@ -709,26 +688,10 @@
           </li>
         </tools>
         <modExtensions>
-          <li Class="AthenaFramework.DamageModifierExtension">
-            <outgoingModifiers>
-              <li>
-                <fleshTypes>
-                  <li>Insectoid</li>
-                </fleshTypes>
-                <modifier>2</modifier>
-              </li>
-            </outgoingModifiers>
-          </li>
-          <li Class="AthenaFramework.RandomShotExtension">
+          <li Class="EBSGFramework.RandomShotExtension">
             <projectiles>
-               <li>
-                 <projectile>DV_Bullet_NailLong</projectile>
-                 <probability>6</probability>
-               </li>
-               <li>
-                 <projectile>DV_Bullet_NailLongHot</projectile>
-                 <probability>1</probability>
-               </li>
+                 <DV_Bullet_NailLong>6</DV_Bullet_NailLong>
+                 <DV_Bullet_NailLongHot>1</DV_Bullet_NailLongHot>
             </projectiles>
           </li>
         </modExtensions>
@@ -753,6 +716,7 @@
           <AccuracyLong>0.62</AccuracyLong>
           <RangedWeapon_Cooldown>1.9</RangedWeapon_Cooldown>
           <WorkToMake>53000</WorkToMake>
+          <EBSG_DamageFactor_Insect>2</EBSG_DamageFactor_Insect>
         </statBases>
         <recipeMaker>
           <researchPrerequisite>DV_Research_ShellcrackWeapons</researchPrerequisite>
@@ -780,7 +744,7 @@
         </weaponClasses>
         <verbs>
           <li>
-            <verbClass>AthenaFramework.Verb_RandomShot</verbClass>
+            <verbClass>EBSGFramework.Verb_RandomShot</verbClass>
             <hasStandardCommand>true</hasStandardCommand>
             <defaultProjectile>DV_Bullet_NailSmall</defaultProjectile>
             <warmupTime>1.7</warmupTime>
@@ -811,26 +775,10 @@
           </li>
         </tools>
         <modExtensions>
-          <li Class="AthenaFramework.DamageModifierExtension">
-            <outgoingModifiers>
-              <li>
-                <fleshTypes>
-                  <li>Insectoid</li>
-                </fleshTypes>
-                <modifier>2</modifier>
-              </li>
-            </outgoingModifiers>
-          </li>
-          <li Class="AthenaFramework.RandomShotExtension">
+          <li Class="EBSGFramework.RandomShotExtension">
             <projectiles>
-               <li>
-                 <projectile>DV_Bullet_NailSmall</projectile>
-                 <probability>8</probability>
-               </li>
-               <li>
-                 <projectile>DV_Bullet_NailSmallHot</projectile>
-                 <probability>1</probability>
-               </li>
+                 <DV_Bullet_NailSmall>8</DV_Bullet_NailSmall>
+                 <DV_Bullet_NailSmallHot>1</DV_Bullet_NailSmallHot>
             </projectiles>
           </li>
         </modExtensions>
@@ -965,6 +913,7 @@
         <statBases>
           <WorkToMake>1000</WorkToMake>
           <Mass>5.2</Mass>
+          <EBSG_DamageFactor_Mechanoid>2</EBSG_DamageFactor_Mechanoid>          
         </statBases>
         <recipeMaker>
           <researchPrerequisite>DV_Research_UraniumSlugWeapons</researchPrerequisite>
@@ -1022,19 +971,6 @@
             <cooldownTime>2.1</cooldownTime>
           </li>
         </tools>
-        <modExtensions>
-          <li Class="AthenaFramework.DamageModifierExtension">
-            <outgoingModifiers>
-              <li>
-                <fleshTypes>
-                  <li>Mechanoid</li>
-                  <li MayRequire="VexedTrees980.RimRobots">VexedMechanical</li>
-                </fleshTypes>
-                <modifier>2</modifier>
-              </li>
-            </outgoingModifiers>
-          </li>
-        </modExtensions>
         <equippedAngleOffset>-65</equippedAngleOffset>
         <graphicData>
           <texPath>Things/Item/Equipment/WeaponMelee/Electromace</texPath>
@@ -1076,6 +1012,7 @@
           <AccuracyMedium>0.74</AccuracyMedium>
           <AccuracyLong>0.81</AccuracyLong>
           <RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+          <EBSG_DamageFactor_Mechanoid>2</EBSG_DamageFactor_Mechanoid>                
         </statBases>
         <costList>
           <Steel>60</Steel>
@@ -1084,7 +1021,7 @@
         </costList>
         <verbs>
           <li>
-            <verbClass>AthenaFramework.Verb_RandomShot</verbClass>
+            <verbClass>EBSGFramework.Verb_RandomShot</verbClass>
             <hasStandardCommand>true</hasStandardCommand>
             <defaultProjectile>DV_Bullet_SlugHeavy</defaultProjectile>
             <warmupTime>1.6</warmupTime>
@@ -1119,27 +1056,10 @@
           </li>
         </tools>
         <modExtensions>
-          <li Class="AthenaFramework.DamageModifierExtension">
-            <outgoingModifiers>
-              <li>
-                <fleshTypes>
-                  <li>Mechanoid</li>
-                  <li MayRequire="VexedTrees980.RimRobots">VexedMechanical</li>
-                </fleshTypes>
-                <modifier>2</modifier>
-              </li>
-            </outgoingModifiers>
-          </li>
-          <li Class="AthenaFramework.RandomShotExtension">
+          <li Class="EBSGFramework.RandomShotExtension">
             <projectiles>
-               <li>
-                 <projectile>DV_Bullet_SlugHeavy</projectile>
-                 <probability>8</probability>
-               </li>
-               <li>
-                 <projectile>DV_Bullet_SlugHeavyCharged</projectile>
-                 <probability>1</probability>
-               </li>
+                 <DV_Bullet_SlugHeavy>8</DV_Bullet_SlugHeavy>
+                 <DV_Bullet_SlugHeavyCharged>1</DV_Bullet_SlugHeavyCharged>
             </projectiles>
           </li>
         </modExtensions>
@@ -1178,6 +1098,7 @@
           <AccuracyMedium>0.70</AccuracyMedium>
           <AccuracyLong>0.59</AccuracyLong>
           <RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+          <EBSG_DamageFactor_Mechanoid>2</EBSG_DamageFactor_Mechanoid>                
         </statBases>
         <costList>
           <Steel>50</Steel>
@@ -1186,7 +1107,7 @@
         </costList>
         <verbs>
           <li>
-            <verbClass>AthenaFramework.Verb_RandomShot</verbClass>
+            <verbClass>EBSGFramework.Verb_RandomShot</verbClass>
             <hasStandardCommand>true</hasStandardCommand>
             <defaultProjectile>DV_Bullet_Slug</defaultProjectile>
             <warmupTime>1.3</warmupTime>
@@ -1221,27 +1142,10 @@
           </li>
         </tools>
         <modExtensions>
-          <li Class="AthenaFramework.DamageModifierExtension">
-            <outgoingModifiers>
-              <li>
-                <fleshTypes>
-                  <li>Mechanoid</li>
-                  <li MayRequire="VexedTrees980.RimRobots">VexedMechanical</li>
-                </fleshTypes>
-                <modifier>2</modifier>
-              </li>
-            </outgoingModifiers>
-          </li>
-          <li Class="AthenaFramework.RandomShotExtension">
+          <li Class="EBSGFramework.RandomShotExtension">
             <projectiles>
-               <li>
-                 <projectile>DV_Bullet_Slug</projectile>
-                 <probability>5</probability>
-               </li>
-               <li>
-                 <projectile>DV_Bullet_SlugCharged</projectile>
-                 <probability>1</probability>
-               </li>
+                 <DV_Bullet_Slug>5</DV_Bullet_Slug>
+                 <DV_Bullet_SlugCharged>1</DV_Bullet_SlugCharged>
             </projectiles>
           </li>
         </modExtensions>
@@ -1262,7 +1166,6 @@
           <speed>72</speed>
         </projectile>
       </ThingDef>
-      EMPElectricityArc
 
       <ThingDef ParentName="BaseBullet">
         <defName>DV_Bullet_SlugCharged</defName>
@@ -1280,9 +1183,10 @@
           <speed>72</speed>
         </projectile>
         <comps>
-          <li Class="AthenaFramework.CompProperties_ProjectileTrail">
-            <attachedMote>Mote_EMPSparkArch</attachedMote>
-          </li>
+          <li Class="CompProperties_MoteEmitter">
+           <mote>Mote_EMPSparkArch</mote>
+           <maintain>True</maintain>
+          </li>             
         </comps>
       </ThingDef>
 
@@ -1318,9 +1222,10 @@
           <speed>110</speed>
         </projectile>
         <comps>
-          <li Class="AthenaFramework.CompProperties_ProjectileTrail">
-            <attachedMote>Mote_EMPSparkArch</attachedMote>
-          </li>
+          <li Class="CompProperties_MoteEmitter">
+           <mote>Mote_EMPSparkArch</mote>
+           <maintain>True</maintain>
+          </li>             
         </comps>
       </ThingDef>
 
@@ -1417,8 +1322,8 @@
           <soundExplode>Explosion_Rocket</soundExplode>
         </projectile>
         <comps>
-          <li Class="AthenaFramework.CompProperties_ProjectileTrail">
-            <trailFleck>SmokeRocket</trailFleck>
+          <li Class="CompProperties_ProjectileEffecter">
+          <effecterDef>Rocket_SmokeStream</effecterDef>
           </li>
         </comps>
       </ThingDef>
