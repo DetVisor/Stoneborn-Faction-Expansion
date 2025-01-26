@@ -29,13 +29,13 @@
     <externalViolence>true</externalViolence>
     <deathMessage>{0} has been electrified to death.</deathMessage>
     <hediff>Burn</hediff>
-     <harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
-  <additionalHediffs>
-    <li>
-      <hediff>Electrified_Hediff</hediff>
-      <severityPerDamageDealt>0.01</severityPerDamageDealt>
-    </li>
-  </additionalHediffs>
+    <harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+    <additionalHediffs>
+      <li>
+        <hediff>Electrified_Hediff</hediff>
+        <severityPerDamageDealt>0.01</severityPerDamageDealt>
+      </li>
+    </additionalHediffs>
     <impactSoundType>Electric</impactSoundType>
     <armorCategory>Blunt</armorCategory>
     <overkillPctToDestroyPart>0~0.7</overkillPctToDestroyPart>

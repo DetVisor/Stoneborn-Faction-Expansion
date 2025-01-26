@@ -44,7 +44,6 @@
     <useStuffTerrainAffordance>false</useStuffTerrainAffordance>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded> <!-- Best affordance needed for stone -->
     <designationCategory>Security</designationCategory>
-    <staticSunShadowHeight>0.20</staticSunShadowHeight>
     <designationHotKey>Misc1</designationHotKey>
     <comps>
       <li Class="CompProperties_Explosive">

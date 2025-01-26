@@ -2,6 +2,112 @@
 <Defs>
 
   <BackstoryDef>
+    <defName>ClanBaker33</defName>
+    <title>clan baker</title>
+    <titleShort>baker</titleShort>
+    <baseDesc>[PAWN_nameDef] worked in a large bakery dedicated to baking rockbread. [PAWN_pronoun] often baked hundreds of platters of rockbread in a single day due to how integral it was in the stoneborn diet. However, [PAWN_possessive] true passion was baking pastries. During lulls in rockbread demand, [PAWN_nameDef] created sublime jelly pastries that were wildly popular with [PAWN_possessive] customers.</baseDesc>
+    <slot>Adulthood</slot>
+    <skillGains>
+      <Cooking>6</Cooking>
+      <Plants>6</Plants>
+    </skillGains>
+    <spawnCategories>
+      <li>DwarfCommon</li>
+    </spawnCategories>
+    <requiredWorkTags>
+      <li>ManualDumb</li>
+      <li>ManualSkilled</li>
+    </requiredWorkTags>
+    <shuffleable>true</shuffleable>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>Engineer19</defName>
+    <title>clan engineer</title>
+    <titleShort>engineer</titleShort>    
+    <baseDesc>[PAWN_nameDef] specialized in designing sturdy structures and mechanisms using as few materials as necessary. [PAWN_pronoun] spent most of [PAWN_possessive] time fretting over blueprints, material costs, and stress points, but [PAWN_possessive] results were immaculate. On occasion, [PAWN_nameDef] had to go out and secure building contracts for [PAWN_possessive] clan if work was particularly light.</baseDesc>
+    <slot>Adulthood</slot>
+    <skillGains>
+      <Crafting>6</Crafting>
+      <Construction>6</Construction>
+    </skillGains>
+    <spawnCategories>
+      <li>DwarfCommon</li>
+    </spawnCategories>
+    <requiredWorkTags>
+      <li>ManualDumb</li>
+      <li>ManualSkilled</li>
+    </requiredWorkTags>
+    <shuffleable>true</shuffleable>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>Shepherd97</defName>
+    <title>clan shepherd</title>
+    <titleShort>sheperd</titleShort>
+    <baseDesc>[PAWN_nameDef] tended to the herds of browbull that were owned by [PAWN_possessive] clan. The work was boring, but [PAWN_pronoun] enjoyed the solitude that the job afforded [PAWN_objective]. Due to the fact that the herd was located far away from civilization, [PAWN_nameDef] had to do most things [PAWN_objective]self, including tending to any sick browbull.</baseDesc>
+    <slot>Adulthood</slot>
+    <skillGains>
+      <Animals>8</Animals>
+      <Plants>3</Plants>
+    </skillGains>
+    <spawnCategories>
+      <li>DwarfCommon</li>
+    </spawnCategories>
+    <requiredWorkTags>
+      <li>ManualDumb</li>
+      <li>ManualSkilled</li>
+    </requiredWorkTags>
+    <shuffleable>true</shuffleable>
+    <possessions>
+      <DV_Leather_Rockhide>12</DV_Leather_Rockhide>
+    </possessions>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>Merchant41</defName>
+    <title>clan merchant</title>
+    <titleShort>merchant</titleShort>
+    <baseDesc>[PAWN_nameDef] traveled on the surface to sell the wares that [PAWN_possessive] clanmates produced. Such a position was not a very prestigious task due to the need to stay above ground, but it was a necessary one, and [PAWN_nameDef] was one of the few stoneborn both skilled enough and willing enough to do it. Though such consistent travel was dangerous, [PAWN_possessive] silver tongue brought in a consistent stream of funds to [PAWN_possessive] clan.</baseDesc>
+    <slot>Adulthood</slot>
+    <skillGains>
+      <Social>7</Social>
+      <Intellectual>3</Intellectual>
+    </skillGains>
+    <spawnCategories>
+      <li>DwarfCommon</li>
+    </spawnCategories>
+    <requiredWorkTags>
+      <li>ManualDumb</li>
+      <li>ManualSkilled</li>
+    </requiredWorkTags>
+    <shuffleable>true</shuffleable>
+    <possessions>
+      <DV_Orichalcum>10</DV_Orichalcum>
+    </possessions>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>Artificer11</defName>
+    <title>artificer</title>
+    <titleShort>artificer</titleShort>    
+    <baseDesc>[PAWN_nameDef] was a talented craftsman, even amongst the stoneborn. But what truly set [PAWN_objective] apart was [PAWN_possessive] proficiency in various disciplines of crafting. As such, [PAWN_pronoun] had the privilege of having [PAWN_possessive] clan’s elite members as frequent patrons of [PAWN_possessive] work. They commissioned [PAWN_nameDef] for a wide variety of projects, from armaments, to intricate murals carved directly into cave walls, to noble’s clothes, all of which.</baseDesc>
+    <slot>Adulthood</slot>
+    <skillGains>
+      <Crafting>6</Crafting>
+      <Artistic>4</Artistic>
+    </skillGains>
+    <spawnCategories>
+      <li>DwarfCommon</li>
+    </spawnCategories>
+    <requiredWorkTags>
+      <li>ManualDumb</li>
+      <li>ManualSkilled</li>
+    </requiredWorkTags>
+    <shuffleable>true</shuffleable>
+  </BackstoryDef>
+
+  <BackstoryDef>
     <defName>Earthcarver65</defName>
     <title>earthcarver</title>
     <titleShort>earthcarver</titleShort>
@@ -21,7 +127,7 @@
       <li>ManualSkilled</li>
     </requiredWorkTags>
     <shuffleable>true</shuffleable>
-</BackstoryDef>
+  </BackstoryDef>
 
   <BackstoryDef>
     <defName>ClanFlesher29</defName>
@@ -40,7 +146,8 @@
       <li>Caring</li>
     </requiredWorkTags>
     <shuffleable>true</shuffleable>
-</BackstoryDef>
+
+  </BackstoryDef>
 
   <BackstoryDef>
     <defName>InsectRearer85</defName>
@@ -60,7 +167,7 @@
       <li>Caring</li>
     </requiredWorkTags>
     <shuffleable>true</shuffleable>
-</BackstoryDef>
+  </BackstoryDef>
 
   <BackstoryDef>
     <defName>ClanHealer26</defName>
@@ -80,12 +187,15 @@
       <li>ManualSkilled</li>
     </requiredWorkTags>
     <shuffleable>true</shuffleable>
-</BackstoryDef>
+    <possessions>
+      <MedicineHerbal>2</MedicineHerbal>
+    </possessions>
+  </BackstoryDef>
 
   <BackstoryDef>
     <defName>Runesmith63</defName>
     <title>runesmith</title>
-    <titleShort>runemsith</titleShort>
+    <titleShort>runesmith</titleShort>
     <baseDesc>[PAWN_nameDef] was trained in the delicate art of runesmithing. Only certain weapons and armor were of high enough quality to be adorned with runes, and [PAWN_pronoun] was one of the individuals that fashioned them. Due to the significance that rune-smithed equipment held to the stoneborn, [PAWN_possessive] services were always in high demand.</baseDesc>
     <slot>Adulthood</slot>
     <skillGains>
@@ -99,7 +209,7 @@
       <li>ManualSkilled</li>
     </requiredWorkTags>
     <shuffleable>true</shuffleable>
-</BackstoryDef>
+  </BackstoryDef>
 
   <BackstoryDef>
     <defName>ClanChef44</defName>
@@ -119,7 +229,7 @@
       <li>ManualSkilled</li>
     </requiredWorkTags>
     <shuffleable>true</shuffleable>
-</BackstoryDef>
+  </BackstoryDef>
 
   <BackstoryDef>
     <defName>Underbanker26</defName>
@@ -138,7 +248,7 @@
       <li>ManualSkilled</li>
     </requiredWorkTags>
     <shuffleable>true</shuffleable>
-</BackstoryDef>
+  </BackstoryDef>
 
   <BackstoryDef>
     <defName>Goldsmith41</defName>
@@ -158,7 +268,7 @@
       <li>ManualSkilled</li>
     </requiredWorkTags>
     <shuffleable>true</shuffleable>
-</BackstoryDef>
+  </BackstoryDef>
 
   <BackstoryDef>
     <defName>Jeweler51</defName>
@@ -179,7 +289,7 @@
       <li>ManualSkilled</li>
     </requiredWorkTags>
     <shuffleable>true</shuffleable>
-</BackstoryDef>
+  </BackstoryDef>
 
   <BackstoryDef>
     <defName>Metallurgist43</defName>
@@ -199,7 +309,7 @@
       <li>ManualSkilled</li>
     </requiredWorkTags>
     <shuffleable>true</shuffleable>
-</BackstoryDef>
+  </BackstoryDef>
 
   <BackstoryDef>
     <defName>Forgemaster64</defName>
@@ -220,7 +330,7 @@
       <li>ManualSkilled</li>
     </requiredWorkTags>
     <shuffleable>true</shuffleable>
-</BackstoryDef>
+  </BackstoryDef>
 
   <BackstoryDef>
     <defName>SporeAlchemist52</defName>
@@ -240,7 +350,7 @@
       <li>ManualSkilled</li>
     </requiredWorkTags>
     <shuffleable>true</shuffleable>
-</BackstoryDef>
+  </BackstoryDef>
 
   <BackstoryDef>
     <defName>MineshaftCanary35</defName>
@@ -261,7 +371,7 @@
       <li>ManualSkilled</li>
     </requiredWorkTags>
     <shuffleable>true</shuffleable>
-</BackstoryDef>
+  </BackstoryDef>
 
   <BackstoryDef>
     <defName>GasGiantSkimmer22</defName>
@@ -283,7 +393,7 @@
       <li>ManualSkilled</li>
     </requiredWorkTags>
     <shuffleable>true</shuffleable>
-</BackstoryDef>
+  </BackstoryDef>
 
   <BackstoryDef>
     <defName>ClanCrafter64</defName>
@@ -303,7 +413,7 @@
       <li>ManualSkilled</li>
     </requiredWorkTags>
     <shuffleable>true</shuffleable>
-</BackstoryDef>
+  </BackstoryDef>
 
   <BackstoryDef>
     <defName>Gilder34</defName>
@@ -323,7 +433,7 @@
       <li>ManualSkilled</li>
     </requiredWorkTags>
     <shuffleable>true</shuffleable>
-</BackstoryDef>
+  </BackstoryDef>
 
   <BackstoryDef>
     <defName>RefineryWorker73</defName>
@@ -344,7 +454,7 @@
       <li>ManualSkilled</li>
     </requiredWorkTags>
     <shuffleable>true</shuffleable>
-</BackstoryDef>
+  </BackstoryDef>
 
   <BackstoryDef>
     <defName>DeepMiner62</defName>
@@ -363,7 +473,7 @@
       <li>ManualSkilled</li>
     </requiredWorkTags>
     <shuffleable>true</shuffleable>
-</BackstoryDef>
+  </BackstoryDef>
 
   <BackstoryDef>
     <defName>MushroomFarmer24</defName>
@@ -384,7 +494,7 @@
       <li>ManualSkilled</li>
     </requiredWorkTags>
     <shuffleable>true</shuffleable>
-</BackstoryDef>
+  </BackstoryDef>
 
   <BackstoryDef>
     <defName>Weaponsmith69</defName>
@@ -404,9 +514,9 @@
       <li>ManualSkilled</li>
     </requiredWorkTags>
     <shuffleable>true</shuffleable>
-</BackstoryDef>
+  </BackstoryDef>
 
-<!-- ==== Military backstories for dwarves ====  -->
+  <!-- ==== Military backstories for dwarves ====  -->
 
   <BackstoryDef>
     <defName>Warcleric48</defName>
@@ -428,7 +538,7 @@
       <li>Caring</li>
     </requiredWorkTags>
     <shuffleable>true</shuffleable>
-</BackstoryDef>
+  </BackstoryDef>
 
   <BackstoryDef>
     <defName>Goldguard44</defName>
@@ -453,7 +563,7 @@
       <Recluse>0</Recluse>
     </forcedTraits>
     <shuffleable>true</shuffleable>
-</BackstoryDef>
+  </BackstoryDef>
 
   <BackstoryDef>
     <defName>Inquisitor84</defName>
@@ -480,7 +590,7 @@
     <possessions>
       <MeleeWeapon_Mace>1</MeleeWeapon_Mace>
     </possessions>
-</BackstoryDef>
+  </BackstoryDef>
 
   <BackstoryDef>
     <defName>Gatekeeper34</defName>
@@ -501,7 +611,7 @@
       <li>Violent</li>
     </requiredWorkTags>
     <shuffleable>true</shuffleable>
-</BackstoryDef>
+  </BackstoryDef>
 
   <BackstoryDef>
     <defName>InsectHunter24</defName>
@@ -525,7 +635,7 @@
       <li>Mining</li>
     </requiredWorkTags>
     <shuffleable>true</shuffleable>
-</BackstoryDef>
+  </BackstoryDef>
 
   <BackstoryDef>
     <defName>AbyssalMarine42</defName>
@@ -607,8 +717,8 @@
     <titleShort>driller</titleShort>
     <baseDesc>[PAWN_nameDef] participated in ship-to-ship combat. [PAWN_possessive]’s role was to man a wardrill pod and steer it right into the enemy ship. After breaching the hull, [PAWN_nameDef] would move methodically through the ship to take out any crew that [PAWN_pronoun] could before having to withdraw.</baseDesc>
     <slot>Adulthood</slot>
-    <bodyTypeMale>Hulk</bodyTypeMale>
-    <bodyTypeFemale>Hulk</bodyTypeFemale>
+    <bodyTypeMale>Fat</bodyTypeMale>
+    <bodyTypeFemale>Fat</bodyTypeFemale>
     <skillGains>
       <Melee>6</Melee>
       <Shooting>4</Shooting>
@@ -663,6 +773,289 @@
     <skillGains>
       <Melee>5</Melee>
       <Shooting>7</Shooting>
+    </skillGains>
+    <spawnCategories>
+      <li>DwarfCommon</li>
+      <li>DwarfFighter</li>
+    </spawnCategories>
+    <requiredWorkTags>
+      <li>Violent</li>
+      <li>Mining</li>
+    </requiredWorkTags>
+    <shuffleable>true</shuffleable>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>Firedrake38</defName>
+    <title>firedrake</title>
+    <titleShort>firedrake</titleShort>     
+    <baseDesc>[PAWN_nameDef] was a firedrake. [PAWN_possessive] sole purpose was to set things on fire, and [PAWN_pronoun] was quite good at it. [PAWN_nameDef] was fully aware that individuals in [PAWN_possessive] line of work did not possess particularly long lifespans, but [PAWN_pronoun] valued dousing things in flame over [PAWN_possessive] own life.</baseDesc>
+    <slot>Adulthood</slot>
+    <bodyTypeMale>Male</bodyTypeMale>
+    <bodyTypeFemale>Male</bodyTypeFemale>
+    <skillGains>
+      <Melee>6</Melee>
+      <Shooting>4</Shooting>
+    </skillGains>
+    <spawnCategories>
+      <li>DwarfCommon</li>
+      <li>DwarfFighter</li>
+    </spawnCategories>
+    <requiredWorkTags>
+      <li>Violent</li>
+      <li>Mining</li>
+    </requiredWorkTags>
+    <shuffleable>true</shuffleable>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>FiredrakeVeteran83</defName>
+    <title>firedrake veteran</title>
+    <titleShort>veteran</titleShort>
+    <baseDesc>[PAWN_nameDef] was a seasoned firedrake. [PAWN_pronoun] somehow managed to survive both enemy fire and [PAWN_possessive] own conflagrations for an extended period of time, though [PAWN_pronoun] had numerous brushes with death. This experience has hardened [PAWN_nameDef]’s resolve, though [PAWN_possessive] love for setting things alight has not been slaked in the slightest.</baseDesc>
+    <slot>Adulthood</slot>
+    <bodyTypeMale>Fat</bodyTypeMale>
+    <bodyTypeFemale>Fat</bodyTypeFemale>
+    <skillGains>
+      <Melee>5</Melee>
+      <Shooting>5</Shooting>
+    </skillGains>
+    <spawnCategories>
+      <li>DwarfCommon</li>
+      <li>DwarfFighter</li>
+    </spawnCategories>
+    <requiredWorkTags>
+      <li>Violent</li>
+      <li>Mining</li>
+    </requiredWorkTags>
+    <shuffleable>true</shuffleable>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>Slayer61</defName>
+    <title>slayer</title>
+    <titleShort>slayer</titleShort>     
+    <baseDesc>[PAWN_nameDef] was part of an insectoid slaying strike team. [PAWN_possessive] main job was to escort mining teams that were digging out new mines, as it was nearly guaranteed that they would unearth a wild insectoid nest. When that inevitably occurred, it was [PAWN_nameDef] who dealt with making things safe for the miners by clearing out the bugs and the nests. While [PAWN_pronoun] was not killing insects, [PAWN_pronoun] assisted with creating new mineshafts.</baseDesc>
+    <slot>Adulthood</slot>
+    <bodyTypeMale>Hulk</bodyTypeMale>
+    <bodyTypeFemale>Hulk</bodyTypeFemale>
+    <skillGains>
+      <Melee>8</Melee>
+      <Mining>4</Mining>
+    </skillGains>
+    <spawnCategories>
+      <li>DwarfCommon</li>
+      <li>DwarfFighter</li>
+    </spawnCategories>
+    <requiredWorkTags>
+      <li>Violent</li>
+      <li>Mining</li>
+    </requiredWorkTags>
+    <shuffleable>true</shuffleable>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>Shalecracker99</defName>
+    <title>shalecracker</title>
+    <titleShort>shalecracker</titleShort>            
+    <baseDesc>[PAWN_nameDef]’s role was to sap through enemy defenses. While all stoneborn have an affinity with mining, [PAWN_pronoun] was adept at doing so under pressure. While mining was [PAWN_possessive] main role, [PAWN_nameDef] was also handy with cracking enemy skulls with a warhammer.</baseDesc>
+    <slot>Adulthood</slot>
+    <bodyTypeMale>Fat</bodyTypeMale>
+    <bodyTypeFemale>Fat</bodyTypeFemale>
+    <skillGains>
+      <Melee>4</Melee>
+      <Mining>8</Mining>
+    </skillGains>
+    <spawnCategories>
+      <li>DwarfCommon</li>
+      <li>DwarfFighter</li>
+    </spawnCategories>
+    <requiredWorkTags>
+      <li>Violent</li>
+      <li>Mining</li>
+    </requiredWorkTags>
+    <shuffleable>true</shuffleable>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ClanGuardian20</defName>
+    <title>clan guardian</title>
+    <titleShort>guardian</titleShort>
+    <baseDesc>[PAWN_nameDef] held the important job of guarding the clan hall. From morning to night, [PAWN_possessive] job was solely to make sure that no one caused any trouble, though the worst thing [PAWN_pronoun]  had to deal with were rowdy drunks. However, due to [PAWN_possessive] proximity to some of the most powerful stoneborn, [PAWN_pronoun] was able to listen in to very interesting gossip from time to time.</baseDesc>
+    <slot>Adulthood</slot>
+    <bodyTypeMale>Fat</bodyTypeMale>
+    <bodyTypeFemale>Fat</bodyTypeFemale>
+    <skillGains>
+      <Melee>4</Melee>
+      <Shooting>4</Shooting>
+      <Social>4</Social>
+    </skillGains>
+    <spawnCategories>
+      <li>DwarfCommon</li>
+      <li>DwarfFighter</li>
+    </spawnCategories>
+    <requiredWorkTags>
+      <li>Violent</li>
+      <li>Mining</li>
+    </requiredWorkTags>
+    <shuffleable>true</shuffleable>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>MessCook51</defName>
+    <title>mess cook</title>
+    <titleShort>cook</titleShort>
+    <baseDesc>While [PAWN_nameDef] was a soldier by trade, [PAWN_pronoun] had a talent for cooking. As [PAWN_pronoun] possessed an abundance of free time, [PAWN_pronoun] decided to help feed [PAWN_possessive] platoon by preparing meals from the meager ingredients available to [PAWN_objective] and making sure the larder was well stocked.</baseDesc>
+    <slot>Adulthood</slot>
+    <bodyTypeMale>Fat</bodyTypeMale>
+    <bodyTypeFemale>Fat</bodyTypeFemale>
+    <skillGains>
+      <Melee>3</Melee>
+      <Shooting>3</Shooting>
+      <Cooking>6</Cooking>
+    </skillGains>
+    <spawnCategories>
+      <li>DwarfCommon</li>
+      <li>DwarfFighter</li>
+    </spawnCategories>
+    <requiredWorkTags>
+      <li>Violent</li>
+      <li>Mining</li>
+    </requiredWorkTags>
+    <shuffleable>true</shuffleable>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>CombatEngineer81</defName>
+    <title>combat engineer</title>
+    <titleShort>combat engie</titleShort>
+    <baseDesc>While trained in traditional combat, [PAWN_nameDef]’s main job was to quickly assemble buildings to assist [PAWN_possessive] comrades. Such structures ranged from defensive fortifications to siege equipment, and [PAWN_pronoun] often had to build these while under fire. [PAWN_pronoun] was also skilled at dismantling enemy structures in a pinch.</baseDesc>
+    <slot>Adulthood</slot>
+    <bodyTypeMale>Fat</bodyTypeMale>
+    <bodyTypeFemale>Fat</bodyTypeFemale>
+    <skillGains>
+      <Shooting>3</Shooting>
+      <Construction>5</Construction>
+      <Crafting>5</Crafting>
+    </skillGains>
+    <spawnCategories>
+      <li>DwarfCommon</li>
+      <li>DwarfFighter</li>
+    </spawnCategories>
+    <requiredWorkTags>
+      <li>Violent</li>
+      <li>Mining</li>
+    </requiredWorkTags>
+    <shuffleable>true</shuffleable>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>AutomatonCrafter61</defName>
+    <title>automaton crafter</title>
+    <titleShort>robot crafter</titleShort>
+    <baseDesc>[PAWN_nameDef] manufactured machines of war. [PAWN_pronoun] utilized [PAWN_possessive] comprehensive knowledge of warfare to assemble automatons that performed a variety of combat roles, such as medical evacuation vehicles that would automatically attempt to rescue wounded compatriots, or siege weapons that rolled on treads. During times of peace, [PAWN_nameDef] used [PAWN_possessive] knowledge to create more mundane machines, like automated mushroom cultivators.</baseDesc>
+    <slot>Adulthood</slot>
+    <bodyTypeMale>Fat</bodyTypeMale>
+    <bodyTypeFemale>Fat</bodyTypeFemale>
+    <skillGains>
+      <Shooting>2</Shooting>
+      <Construction>4</Construction>
+      <Crafting>6</Crafting>
+    </skillGains>
+    <spawnCategories>
+      <li>DwarfCommon</li>
+      <li>DwarfFighter</li>
+    </spawnCategories>
+    <requiredWorkTags>
+      <li>Violent</li>
+      <li>Mining</li>
+    </requiredWorkTags>
+    <shuffleable>true</shuffleable>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>Aegisbreaker49</defName>
+    <title>aegisbreaker</title>
+    <titleShort>aegisbreaker</titleShort>        
+    <baseDesc>[PAWN_nameDef] was a personal guard of an underlord, one of the most powerful individuals in [PAWN_possessive] clan. [PAWN_pronoun] was never permitted to speak while on duty, but the connections that came to [PAWN_objective] due to [PAWN_possessive] proximity to the underlord were numerous. [PAWN_nameDef]’s duties also afforded [PAWN_objective] the privilege of hearing various bits of information, such as clan finances and military strength.</baseDesc>
+    <slot>Adulthood</slot>
+    <bodyTypeMale>Hulk</bodyTypeMale>
+    <bodyTypeFemale>Hulk</bodyTypeFemale>
+    <skillGains>
+      <Melee>6</Melee>
+      <Shooting>2</Shooting>
+      <Social>4</Social>
+    </skillGains>
+    <spawnCategories>
+      <li>DwarfCommon</li>
+      <li>DwarfFighter</li>
+    </spawnCategories>
+    <requiredWorkTags>
+      <li>Violent</li>
+      <li>Mining</li>
+    </requiredWorkTags>
+    <shuffleable>true</shuffleable>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ShroomCurator71</defName>
+    <title>shroom curator</title>
+    <titleShort>curator</titleShort>
+    <baseDesc>[PAWN_nameDef] protected the mushroom farms of [PAWN_possessive] clan. While rare, wild insects occasionally burrowed into fields, and it was [PAWN_nameDef]’s job to eliminate them while evacuating mushroom farmers to safety. However, most of [PAWN_possessive] time guarding the fields was spent either tending to the mushroom crop or chatting to the mushroom farmers that worked near [PAWN_objective].</baseDesc>
+    <slot>Adulthood</slot>
+    <bodyTypeMale>Hulk</bodyTypeMale>
+    <bodyTypeFemale>Hulk</bodyTypeFemale>
+    <skillGains>
+      <Melee>4</Melee>
+      <Shooting>4</Shooting>
+      <Plants>4</Plants>
+    </skillGains>
+    <spawnCategories>
+      <li>DwarfCommon</li>
+      <li>DwarfFighter</li>
+    </spawnCategories>
+    <requiredWorkTags>
+      <li>Violent</li>
+      <li>Mining</li>
+    </requiredWorkTags>
+    <shuffleable>true</shuffleable>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>Beastmaster77</defName>
+    <title>beastmaster</title>
+    <titleShort>beastmaster</titleShort>
+    <baseDesc>[PAWN_nameDef] trained all manner of creatures, from megaspiders to molemutts. [PAWN_possessive] main responsibility was to teach animals to fight alongside soldiers in the front lines, though [PAWN_pronoun] also taught some of them to work as guard animals or hunting partners. In [PAWN_possessive] free time, [PAWN_nameDef] hunted wild game to feed [PAWN_possessive] charges.</baseDesc>
+    <slot>Adulthood</slot>
+    <bodyTypeMale>Hulk</bodyTypeMale>
+    <bodyTypeFemale>Hulk</bodyTypeFemale>
+    <skillGains>
+      <Melee>2</Melee>
+      <Animals>8</Animals>
+    </skillGains>
+    <spawnCategories>
+      <li>DwarfCommon</li>
+      <li>DwarfFighter</li>
+    </spawnCategories>
+    <requiredWorkTags>
+      <li>Violent</li>
+      <li>Mining</li>
+    </requiredWorkTags>
+    <shuffleable>true</shuffleable>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>Battlesmith42</defName>
+    <title>battlesmith</title>
+    <titleShort>battlesmith</titleShort>
+    <baseDesc>[PAWN_nameDef] trained in the arts of artifice to bolster [PAWN_possessive] combat capabilities. While [PAWN_pronoun] made [PAWN_possessive] own weapons and armor and could use them well, where [PAWN_pronoun] excelled was in quickly creating various devices to gain an edge in combat. Even in the middle of battle, [PAWN_objective] could easily assemble lethal traps and jury-rigged turrets in a matter of moments.</baseDesc>
+    <slot>Adulthood</slot>
+    <bodyTypeMale>Hulk</bodyTypeMale>
+    <bodyTypeFemale>Hulk</bodyTypeFemale>
+    <skillGains>
+      <Shooting>2</Shooting>
+      <Crafting>6</Crafting>
+      <Construction>4</Construction>
     </skillGains>
     <spawnCategories>
       <li>DwarfCommon</li>
