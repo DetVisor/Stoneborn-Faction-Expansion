@@ -3,10 +3,6 @@
 	<name>Stoneborn - Faction Expansion</name>
 	<author>DetVisor, Feldoh</author>
 	<supportedVersions>
-<<<<<<< Updated upstream
-		<li>1.5</li>
-=======
->>>>>>> Stashed changes
 		<li>1.6</li>
 	</supportedVersions>
 	<loadAfter>
