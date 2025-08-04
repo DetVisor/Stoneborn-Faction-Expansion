@@ -4,6 +4,7 @@
 	<author>DetVisor, Feldoh</author>
 	<supportedVersions>
 		<li>1.5</li>
+		<li>1.6</li>
 	</supportedVersions>
 	<loadAfter>
 		<li>brrainz.harmony</li>
@@ -11,8 +12,11 @@
 		<li>Ludeon.RimWorld.Royalty</li>
 		<li>Ludeon.RimWorld.Biotech</li>
 		<li>Ludeon.RimWorld.Ideology</li>
+		<li>Ludeon.RimWorld.Anomaly</li>
+		<li>Ludeon.RimWorld.Odyssey</li>
 		<li>OskarPotocki.VanillaFactionsExpanded.Core</li>
 		<li>det.stoneborn</li>
+		<li>ebsg.framework</li>
 		<li>smartkar.athenaframework</li>
 	</loadAfter>
 	<modDependencies>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+<ThingDef ParentName="BuildingBase">
+    <defName>DV_CoreDrill</defName>
+    <label>core drill</label>
+    <description>A deep-crust drilling rig for extracting minerals from deep under the surface. Use a ground-penetrating scanner to detect the resources. This drill will yield stone chunks if no resources are present. Can be repositioned freely.</description>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>Things/Building/Production/CoreDrill</texPath>
+      <drawSize>(6,6)</drawSize>
+      <drawOffset>(0,0,1.2)</drawOffset>
+      <drawRotated>false</drawRotated>
+      <shadowData>
+        <volume>(0.52, 0.53, 0.09)</volume>
+        <offset>(0,0,-0.43)</offset>
+      </shadowData>
+    </graphicData>
+    <size>(3,3)</size>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>Impassable</passability>
+    <pathCost>50</pathCost>
+    <fillPercent>1</fillPercent>
+    <designationCategory>Production</designationCategory>
+    <designationHotKey>Misc12</designationHotKey>
+    <specialDisplayRadius>2.6</specialDisplayRadius> <!-- 21 closest cells, must be in sync with CompDeepDrill -->
+    <rotatable>true</rotatable>
+    <tickerType>Normal</tickerType>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+    <uiIconOffset>(0, 0.03)</uiIconOffset>
+    <uiIconScale>0.85</uiIconScale>
+    <minifiedDef IsNull="True" />
+    <building>
+      <buildingTags>
+        <li>Production</li>
+      </buildingTags>
+      <destroySound>BuildingDestroyed_Metal_Small</destroySound>
+    </building>
+    <costList>
+      <Steel>300</Steel>
+      <ComponentIndustrial>5</ComponentIndustrial>
+      <DV_ReinforcedDrillBit>1</DV_ReinforcedDrillBit>
+    </costList>
+    <killedLeavings>
+      <Steel>150</Steel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+    </killedLeavings>
+    <placeWorkers>
+      <li>PlaceWorker_DeepDrill</li>
+      <li>PlaceWorker_PreventInteractionSpotOverlap</li>
+    </placeWorkers>
+    <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+    <researchPrerequisites>
+      <li>DeepDrilling</li>
+    </researchPrerequisites>
+    <statBases>
+      <MaxHitPoints>300</MaxHitPoints>
+      <WorkToBuild>10000</WorkToBuild>
+      <Flammability>0</Flammability>
+      <Beauty>-25</Beauty>
+      <Mass>35</Mass>
+    </statBases>
+    <comps>
+      <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_Breakdownable"/>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>350</basePowerConsumption>
+      </li>
+      <li Class="StonebornExpansion.CompProperties_AutoDrill" />
+      <li Class="CompProperties_CreatesInfestations" />
+      <li Class="CompProperties_Refuelable">
+        <fuelLabel>Drill bit durability</fuelLabel>
+        <fuelGizmoLabel>Drill durability</fuelGizmoLabel>
+        <fuelConsumptionRate>0.2</fuelConsumptionRate>
+        <fuelCapacity>1.0</fuelCapacity>
+        <initialFuelPercent>1</initialFuelPercent>
+        <showFuelGizmo>true</showFuelGizmo>
+        <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+        <externalTicking>true</externalTicking>
+        <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+        <outOfFuelMessage>Cannot drill: Drill bit worn down.</outOfFuelMessage>
+        <fuelIconPath>UI/Overlays/DrillBit</fuelIconPath>
+        <fuelFilter>
+          <thingDefs>
+            <li>DV_ReinforcedDrillBit</li>
+          </thingDefs>
+        </fuelFilter>
+      </li>
+      <li Class="CompProperties_SmokeCloudMaker">
+        <sourceStreamEffect>DrillAutomatic</sourceStreamEffect>
+        <cloudRadius>0</cloudRadius>
+        <fleckScale>0</fleckScale>
+        <cloudFleck>FlashRed</cloudFleck>
+        <fleckSpawnMTB>0</fleckSpawnMTB>
+      </li>
+    </comps>
+  </ThingDef>
+
+</Defs>

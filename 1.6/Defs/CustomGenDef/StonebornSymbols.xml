@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <KCSG.SymbolDef>
+    <defName>DV_FallenPillar_BlocksSlate</defName>
+    <thing>DV_FallenPillar</thing>
+    <stuff>BlocksSlate</stuff>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>DV_CoreDrillFake_North</defName>
+    <thing>DV_CoreDrillFake</thing>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>Table2x4c_WoodLog_North</defName>
+    <thing>Table2x4c</thing>
+    <stuff>WoodLog</stuff>
+    <rotation>North</rotation>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>Table2x4c_WoodLog_South</defName>
+    <thing>Table2x4c</thing>
+    <stuff>WoodLog</stuff>
+    <rotation>South</rotation>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>Table2x4c_WoodLog_East</defName>
+    <thing>Table2x4c</thing>
+    <stuff>WoodLog</stuff>
+    <rotation>East</rotation>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>Table2x4c_WoodLog_West</defName>
+    <thing>Table2x4c</thing>
+    <stuff>WoodLog</stuff>
+    <rotation>West</rotation>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>DV_ReinforcedDrillBit</defName>
+    <thing>DV_ReinforcedDrillBit</thing>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>DV_Turret_MiniShredder_Steel</defName>
+    <thing>DV_Turret_MiniShredder</thing>
+    <stuff>Steel</stuff>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>DV_TremorbrewBarrel</defName>
+    <thing>DV_TremorbrewBarrel</thing>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>AncientDisplayBank_North</defName>
+    <thing>AncientDisplayBank</thing>
+    <rotation>South</rotation>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>LongRangeMineralScanner_South</defName>
+    <thing>LongRangeMineralScanner</thing>
+    <rotation>South</rotation>
+  </KCSG.SymbolDef>
+
+
+  <KCSG.SymbolDef>
+    <defName>DV_HallPillar_BlocksSlate</defName>
+    <thing>DV_HallPillar</thing>
+    <stuff>BlocksSlate</stuff>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>DV_Scrollshelf_BlocksSlate</defName>
+    <thing>DV_Scrollshelf</thing>
+    <stuff>BlocksSlate</stuff>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>DV_HermeticCanister_North</defName>
+    <thing>DV_HermeticCanister</thing>
+    <thingSetMakerDef>MapGen_Dwarven_HermeticCanister</thingSetMakerDef>
+  </KCSG.SymbolDef>
+
+</Defs>
