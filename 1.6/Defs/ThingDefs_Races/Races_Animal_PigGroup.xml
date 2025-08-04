@@ -11,14 +11,15 @@
           <MarketValue>180</MarketValue>
           <ComfyTemperatureMin>-25</ComfyTemperatureMin>
           <FilthRate>4</FilthRate>
+          <wildness>0.4</wildness>
         </statBases>
         <uiIconScale>2.25</uiIconScale>
         <comps>
-          <li Class="AnimalBehaviours.CompProperties_DigWhenHungry">
+          <li Class="VEF.AnimalBehaviours.CompProperties_DigWhenHungry">
             <customThingToDig>Meat_Megaspider</customThingToDig>
             <customAmountToDig>10</customAmountToDig>
           </li>
-          <li Class="AnimalBehaviours.CompProperties_DigPeriodically">
+          <li Class="VEF.AnimalBehaviours.CompProperties_DigPeriodically">
             <onlyWhenTamed>true</onlyWhenTamed>
             <customThingToDig>			
               <li>Steel</li>
@@ -41,18 +42,18 @@
               <li>1</li>
               <li>1</li>
               <li>1</li>
+              <li>3</li>
+              <li>3</li>
+              <li>3</li>
+              <li>3</li>
+              <li>3</li>
+              <li>3</li>
               <li>5</li>
               <li>5</li>
               <li>5</li>
               <li>5</li>
               <li>5</li>
-              <li>5</li>
-              <li>10</li>
-              <li>10</li>
-              <li>10</li>
-              <li>10</li>
-              <li>10</li>
-              <li>10</li>		
+              <li>5</li>		
             </customAmountToDig>
             <ticksToDig>40000</ticksToDig>
           </li>
@@ -123,7 +124,6 @@
           <baseHealthScale>0.7</baseHealthScale>
           <baseHungerRate>0.32</baseHungerRate>
           <foodType>OmnivoreRoughAnimal, OvivoreAnimal</foodType>
-          <wildness>0.4</wildness>
           <trainability>Advanced</trainability>
           <meatLabel>molemutt meat</meatLabel>
           <leatherDef>Leather_Heavy</leatherDef>

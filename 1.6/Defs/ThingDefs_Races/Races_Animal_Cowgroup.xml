@@ -18,11 +18,12 @@
           <ArmorRating_Blunt>0.32</ArmorRating_Blunt>
           <ArmorRating_Heat>0.22</ArmorRating_Heat>
           <FilthRate>20</FilthRate>
+          <wildness>0.35</wildness>
         </statBases>
         <uiIconScale>1.15</uiIconScale>
         <comps>
 
-          <li MayRequire="det.sbdelights" Class="AnimalBehaviours.CompProperties_AnimalProduct">
+          <li MayRequire="det.sbdelights" Class="VEF.AnimalBehaviours.CompProperties_AnimalProduct">
             <resourceDef>SD_Bullgrog</resourceDef>
             <gatheringIntervalDays>5</gatheringIntervalDays>
             <resourceAmount>10</resourceAmount>
@@ -30,11 +31,11 @@
             <isRandom>false</isRandom>
           </li>
 
-          <li Class="AnimalBehaviours.CompProperties_LastStand">
+          <li Class="VEF.AnimalBehaviours.CompProperties_LastStand">
             <finalCoolDownMultiplier>5</finalCoolDownMultiplier>
           </li>
 
-          <li Class="AnimalBehaviours.CompProperties_DoesntFlee"></li>
+          <li Class="VEF.AnimalBehaviours.CompProperties_DoesntFlee"></li>
         </comps>
         <race>
           <body>QuadrupedAnimalWithHooves</body>
@@ -44,7 +45,6 @@
           <baseHealthScale>1.8</baseHealthScale>
           <foodType>OmnivoreRoughAnimal</foodType>
           <leatherDef>DV_Leather_Rockhide</leatherDef>
-          <wildness>0.35</wildness>
           <roamMtbDays>4</roamMtbDays>
           <petness>0.23</petness>
           <trainability>None</trainability>

@@ -13,11 +13,6 @@
 		<techLevel>Spacer</techLevel>
 		<tradeability>Sellable</tradeability>
 		<generateCommonality>0</generateCommonality>
-    <comps>
-      <li Class="EBSGFramework.CompProperties_EquippableAbility">
-        <ability>DV_RocketBoots_Boost</ability>
-      </li>
-    </comps>
 		<stuffCategories>
 			<li>Leathery</li>
 		</stuffCategories>
@@ -43,10 +38,13 @@
 			<MoveSpeed>-0.1</MoveSpeed>
 		</equippedStatOffsets>
 		<thingCategories Inherit="False">
-			<li>VAE_BootsAndGloves</li>
+			<li MayRequire="vanillaexpanded.vappe">VAE_BootsAndGloves</li>
       <li>ApparelUtility</li>
 		</thingCategories>
 		<apparel>
+      <abilities>
+        <li>DV_RocketBoots_Boost</li>
+      </abilities>
 			<countsAsClothingForNudity>false</countsAsClothingForNudity>
 			<bodyPartGroups>
 				<li>Feet</li>
@@ -170,7 +168,6 @@
 
       <shieldBreakExplosion>
         <damageDef>EMP</damageDef>
-        <extraGasType>None</extraGasType>
         <radius>2.9</radius>
       </shieldBreakExplosion>      
 

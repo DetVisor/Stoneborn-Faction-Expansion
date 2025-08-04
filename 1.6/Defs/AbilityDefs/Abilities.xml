@@ -8,7 +8,8 @@
     <iconPath>UI/Abilities/RocketBoost</iconPath>
     <displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
     <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
-    <cooldownTicksRange>25000</cooldownTicksRange><!-- 8h -->
+    <cooldownTicksRange>25000</cooldownTicksRange>    <!-- 8h -->
+    <charges>2</charges>
     <hostile>false</hostile>
     <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
     <verbProperties>
@@ -21,20 +22,10 @@
       <soundLanding>JumpMechLand</soundLanding>
       <soundCast Inherit="False" />
     </verbProperties>
-        <comps>
-            <li Class="EBSGFramework.CompProperties_AbilityReloadable">
-                <maxCharges>3</maxCharges>
-                <ammoDef>Chemfuel</ammoDef>
-                <ammoPerCharge>10</ammoPerCharge>
-                <reloadDuration>100</reloadDuration>
-                <reloadSound>Standard_Reload</reloadSound>
-                <noChargesRemaining>Boots empty.</noChargesRemaining>
-              </li>
-          </comps>    
     <jobDef>CastJump</jobDef>
   </AbilityDef>
 
-<!--
+  <!--
   <AbilityDef>
     <defName>InfestationCallerAbility</defName>
     <label>call infestation</label>
@@ -69,88 +60,88 @@
   </AbilityDef>
 -->
 
-    <AbilityDef>
-        <defName>ShockFistAbility</defName>
-        <label>shock discharge</label>
-        <description>Punch the ground with the shock fist bionic and release a powerful EMP pulse in an area.</description>
-        <iconPath>UI/Abilities/ShockDischarge</iconPath>
-        <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
-        <cooldownTicksRange>12000</cooldownTicksRange><!--The cooldown of the ability -->
-        <canUseAoeToGetTargets>true</canUseAoeToGetTargets>
-        <jobDef>CastAbilityOnThingWithoutWeapon</jobDef>
-        <ai_SearchAOEForTargets>true</ai_SearchAOEForTargets>
-        <targetRequired>False</targetRequired>
-        <aiCanUse>true</aiCanUse>
-        <displayOrder>300</displayOrder>
+  <AbilityDef>
+    <defName>ShockFistAbility</defName>
+    <label>shock discharge</label>
+    <description>Punch the ground with the shock fist bionic and release a powerful EMP pulse in an area.</description>
+    <iconPath>UI/Abilities/ShockDischarge</iconPath>
+    <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
+    <cooldownTicksRange>12000</cooldownTicksRange>    <!--The cooldown of the ability -->
+    <canUseAoeToGetTargets>true</canUseAoeToGetTargets>
+    <jobDef>CastAbilityOnThingWithoutWeapon</jobDef>
+    <ai_SearchAOEForTargets>true</ai_SearchAOEForTargets>
+    <targetRequired>False</targetRequired>
+    <aiCanUse>true</aiCanUse>
+    <displayOrder>300</displayOrder>
 
-        <verbProperties>
-          <verbClass>Verb_CastAbilityTouch</verbClass>
-          <hasStandardCommand>false</hasStandardCommand>
-          <range>-1</range>
-          <warmupTime>0</warmupTime>
-          <soundCast>Shot_MiniFlameblaster</soundCast>
-          <drawAimPie>false</drawAimPie>      
-          <requireLineOfSight>false</requireLineOfSight>
-          <targetParams>
-            <canTargetSelf>True</canTargetSelf>
-          </targetParams>
-        </verbProperties>
+    <verbProperties>
+      <verbClass>Verb_CastAbilityTouch</verbClass>
+      <hasStandardCommand>false</hasStandardCommand>
+      <range>-1</range>
+      <warmupTime>0</warmupTime>
+      <soundCast>Shot_MiniFlameblaster</soundCast>
+      <drawAimPie>false</drawAimPie>
+      <requireLineOfSight>false</requireLineOfSight>
+      <targetParams>
+        <canTargetSelf>True</canTargetSelf>
+      </targetParams>
+    </verbProperties>
 
-        <comps>
-            <li Class="EBSGFramework.CompProperties_EBSGBurst">
-              <damageDef>EMP</damageDef>
-              <damageAmount>28</damageAmount>
-              <armorPenetration>1</armorPenetration>
-              <extraGasType>None</extraGasType>
-              <radius>5</radius>
-            </li>
-            <li Class="CompProperties_AbilityEffecterOnTarget">
-              <effecterDef>BlastEMPShockwave</effecterDef>
-              <maintainForTicks>60</maintainForTicks>
-              <scale>1</scale>
-            </li>
-          </comps>
+    <comps>
+      <li Class="EBSGFramework.CompProperties_EBSGBurst">
+        <explosion>
+          <radius>5</radius>
+          <damageDef>EMP</damageDef>
+          <damageAmount>28</damageAmount>
+        </explosion>
+      </li>
+      <li Class="CompProperties_AbilityEffecterOnTarget">
+        <effecterDef>BlastEMPShockwave</effecterDef>
+        <maintainForTicks>60</maintainForTicks>
+        <scale>1</scale>
+      </li>
+    </comps>
 
-      </AbilityDef>
+  </AbilityDef>
 
-    <AbilityDef>
-        <defName>WristFlamerAbility</defName>
-        <label>wrist flamer</label>
-        <description>Spray a burst of flaming chemfuel that sets everything in range ablaze.</description>
-        <iconPath>UI/Abilities/WristFlamer</iconPath>
-        <aiCanUse>true</aiCanUse>
-        <displayOrder>300</displayOrder>
-        <warmupStartSound>FireSpew_Warmup</warmupStartSound>
-        <verbProperties>
-          <verbClass>Verb_CastAbility</verbClass>
-          <hasStandardCommand>true</hasStandardCommand>
-          <warmupTime>0.2</warmupTime>
-          <range>4.9</range>
-          <soundCast>Shot_MiniFlameblaster</soundCast>
-          <muzzleFlashScale>9</muzzleFlashScale>
-          <targetParams>
-            <canTargetLocations>true</canTargetLocations>
-          </targetParams>
-        </verbProperties>
-        <comps>
-            <li Class="CompProperties_AbilityFireSpew">
-              <range>4.9</range>
-              <lineWidthEnd>4</lineWidthEnd>
-              <filthDef>Filth_Fuel</filthDef>
-              <damAmount>12</damAmount>
-              <effecterDef>Fire_Spew</effecterDef>
-              <canHitFilledCells>true</canHitFilledCells>
-            </li>
-            <li Class="EBSGFramework.CompProperties_AbilityReloadable">
-                <maxCharges>1</maxCharges>
-                <ammoDef>Chemfuel</ammoDef>
-                <ammoPerCharge>15</ammoPerCharge>
-                <reloadDuration>100</reloadDuration>
-                <reloadSound>Standard_Reload</reloadSound>
-                <noChargesRemaining>Flamer empty.</noChargesRemaining>
-              </li>
-          </comps>
-      </AbilityDef>
+  <AbilityDef>
+    <defName>WristFlamerAbility</defName>
+    <label>wrist flamer</label>
+    <description>Spray a burst of flaming chemfuel that sets everything in range ablaze.</description>
+    <iconPath>UI/Abilities/WristFlamer</iconPath>
+    <aiCanUse>true</aiCanUse>
+    <displayOrder>300</displayOrder>
+    <warmupStartSound>FireSpew_Warmup</warmupStartSound>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <hasStandardCommand>true</hasStandardCommand>
+      <warmupTime>0.2</warmupTime>
+      <range>4.9</range>
+      <soundCast>Shot_MiniFlameblaster</soundCast>
+      <muzzleFlashScale>9</muzzleFlashScale>
+      <targetParams>
+        <canTargetLocations>true</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilityFireSpew">
+        <range>4.9</range>
+        <lineWidthEnd>4</lineWidthEnd>
+        <filthDef>Filth_Fuel</filthDef>
+        <damAmount>12</damAmount>
+        <effecterDef>Fire_Spew</effecterDef>
+        <canHitFilledCells>true</canHitFilledCells>
+      </li>
+      <li Class="EBSGFramework.CompProperties_AbilityReloadable">
+        <maxCharges>1</maxCharges>
+        <ammoDef>Chemfuel</ammoDef>
+        <ammoPerCharge>15</ammoPerCharge>
+        <reloadDuration>100</reloadDuration>
+        <reloadSound>Standard_Reload</reloadSound>
+        <noChargesRemaining>Flamer empty.</noChargesRemaining>
+      </li>
+    </comps>
+  </AbilityDef>
 
   <AbilityDef>
     <defName>ArmCannonAbility</defName>
@@ -186,7 +177,7 @@
       </li>
     </comps>
   </AbilityDef>
-  
+
   <ThingDef ParentName="BaseBullet">
     <defName>ArmCannonProjectile</defName>
     <label>slugs</label>
@@ -235,7 +226,7 @@
       </li>
     </comps>
   </AbilityDef>
-  
+
   <ThingDef ParentName="BaseBullet">
     <defName>TempBarrierProjectile</defName>
     <label>barrier kit</label>
@@ -248,7 +239,7 @@
     <projectile>
       <damageDef>Blunt</damageDef>
       <damageAmountBase>2</damageAmountBase>
-	    <armorPenetrationBase>0</armorPenetrationBase>
+      <armorPenetrationBase>0</armorPenetrationBase>
       <spawnsThingDef>DV_TemporaryBarricade</spawnsThingDef>
       <tryAdjacentFreeSpaces>true</tryAdjacentFreeSpaces>
       <speed>42</speed>
@@ -274,7 +265,7 @@
         <canTargetLocations>true</canTargetLocations>
       </targetParams>
     </verbProperties>
-    
+
     <comps>
       <li Class="CompProperties_AbilityLaunchProjectile">
         <projectileDef>RocketFistProjectile</projectileDef>
@@ -289,7 +280,7 @@
       </li>
     </comps>
   </AbilityDef>
-  
+
   <ThingDef ParentName="BaseBullet">
     <defName>RocketFistProjectile</defName>
     <label>rocket fist</label>

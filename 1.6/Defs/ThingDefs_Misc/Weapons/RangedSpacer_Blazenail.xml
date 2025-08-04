@@ -301,7 +301,6 @@
             <damageAmountBase>17</damageAmountBase>
             <armorPenetrationBase>0.85</armorPenetrationBase>
             <stoppingPower>1.7</stoppingPower>
-            <bulletChanceToStartFire>1</bulletChanceToStartFire>
             <speed>90</speed>
         </projectile>
     </ThingDef>
@@ -339,7 +338,6 @@
             <damageAmountBase>14</damageAmountBase>
             <armorPenetrationBase>0.70</armorPenetrationBase>
             <stoppingPower>1.2</stoppingPower>
-            <bulletChanceToStartFire>1</bulletChanceToStartFire>
             <speed>82</speed>
         </projectile>
     </ThingDef>

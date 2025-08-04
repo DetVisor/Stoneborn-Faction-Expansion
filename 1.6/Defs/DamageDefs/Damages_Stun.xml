@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-<DamageDef ParentName="StunBase">
+  <DamageDef ParentName="StunBase">
     <defName>SpecialEMP</defName>
     <label>emp</label>
     <workerClass>DamageWorker_Stun</workerClass>
@@ -46,11 +46,11 @@
     <defaultDamage>10</defaultDamage>
     <explosionCenterEffecter>BlastEMPShockwave</explosionCenterEffecter>
     <explosionCellEffecter>EMPElectricityArc</explosionCellEffecter>
-   	<explosionCellFleck>BlastEMP</explosionCellFleck>
+    <explosionCellFleck>BlastEMP</explosionCellFleck>
     <defaultArmorPenetration>0.1</defaultArmorPenetration>
     <explosionCellEffecterChance>0.1</explosionCellEffecterChance>
     <explosionCellEffecterMaxRadius>10</explosionCellEffecterMaxRadius>
-  	<defaultStoppingPower>2</defaultStoppingPower>
+    <defaultStoppingPower>2</defaultStoppingPower>
     <buildingDamageFactorPassable>0.2</buildingDamageFactorPassable>
     <soundExplosion>Explosion_MechBandShockwave</soundExplosion>
   </DamageDef>
@@ -63,18 +63,27 @@
     <deathMessage>{0} has been killed by a nail.</deathMessage>
     <hediff>Cut</hediff>
     <hediffSolid>Crack</hediffSolid>
-     <harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+    <harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
     <impactSoundType>Bullet</impactSoundType>
     <armorCategory>Sharp</armorCategory>
     <overkillPctToDestroyPart>0~0.7</overkillPctToDestroyPart>
     <isRanged>true</isRanged>
     <makesAnimalsFlee>true</makesAnimalsFlee>
     <defaultDamage>10</defaultDamage>
-	<explosionCellFleck>BlastFlame</explosionCellFleck>
+    <explosionCellFleck>BlastFlame</explosionCellFleck>
     <defaultArmorPenetration>0.1</defaultArmorPenetration>
-	<defaultStoppingPower>2</defaultStoppingPower>
+    <defaultStoppingPower>2</defaultStoppingPower>
     <buildingDamageFactorPassable>0.2</buildingDamageFactorPassable>
-	<soundExplosion>Explosion_Flame</soundExplosion>
+    <soundExplosion>Explosion_Flame</soundExplosion>
+    <igniteChanceByTargetFlammability>
+      <points>
+        <li>(0, 0.4)</li>
+        <li>(0.2, 0.6)</li>
+        <li>(0.5, 0.8)</li>
+        <li>(1, 1)</li>
+      </points>
+    </igniteChanceByTargetFlammability>
+    <igniteCellChance>0.5</igniteCellChance>
   </DamageDef>
 
   <DamageDef>
@@ -82,10 +91,10 @@
     <label>nail</label>
     <workerClass>DamageWorker_AddInjury</workerClass>
     <externalViolence>true</externalViolence>
-    <deathMessage>{0} has been killed by a nail.</deathMessage> <!--Nailed through the HEART, and you're to blame, darlin' you give love.. a bad name.-->
+    <deathMessage>{0} has been killed by a nail.</deathMessage>    <!--Nailed through the HEART, and you're to blame, darlin' you give love.. a bad name.-->
     <hediff>Cut</hediff>
     <hediffSolid>Crack</hediffSolid>
-     <harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+    <harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
     <impactSoundType>Bullet</impactSoundType>
     <armorCategory>Sharp</armorCategory>
     <overkillPctToDestroyPart>0~0.7</overkillPctToDestroyPart>
@@ -93,7 +102,7 @@
     <makesAnimalsFlee>true</makesAnimalsFlee>
     <defaultDamage>10</defaultDamage>
     <defaultArmorPenetration>0.1</defaultArmorPenetration>
-   	<defaultStoppingPower>2</defaultStoppingPower>
+    <defaultStoppingPower>2</defaultStoppingPower>
     <buildingDamageFactorPassable>0.2</buildingDamageFactorPassable>
   </DamageDef>
 

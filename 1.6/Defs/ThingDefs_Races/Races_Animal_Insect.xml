@@ -12,6 +12,7 @@
       <LeatherAmount>0</LeatherAmount>
       <ArmorRating_Blunt>0.20</ArmorRating_Blunt>
       <ArmorRating_Sharp>0.22</ArmorRating_Sharp>
+      <wildness>0.2</wildness>
     </statBases>
     <uiIconScale>1.15</uiIconScale>
     <tools>
@@ -43,7 +44,6 @@
       <baseHealthScale>2.2</baseHealthScale>
       <meatLabel>insect meat</meatLabel>
       <lifeExpectancy>8</lifeExpectancy>
-      <wildness>0.2</wildness>
       <trainability>Advanced</trainability>
       <nuzzleMtbHours>12</nuzzleMtbHours>
       <lifeStageAges>

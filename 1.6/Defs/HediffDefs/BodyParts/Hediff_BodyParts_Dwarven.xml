@@ -77,7 +77,7 @@
         <nextSpasmTicksRange>10~50</nextSpasmTicksRange>
         <drawData>
           <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
-          <useHediffAnchor>true</useHediffAnchor>
+          <useBodyPartAnchor>true</useBodyPartAnchor>
           <childScale>0.7</childScale>
           <bodyTypeScales>
             <Hulk>1.1</Hulk>
@@ -206,7 +206,7 @@
         <nextSpasmTicksRange>10~50</nextSpasmTicksRange>
         <drawData>
           <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
-          <useHediffAnchor>true</useHediffAnchor>
+          <useBodyPartAnchor>true</useBodyPartAnchor>
           <childScale>0.7</childScale>
           <bodyTypeScales>
             <Hulk>1.1</Hulk>
@@ -334,7 +334,7 @@
         <nextSpasmTicksRange>10~50</nextSpasmTicksRange>
         <drawData>
           <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
-          <useHediffAnchor>true</useHediffAnchor>
+          <useBodyPartAnchor>true</useBodyPartAnchor>
           <childScale>0.7</childScale>
           <bodyTypeScales>
             <Hulk>1.1</Hulk>
@@ -460,7 +460,7 @@
         <nextSpasmTicksRange>10~50</nextSpasmTicksRange>
         <drawData>
           <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
-          <useHediffAnchor>true</useHediffAnchor>
+          <useBodyPartAnchor>true</useBodyPartAnchor>
           <childScale>0.7</childScale>
           <bodyTypeScales>
             <Hulk>1.1</Hulk>
@@ -589,7 +589,7 @@
         <nextSpasmTicksRange>10~50</nextSpasmTicksRange>
         <drawData>
           <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
-          <useHediffAnchor>true</useHediffAnchor>
+          <useBodyPartAnchor>true</useBodyPartAnchor>
           <childScale>0.7</childScale>
           <bodyTypeScales>
             <Hulk>1.1</Hulk>
