@@ -37,20 +37,31 @@ public class CompAutoDrill : ThingComp
         usedLastTick = false;
     }
 
+    public bool shouldDrill = false;
+
     public override void CompTick()
     {
         base.CompTick();
 
         usedLastTick = false;
+        if (!shouldDrill) return;
 
+        usedLastTick = true;
+        refuelableComp?.Notify_UsedThisTick();
+    }
+
+    public override void CompTickInterval(int delta)
+    {
+        base.CompTickInterval(delta);
         if (!CanDrillNow())
         {
+            shouldDrill = false;
             return;
         }
 
-        portionProgress += 1f;
+        shouldDrill = true;
+        portionProgress += 1f * delta;
         usedLastTick = true;
-        refuelableComp?.Notify_UsedThisTick();
 
         if (!(portionProgress > Props.ticksPerPortion)) return;
         TryProducePortion();
