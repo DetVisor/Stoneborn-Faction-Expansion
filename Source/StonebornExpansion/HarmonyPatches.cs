@@ -22,7 +22,7 @@ public static class CompCreatesInfestations_CanCreateInfestationNow
     {
         CompAutoDrill comp = __instance.parent.TryGetComp<CompAutoDrill>();
 
-        if (comp != null && !comp.usedLastTick)
+        if (comp is { usedLastTick: false })
         {
             __result = false;
         }
