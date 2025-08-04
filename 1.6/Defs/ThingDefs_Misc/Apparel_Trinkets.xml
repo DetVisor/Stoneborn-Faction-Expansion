@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+	<ThingDef ParentName="ApparelMakeableBase">
+		<defName>DV_Footwear_RocketBoots</defName>
+		<label>rocket boots</label>
+		<description>A pair of advanced steel-reinforced rocket jumpboots. Due to their weight, they slow down the wearer.</description>
+		<graphicData>
+			<texPath>Things/Footwear/RocketBoots</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<techLevel>Spacer</techLevel>
+		<tradeability>Sellable</tradeability>
+		<generateCommonality>0</generateCommonality>
+    <comps>
+      <li Class="EBSGFramework.CompProperties_EquippableAbility">
+        <ability>DV_RocketBoots_Boost</ability>
+      </li>
+    </comps>
+		<stuffCategories>
+			<li>Leathery</li>
+		</stuffCategories>
+		<costStuffCount>50</costStuffCount>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<WorkToMake>6800</WorkToMake>
+			<Mass>3</Mass>
+			<StuffEffectMultiplierArmor>0.2</StuffEffectMultiplierArmor>
+			<StuffEffectMultiplierInsulation_Cold>0.15</StuffEffectMultiplierInsulation_Cold>
+			<StuffEffectMultiplierInsulation_Heat>0.10</StuffEffectMultiplierInsulation_Heat>
+			<EquipDelay>6</EquipDelay>
+		</statBases>
+    <thingSetMakerTags>
+      <li>RewardStandardQualitySuper</li>
+    </thingSetMakerTags>
+    <costList>
+      <ComponentSpacer>2</ComponentSpacer>
+      <Steel>35</Steel>
+      <Chemfuel>20</Chemfuel>
+    </costList>
+		<equippedStatOffsets>
+			<MoveSpeed>-0.1</MoveSpeed>
+		</equippedStatOffsets>
+		<thingCategories Inherit="False">
+			<li>VAE_BootsAndGloves</li>
+      <li>ApparelUtility</li>
+		</thingCategories>
+		<apparel>
+			<countsAsClothingForNudity>false</countsAsClothingForNudity>
+			<bodyPartGroups>
+				<li>Feet</li>
+			</bodyPartGroups>
+			<layers>
+				<li>Middle</li>
+			</layers>
+			<tags>
+				<li>SpacerMilitary</li>
+			</tags>
+			<defaultOutfitTags>
+				<li>Soldier</li>
+			</defaultOutfitTags>
+		</apparel>
+		<recipeMaker>
+			<researchPrerequisite>DV_Research_BattleEquipment</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>8</Crafting>
+			</skillRequirements>
+			<recipeUsers Inherit="False">
+        <li>TableMachining</li>
+			</recipeUsers>
+		</recipeMaker>
+		<colorGenerator Class="ColorGenerator_StandardApparel"/>
+	</ThingDef>
+
+<ThingDef ParentName="ApparelBase">
+  <defName>DV_Apparel_AbsorptionShield</defName>
+  <label>absorption shield</label>
+  <description>A heavy duty shield belt designed by the stoneborn. It not only boasts a larger shield capacitor than a standard shield belt, it also allows projectiles to exit its field while still preventing them from entering. However, these modifications have made the components in it unstable, causing it to release an EMP blast upon breaking. This can lead to a chain reaction of breaking shields, but such concerns are nothing to worry about if the shield is too strong to break in the first place.</description>
+  <thingClass>Apparel</thingClass>
+  <graphicData>
+    <texPath>Things/Pawn/Apparel/Belts/AbsorptionShield</texPath>
+    <graphicClass>Graphic_Single</graphicClass>
+  </graphicData>
+  <tickerType>Normal</tickerType>
+  <techLevel>Spacer</techLevel>
+  <statBases>
+    <Mass>3</Mass>
+    <Flammability>0</Flammability>
+    <EquipDelay>2.5</EquipDelay>
+    <EnergyShieldEnergyMax>2.5</EnergyShieldEnergyMax>
+     <EnergyShieldRechargeRate>0.05</EnergyShieldRechargeRate>    
+  </statBases>
+  <thingSetMakerTags>
+    <li>RewardStandardQualitySuper</li>
+  </thingSetMakerTags>
+  <costList>
+    <ComponentIndustrial>5</ComponentIndustrial>
+    <Steel>75</Steel>
+    <Plasteel>30</Plasteel>
+  </costList>
+  <recipeMaker>
+    <unfinishedThingDef>UnfinishedBelt</unfinishedThingDef>
+    <researchPrerequisite>DV_Research_BattleEquipment</researchPrerequisite>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <workSkill>Crafting</workSkill>
+    <effectWorking>Smith</effectWorking>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <recipeUsers>
+      <li>TableMachining</li>
+    </recipeUsers>
+    <useIngredientsForColor>false</useIngredientsForColor>
+    <skillRequirements>
+      <Crafting>8</Crafting>
+    </skillRequirements>
+    <displayPriority>300</displayPriority>
+  </recipeMaker>
+  <thingCategories>
+    <li>ApparelUtility</li>
+  </thingCategories>
+  <apparel>
+    <countsAsClothingForNudity>false</countsAsClothingForNudity>
+    <careIfWornByCorpse>false</careIfWornByCorpse>
+    <careIfDamaged>false</careIfDamaged>
+    <wearPerDay>0</wearPerDay>
+    <bodyPartGroups>
+      <li>Waist</li>
+    </bodyPartGroups>
+    <layers>
+      <li>Belt</li>
+    </layers>
+    <tags>
+      <li>BeltDefense</li>
+    </tags>
+    <developmentalStageFilter>Child, Adult</developmentalStageFilter>
+  </apparel>
+  <colorGenerator Class="ColorGenerator_Options">
+    <options>
+      <li>
+        <weight>10</weight>
+        <only>(0.33,0.33,0.33,1)</only>
+      </li>
+      <li>
+        <weight>10</weight>
+        <only>(0.65,0.65,0.65,1)</only>
+      </li>
+      <li>
+        <weight>6</weight>
+        <min>(0.3,0.3,0.3,1)</min>
+        <max>(0.5,0.5,0.5,1)</max>
+      </li>
+      <li>
+        <weight>10</weight>
+        <only>(0.9,0.9,0.9,1)</only>
+      </li>
+    </options>
+  </colorGenerator>
+  <comps>
+    <li Class="EBSGFramework.CompProperties_ShieldEquipment">
+      <energyPerDamageModifier>0.03</energyPerDamageModifier>
+      <resetDelay>3200</resetDelay>
+
+      <blocksMeleeDamage>false</blocksMeleeDamage>
+      <blocksExplosions>true</blocksExplosions>
+      <blocksRangedDamage>true</blocksRangedDamage>
+
+      <shatterOn>
+        <li>Bomb</li>
+      </shatterOn>
+
+      <shieldBreakExplosion>
+        <damageDef>EMP</damageDef>
+        <extraGasType>None</extraGasType>
+        <radius>2.9</radius>
+      </shieldBreakExplosion>      
+
+      <absorbFleck>ExplosionFlash</absorbFleck>
+      <breakFleck>ExplosionFlash</breakFleck>
+      <shieldBreakEffecter>Shield_Break</shieldBreakEffecter>
+
+      <absorbSound>EnergyShield_AbsorbDamage</absorbSound>
+      <resetSound>EnergyShield_Reset</resetSound>
+
+      <displayGizmo>true</displayGizmo>
+      <gizmoTitle>Absorption Shield</gizmoTitle>
+      <gizmoTip>A powerful shield belt that can absorb up to 250 damage, or more.</gizmoTip>
+
+      <onlyRenderWhenDrafted>true</onlyRenderWhenDrafted>
+      <minDrawSize>1.5</minDrawSize>
+      <maxDrawSize>1.8</maxDrawSize>
+      <scaleWithOwner>true</scaleWithOwner>
+      <spinning>false</spinning>
+
+      <graphicData>
+        <texPath>Things/Other/AbsorptionShield</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <shaderType>Transparent</shaderType>
+        <color>(1, 1, 1, 0.8)</color>
+      </graphicData>
+    </li>
+  </comps>  
+  <allowedArchonexusCount>1</allowedArchonexusCount>
+  <tradeTags>
+    <li>Armor</li>
+  </tradeTags>
+</ThingDef>
+
+</Defs>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- To add a research tab, make a new ResearchTabDef here and then set the <tab> field of your research project to match it -->
+  
+  <ResearchTabDef>
+    <defName>StonebornTab</defName>
+    <label>Stoneborn</label>
+    <generalTitle>Stoneborn research projects</generalTitle>
+    <generalDescription>Discover new stoneborn-created technologies by analyzing techscrolls and research them at a research bench.</generalDescription>
+  </ResearchTabDef>
+
+</Defs>

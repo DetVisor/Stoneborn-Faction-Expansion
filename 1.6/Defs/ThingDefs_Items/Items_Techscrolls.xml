@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <ThingDef Name="TechscrollBase" ParentName="ResourceBase" Abstract="True">
+        <description>A plasteel-polymer storage device which houses an extensive sheet of gold alloy weave, every inch of the substrate is etched with microscopic lines of data which when read correctly can grant your researchers the required information to complete a specific research project.</description>
+        <graphicData>
+          <texPath>Things/Item/Special/Techscroll</texPath>
+          <shaderType>CutoutComplex</shaderType>
+          <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <soundInteract>Metal_Drop</soundInteract>
+        <soundDrop>Metal_Drop</soundDrop>
+        <stackLimit>1</stackLimit>
+        <healthAffectsPrice>false</healthAffectsPrice>
+        <useHitPoints>true</useHitPoints>
+        <statBases>
+          <MarketValue>700</MarketValue>
+          <MaxHitPoints>100</MaxHitPoints>
+          <Mass>1.5</Mass>
+          <Flammability>0</Flammability>
+        </statBases>
+        <intricate>true</intricate>
+        <thingCategories>
+          <li>Manufactured</li>
+        </thingCategories>
+        <techLevel>Ultra</techLevel>
+        <tradeTags>
+          <li>ExoticMisc</li>
+        </tradeTags>
+      </ThingDef>
+
+      <ThingDef ParentName="TechscrollBase">
+        <defName>DV_YellowTechscroll</defName>
+        <label>engineering techscroll</label>
+        <description>A plasteel-polymer storage device which houses an extensive sheet of gold alloy weave, every inch of the substrate is etched with microscopic lines of data which when read correctly can grant your researchers the required information to complete a specific research project.\n\nThis scroll appears to be contain knowledge on complex dwarven constructions and designs, like core drills, dwarven turrets and even automatons.</description>
+        <graphicData>
+          <color>(201, 177, 60)</color>
+        </graphicData>
+        <statBases>
+          <MarketValue>800</MarketValue>
+          <MaxHitPoints>100</MaxHitPoints>
+          <Mass>1.5</Mass>
+          <Flammability>0</Flammability>
+        </statBases>
+        <tradeTags>
+          <li>ExoticMisc</li>
+        </tradeTags>
+        <comps>
+          <li Class="CompProperties_CompAnalyzableUnlockResearch">
+            <analysisID>26771936</analysisID>
+            <requiresMechanitor>false</requiresMechanitor>
+    
+            <!-- Analyzable -->
+    
+            <analysisDurationHours>0.5</analysisDurationHours>
+            <destroyedOnAnalyzed>false</destroyedOnAnalyzed>
+            <completedLetterLabel>Techscroll deciphered: {RESEARCH} unlocked</completedLetterLabel>
+            <completedLetter>By deciphering and translating the ancient techscroll, {PAWN_labelShort} has acquired the insight needed for the research project(s) {RESEARCH}.\n\nYour researchers can now use research benches to begin researching how to actually use the technology.</completedLetter>
+            <completedLetterDef>PositiveEvent</completedLetterDef>
+    
+            <!-- Interactable -->
+    
+            <activateTexPath>UI/Icons/Study</activateTexPath>
+    
+            <activateLabelString>Analyze...</activateLabelString>
+            <activateDescString>Analyze the techscroll.</activateDescString>
+            <jobString>Analyze techscroll.</jobString>
+            <guiLabelString>Choose who should analyze this</guiLabelString>
+            <inspectString>Can be analyzed by a colonist.</inspectString>
+    
+            <targetingParameters>
+              <canTargetBuildings>false</canTargetBuildings>
+              <canTargetAnimals>false</canTargetAnimals>
+              <canTargetMechs>false</canTargetMechs>
+              <onlyTargetControlledPawns>true</onlyTargetControlledPawns>
+            </targetingParameters>
+          </li>
+        </comps>
+      </ThingDef>
+
+      <ThingDef ParentName="TechscrollBase">
+        <defName>DV_BlueTechscroll</defName>
+        <label>armor techscroll</label>
+        <description>A plasteel-polymer storage device which houses an extensive sheet of gold alloy weave, every inch of the substrate is etched with microscopic lines of data which when read correctly can grant your researchers the required information to complete a specific research project.\n\nThis scroll appears to be contain knowledge on powerful dwarven power-armors, capable of stopping the mightiest of blows.</description>
+        <graphicData>
+          <color>(66, 134, 148)</color>
+        </graphicData>
+        <statBases>
+          <MarketValue>800</MarketValue>
+          <MaxHitPoints>100</MaxHitPoints>
+          <Mass>1.5</Mass>
+          <Flammability>0</Flammability>
+        </statBases>
+        <tradeTags>
+          <li>ExoticMisc</li>
+        </tradeTags>
+        <comps>
+          <li Class="CompProperties_CompAnalyzableUnlockResearch">
+            <analysisID>72563418</analysisID>
+            <requiresMechanitor>false</requiresMechanitor>
+    
+            <!-- Analyzable -->
+    
+            <analysisDurationHours>0.5</analysisDurationHours>
+            <destroyedOnAnalyzed>false</destroyedOnAnalyzed>
+            <completedLetterLabel>Techscroll deciphered: {RESEARCH} unlocked</completedLetterLabel>
+            <completedLetter>By deciphering and translating the ancient techscroll, {PAWN_labelShort} has acquired the insight needed for the research project(s) {RESEARCH}.\n\nYour researchers can now use research benches to begin researching how to actually use the technology.</completedLetter>
+            <completedLetterDef>PositiveEvent</completedLetterDef>
+    
+            <!-- Interactable -->
+    
+            <activateTexPath>UI/Icons/Study</activateTexPath>
+    
+            <activateLabelString>Analyze...</activateLabelString>
+            <activateDescString>Analyze the techscroll.</activateDescString>
+            <jobString>Analyze techscroll.</jobString>
+            <guiLabelString>Choose who should analyze this</guiLabelString>
+            <inspectString>Can be analyzed by a colonist.</inspectString>
+    
+            <targetingParameters>
+              <canTargetBuildings>false</canTargetBuildings>
+              <canTargetAnimals>false</canTargetAnimals>
+              <canTargetMechs>false</canTargetMechs>
+              <onlyTargetControlledPawns>true</onlyTargetControlledPawns>
+            </targetingParameters>
+          </li>
+        </comps>
+      </ThingDef>
+
+      <ThingDef ParentName="TechscrollBase">
+        <defName>DV_RedTechscroll</defName>
+        <label>weapons techscroll</label>
+        <description>A plasteel-polymer storage device which houses an extensive sheet of gold alloy weave, every inch of the substrate is etched with microscopic lines of data which when read correctly can grant your researchers the required information to complete a specific research project.\n\nThis scroll appears to be contain knowledge on legendary dwarven weapons, from simple axes and hammers to unique ranged weaponry.</description>
+        <graphicData>
+          <color>(148, 66, 66)</color>
+        </graphicData>
+        <statBases>
+          <MarketValue>850</MarketValue>
+          <MaxHitPoints>100</MaxHitPoints>
+          <Mass>1.5</Mass>
+          <Flammability>0</Flammability>
+        </statBases>
+        <tradeTags>
+          <li>ExoticMisc</li>
+        </tradeTags>
+        <comps>
+          <li Class="CompProperties_CompAnalyzableUnlockResearch">
+            <analysisID>51829763</analysisID>
+            <requiresMechanitor>false</requiresMechanitor>
+    
+            <!-- Analyzable -->
+    
+            <analysisDurationHours>0.5</analysisDurationHours>
+            <destroyedOnAnalyzed>false</destroyedOnAnalyzed>
+            <completedLetterLabel>Techscroll deciphered: {RESEARCH} unlocked</completedLetterLabel>
+            <completedLetter>By deciphering and translating the ancient techscroll, {PAWN_labelShort} has acquired the insight needed for the research project(s) {RESEARCH}.\n\nYour researchers can now use research benches to begin researching how to actually use the technology.</completedLetter>
+            <completedLetterDef>PositiveEvent</completedLetterDef>
+    
+            <!-- Interactable -->
+    
+            <activateTexPath>UI/Icons/Study</activateTexPath>
+    
+            <activateLabelString>Analyze...</activateLabelString>
+            <activateDescString>Analyze the techscroll.</activateDescString>
+            <jobString>Analyze techscroll.</jobString>
+            <guiLabelString>Choose who should analyze this</guiLabelString>
+            <inspectString>Can be analyzed by a colonist.</inspectString>
+    
+            <targetingParameters>
+              <canTargetBuildings>false</canTargetBuildings>
+              <canTargetAnimals>false</canTargetAnimals>
+              <canTargetMechs>false</canTargetMechs>
+              <onlyTargetControlledPawns>true</onlyTargetControlledPawns>
+            </targetingParameters>
+          </li>
+        </comps>
+      </ThingDef>
+
+      <ThingDef ParentName="TechscrollBase">
+        <defName>DV_GreenTechscroll</defName>
+        <label>medical techscroll</label>
+        <description>A plasteel-polymer storage device which houses an extensive sheet of gold alloy weave, every inch of the substrate is etched with microscopic lines of data which when read correctly can grant your researchers the required information to complete a specific research project.\n\nThis scroll appears to be contain knowledge on advanced dwarven bionics, some that can spit fire or stun mechanoids, and some that can enhance the physical capabilities of the subject.</description>
+        <graphicData>
+          <color>(66, 148, 66)</color>
+        </graphicData>
+        <statBases>
+          <MarketValue>850</MarketValue>
+          <MaxHitPoints>100</MaxHitPoints>
+          <Mass>1.5</Mass>
+          <Flammability>0</Flammability>
+        </statBases>
+        <tradeTags>
+          <li>ExoticMisc</li>
+        </tradeTags>
+        <comps>
+          <li Class="CompProperties_CompAnalyzableUnlockResearch">
+            <analysisID>94637201</analysisID>
+            <requiresMechanitor>false</requiresMechanitor>
+    
+            <!-- Analyzable -->
+    
+            <analysisDurationHours>0.5</analysisDurationHours>
+            <destroyedOnAnalyzed>false</destroyedOnAnalyzed>
+            <completedLetterLabel>Techscroll deciphered: {RESEARCH} unlocked</completedLetterLabel>
+            <completedLetter>By deciphering and translating the ancient techscroll, {PAWN_labelShort} has acquired the insight needed for the research project(s) {RESEARCH}.\n\nYour researchers can now use research benches to begin researching how to actually use the technology.</completedLetter>
+            <completedLetterDef>PositiveEvent</completedLetterDef>
+    
+            <!-- Interactable -->
+    
+            <activateTexPath>UI/Icons/Study</activateTexPath>
+    
+            <activateLabelString>Analyze...</activateLabelString>
+            <activateDescString>Analyze the techscroll.</activateDescString>
+            <jobString>Analyze techscroll.</jobString>
+            <guiLabelString>Choose who should analyze this</guiLabelString>
+            <inspectString>Can be analyzed by a colonist.</inspectString>
+    
+            <targetingParameters>
+              <canTargetBuildings>false</canTargetBuildings>
+              <canTargetAnimals>false</canTargetAnimals>
+              <canTargetMechs>false</canTargetMechs>
+              <onlyTargetControlledPawns>true</onlyTargetControlledPawns>
+            </targetingParameters>
+          </li>
+        </comps>
+      </ThingDef>
+</Defs>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+<ThingSetMakerDef>
+    <defName>MapGen_Dwarven_HermeticCanister</defName>
+    <root Class="ThingSetMaker_RandomOption">
+      <options>
+
+        <!-- Gold -->
+        <li>
+          <weight>1</weight>
+          <thingSetMaker Class="ThingSetMaker_StackCount">
+            <fixedParams>
+              <filter>
+                <thingDefs>
+                  <li>Gold</li>
+                </thingDefs>
+              </filter>
+              <countRange>15~30</countRange>
+            </fixedParams>
+          </thingSetMaker>
+        </li>
+
+        <!-- Mithrium -->
+        <li>
+          <weight>0.5</weight>
+          <thingSetMaker Class="ThingSetMaker_StackCount">
+            <fixedParams>
+              <filter>
+                <thingDefs>
+                  <li>DV_Orichalcum</li>
+                </thingDefs>
+              </filter>
+              <countRange>40~75</countRange>
+            </fixedParams>
+          </thingSetMaker>
+        </li>
+
+        <!-- Advanced components -->
+        <li>
+          <weight>1</weight>
+          <thingSetMaker Class="ThingSetMaker_StackCount">
+            <fixedParams>
+              <filter>
+                <thingDefs>
+                  <li>ComponentSpacer</li>
+                </thingDefs>
+              </filter>
+              <countRange>4~8</countRange>
+            </fixedParams>
+          </thingSetMaker>
+        </li>
+
+        <!-- Ultratech meds -->
+        <li>
+          <weight>1</weight>
+          <thingSetMaker Class="ThingSetMaker_StackCount">
+            <fixedParams>
+              <filter>
+                <thingDefs>
+                  <li>MedicineUltratech</li>
+                </thingDefs>
+              </filter>
+              <countRange>3~10</countRange>
+            </fixedParams>
+          </thingSetMaker>
+        </li>
+
+        <!-- Misc -->
+        <li>
+          <weight>0.75</weight>
+          <thingSetMaker Class="ThingSetMaker_StackCount">
+            <fixedParams>
+              <filter>
+                <thingDefs>
+                  <li>DV_Gun_Flameblaster</li>
+                  <li>DV_Gun_SpringBolter</li>
+                  <li>DV_Gun_SlugRifle</li>
+                  <li>DV_Gun_SlugCaster</li>
+                  <li>DV_Gun_RocketLauncher</li>
+                  <li>ReinforcedBarrel</li>
+                  <li>DV_ReinforcedDrillBit</li>
+                  <li>DV_Apparel_DwarvenHelm</li>
+                  <li>DV_Apparel_PowerCuirass</li>
+                </thingDefs>
+              </filter>
+              <countRange>1</countRange>
+            </fixedParams>
+          </thingSetMaker>
+        </li>
+
+        <!-- Misc high value -->
+        <li>
+          <weight>0.5</weight>
+          <thingSetMaker Class="ThingSetMaker_StackCount">
+            <fixedParams>
+              <filter>
+                <thingDefs>
+                  <li>DV_Apparel_BeardedHelmet</li>
+                  <li>DV_Apparel_FireproofGambeson</li>
+                  <li>DV_Apparel_PowerplateArmor</li>
+                  <li>DV_Apparel_PowerPlateHelmet</li>
+                </thingDefs>
+              </filter>
+              <countRange>1</countRange>
+            </fixedParams>
+          </thingSetMaker>
+        </li>
+
+        <li>
+            <weight>0.3</weight>
+            <thingSetMaker Class="ThingSetMaker_StackCount">
+              <fixedParams>
+                <filter>
+                  <thingDefs>
+                    <li>DV_Apparel_HammererHelm</li>
+                    <li>DV_Apparel_FireproofGambeson</li>
+                    <li>DV_Apparel_GildedDwarvenHelm</li>
+                    <li>DV_Apparel_Goggles</li>
+                  </thingDefs>
+                </filter>
+                <countRange>1</countRange>
+              </fixedParams>
+            </thingSetMaker>
+          </li>
+        
+        <!-- Techprint -->
+        <li>
+            <weight>0.05</weight>
+            <thingSetMaker Class="ThingSetMaker_StackCount">
+              <fixedParams>
+                <filter>
+                  <thingDefs>
+                    <li>DV_BlueTechscroll</li>
+                    <li>DV_RedTechscroll</li>
+                    <li>DV_GreenTechscroll</li>
+                  </thingDefs>
+                </filter>
+                <countRange>1</countRange>
+              </fixedParams>
+            </thingSetMaker>
+          </li>
+
+      </options>
+    </root>
+  </ThingSetMakerDef>
+
+</Defs>

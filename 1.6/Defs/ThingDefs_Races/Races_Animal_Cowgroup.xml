@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef ParentName="AnimalThingBase">
+        <defName>DV_Browbull</defName>
+        <label>browbull</label>
+        <devNote>cow-1</devNote>
+        <description>A stocky, naturally armored descendant of modern cows, selectively bred to be powerful and fierce. Browbulls evolved to be able to eat anything, due to the scarce plant life in their cavern habitats, and are commonly found as part of stoneborn caravans or deepfarms.\n\nTheir four hefty horns make them a danger for apex predators as well as overconfident tamers: with their powerful legs, they can ram and stab anything they consider a threat.</description>
+        <descriptionHyperlinks>
+          <ThingDef MayRequire="det.sbdelights">SD_Bullgrog</ThingDef>
+        </descriptionHyperlinks>
+        <statBases>
+          <MoveSpeed>3.05</MoveSpeed>
+          <ComfyTemperatureMin>-60</ComfyTemperatureMin>
+          <ComfyTemperatureMax>35</ComfyTemperatureMax>
+          <MarketValue>400</MarketValue>
+          <ArmorRating_Sharp>0.60</ArmorRating_Sharp>
+          <ArmorRating_Blunt>0.32</ArmorRating_Blunt>
+          <ArmorRating_Heat>0.22</ArmorRating_Heat>
+          <FilthRate>20</FilthRate>
+        </statBases>
+        <uiIconScale>1.15</uiIconScale>
+        <comps>
+
+          <li MayRequire="det.sbdelights" Class="AnimalBehaviours.CompProperties_AnimalProduct">
+            <resourceDef>SD_Bullgrog</resourceDef>
+            <gatheringIntervalDays>5</gatheringIntervalDays>
+            <resourceAmount>10</resourceAmount>
+            <customResourceString>BullgrogResourceString</customResourceString>
+            <isRandom>false</isRandom>
+          </li>
+
+          <li Class="AnimalBehaviours.CompProperties_LastStand">
+            <finalCoolDownMultiplier>5</finalCoolDownMultiplier>
+          </li>
+
+          <li Class="AnimalBehaviours.CompProperties_DoesntFlee"></li>
+        </comps>
+        <race>
+          <body>QuadrupedAnimalWithHooves</body>
+          <herdAnimal>true</herdAnimal>
+          <baseBodySize>2.3</baseBodySize>
+          <baseHungerRate>0.6</baseHungerRate>
+          <baseHealthScale>1.8</baseHealthScale>
+          <foodType>OmnivoreRoughAnimal</foodType>
+          <leatherDef>DV_Leather_Rockhide</leatherDef>
+          <wildness>0.35</wildness>
+          <roamMtbDays>4</roamMtbDays>
+          <petness>0.23</petness>
+          <trainability>None</trainability>
+          <packAnimal>true</packAnimal>
+          <meatLabel>browbull beef</meatLabel>
+          <gestationPeriodDays>8</gestationPeriodDays>
+          <lifeExpectancy>50</lifeExpectancy>
+          <manhunterOnDamageChance>0.2</manhunterOnDamageChance>
+          <wildBiomes>
+            <TemperateForest>0.76</TemperateForest>
+            <TemperateSwamp>0.52</TemperateSwamp>
+            <BorealForest>0.8</BorealForest>
+            <Tundra>0.6</Tundra>
+          </wildBiomes>	 	
+          <lifeStageAges>
+            <li>
+              <def>AnimalBaby</def>
+              <minAge>0</minAge>
+            </li>
+            <li>
+              <def>AnimalJuvenile</def>
+              <minAge>0.2</minAge>
+            </li>
+            <li>
+              <def>AnimalAdult</def>
+              <minAge>0.3333</minAge>
+              <soundWounded>Pawn_Muffalo_Wounded</soundWounded>
+              <soundDeath>Pawn_Muffalo_Death</soundDeath>
+              <soundCall>Pawn_Muffalo_Call</soundCall>
+              <soundAngry>Pawn_Muffalo_Angry</soundAngry>
+            </li>
+          </lifeStageAges>
+          <soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+          <soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+          <soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+          <headPosPerRotation>
+            <li>(0.0, 0, 0.27)</li>
+            <li>(0.3, 0, 0.015)</li>
+            <li>(0.0, 0, -0.19)</li>
+            <li>(-0.3, 0, 0.015)</li>
+          </headPosPerRotation>
+        </race>
+        <tradeTags>
+          <li>AnimalStoneborn</li>
+          <li>AnimalFarm</li>
+        </tradeTags>
+        <tools>
+          <li>
+            <capacities>
+              <li>Bite</li>
+            </capacities>
+            <power>8.2</power>
+            <cooldownTime>3</cooldownTime>
+            <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+            <chanceFactor>0.7</chanceFactor>
+          </li>
+          <li>
+            <label>horns</label>
+            <capacities>
+              <li>Cut</li>
+              <li>Stab</li>
+            </capacities>
+            <power>9.6</power>
+            <cooldownTime>3.2</cooldownTime>
+            <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+            <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+            <chanceFactor>0.8</chanceFactor>
+            <surpriseAttack>
+              <extraMeleeDamages>
+                <li>
+                  <def>Stun</def>
+                  <amount>14</amount>
+                </li>
+              </extraMeleeDamages>
+            </surpriseAttack>
+          </li>
+          <li>
+            <label>left hoof</label>
+            <capacities>
+              <li>Blunt</li>
+              <li>Poke</li>
+            </capacities>
+            <power>8</power>
+            <cooldownTime>2.4</cooldownTime>
+            <linkedBodyPartsGroup>FrontLeftLeg</linkedBodyPartsGroup>
+          </li>
+          <li>
+            <label>right hoof</label>
+            <capacities>
+              <li>Blunt</li>
+              <li>Poke</li>
+            </capacities>
+            <power>8</power>
+            <cooldownTime>2.4</cooldownTime>
+            <linkedBodyPartsGroup>FrontRightLeg</linkedBodyPartsGroup>
+          </li>
+        </tools>
+      </ThingDef>
+    
+      <PawnKindDef ParentName="AnimalKindBase">
+        <defName>DV_Browbull</defName>
+        <label>browbull</label>
+        <race>DV_Browbull</race>
+        <combatPower>110</combatPower>
+        <ecoSystemWeight>1.1</ecoSystemWeight>
+        <labelMale>browbull</labelMale>
+        <wildGroupSize>3~5</wildGroupSize>
+        <lifeStages>
+          <li>
+            <label>browbull calf</label>
+            <labelPlural>browbull calves</labelPlural>
+            <bodyGraphicData>
+              <texPath>Things/Pawn/Animal/Browbull/BrowbullMale</texPath>
+              <drawSize>1.35</drawSize>
+              <shadowData>
+                <volume>(0.4, 0.3, 0.3)</volume>
+                <offset>(0,0,-0.2)</offset>
+              </shadowData>
+            </bodyGraphicData>
+            <femaleGraphicData>
+              <texPath>Things/Pawn/Animal/Browbull/BrowbullFemale</texPath>
+              <drawSize>1.3</drawSize>
+              <shadowData>
+                <volume>(0.4, 0.3, 0.3)</volume>
+                <offset>(0,0,-0.2)</offset>
+              </shadowData>
+            </femaleGraphicData>
+            <dessicatedBodyGraphicData>
+              <texPath>Things/Pawn/Animal/Browbull/Dessicated_BrowbullMale</texPath>
+              <drawSize>1.35</drawSize>
+            </dessicatedBodyGraphicData>
+            <femaleDessicatedBodyGraphicData>
+              <texPath>Things/Pawn/Animal/Browbull/Dessicated_BrowbullFemale</texPath>
+              <drawSize>1.3</drawSize>
+            </femaleDessicatedBodyGraphicData>
+          </li>
+          <li>
+            <bodyGraphicData>
+              <texPath>Things/Pawn/Animal/Browbull/BrowbullMale</texPath>
+              <drawSize>2.2</drawSize>
+              <shadowData>
+                <volume>(0.6, 0.45, 0.45)</volume>
+                <offset>(0,0,-0.25)</offset>
+              </shadowData>
+            </bodyGraphicData>
+            <femaleGraphicData>
+              <texPath>Things/Pawn/Animal/Browbull/BrowbullFemale</texPath>
+              <drawSize>2.15</drawSize>
+              <shadowData>
+                <volume>(0.6, 0.45, 0.45)</volume>
+                <offset>(0,0,-0.25)</offset>
+              </shadowData>
+            </femaleGraphicData>
+            <dessicatedBodyGraphicData>
+              <texPath>Things/Pawn/Animal/Browbull/Dessicated_BrowbullMale</texPath>
+              <drawSize>2.2</drawSize>
+            </dessicatedBodyGraphicData>
+            <femaleDessicatedBodyGraphicData>
+              <texPath>Things/Pawn/Animal/Browbull/Dessicated_BrowbullFemale</texPath>
+              <drawSize>2.15</drawSize>
+            </femaleDessicatedBodyGraphicData>
+          </li>
+          <li>
+            <bodyGraphicData>
+              <texPath>Things/Pawn/Animal/Browbull/BrowbullMale</texPath>
+              <drawSize>2.8</drawSize>
+              <shadowData>
+                <volume>(0.8, 0.6, 0.6)</volume>
+                <offset>(0,0,-0.3)</offset>
+              </shadowData>
+            </bodyGraphicData>
+            <femaleGraphicData>
+              <texPath>Things/Pawn/Animal/Browbull/BrowbullFemale</texPath>
+              <drawSize>2.7</drawSize>
+              <shadowData>
+                <volume>(0.8, 0.6, 0.6)</volume>
+                <offset>(0,0,-0.3)</offset>
+              </shadowData>
+            </femaleGraphicData>
+            <dessicatedBodyGraphicData>
+              <texPath>Things/Pawn/Animal/Browbull/Dessicated_BrowbullMale</texPath>
+              <drawSize>2.8</drawSize>
+            </dessicatedBodyGraphicData>
+            <femaleDessicatedBodyGraphicData>
+              <texPath>Things/Pawn/Animal/Browbull/Dessicated_BrowbullFemale</texPath>
+              <drawSize>2.7</drawSize>
+            </femaleDessicatedBodyGraphicData>
+          </li>
+        </lifeStages>
+      </PawnKindDef>
+
+</Defs>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+<ThingDef ParentName="LeatherBase">
+    <defName>DV_Leather_Rockhide</defName>
+    <label>rock hide</label>
+    <description>Incredibly thick, stiff and heavy hide. Hard to sew and shape but has powerful protective properties.</description>
+    <graphicData>
+      <color>(102,71,60)</color>
+    </graphicData>
+    <statBases>
+      <MarketValue>7</MarketValue>
+      <StuffPower_Armor_Sharp>1.80</StuffPower_Armor_Sharp>
+      <StuffPower_Insulation_Cold>42</StuffPower_Insulation_Cold>
+      <StuffPower_Insulation_Heat>12</StuffPower_Insulation_Heat>
+    </statBases>
+    <stuffProps>
+      <color>(102,71,60)</color>
+      <commonality>0.012</commonality>
+      <statFactors>
+        <MaxHitPoints>1.8</MaxHitPoints>
+        <Beauty>1.2</Beauty>
+      </statFactors>
+    </stuffProps>
+  </ThingDef>
+
+</Defs>

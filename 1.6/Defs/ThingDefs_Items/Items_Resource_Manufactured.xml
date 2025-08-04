@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+<ThingDef ParentName="ResourceBase">
+    <defName>DV_ReinforcedDrillBit</defName>
+    <label>reinforced drill bit</label>
+    <description>A heavy-duty drilling head used by large machines for mining. It is specially equipped with poly-crystalline diamond teeth which allow it to dig and break rock with ease but make it impossible to manufacture at a small scale.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/ReinforcedDrillBit</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <stackLimit>25</stackLimit>
+    <statBases>
+      <MaxHitPoints>120</MaxHitPoints>
+      <MarketValue>350</MarketValue>
+      <Mass>10</Mass>
+      <Flammability>0.1</Flammability>
+      <DeteriorationRate>1.0</DeteriorationRate>
+    </statBases>
+    <intricate>true</intricate>
+    <thingCategories>
+      <li>ItemsMisc</li>
+    </thingCategories>
+    <thingSetMakerTags>
+      <li>RewardStandardCore</li>
+    </thingSetMakerTags>
+  </ThingDef>
+
+    <!--=============== Oleicine ====================-->
+
+<!--
+  
+    <ThingDef ParentName="ResourceBase">
+      <defName>DV_Oleicine</defName>
+      <label>oleicine</label>
+      <description>A volatile liquid chemical. Used to fuel engines and rockets, or to transmute into propellant for projectiles, or as an incendiary weapon.</description>
+      <possessionCount>25</possessionCount>
+      <tickerType>Normal</tickerType>
+      <graphicData>
+        <texPath>Things/Item/Resource/Oleicine</texPath>
+        <graphicClass>Graphic_StackCount</graphicClass>
+        <drawSize>1</drawSize>
+      </graphicData>
+      <stackLimit>150</stackLimit>
+      <healthAffectsPrice>false</healthAffectsPrice>
+      <intricate>true</intricate>
+      <statBases>
+        <MaxHitPoints>75</MaxHitPoints>
+        <MarketValue>3</MarketValue>
+        <Mass>0.1</Mass>
+        <Flammability>2.5</Flammability>
+        <DeteriorationRate>0.8</DeteriorationRate>
+      </statBases>
+      <thingCategories>
+        <li>Manufactured</li>
+      </thingCategories>
+      <comps>
+        <li Class="CompProperties_Explosive">
+          <explosiveDamageType>ToxGas</explosiveDamageType>
+          <explosiveRadius>1.1</explosiveRadius>
+          <explosiveExpandPerStackcount>0.037</explosiveExpandPerStackcount>
+          <postExplosionGasType>ToxGas</postExplosionGasType>
+          <wickTicks>70~150</wickTicks>
+          <startWickOnDamageTaken>
+            <li>Flame</li>
+          </startWickOnDamageTaken>
+        </li>
+      </comps>
+      <allowedArchonexusCount>100</allowedArchonexusCount>
+    </ThingDef>
+
+-->
+
+</Defs>
