@@ -18,7 +18,7 @@
           <ArmorRating_Blunt>0.32</ArmorRating_Blunt>
           <ArmorRating_Heat>0.22</ArmorRating_Heat>
           <FilthRate>20</FilthRate>
-          <wildness>0.35</wildness>
+          <Wildness>0.35</Wildness>
         </statBases>
         <uiIconScale>1.15</uiIconScale>
         <comps>

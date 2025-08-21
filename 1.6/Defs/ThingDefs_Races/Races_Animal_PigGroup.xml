@@ -11,7 +11,7 @@
           <MarketValue>180</MarketValue>
           <ComfyTemperatureMin>-25</ComfyTemperatureMin>
           <FilthRate>4</FilthRate>
-          <wildness>0.4</wildness>
+          <Wildness>0.4</Wildness>
         </statBases>
         <uiIconScale>2.25</uiIconScale>
         <comps>

@@ -12,7 +12,7 @@
       <LeatherAmount>0</LeatherAmount>
       <ArmorRating_Blunt>0.20</ArmorRating_Blunt>
       <ArmorRating_Sharp>0.22</ArmorRating_Sharp>
-      <wildness>0.2</wildness>
+      <Wildness>0.2</Wildness>
     </statBases>
     <uiIconScale>1.15</uiIconScale>
     <tools>
