@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <SitePartDef>
+    <defName>LTS_StonebornRuinSite</defName>
+    <label>stoneborn ruins</label>
+    <description>A ruined site.</description>
+    <siteTexture>World/WorldObjects/Sites/GenericSite</siteTexture>
+    <expandingIconTexture>World/StonebornRuin</expandingIconTexture>
+    <handlesWorldObjectTimeoutInspectString>true</handlesWorldObjectTimeoutInspectString>
+	<gravShipsCanLandOn>true</gravShipsCanLandOn>
+    <tags>
+      <li>LTS_StonebornRuinSite</li>
+    </tags>
+  </SitePartDef>
+  
+   <GenStepDef>
+    <defName>LTS_StonebornRuinSite</defName>
+    <linkWithSite>LTS_StonebornRuinSite</linkWithSite>
+    <order>460</order>
+    <genStep Class="KCSG.GenStep_CustomStructureGen">
+      <structureLayoutDefs>
+        <li>LTS_StonebornRuinTest</li>
+      </structureLayoutDefs>
+      
+      <fullClear>false</fullClear> <!-- Clear any impassable in the way -->
+      <clearFogInRect>false</clearFogInRect> <!-- Clear fog on the structure -->
+      <preventBridgeable>true</preventBridgeable> <!-- Prevent lake/river/marsh (bridgeable) -->
+    </genStep>
+  </GenStepDef>
+  
+  <!--Structure Layout Defs-->
+  
+  <KCSG.StructureLayoutDef>
+  <defName>LTS_StonebornRuinTest</defName>
+  <spawnConduits>false</spawnConduits>
+  <layouts>
+    <li>
+      <li>.,.,.,.,.,.,Granite,.,.,Granite,Granite,.,.,.,.,.,.</li>
+      <li>.,.,.,.,Granite,Granite,Wall_BlocksGranite,OrnateDoor_WoodLog_North,.,Wall_BlocksGranite,Granite,Granite,.,.,.,.,.</li>
+      <li>.,.,.,Granite,Granite,Wall_BlocksGranite,Wall_BlocksGranite,.,.,Wall_BlocksGranite,Wall_BlocksGranite,Granite,Granite,.,.,.,.</li>
+      <li>.,.,Granite,Granite,Granite,Wall_BlocksGranite,Brazier_Steel,Filth_RubbleRock,.,Brazier_Steel,Wall_BlocksGranite,Granite,Granite,.,.,.,.</li>
+      <li>.,.,Granite,Granite,Granite,Wall_BlocksGranite,Wall_BlocksGranite,.,Filth_RubbleRock,Wall_BlocksGranite,Wall_BlocksGranite,Granite,Granite,Granite,Granite,.,.</li>
+      <li>.,Granite,Granite,Wall_BlocksGranite,Wall_BlocksGranite,Wall_BlocksGranite,Wall_BlocksGranite,Filth_Slime,Filth_RubbleRock,Wall_BlocksGranite,Wall_BlocksGranite,Wall_BlocksGranite,Wall_BlocksGranite,Granite,Granite,Granite,.</li>
+      <li>.,Granite,Granite,Wall_BlocksGranite,DV_TremorbrewBarrel,FermentingBarrel_East,.,.,Filth_RubbleRock,.,Filth_RubbleRock,Brazier_Steel,Wall_BlocksGranite,Granite,Granite,Granite,.</li>
+      <li>.,Granite,Wall_BlocksGranite,Wall_BlocksGranite,Filth_Slime,DV_FallenPillar_BlocksGranite,.,Filth_RubbleRock,Filth_RubbleRock,Filth_RubbleRock,DV_FallenPillar_BlocksGranite,.,Wall_BlocksGranite,Wall_BlocksGranite,Granite,Granite,Granite</li>
+      <li>Granite,Granite,Wall_BlocksGranite,Table1x2c_BlocksGranite_Dwarven_North,.,Filth_RubbleRock,Filth_RubbleRock,.,.,.,.,.,DV_HermeticCanister_North,Wall_BlocksGranite,Granite,Granite,Granite</li>
+      <li>Granite,Granite,Wall_BlocksGranite,.,Filth_Slime,.,.,Filth_Slime,.,.,.,.,DoubleBed_BlocksGranite_Dwarven_West,Wall_BlocksGranite,Granite,Granite,Granite</li>
+      <li>Granite,Granite,Wall_BlocksGranite,DV_HermeticCanister_North,Filth_ScatteredDocuments,Filth_RubbleRock,Filth_Slime,.,.,Hive_Insect,Filth_Slime,.,.,Wall_BlocksGranite,Granite,Granite,.</li>
+      <li>Granite,Granite,Wall_BlocksGranite,Wall_BlocksGranite,.,DV_FallenPillar_BlocksGranite,Filth_ScatteredDocuments,.,Filth_ScatteredDocuments,Filth_ScatteredDocuments,DV_FallenPillar_BlocksGranite,.,Wall_BlocksGranite,Wall_BlocksGranite,Granite,Granite,.</li>
+      <li>Granite,Granite,Granite,Wall_BlocksGranite,Brazier_Steel,.,DV_Scrollshelf_BlocksGranite,.,DV_Scrollshelf_BlocksGranite,.,.,Brazier_Steel,Wall_BlocksGranite,Granite,Granite,Granite,.</li>
+      <li>.,.,Granite,Wall_BlocksGranite,Wall_BlocksGranite,Wall_BlocksGranite,.,.,.,.,Wall_BlocksGranite,Wall_BlocksGranite,Wall_BlocksGranite,Granite,Granite,Granite,.</li>
+      <li>.,.,Granite,Granite,Granite,Wall_BlocksGranite,Wall_BlocksGranite,Wall_BlocksGranite,Vent_North,Wall_BlocksGranite,Wall_BlocksGranite,Granite,Granite,Granite,Granite,.,.</li>
+      <li>.,.,.,Granite,Granite,Granite,Granite,Granite,DV_HermeticCanister_North,Granite,Granite,Granite,Granite,Granite,.,.,.</li>
+      <li>.,.,.,.,.,.,Granite,Granite,Granite,Granite,Granite,Granite,.,.,.,.,.</li>
+      <li>.,.,.,.,.,.,.,Granite,Granite,Granite,Granite,.,.,.,.,.,.</li>
+    </li>
+    <li>
+      <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,.,.,.,.,.,.,.,Filth_Slime,.,.,.,.,.,.,.,.</li>
+      <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,.,.,.,.,.,.,Filth_Slime,.,Filth_Slime,.,.,.,.,.,.,.</li>
+      <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,.,.,.,Stool_BlocksGranite_Dwarven_East,.,.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,.,.,.,.,Filth_Slime,.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+    </li>
+  </layouts>
+  <roofGrid>
+    <li>.,.,.,.,.,.,2,2,2,2,2,.,.,.,.,.,.</li>
+    <li>.,.,.,.,2,2,2,2,2,2,2,2,.,.,.,.,.</li>
+    <li>.,.,.,2,2,2,2,2,2,2,2,2,2,.,.,.,.</li>
+    <li>.,.,2,2,2,2,2,2,2,2,2,2,2,.,.,.,.</li>
+    <li>.,.,2,2,2,2,2,2,2,2,2,2,2,2,2,.,.</li>
+    <li>.,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,.</li>
+    <li>.,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,.</li>
+    <li>.,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2</li>
+    <li>2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2</li>
+    <li>2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2</li>
+    <li>2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,.</li>
+    <li>2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,.</li>
+    <li>2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,.</li>
+    <li>.,.,2,2,2,2,2,2,2,2,2,2,2,2,2,2,.</li>
+    <li>.,.,2,2,2,2,2,2,2,2,2,2,2,2,2,.,.</li>
+    <li>.,.,.,2,2,2,2,2,2,2,2,2,2,2,.,.,.</li>
+    <li>.,.,.,.,.,.,2,2,2,2,2,2,.,.,.,.,.</li>
+    <li>.,.,.,.,.,.,.,.,2,2,2,.,.,.,.,.,.</li>
+  </roofGrid>
+  <terrainGrid>
+    <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+    <li>.,.,.,.,.,.,.,FlagstoneLimestone,FlagstoneLimestone,.,.,.,.,.,.,.,.</li>
+    <li>.,.,.,.,.,Granite_RoughHewn,.,FlagstoneLimestone,FlagstoneLimestone,.,Granite_RoughHewn,.,.,.,.,.,.</li>
+    <li>.,.,.,.,.,Granite_RoughHewn,DwarfTileGranite,FlagstoneLimestone,FlagstoneLimestone,DwarfTileGranite,Granite_RoughHewn,.,.,.,.,.,.</li>
+    <li>.,.,.,.,.,Granite_RoughHewn,.,FlagstoneLimestone,FlagstoneLimestone,.,Granite_RoughHewn,.,.,.,.,.,.</li>
+    <li>.,.,.,Granite_RoughHewn,.,.,.,FlagstoneLimestone,FlagstoneLimestone,.,.,.,.,.,.,.,.</li>
+    <li>.,.,.,Granite_RoughHewn,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,FlagstoneLimestone,FlagstoneLimestone,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,.,.,.,.,.</li>
+    <li>.,.,Granite_RoughHewn,.,DwarfTileGranite,FlagstoneLimestone,FlagstoneLimestone,FlagstoneLimestone,FlagstoneLimestone,FlagstoneLimestone,FlagstoneLimestone,DwarfTileGranite,.,.,.,.,.</li>
+    <li>.,.,Granite_RoughHewn,DwarfTileGranite,DwarfTileGranite,FlagstoneLimestone,FlagstoneLimestone,FlagstoneLimestone,FlagstoneLimestone,FlagstoneLimestone,FlagstoneLimestone,DwarfTileGranite,DwarfTileGranite,.,.,.,.</li>
+    <li>.,.,Granite_RoughHewn,DwarfTileGranite,DwarfTileGranite,FlagstoneLimestone,FlagstoneLimestone,FlagstoneLimestone,FlagstoneLimestone,FlagstoneLimestone,FlagstoneLimestone,DwarfTileGranite,DwarfTileGranite,.,.,.,.</li>
+    <li>.,.,Granite_RoughHewn,DwarfTileGranite,DwarfTileGranite,FlagstoneLimestone,FlagstoneLimestone,FlagstoneLimestone,FlagstoneLimestone,FlagstoneLimestone,FlagstoneLimestone,DwarfTileGranite,DwarfTileGranite,.,.,.,.</li>
+    <li>.,.,Granite_RoughHewn,.,DwarfTileGranite,FlagstoneLimestone,FlagstoneLimestone,FlagstoneLimestone,FlagstoneLimestone,FlagstoneLimestone,FlagstoneLimestone,DwarfTileGranite,.,.,.,.,.</li>
+    <li>.,.,.,Granite_RoughHewn,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,.,.,.,.,.</li>
+    <li>.,.,.,Granite_RoughHewn,.,.,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,.,.,.,.,.,.,.</li>
+    <li>.,.,.,.,.,Granite_RoughHewn,.,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,.,.,.,.,.,.,.</li>
+    <li>.,.,.,.,.,.,.,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,.,.,.,.,.,.,.</li>
+    <li>.,.,.,.,.,.,.,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,.,.,.,.,.,.,.</li>
+    <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+  </terrainGrid>
+  <forceGenerateRoof>true</forceGenerateRoof>
+  <modRequirements>
+    <li>ludeon.rimworld.royalty</li>
+    <li>det.stonebornfaction</li>
+  </modRequirements>
+</KCSG.StructureLayoutDef>
+
+<!--Symbols-->
+
+<KCSG.SymbolDef>
+  <defName>Hive_Insect</defName>
+  <thing>Hive</thing>
+  <spawnPartOfFaction>false</spawnPartOfFaction><!--default map faction, I.E. ancients-->
+  <faction>Insect</faction>
+</KCSG.SymbolDef>
+
+
+<KCSG.SymbolDef>
+  <defName>DV_FallenPillar_BlocksGranite</defName>
+  <thing>DV_FallenPillar</thing>
+  <stuff>BlocksGranite</stuff>
+</KCSG.SymbolDef>
+
+<KCSG.SymbolDef>
+  <defName>Table1x2c_BlocksGranite_Dwarven</defName>
+  <thing>Table1x2c</thing>
+  <stuff>BlocksGranite</stuff>
+  <styleCategory>DV_Dwarven</styleCategory>
+</KCSG.SymbolDef>
+
+<KCSG.SymbolDef>
+  <defName>DoubleBed_BlocksGranite_Dwarven</defName>
+  <thing>DoubleBed</thing>
+  <stuff>BlocksGranite</stuff>
+  <styleCategory>DV_Dwarven</styleCategory>
+  <rotation>West</rotation>
+</KCSG.SymbolDef>
+
+<KCSG.SymbolDef>
+  <defName>Stool_BlocksGranite_Dwarven</defName>
+  <thing>Stool</thing>
+  <stuff>BlocksGranite</stuff>
+  <styleCategory>DV_Dwarven</styleCategory>
+  <rotation>East</rotation>
+</KCSG.SymbolDef>
+
+<KCSG.SymbolDef>
+  <defName>DV_Scrollshelf_BlocksGranite</defName>
+  <thing>DV_Scrollshelf</thing>
+  <stuff>BlocksGranite</stuff>
+</KCSG.SymbolDef>
+
+</Defs>
