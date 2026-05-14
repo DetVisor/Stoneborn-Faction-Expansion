@@ -137,8 +137,8 @@
                 <range>22.9</range>
                 <burstShotCount>5</burstShotCount>
                 <ticksBetweenBurstShots>23</ticksBetweenBurstShots>
-                <soundCast>Bow_Large</soundCast>
-                <soundCastTail>GunTail_Heavy</soundCastTail>
+                <soundCast>Shot_Blazenail</soundCast>
+                <soundCastTail>GunTail_Medium</soundCastTail>
                 <muzzleFlashScale>0</muzzleFlashScale>
             </li>
         </verbs>
@@ -233,8 +233,8 @@
                 <range>16.9</range>
                 <burstShotCount>4</burstShotCount>
                 <ticksBetweenBurstShots>18</ticksBetweenBurstShots>
-                <soundCast>Bow_Large</soundCast>
-                <soundCastTail>GunTail_Heavy</soundCastTail>
+                <soundCast>Shot_Blazenail</soundCast>
+                <soundCastTail>GunTail_Medium</soundCastTail>
                 <muzzleFlashScale>0</muzzleFlashScale>
             </li>
         </verbs>

@@ -8,8 +8,9 @@
     <baseCost>1200</baseCost>
     <tab>StonebornTab</tab>
     <techLevel>Spacer</techLevel>
-    <researchViewX>0.00</researchViewX>
-    <researchViewY>1.55</researchViewY>
+    <researchViewX>2.50</researchViewX>
+    <researchViewY>3.50</researchViewY>
+
     <prerequisites>
       <li>ReconArmor</li>
     </prerequisites>
@@ -26,7 +27,7 @@
       </rulesStrings>
     </generalRules>
     <requiredAnalyzed>
-        <li>DV_BlueTechscroll</li>
+      <li>DV_BlueTechscroll</li>
     </requiredAnalyzed>
     <heldByFactionCategoryTags Inherit="False" />
   </ResearchProjectDef>
@@ -38,8 +39,8 @@
     <baseCost>2000</baseCost>
     <tab>StonebornTab</tab>
     <techLevel>Spacer</techLevel>
-    <researchViewX>1.00</researchViewX>
-    <researchViewY>1.50</researchViewY>
+    <researchViewX>3.50</researchViewX>
+    <researchViewY>3.40</researchViewY>
     <prerequisites>
       <li>DV_Research_LightDwarvenArmor</li>
       <li>PoweredArmor</li>
@@ -57,7 +58,7 @@
       </rulesStrings>
     </generalRules>
     <requiredAnalyzed>
-        <li>DV_BlueTechscroll</li>
+      <li>DV_BlueTechscroll</li>
     </requiredAnalyzed>
     <heldByFactionCategoryTags Inherit="False" />
   </ResearchProjectDef>
@@ -69,8 +70,8 @@
     <baseCost>1500</baseCost>
     <tab>StonebornTab</tab>
     <techLevel>Spacer</techLevel>
-    <researchViewX>1.00</researchViewX>
-    <researchViewY>0.85</researchViewY>  
+    <researchViewX>3.50</researchViewX>
+    <researchViewY>2.60</researchViewY>
     <prerequisites>
       <li>DV_Research_LightDwarvenArmor</li>
       <li>PoweredArmor</li>
@@ -88,7 +89,7 @@
       </rulesStrings>
     </generalRules>
     <requiredAnalyzed>
-        <li>DV_BlueTechscroll</li>
+      <li>DV_BlueTechscroll</li>
     </requiredAnalyzed>
     <heldByFactionCategoryTags Inherit="False" />
   </ResearchProjectDef>
@@ -102,8 +103,8 @@
     <baseCost>1500</baseCost>
     <tab>StonebornTab</tab>
     <techLevel>Spacer</techLevel>
-    <researchViewX>2.00</researchViewX>
-    <researchViewY>0.95</researchViewY>
+    <researchViewX>4.50</researchViewX>
+    <researchViewY>4.30</researchViewY>
     <prerequisites>
       <li>Smithing</li>
     </prerequisites>
@@ -120,7 +121,7 @@
       </rulesStrings>
     </generalRules>
     <requiredAnalyzed>
-        <li>DV_RedTechscroll</li>
+      <li>DV_RedTechscroll</li>
     </requiredAnalyzed>
     <heldByFactionCategoryTags Inherit="False" />
   </ResearchProjectDef>
@@ -132,8 +133,8 @@
     <baseCost>1800</baseCost>
     <tab>StonebornTab</tab>
     <techLevel>Spacer</techLevel>
-    <researchViewX>2.00</researchViewX>
-    <researchViewY>1.50</researchViewY>
+    <researchViewX>4.50</researchViewX>
+    <researchViewY>2.60</researchViewY>
     <prerequisites>
       <li>GasOperation</li>
     </prerequisites>
@@ -150,7 +151,7 @@
       </rulesStrings>
     </generalRules>
     <requiredAnalyzed>
-        <li>DV_RedTechscroll</li>
+      <li>DV_RedTechscroll</li>
     </requiredAnalyzed>
     <heldByFactionCategoryTags Inherit="False" />
   </ResearchProjectDef>
@@ -162,8 +163,8 @@
     <baseCost>1800</baseCost>
     <tab>StonebornTab</tab>
     <techLevel>Spacer</techLevel>
-    <researchViewX>2.00</researchViewX>
-    <researchViewY>2.05</researchViewY>
+    <researchViewX>4.50</researchViewX>
+    <researchViewY>3.50</researchViewY>
     <prerequisites>
       <li>GasOperation</li>
     </prerequisites>
@@ -180,7 +181,7 @@
       </rulesStrings>
     </generalRules>
     <requiredAnalyzed>
-        <li>DV_RedTechscroll</li>
+      <li>DV_RedTechscroll</li>
     </requiredAnalyzed>
     <heldByFactionCategoryTags Inherit="False" />
   </ResearchProjectDef>
@@ -192,8 +193,8 @@
     <baseCost>1300</baseCost>
     <tab>StonebornTab</tab>
     <techLevel>Spacer</techLevel>
-    <researchViewX>1.00</researchViewX>
-    <researchViewY>0.10</researchViewY>
+    <researchViewX>3.50</researchViewX>
+    <researchViewY>5.10</researchViewY>
     <prerequisites>
       <li>Prosthetics</li>
     </prerequisites>
@@ -213,12 +214,12 @@
       </rulesStrings>
     </generalRules>
     <requiredAnalyzed>
-        <li>DV_GreenTechscroll</li>
+      <li>DV_GreenTechscroll</li>
     </requiredAnalyzed>
     <heldByFactionCategoryTags Inherit="False" />
   </ResearchProjectDef>
 
-  
+
   <ResearchProjectDef>
     <defName>DV_Research_BattleEquipment</defName>
     <label>battle equipment</label>
@@ -226,13 +227,13 @@
     <baseCost>2200</baseCost>
     <tab>StonebornTab</tab>
     <techLevel>Spacer</techLevel>
-    <researchViewX>3.00</researchViewX>
-    <researchViewY>0.10</researchViewY>
+    <researchViewX>2.50</researchViewX>
+    <researchViewY>4.30</researchViewY>
     <prerequisites>
       <li>Machining</li>
     </prerequisites>
     <requiredAnalyzed>
-        <li>DV_YellowTechscroll</li>
+      <li>DV_YellowTechscroll</li>
     </requiredAnalyzed>
     <heldByFactionCategoryTags Inherit="False" />
   </ResearchProjectDef>
@@ -244,8 +245,8 @@
     <baseCost>1800</baseCost>
     <tab>StonebornTab</tab>
     <techLevel>Spacer</techLevel>
-    <researchViewX>2.00</researchViewX>
-    <researchViewY>0.10</researchViewY>
+    <researchViewX>3.50</researchViewX>
+    <researchViewY>4.30</researchViewY>
     <prerequisites>
       <li>Prosthetics</li>
     </prerequisites>
@@ -266,7 +267,7 @@
       </rulesStrings>
     </generalRules>
     <requiredAnalyzed>
-        <li>DV_GreenTechscroll</li>
+      <li>DV_GreenTechscroll</li>
     </requiredAnalyzed>
     <heldByFactionCategoryTags Inherit="False" />
   </ResearchProjectDef>

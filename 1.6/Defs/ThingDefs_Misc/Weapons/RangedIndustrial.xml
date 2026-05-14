@@ -49,6 +49,8 @@
         </verbs>
     </ThingDef>
 
+    <!--
+
     <ThingDef ParentName="BaseGun">
         <defName>DV_Gun_RocketLauncher</defName>
         <label>rocket launcher</label>
@@ -146,5 +148,6 @@
             </li>
         </comps>
     </ThingDef>
+    -->
 
 </Defs>

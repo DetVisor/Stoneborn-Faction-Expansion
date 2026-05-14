@@ -24,7 +24,7 @@
             <li>place_job->brewer</li>
             <li>place_job->blacksmith</li>
             <li>place_job->exterminator</li>
-            <li>place_personalWeapon->greaahammer</li>
+            <li>place_personalWeapon->greathammer</li>
             <li>place_personalWeapon->hydraulic crossbow</li>
             <li>place_massWeapon->[seismicDevice]</li>
             <li>place_massWeapon->a blackpowder bomb</li>

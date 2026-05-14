@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+
+	<ThingDef ParentName="BuildingBase">
+		<defName>DV_HallPillar</defName>
+		<label>hall pillar</label>
+		<description>A large, dwarven pillar capable of holding a roof. Does not block sight or movement and looks quite nice.</description>
+		<designationCategory>Structure</designationCategory>
+		<canGenerateDefaultDesignator>false</canGenerateDefaultDesignator>
+		<altitudeLayer>Building</altitudeLayer>
+		<uiOrder>2040</uiOrder>
+		<blockLight>false</blockLight>
+		<passability>PassThroughOnly</passability>
+		<castEdgeShadows>false</castEdgeShadows>
+		<fillPercent>0.75</fillPercent>
+		<pathCost>0</pathCost>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>1550</WorkToBuild>
+			<Mass>30</Mass>
+			<Flammability>1.0</Flammability>
+			<Beauty>5</Beauty>
+			<StyleDominance MayRequire="Ludeon.RimWorld.Ideology">10</StyleDominance>
+		</statBases>
+		<stuffCategories>
+			<li>Metallic</li>
+			<li>Woody</li>
+			<li>Stony</li>
+		</stuffCategories>
+		<costStuffCount>100</costStuffCount>
+		<holdsRoof>true</holdsRoof>
+		<canOverlapZones>false</canOverlapZones>
+		<rotatable>false</rotatable>
+		<fertility>0</fertility>
+		<specialDisplayRadius>6.9</specialDisplayRadius>		<!-- must be kept in sync with roof hold-up radius -->
+		<building>
+			<isInert>true</isInert>
+			<ai_chillDestination>false</ai_chillDestination>
+			<paintable>true</paintable>
+		</building>
+		<size>(1,1)</size>
+		<uiIconScale>0.5</uiIconScale>
+		<graphicData>
+			<drawSize>(3,3)</drawSize>
+			<drawOffset>(0,0,1)</drawOffset>
+			<texPath>Things/Building/Furniture/HallPillar</texPath>
+			<graphicClass>Graphic_Appearances</graphicClass>
+			<shadowData>
+				<volume>(1, 1, 1)</volume>
+				<offset>(0,0,-0.23)</offset>
+			</shadowData>
+			<damageData>
+				<rect>(0.2,0.2,0.6,0.6)</rect>
+			</damageData>
+		</graphicData>
+	</ThingDef>
+
+</Defs>
