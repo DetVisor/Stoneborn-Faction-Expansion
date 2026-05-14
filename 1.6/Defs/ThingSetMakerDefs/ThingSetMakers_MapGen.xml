@@ -28,7 +28,7 @@
             <fixedParams>
               <filter>
                 <thingDefs>
-                  <li>DV_Orichalcum</li>
+                  <li>DV_Mithrium</li>
                 </thingDefs>
               </filter>
               <countRange>40~75</countRange>

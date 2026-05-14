@@ -2,6 +2,21 @@
 <Defs>
 
     <ThingDef ParentName="BaseBullet">
+        <defName>DV_Bullet_MagmaBolt</defName>
+        <label>magma bolt</label>
+        <graphicData>
+            <texPath>Things/Projectiles/Bullet_MagmaBolt</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile>
+            <damageDef>DV_NailHot</damageDef>
+            <damageAmountBase>24</damageAmountBase>
+            <armorPenetrationBase>0.10</armorPenetrationBase>
+            <speed>45</speed>
+        </projectile>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseBullet">
         <defName>DV_Bullet_Snapshot</defName>
         <label>snapshot ball</label>
         <graphicData>
@@ -15,6 +30,7 @@
             <speed>60</speed>
         </projectile>
     </ThingDef>
+
     <ThingDef ParentName="BaseGunWithQuality">
         <defName>DV_Gun_Snapshot</defName>
         <label>snapshot</label>
@@ -23,6 +39,7 @@
         <graphicData>
             <texPath>Things/Item/Equipment/WeaponRanged/Snapshot</texPath>
             <graphicClass>Graphic_Single</graphicClass>
+            <onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
         </graphicData>
         <uiIconScale>1.4</uiIconScale>
         <soundInteract>Interact_Revolver</soundInteract>
@@ -40,7 +57,7 @@
         </statBases>
         <weaponTags>
             <li>DwarfRangedRoyal</li>
-            <li>Snapshot</li>
+            <li>Magmablaster</li>
         </weaponTags>
         <weaponClasses>
             <li>RangedLight</li>
@@ -84,6 +101,77 @@
                 </capacities>
                 <power>11</power>
                 <cooldownTime>2</cooldownTime>
+            </li>
+        </tools>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseGunWithQuality">
+        <techLevel>Spacer</techLevel>
+        <defName>DV_Magmablaster</defName>
+        <label>magmablaster</label>
+        <description>A rugged blaster built to deliver powerful blasts of superhot plasma. Its original design comes from modified welding torches that the early stoneborn used to drive off insectoid raids, using makeshift capacitors and roughshod electromagnetic coils. Nowadays, it has been refined into military-grade hardware that can melt metal for welds and carapaces for combat.</description>
+        <graphicData>
+            <drawSize>1.04</drawSize>
+            <texPath>Things/Item/Equipment/WeaponRanged/Magmablaster</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
+        </graphicData>
+        <soundInteract>Interact_Rifle</soundInteract>
+        <weaponTags>
+            <li>DwarfRangedRoyal</li>
+            <li>Snapshot</li>
+        </weaponTags>
+        <weaponClasses>
+            <li>RangedLight</li>
+        </weaponClasses>
+        <tradeTags>
+            <li>DwarfWeaponAncient</li>
+        </tradeTags>
+        <thingSetMakerTags>
+            <li>RewardStandardMidFreq</li>
+        </thingSetMakerTags>
+        <statBases>
+            <MarketValue>1800</MarketValue>
+            <DeteriorationRate>0</DeteriorationRate>
+            <Mass>3.3</Mass>
+            <AccuracyTouch>0.92</AccuracyTouch>
+            <AccuracyShort>0.72</AccuracyShort>
+            <AccuracyMedium>0.55</AccuracyMedium>
+            <AccuracyLong>0.40</AccuracyLong>
+            <RangedWeapon_Cooldown>2.5</RangedWeapon_Cooldown>
+        </statBases>
+        <costList>
+            <Steel>105</Steel>
+            <ComponentSpacer>8</ComponentSpacer>
+        </costList>
+        <verbs>
+            <li>
+                <verbClass>Verb_Shoot</verbClass>
+                <hasStandardCommand>true</hasStandardCommand>
+                <defaultProjectile>DV_Bullet_MagmaBolt</defaultProjectile>
+                <warmupTime>1.4</warmupTime>
+                <range>22</range>
+                <soundCast>Plasma_Pew</soundCast>
+                <soundCastTail>GunTail_Medium</soundCastTail>
+                <muzzleFlashScale>9</muzzleFlashScale>
+            </li>
+        </verbs>
+        <tools>
+            <li>
+                <label>stock</label>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>9</power>
+                <cooldownTime>2.5</cooldownTime>
+            </li>
+            <li>
+                <label>barrel</label>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>9</power>
+                <cooldownTime>2.5</cooldownTime>
             </li>
         </tools>
     </ThingDef>
@@ -166,6 +254,7 @@
         <recipeMaker IsNull="True" />
         <weaponTags>
             <li>DwarfMeleeRoyal</li>
+            <li>Slicerwing</li>
         </weaponTags>
         <weaponClasses>
             <li>Melee</li>

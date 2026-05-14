@@ -12,7 +12,7 @@
         <countRange>1000~3000</countRange>
       </li>
       <li Class="StockGenerator_SingleDef">
-        <thingDef>DV_Orichalcum</thingDef>
+        <thingDef>DV_Mithrium</thingDef>
         <countRange>1000~3000</countRange>
       </li>
       <li Class="StockGenerator_SingleDef">

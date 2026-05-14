@@ -848,7 +848,7 @@
     <label>feastfather</label>
     <factionLeader>false</factionLeader>
     <weaponTags Inherit="False">
-      <li>Snapshot</li>
+      <li>Magmablaster</li>
     </weaponTags>
     <specificApparelRequirements>
       <li>
@@ -946,7 +946,7 @@
     <label>bladefather</label>
     <factionLeader>false</factionLeader>
     <weaponTags Inherit="False">
-      <li>Battlestaff</li>
+      <li>Slicerwing</li>
     </weaponTags>
     <specificApparelRequirements>
       <li>

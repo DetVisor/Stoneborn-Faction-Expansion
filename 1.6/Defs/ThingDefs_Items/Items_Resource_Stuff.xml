@@ -2,7 +2,7 @@
 <Defs>
 
 <ThingDef ParentName="ResourceBase">
-    <defName>DV_Orichalcum</defName>
+    <defName>DV_Mithrium</defName>
     <label>mithrium</label>
     <description>An ancient and famed stoneborn alloy. Mithrium is an extremely reliable metal, which absorbs blows and strikes with eases, and is easy to forge into mighty weapons.</description>
     <graphicData>

@@ -201,7 +201,7 @@
             <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
         <costList>
-          <DV_Orichalcum>15</DV_Orichalcum>
+          <DV_Mithrium>15</DV_Mithrium>
           <ComponentSpacer>1</ComponentSpacer>
           <Plasteel>15</Plasteel>
         </costList>
@@ -436,7 +436,7 @@
         <costList>
           <ComponentSpacer>3</ComponentSpacer>
           <Plasteel>30</Plasteel>
-          <DV_Orichalcum>30</DV_Orichalcum>
+          <DV_Mithrium>30</DV_Mithrium>
         </costList>
         <apparel Inherit="False">
             <bodyPartGroups>
@@ -543,7 +543,7 @@
           <StuffEffectMultiplierInsulation_Heat>0.25</StuffEffectMultiplierInsulation_Heat>
         </statBases>
         <costList>
-         <DV_Orichalcum>15</DV_Orichalcum>
+         <DV_Mithrium>15</DV_Mithrium>
         </costList>
         <equippedStatOffsets>
           <SocialImpact>0.2</SocialImpact>

@@ -28,6 +28,9 @@
         <defence>800</defence>        <!-- ~ 1 hour for 10 intellect hacker -->
         <effectHacking>HackingTerminal</effectHacking>
       </li>
+      <li Class="CompProperties_Effecter">
+        <effecterDef>DV_HermeticCanisterPulse</effecterDef>
+      </li>
       <li Class="CompProperties_EmptyStateGraphic">
         <graphicData>
           <texPath>Things/Building/Ruins/CanisterEmpty</texPath>
@@ -37,7 +40,7 @@
       </li>
       <li Class="CompProperties_Glower">
         <glowRadius>2</glowRadius>
-        <glowColor>(239,133,50,0)</glowColor>
+        <glowColor>(255,221,74,0)</glowColor>
       </li>
     </comps>
     <tickerType>Normal</tickerType>
