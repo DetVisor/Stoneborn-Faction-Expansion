@@ -169,6 +169,7 @@
   <KCSG.StructureLayoutDef>
     <defName>DV_StonebornRuin_SmallAlpha</defName>
     <spawnConduits>false</spawnConduits>
+    <randomRotation>true</randomRotation>
     <layouts>
       <li>
         <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
@@ -381,6 +382,7 @@
   <KCSG.StructureLayoutDef>
     <defName>DV_StonebornRuin_SmallBeta</defName>
     <spawnConduits>false</spawnConduits>
+    <randomRotation>true</randomRotation>
     <layouts>
       <li>
         <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>

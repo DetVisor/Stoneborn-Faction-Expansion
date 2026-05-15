@@ -46,7 +46,7 @@
                   <li>ComponentSpacer</li>
                 </thingDefs>
               </filter>
-              <countRange>4~8</countRange>
+              <countRange>4~6</countRange>
             </fixedParams>
           </thingSetMaker>
         </li>
@@ -155,7 +155,7 @@
             <fixedParams>
               <filter>
                 <thingDefs>
-                  <li>Steel</li>
+                  <li>Silver</li>
                 </thingDefs>
               </filter>
               <countRange>15~30</countRange>
@@ -194,7 +194,7 @@
 
         <!-- Advanced components -->
         <li>
-          <weight>0.6</weight>
+          <weight>0.3</weight>
           <thingSetMaker Class="ThingSetMaker_StackCount">
             <fixedParams>
               <filter>
@@ -202,14 +202,14 @@
                   <li>ComponentSpacer</li>
                 </thingDefs>
               </filter>
-              <countRange>4~8</countRange>
+              <countRange>1~2</countRange>
             </fixedParams>
           </thingSetMaker>
         </li>
 
         <!-- Ultratech meds -->
         <li>
-          <weight>0.6</weight>
+          <weight>0.2</weight>
           <thingSetMaker Class="ThingSetMaker_StackCount">
             <fixedParams>
               <filter>
@@ -217,14 +217,14 @@
                   <li>MedicineUltratech</li>
                 </thingDefs>
               </filter>
-              <countRange>3~10</countRange>
+              <countRange>1~4</countRange>
             </fixedParams>
           </thingSetMaker>
         </li>
 
         <!-- Misc -->
         <li>
-          <weight>0.3</weight>
+          <weight>0.2</weight>
           <thingSetMaker Class="ThingSetMaker_StackCount">
             <fixedParams>
               <filter>

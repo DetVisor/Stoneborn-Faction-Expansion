@@ -7,6 +7,7 @@
     <description>A self-powered hermetically-sealed crate for preserving valuable items. These can preserve their contents for a long time.</description>
     <size>(1, 1)</size>
     <fillPercent>0.40</fillPercent>
+    <rotatable>false</rotatable>
     <graphicData>
       <texPath>Things/Building/Ruins/Canister</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -49,6 +50,7 @@
     <description>A self-powered hermetically-sealed crate for preserving valuable items. These can preserve their contents for a long time.</description>
     <size>(1, 1)</size>
     <fillPercent>0.40</fillPercent>
+    <rotatable>false</rotatable>
     <graphicData>
       <texPath>Things/Building/Ruins/DwarvenCrate</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -72,10 +74,6 @@
           <graphicClass>Graphic_Single</graphicClass>
           <drawSize>(2, 2)</drawSize>
         </graphicData>
-      </li>
-      <li Class="CompProperties_Glower">
-        <glowRadius>2</glowRadius>
-        <glowColor>(255,221,74,0)</glowColor>
       </li>
     </comps>
     <tickerType>Normal</tickerType>
