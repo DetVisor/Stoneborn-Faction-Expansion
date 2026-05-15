@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Verse;
 using RimWorld;
 using RimWorld.QuestGen;
+using UnityEngine;
 
 namespace LTS_StonebornSiteGeneration
 {
@@ -19,8 +20,6 @@ namespace LTS_StonebornSiteGeneration
             DefOfHelper.EnsureInitializedInCtor(typeof(LTS_SFE_DefOf));
         }
     }
-
-
 
     public class QuestNode_Root_Loot_AncientComplex_Stoneborn : QuestNode_Root_Loot_AncientComplex
     {
@@ -56,5 +55,79 @@ namespace LTS_StonebornSiteGeneration
             }
             base.RunInt();
         }
+    }
+
+    public class CompProperties_GasVent : CompProperties
+    {
+        public CompProperties_GasVent()
+        {
+            this.compClass = typeof(CompGasVent);
+        }
+
+        public GasType gasType;
+        public float cellsToFill;
+        public EffecterDef effecterReleasing;
+    }
+
+    public class CompGasVent : ThingComp
+    {
+        public CompProperties_GasVent Props
+        {
+            get
+            {
+                return (CompProperties_GasVent)this.props;
+            }
+        }
+
+        private int TotalGas
+        {
+            get
+            {
+                //return Mathf.CeilToInt(this.Props.cellsToFill * 255f);
+                return Mathf.CeilToInt(this.Props.cellsToFill);
+            }
+        }
+
+        private float GasReleasedPerTick
+        {
+            get
+            {
+                return (float)this.TotalGas / 60f;
+            }
+        }
+
+        public override void PostDestroy(DestroyMode mode, Map previousMap)
+        {
+            Effecter effecter = this.effecter;
+            if (effecter != null)
+            {
+                effecter.Cleanup();
+            }
+            this.effecter = null;
+        }
+        public override void CompTick()
+        {
+            Log.Message("Tick");
+            base.CompTick();
+            if (this.parent.MapHeld == null)
+            {
+                return;
+            }
+            if (this.Props.effecterReleasing != null)
+            {
+                if (this.effecter == null)
+                {
+                    this.effecter = this.Props.effecterReleasing.Spawn(parent.Position, parent.Map, 1f);
+                }
+                this.effecter.EffectTick(parent, TargetInfo.Invalid);
+            }
+            if (this.parent.IsHashIntervalTick(ReleaseGasInterval))
+            {
+                GasUtility.AddGas(this.parent.PositionHeld, this.parent.MapHeld, this.Props.gasType, this.GasReleasedPerTick);
+            }
+        }
+        [Unsaved(false)]
+        private Effecter effecter;
+        private const int ReleaseGasInterval = 30;
     }
 }
