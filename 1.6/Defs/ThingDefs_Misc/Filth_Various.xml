@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef ParentName="BaseFilth">
+        <defName>DV_Filth_MithriumBits</defName>
+        <label>mithrium bits</label>
+        <statBases>
+            <Beauty>-5</Beauty>
+            <Cleanliness>-5</Cleanliness>
+        </statBases>
+        <graphicData>
+            <texPath>Things/Filth/MithriumFilth</texPath>
+        </graphicData>
+        <filth>
+            <ignoreFilthMultiplierStat>true</ignoreFilthMultiplierStat>
+            <disappearsInDays>45~50</disappearsInDays>
+            <cleaningWorkToReduceThickness>35</cleaningWorkToReduceThickness>
+            <cleaningSound>Interact_CleanFilth_Fluid</cleaningSound>
+        </filth>
+    </ThingDef>
+
+</Defs>

@@ -1,6 +1,93 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+  <ThingDef ParentName="StorageShelfBase">
+    <defName>DV_Dwarven_RuinedShelf</defName>
+    <label>ruined shelf</label>
+    <thingClass>Building</thingClass>
+    <category>Building</category>
+    <description>Road lighting from long ago. No longer functional.</description>
+    <noRightClickDraftAttack>true</noRightClickDraftAttack>
+    <minifiedDef IsNull="True" />
+    <defaultPlacingRot>South</defaultPlacingRot>
+    <graphicData>
+      <texPath>Things/Building/Ruins/Dwarven_RuinedShelf/Dwarven_RuinedShelf</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>(2,3)</drawSize>
+      <color>(107, 100, 90)</color>
+    </graphicData>
+    <thingCategories IsNull="True" />
+    <stuffCategories Inherit="False"/>
+    <costStuffCount>0</costStuffCount>
+    <size>(1,2)</size>
+    <startingHpRange>0.5~1.3</startingHpRange>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <WorkToBuild>400</WorkToBuild>
+    </statBases>
+    <fillPercent>0.25</fillPercent>
+    <passability>PassThroughOnly</passability>
+    <pathCost>42</pathCost>
+    <blockWind>true</blockWind>
+    <filthLeaving>Filth_RubbleBuilding</filthLeaving>
+    <rotatable>true</rotatable>
+    <costList>
+      <DV_Mithrium>5</DV_Mithrium>
+    </costList>
+    <building>
+      <isInert>true</isInert>
+      <ai_chillDestination>false</ai_chillDestination>
+      <canLandGravshipOn>true</canLandGravshipOn>
+    </building>
+  </ThingDef>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>DV_Dwarven_RuinedCounter1x3c</defName>
+    <label>ruined counter (1x2)</label>
+    <thingClass>Building</thingClass>
+    <category>Building</category>
+    <description>Road lighting from long ago. No longer functional.</description>
+    <noRightClickDraftAttack>true</noRightClickDraftAttack>
+    <graphicData>
+      <texPath>Things/Building/Ruins/Dwarven_RuinedTables/Dwarven_RuinedCounter</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(3,5)</drawSize>
+      <color>(107, 100, 90)</color>
+      <shadowData>
+        <volume>(0.76,0.3,0.15)</volume>
+        <offset>(0,0,-0.39)</offset>
+      </shadowData>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+    </graphicData>
+    <size>(1,3)</size>
+    <startingHpRange>0.5~1.3</startingHpRange>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <WorkToBuild>400</WorkToBuild>
+    </statBases>
+    <fillPercent>0.25</fillPercent>
+    <passability>PassThroughOnly</passability>
+    <pathCost>42</pathCost>
+    <blockWind>true</blockWind>
+    <filthLeaving>Filth_RubbleBuilding</filthLeaving>
+    <rotatable>true</rotatable>
+    <costList>
+      <DV_Mithrium>1</DV_Mithrium>
+    </costList>
+    <building>
+      <isInert>true</isInert>
+      <ai_chillDestination>false</ai_chillDestination>
+      <canLandGravshipOn>true</canLandGravshipOn>
+    </building>
+    <designationCategory>Structure</designationCategory>
+  </ThingDef>
+
   <ThingDef ParentName="BuildingBase">
     <defName>DV_Dwarven_RuinedLamp</defName>
     <label>ruined gloomlamp</label>
@@ -63,7 +150,7 @@
     <filthLeaving>Filth_RubbleBuilding</filthLeaving>
     <rotatable>false</rotatable>
     <costList>
-      <DV_Mithrium>5</DV_Mithrium>
+      <DV_Mithrium>2</DV_Mithrium>
     </costList>
     <building>
       <deconstructible>false</deconstructible>
@@ -113,7 +200,7 @@
     <pathCost>42</pathCost>
     <blockWind>true</blockWind>
     <costList>
-      <DV_Mithrium>5</DV_Mithrium>
+      <DV_Mithrium>2</DV_Mithrium>
     </costList>
     <building>
       <deconstructible>false</deconstructible>
@@ -123,14 +210,10 @@
       <canLandGravshipOn>true</canLandGravshipOn>
     </building>
     <comps>
-      <li Class="CompProperties_ReleaseGas">
+      <li Class="LTS_StonebornSiteGeneration.CompProperties_GasVent">
         <gasType>RotStink</gasType>
-        <cellsToFill>20</cellsToFill>
-        <durationSeconds>25</durationSeconds>
-        <effecterReleasing>DV_RotstinkReleasing</effecterReleasing>
-      </li>
-      <li Class="CompProperties_DestroyAfterDelay">
-        <delayTicks>30000</delayTicks>        <!-- 1/2 day -->
+        <cellsToFill>10</cellsToFill>
+        <!--<effecterReleasing>DV_RotstinkReleasing</effecterReleasing>-->
       </li>
     </comps>
   </ThingDef>
@@ -222,7 +305,7 @@
     <pathCost>42</pathCost>
     <blockWind>true</blockWind>
     <filthLeaving>Filth_RubbleBuilding</filthLeaving>
-    <rotatable>false</rotatable>
+    <rotatable>true</rotatable>
     <costList>
       <DV_Mithrium>5</DV_Mithrium>
     </costList>
@@ -231,6 +314,7 @@
       <ai_chillDestination>false</ai_chillDestination>
       <canLandGravshipOn>true</canLandGravshipOn>
     </building>
+    <designationCategory>Structure</designationCategory>
   </ThingDef>
 
   <ThingDef ParentName="BuildingBase">
@@ -246,7 +330,7 @@
     <costStuffCount>0</costStuffCount>
     <useStuffTerrainAffordance>false</useStuffTerrainAffordance>
     <costList>
-      <DV_Mithrium>30</DV_Mithrium>
+      <DV_Mithrium>5</DV_Mithrium>
     </costList>
     <defaultPlacingRot>South</defaultPlacingRot>
     <destroyable>false</destroyable>
@@ -320,7 +404,7 @@
       </damageData>
     </graphicData>
     <costList>
-      <DV_Mithrium>30</DV_Mithrium>
+      <DV_Mithrium>5</DV_Mithrium>
     </costList>
     <uiIconPath>Things/Building/Ruins/Dwarven_RuinedGates/DwarvenGate2x1_MenuIcon</uiIconPath>
     <useBlueprintGraphicAsGhost>true</useBlueprintGraphicAsGhost>
@@ -423,10 +507,8 @@
     <pathCost>42</pathCost>
     <blockWind>true</blockWind>
     <filthLeaving>Filth_RubbleBuilding</filthLeaving>
-    <rotatable>false</rotatable>
-    <costList>
-      <DV_Mithrium>30</DV_Mithrium>
-    </costList>
+    <rotatable>true</rotatable>
+    <costList IsNull="True" />
     <building>
       <isInert>true</isInert>
       <ai_chillDestination>false</ai_chillDestination>
@@ -469,9 +551,7 @@
     <blockWind>true</blockWind>
     <filthLeaving>Filth_RubbleBuilding</filthLeaving>
     <rotatable>false</rotatable>
-    <costList>
-      <DV_Mithrium>30</DV_Mithrium>
-    </costList>
+    <costList IsNull="True" />
     <building>
       <isInert>true</isInert>
       <ai_chillDestination>false</ai_chillDestination>
@@ -514,9 +594,7 @@
     <blockWind>true</blockWind>
     <filthLeaving>Filth_RubbleBuilding</filthLeaving>
     <rotatable>false</rotatable>
-    <costList>
-      <DV_Mithrium>30</DV_Mithrium>
-    </costList>
+    <costList IsNull="True" />
     <building>
       <isInert>true</isInert>
       <ai_chillDestination>false</ai_chillDestination>
@@ -555,7 +633,7 @@
     <filthLeaving>Filth_RubbleBuilding</filthLeaving>
     <rotatable>false</rotatable>
     <costList>
-      <DV_Mithrium>30</DV_Mithrium>
+      <DV_Mithrium>5</DV_Mithrium>
     </costList>
     <building>
       <isInert>true</isInert>
