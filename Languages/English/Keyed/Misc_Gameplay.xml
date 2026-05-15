@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-	
-	<BullgrogResourceString>Bullgrog fermenting</BullgrogResourceString>
-	
+
+	<DV_GateJammed>Gate locked shut. Must be forced open.</DV_GateJammed>
+
 </LanguageData>
