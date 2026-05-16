@@ -1,12 +1,249 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+  <ThingDef ParentName="BuildingBase">
+    <defName>Vent</defName>
+    <label>vent</label>
+    <description>A vent for equalizing the temperature between two rooms without allowing people to walk between them.</description>
+    <thingClass>Building_Vent</thingClass>
+    <graphicData>
+      <texPath>Things/Building/Misc/TempControl/Vent</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>Impassable</passability>
+    <blockWind>true</blockWind>
+    <fillPercent>1</fillPercent>
+    <coversFloor>true</coversFloor>
+    <blockLight>true</blockLight>
+    <blockWeather>true</blockWeather>
+    <castEdgeShadows>true</castEdgeShadows>
+    <canOverlapZones>false</canOverlapZones>
+    <staticSunShadowHeight>1.0</staticSunShadowHeight>
+    <statBases>
+      <WorkToBuild>400</WorkToBuild>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+    </statBases>
+    <tickerType>Rare</tickerType>
+    <costList>
+      <Steel>30</Steel>
+    </costList>
+    <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+    <placeWorkers>
+      <li>PlaceWorker_Vent</li>
+    </placeWorkers>
+    <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+    <building>
+      <canPlaceOverWall>true</canPlaceOverWall>
+      <canExchangeVacuum>true</canExchangeVacuum>
+      <isAirtight>true</isAirtight>
+    </building>
+    <researchPrerequisites>
+      <li>ComplexFurniture</li>
+    </researchPrerequisites>
+    <designationCategory>Temperature</designationCategory>
+    <designationHotKey>Misc8</designationHotKey>
+    <comps>
+      <li Class="CompProperties_Flickable">
+        <commandTexture>UI/Commands/Vent</commandTexture>
+        <commandLabelKey>CommandDesignateOpenCloseVentLabel</commandLabelKey>
+        <commandDescKey>CommandDesignateOpenCloseVentDesc</commandDescKey>
+      </li>
+    </comps>
+  </ThingDef>
+
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>DV_Dwarven_Spikes</defName>
+    <label>spike trap</label>
+    <thingClass>ThingWithComps</thingClass>
+    <description>An ancient stoneborn brazier, made from mithrium.</description>
+    <noRightClickDraftAttack>true</noRightClickDraftAttack>
+    <graphicData>
+      <texPath>Things/Building/Ruins/Traps/SpikeTrap</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1,1)</drawSize>
+    </graphicData>
+    <startingHpRange>0.5~1.3</startingHpRange>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <WorkToBuild>400</WorkToBuild>
+      <TrapMeleeDamage>100</TrapMeleeDamage>
+      <TrapSpringChance>1.0</TrapSpringChance>
+    </statBases>
+    <selectable>false</selectable>
+    <tickerType>Normal</tickerType>
+    <fillPercent>0.25</fillPercent>
+    <passability>Standable</passability>
+    <pathCost>42</pathCost>
+    <blockWind>true</blockWind>
+    <filthLeaving>Filth_RubbleBuilding</filthLeaving>
+    <rotatable>false</rotatable>
+    <costList>
+      <DV_Mithrium>2</DV_Mithrium>
+    </costList>
+    <building>
+      <deconstructible>false</deconstructible>
+      <claimable>false</claimable>
+      <isTrap>true</isTrap>
+      <trapDestroyOnSpring>false</trapDestroyOnSpring>
+      <trapDamageCategory>Sharp</trapDamageCategory>
+      <expandHomeArea>false</expandHomeArea>
+      <ai_chillDestination>false</ai_chillDestination>
+    </building>
+  </ThingDef>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>DV_Dwarven_FreezeVent</defName>
+    <label>freeze vent</label>
+    <thingClass>ThingWithComps</thingClass>
+    <description>An ancient stoneborn brazier, made from mithrium.</description>
+    <noRightClickDraftAttack>true</noRightClickDraftAttack>
+    <graphicData>
+      <texPath>Things/Building/Ruins/Traps/FreezeVent</texPath>
+      <graphicClass>Graphic_Random</graphicClass>
+      <drawSize>(1,1)</drawSize>
+    </graphicData>
+    <startingHpRange>0.5~1.3</startingHpRange>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <WorkToBuild>400</WorkToBuild>
+    </statBases>
+    <selectable>false</selectable>
+    <tickerType>Normal</tickerType>
+    <fillPercent>0.25</fillPercent>
+    <passability>PassThroughOnly</passability>
+    <pathCost>42</pathCost>
+    <blockWind>true</blockWind>
+    <filthLeaving>Filth_RubbleBuilding</filthLeaving>
+    <rotatable>false</rotatable>
+    <costList>
+      <DV_Mithrium>2</DV_Mithrium>
+    </costList>
+    <building>
+      <deconstructible>false</deconstructible>
+      <claimable>false</claimable>
+      <isInert>false</isInert>
+      <ai_chillDestination>false</ai_chillDestination>
+      <canLandGravshipOn>true</canLandGravshipOn>
+    </building>
+    <comps>
+      <li Class="CompProperties_HeatPusher">
+        <compClass>CompHeatPusher</compClass>
+        <heatPerSecond>-50</heatPerSecond>
+      </li>
+      <li Class="CompProperties_Effecter">
+        <effecterDef>DV_FreezeReleasing</effecterDef>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>DV_Dwarven_HeatVent</defName>
+    <label>heat vent</label>
+    <thingClass>ThingWithComps</thingClass>
+    <description>An ancient stoneborn brazier, made from mithrium.</description>
+    <noRightClickDraftAttack>true</noRightClickDraftAttack>
+    <graphicData>
+      <texPath>Things/Building/Ruins/Traps/HeatVent</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1,1)</drawSize>
+    </graphicData>
+    <startingHpRange>0.5~1.3</startingHpRange>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <WorkToBuild>400</WorkToBuild>
+    </statBases>
+    <selectable>false</selectable>
+    <tickerType>Normal</tickerType>
+    <fillPercent>0.25</fillPercent>
+    <passability>PassThroughOnly</passability>
+    <pathCost>42</pathCost>
+    <blockWind>true</blockWind>
+    <filthLeaving>Filth_RubbleBuilding</filthLeaving>
+    <rotatable>false</rotatable>
+    <costList>
+      <DV_Mithrium>2</DV_Mithrium>
+    </costList>
+    <building>
+      <deconstructible>false</deconstructible>
+      <claimable>false</claimable>
+      <isInert>false</isInert>
+      <ai_chillDestination>false</ai_chillDestination>
+      <canLandGravshipOn>true</canLandGravshipOn>
+    </building>
+    <comps>
+      <li Class="CompProperties_HeatPusher">
+        <compClass>CompHeatPusher</compClass>
+        <heatPerSecond>150</heatPerSecond>
+        <heatPushMaxTemperature>400</heatPushMaxTemperature>
+      </li>
+      <li Class="CompProperties_Effecter">
+        <effecterDef>DV_FreezeReleasing</effecterDef>
+      </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>2</glowRadius>
+        <glowColor>(255,120,7,0)</glowColor>
+      </li>
+    </comps>
+  </ThingDef>
+
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>DV_Dwarven_RotstinkVent</defName>
+    <label>rotstink vent</label>
+    <thingClass>ThingWithComps</thingClass>
+    <description>An ancient stoneborn brazier, made from mithrium.</description>
+    <noRightClickDraftAttack>true</noRightClickDraftAttack>
+    <graphicData>
+      <texPath>Things/Building/Ruins/Traps/Vent</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1,1)</drawSize>
+    </graphicData>
+    <startingHpRange>0.5~1.3</startingHpRange>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <WorkToBuild>400</WorkToBuild>
+    </statBases>
+    <selectable>false</selectable>
+    <tickerType>Normal</tickerType>
+    <fillPercent>0.25</fillPercent>
+    <passability>PassThroughOnly</passability>
+    <pathCost>42</pathCost>
+    <blockWind>true</blockWind>
+    <costList>
+      <DV_Mithrium>2</DV_Mithrium>
+    </costList>
+    <building>
+      <deconstructible>false</deconstructible>
+      <claimable>false</claimable>
+      <isInert>false</isInert>
+      <ai_chillDestination>false</ai_chillDestination>
+      <canLandGravshipOn>true</canLandGravshipOn>
+    </building>
+    <comps>
+      <li Class="LTS_StonebornSiteGeneration.CompProperties_GasVent">
+        <gasType>RotStink</gasType>
+        <cellsToFill>5</cellsToFill>
+        <effecterReleasing>DV_RotstinkReleasing</effecterReleasing>
+      </li>
+    </comps>
+  </ThingDef>
+
   <ThingDef ParentName="CrateBase">
     <defName>DV_HermeticCanister</defName>
     <label>hermetic canister</label>
     <description>A self-powered hermetically-sealed crate for preserving valuable items. These can preserve their contents for a long time.</description>
     <size>(1, 1)</size>
     <fillPercent>0.40</fillPercent>
+    <rotatable>false</rotatable>
     <graphicData>
       <texPath>Things/Building/Ruins/Canister</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -49,6 +286,7 @@
     <description>A self-powered hermetically-sealed crate for preserving valuable items. These can preserve their contents for a long time.</description>
     <size>(1, 1)</size>
     <fillPercent>0.40</fillPercent>
+    <rotatable>false</rotatable>
     <graphicData>
       <texPath>Things/Building/Ruins/DwarvenCrate</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -72,10 +310,6 @@
           <graphicClass>Graphic_Single</graphicClass>
           <drawSize>(2, 2)</drawSize>
         </graphicData>
-      </li>
-      <li Class="CompProperties_Glower">
-        <glowRadius>2</glowRadius>
-        <glowColor>(255,221,74,0)</glowColor>
       </li>
     </comps>
     <tickerType>Normal</tickerType>

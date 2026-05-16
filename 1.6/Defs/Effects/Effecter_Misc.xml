@@ -2,11 +2,21 @@
 <Defs>
 
   <EffecterDef>
+    <defName>DV_FreezeReleasing</defName>
+    <children>
+      <li>
+        <subEffecterClass>SubEffecter_Sustainer</subEffecterClass>
+        <soundDef>GasFlow</soundDef>
+      </li>
+    </children>
+  </EffecterDef>
+
+  <EffecterDef>
     <defName>DV_RotstinkReleasing</defName>
     <children>
       <li>
         <subEffecterClass>SubEffecter_Sustainer</subEffecterClass>
-        <soundDef>GasReleasing</soundDef>
+        <soundDef>GasFlow</soundDef>
       </li>
       <li>
         <subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
@@ -19,6 +29,24 @@
     </children>
   </EffecterDef>
 
+  <SoundDef>
+    <defName>DV_GasReleasing</defName>
+    <sustain>True</sustain>
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>
+    <priorityMode>PrioritizeNearest</priorityMode>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/GasFlow</clipPath>
+          </li>
+        </grains>
+        <volumeRange>5</volumeRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
   <FleckDef ParentName="FleckBase_Thrown">
     <defName>DV_Fleck_RotstinkSmall</defName>
     <altitudeLayer>MoteOverhead</altitudeLayer>
@@ -30,7 +58,7 @@
     <graphicData>
       <texPath>Things/Gas/GasCloudThickA</texPath>
       <shaderType>TransparentPostLight</shaderType>
-      <color>(214,90,24)</color>
+      <color>(214,90,24,100)</color>
     </graphicData>
   </FleckDef>
 
