@@ -45,7 +45,7 @@
     <defName>Shepherd97</defName>
     <title>clan shepherd</title>
     <titleShort>sheperd</titleShort>
-    <baseDesc>[PAWN_nameDef] tended to the herds of browbull that were owned by [PAWN_possessive] clan. The work was boring, but [PAWN_pronoun] enjoyed the solitude that the job afforded [PAWN_objective]. Due to the fact that the herd was located far away from civilization, [PAWN_nameDef] had to do most things [PAWN_objective]self, including tending to any sick browbull.</baseDesc>
+    <baseDesc>[PAWN_nameDef] tended to the herds of rockbull that were owned by [PAWN_possessive] clan. The work was boring, but [PAWN_pronoun] enjoyed the solitude that the job afforded [PAWN_objective]. Due to the fact that the herd was located far away from civilization, [PAWN_nameDef] had to do most things [PAWN_objective]self, including tending to any sick rockbull.</baseDesc>
     <slot>Adulthood</slot>
     <skillGains>
       <Animals>8</Animals>

@@ -148,7 +148,7 @@
         <defName>Slopmaker59</defName>
         <title>slopmaker</title>
         <titleShort>slopmaker</titleShort>
-        <baseDesc>[PAWN_nameDef] lived next to a browbull herd, and much of [PAWN_possessive] childhood was spent tending to their needs. Most notable of [PAWN_possessive] jobs was to cook what [PAWN_pronoun] dubbed “slop” for browbulls, which was a nutritional kibble fit for their dietary needs. Most of [PAWN_nameDef]’s time was spent cooking “slop,” and [PAWN_pronoun] very nearly went mad from the horrible smell it produced. At the very least, [PAWN_pronoun] did get very good at making it.</baseDesc>
+        <baseDesc>[PAWN_nameDef] lived next to a rockbull herd, and much of [PAWN_possessive] childhood was spent tending to their needs. Most notable of [PAWN_possessive] jobs was to cook what [PAWN_pronoun] dubbed “slop” for rockbulls, which was a nutritional kibble fit for their dietary needs. Most of [PAWN_nameDef]’s time was spent cooking “slop,” and [PAWN_pronoun] very nearly went mad from the horrible smell it produced. At the very least, [PAWN_pronoun] did get very good at making it.</baseDesc>
         <slot>Childhood</slot>
         <skillGains>
             <Cooking>6</Cooking>
@@ -208,7 +208,7 @@
         <defName>Mover12</defName>
         <title>mover</title>
         <titleShort>mover</titleShort>
-        <baseDesc>[PAWN_nameDef] performed menial, backbreaking labor for little pay. Day after day, [PAWN_pronoun] hauled heavy objects from one location to another, with little deviation or excitement to break it up. This repetitive and strenuous labor made [PAWN_objective] as strong and tough as a browbull, and about as smart as one too.</baseDesc>
+        <baseDesc>[PAWN_nameDef] performed menial, backbreaking labor for little pay. Day after day, [PAWN_pronoun] hauled heavy objects from one location to another, with little deviation or excitement to break it up. This repetitive and strenuous labor made [PAWN_objective] as strong and tough as a rockbull, and about as smart as one too.</baseDesc>
         <slot>Childhood</slot>
         <skillGains>
             <Melee>3</Melee>

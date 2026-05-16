@@ -2,12 +2,11 @@
 <Defs>
 
   <ThingDef ParentName="BuildingBase">
-    <defName>Vent</defName>
-    <label>vent</label>
+    <defName>DV_DwarvenGrate</defName>
+    <label>grate</label>
     <description>A vent for equalizing the temperature between two rooms without allowing people to walk between them.</description>
-    <thingClass>Building_Vent</thingClass>
     <graphicData>
-      <texPath>Things/Building/Misc/TempControl/Vent</texPath>
+      <texPath>Things/Building/Ruins/Traps/Grate</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
       <damageData>
         <cornerTL>Damage/Corner</cornerTL>
@@ -16,10 +15,12 @@
         <cornerBR>Damage/Corner</cornerBR>
       </damageData>
     </graphicData>
+    <startingHpRange>0.5~1.3</startingHpRange>
     <altitudeLayer>Building</altitudeLayer>
-    <passability>Impassable</passability>
+    <passability>PassThroughOnly</passability>
+    <pathCost>200</pathCost>
     <blockWind>true</blockWind>
-    <fillPercent>1</fillPercent>
+    <fillPercent>0.5</fillPercent>
     <coversFloor>true</coversFloor>
     <blockLight>true</blockLight>
     <blockWeather>true</blockWeather>
@@ -33,30 +34,15 @@
     </statBases>
     <tickerType>Rare</tickerType>
     <costList>
-      <Steel>30</Steel>
+      <DV_Mithrium>2</DV_Mithrium>
     </costList>
     <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
-    <placeWorkers>
-      <li>PlaceWorker_Vent</li>
-    </placeWorkers>
     <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
     <building>
       <canPlaceOverWall>true</canPlaceOverWall>
       <canExchangeVacuum>true</canExchangeVacuum>
-      <isAirtight>true</isAirtight>
+      <isAirtight>false</isAirtight>
     </building>
-    <researchPrerequisites>
-      <li>ComplexFurniture</li>
-    </researchPrerequisites>
-    <designationCategory>Temperature</designationCategory>
-    <designationHotKey>Misc8</designationHotKey>
-    <comps>
-      <li Class="CompProperties_Flickable">
-        <commandTexture>UI/Commands/Vent</commandTexture>
-        <commandLabelKey>CommandDesignateOpenCloseVentLabel</commandLabelKey>
-        <commandDescKey>CommandDesignateOpenCloseVentDesc</commandDescKey>
-      </li>
-    </comps>
   </ThingDef>
 
 

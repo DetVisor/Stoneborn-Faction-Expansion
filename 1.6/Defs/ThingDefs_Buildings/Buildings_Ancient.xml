@@ -2,6 +2,60 @@
 <Defs>
 
   <ThingDef ParentName="BuildingBase">
+    <defName>DV_Dwarven_RuinedUrn</defName>
+    <label>weathered urn</label>
+    <thingClass>Building</thingClass>
+    <category>Building</category>
+    <description>An ancient stoneborn chair, made from mithrium.</description>
+    <noRightClickDraftAttack>true</noRightClickDraftAttack>
+    <thingCategories>
+      <li>BuildingsArt</li>
+    </thingCategories>
+    <graphicData>
+      <texPath>Things/Building/Ruins/Dwarven_RuinedUrn</texPath>
+      <graphicClass>Graphic_Random</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <color>(107, 100, 90)</color>
+      <drawSize>(1.2,1.2)</drawSize>
+      <shadowData>
+        <volume>(0.76,0.3,0.15)</volume>
+        <offset>(0,0,-0.39)</offset>
+      </shadowData>
+      <damageData>
+        <rectN>(0,0,1,0.703125)</rectN>
+        <rectS>(0.09375,0,0.84375,1)</rectS>
+        <rectE>(0,0,0.84375,0.625)</rectE>
+        <rectW>(0.15625,0,0.84375,0.625)</rectW>
+      </damageData>
+    </graphicData>
+    <startingHpRange>0.9~1.3</startingHpRange>
+    <statBases>
+      <Mass>8</Mass>
+      <MaxHitPoints>250</MaxHitPoints>
+      <WorkToBuild>400</WorkToBuild>
+      <Beauty>15</Beauty>
+    </statBases>
+    <fillPercent>0.25</fillPercent>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <passability>PassThroughOnly</passability>
+    <pathCost>42</pathCost>
+    <blockWind>true</blockWind>
+    <filthLeaving>Filth_RubbleBuilding</filthLeaving>
+    <rotatable>false</rotatable>
+    <costList>
+      <DV_Mithrium>5</DV_Mithrium>
+    </costList>
+    <building>
+      <claimable>true</claimable>
+      <paintable>true</paintable>
+      <isInert>true</isInert>
+      <ai_chillDestination>false</ai_chillDestination>
+      <canLandGravshipOn>true</canLandGravshipOn>
+    </building>
+    <designationCategory>Structure</designationCategory>
+  </ThingDef>
+
+  <ThingDef ParentName="BuildingBase">
     <defName>DV_Dwarven_RuinedStatue_LegendaryPick</defName>
     <label>legendary Pickaxe statue</label>
     <thingClass>Building</thingClass>
@@ -311,7 +365,7 @@
   <ThingDef ParentName="BuildingBase">
     <defName>DV_Dwarven_RuinedGateLocked</defName>
     <label>ruined gate (locked)</label>
-      <description>Divides rooms. A weathered mithrium gate that has been locked ages go.</description>
+    <description>Divides rooms. A weathered mithrium gate that has been locked ages go.</description>
     <statBases>
       <WorkToBuild>15000</WorkToBuild>
       <MaxHitPoints>250</MaxHitPoints>
