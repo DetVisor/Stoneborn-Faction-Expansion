@@ -266,6 +266,45 @@
     <tickerType>Normal</tickerType>
   </ThingDef>
 
+  <ThingDef ParentName="BuildingBase">
+    <defName>DV_DwarvenCrate_Mimic</defName>
+    <label>dwarven crate</label>
+    <description>A self-powered hermetically-sealed crate for preserving valuable items. These can preserve their contents for a long time.</description>
+    <size>(1, 1)</size>
+    <fillPercent>0.40</fillPercent>
+    <rotatable>false</rotatable>
+    <receivesSignals>true</receivesSignals>
+    <graphicData>
+      <texPath>Things/Building/Ruins/DwarvenCrate_Mimic</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2, 2)</drawSize>
+      <shadowData>
+        <volume>(0.8, 0.8, 0.8)</volume>
+      </shadowData>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <WorkToBuild>1000</WorkToBuild>
+    </statBases>
+    <interactionCellOffset>(0,0,0)</interactionCellOffset>
+    <building>
+      <openingEffect>DV_HermeticCanisterOpened</openingEffect>
+    </building>
+    <comps>
+      <li Class="CompProperties_Usable">
+        <useJob>UseItem</useJob>
+        <useLabel>Open {0_label}</useLabel>
+        <useDuration>300</useDuration>
+      </li>
+      <li Class="CompProperties_UseEffectDestroySelf" />
+      <li Class="LTS_StonebornSiteGeneration.CompProperties_UseEffectSpawnPawn">
+        <pawnKind>DV_Mimic_HermitCrate</pawnKind>
+        <useMessage>The {0} was a {1}!</useMessage>
+      </li>
+    </comps>
+    <tickerType>Normal</tickerType>
+  </ThingDef>
+
   <ThingDef ParentName="CrateBase">
     <defName>DV_DwarvenCrate</defName>
     <label>dwarven crate</label>
@@ -300,7 +339,6 @@
     </comps>
     <tickerType>Normal</tickerType>
   </ThingDef>
-
 
   <ThingDef ParentName="BuildingBase">
     <defName>DV_TremorbrewBarrel</defName>

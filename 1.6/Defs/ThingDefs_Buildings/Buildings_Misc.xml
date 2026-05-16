@@ -14,7 +14,7 @@
     <tickerType>Normal</tickerType>
     <graphicData>
       <graphicClass>Graphic_Single</graphicClass>
-      <texPath>Things/Building/AncientHatch/AncientHatch_Closed</texPath>
+      <texPath>Things/Building/Ruins/Dwarven_VaultDoor/Dwarven_VaultDoor_Closed</texPath>
       <drawSize>(3, 3)</drawSize>
     </graphicData>
     <altitudeLayer>FloorEmplacement</altitudeLayer>
@@ -45,7 +45,7 @@
         <lockoutDurationHoursRange>6~18</lockoutDurationHoursRange>
         <showProgressAfterHackCompletion>false</showProgressAfterHackCompletion>
         <notHackedInspectString>Hack to open.</notHackedInspectString>
-        <intellectualSkillPrerequisite>4</intellectualSkillPrerequisite>
+        <intellectualSkillPrerequisite>6</intellectualSkillPrerequisite>
         <hackingCompletedSound>AncientHatchOpened</hackingCompletedSound>
         <hackedMessage>{HACKER_labelShort} has finished hacking {SUBJECT_labelNoParenthesisDef}.</hackedMessage>
       </li>
@@ -68,7 +68,7 @@
     </inspectorTabs>
 	<modExtensions>
       <li Class="LTS_StonebornSiteGeneration.LTS_SFE_ModExtension">
-		<LTS_TexPathOpen>Things/Building/AncientHatch/AncientHatch_Open</LTS_TexPathOpen>
+		<LTS_TexPathOpen>Things/Building/Ruins/Dwarven_VaultDoor/Dwarven_VaultDoor_Open</LTS_TexPathOpen>
 	  </li>
     </modExtensions>
   </ThingDef>
@@ -81,7 +81,7 @@
     <drawerType>RealtimeOnly</drawerType>
     <graphicData>
       <graphicClass>Graphic_Single</graphicClass>
-      <texPath>Things/Building/AncientHatchExit/AncientHatchExit</texPath>
+      <texPath>Things/Building/Ruins/Dwarven_VaultDoor/Dwarven_VaultDoor_ExitBottom</texPath>
       <drawSize>(3,3)</drawSize>
     </graphicData>
 	<portal>
@@ -92,7 +92,7 @@
         <graphics>
           <li>
             <graphicClass>Graphic_Single</graphicClass>
-            <texPath>Things/Building/AncientHatchExit/AncientHatchExit_Ladder</texPath>
+            <texPath>Things/Building/Ruins/Dwarven_VaultDoor/Dwarven_VaultDoor_ExitStairs</texPath>
             <drawSize>(3,3)</drawSize>
             <drawOffset>(0, 0.01, 0.7)</drawOffset>
             <shaderType>Transparent</shaderType>

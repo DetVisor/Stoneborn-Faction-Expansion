@@ -1017,11 +1017,11 @@
       <li>
         <li>.,Wall_BlocksSlate,Wall_BlocksSlate,Wall_BlocksSlate,Wall_BlocksSlate,Wall_BlocksSlate,Wall_BlocksSlate,Wall_BlocksSlate,Wall_BlocksSlate,Wall_BlocksSlate,Wall_BlocksSlate,Wall_BlocksSlate,Wall_BlocksSlate,Wall_BlocksSlate,Wall_BlocksSlate,Wall_BlocksSlate,Wall_BlocksSlate,Wall_BlocksSlate,.</li>
         <li>Wall_BlocksSlate,Wall_BlocksSlate,.,.,.,.,Wall_BlocksSlate,Wall_BlocksSlate,.,.,.,Wall_BlocksSlate,Wall_BlocksSlate,.,.,.,.,Wall_BlocksSlate,Wall_BlocksSlate</li>
-        <li>Wall_BlocksSlate,.,.,DV_HermeticCanister_North,.,.,.,.,.,.,.,.,.,.,.,.,.,.,Wall_BlocksSlate</li>
-        <li>Wall_BlocksSlate,.,.,.,.,.,.,.,DV_HermeticCanister_North,.,.,.,.,.,.,.,.,DV_HermeticCanister_North,Wall_BlocksSlate</li>
+        <li>Wall_BlocksSlate,.,.,DV_DwarvenCrate_Mimic,.,.,.,.,.,.,.,.,.,.,.,.,.,.,Wall_BlocksSlate</li>
+        <li>Wall_BlocksSlate,.,.,.,.,.,.,.,DV_DwarvenCrate_Mimic,.,.,.,.,.,.,.,.,DV_HermeticCanister_North,Wall_BlocksSlate</li>
         <li>Wall_BlocksSlate,.,.,.,DV_HallPillar_BlocksSlate,.,DV_Scrollshelf_BlocksSlate,.,.,DV_HallPillar_BlocksSlate,.,DV_Scrollshelf_BlocksSlate,.,.,DV_HallPillar_BlocksSlate,.,.,.,Wall_BlocksSlate</li>
         <li>Wall_BlocksSlate,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,Wall_BlocksSlate</li>
-        <li>Wall_BlocksSlate,.,.,.,.,DV_HermeticCanister_North,.,.,.,.,.,.,.,DV_HermeticCanister_North,.,.,.,.,Wall_BlocksSlate</li>
+        <li>Wall_BlocksSlate,.,.,.,.,DV_DwarvenCrate_Mimic,.,.,.,.,.,.,.,DV_HermeticCanister_North,.,.,.,.,Wall_BlocksSlate</li>
         <li>Wall_BlocksSlate,Wall_BlocksSlate,.,.,.,.,Wall_BlocksSlate,Wall_BlocksSlate,.,.,.,Wall_BlocksSlate,Wall_BlocksSlate,.,.,.,.,Wall_BlocksSlate,Wall_BlocksSlate</li>
         <li>.,Wall_BlocksSlate,Wall_BlocksSlate,Wall_BlocksSlate,Wall_BlocksSlate,Wall_BlocksSlate,Wall_BlocksSlate,Wall_BlocksSlate,Wall_BlocksSlate,Wall_BlocksSlate,Wall_BlocksSlate,Wall_BlocksSlate,Wall_BlocksSlate,Wall_BlocksSlate,Wall_BlocksSlate,PowerConduit,Wall_BlocksSlate,Wall_BlocksSlate,.</li>
       </li>

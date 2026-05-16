@@ -263,6 +263,36 @@
     </building>
   </ThingDef>
 
+  <ThingDef Name="MithriumWall" ParentName="Wall">
+    <defName>DV_Dwarven_MithriumWall</defName>
+    <label>mithrium wall</label>
+    <description>A heavily-reinforced stone wall, made of tough stone and mithrium.</description>
+    <uiIconPath>Things/Building/Ruins/Dwarven_RuinedWall_MenuIcon</uiIconPath>
+    <designationCategory IsNull="True"/>
+    <graphicData>
+      <texPath>Things/Building/Ruins/Dwarven_MithriumWall</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <building>
+      <paintable>false</paintable>
+      <deconstructible>false</deconstructible>
+      <claimable>false</claimable>
+      <neverBuildable>true</neverBuildable>
+      <artificialForMeditationPurposes>false</artificialForMeditationPurposes>
+      <isAirtight>true</isAirtight>
+    </building>
+    <stuffCategories Inherit="False"/>
+    <costStuffCount>0</costStuffCount>
+    <useStuffTerrainAffordance>false</useStuffTerrainAffordance>
+    <statBases>
+      <MaxHitPoints>5000</MaxHitPoints>
+      <Flammability>0</Flammability>
+      <MeditationFocusStrength>0</MeditationFocusStrength>
+    </statBases>
+    <comps Inherit="False"/>
+    <designationCategory>Structure</designationCategory>
+  </ThingDef>
+
   <ThingDef Name="DwarvenRuinedWallThin" ParentName="Wall">
     <defName>DV_Dwarven_RuinedWall</defName>
     <label>ruined wall</label>
