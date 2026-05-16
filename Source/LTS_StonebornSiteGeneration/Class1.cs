@@ -1,14 +1,15 @@
-﻿using System;
+﻿using KCSG;
+using RimWorld;
+using RimWorld.QuestGen;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
-using Verse;
-using RimWorld;
-using RimWorld.QuestGen;
 using UnityEngine;
-using KCSG;
+using Verse;
+using Verse.AI.Group;
 
 namespace LTS_StonebornSiteGeneration
 {
@@ -272,5 +273,37 @@ namespace LTS_StonebornSiteGeneration
         [Unsaved(false)]
         private Effecter effecter;
         private const int ReleaseGasInterval = 30;
+    }
+
+    public class CompProperties_UseEffectSpawnPawn : CompProperties_UseEffect
+    {
+        public CompProperties_UseEffectSpawnPawn()
+        {
+            this.compClass = typeof(CompUseEffect_SpawnPawn);
+        }
+        public PawnKindDef pawnKind;
+        //public Type lordJob;
+    }
+
+    public class CompUseEffect_SpawnPawn : CompUseEffect
+    {
+        public CompProperties_UseEffectSpawnPawn Props
+        {
+            get
+            {
+                return (CompProperties_UseEffectSpawnPawn)this.props;
+            }
+        }
+
+        public override void DoEffect(Pawn user)
+        {
+            //user.health.AddHediff(this.Props.hediffDef, null, null, null);
+            PawnKindDef pawnKind = this.Props.pawnKind;
+            Faction faction = this.parent.Faction;
+            PawnGenerationContext context = PawnGenerationContext.NonPlayer;
+            float? fixedBiologicalAge = new float?(0f);
+            Pawn pawn = PawnGenerator.GeneratePawn(new PawnGenerationRequest(pawnKind, faction, context, null, true, false, false, true, false, 1f, false, true, false, true, true, false, false, false, false, 0f, 0f, null, 1f, null, null, null, null, null, fixedBiologicalAge, null, null, null, null, null, null, false, false, false, false, null, null, null, null, null, 0f, DevelopmentalStage.Adult, null, null, null, false, false, false, -1, 0, false));
+            GenSpawn.Spawn(pawn, this.parent.Position, this.parent.Map, WipeMode.VanishOrMoveAside);
+        }
     }
 }
