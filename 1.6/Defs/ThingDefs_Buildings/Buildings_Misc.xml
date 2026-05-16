@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>LTS_StonebornVaultEntrance</defName>
+    <label>vault entrance</label>
+    <description>The entrance to a long-abandoned stoneborn vault. Hack it to open the hatch.</description>
+    <size>(3,3)</size>
+    <useHitPoints>false</useHitPoints>
+    <thingClass>LTS_StonebornSiteGeneration.LTS_VaultHatch</thingClass>
+    <rotatable>false</rotatable>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <canOverlapZones>false</canOverlapZones>
+    <tickerType>Normal</tickerType>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>Things/Building/AncientHatch/AncientHatch_Closed</texPath>
+      <drawSize>(3, 3)</drawSize>
+    </graphicData>
+    <altitudeLayer>FloorEmplacement</altitudeLayer>
+    <fillPercent>0</fillPercent>
+    <passability>Impassable</passability>
+    <holdsRoof>true</holdsRoof>
+    <destroyable>false</destroyable>
+    <building>
+      <isEdifice>true</isEdifice>
+      <deconstructible>false</deconstructible>
+      <isTargetable>false</isTargetable>
+      <isInert>true</isInert>
+      <claimable>false</claimable>
+      <expandHomeArea>false</expandHomeArea>
+    </building>
+    <portal>
+      <pocketMapGenerator>LTS_StonebornVault</pocketMapGenerator>
+      <exitDef>LTS_StonebornVaultExit</exitDef>
+      <pocketMapSize>75</pocketMapSize>
+    </portal>
+    <statBases>
+      <Flammability>0</Flammability>
+    </statBases>
+    <comps>
+      <li Class="CompProperties_Hackable">
+        <defence>39000</defence>
+        <effectHacking>HackingTerminal</effectHacking>
+        <lockoutDurationHoursRange>6~18</lockoutDurationHoursRange>
+        <showProgressAfterHackCompletion>false</showProgressAfterHackCompletion>
+        <notHackedInspectString>Hack to open.</notHackedInspectString>
+        <intellectualSkillPrerequisite>4</intellectualSkillPrerequisite>
+        <hackingCompletedSound>AncientHatchOpened</hackingCompletedSound>
+        <hackedMessage>{HACKER_labelShort} has finished hacking {SUBJECT_labelNoParenthesisDef}.</hackedMessage>
+      </li>
+      <li Class="CompProperties_Sealable">
+        <sealTexPath>UI/Commands/SealHatch</sealTexPath>
+        <sealCommandLabel>Seal entrance</sealCommandLabel>
+        <sealCommandDesc>Choose a colonist to permanently seal the entrance. Anything or anyone left below will be lost forever.</sealCommandDesc>
+        <cannotSealLabel>Cannot seal</cannotSealLabel>
+        <confirmSealText>Sealing the stoneborn vault entrance is permanent. Anything or anyone left below will be lost forever.{0}\n\nAre you sure you want to continue?</confirmSealText>
+        <sealedInspectString>Permanently sealed.</sealedInspectString>
+        <cannotEnterLabel>Sealed</cannotEnterLabel>
+      </li>
+      <!--<li Class="CompProperties_Glower">
+        <glowRadius>3</glowRadius>
+        <glowColor>(239,133,50,0)</glowColor>
+      </li>-->
+    </comps>
+    <inspectorTabs>
+      <li>ITab_ContentsMapPortal</li>
+    </inspectorTabs>
+	<modExtensions>
+      <li Class="LTS_StonebornSiteGeneration.LTS_SFE_ModExtension">
+		<LTS_TexPathOpen>Things/Building/AncientHatch/AncientHatch_Open</LTS_TexPathOpen>
+	  </li>
+    </modExtensions>
+  </ThingDef>
+
+  <ThingDef ParentName="PocketMapExit">
+    <defName>LTS_StonebornVaultExit</defName>
+    <label>vault exit</label>
+    <description>A ladder which links to the surface hatch above.</description>
+    <size>(3,3)</size>
+    <drawerType>RealtimeOnly</drawerType>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>Things/Building/AncientHatchExit/AncientHatchExit</texPath>
+      <drawSize>(3,3)</drawSize>
+    </graphicData>
+	<portal>
+      <exitDef>LTS_StonebornVaultEntrance</exitDef>
+    </portal>
+    <comps>
+      <li Class="CompProperties_DrawAdditionalGraphics">
+        <graphics>
+          <li>
+            <graphicClass>Graphic_Single</graphicClass>
+            <texPath>Things/Building/AncientHatchExit/AncientHatchExit_Ladder</texPath>
+            <drawSize>(3,3)</drawSize>
+            <drawOffset>(0, 0.01, 0.7)</drawOffset>
+            <shaderType>Transparent</shaderType>
+          </li>
+        </graphics>
+      </li>
+    </comps>
+  </ThingDef>
+
+</Defs>
