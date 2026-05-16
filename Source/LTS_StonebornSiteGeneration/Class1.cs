@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using Verse;
 using Verse.AI.Group;
+using static UnityEngine.GraphicsBuffer;
 
 namespace LTS_StonebornSiteGeneration
 {
@@ -283,6 +284,7 @@ namespace LTS_StonebornSiteGeneration
         }
         public PawnKindDef pawnKind;
         //public Type lordJob;
+        public string useMessage;
     }
 
     public class CompUseEffect_SpawnPawn : CompUseEffect
@@ -304,6 +306,11 @@ namespace LTS_StonebornSiteGeneration
             float? fixedBiologicalAge = new float?(0f);
             Pawn pawn = PawnGenerator.GeneratePawn(new PawnGenerationRequest(pawnKind, faction, context, null, true, false, false, true, false, 1f, false, true, false, true, true, false, false, false, false, 0f, 0f, null, 1f, null, null, null, null, null, fixedBiologicalAge, null, null, null, null, null, null, false, false, false, false, null, null, null, null, null, 0f, DevelopmentalStage.Adult, null, null, null, false, false, false, -1, 0, false));
             GenSpawn.Spawn(pawn, this.parent.Position, this.parent.Map, WipeMode.VanishOrMoveAside);
+
+            if (this.Props.useMessage != null)
+            {
+                Messages.Message(string.Format(this.Props.useMessage, this.parent.Label, Props.pawnKind.label), pawn, MessageTypeDefOf.NegativeEvent, false);
+            }
         }
     }
 }
