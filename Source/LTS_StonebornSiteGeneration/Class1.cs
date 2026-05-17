@@ -122,11 +122,18 @@ namespace LTS_StonebornSiteGeneration
         {
             //Log.Message("Firing LTS_GenStep_HermitCrates");
 
-            List<Building> dwarvenCrates = new List<Building>(map.listerBuildings.allBuildingsNonColonist.Where(building => building.def == LTS_SFE_DefOf.DV_DwarvenCrate));
+            List<Building> dwarvenCrates = new List<Building>(map.listerBuildings.allBuildingsNonColonist.Where(building => building.def == LTS_SFE_DefOf.DV_DwarvenCrate).Concat(map.listerBuildings.allBuildingsColonist.Where(building => building.def == LTS_SFE_DefOf.DV_DwarvenCrate)));
+
+            
+
+            //Log.Message(dwarvenCrates.ToArray());
+
             foreach (Building dwarvenCrate in dwarvenCrates)
             {
+                //Log.Message("Firing 1");
                 if (new System.Random().Next(0, 25) == 0)
                 {
+                    //Log.Message("Firing 2");
                     IntVec3 position = dwarvenCrate.Position;
                     dwarvenCrate.Destroy();
                     GenSpawn.Spawn(LTS_SFE_DefOf.DV_DwarvenCrate_Mimic, position, map);
