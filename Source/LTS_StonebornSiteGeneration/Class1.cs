@@ -1,4 +1,5 @@
-﻿using KCSG;
+﻿using HarmonyLib;
+using KCSG;
 using RimWorld;
 using RimWorld.QuestGen;
 using System;
@@ -9,11 +10,40 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 using Verse;
+using Verse.AI;
 using Verse.AI.Group;
 using static UnityEngine.GraphicsBuffer;
 
 namespace LTS_StonebornSiteGeneration
 {
+    [StaticConstructorOnStartup]
+    public static class HarmonyPatches
+    {
+        static HarmonyPatches()
+        {
+            Harmony harmony = new Harmony("rimworld.LTS.StonebornFactionExpansion");
+            //Harmony.DEBUG = true;
+            harmony.PatchAll();
+        }
+    }
+
+    [HarmonyPatch(typeof(PawnRenderer), nameof(PawnRenderer.BodyAngle))]
+    public static class PawnRenderer_BodyAngle_Patch
+    {
+        [HarmonyPostfix]
+        public static void Postfix(ref float __result, Pawn ___pawn)
+        {
+            if (___pawn.kindDef == LTS_SFE_DefOf.DV_Mimic_HermitCrate)
+            {
+                __result = 0f;
+            }
+        }
+    }
+
+
+
+
+
     [DefOf]
     public static class LTS_SFE_DefOf
     {
@@ -22,6 +52,8 @@ namespace LTS_StonebornSiteGeneration
         public static GenStepDef LTS_StonebornVault;
         public static ThingDef DV_DwarvenCrate;
         public static ThingDef DV_DwarvenCrate_Mimic;
+        public static PawnKindDef DV_Mimic_HermitCrate;
+
         static LTS_SFE_DefOf()
         {
             DefOfHelper.EnsureInitializedInCtor(typeof(LTS_SFE_DefOf));
@@ -32,6 +64,8 @@ namespace LTS_StonebornSiteGeneration
     {
         public string LTS_TexPathOpen;
     }
+
+
 
     public class QuestNode_Root_Loot_AncientComplex_Stoneborn : QuestNode_Root_Loot_AncientComplex
     {
