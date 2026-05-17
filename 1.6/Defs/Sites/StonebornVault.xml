@@ -1,291 +1,298 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-  <SitePartDef>
-    <defName>LTS_StonebornVaultSite</defName>
-    <label>stoneborn ruins</label>
-    <description>A ruined site.</description>
-    <siteTexture>World/WorldObjects/Sites/GenericSite</siteTexture>
-    <expandingIconTexture>World/StonebornRuin</expandingIconTexture>
-    <handlesWorldObjectTimeoutInspectString>true</handlesWorldObjectTimeoutInspectString>
-    <gravShipsCanLandOn>true</gravShipsCanLandOn>
-    <tags>
-      <li>LTS_StonebornVaultSite</li>
-    </tags>
-  </SitePartDef>
+	<SitePartDef>
+		<defName>LTS_StonebornVaultSite</defName>
+		<label>stoneborn ruins</label>
+		<description>A ruined site.</description>
+		<siteTexture>World/WorldObjects/Sites/GenericSite</siteTexture>
+		<expandingIconTexture>World/StonebornRuin</expandingIconTexture>
+		<handlesWorldObjectTimeoutInspectString>true</handlesWorldObjectTimeoutInspectString>
+		<gravShipsCanLandOn>true</gravShipsCanLandOn>
+		<tags>
+			<li>LTS_StonebornVaultSite</li>
+		</tags>
+	</SitePartDef>
 
-  <GenStepDef>
-    <defName>LTS_StonebornVaultSite</defName>
-    <linkWithSite>LTS_StonebornVaultSite</linkWithSite>
-    <order>460</order>
-    <genStep Class="KCSG.GenStep_CustomStructureGen">
-      <structureLayoutDefs>
-        <li>LTS_StonebornVaultSiteTest</li>
-		
-      </structureLayoutDefs>
+	<GenStepDef>
+		<defName>LTS_StonebornVaultSite</defName>
+		<linkWithSite>LTS_StonebornVaultSite</linkWithSite>
+		<order>460</order>
+		<genStep Class="KCSG.GenStep_CustomStructureGen">
+			<structureLayoutDefs>
+				<li>LTS_StonebornVaultSiteTest</li>
 
-      <fullClear>false</fullClear>      <!-- Clear any impassable in the way -->
-      <clearFogInRect>false</clearFogInRect>      <!-- Clear fog on the structure -->
-      <preventBridgeable>true</preventBridgeable>      <!-- Prevent lake/river/marsh (bridgeable) -->
-    </genStep>
-  </GenStepDef>
-  
-  <MapGeneratorDef>
-    <defName>LTS_StonebornVault</defName>
-    <label>ancient stoneborn vault</label>
-    <isUnderground>true</isUnderground>
-    <disableCallAid>true</disableCallAid>
-    <pocketMapProperties>
-      <biome>Underground</biome>
-      <temperature>15</temperature>
-      <canBeCleaned>true</canBeCleaned>
-    </pocketMapProperties>
-    <genSteps>
-      <li>ElevationFertility</li>
-      <li>Underground_RocksFromGrid</li>
-      <li>Terrain</li>
-      <li>RockChunks</li>
-      
-	  <li>LTS_StonebornVault</li>
-	  
-      <li>LTS_StonebornVaultFindPlayerStartSpot</li>
-	  
-	  <li>Fog</li>
-    </genSteps>
-  </MapGeneratorDef>
-  
-  <GenStepDef>
-    <defName>LTS_StonebornVault</defName>
-    <order>551</order><!--fog is 1500, so this just needs to be before that-->
-    <genStep Class="KCSG.GenStep_CustomStructureGen">
-      <structureLayoutDefs>
-        <li>LTS_StonebornVaultTest</li>
-      </structureLayoutDefs>
-      <fullClear>true</fullClear>      <!-- Clear any impassable in the way -->
-      <clearFogInRect>false</clearFogInRect>      <!-- Clear fog on the structure -->
-      <preventBridgeable>true</preventBridgeable>      <!-- Prevent lake/river/marsh (bridgeable) -->
-    </genStep>
-  </GenStepDef>
-  
-  <GenStepDef>
-    <defName>LTS_StonebornVaultFindPlayerStartSpot</defName>
-    <order>552</order>
-    <genStep Class="LTS_StonebornSiteGeneration.LTS_GenStep_FindStart"/>
-  </GenStepDef>
+			</structureLayoutDefs>
 
-  <!--Upper Structure Layout Defs-->
-	
-	<KCSG.StructureLayoutDef>
-	  <defName>LTS_StonebornVaultSiteTest</defName>
-	  <spawnConduits>false</spawnConduits>
-	  <layouts>
-		<li>
-		  <li>DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedBrazier,DV_Dwarven_RuinedWall,.,.,.,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedBrazier,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall</li>
-		  <li>DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,.,.,.,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall</li>
-		  <li>DV_Dwarven_RuinedBrazier,DV_Dwarven_RuinedWall,.,.,.,.,.,.,.,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedBrazier</li>
-		  <li>DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,.,DV_Dwarven_RuinedPillar,.,.,.,DV_Dwarven_RuinedPillar,.,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall</li>
-		  <li>.,.,.,.,.,.,.,.,.,.,.</li>
-		  <li>.,.,.,.,.,LTS_StonebornVaultEntrance,.,.,.,.,.</li>
-		  <li>.,.,.,.,.,.,.,.,.,.,.</li>
-		  <li>DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,.,DV_Dwarven_RuinedPillar,.,.,.,DV_Dwarven_RuinedPillar,.,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall</li>
-		  <li>DV_Dwarven_RuinedBrazier,DV_Dwarven_RuinedWall,.,.,.,.,.,.,.,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedBrazier</li>
-		  <li>DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,.,.,.,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall</li>
-		  <li>DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedBrazier,DV_Dwarven_RuinedWall,.,.,.,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedBrazier,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall</li>
-		</li>
-	  </layouts>
-	  <roofGrid>
-		<li>1,1,1,1,1,1,1,1,1,1,1</li>
-		<li>1,1,1,1,1,1,1,1,1,1,1</li>
-		<li>1,1,1,1,1,1,1,1,1,1,1</li>
-		<li>1,1,1,1,1,1,1,1,1,1,1</li>
-		<li>1,1,1,1,1,1,1,1,1,1,1</li>
-		<li>1,1,1,1,1,1,1,1,1,1,1</li>
-		<li>1,1,1,1,1,1,1,1,1,1,1</li>
-		<li>1,1,1,1,1,1,1,1,1,1,1</li>
-		<li>1,1,1,1,1,1,1,1,1,1,1</li>
-		<li>1,1,1,1,1,1,1,1,1,1,1</li>
-		<li>1,1,1,1,1,1,1,1,1,1,1</li>
-	  </roofGrid>
-	  <terrainGrid>
-		<li>DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite</li>
-		<li>DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite</li>
-		<li>DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite</li>
-		<li>DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite</li>
-		<li>DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite</li>
-		<li>DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite</li>
-		<li>DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite</li>
-		<li>DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite</li>
-		<li>DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite</li>
-		<li>DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite</li>
-		<li>DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite</li>
-	  </terrainGrid>
-	  <forceGenerateRoof>true</forceGenerateRoof>
-	  <modRequirements>
-		<li>det.stonebornfaction</li>
-	  </modRequirements>
-	</KCSG.StructureLayoutDef>
-	
-  <!--Lower Structure Layout Defs-->
+			<fullClear>false</fullClear>			<!-- Clear any impassable in the way -->
+			<clearFogInRect>false</clearFogInRect>			<!-- Clear fog on the structure -->
+			<preventBridgeable>true</preventBridgeable>			<!-- Prevent lake/river/marsh (bridgeable) -->
+		</genStep>
+	</GenStepDef>
+
+	<MapGeneratorDef>
+		<defName>LTS_StonebornVault</defName>
+		<label>ancient stoneborn vault</label>
+		<isUnderground>true</isUnderground>
+		<disableCallAid>true</disableCallAid>
+		<pocketMapProperties>
+			<biome>Underground</biome>
+			<temperature>15</temperature>
+			<canBeCleaned>true</canBeCleaned>
+		</pocketMapProperties>
+		<genSteps>
+			<li>ElevationFertility</li>
+			<li>Underground_RocksFromGrid</li>
+			<li>Terrain</li>
+			<li>RockChunks</li>
+
+			<li>LTS_StonebornVault</li>
+
+			<li>LTS_StonebornVaultFindPlayerStartSpot</li>
+			<li>LTS_HermitCrates</li>
+
+			<li>Fog</li>
+		</genSteps>
+	</MapGeneratorDef>
+
+	<GenStepDef>
+		<defName>LTS_StonebornVault</defName>
+		<order>551</order>		<!--fog is 1500, so this just needs to be before that-->
+		<genStep Class="KCSG.GenStep_CustomStructureGen">
+			<structureLayoutDefs>
+				<li>LTS_StonebornVaultTest</li>
+			</structureLayoutDefs>
+			<fullClear>true</fullClear>			<!-- Clear any impassable in the way -->
+			<clearFogInRect>false</clearFogInRect>			<!-- Clear fog on the structure -->
+			<preventBridgeable>true</preventBridgeable>			<!-- Prevent lake/river/marsh (bridgeable) -->
+		</genStep>
+	</GenStepDef>
+
+	<GenStepDef>
+		<defName>LTS_StonebornVaultFindPlayerStartSpot</defName>
+		<order>552</order>
+		<genStep Class="LTS_StonebornSiteGeneration.LTS_GenStep_FindStart"/>
+	</GenStepDef>
+
+	<GenStepDef>
+		<defName>LTS_HermitCrates</defName>
+		<order>553</order>
+		<genStep Class="LTS_StonebornSiteGeneration.LTS_GenStep_HermitCrates"/>
+	</GenStepDef>
+
+	<!--Upper Structure Layout Defs-->
 
 	<KCSG.StructureLayoutDef>
-	  <defName>LTS_StonebornVaultTest</defName>
-	  <spawnConduits>false</spawnConduits>
-	  <layouts>
-		<li>
-		  <li>Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite</li>
-		  <li>Granite,Granite,Granite,Granite,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,Granite,Granite,Granite,Granite</li>
-		  <li>Granite,Granite,Granite,Granite,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedLamp,.,.,.,.,.,DV_Dwarven_RuinedLamp,DV_Dwarven_RuinedWall,Granite,Granite,Granite,Granite</li>
-		  <li>Granite,Granite,Granite,Granite,DV_Dwarven_RuinedWall,.,.,.,.,.,.,.,DV_Dwarven_RuinedWall,Granite,Granite,Granite,Granite</li>
-		  <li>Granite,Granite,Granite,Granite,DV_Dwarven_RuinedWall,.,.,.,.,.,.,.,DV_Dwarven_RuinedWall,Granite,Granite,Granite,Granite</li>
-		  <li>Granite,Granite,Granite,Granite,DV_Dwarven_RuinedWall,.,.,.,LTS_StonebornVaultExit,.,.,.,DV_Dwarven_RuinedWall,Granite,Granite,Granite,Granite</li>
-		  <li>Granite,Granite,Granite,Granite,DV_Dwarven_RuinedWall,.,.,.,.,.,.,.,DV_Dwarven_RuinedWall,Granite,Granite,Granite,Granite</li>
-		  <li>Granite,Granite,Granite,Granite,DV_Dwarven_RuinedWall,.,.,.,.,.,.,.,DV_Dwarven_RuinedWall,Granite,Granite,Granite,Granite</li>
-		  <li>Granite,Granite,Granite,Granite,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedLamp,.,.,.,.,.,DV_Dwarven_RuinedLamp,DV_Dwarven_RuinedWall,Granite,Granite,Granite,Granite</li>
-		  <li>Granite,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,.,DV_Dwarven_RuinedGateLocked_South,DV_Dwarven_RuinedWall,.,DV_Dwarven_RuinedGateLocked_South,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,Granite</li>
-		  <li>Granite,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedBrazier,.,.,.,.,.,.,.,.,.,.,.,DV_Dwarven_RuinedBrazier,DV_Dwarven_RuinedWall,Granite</li>
-		  <li>Granite,DV_Dwarven_RuinedWall,.,.,.,.,.,.,.,.,.,.,.,.,.,DV_Dwarven_RuinedWall,Granite</li>
-		  <li>Granite,DV_Dwarven_RuinedWall,.,DV_Dwarven_RuinedPillar,.,.,.,.,.,.,.,.,.,DV_Dwarven_RuinedPillar,.,DV_Dwarven_RuinedWall,Granite</li>
-		  <li>Granite,DV_Dwarven_RuinedWall,.,.,.,.,.,.,.,.,.,.,.,.,.,DV_Dwarven_RuinedWall,Granite</li>
-		  <li>Granite,DV_Dwarven_RuinedWall,.,.,.,DV_Dwarven_RuinedChair_North,.,.,.,.,.,DV_Dwarven_RuinedChair_North,.,.,.,DV_Dwarven_RuinedWall,Granite</li>
-		  <li>Granite,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedShelf_South,.,.,DV_Dwarven_RuinedCounter1x3c_East,.,.,.,.,.,DV_Dwarven_RuinedCounter1x3c_East,.,.,DV_Dwarven_RuinedShelf_South,DV_Dwarven_RuinedWall,Granite</li>
-		  <li>Granite,DV_Dwarven_RuinedWall,.,.,.,.,.,.,.,.,.,.,.,.,.,DV_Dwarven_RuinedWall,Granite</li>
-		  <li>Granite,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedBrazier,DV_Dwarven_RuinedPillar,.,.,DV_Dwarven_RuinedLamp,.,.,.,DV_Dwarven_RuinedLamp,.,.,DV_Dwarven_RuinedPillar,DV_Dwarven_RuinedBrazier,DV_Dwarven_RuinedWall,Granite</li>
-		  <li>Granite,DV_Dwarven_RuinedWall,.,.,.,.,.,.,.,.,.,.,.,.,.,DV_Dwarven_RuinedWall,Granite</li>
-		  <li>Granite,DV_Dwarven_RuinedWall,.,.,.,DV_DwarvenCrate_Mimic,.,.,.,.,.,DV_Dwarven_RuinedChair_North,.,.,.,DV_Dwarven_RuinedWall,Granite</li>
-		  <li>Granite,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedShelf_South,.,.,DV_Dwarven_RuinedCounter1x3c_East,.,.,.,.,.,DV_Dwarven_RuinedCounter1x3c_East,.,.,DV_Dwarven_RuinedShelf_South,DV_Dwarven_RuinedWall,Granite</li>
-		  <li>Granite,DV_Dwarven_RuinedWall,.,.,.,.,.,.,.,.,.,.,.,.,.,DV_Dwarven_RuinedWall,Granite</li>
-		  <li>Granite,DV_Dwarven_RuinedWall,.,DV_Dwarven_RuinedPillar,.,.,.,.,.,.,.,.,.,DV_Dwarven_RuinedPillar,.,DV_Dwarven_RuinedWall,Granite</li>
-		  <li>Granite,DV_Dwarven_RuinedWall,.,.,.,.,.,.,.,.,.,.,.,.,.,DV_Dwarven_RuinedWall,Granite</li>
-		  <li>Granite,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedBrazier,.,.,.,.,.,.,.,.,.,.,.,DV_Dwarven_RuinedBrazier,DV_Dwarven_RuinedWall,Granite</li>
-		  <li>Granite,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedLamp,.,.,.,DV_Dwarven_RuinedLamp,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,Granite</li>
-		  <li>Granite,Granite,Granite,Granite,Granite,DV_Dwarven_RuinedWall,.,.,.,.,.,DV_Dwarven_RuinedWall,Granite,Granite,Granite,Granite,Granite</li>
-		  <li>Granite,Granite,Granite,Granite,Granite,DV_Dwarven_RuinedWall,.,.,SC_BerryPie,.,.,DV_Dwarven_RuinedWall,Granite,Granite,Granite,Granite,Granite</li>
-		  <li>Granite,Granite,Granite,Granite,Granite,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,.,Reliquary_BlocksGranite_South,.,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,Granite,Granite,Granite,Granite,Granite</li>
-		  <li>Granite,Granite,Granite,Granite,Granite,Granite,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,Granite,Granite,Granite,Granite,Granite,Granite</li>
-		  <li>Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite</li>
-		</li>
-		<li>
-		  <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-		  <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-		  <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-		  <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-		  <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-		  <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-		  <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-		  <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-		  <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-		  <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-		  <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-		  <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-		  <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-		  <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-		  <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-		  <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-		  <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-		  <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-		  <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-		  <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-		  <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-		  <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-		  <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-		  <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-		  <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-		  <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-		  <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-		  <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-		  <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-		  <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-		  <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-		</li>
-	  </layouts>
-	  <roofGrid>
-		<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
-		<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
-		<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
-		<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
-		<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
-		<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
-		<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
-		<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
-		<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
-		<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
-		<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
-		<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
-		<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
-		<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
-		<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
-		<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
-		<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
-		<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
-		<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
-		<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
-		<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
-		<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
-		<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
-		<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
-		<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
-		<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
-		<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
-		<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
-		<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
-		<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
-		<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
-	  </roofGrid>
-	  <terrainGrid>
-		<li>Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,FlagstoneLimestone,.,.,.,.,.,.,.,.</li>
-		<li>Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,.,.,.,.,.,.,.,.,.</li>
-		<li>Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,.,.,.,.,.</li>
-		<li>Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,.,.,.,.,.</li>
-		<li>Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,.,.,.,.,.</li>
-		<li>Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,.,.,.,.,.</li>
-		<li>Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,.,.,.,.,.</li>
-		<li>Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,.,.,.,.,.</li>
-		<li>Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,.,.,.,.,.</li>
-		<li>.,Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,.,.,DwarfTileGranite,DwarfTileGranite,.,DwarfTileGranite,DwarfTileGranite,.,.,.,.,Granite_RoughHewn,.</li>
-		<li>.,Granite_RoughHewn,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,.,.</li>
-		<li>.,.,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,.,.</li>
-		<li>.,.,DwarfTileGranite,DwarfTileGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,DwarfTileGranite,DwarfTileGranite,.,.</li>
-		<li>.,.,DwarfTileGranite,DwarfTileGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,DwarfTileGranite,DwarfTileGranite,.,.</li>
-		<li>.,.,DwarfTileGranite,DwarfTileGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,DwarfTileGranite,DwarfTileGranite,.,.</li>
-		<li>.,.,DwarfTileGranite,DwarfTileGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,DwarfTileGranite,DwarfTileGranite,.,.</li>
-		<li>.,.,DwarfTileGranite,DwarfTileGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,DwarfTileGranite,DwarfTileGranite,.,.</li>
-		<li>.,.,DwarfTileGranite,DwarfTileGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,DwarfTileGranite,DwarfTileGranite,.,.</li>
-		<li>.,.,DwarfTileGranite,DwarfTileGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,DwarfTileGranite,DwarfTileGranite,.,.</li>
-		<li>.,.,DwarfTileGranite,DwarfTileGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,DwarfTileGranite,DwarfTileGranite,.,.</li>
-		<li>.,.,DwarfTileGranite,DwarfTileGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,DwarfTileGranite,DwarfTileGranite,.,.</li>
-		<li>.,.,DwarfTileGranite,DwarfTileGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,DwarfTileGranite,DwarfTileGranite,.,.</li>
-		<li>.,.,DwarfTileGranite,DwarfTileGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,DwarfTileGranite,DwarfTileGranite,.,.</li>
-		<li>.,.,DwarfTileGranite,DwarfTileGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,DwarfTileGranite,DwarfTileGranite,.,.</li>
-		<li>.,.,DwarfTileGranite,DwarfTileGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,DwarfTileGranite,DwarfTileGranite,.,.</li>
-		<li>.,.,.,.,.,.,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,.,.,.,.,.,.</li>
-		<li>.,.,.,.,.,.,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,.,.,.,.,.,.</li>
-		<li>.,.,.,.,.,.,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,.,.,.,.,.,.</li>
-		<li>.,.,.,.,.,.,.,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,.,.,.,.,.,.,.</li>
-		<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-		<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-	  </terrainGrid>
-	  <forceGenerateRoof>true</forceGenerateRoof>
-	  <modRequirements>
-		<li>det.stonebornfaction</li>
-		<li>ludeon.rimworld.ideology</li>
-		<li>det.sbcuisine</li>
-	  </modRequirements>
+		<defName>LTS_StonebornVaultSiteTest</defName>
+		<spawnConduits>false</spawnConduits>
+		<layouts>
+			<li>
+				<li>DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedBrazier,DV_Dwarven_RuinedWall,.,.,.,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedBrazier,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall</li>
+				<li>DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,.,.,.,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall</li>
+				<li>DV_Dwarven_RuinedBrazier,DV_Dwarven_RuinedWall,.,.,.,.,.,.,.,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedBrazier</li>
+				<li>DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,.,DV_Dwarven_RuinedPillar,.,.,.,DV_Dwarven_RuinedPillar,.,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall</li>
+				<li>.,.,.,.,.,.,.,.,.,.,.</li>
+				<li>.,.,.,.,.,LTS_StonebornVaultEntrance,.,.,.,.,.</li>
+				<li>.,.,.,.,.,.,.,.,.,.,.</li>
+				<li>DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,.,DV_Dwarven_RuinedPillar,.,.,.,DV_Dwarven_RuinedPillar,.,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall</li>
+				<li>DV_Dwarven_RuinedBrazier,DV_Dwarven_RuinedWall,.,.,.,.,.,.,.,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedBrazier</li>
+				<li>DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,.,.,.,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall</li>
+				<li>DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedBrazier,DV_Dwarven_RuinedWall,.,.,.,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedBrazier,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall</li>
+			</li>
+		</layouts>
+		<roofGrid>
+			<li>1,1,1,1,1,1,1,1,1,1,1</li>
+			<li>1,1,1,1,1,1,1,1,1,1,1</li>
+			<li>1,1,1,1,1,1,1,1,1,1,1</li>
+			<li>1,1,1,1,1,1,1,1,1,1,1</li>
+			<li>1,1,1,1,1,1,1,1,1,1,1</li>
+			<li>1,1,1,1,1,1,1,1,1,1,1</li>
+			<li>1,1,1,1,1,1,1,1,1,1,1</li>
+			<li>1,1,1,1,1,1,1,1,1,1,1</li>
+			<li>1,1,1,1,1,1,1,1,1,1,1</li>
+			<li>1,1,1,1,1,1,1,1,1,1,1</li>
+			<li>1,1,1,1,1,1,1,1,1,1,1</li>
+		</roofGrid>
+		<terrainGrid>
+			<li>DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite</li>
+			<li>DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite</li>
+			<li>DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite</li>
+			<li>DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite</li>
+			<li>DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite</li>
+			<li>DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite</li>
+			<li>DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite</li>
+			<li>DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite</li>
+			<li>DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite</li>
+			<li>DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite</li>
+			<li>DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite</li>
+		</terrainGrid>
+		<forceGenerateRoof>true</forceGenerateRoof>
+		<modRequirements>
+			<li>det.stonebornfaction</li>
+		</modRequirements>
 	</KCSG.StructureLayoutDef>
 
-  <!--Symbols-->
+	<!--Lower Structure Layout Defs-->
+
+	<KCSG.StructureLayoutDef>
+		<defName>LTS_StonebornVaultTest</defName>
+		<spawnConduits>false</spawnConduits>
+		<layouts>
+			<li>
+				<li>Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite</li>
+				<li>Granite,Granite,Granite,Granite,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,Granite,Granite,Granite,Granite</li>
+				<li>Granite,Granite,Granite,Granite,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedLamp,.,.,.,.,.,DV_Dwarven_RuinedLamp,DV_Dwarven_RuinedWall,Granite,Granite,Granite,Granite</li>
+				<li>Granite,Granite,Granite,Granite,DV_Dwarven_RuinedWall,.,.,.,.,.,.,.,DV_Dwarven_RuinedWall,Granite,Granite,Granite,Granite</li>
+				<li>Granite,Granite,Granite,Granite,DV_Dwarven_RuinedWall,.,.,.,.,.,.,.,DV_Dwarven_RuinedWall,Granite,Granite,Granite,Granite</li>
+				<li>Granite,Granite,Granite,Granite,DV_Dwarven_RuinedWall,.,.,.,LTS_StonebornVaultExit,.,.,.,DV_Dwarven_RuinedWall,Granite,Granite,Granite,Granite</li>
+				<li>Granite,Granite,Granite,Granite,DV_Dwarven_RuinedWall,.,.,.,.,.,.,.,DV_Dwarven_RuinedWall,Granite,Granite,Granite,Granite</li>
+				<li>Granite,Granite,Granite,Granite,DV_Dwarven_RuinedWall,.,.,.,.,.,.,.,DV_Dwarven_RuinedWall,Granite,Granite,Granite,Granite</li>
+				<li>Granite,Granite,Granite,Granite,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedLamp,.,.,.,.,.,DV_Dwarven_RuinedLamp,DV_Dwarven_RuinedWall,Granite,Granite,Granite,Granite</li>
+				<li>Granite,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,.,DV_Dwarven_RuinedGateLocked_South,DV_Dwarven_RuinedWall,.,DV_Dwarven_RuinedGateLocked_South,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,Granite</li>
+				<li>Granite,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedBrazier,.,.,.,.,.,.,.,.,.,.,.,DV_Dwarven_RuinedBrazier,DV_Dwarven_RuinedWall,Granite</li>
+				<li>Granite,DV_Dwarven_RuinedWall,.,.,.,.,.,.,.,.,.,.,.,.,.,DV_Dwarven_RuinedWall,Granite</li>
+				<li>Granite,DV_Dwarven_RuinedWall,.,DV_Dwarven_RuinedPillar,.,.,.,.,.,.,.,.,.,DV_Dwarven_RuinedPillar,.,DV_Dwarven_RuinedWall,Granite</li>
+				<li>Granite,DV_Dwarven_RuinedWall,.,.,.,.,.,.,.,.,.,.,.,.,.,DV_Dwarven_RuinedWall,Granite</li>
+				<li>Granite,DV_Dwarven_RuinedWall,.,.,.,DV_Dwarven_RuinedChair_North,.,.,.,.,.,DV_Dwarven_RuinedChair_North,.,.,.,DV_Dwarven_RuinedWall,Granite</li>
+				<li>Granite,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedShelf_South,.,.,DV_Dwarven_RuinedCounter1x3c_East,.,.,.,.,.,DV_Dwarven_RuinedCounter1x3c_East,.,.,DV_Dwarven_RuinedShelf_South,DV_Dwarven_RuinedWall,Granite</li>
+				<li>Granite,DV_Dwarven_RuinedWall,.,.,.,.,.,.,.,.,.,.,.,.,.,DV_Dwarven_RuinedWall,Granite</li>
+				<li>Granite,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedBrazier,DV_Dwarven_RuinedPillar,.,.,DV_Dwarven_RuinedLamp,.,.,.,DV_Dwarven_RuinedLamp,.,.,DV_Dwarven_RuinedPillar,DV_Dwarven_RuinedBrazier,DV_Dwarven_RuinedWall,Granite</li>
+				<li>Granite,DV_Dwarven_RuinedWall,.,.,.,.,.,.,.,.,.,.,.,.,.,DV_Dwarven_RuinedWall,Granite</li>
+				<li>Granite,DV_Dwarven_RuinedWall,.,.,.,DV_DwarvenCrate_Mimic,.,.,.,.,.,DV_Dwarven_RuinedChair_North,.,.,.,DV_Dwarven_RuinedWall,Granite</li>
+				<li>Granite,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedShelf_South,.,.,DV_Dwarven_RuinedCounter1x3c_East,.,.,.,.,.,DV_Dwarven_RuinedCounter1x3c_East,.,.,DV_Dwarven_RuinedShelf_South,DV_Dwarven_RuinedWall,Granite</li>
+				<li>Granite,DV_Dwarven_RuinedWall,.,.,.,.,.,.,.,.,.,.,.,.,.,DV_Dwarven_RuinedWall,Granite</li>
+				<li>Granite,DV_Dwarven_RuinedWall,.,DV_Dwarven_RuinedPillar,.,.,.,.,.,.,.,.,.,DV_Dwarven_RuinedPillar,.,DV_Dwarven_RuinedWall,Granite</li>
+				<li>Granite,DV_Dwarven_RuinedWall,.,.,.,.,.,.,.,.,.,.,.,.,.,DV_Dwarven_RuinedWall,Granite</li>
+				<li>Granite,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedBrazier,.,.,.,.,.,.,.,.,.,.,.,DV_Dwarven_RuinedBrazier,DV_Dwarven_RuinedWall,Granite</li>
+				<li>Granite,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedLamp,.,.,.,DV_Dwarven_RuinedLamp,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,Granite</li>
+				<li>Granite,Granite,Granite,Granite,Granite,DV_Dwarven_RuinedWall,.,.,.,.,.,DV_Dwarven_RuinedWall,Granite,Granite,Granite,Granite,Granite</li>
+				<li>Granite,Granite,Granite,Granite,Granite,DV_Dwarven_RuinedWall,.,.,SC_BerryPie,.,.,DV_Dwarven_RuinedWall,Granite,Granite,Granite,Granite,Granite</li>
+				<li>Granite,Granite,Granite,Granite,Granite,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,.,Reliquary_BlocksGranite_South,.,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,Granite,Granite,Granite,Granite,Granite</li>
+				<li>Granite,Granite,Granite,Granite,Granite,Granite,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,Granite,Granite,Granite,Granite,Granite,Granite</li>
+				<li>Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite</li>
+			</li>
+			<li>
+				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+			</li>
+		</layouts>
+		<roofGrid>
+			<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+			<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+			<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+			<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+			<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+			<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+			<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+			<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+			<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+			<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+			<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+			<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+			<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+			<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+			<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+			<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+			<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+			<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+			<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+			<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+			<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+			<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+			<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+			<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+			<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+			<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+			<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+			<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+			<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+			<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+			<li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+		</roofGrid>
+		<terrainGrid>
+			<li>Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,FlagstoneLimestone,.,.,.,.,.,.,.,.</li>
+			<li>Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,.,.,.,.,.,.,.,.,.</li>
+			<li>Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,.,.,.,.,.</li>
+			<li>Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,.,.,.,.,.</li>
+			<li>Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,.,.,.,.,.</li>
+			<li>Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,.,.,.,.,.</li>
+			<li>Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,.,.,.,.,.</li>
+			<li>Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,.,.,.,.,.</li>
+			<li>Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,.,.,.,.,.</li>
+			<li>.,Sandstone_RoughHewn,Sandstone_RoughHewn,Sandstone_RoughHewn,.,.,DwarfTileGranite,DwarfTileGranite,.,DwarfTileGranite,DwarfTileGranite,.,.,.,.,Granite_RoughHewn,.</li>
+			<li>.,Granite_RoughHewn,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,.,.</li>
+			<li>.,.,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,DwarfTileGranite,.,.</li>
+			<li>.,.,DwarfTileGranite,DwarfTileGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,DwarfTileGranite,DwarfTileGranite,.,.</li>
+			<li>.,.,DwarfTileGranite,DwarfTileGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,DwarfTileGranite,DwarfTileGranite,.,.</li>
+			<li>.,.,DwarfTileGranite,DwarfTileGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,DwarfTileGranite,DwarfTileGranite,.,.</li>
+			<li>.,.,DwarfTileGranite,DwarfTileGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,DwarfTileGranite,DwarfTileGranite,.,.</li>
+			<li>.,.,DwarfTileGranite,DwarfTileGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,DwarfTileGranite,DwarfTileGranite,.,.</li>
+			<li>.,.,DwarfTileGranite,DwarfTileGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,DwarfTileGranite,DwarfTileGranite,.,.</li>
+			<li>.,.,DwarfTileGranite,DwarfTileGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,DwarfTileGranite,DwarfTileGranite,.,.</li>
+			<li>.,.,DwarfTileGranite,DwarfTileGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,DwarfTileGranite,DwarfTileGranite,.,.</li>
+			<li>.,.,DwarfTileGranite,DwarfTileGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,DwarfTileGranite,DwarfTileGranite,.,.</li>
+			<li>.,.,DwarfTileGranite,DwarfTileGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,DwarfTileGranite,DwarfTileGranite,.,.</li>
+			<li>.,.,DwarfTileGranite,DwarfTileGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,DwarfTileGranite,DwarfTileGranite,.,.</li>
+			<li>.,.,DwarfTileGranite,DwarfTileGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,DwarfTileGranite,DwarfTileGranite,.,.</li>
+			<li>.,.,DwarfTileGranite,DwarfTileGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,DwarfTileGranite,DwarfTileGranite,.,.</li>
+			<li>.,.,.,.,.,.,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,.,.,.,.,.,.</li>
+			<li>.,.,.,.,.,.,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,.,.,.,.,.,.</li>
+			<li>.,.,.,.,.,.,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,.,.,.,.,.,.</li>
+			<li>.,.,.,.,.,.,.,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,.,.,.,.,.,.,.</li>
+			<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+			<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+		</terrainGrid>
+		<forceGenerateRoof>true</forceGenerateRoof>
+		<modRequirements>
+			<li>det.stonebornfaction</li>
+			<li>ludeon.rimworld.ideology</li>
+			<li>det.sbcuisine</li>
+		</modRequirements>
+	</KCSG.StructureLayoutDef>
+
+	<!--Symbols-->
 
 	<KCSG.SymbolDef>
-	  <defName>LTS_StonebornVaultEntrance</defName>
-	  <thing>LTS_StonebornVaultEntrance</thing>
-	</KCSG.SymbolDef>
-	
-	<KCSG.SymbolDef>
-	  <defName>LTS_StonebornVaultExit</defName>
-	  <thing>LTS_StonebornVaultExit</thing>
+		<defName>LTS_StonebornVaultEntrance</defName>
+		<thing>LTS_StonebornVaultEntrance</thing>
 	</KCSG.SymbolDef>
 
 	<KCSG.SymbolDef>
-	  <defName>SC_BerryPie</defName>
-	  <thing>SC_BerryPie</thing>
+		<defName>LTS_StonebornVaultExit</defName>
+		<thing>LTS_StonebornVaultExit</thing>
 	</KCSG.SymbolDef>
-  
+
+	<KCSG.SymbolDef>
+		<defName>SC_BerryPie</defName>
+		<thing>SC_BerryPie</thing>
+	</KCSG.SymbolDef>
+
 </Defs>

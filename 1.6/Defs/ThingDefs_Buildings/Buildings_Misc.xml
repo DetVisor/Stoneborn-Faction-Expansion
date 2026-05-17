@@ -66,10 +66,10 @@
     <inspectorTabs>
       <li>ITab_ContentsMapPortal</li>
     </inspectorTabs>
-	<modExtensions>
+    <modExtensions>
       <li Class="LTS_StonebornSiteGeneration.LTS_SFE_ModExtension">
-		<LTS_TexPathOpen>Things/Building/Ruins/Dwarven_VaultDoor/Dwarven_VaultDoor_Open</LTS_TexPathOpen>
-	  </li>
+        <LTS_TexPathOpen>Things/Building/Ruins/Dwarven_VaultDoor/Dwarven_VaultDoor_Open</LTS_TexPathOpen>
+      </li>
     </modExtensions>
   </ThingDef>
 
@@ -84,10 +84,13 @@
       <texPath>Things/Building/Ruins/Dwarven_VaultDoor/Dwarven_VaultDoor_ExitBottom</texPath>
       <drawSize>(3,3)</drawSize>
     </graphicData>
-	<portal>
+    <portal>
       <exitDef>LTS_StonebornVaultEntrance</exitDef>
     </portal>
     <comps>
+      <li Class="CompProperties_Effecter">
+        <effecterDef>UndercaveMapExitLightshafts</effecterDef>
+      </li>
       <li Class="CompProperties_DrawAdditionalGraphics">
         <graphics>
           <li>

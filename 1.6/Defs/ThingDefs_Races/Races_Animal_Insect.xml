@@ -93,7 +93,7 @@
   <ThingDef ParentName="BaseInsect">
     <defName>DV_Mimic_HermitCrate</defName>
     <label>hermit crate</label>
-    <description>A monstrosity artificially grown by experienced stoneborn gene-seers, created with carefully curated insect genomes. These fiercely loyal war beasts are employed to pursue and maim their targets, whether it be prey for hunting parties or enemies for warbands. With razor-sharp claws and powerful mandibles, they can easily lacerate naked flesh- surprising baseliners when they witness the intimate nuzzles they give to their owners.</description>
+    <description>A cave-dwelling crustacean that hides within solid containers. Most often they're found using discarded insectoid molts or cave snail shells for protection, but this subspecies has adapted to dwelling within robust, ancient stoneborn crates to survive. Unfortunately, they forgot to account for curious explorers and treasure hunters.</description>
     <statBases>
       <MoveSpeed>7.75</MoveSpeed>
       <ComfyTemperatureMin>-32</ComfyTemperatureMin>
@@ -161,6 +161,10 @@
           <texPath>Things/Pawn/Animal/HermitCrate/HermitCrate_Dessicated</texPath>
           <drawSize>2</drawSize>
         </dessicatedBodyGraphicData>
+        <stationaryGraphicData>
+          <texPath>Things/Pawn/Animal/HermitCrate/HermitCrate_Stationary</texPath>
+          <drawSize>2</drawSize>
+        </stationaryGraphicData>
       </li>
     </lifeStages>
   </PawnKindDef>

@@ -1,6 +1,67 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+  <ThingDef Abstract="True" Name="DV_BuildingFloorBase" ParentName="BuildingBase">
+    <altitudeLayer>FloorCoverings</altitudeLayer>
+    <wipesPlants>true</wipesPlants>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <thingCategories>
+      <li>BuildingsFurniture</li>
+    </thingCategories>
+    <designationCategory>Floors</designationCategory>
+    <selectable>true</selectable>
+    <useHitPoints>true</useHitPoints>
+    <defaultPlacingRot>South</defaultPlacingRot>
+    <canGenerateDefaultDesignator>true</canGenerateDefaultDesignator>
+    <blocksAltitudes>
+      <li>FloorCoverings</li>
+    </blocksAltitudes>
+    <building>
+      <isEdifice>false</isEdifice>
+      <paintable>true</paintable>
+    </building>
+    <designationCategory>Structure</designationCategory>
+  </ThingDef>
+
+  <ThingDef ParentName="DV_BuildingFloorBase">
+    <defName>DV_RuinedRug_Small</defName>
+    <label>ancient stoneborn rug (small)</label>
+    <description>A homey rug with a rustic-style pattern, for decorating a floor.</description>
+    <size>(3,3)</size>
+    <statBases>
+      <Flammability>0.2</Flammability>
+      <Mass>8</Mass>
+    </statBases>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>Things/Building/Ruins/Dwarven_AncientRugs/DwarvenAncientRug_Small</texPath>
+      <drawSize>(3,3)</drawSize>
+      <shaderType>CutoutComplex</shaderType>
+      <color>(135, 70, 66)</color>
+    </graphicData>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+  </ThingDef>
+
+  <ThingDef ParentName="DV_BuildingFloorBase">
+    <defName>DV_RuinedRug_Large</defName>
+    <label>ancient stoneborn rug (large)</label>
+    <description>A homey rug with a rustic-style pattern, for decorating a floor.</description>
+    <size>(6,3)</size>
+    <defaultPlacingRot>South</defaultPlacingRot>
+    <statBases>
+      <Flammability>0.2</Flammability>
+      <Mass>8</Mass>
+    </statBases>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>Things/Building/Ruins/Dwarven_AncientRugs/DwarvenAncientRug_Large</texPath>
+      <drawSize>(6,3)</drawSize>
+      <shaderType>CutoutComplex</shaderType>
+      <color>(135, 70, 66)</color>
+    </graphicData>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+  </ThingDef>
+
   <ThingDef ParentName="BuildingBase">
     <defName>DV_Dwarven_RuinedUrn</defName>
     <label>weathered urn</label>
@@ -596,6 +657,47 @@
   </ThingDef>
 
   <ThingDef ParentName="BuildingBase">
+    <defName>DV_Dwarven_RuinedScrollshelf</defName>
+    <label>ruined scrollshelf</label>
+    <thingClass>Building</thingClass>
+    <category>Building</category>
+    <description>An ancient table made of reinforced stone.</description>
+    <noRightClickDraftAttack>true</noRightClickDraftAttack>
+    <graphicData>
+      <texPath>Things/Building/Ruins/Dwarven_AncientScrollshelf/Dwarven_AncientScrollshelf</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>(4,3)</drawSize>
+      <color>(107, 100, 90)</color>
+      <shadowData>
+        <volume>(0.76,0.3,0.15)</volume>
+        <offset>(0,0,-0.39)</offset>
+      </shadowData>
+
+    </graphicData>
+    <size>(2,1)</size>
+    <startingHpRange>0.5~1.3</startingHpRange>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <WorkToBuild>400</WorkToBuild>
+    </statBases>
+    <fillPercent>0.25</fillPercent>
+    <passability>PassThroughOnly</passability>
+    <pathCost>42</pathCost>
+    <blockWind>true</blockWind>
+    <filthLeaving>Filth_RubbleBuilding</filthLeaving>
+    <rotatable>true</rotatable>
+    <costList IsNull="True" />
+    <building>
+      <claimable>false</claimable>
+      <deconstructible>false</deconstructible>
+      <isInert>true</isInert>
+      <ai_chillDestination>false</ai_chillDestination>
+      <canLandGravshipOn>true</canLandGravshipOn>
+    </building>
+  </ThingDef>
+
+  <ThingDef ParentName="BuildingBase">
     <defName>DV_Dwarven_RuinedTable2x2c</defName>
     <label>ruined table (2x2)</label>
     <thingClass>Building</thingClass>
@@ -725,6 +827,54 @@
       <ai_chillDestination>false</ai_chillDestination>
       <canLandGravshipOn>true</canLandGravshipOn>
     </building>
+  </ThingDef>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>DV_Dwarven_AlcoholVat</defName>
+    <label>ruined alcohol vat</label>
+    <thingClass>Building</thingClass>
+    <category>Building</category>
+    <description>An ancient vat full of a brownish much that reeks of alcohol.</description>
+    <noRightClickDraftAttack>true</noRightClickDraftAttack>
+    <graphicData>
+      <texPath>Things/Building/Ruins/Dwarven_AncientAlcoholVat</texPath>
+      <graphicClass>Graphic_Random</graphicClass>
+      <drawSize>(4,4)</drawSize>
+      <shadowData>
+        <volume>(0.76,0.3,0.15)</volume>
+        <offset>(0,0,-0.39)</offset>
+      </shadowData>
+    </graphicData>
+    <size>(2,2)</size>
+    <startingHpRange>0.5~1.3</startingHpRange>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <WorkToBuild>400</WorkToBuild>
+    </statBases>
+    <fillPercent>0.25</fillPercent>
+    <passability>PassThroughOnly</passability>
+    <pathCost>42</pathCost>
+    <blockWind>true</blockWind>
+    <filthLeaving>Filth_RubbleBuilding</filthLeaving>
+    <rotatable>false</rotatable>
+    <costList>
+      <DV_Mithrium>5</DV_Mithrium>
+    </costList>
+    <building>
+      <claimable>false</claimable>
+      <deconstructible>false</deconstructible>
+      <isInert>true</isInert>
+      <ai_chillDestination>false</ai_chillDestination>
+      <canLandGravshipOn>true</canLandGravshipOn>
+    </building>
+    <comps>
+      <li Class="CompProperties_SpawnerFilth">
+        <filthDef>Filth_FlammableBile</filthDef>
+        <spawnCountOnSpawn>6</spawnCountOnSpawn>
+        <spawnMtbHours>4</spawnMtbHours>
+        <spawnRadius>1</spawnRadius>
+      </li>
+    </comps>
   </ThingDef>
 
 </Defs>
