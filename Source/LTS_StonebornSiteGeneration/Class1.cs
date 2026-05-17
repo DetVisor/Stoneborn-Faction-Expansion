@@ -20,6 +20,8 @@ namespace LTS_StonebornSiteGeneration
         public static SitePartDef LTS_StonebornRuinSite;
         public static SitePartDef LTS_StonebornVaultSite;
         public static GenStepDef LTS_StonebornVault;
+        public static ThingDef DV_DwarvenCrate;
+        public static ThingDef DV_DwarvenCrate_Mimic;
         static LTS_SFE_DefOf()
         {
             DefOfHelper.EnsureInitializedInCtor(typeof(LTS_SFE_DefOf));
@@ -104,6 +106,34 @@ namespace LTS_StonebornSiteGeneration
             {
                 MapGenerator.PlayerStartSpot = map.listerBuildings.allBuildingsNonColonist.Where(building => building?.def?.portal != null).First().Position;
             }
+        }
+    }
+
+    public class LTS_GenStep_HermitCrates : GenStep
+    {
+        public override int SeedPart
+        {
+            get
+            {
+                return 1568957891;
+            }
+        }
+        public override void Generate(Map map, GenStepParams parms)
+        {
+            //Log.Message("Firing LTS_GenStep_HermitCrates");
+
+            List<Building> dwarvenCrates = new List<Building>(map.listerBuildings.allBuildingsNonColonist.Where(building => building.def == LTS_SFE_DefOf.DV_DwarvenCrate));
+            foreach (Building dwarvenCrate in dwarvenCrates)
+            {
+                if (new System.Random().Next(0, 25) == 0)
+                {
+                    IntVec3 position = dwarvenCrate.Position;
+                    dwarvenCrate.Destroy();
+                    GenSpawn.Spawn(LTS_SFE_DefOf.DV_DwarvenCrate_Mimic, position, map);
+                }
+            }
+
+
         }
     }
 
