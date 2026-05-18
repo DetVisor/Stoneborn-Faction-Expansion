@@ -5,6 +5,7 @@ using RimWorld.QuestGen;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
@@ -267,9 +268,9 @@ namespace LTS_StonebornSiteGeneration
             {
                 yield return gizmo;
             }
-            IEnumerator<Gizmo> enumerator = null;
+            //IEnumerator<Gizmo> enumerator = null;
             yield break;
-            yield break;
+            //yield break;
         }
 
         //public TileMutatorWorker_Stockpile.StockpileType stockpileType;
@@ -448,7 +449,8 @@ namespace LTS_StonebornSiteGeneration
                         PawnGenerationContext context = PawnGenerationContext.NonPlayer;
                         //float? fixedBiologicalAge = new float?(0f);
                         Pawn pawn = PawnGenerator.GeneratePawn(new PawnGenerationRequest(pawnKind, faction, context, null, true, false, false, true, false, 1f, false, true, false, true, true, false, false, false, false, 0f, 0f, null, 1f, null, null, null, null, null, null, null, null, null, null, null, null, false, false, false, false, null, null, null, null, null, 0f, DevelopmentalStage.Adult, null, null, null, false, false, false, -1, 0, false));
-                        GenSpawn.Spawn(pawn, this.parent.Position, this.parent.Map, WipeMode.VanishOrMoveAside);
+                        CellFinder.TryFindRandomCellNear(this.parent.Position, this.parent.Map, Props.territoryRadius, c => c.GetFirstBuilding(this.parent.Map) == null && c.InBounds(this.parent.Map) && c.IsValid, out var validCell);
+                        GenSpawn.Spawn(pawn, validCell, this.parent.Map, WipeMode.VanishOrMoveAside);
 
                         if (faction == lordDefenderFaction)
                             lordDefender.AddPawn(pawn);
@@ -461,7 +463,8 @@ namespace LTS_StonebornSiteGeneration
                     for (int i = 0; i < numToSpawn; i++)
                     {
                         Thing thing = ThingMaker.MakeThing(spawnGroup.thingDef);
-                        thing.SetFaction(FactionUtility.DefaultFactionFrom(spawnGroup.faction) ?? null);
+                        if (spawnGroup.faction != null)
+                            thing.SetFaction(FactionUtility.DefaultFactionFrom(spawnGroup.faction));
                         CellFinder.TryFindRandomCellNear(this.parent.Position, this.parent.Map, Props.territoryRadius, c => c.GetFirstBuilding(this.parent.Map) == null && c.InBounds(this.parent.Map) && c.IsValid, out var validCell);
                         GenPlace.TryPlaceThing(thing, validCell, this.parent.Map, ThingPlaceMode.Direct);
                     }
@@ -469,6 +472,114 @@ namespace LTS_StonebornSiteGeneration
             }
 
             parent.Destroy();
+        }
+    }
+
+    public class CompProperties_GrowIntoThing : CompProperties
+    {
+        public CompProperties_GrowIntoThing()
+        {
+            this.compClass = typeof(CompGrowIntoThing);
+        }
+
+        public ThingDef thing;
+        public int ticksToGrow;
+        public Vector2 finalDrawSize;
+        public int updateGraphicTicksInterval;
+    }
+
+    public class CompGrowIntoThing : ThingComp
+    {
+        public CompProperties_GrowIntoThing Props
+        {
+            get
+            {
+                return (CompProperties_GrowIntoThing)this.props;
+            }
+        }
+
+        public override void CompTick()
+        {
+            base.CompTick();
+
+            if (Find.TickManager.TicksGame - parent.TickSpawned >= Props.ticksToGrow)
+            {
+                Thing thing = ThingMaker.MakeThing(Props.thing);
+                thing.SetFaction(parent.Faction);
+                IntVec3 position = parent.Position;
+                Map map = parent.Map;
+                
+                GenPlace.TryPlaceThing(thing, position, map, ThingPlaceMode.Direct);
+            }
+            if (parent.IsHashIntervalTick(Props.updateGraphicTicksInterval))
+            {
+                parent.Map.mapDrawer.MapMeshDirty(parent.Position, MapMeshFlagDefOf.Things);
+            }
+        }
+    }
+
+    public class Graphic_Single_Growing : Graphic_Single
+    {
+        public Vector2 getDrawSize(Thing thing)
+        {
+            //return (float)(Find.TickManager.TicksGame - thing.TickSpawned);
+            CompGrowIntoThing comp = (thing as ThingWithComps).GetComp<CompGrowIntoThing>();
+            float drawSizeMultiplier = (float)(Find.TickManager.TicksGame - thing.TickSpawned) / comp.Props.ticksToGrow;
+            Log.Message("ticks spawned: " + (Find.TickManager.TicksGame - thing.TickSpawned));
+            Log.Message("ticksToGrow: " + comp.Props.ticksToGrow);
+            Log.Message("drawSizeMultiplier: " + drawSizeMultiplier);
+
+            return thing.DrawSize + (comp.Props.finalDrawSize - thing.DrawSize) * drawSizeMultiplier;
+        }
+        public override void Print(SectionLayer layer, Thing thing, float extraRotation)
+        {
+            //Log.Error(getDrawSize(thing).y.ToString());
+            Vector2 vector;
+            bool flag;
+            if (this.ShouldDrawRotated)
+            {
+                vector = getDrawSize(thing);
+                flag = false;
+            }
+            else
+            {
+                if (!thing.Rotation.IsHorizontal)
+                {
+                    vector = getDrawSize(thing);
+                }
+                else
+                {
+                    vector = getDrawSize(thing).Rotated();
+                }
+                flag = ((thing.Rotation == Rot4.West && this.WestFlipped) || (thing.Rotation == Rot4.East && this.EastFlipped));
+            }
+            if (thing.MultipleItemsPerCellDrawn())
+            {
+                vector *= 0.8f;
+            }
+            float num = this.AngleFromRot(thing.Rotation) + extraRotation;
+            if (flag && this.data != null)
+            {
+                num += this.data.flipExtraRotation;
+            }
+            Vector3 center = thing.TrueCenter() + this.DrawOffset(thing.Rotation);
+            Material mat = this.MatAt(thing.Rotation, thing);
+            Vector2[] uvs;
+            Color32 color;
+            Graphic.TryGetTextureAtlasReplacementInfo(mat, thing.def.category.ToAtlasGroup(), flag, true, out mat, out uvs, out color);
+            Printer_Plane.PrintPlane(layer, center, vector, mat, num, flag, uvs, new Color32[]
+            {
+                    color,
+                    color,
+                    color,
+                    color
+            }, 0.01f, 0f);
+            Graphic_Shadow shadowGraphic = this.ShadowGraphic;
+            if (shadowGraphic == null)
+            {
+                return;
+            }
+            shadowGraphic.Print(layer, thing, 0f);
         }
     }
 }
