@@ -398,12 +398,14 @@ namespace LTS_StonebornSiteGeneration
 
         public List<List<SpawnGroup>> monsterGroups;
         public FactionDef territorialFactionDef;
+        public FactionDef attackingFactionDef;
         public int territoryRadius;
     }
 
     public class SpawnGroup
     {
         public PawnKindDef pawnKind;
+        public ThingDef thingDef;
         public IntRange range;
         public FactionDef faction = null;
         public MentalStateDef mentalstateDef = null;
@@ -425,29 +427,43 @@ namespace LTS_StonebornSiteGeneration
 
             //pick random List<Spawngroup> from List<List<Spawngroup>>, then spawn foreach Spawngroup in selected List<Spawngroup>
 
-            int numOfMonsters;
             Faction lordDefenderFaction = Find.FactionManager.FirstFactionOfDef(Props.territorialFactionDef) ?? this.parent.Map.ParentFaction;
+            Faction lordAttackerFaction = Find.FactionManager.FirstFactionOfDef(Props.attackingFactionDef) ?? this.parent.Map.ParentFaction;
 
-            //Lord lord = LordMaker.MakeNewLord(lordDefenderFaction, new LordJob_DefendBase(lordDefenderFaction, this.parent.Position, 25000, false), this.parent.Map, null);
-            Lord lord = LordMaker.MakeNewLord(lordDefenderFaction, new LordJob_DefendPoint(this.parent.Position, Props.territoryRadius), this.parent.Map, null);
+            Lord lordDefender = LordMaker.MakeNewLord(lordDefenderFaction, new LordJob_DefendPoint(this.parent.Position, Props.territoryRadius), this.parent.Map, null);
+            Lord lordAttacker = LordMaker.MakeNewLord(lordAttackerFaction, new LordJob_DefendPoint(this.parent.Position, Props.territoryRadius), this.parent.Map, null);
 
             List<SpawnGroup> selectedList = Props.monsterGroups.RandomElement();
 
             foreach (SpawnGroup spawnGroup in selectedList)
             {
-                numOfMonsters = spawnGroup.range.RandomInRange;
-                for (int i = 0; i < numOfMonsters; i++)
+                int numToSpawn = spawnGroup.range.RandomInRange;
+
+                if (spawnGroup.pawnKind != null)
                 {
-                    PawnKindDef pawnKind = spawnGroup.pawnKind;
-                    Faction faction = FactionUtility.DefaultFactionFrom(spawnGroup.faction) ?? null;
-                    PawnGenerationContext context = PawnGenerationContext.NonPlayer;
-                    //float? fixedBiologicalAge = new float?(0f);
-                    Pawn pawn = PawnGenerator.GeneratePawn(new PawnGenerationRequest(pawnKind, faction, context, null, true, false, false, true, false, 1f, false, true, false, true, true, false, false, false, false, 0f, 0f, null, 1f, null, null, null, null, null, null, null, null, null, null, null, null, false, false, false, false, null, null, null, null, null, 0f, DevelopmentalStage.Adult, null, null, null, false, false, false, -1, 0, false));
-                    GenSpawn.Spawn(pawn, this.parent.Position, this.parent.Map, WipeMode.VanishOrMoveAside);
-                    
-                    if (faction == lordDefenderFaction)
+                    for (int i = 0; i < numToSpawn; i++)
                     {
-                        lord.AddPawn(pawn);
+                        PawnKindDef pawnKind = spawnGroup.pawnKind;
+                        Faction faction = FactionUtility.DefaultFactionFrom(spawnGroup.faction) ?? null;
+                        PawnGenerationContext context = PawnGenerationContext.NonPlayer;
+                        //float? fixedBiologicalAge = new float?(0f);
+                        Pawn pawn = PawnGenerator.GeneratePawn(new PawnGenerationRequest(pawnKind, faction, context, null, true, false, false, true, false, 1f, false, true, false, true, true, false, false, false, false, 0f, 0f, null, 1f, null, null, null, null, null, null, null, null, null, null, null, null, false, false, false, false, null, null, null, null, null, 0f, DevelopmentalStage.Adult, null, null, null, false, false, false, -1, 0, false));
+                        GenSpawn.Spawn(pawn, this.parent.Position, this.parent.Map, WipeMode.VanishOrMoveAside);
+
+                        if (faction == lordDefenderFaction)
+                            lordDefender.AddPawn(pawn);
+                        else if (faction == lordAttackerFaction)
+                            lordAttacker.AddPawn(pawn);
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < numToSpawn; i++)
+                    {
+                        Thing thing = ThingMaker.MakeThing(spawnGroup.thingDef);
+                        thing.SetFaction(FactionUtility.DefaultFactionFrom(spawnGroup.faction) ?? null);
+                        CellFinder.TryFindRandomCellNear(this.parent.Position, this.parent.Map, Props.territoryRadius, c => c.GetFirstBuilding(this.parent.Map) == null && c.InBounds(this.parent.Map) && c.IsValid, out var validCell);
+                        GenPlace.TryPlaceThing(thing, validCell, this.parent.Map, ThingPlaceMode.Direct);
                     }
                 }
             }
