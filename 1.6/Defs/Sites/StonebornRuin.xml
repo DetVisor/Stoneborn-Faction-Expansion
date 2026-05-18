@@ -248,7 +248,7 @@
         <li>.,.,.,.,.,.,Slate,Slate,Slate,Slate,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedShelf_North,.,DV_Dwarven_RuinedBrazier,.,.,DV_Dwarven_RuinedCounter1x3c_East,.,Plant_Moss,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,.,.,.,.,.,.,.,DV_Filth_MithriumBits_North,.,.,.,DV_ChunkSlagMithrium,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,.,.,DV_Dwarven_RuinedWall,Slate,Slate,.,.,.,.</li>
         <li>.,.,.,.,.,.,Slate,Slate,Slate,Slate,DV_Dwarven_RuinedWall,.,.,.,DV_Dwarven_RuinedLamp,.,DV_Dwarven_RuinedChair_South,.,DV_DwarvenCrate_North,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,.,Filth_Slime,DV_Dwarven_RuinedTable2x2c,.,DV_Dwarven_RuinedChair_West,DV_Dwarven_RuinedLamp,.,.,.,.,.,.,DV_Dwarven_RuinedGateLocked_West,.,.,.,.,.,Plant_Moss,DV_Dwarven_RuinedChair_West,DV_Dwarven_RuinedWall,Slate,Slate,.,.,.,.</li>
         <li>.,.,.,.,.,.,.,Slate,Slate,Slate,DV_Dwarven_RuinedWall,DV_ChunkSlagMithrium,.,.,.,.,.,.,.,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,.,.,.,.,.,Filth_Slime,.,.,.,DV_Dwarven_RuinedChair_North,.,.,.,.,.,.,Plant_Moss,Plant_Moss,Plant_Moss,Plant_Moss,DV_Dwarven_RuinedWall,Slate,.,.,.,.,.</li>
-        <li>.,.,.,.,.,.,.,.,Slate,Slate,DV_Dwarven_RuinedWall,.,DV_HermeticCanister_North,.,DV_Filth_MithriumBits_North,.,.,.,.,.,DV_Dwarven_RuinedGateLocked_West,.,.,DV_Dwarven_RuinedChair_South,.,.,.,Hive_Insect,Filth_Slime,.,DV_Dwarven_RuinedTable2x2c,.,.,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,Slate,.,.,.,.,.</li>
+        <li>.,.,.,.,.,.,.,.,Slate,Slate,DV_Dwarven_RuinedWall,.,DV_HermeticCanister_North,.,DV_Filth_MithriumBits_North,.,.,.,.,.,DV_Dwarven_RuinedGateLocked_West,.,.,DV_Dwarven_RuinedChair_South,.,.,.,DV_PLACEHOLDER_BAD,Filth_Slime,.,DV_Dwarven_RuinedTable2x2c,.,.,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,Slate,.,.,.,.,.</li>
         <li>.,.,.,.,.,.,.,.,Slate,Slate,DV_Dwarven_RuinedWall,.,.,.,.,.,.,.,.,.,.,.,Filth_Slime,.,.,.,Filth_Slime,.,.,DV_Dwarven_RuinedChair_East,.,.,.,DV_Dwarven_RuinedWall,Slate,Slate,Slate,Slate,Slate,Slate,Slate,Slate,.,.,.,.,.,.</li>
         <li>.,.,.,.,.,.,.,.,.,Slate,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedCounter1x3c_North,.,.,.,.,.,.,DV_ChunkSlagMithrium,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,.,.,.,.,Filth_Slime,Filth_Slime,DV_ChunkSlagMithrium,Filth_Slime,.,Filth_Slime,.,.,DV_Dwarven_RuinedWall,Slate,Slate,Slate,Slate,Slate,Slate,Slate,Slate,.,.,.,.,.,.</li>
         <li>.,.,.,.,.,.,.,.,.,Slate,DV_Dwarven_RuinedWall,.,DV_Dwarven_RuinedChair_West,.,.,.,DV_Dwarven_RuinedShelf_East,.,DV_DwarvenCrate_North,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedBrazier,.,DV_Dwarven_RuinedPillar,.,.,DV_ChunkSlagMithrium,.,Filth_Slime,.,DV_Dwarven_RuinedPillar,.,DV_Filth_MithriumBits_North,DV_Dwarven_RuinedWall,Slate,Slate,Slate,Slate,Slate,Slate,Slate,Slate,.,.,.,.,.,.</li>
@@ -1028,6 +1028,13 @@
     <defName>DV_DwarvenCrate</defName>
     <thing>DV_DwarvenCrate</thing>
     <thingSetMakerDef>MapGen_Dwarven_DwarvenCrate</thingSetMakerDef>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>DV_PLACEHOLDER_BAD</defName>
+    <thing>DV_MonsterBox</thing>
+    <spawnPartOfFaction>false</spawnPartOfFaction>    <!--default map faction, I.E. passive ancients-->
+    <faction>DV_DungeonMonsters</faction>
   </KCSG.SymbolDef>
 
   <KCSG.SymbolDef>

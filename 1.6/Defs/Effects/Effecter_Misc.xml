@@ -2,11 +2,135 @@
 <Defs>
 
   <EffecterDef>
+    <defName>DV_GutterlatchSpitStream</defName>
+    <children>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
+        <fleckDef>DV_Fleck_GutterlatchDenseMist</fleckDef>
+        <scale>.5</scale>
+        <chancePerTick>.2</chancePerTick>
+        <spawnLocType>OnSource</spawnLocType>
+        <absoluteAngle>false</absoluteAngle>
+        <angle>-30~30</angle>
+        <speed>-2~2</speed>
+        <rotation>0</rotation>
+      </li>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
+        <fleckDef>DV_Fleck_GutterlatchGob</fleckDef>
+        <scale>1~1.5</scale>
+        <positionRadius>0.05</positionRadius>
+        <burstCount>2~3</burstCount>
+        <chancePerTick>1</chancePerTick>
+        <spawnLocType>OnSource</spawnLocType>
+        <absoluteAngle>true</absoluteAngle>
+        <angle>-30~30</angle>
+        <rotation>-30~30</rotation>
+      </li>
+    </children>
+  </EffecterDef>
+
+  <FleckDef ParentName="FleckBase_Thrown">
+    <defName>DV_Fleck_GutterlatchDenseMist</defName>
+    <fadeInTime>0</fadeInTime>
+    <solidTime>.5</solidTime>
+    <fadeOutTime>.3</fadeOutTime>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <growthRate>-1</growthRate>
+    <graphicData>
+      <texPath>Things/Mote/Smoke</texPath>
+      <shaderType>Transparent</shaderType>
+      <drawSize>0.6</drawSize>
+      <color>(.87, .92, .47, 1)</color>
+    </graphicData>
+  </FleckDef>
+
+  <FleckDef ParentName="FleckBase_RandomGraphic_Thrown">
+    <defName>DV_Fleck_GutterlatchGob</defName>
+    <fadeInTime>0</fadeInTime>
+    <solidTime>0.05</solidTime>
+    <fadeOutTime>0.07</fadeOutTime>
+    <altitudeLayer>BuildingOnTop</altitudeLayer>
+    <growthRate>-3</growthRate>
+    <randomGraphics>
+      <li>
+        <graphicClass>Graphic_Fleck</graphicClass>
+        <texPath>Things/Mote/GutterlatchSpitGob/GutterlatchSpitGobA</texPath>
+        <shaderType>Transparent</shaderType>
+        <drawSize>0.3</drawSize>
+        <color>(.87, .92, .47, 1)</color>
+      </li>
+      <li>
+        <graphicClass>Graphic_Fleck</graphicClass>
+        <texPath>Things/Mote/GutterlatchSpitGob/GutterlatchSpitGobB</texPath>
+        <shaderType>Transparent</shaderType>
+        <drawSize>0.3</drawSize>
+        <color>(.87, .92, .47, 1)</color>
+      </li>
+      <li>
+        <graphicClass>Graphic_Fleck</graphicClass>
+        <texPath>Things/Mote/GutterlatchSpitGob/GutterlatchSpitGobC</texPath>
+        <shaderType>Transparent</shaderType>
+        <drawSize>0.3</drawSize>
+        <color>(.87, .92, .47, 1)</color>
+      </li>
+    </randomGraphics>
+  </FleckDef>
+
+  <FleckDef ParentName="FleckBase_RandomGraphic">
+    <defName>DV_GunkDrip</defName>
+    <altitudeLayer>Terrain</altitudeLayer>
+    <solidTime>0.4</solidTime>
+    <fadeInTime>0.2</fadeInTime>
+    <fadeOutTime>0.5</fadeOutTime>
+    <growthRate>-1</growthRate>
+    <randomGraphics>
+      <li>
+        <graphicClass>Graphic_Fleck</graphicClass>
+        <texPath>Things/Pawn/Animal/Cavegunk/CavegunkDrip/CavegunkDripA</texPath>
+        <shaderType>Transparent</shaderType>
+      </li>
+      <li>
+        <graphicClass>Graphic_Fleck</graphicClass>
+        <texPath>Things/Pawn/Animal/Cavegunk/CavegunkDrip/CavegunkDripB</texPath>
+        <shaderType>Transparent</shaderType>
+      </li>
+      <li>
+        <graphicClass>Graphic_Fleck</graphicClass>
+        <texPath>Things/Pawn/Animal/Cavegunk/CavegunkDrip/CavegunkDripC</texPath>
+        <shaderType>Transparent</shaderType>
+      </li>
+      <li>
+        <graphicClass>Graphic_Fleck</graphicClass>
+        <texPath>Things/Pawn/Animal/Cavegunk/CavegunkDrip/CavegunkDripD</texPath>
+        <shaderType>Transparent</shaderType>
+      </li>
+    </randomGraphics>
+  </FleckDef>
+
+  <EffecterDef>
+    <defName>DV_DrippingGunk</defName>
+    <children>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerContinuous</subEffecterClass>
+        <scale>1~1.2</scale>
+        <ticksBetweenMotes>60</ticksBetweenMotes>
+        <positionRadius>0.1</positionRadius>
+        <burstCount>1~1</burstCount>
+        <fleckDef>DV_GunkDrip</fleckDef>
+        <speed>0</speed>
+        <rotation>0</rotation>
+        <angle>0</angle>
+      </li>
+    </children>
+  </EffecterDef>
+
+  <EffecterDef>
     <defName>DV_FreezeReleasing</defName>
     <children>
       <li>
         <subEffecterClass>SubEffecter_Sustainer</subEffecterClass>
-        <soundDef>GasFlow</soundDef>
+        <soundDef>DV_GasReleasing</soundDef>
       </li>
     </children>
   </EffecterDef>
@@ -16,7 +140,7 @@
     <children>
       <li>
         <subEffecterClass>SubEffecter_Sustainer</subEffecterClass>
-        <soundDef>GasFlow</soundDef>
+        <soundDef>DV_GasReleasing</soundDef>
       </li>
       <li>
         <subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>

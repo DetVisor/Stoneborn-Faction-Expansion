@@ -144,7 +144,7 @@
     <defName>DV_Mimic_HermitCrate</defName>
     <label>hermit crate</label>
     <race>DV_Mimic_HermitCrate</race>
-    <combatPower>50</combatPower>
+    <combatPower>90</combatPower>
     <canArriveManhunter>false</canArriveManhunter>
     <ecoSystemWeight>0.40</ecoSystemWeight>
     <lifeStages>

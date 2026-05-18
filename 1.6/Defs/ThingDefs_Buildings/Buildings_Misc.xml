@@ -2,6 +2,154 @@
 <Defs>
 
   <ThingDef ParentName="BuildingBase">
+    <defName>DV_MonsterBox</defName>
+    <label>monster box</label>
+    <description>A self-powered hermetically-sealed crate for preserving valuable items. These can preserve their contents for a long time.</description>
+    <size>(1, 1)</size>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>Things/Building/MonsterBox</texPath>
+    </graphicData>
+    <fillPercent>0.40</fillPercent>
+    <rotatable>false</rotatable>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <WorkToBuild>1000</WorkToBuild>
+    </statBases>
+    <interactionCellOffset>(0,0,0)</interactionCellOffset>
+    <receivesSignals>true</receivesSignals>
+    <comps>
+      <li Class="LTS_StonebornSiteGeneration.CompProperties_MonsterBox">
+        <territorialFactionDef>DV_DungeonMonsters</territorialFactionDef>
+        <attackingFactionDef>AncientsHostile</attackingFactionDef>
+        <territoryRadius>6</territoryRadius>
+        <monsterGroups>
+
+          <li>            <!-- 3-4 cavegunks defending an area -->
+            <li>
+              <pawnKind>DV_Monster_CaveGunk</pawnKind>
+              <range>3~4</range>
+              <faction>DV_DungeonMonsters</faction>
+            </li>
+          </li>
+
+          <li>            <!-- 3-4 gutterlatches defending an area -->
+            <li>
+              <thingDef>DV_Monster_Gutterlatch</thingDef>
+              <range>3~4</range>
+              <faction>DV_DungeonMonsters</faction>
+            </li>
+            <li>
+              <thingDef>DV_Monster_Gutterlatchling</thingDef>
+              <range>4~5</range>
+              <faction>DV_DungeonMonsters</faction>
+            </li>
+          </li>
+
+          <li>            <!-- 2-3 imps defending an area -->
+            <li>
+              <pawnKind>DV_Monster_Imp</pawnKind>
+              <range>2~3</range>
+              <faction>DV_DungeonMonsters</faction>
+            </li>
+          </li>
+
+          <li>            <!-- 1 ogre defending an area -->
+            <li>
+              <pawnKind>DV_Monster_Tusktroll</pawnKind>
+              <range>1</range>
+              <faction>DV_DungeonMonsters</faction>
+            </li>
+          </li>
+
+          <li>            <!-- 2 ogres defending an area -->
+            <li>
+              <pawnKind>DV_Monster_Tusktroll</pawnKind>
+              <range>2</range>
+              <faction>DV_DungeonMonsters</faction>
+            </li>
+          </li>
+
+          <li>            <!-- 5-6 razorbeaks defending an area -->
+            <li>
+              <pawnKind>DV_Monster_Razorbeak</pawnKind>
+              <range>5~6</range>
+              <faction>DV_DungeonMonsters</faction>
+            </li>
+          </li>
+
+          <li>            <!--4 feuding imps -->
+            <li>
+              <pawnKind>DV_Monster_Imp</pawnKind>
+              <range>2</range>
+              <faction>DV_DungeonMonsters</faction>
+            </li>
+            <li>
+              <pawnKind>DV_Monster_Imp</pawnKind>
+              <range>2</range>
+              <faction>AncientsHostile</faction>
+            </li>
+          </li>
+
+          <li>            <!--4 feuding imps -->
+            <li>
+              <pawnKind>DV_Monster_Imp</pawnKind>
+              <range>1</range>
+              <faction>DV_DungeonMonsters</faction>
+            </li>
+            <li>
+              <pawnKind>DV_Monster_Razorbeak</pawnKind>
+              <range>4</range>
+              <faction>AncientsHostile</faction>
+            </li>
+          </li>
+
+        </monsterGroups>
+      </li>
+
+    </comps>
+    <tickerType>Normal</tickerType>
+  </ThingDef>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>DV_PLACEHOLDER</defName>
+    <label>placeholder</label>
+    <description>A self-powered hermetically-sealed crate for preserving valuable items. These can preserve their contents for a long time.</description>
+    <size>(1, 1)</size>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>Things/Building/PlaceholderBox</texPath>
+    </graphicData>
+    <fillPercent>0.40</fillPercent>
+    <rotatable>false</rotatable>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <WorkToBuild>1000</WorkToBuild>
+    </statBases>
+    <interactionCellOffset>(0,0,0)</interactionCellOffset>
+    <tickerType>Normal</tickerType>
+  </ThingDef>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>DV_PLACEHOLDER_BAD</defName>
+    <label>monster placeholder</label>
+    <description>A self-powered hermetically-sealed crate for preserving valuable items. These can preserve their contents for a long time.</description>
+    <size>(1, 1)</size>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>Things/Building/PlaceholderMonsterBox</texPath>
+    </graphicData>
+    <fillPercent>0.40</fillPercent>
+    <rotatable>false</rotatable>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <WorkToBuild>1000</WorkToBuild>
+    </statBases>
+    <interactionCellOffset>(0,0,0)</interactionCellOffset>
+    <tickerType>Normal</tickerType>
+  </ThingDef>
+
+  <ThingDef ParentName="BuildingBase">
     <defName>LTS_StonebornVaultEntrance</defName>
     <label>vault entrance</label>
     <description>The entrance to a long-abandoned stoneborn vault. Hack it to open the hatch.</description>
@@ -88,9 +236,6 @@
       <exitDef>LTS_StonebornVaultEntrance</exitDef>
     </portal>
     <comps>
-      <li Class="CompProperties_Effecter">
-        <effecterDef>UndercaveMapExitLightshafts</effecterDef>
-      </li>
       <li Class="CompProperties_DrawAdditionalGraphics">
         <graphics>
           <li>

@@ -25,41 +25,6 @@
     <jobDef>CastJump</jobDef>
   </AbilityDef>
 
-  <!--
-  <AbilityDef>
-    <defName>InfestationCallerAbility</defName>
-    <label>call infestation</label>
-    <description>Fire a volley of uranium slugs at an enemy.</description>
-    <iconPath>UI/Abilities/ArmSlugger</iconPath>
-    <cooldownTicksRange>60</cooldownTicksRange>
-    <canUseAoeToGetTargets>false</canUseAoeToGetTargets>
-    <jobDef>CastAbilityOnThing</jobDef>
-   	<targetRequired>False</targetRequired>
-    <displayOrder>200</displayOrder>
-    <aiCanUse>true</aiCanUse>
-    <verbProperties>
-      <verbClass>Verb_CastAbilityTouch</verbClass>
-      <hasStandardCommand>false</hasStandardCommand>
-      <range>-1</range>
-      <drawAimPie>false</drawAimPie>      
-      <requireLineOfSight>false</requireLineOfSight>
-      <warmupTime>0.8</warmupTime>
-      <soundCast>Shot_Shotgun</soundCast>
-      <targetParams>
-        <canTargetSelf>True</canTargetSelf>
-      </targetParams>
-    </verbProperties>
-    <comps>
-      <li Class="AthenaFramework.CompProperties_AbilityThingScatter">
-        <thingDef>TunnelHiveSpawner</thingDef>
-        <spawnAmount>5</spawnAmount>
-        <thingCount>1</thingCount>
-        <radius>3</radius>
-      </li>
-    </comps>
-  </AbilityDef>
--->
-
   <AbilityDef>
     <defName>ShockFistAbility</defName>
     <label>shock discharge</label>
@@ -303,5 +268,50 @@
       </li>
     </comps>
   </ThingDef>
+
+  <AbilityDef>
+    <defName>DV_ImpFireSpew</defName>
+    <label>fire spew</label>
+    <description>Spit a stream of sticky, flammable bile from the mouth. The bile can ignite anything or anyone it hits, and also form flaming pools on the ground.\n\nThe bile is generated and stored by an organ in the neck, along with a separate pouch of hypergolic reactant for ignition.</description>
+    <iconPath>UI/Abilities/FireSpew</iconPath>
+    <cooldownTicksRange>300000</cooldownTicksRange>
+    <aiCanUse>true</aiCanUse>
+    <ai_IsIncendiary>true</ai_IsIncendiary>
+    <sendMessageOnCooldownComplete>true</sendMessageOnCooldownComplete>
+    <warmupStartSound>FireSpew_Warmup</warmupStartSound>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <range>7.9</range>
+      <warmupTime>1</warmupTime>
+      <soundCast>FireSpew_Resolve</soundCast>
+      <targetParams>
+        <canTargetLocations>true</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilityFireSpew">
+        <range>7.9</range>
+        <lineWidthEnd>3</lineWidthEnd>
+        <filthDef>Filth_FlammableBile</filthDef>
+        <effecterDef>Fire_Spew</effecterDef>
+        <canHitFilledCells>true</canHitFilledCells>
+      </li>
+      <li MayRequire="Ludeon.RimWorld.Odyssey" Class="CompProperties_AbilityRequiresTrainable">
+        <trainableDef>DV_ImpFireSpewDef</trainableDef>
+        <aiCanCastWithoutTrainable>true</aiCanCastWithoutTrainable>
+      </li>
+    </comps>
+  </AbilityDef>
+
+    <TrainableDef MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>DV_ImpFireSpewDef</defName>
+    <label>fire spew</label>
+    <description>Command the animal to spit bellows of fire from its maw.</description>
+    <listPriority>0</listPriority>
+    <difficulty>200</difficulty>
+    <steps>2</steps>
+    <specialTrainable>true</specialTrainable>
+    <enablesAbility>DV_ImpFireSpew</enablesAbility>
+  </TrainableDef>
 
 </Defs>

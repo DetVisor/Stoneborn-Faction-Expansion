@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="BaseInsect">
+    <defName>DV_Monster_CaveGunk</defName>
+    <label>cavegunk</label>
+    <description>A cave-dwelling crustacean that hides within solid containers. Most often they're found using discarded insectoid molts or cave snail shells for protection, but this subspecies has adapted to dwelling within robust, ancient stoneborn crates to survive. Unfortunately, they forgot to account for curious explorers and treasure hunters.</description>
+    <statBases>
+      <MoveSpeed>2.75</MoveSpeed>
+      <ComfyTemperatureMin>-32</ComfyTemperatureMin>
+      <MarketValue>200</MarketValue>
+      <LeatherAmount>0</LeatherAmount>
+      <ArmorRating_Blunt>0.80</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.22</ArmorRating_Sharp>
+      <Wildness>0.2</Wildness>
+    </statBases>
+    <uiIconScale>1.15</uiIconScale>
+    <tools>
+      <li>
+        <label>slap</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>10</power>
+        <cooldownTime>2.2</cooldownTime>
+      </li>
+    </tools>
+    <race>
+      <deathAction Class="DeathActionProperties_Vanish">
+        <workerClass>DeathActionWorker_Vanish</workerClass>
+        <filth>DV_Filth_CavegunkGoop</filth>
+        <filthCountRange>1~2</filthCountRange>
+        <meatExplosionSize>Small</meatExplosionSize>
+      </deathAction>
+      <body>Snake</body>
+      <baseHungerRate>0.40</baseHungerRate>
+      <baseBodySize>1.12</baseBodySize>
+      <baseHealthScale>2.2</baseHealthScale>
+      <meatLabel>goop</meatLabel>
+      <lifeExpectancy>16</lifeExpectancy>
+      <needsRest>false</needsRest>
+      <hasGenders>false</hasGenders>
+      <foodType>None</foodType>
+      <bloodDef>DV_Filth_CavegunkGoop</bloodDef>
+      <trainability>None</trainability>
+      <isImmuneToInfections>true</isImmuneToInfections>
+      <lifeStageAges>
+        <li>
+          <def>EusocialInsectAdult</def>
+          <minAge>0</minAge>
+          <soundWounded>Pawn_Cavegunk_Hit</soundWounded>
+          <soundDeath>Pawn_Cavegunk_Splatter</soundDeath>
+          <soundCall>Pawn_Cavegunk_Call</soundCall>
+          <soundAngry>Pawn_Cavegunk_Angry</soundAngry>
+        </li>
+      </lifeStageAges>
+      <soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+      <soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+      <soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+    </race>
+    <comps>
+      <li Class="CompProperties_Effecter">
+        <effecterDef>DV_DrippingGunk</effecterDef>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <PawnKindDef ParentName="AnimalKindBase">
+    <defName>DV_Monster_CaveGunk</defName>
+    <label>cavegunk</label>
+    <race>DV_Monster_CaveGunk</race>
+    <combatPower>50</combatPower>
+    <defaultFactionDef>DV_DungeonMonsters</defaultFactionDef>
+    <canArriveManhunter>false</canArriveManhunter>
+    <ecoSystemWeight>0.40</ecoSystemWeight>
+    <alternateGraphicChance>0.80</alternateGraphicChance>
+    <canOpenDoors>false</canOpenDoors>
+    <alternateGraphics>
+      <li>
+        <texPath>Things/Pawn/Animal/Cavegunk/CavegunkMithrium</texPath>
+      </li>
+      <li>
+        <texPath>Things/Pawn/Animal/Cavegunk/CavegunkStone</texPath>
+      </li>
+      <li>
+        <texPath>Things/Pawn/Animal/Cavegunk/CavegunkWood</texPath>
+      </li>
+      <li>
+        <texPath>Things/Pawn/Animal/Cavegunk/CavegunkBone</texPath>
+      </li>
+    </alternateGraphics>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Animal/Cavegunk/Cavegunk</texPath>
+          <drawSize>1.2</drawSize>
+          <shaderType>Transparent</shaderType>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/Animal/Cavegunk/Cavegunk</texPath>
+          <drawSize>1.2</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+
+  <ThingDef ParentName="AnimalThingBase">
+    <defName>DV_Monster_Tusktroll</defName>
+    <label>ogre</label>
+    <description>This large, eyeless predator roams the frigid landscape, constantly in search of food. During winter, they often retreat deep into underground burrows, to feast on the many corpses they hoarded throughout the rest of the year. Relentless and capable of quickly regenerating its wounds, it allows the trolls to take down creatures much stronger than itself.\n\nTrolls spread quickly and are considered a dangerous pest as they frequently attack caravans and travelers. However their hide and delicious meat makes them a target of many hunters.</description>
+    <statBases>
+      <MoveSpeed>3</MoveSpeed>
+      <MarketValue>550</MarketValue>
+      <ComfyTemperatureMin>-25</ComfyTemperatureMin>
+      <ArmorRating_Heat>-2</ArmorRating_Heat>
+      <InjuryHealingFactor>2.5</InjuryHealingFactor>
+      <Flammability>2</Flammability>
+      <EatingSpeed>1.5</EatingSpeed>
+      <Wildness>0.80</Wildness>
+      <FilthRate>8</FilthRate>
+      <MeatAmount>80</MeatAmount>
+    </statBases>
+    <tools>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>12</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+      </li>
+      <li>
+        <label>left claw</label>
+        <capacities>
+          <li>Scratch</li>
+          <li>Stab</li>
+        </capacities>
+        <power>16</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>FrontLeftClaws</linkedBodyPartsGroup>
+      </li>
+      <li>
+        <label>right claw</label>
+        <capacities>
+          <li>Scratch</li>
+          <li>Stab</li>
+        </capacities>
+        <power>16</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>FrontRightClaws</linkedBodyPartsGroup>
+      </li>
+      <li>
+        <capacities>
+          <li>Bite</li>
+        </capacities>
+        <power>23</power>
+        <cooldownTime>2.4</cooldownTime>
+        <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+        <chanceFactor>0.5</chanceFactor>
+      </li>
+    </tools>
+    <receivesSignals>true</receivesSignals>
+    <comps>
+      <li Class="CompProperties_CanBeDormant" />
+      <li Class="CompProperties_WakeUpDormant">
+        <wakeUpOnDamage>true</wakeUpOnDamage>
+        <onlySendSignalOnce>false</onlySendSignalOnce>
+      </li>
+      <li Class="VEF.AnimalBehaviours.CompProperties_Regeneration">
+        <rateInTicks>5</rateInTicks>
+      </li>
+    </comps>
+    <race>
+      <intelligence>ToolUser</intelligence>
+      <body>DV_BipedalAnimalWithClaws</body>
+      <herdAnimal>false</herdAnimal>
+      <predator>true</predator>
+      <maxPreyBodySize>8.5</maxPreyBodySize>
+      <baseBodySize>2</baseBodySize>
+      <baseHealthScale>2</baseHealthScale>
+      <baseHungerRate>1.5</baseHungerRate>
+      <trainability>None</trainability>
+      <foodType>OmnivoreAnimal, OvivoreAnimal</foodType>
+      <manhunterOnTameFailChance>0.8</manhunterOnTameFailChance>
+      <manhunterOnDamageChance>1</manhunterOnDamageChance>
+      <packAnimal>false</packAnimal>
+      <specialTrainables>
+        <li MayRequire="Ludeon.RimWorld.Odyssey">AttackTarget</li>
+      </specialTrainables>
+      <gestationPeriodDays>12</gestationPeriodDays>
+      <litterSizeCurve>
+        <points>
+          <li>(0.5, 0)</li>
+          <li>(1, 1)</li>
+          <li>(1.5, 1)</li>
+          <li>(2.0, 0)</li>
+        </points>
+      </litterSizeCurve>
+      <lifeExpectancy>10</lifeExpectancy>
+      <lifeStageAges>
+        <li>
+          <def>AnimalAdult</def>
+          <minAge>5</minAge>
+          <soundWounded>Pawn_Thrumbo_Pain</soundWounded>
+          <soundDeath>Pawn_Thrumbo_Death</soundDeath>
+          <soundCall>Pawn_Thrumbo_Call</soundCall>
+          <soundAngry>Pawn_Thrumbo_Angry</soundAngry>
+        </li>
+      </lifeStageAges>
+      <soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+      <soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+      <soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+      <soundEating>PredatorLarge_Eat</soundEating>
+      <headPosPerRotation>
+        <li>(0.0, 0, 0.4)</li>
+        <li>(0.27, 0, 0.18)</li>
+        <li>(0.0, 0, 0.1)</li>
+        <li>(-0.27, 0, 0.18)</li>
+      </headPosPerRotation>
+    </race>
+  </ThingDef>
+
+  <PawnKindDef ParentName="AnimalKindBase">
+    <defName>DV_Monster_Tusktroll</defName>
+    <label>ogre</label>
+    <race>DV_Monster_Tusktroll</race>
+    <combatPower>150</combatPower>
+    <defaultFactionDef>DV_DungeonMonsters</defaultFactionDef>
+    <canOpenDoors>false</canOpenDoors>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Animal/Tusktroll/Tusktroll</texPath>
+          <drawSize>2</drawSize>
+          <shadowData>
+            <volume>(1, 0.4, 0.4)</volume>
+            <offset>(0,0,-0.02)</offset>
+          </shadowData>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/Animal/Tusktroll/Tusktroll_Dessicated</texPath>
+          <drawSize>2</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+  <ThingDef ParentName="BigBirdThingBase">
+    <defName>DV_Monster_Razorbeak</defName>
+    <label>razorbeak</label>
+    <description>A large flightless bird with brightly-colored feathers. While it looks beautiful, its kick is vicious. It's known for being quick to aggression when harmed by violence or confronted by incompetent animal tamers.</description>
+    <statBases>
+      <MoveSpeed>8</MoveSpeed>
+      <MarketValue>120</MarketValue>
+      <ComfyTemperatureMin>-8</ComfyTemperatureMin>
+      <ComfyTemperatureMax>50</ComfyTemperatureMax>
+      <FilthRate>8</FilthRate>
+      <Wildness>0.8</Wildness>
+    </statBases>
+    <race>
+      <herdAnimal>false</herdAnimal>
+      <baseBodySize>0.6</baseBodySize>
+      <baseHealthScale>0.8</baseHealthScale>
+      <baseHungerRate>0.50</baseHungerRate>
+      <foodType>CarnivoreAnimal</foodType>
+      <roamMtbDays>3</roamMtbDays>
+      <lifeExpectancy>15</lifeExpectancy>
+      <meatLabel>razorbeak meat</meatLabel>
+      <manhunterOnTameFailChance>0.70</manhunterOnTameFailChance>
+      <manhunterOnDamageChance>1.00</manhunterOnDamageChance>
+      <lifeStageAges>
+        <li>
+          <def>AnimalAdult</def>
+          <minAge>0.2222</minAge>
+          <soundWounded>Pawn_Chicken_Wounded</soundWounded>
+          <soundDeath>Pawn_Chicken_Death</soundDeath>
+          <soundCall>Pawn_Chicken_Call</soundCall>
+          <soundAngry>Pawn_Chicken_Angry</soundAngry>
+        </li>
+      </lifeStageAges>
+      <soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
+      <soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
+      <soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
+      <soundEating>PredatorSmall_Eat</soundEating>
+      <headPosPerRotation>
+        <li>(0.0, 0, 0.27)</li>
+        <li>(0.25, 0, 0.18)</li>
+        <li>(0.0, 0, 0.08)</li>
+        <li>(-0.25, 0, 0.18)</li>
+      </headPosPerRotation>
+    </race>
+    <tools>
+      <li>
+        <label>claws</label>
+        <capacities>
+          <li>Scratch</li>
+        </capacities>
+        <power>6</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>Feet</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>14</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
+      </li>
+      <li>
+        <label>beak</label>
+        <capacities>
+          <li>Bite</li>
+          <li>Cut</li>
+          <li>Stab</li>
+        </capacities>
+        <power>12</power>
+        <cooldownTime>1.4</cooldownTime>
+        <linkedBodyPartsGroup>Beak</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>14</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
+      </li>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>6</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.2</chanceFactor>
+      </li>
+    </tools>
+  </ThingDef>
+
+  <PawnKindDef ParentName="BigBirdKindBase">
+    <defName>DV_Monster_Razorbeak</defName>
+    <label>razorbeak</label>
+    <labelPlural>razorbeaks</labelPlural>
+    <race>DV_Monster_Razorbeak</race>
+    <combatPower>35</combatPower>
+    <defaultFactionDef>DV_DungeonMonsters</defaultFactionDef>
+    <canOpenDoors>false</canOpenDoors>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Animal/Razorbeak/Razorbeak</texPath>
+          <drawSize>1</drawSize>
+          <shadowData>
+            <volume>(0.4, 0.4, 0.4)</volume>
+            <offset>(0,0,-0.2)</offset>
+          </shadowData>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/Animal/Razorbeak/Razorbeak_Dessicated</texPath>
+          <drawSize>1</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+  <ThingDef ParentName="AnimalThingBase">
+    <defName>DV_Monster_Imp</defName>
+    <label>imp</label>
+    <description>This large, eyeless predator roams the frigid landscape, constantly in search of food. During winter, they often retreat deep into underground burrows, to feast on the many corpses they hoarded throughout the rest of the year. Relentless and capable of quickly regenerating its wounds, it allows the trolls to take down creatures much stronger than itself.\n\nTrolls spread quickly and are considered a dangerous pest as they frequently attack caravans and travelers. However their hide and delicious meat makes them a target of many hunters.</description>
+    <statBases>
+      <MoveSpeed>3</MoveSpeed>
+      <MarketValue>550</MarketValue>
+      <ComfyTemperatureMin>-25</ComfyTemperatureMin>
+      <ArmorRating_Heat>-2</ArmorRating_Heat>
+      <InjuryHealingFactor>2.5</InjuryHealingFactor>
+      <Flammability>0</Flammability>
+      <EatingSpeed>1.5</EatingSpeed>
+      <Wildness>0.80</Wildness>
+      <FilthRate>8</FilthRate>
+      <MeatAmount>60</MeatAmount>
+    </statBases>
+    <tools>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+      </li>
+      <li>
+        <label>left claw</label>
+        <capacities>
+          <li>Scratch</li>
+          <li>Stab</li>
+        </capacities>
+        <power>12</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>FrontLeftClaws</linkedBodyPartsGroup>
+      </li>
+      <li>
+        <label>right claw</label>
+        <capacities>
+          <li>Scratch</li>
+          <li>Stab</li>
+        </capacities>
+        <power>12</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>FrontRightClaws</linkedBodyPartsGroup>
+      </li>
+      <li>
+        <capacities>
+          <li>Bite</li>
+        </capacities>
+        <power>20</power>
+        <cooldownTime>2.4</cooldownTime>
+        <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+        <chanceFactor>0.5</chanceFactor>
+      </li>
+    </tools>
+    <receivesSignals>true</receivesSignals>
+    <comps>
+      <li Class="CompProperties_CanBeDormant" />
+      <li Class="CompProperties_WakeUpDormant">
+        <wakeUpOnDamage>true</wakeUpOnDamage>
+        <onlySendSignalOnce>false</onlySendSignalOnce>
+      </li>
+      <li Class="VEF.AnimalBehaviours.CompProperties_LastStand">
+        <finalCoolDownMultiplier>4</finalCoolDownMultiplier>
+      </li>
+    </comps>
+    <race>
+      <intelligence>ToolUser</intelligence>
+      <body>DV_BipedalAnimalWithClaws</body>
+      <herdAnimal>false</herdAnimal>
+      <predator>true</predator>
+      <maxPreyBodySize>8.5</maxPreyBodySize>
+      <baseBodySize>2</baseBodySize>
+      <baseHealthScale>2</baseHealthScale>
+      <baseHungerRate>1.5</baseHungerRate>
+      <trainability>None</trainability>
+      <foodType>OmnivoreAnimal, OvivoreAnimal</foodType>
+      <manhunterOnTameFailChance>0.8</manhunterOnTameFailChance>
+      <manhunterOnDamageChance>1</manhunterOnDamageChance>
+      <packAnimal>false</packAnimal>
+      <specialTrainables>
+        <li MayRequire="Ludeon.RimWorld.Odyssey">AttackTarget</li>
+        <li MayRequire="Ludeon.RimWorld.Odyssey">DV_ImpFireSpewDef</li>
+      </specialTrainables>
+      <gestationPeriodDays>12</gestationPeriodDays>
+      <litterSizeCurve>
+        <points>
+          <li>(0.5, 0)</li>
+          <li>(1, 1)</li>
+          <li>(1.5, 1)</li>
+          <li>(2.0, 0)</li>
+        </points>
+      </litterSizeCurve>
+      <lifeExpectancy>10</lifeExpectancy>
+      <lifeStageAges>
+        <li>
+          <def>AnimalAdult</def>
+          <minAge>5</minAge>
+          <soundWounded>Pawn_Cobra_Wounded</soundWounded>
+          <soundDeath>Pawn_Cobra_Death</soundDeath>
+          <soundCall>Pawn_Cobra_Call</soundCall>
+          <soundAngry>Pawn_Cobra_Angry</soundAngry>
+        </li>
+      </lifeStageAges>
+      <soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
+      <soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
+      <soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
+      <soundEating>PredatorLarge_Eat</soundEating>
+      <headPosPerRotation>
+        <li>(0.0, 0, 0.4)</li>
+        <li>(0.27, 0, 0.18)</li>
+        <li>(0.0, 0, 0.1)</li>
+        <li>(-0.27, 0, 0.18)</li>
+      </headPosPerRotation>
+    </race>
+  </ThingDef>
+
+  <PawnKindDef ParentName="AnimalKindBase">
+    <defName>DV_Monster_Imp</defName>
+    <label>imp</label>
+    <race>DV_Monster_Imp</race>
+    <combatPower>75</combatPower>
+    <defaultFactionDef>DV_DungeonMonsters</defaultFactionDef>
+    <canOpenDoors>false</canOpenDoors>
+    <abilities>
+      <li>DV_ImpFireSpew</li>
+    </abilities>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Animal/Imp/Imp</texPath>
+          <drawSize>1.4</drawSize>
+          <shadowData>
+            <volume>(1, 0.4, 0.4)</volume>
+            <offset>(0,0,-0.02)</offset>
+          </shadowData>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/Animal/Imp/Imp_Dessicated</texPath>
+          <drawSize>1.4</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+</Defs>

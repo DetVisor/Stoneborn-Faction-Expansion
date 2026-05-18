@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <MentalStateDef ParentName="BaseMentalState" Name="BaseMentalState_Monster">
+        <defName>DV_ManhunterMonster</defName>
+        <stateClass>MentalState_Manhunter</stateClass>
+        <label>aggressive</label>
+        <category>Aggro</category>
+        <nameColor>(0.9,0.2,0.5)</nameColor>
+        <minTicksBeforeRecovery>99999999</minTicksBeforeRecovery>
+        <beginLetter IsNull="True" />
+        <recoveryMessage IsNull="True" />
+        <recoverFromSleep>false</recoverFromSleep>
+        <recoverFromDowned>false</recoverFromDowned>
+        <recoverFromCollapsingExhausted>false</recoverFromCollapsingExhausted>
+        <baseInspectLine>Maddened: Aggressive</baseInspectLine>
+        <inCaravanCanDo>false</inCaravanCanDo>
+    </MentalStateDef>
+
+</Defs>
