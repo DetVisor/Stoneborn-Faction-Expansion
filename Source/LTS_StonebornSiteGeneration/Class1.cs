@@ -12,6 +12,8 @@ using UnityEngine;
 using Verse;
 using Verse.AI;
 using Verse.AI.Group;
+using Verse.Noise;
+using static System.Collections.Specialized.BitVector32;
 using static UnityEngine.GraphicsBuffer;
 
 namespace LTS_StonebornSiteGeneration
@@ -27,13 +29,13 @@ namespace LTS_StonebornSiteGeneration
         }
     }
 
-    [HarmonyPatch(typeof(PawnRenderer), nameof(PawnRenderer.BodyAngle))]
+    [HarmonyPatch(typeof(PawnRenderer), nameof(PawnRenderer.BodyAngle))]//this should probably be done with a prefix.
     public static class PawnRenderer_BodyAngle_Patch
     {
         [HarmonyPostfix]
         public static void Postfix(ref float __result, Pawn ___pawn)
         {
-            if (___pawn.kindDef == LTS_SFE_DefOf.DV_Mimic_HermitCrate)
+            if (___pawn.kindDef == LTS_SFE_DefOf.DV_Mimic_HermitCrate && !___pawn.Dead)
             {
                 __result = 0f;
             }
@@ -64,6 +66,8 @@ namespace LTS_StonebornSiteGeneration
     {
         public string LTS_TexPathOpen;
     }
+
+
 
 
 
@@ -323,7 +327,7 @@ namespace LTS_StonebornSiteGeneration
         }
         public override void CompTick()
         {
-            Log.Message("Tick");
+            //Log.Message("Tick");
             base.CompTick();
             if (this.parent.MapHeld == null)
             {
@@ -382,6 +386,73 @@ namespace LTS_StonebornSiteGeneration
             {
                 Messages.Message(string.Format(this.Props.useMessage, this.parent.Label, Props.pawnKind.label), pawn, MessageTypeDefOf.NegativeEvent, false);
             }
+        }
+    }
+
+    public class CompProperties_MonsterBox : CompProperties
+    {
+        public CompProperties_MonsterBox()
+        {
+            this.compClass = typeof(CompMonsterBox);
+        }
+
+        public List<List<SpawnGroup>> monsterGroups;
+        public FactionDef territorialFactionDef;
+        public int territoryRadius;
+    }
+
+    public class SpawnGroup
+    {
+        public PawnKindDef pawnKind;
+        public IntRange range;
+        public FactionDef faction = null;
+        public MentalStateDef mentalstateDef = null;
+    }
+
+    public class CompMonsterBox : ThingComp
+    {
+        public CompProperties_MonsterBox Props
+        {
+            get
+            {
+                return (CompProperties_MonsterBox)this.props;
+            }
+        }
+
+        public override void CompTick()
+        {
+            base.CompTick();
+
+            //pick random List<Spawngroup> from List<List<Spawngroup>>, then spawn foreach Spawngroup in selected List<Spawngroup>
+
+            int numOfMonsters;
+            Faction lordDefenderFaction = Find.FactionManager.FirstFactionOfDef(Props.territorialFactionDef) ?? this.parent.Map.ParentFaction;
+
+            //Lord lord = LordMaker.MakeNewLord(lordDefenderFaction, new LordJob_DefendBase(lordDefenderFaction, this.parent.Position, 25000, false), this.parent.Map, null);
+            Lord lord = LordMaker.MakeNewLord(lordDefenderFaction, new LordJob_DefendPoint(this.parent.Position, Props.territoryRadius), this.parent.Map, null);
+
+            List<SpawnGroup> selectedList = Props.monsterGroups.RandomElement();
+
+            foreach (SpawnGroup spawnGroup in selectedList)
+            {
+                numOfMonsters = spawnGroup.range.RandomInRange;
+                for (int i = 0; i < numOfMonsters; i++)
+                {
+                    PawnKindDef pawnKind = spawnGroup.pawnKind;
+                    Faction faction = FactionUtility.DefaultFactionFrom(spawnGroup.faction) ?? null;
+                    PawnGenerationContext context = PawnGenerationContext.NonPlayer;
+                    //float? fixedBiologicalAge = new float?(0f);
+                    Pawn pawn = PawnGenerator.GeneratePawn(new PawnGenerationRequest(pawnKind, faction, context, null, true, false, false, true, false, 1f, false, true, false, true, true, false, false, false, false, 0f, 0f, null, 1f, null, null, null, null, null, null, null, null, null, null, null, null, false, false, false, false, null, null, null, null, null, 0f, DevelopmentalStage.Adult, null, null, null, false, false, false, -1, 0, false));
+                    GenSpawn.Spawn(pawn, this.parent.Position, this.parent.Map, WipeMode.VanishOrMoveAside);
+                    
+                    if (faction == lordDefenderFaction)
+                    {
+                        lord.AddPawn(pawn);
+                    }
+                }
+            }
+
+            parent.Destroy();
         }
     }
 }
