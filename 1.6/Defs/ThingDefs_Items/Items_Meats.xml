@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-
     <ThingDef>
         <defName>DV_Meat_Gutterlatch</defName>
         <label>gutterlatch flesh</label>

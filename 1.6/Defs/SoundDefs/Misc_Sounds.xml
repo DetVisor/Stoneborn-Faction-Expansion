@@ -2,6 +2,25 @@
 <Defs>
 
   <SoundDef>
+    <defName>Plant_AlraunScream</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>2</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/AlraunScream</clipPath>
+          </li>
+        </grains>
+        <onCamera>True</onCamera>
+        <volumeRange>22~22</volumeRange>
+        <pitchRange>1~1.5</pitchRange>
+        <distRange>0~50</distRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
     <defName>Pawn_Cavegunk_Call</defName>
     <context>MapOnly</context>
     <maxSimultaneous>2</maxSimultaneous>

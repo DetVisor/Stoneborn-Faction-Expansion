@@ -604,23 +604,224 @@
     </lifeStages>
   </PawnKindDef>
 
-  <ThingDef ParentName="BuildingBase">
+  <ThingDef ParentName="PlantBase">
     <defName>DV_Plant_Rookpod</defName>
     <label>rook-pod</label>
     <description>The younger state of rook-caps. Rook-pods are mostly harmless, but not edible, as the fruiting bodies are chock full of toxins.</description>
-    <size>(1, 1)</size>
+    <statBases>
+      <MaxHitPoints>85</MaxHitPoints>
+      <Nutrition>0.175</Nutrition>
+    </statBases>
     <graphicData>
       <texPath>Things/Plant/Rookpod</texPath>
       <graphicClass>Graphic_Random</graphicClass>
     </graphicData>
-    <fillPercent>0.40</fillPercent>
-    <rotatable>false</rotatable>
-    <statBases>
-      <MaxHitPoints>50</MaxHitPoints>
-      <WorkToBuild>1000</WorkToBuild>
-    </statBases>
-    <interactionCellOffset>(0,0,0)</interactionCellOffset>
-    <tickerType>Normal</tickerType>
+    <selectable>true</selectable>
+    <pathCost>50</pathCost>
+    <ingestible />
+    <plant>
+      <fertilityMin>0</fertilityMin>
+      <fertilitySensitivity>0</fertilitySensitivity>
+      <harvestTag>Standard</harvestTag>
+      <harvestedThingDef>RawFungus</harvestedThingDef>
+      <harvestYield>30</harvestYield>
+      <topWindExposure>0</topWindExposure>
+      <growDays>12</growDays>
+      <cavePlantWeight>0.1</cavePlantWeight>
+      <visualSizeRange>1~1.2</visualSizeRange>
+      <purpose>Food</purpose>
+      <humanFoodPlant>true</humanFoodPlant>
+      <maxMeshCount>1</maxMeshCount>
+      <growMinGlow>0</growMinGlow>
+      <growOptimalGlow>0</growOptimalGlow>
+      <diesToLight>false</diesToLight>
+    </plant>
   </ThingDef>
+
+  <ThingDef ParentName="PlantBase">
+    <defName>DV_Plant_Alraun</defName>
+    <label>alraun</label>
+    <description>The younger state of rook-caps. Rook-pods are mostly harmless, but not edible, as the fruiting bodies are chock full of toxins.</description>
+    <statBases>
+      <MaxHitPoints>85</MaxHitPoints>
+      <Nutrition>0.175</Nutrition>
+    </statBases>
+    <graphicData>
+      <texPath>Things/Plant/Mandrake</texPath>
+      <graphicClass>Graphic_Random</graphicClass>
+    </graphicData>
+    <selectable>true</selectable>
+    <pathCost>50</pathCost>
+    <ingestible />
+    <plant>
+      <fertilityMin>0</fertilityMin>
+      <fertilitySensitivity>0</fertilitySensitivity>
+      <harvestTag>Standard</harvestTag>
+      <harvestedThingDef>DV_RawAlraun</harvestedThingDef>
+      <harvestYield>15</harvestYield>
+      <topWindExposure>0</topWindExposure>
+      <growDays>4</growDays>
+      <cavePlantWeight>0.1</cavePlantWeight>
+      <visualSizeRange>0.8~1.2</visualSizeRange>
+      <purpose>Food</purpose>
+      <humanFoodPlant>true</humanFoodPlant>
+      <maxMeshCount>4</maxMeshCount>
+      <growMinGlow>0</growMinGlow>
+      <growOptimalGlow>0</growOptimalGlow>
+      <diesToLight>false</diesToLight>
+    </plant>
+    <comps>
+      <li Class="CompProperties_GiveThoughtToAllMapPawnsOnDestroy">
+        <thought>DV_AlraunScream</thought>
+        <message>An alraun has been harvested, and it emitted a psychic scream.</message>
+      </li>
+      <li Class="CompProperties_PlaySoundOnDestroy">
+        <sound>Plant_AlraunScream</sound>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThoughtDef>
+    <defName>DV_AlraunScream</defName>
+    <durationDays>2</durationDays>
+    <stackLimit>3</stackLimit>
+    <effectMultiplyingStat>PsychicSensitivity</effectMultiplyingStat>
+    <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+    <stages>
+      <li>
+        <label>alraun scream</label>
+        <description>What an annoying scream, like chalk on a board...</description>
+        <baseMoodEffect>-3</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThingDef ParentName="PlantFoodRawBase">
+    <defName>DV_RawAlraun</defName>
+    <label>raw alraun</label>
+    <description>Raw alraun.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/Mandrake</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>3</MarketValue>
+    </statBases>
+    <ingestible>
+      <foodType>VegetableOrFruit</foodType>
+    </ingestible>
+    <comps>
+      <li Class="CompProperties_Rottable">
+        <daysToRotStart>40</daysToRotStart>
+        <rotDestroys>true</rotDestroys>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseInsect">
+    <defName>DV_Monster_Rustbug</defName>
+    <label>rustbug</label>
+    <description>A small, passive insectoid the size of a chihuahua. Rustbugs get their name from mimicry of oxydized metals, using it to trick predators into thinking they're just chunks of scrap. They move slowly and feed on filth, naturally cleaning ruins and scrapyards.</description>
+    <statBases>
+      <MoveSpeed>2.75</MoveSpeed>
+      <ComfyTemperatureMin>-32</ComfyTemperatureMin>
+      <MarketValue>200</MarketValue>
+      <LeatherAmount>0</LeatherAmount>
+      <ArmorRating_Blunt>0.80</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.22</ArmorRating_Sharp>
+      <Wildness>0.2</Wildness>
+    </statBases>
+    <tools>
+      <li>
+        <label>mandibles</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>6</power>
+        <cooldownTime>2.2</cooldownTime>
+      </li>
+    </tools>
+    <race>
+      <thinkTreeMain>VEF_AnimalWeirdEater</thinkTreeMain>
+      <body>BeetleLikeWithClaw</body>
+      <baseHungerRate>0.3</baseHungerRate>
+      <baseBodySize>1.12</baseBodySize>
+      <baseHealthScale>2.2</baseHealthScale>
+      <useMeatFrom>Megaspider</useMeatFrom>
+      <lifeExpectancy>8</lifeExpectancy>
+      <manhunterOnTameFailChance>0</manhunterOnTameFailChance>
+      <manhunterOnDamageChance>0</manhunterOnDamageChance>
+      <needsRest>true</needsRest>
+      <hasGenders>true</hasGenders>
+      <foodType>VegetarianRoughAnimal</foodType>
+      <bloodDef>Filth_Slime</bloodDef>
+      <trainability>None</trainability>
+      <isImmuneToInfections>true</isImmuneToInfections>
+      <lifeStageAges>
+        <li>
+          <def>EusocialInsectAdult</def>
+          <minAge>0</minAge>
+          <soundWounded>Pawn_Megascarab_Wounded</soundWounded>
+          <soundDeath>Pawn_Megascarab_Death</soundDeath>
+          <soundCall>Pawn_Megascarab_Call</soundCall>
+          <soundAngry>Pawn_Megascarab_Angry</soundAngry>
+        </li>
+      </lifeStageAges>
+      <soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+      <soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+      <soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+    </race>
+    <comps>
+      <li Class="VEF.AnimalBehaviours.CompProperties_EatWeirdFood">
+        <customThingToEat>
+          <li>Filth_Dirt</li>
+          <li>Filth_AnimalFilth</li>
+          <li>Filth_Blood</li>
+          <li>Filth_Slime</li>
+          <li>Filth_CorpseBile</li>
+          <li>Filth_Slime</li>
+          <li>Plant_Moss</li>
+          <li>Plant_Grass</li>
+          <li>Plant_TallGrass</li>
+        </customThingToEat>
+        <nutrition>1</nutrition>
+        <digThingIfMapEmpty>false</digThingIfMapEmpty>
+        <fullyDestroyThing>true</fullyDestroyThing>
+        <needsWater>false</needsWater>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <PawnKindDef ParentName="AnimalKindBase">
+    <defName>DV_Monster_Rustbug</defName>
+    <label>rustbug</label>
+    <race>DV_Monster_Rustbug</race>
+    <combatPower>10</combatPower>
+    <canArriveManhunter>false</canArriveManhunter>
+    <ecoSystemWeight>0.40</ecoSystemWeight>
+    <alternateGraphicChance>0.60</alternateGraphicChance>
+    <canOpenDoors>false</canOpenDoors>
+    <alternateGraphics>
+      <li>
+        <texPath>Things/Pawn/Animal/Rustbug/RustbugMithrium</texPath>
+      </li>
+      <li>
+        <texPath>Things/Pawn/Animal/Rustbug/RustbugSilver</texPath>
+      </li>
+    </alternateGraphics>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Animal/Rustbug/Rustbug</texPath>
+          <drawSize>1.1</drawSize>
+          <shaderType>Transparent</shaderType>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/Animal/Rustbug/Rustbug_Dessicated</texPath>
+          <drawSize>1.1</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
 
 </Defs>

@@ -1,6 +1,52 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+  <ThingDef ParentName="BuildingBase">
+    <defName>DV_Dwarven_AncientLore</defName>
+    <label>ancient lore scroll</label>
+    <thingClass>Building</thingClass>
+    <category>Building</category>
+    <description>An ancient stoneborn brazier, made from mithrium.</description>
+    <noRightClickDraftAttack>true</noRightClickDraftAttack>
+    <graphicData>
+      <texPath>Things/Building/Ruins/Dwarven_AncientLore/Dwarven_AncientLore1</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(3,3)</drawSize>
+      <shaderType>CutoutComplex</shaderType>
+      <color>(107, 100, 90)</color>
+      <shadowData>
+        <volume>(0.76,0.3,0.15)</volume>
+        <offset>(0,0,-0.39)</offset>
+      </shadowData>
+    </graphicData>
+    <startingHpRange>0.9~1.3</startingHpRange>
+    <statBases>
+      <MaxHitPoints>120</MaxHitPoints>
+      <WorkToBuild>400</WorkToBuild>
+    </statBases>
+    <fillPercent>0.25</fillPercent>
+    <passability>PassThroughOnly</passability>
+    <pathCost>42</pathCost>
+    <blockWind>true</blockWind>
+    <filthLeaving>Filth_RubbleBuilding</filthLeaving>
+    <rotatable>false</rotatable>
+    <building>
+      <claimable>false</claimable>
+      <deconstructible>false</deconstructible>
+      <isInert>true</isInert>
+      <ai_chillDestination>false</ai_chillDestination>
+      <canLandGravshipOn>true</canLandGravshipOn>
+    </building>
+    <comps>
+      <li Class="CompProperties_ProximityLetter">
+        <radius>8</radius>
+        <letterDef>PositiveEvent</letterDef>
+        <letterLabel>Stoneborn History: [1]</letterLabel>
+        <letterText>Passing near the tattered scroll, {PAWN_nameDef} noticed  that it seems to be partly written in common tongue, and partly in rocktongue. with some effort translating the text {PAWN_nameDef} was able to extrapolate a chunk of history.\n\n-----------------------------------\n\n[...] - the knife eared cowards came by sun down. Their ships entered the radar view, as we watched in horror. An entire fleet swarmed the station: the starships of the invaders were like no others we had seen. Elegant, glistening in the light of Gallos, curves pointed into spikes, edges smoothed into a clean profile. The vessels were almost organic, reminiscent of the platewyrms of Grugni. In a hurry, we readied our weapons and prepared for the worst, our voltcannons lit up like festival lights, electric arcs sparking eagerly along the length of the copper barrels as we waited the command of our station's bladefather... [...]</letterText>
+      </li>
+    </comps>
+  </ThingDef>
+
   <ThingDef Abstract="True" Name="DV_BuildingFloorBase" ParentName="BuildingBase">
     <altitudeLayer>FloorCoverings</altitudeLayer>
     <wipesPlants>true</wipesPlants>
@@ -441,7 +487,7 @@
     <passability>PassThroughOnly</passability>
     <pathCost>42</pathCost>
     <blockWind>true</blockWind>
-    <filthLeaving>Filth_RubbleBuilding</filthLeaving>
+    <filthLeaving>DV_Filth_MithriumBits</filthLeaving>
     <rotatable>true</rotatable>
     <costList>
       <DV_Mithrium>5</DV_Mithrium>
@@ -598,7 +644,7 @@
     <passability>PassThroughOnly</passability>
     <pathCost>42</pathCost>
     <blockWind>true</blockWind>
-    <filthLeaving>Filth_RubbleBuilding</filthLeaving>
+    <filthLeaving>DV_Filth_MithriumBits</filthLeaving>
     <rotatable>false</rotatable>
     <costList>
       <DV_Mithrium>5</DV_Mithrium>
@@ -724,7 +770,7 @@
     <passability>PassThroughOnly</passability>
     <pathCost>42</pathCost>
     <blockWind>true</blockWind>
-    <filthLeaving>Filth_RubbleBuilding</filthLeaving>
+    <filthLeaving>DV_Filth_MithriumBits</filthLeaving>
     <rotatable>true</rotatable>
     <costList IsNull="True" />
     <building>
@@ -855,7 +901,7 @@
     <passability>PassThroughOnly</passability>
     <pathCost>42</pathCost>
     <blockWind>true</blockWind>
-    <filthLeaving>Filth_RubbleBuilding</filthLeaving>
+    <filthLeaving>DV_Filth_MithriumBits</filthLeaving>
     <rotatable>false</rotatable>
     <costList>
       <DV_Mithrium>5</DV_Mithrium>
@@ -895,7 +941,7 @@
     <passability>PassThroughOnly</passability>
     <pathCost>42</pathCost>
     <blockWind>true</blockWind>
-    <filthLeaving>Filth_RubbleBuilding</filthLeaving>
+    <filthLeaving>DV_Filth_MithriumBits</filthLeaving>
     <rotatable>false</rotatable>
     <costList>
       <DV_Mithrium>5</DV_Mithrium>

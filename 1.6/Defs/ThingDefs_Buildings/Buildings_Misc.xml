@@ -2,6 +2,41 @@
 <Defs>
 
   <ThingDef ParentName="BuildingBase">
+    <defName>DV_RustBox</defName>
+    <label>rustbug box</label>
+    <description>A self-powered hermetically-sealed crate for preserving valuable items. These can preserve their contents for a long time.</description>
+    <size>(1, 1)</size>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>Things/Building/RustBox</texPath>
+    </graphicData>
+    <fillPercent>0.40</fillPercent>
+    <rotatable>false</rotatable>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <WorkToBuild>1000</WorkToBuild>
+    </statBases>
+    <interactionCellOffset>(0,0,0)</interactionCellOffset>
+    <receivesSignals>true</receivesSignals>
+    <comps>
+      <li Class="LTS_StonebornSiteGeneration.CompProperties_MonsterBox">
+        <territoryRadius>50</territoryRadius>
+        <monsterGroups>
+
+          <li>            <!-- 3-4 cavegunks defending an area -->
+            <li>
+              <pawnKind>DV_Monster_Rustbug</pawnKind>
+              <range>10~11</range>
+            </li>
+          </li>
+        </monsterGroups>
+      </li>
+
+    </comps>
+    <tickerType>Normal</tickerType>
+  </ThingDef>
+
+  <ThingDef ParentName="BuildingBase">
     <defName>DV_MonsterBox</defName>
     <label>monster box</label>
     <description>A self-powered hermetically-sealed crate for preserving valuable items. These can preserve their contents for a long time.</description>
@@ -24,6 +59,18 @@
         <attackingFactionDef>AncientsHostile</attackingFactionDef>
         <territoryRadius>6</territoryRadius>
         <monsterGroups>
+
+          <li>            <!-- 3-4 cavegunks defending an area -->
+            <li>
+              <pawnKind>DV_Monster_CaveGunk</pawnKind>
+              <range>3~4</range>
+              <faction>DV_DungeonMonsters</faction>
+            </li>
+            <li>
+              <thingDef>DV_Plant_Alraun</thingDef>
+              <range>4~5</range>
+            </li>
+          </li>
 
           <li>            <!-- 3-4 cavegunks defending an area -->
             <li>
@@ -105,19 +152,6 @@
               <pawnKind>DV_Monster_Razorbeak</pawnKind>
               <range>5~6</range>
               <faction>DV_DungeonMonsters</faction>
-            </li>
-          </li>
-
-          <li>            <!--4 feuding imps -->
-            <li>
-              <pawnKind>DV_Monster_Imp</pawnKind>
-              <range>2</range>
-              <faction>DV_DungeonMonsters</faction>
-            </li>
-            <li>
-              <pawnKind>DV_Monster_Imp</pawnKind>
-              <range>2</range>
-              <faction>AncientsHostile</faction>
             </li>
           </li>
 

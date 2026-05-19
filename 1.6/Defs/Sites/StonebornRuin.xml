@@ -1038,6 +1038,12 @@
   </KCSG.SymbolDef>
 
   <KCSG.SymbolDef>
+    <defName>DV_PLACEHOLDER</defName>
+    <thing>DV_RustBox</thing>
+    <spawnPartOfFaction>false</spawnPartOfFaction>    <!--default map faction, I.E. passive ancients-->
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
     <defName>DV_DwarvenCrate_Mimic</defName>
     <thing>DV_DwarvenCrate_Mimic</thing>
   </KCSG.SymbolDef>
@@ -1165,8 +1171,31 @@
   </KCSG.SymbolDef>
 
   <KCSG.SymbolDef>
+    <defName>DV_DwarvenGrate_South</defName>
+    <thing>DV_DwarvenGrate</thing>
+    <rotation>South</rotation>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>DV_DwarvenGrate_East</defName>
+    <thing>DV_DwarvenGrate</thing>
+    <rotation>East</rotation>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>DV_DwarvenGrate_West</defName>
+    <thing>DV_DwarvenGrate</thing>
+    <rotation>West</rotation>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
     <defName>DV_Dwarven_RuinedWall</defName>
     <thing>DV_Dwarven_RuinedWall</thing>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>DV_Dwarven_MithriumWall</defName>
+    <thing>DV_Dwarven_MithriumWall</thing>
   </KCSG.SymbolDef>
 
   <!-- Gates, locked and not -->

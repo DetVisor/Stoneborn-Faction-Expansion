@@ -4,8 +4,7 @@
     <ThingDef ParentName="BaseFilth">
         <defName>DV_Filth_OldAlcohol</defName>
         <label>old alcohol</label>
-        <description>A puddle of flammable chemfuel.</description>
-        <thingClass>LiquidFuel</thingClass>
+        <description>A puddle of old, flammable alcohol.</description>
         <useHitPoints>true</useHitPoints>
         <tickerType>Normal</tickerType>
         <statBases>
