@@ -56,6 +56,8 @@ namespace LTS_StonebornSiteGeneration
         public static ThingDef DV_DwarvenCrate;
         public static ThingDef DV_DwarvenCrate_Mimic;
         public static PawnKindDef DV_Mimic_HermitCrate;
+        public static ThingDef LTS_StonebornVaultEntrance;
+        public static ThingDef LTS_StonebornVaultEntranceIntermediate;
 
         static LTS_SFE_DefOf()
         {
@@ -66,6 +68,7 @@ namespace LTS_StonebornSiteGeneration
     public class LTS_SFE_ModExtension : DefModExtension
     {
         public string LTS_TexPathOpen;
+        public GenStepDef LTS_GenStepDef;
     }
 
 
@@ -139,11 +142,11 @@ namespace LTS_StonebornSiteGeneration
                 return 1568957891;
             }
         }
-        public override void Generate(Map map, GenStepParams parms)
+        public override void Generate(Map map, GenStepParams parms)//returns the position of the first building that has a 'portal' and has 'Exit' in it's defName
         {
             if (!MapGenerator.PlayerStartSpotValid)
             {
-                MapGenerator.PlayerStartSpot = map.listerBuildings.allBuildingsNonColonist.Where(building => building?.def?.portal != null).First().Position;
+                MapGenerator.PlayerStartSpot = map.listerBuildings.allBuildingsNonColonist.Where(building => building?.def?.portal != null && building.def.defName.Contains("Exit")).First().Position;
             }
         }
     }
@@ -176,6 +179,41 @@ namespace LTS_StonebornSiteGeneration
                     IntVec3 position = dwarvenCrate.Position;
                     dwarvenCrate.Destroy();
                     GenSpawn.Spawn(LTS_SFE_DefOf.DV_DwarvenCrate_Mimic, position, map);
+                }
+            }
+
+
+        }
+    }
+
+    public class LTS_GenStep_ExtraIntermediateLevelChance : GenStep
+    {
+        public override int SeedPart
+        {
+            get
+            {
+                return 1568957891;
+            }
+        }
+        public override void Generate(Map map, GenStepParams parms)
+        {
+            //should only be 1
+            List<Building> dwarvenVaultEntrances = new List<Building>(map.listerBuildings.allBuildingsNonColonist.Where(building => building?.def?.portal != null && building.def.defName.Contains("Entrance")).Concat(map.listerBuildings.allBuildingsNonColonist.Where(building => building?.def?.portal != null && building.def.defName.Contains("Entrance"))));
+
+
+            foreach (Building dwarvenVaultEntrance in dwarvenVaultEntrances)
+            {
+                //Log.Message("Firing 1");
+                if (new System.Random().Next(0, 100) <= 70)
+                {
+                    //Log.Message("Firing 2");
+                    IntVec3 position = dwarvenVaultEntrance.Position;
+                    GenSpawn.Spawn(LTS_SFE_DefOf.LTS_StonebornVaultEntrance, position, map);
+                }
+                else
+                {
+                    IntVec3 position = dwarvenVaultEntrance.Position;
+                    GenSpawn.Spawn(LTS_SFE_DefOf.LTS_StonebornVaultEntranceIntermediate, position, map);
                 }
             }
 
@@ -229,14 +267,19 @@ namespace LTS_StonebornSiteGeneration
         {
             if (this.layout != null)
             {
-                yield return new GenStepWithParams(LTS_SFE_DefOf.LTS_StonebornVault, new GenStepParams
+                yield return new GenStepWithParams(def.GetModExtension<LTS_SFE_ModExtension>()?.LTS_GenStepDef ?? LTS_SFE_DefOf.LTS_StonebornVault, new GenStepParams
+                //yield return new GenStepWithParams(def.GetModExtension<LTS_SFE_ModExtension>().LTS_GenStepDef, new GenStepParams
                 {
                     layout = this.layout
                 });
             }
             else
             {
-                yield return new GenStepWithParams(LTS_SFE_DefOf.LTS_StonebornVault, default(GenStepParams));
+                //Log.Message("mod extension def: " + def.GetModExtension<LTS_SFE_ModExtension>()?.LTS_GenStepDef.defName);
+                //Log.Message("used def: "+ (def.GetModExtension<LTS_SFE_ModExtension>()?.LTS_GenStepDef ?? LTS_SFE_DefOf.LTS_StonebornVault).defName);
+                
+                yield return new GenStepWithParams(def.GetModExtension<LTS_SFE_ModExtension>()?.LTS_GenStepDef ?? LTS_SFE_DefOf.LTS_StonebornVault, default(GenStepParams));
+                //yield return new GenStepWithParams(def.GetModExtension<LTS_SFE_ModExtension>().LTS_GenStepDef, default(GenStepParams));
             }
             yield break;
         }
@@ -511,7 +554,7 @@ namespace LTS_StonebornSiteGeneration
                 
                 GenPlace.TryPlaceThing(thing, position, map, ThingPlaceMode.Direct);
             }
-            if (parent.IsHashIntervalTick(Props.updateGraphicTicksInterval))
+            if (parent.Map != null && parent.IsHashIntervalTick(Props.updateGraphicTicksInterval))
             {
                 parent.Map.mapDrawer.MapMeshDirty(parent.Position, MapMeshFlagDefOf.Things);
             }
@@ -525,9 +568,9 @@ namespace LTS_StonebornSiteGeneration
             //return (float)(Find.TickManager.TicksGame - thing.TickSpawned);
             CompGrowIntoThing comp = (thing as ThingWithComps).GetComp<CompGrowIntoThing>();
             float drawSizeMultiplier = (float)(Find.TickManager.TicksGame - thing.TickSpawned) / comp.Props.ticksToGrow;
-            Log.Message("ticks spawned: " + (Find.TickManager.TicksGame - thing.TickSpawned));
-            Log.Message("ticksToGrow: " + comp.Props.ticksToGrow);
-            Log.Message("drawSizeMultiplier: " + drawSizeMultiplier);
+            //Log.Message("ticks spawned: " + (Find.TickManager.TicksGame - thing.TickSpawned));
+            //Log.Message("ticksToGrow: " + comp.Props.ticksToGrow);
+            //Log.Message("drawSizeMultiplier: " + drawSizeMultiplier);
 
             return thing.DrawSize + (comp.Props.finalDrawSize - thing.DrawSize) * drawSizeMultiplier;
         }

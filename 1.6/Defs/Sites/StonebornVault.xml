@@ -74,7 +74,48 @@
 			<preventBridgeable>true</preventBridgeable>			<!-- Prevent lake/river/marsh (bridgeable) -->
 		</genStep>
 	</GenStepDef>
+	
+	<MapGeneratorDef>
+		<defName>LTS_StonebornVaultIntermediate</defName>
+		<label>ancient stoneborn vault</label>
+		<isUnderground>true</isUnderground>
+		<disableCallAid>true</disableCallAid>
+		<pocketMapProperties>
+			<biome>Underground</biome>
+			<temperature>15</temperature>
+			<canBeCleaned>true</canBeCleaned>
+		</pocketMapProperties>
+		<genSteps>
+			<li>ElevationFertility</li>
+			<li>Underground_RocksFromGrid</li>
+			<li>Terrain</li>
+			<li>RockChunks</li>
 
+			<li>LTS_StonebornVaultIntermediate</li>
+			
+			<li>LTS_ExtraIntermediateLevelChance</li>
+			<li>LTS_StonebornVaultFindPlayerStartSpot</li>
+			<li>LTS_HermitCrates</li>
+
+			<li>Fog</li>
+		</genSteps>
+	</MapGeneratorDef>
+
+	<GenStepDef>
+		<defName>LTS_StonebornVaultIntermediate</defName>
+		<order>551</order>		<!--fog is 1500, so this just needs to be before that-->
+		<genStep Class="KCSG.GenStep_CustomStructureGen">
+			<structureLayoutDefs>
+				<li>LTS_StonebornVaultIntermediateTest</li>
+			</structureLayoutDefs>
+			<fullClear>true</fullClear>			<!-- Clear any impassable in the way -->
+			<clearFogInRect>false</clearFogInRect>			<!-- Clear fog on the structure -->
+			<preventBridgeable>true</preventBridgeable>			<!-- Prevent lake/river/marsh (bridgeable) -->
+		</genStep>
+	</GenStepDef>
+	
+	<!--Misc GenSteps-->
+	
 	<GenStepDef>
 		<defName>LTS_StonebornVaultFindPlayerStartSpot</defName>
 		<order>552</order>
@@ -86,7 +127,12 @@
 		<order>553</order>
 		<genStep Class="LTS_StonebornSiteGeneration.LTS_GenStep_HermitCrates"/>
 	</GenStepDef>
-
+	
+	<GenStepDef>
+		<defName>LTS_ExtraIntermediateLevelChance</defName>
+		<order>554</order>
+		<genStep Class="LTS_StonebornSiteGeneration.LTS_GenStep_ExtraIntermediateLevelChance"/>
+	</GenStepDef>
 
 	<!--Upper Structure Layout Defs-->
 
@@ -100,7 +146,7 @@
 				<li>DV_Dwarven_RuinedBrazier,DV_Dwarven_RuinedWall,.,.,.,.,.,.,.,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedBrazier</li>
 				<li>DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,.,DV_Dwarven_RuinedPillar,.,.,.,DV_Dwarven_RuinedPillar,.,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall</li>
 				<li>.,.,.,.,.,.,.,.,.,.,.</li>
-				<li>.,.,.,.,.,LTS_StonebornVaultEntrance,.,.,.,.,.</li>
+				<li>.,.,.,.,.,LTS_StonebornVaultEntranceIntermediate,.,.,.,.,.</li>
 				<li>.,.,.,.,.,.,.,.,.,.,.</li>
 				<li>DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,.,DV_Dwarven_RuinedPillar,.,.,.,DV_Dwarven_RuinedPillar,.,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall</li>
 				<li>DV_Dwarven_RuinedBrazier,DV_Dwarven_RuinedWall,.,.,.,.,.,.,.,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedBrazier</li>
@@ -140,6 +186,36 @@
 		</modRequirements>
 	</KCSG.StructureLayoutDef>
 
+	<!--Intermediate Structure Layout Defs-->
+	
+	<KCSG.StructureLayoutDef>
+	  <defName>LTS_StonebornVaultIntermediateTest</defName>
+	  <spawnConduits>false</spawnConduits>
+	  <layouts>
+		<li>
+		  <li>DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall</li>
+		  <li>DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedUrn,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedUrn,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedUrn,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedUrn,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall</li>
+		  <li>DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,.,.,.,.,.,.,.,.,.,.,.,.,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall</li>
+		  <li>DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,.,Table_Royal3x3c_WoodLog,.,.,.,.,DV_RuinedRug_Large_South,.,.,.,LTS_StonebornVaultEntrance,.,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall</li>
+		  <li>DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,.,.,.,.,.,.,.,.,.,.,.,.,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall</li>
+		  <li>DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedUrn,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedUrn,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedUrn,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedUrn,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall</li>
+		  <li>DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall</li>
+		</li>
+	  </layouts>
+	  <terrainGrid>
+		<li>Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite</li>
+		<li>Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite</li>
+		<li>Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite</li>
+		<li>Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite</li>
+		<li>Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite</li>
+		<li>Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite</li>
+		<li>Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite,Tile_DwarvenGranite</li>
+	  </terrainGrid>
+	  <modRequirements>
+		<li>det.stonebornfaction</li>
+	  </modRequirements>
+	</KCSG.StructureLayoutDef>
+	
 	<!--Lower Structure Layout Defs-->
 
 	<KCSG.StructureLayoutDef>
@@ -559,11 +635,19 @@
 			<li>det.sbcuisine</li>
 		</modRequirements>
 	</KCSG.StructureLayoutDef>
+	
+	
+	
 	<!--Symbols-->
 
 	<KCSG.SymbolDef>
 		<defName>LTS_StonebornVaultEntrance</defName>
 		<thing>LTS_StonebornVaultEntrance</thing>
+	</KCSG.SymbolDef>
+	
+	<KCSG.SymbolDef>
+		<defName>LTS_StonebornVaultEntranceIntermediate</defName>
+		<thing>LTS_StonebornVaultEntranceIntermediate</thing>
 	</KCSG.SymbolDef>
 
 	<KCSG.SymbolDef>
