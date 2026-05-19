@@ -453,6 +453,7 @@ namespace LTS_StonebornSiteGeneration
         public IntRange range;
         public FactionDef faction = null;
         public MentalStateDef mentalstateDef = null;
+        public float initialPlantGrowth = -1;
     }
 
     public class CompMonsterBox : ThingComp
@@ -510,6 +511,11 @@ namespace LTS_StonebornSiteGeneration
                             thing.SetFaction(FactionUtility.DefaultFactionFrom(spawnGroup.faction));
                         CellFinder.TryFindRandomCellNear(this.parent.Position, this.parent.Map, Props.territoryRadius, c => c.GetFirstBuilding(this.parent.Map) == null && c.InBounds(this.parent.Map) && c.IsValid, out var validCell);
                         GenPlace.TryPlaceThing(thing, validCell, this.parent.Map, ThingPlaceMode.Direct);
+
+                        if ((spawnGroup.initialPlantGrowth != -1) && (thing is Plant plant))
+                        {
+                            plant.Growth = spawnGroup.initialPlantGrowth;
+                        }
                     }
                 }
             }
