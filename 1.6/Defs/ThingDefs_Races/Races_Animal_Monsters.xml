@@ -4,7 +4,7 @@
   <ThingDef ParentName="BaseInsect">
     <defName>DV_Monster_CaveGunk</defName>
     <label>cavegunk</label>
-    <description>A cave-dwelling crustacean that hides within solid containers. Most often they're found using discarded insectoid molts or cave snail shells for protection, but this subspecies has adapted to dwelling within robust, ancient stoneborn crates to survive. Unfortunately, they forgot to account for curious explorers and treasure hunters.</description>
+    <description>A large, unicellular organism that thrives on scraps of organic materials found anywhere, from the bottom of a kitchen counter, to the forgotten halls of stoneborn vaults. Cavegunks are simple-minded and only exist to consume and replicate.</description>
     <statBases>
       <MoveSpeed>2.75</MoveSpeed>
       <ComfyTemperatureMin>-32</ComfyTemperatureMin>
@@ -14,7 +14,6 @@
       <ArmorRating_Sharp>0.22</ArmorRating_Sharp>
       <Wildness>0.2</Wildness>
     </statBases>
-    <uiIconScale>1.15</uiIconScale>
     <tools>
       <li>
         <label>slap</label>
@@ -32,7 +31,7 @@
         <filthCountRange>1~2</filthCountRange>
         <meatExplosionSize>Small</meatExplosionSize>
       </deathAction>
-      <body>Snake</body>
+      <body>DV_Gooplike</body>
       <baseHungerRate>0.40</baseHungerRate>
       <baseBodySize>1.12</baseBodySize>
       <baseHealthScale>2.2</baseHealthScale>
@@ -108,7 +107,7 @@
   <ThingDef ParentName="AnimalThingBase">
     <defName>DV_Monster_Tusktroll</defName>
     <label>ogre</label>
-    <description>This large, eyeless predator roams the frigid landscape, constantly in search of food. During winter, they often retreat deep into underground burrows, to feast on the many corpses they hoarded throughout the rest of the year. Relentless and capable of quickly regenerating its wounds, it allows the trolls to take down creatures much stronger than itself.\n\nTrolls spread quickly and are considered a dangerous pest as they frequently attack caravans and travelers. However their hide and delicious meat makes them a target of many hunters.</description>
+    <description>The larger, meaner and smarter cousin of the common northern troll. Ogres, unlike their cousins, are solitary creatures, preferring to live alone in ruins to brood.n/n/Ogres are only found outside of their hideouts during mating season, where they're exceptionally rowdy.</description>
     <statBases>
       <MoveSpeed>3</MoveSpeed>
       <MarketValue>550</MarketValue>
@@ -251,7 +250,7 @@
   <ThingDef ParentName="BigBirdThingBase">
     <defName>DV_Monster_Razorbeak</defName>
     <label>razorbeak</label>
-    <description>A large flightless bird with brightly-colored feathers. While it looks beautiful, its kick is vicious. It's known for being quick to aggression when harmed by violence or confronted by incompetent animal tamers.</description>
+    <description>A small, chicken-sized, featherless fowl, armed with a razor-sharp beak. Razorbeaks are biological weapons created to disrupt ecosystems and to clear out entire bunkers. Technically, all razorbeaks are female, as they reproduce through parthenogenesis.</description>
     <statBases>
       <MoveSpeed>8</MoveSpeed>
       <MarketValue>120</MarketValue>
@@ -372,7 +371,7 @@
   <ThingDef ParentName="AnimalThingBase">
     <defName>DV_Monster_Imp</defName>
     <label>imp</label>
-    <description>This large, eyeless predator roams the frigid landscape, constantly in search of food. During winter, they often retreat deep into underground burrows, to feast on the many corpses they hoarded throughout the rest of the year. Relentless and capable of quickly regenerating its wounds, it allows the trolls to take down creatures much stronger than itself.\n\nTrolls spread quickly and are considered a dangerous pest as they frequently attack caravans and travelers. However their hide and delicious meat makes them a target of many hunters.</description>
+    <description>Agile, tough flightless reptilians. Imps are a form of lesser dragon, (which are originally from the stoneborn homeworld of Grugni) their wings are too small to carry their bodies, but their sharp claws, teeth and fire-spitting capabilities make them quite the threat.</description>
     <statBases>
       <MoveSpeed>3</MoveSpeed>
       <MarketValue>550</MarketValue>
@@ -515,5 +514,113 @@
       </li>
     </lifeStages>
   </PawnKindDef>
+
+  <ThingDef ParentName="BaseInsect">
+    <defName>DV_Monster_ToxShroom</defName>
+    <label>rook-cap</label>
+    <description>Shambling, large fungus fruiting bodies. The more belligerent and active cousin of plump helmets, rook-caps grow the ability to walk after just a few months in their lifespan, using stubby legs to tumble about and spread their spores. Mostly, they do this by headbutting whatever and whoever they sense.</description>
+    <statBases>
+      <MoveSpeed>3.75</MoveSpeed>
+      <ComfyTemperatureMin>-32</ComfyTemperatureMin>
+      <MarketValue>200</MarketValue>
+      <LeatherAmount>0</LeatherAmount>
+      <ArmorRating_Blunt>0.10</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.35</ArmorRating_Sharp>
+      <Wildness>0.2</Wildness>
+      <ToxicEnvironmentResistance>1</ToxicEnvironmentResistance>
+    </statBases>
+    <tools>
+      <li>
+        <label>headbutt</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>11</power>
+        <cooldownTime>2.1</cooldownTime>
+      </li>
+    </tools>
+    <race>
+      <deathAction>
+        <workerClass>DeathActionWorker_ToxCloud</workerClass>
+      </deathAction>
+      <body>DV_Mushroomlike</body>
+      <baseHungerRate>0.20</baseHungerRate>
+      <baseBodySize>1.12</baseBodySize>
+      <baseHealthScale>2.2</baseHealthScale>
+      <specificMeatDef>RawFungus</specificMeatDef>
+      <lifeExpectancy>16</lifeExpectancy>
+      <needsRest>false</needsRest>
+      <hasGenders>false</hasGenders>
+      <foodType>None</foodType>
+      <bloodDef IsNull="True" />
+      <trainability>None</trainability>
+      <isImmuneToInfections>true</isImmuneToInfections>
+      <lifeStageAges>
+        <li>
+          <def>EusocialInsectAdult</def>
+          <minAge>0</minAge>
+        </li>
+      </lifeStageAges>
+      <soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+      <soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+      <soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+    </race>
+    <comps>
+      <li Class="VEF.AnimalBehaviours.CompProperties_CorpseDecayer">
+        <radius>5</radius>
+        <tickInterval>450</tickInterval>
+        <decayOnHitPoints>2</decayOnHitPoints>
+        <nutritionGained>0.1</nutritionGained>
+      </li>
+      <li Class="CompProperties_GasOnDamage">
+        <type>ToxGas</type>
+        <damageFactor>6</damageFactor>
+        <useStackCountAsFactor>true</useStackCountAsFactor>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <PawnKindDef ParentName="AnimalKindBase">
+    <defName>DV_Monster_ToxShroom</defName>
+    <label>rook-cap</label>
+    <race>DV_Monster_ToxShroom</race>
+    <combatPower>70</combatPower>
+    <defaultFactionDef>DV_DungeonMonsters</defaultFactionDef>
+    <overrideDeathOnDownedChance>1</overrideDeathOnDownedChance>
+    <canArriveManhunter>false</canArriveManhunter>
+    <ecoSystemWeight>0.40</ecoSystemWeight>
+    <canOpenDoors>false</canOpenDoors>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Animal/ToxShroom/ToxShroom</texPath>
+          <drawSize>1.2</drawSize>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/Animal/ToxShroom/ToxShroom_Dessicated</texPath>
+          <drawSize>1.2</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>DV_Plant_Rookpod</defName>
+    <label>rook-pod</label>
+    <description>The younger state of rook-caps. Rook-pods are mostly harmless, but not edible, as the fruiting bodies are chock full of toxins.</description>
+    <size>(1, 1)</size>
+    <graphicData>
+      <texPath>Things/Plant/Rookpod</texPath>
+      <graphicClass>Graphic_Random</graphicClass>
+    </graphicData>
+    <fillPercent>0.40</fillPercent>
+    <rotatable>false</rotatable>
+    <statBases>
+      <MaxHitPoints>50</MaxHitPoints>
+      <WorkToBuild>1000</WorkToBuild>
+    </statBases>
+    <interactionCellOffset>(0,0,0)</interactionCellOffset>
+    <tickerType>Normal</tickerType>
+  </ThingDef>
 
 </Defs>

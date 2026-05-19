@@ -114,6 +114,7 @@
       <li>
         <subEffecterClass>SubEffecter_SprayerContinuous</subEffecterClass>
         <scale>1~1.2</scale>
+        <spawnLocType>OnSource</spawnLocType>
         <ticksBetweenMotes>60</ticksBetweenMotes>
         <positionRadius>0.1</positionRadius>
         <burstCount>1~1</burstCount>

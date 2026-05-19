@@ -909,7 +909,7 @@
     </building>
     <comps>
       <li Class="CompProperties_SpawnerFilth">
-        <filthDef>Filth_FlammableBile</filthDef>
+        <filthDef>DV_Filth_OldAlcohol</filthDef>
         <spawnCountOnSpawn>6</spawnCountOnSpawn>
         <spawnMtbHours>4</spawnMtbHours>
         <spawnRadius>1</spawnRadius>

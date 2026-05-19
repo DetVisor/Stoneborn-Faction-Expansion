@@ -95,7 +95,7 @@
     <label>hermit crate</label>
     <description>A cave-dwelling crustacean that hides within solid containers. Most often they're found using discarded insectoid molts or cave snail shells for protection, but this subspecies has adapted to dwelling within robust, ancient stoneborn crates to survive. Unfortunately, they forgot to account for curious explorers and treasure hunters.</description>
     <statBases>
-      <MoveSpeed>7.75</MoveSpeed>
+      <MoveSpeed>5.75</MoveSpeed>
       <ComfyTemperatureMin>-32</ComfyTemperatureMin>
       <MarketValue>700</MarketValue>
       <LeatherAmount>0</LeatherAmount>

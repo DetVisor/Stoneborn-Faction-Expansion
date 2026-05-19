@@ -12,6 +12,13 @@
     <pathCost>2</pathCost>
     <designationCategory />
     <color>(107, 100, 90)</color>
+    <statBases>
+      <Beauty>-10</Beauty>
+      <BeautyOutdoors>-5</BeautyOutdoors>
+      <Cleanliness>-3</Cleanliness>
+      <Flammability>0</Flammability>
+      <CleaningTimeFactor>1.5</CleaningTimeFactor>
+    </statBases>
     <affordances>
       <li>Light</li>
       <li>Medium</li>
