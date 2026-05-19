@@ -49,27 +49,26 @@
   <ThingDef ParentName="BuildingBase">
     <defName>DV_Dwarven_Spikes</defName>
     <label>spike trap</label>
-    <!--<thingClass>ThingWithComps</thingClass>-->
-    <thingClass>Building_TrapDamager</thingClass>
+	<thingClass>LTS_StonebornSiteGeneration.Building_TrapDamager_SelfRearming</thingClass>
+	<tickerType>Normal</tickerType>
     <description>An ancient stoneborn brazier, made from mithrium.</description>
     <noRightClickDraftAttack>true</noRightClickDraftAttack>
     <graphicData>
       <texPath>Things/Building/Ruins/Traps/SpikeTrap</texPath>
       <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>(1,1)</drawSize>
+      <drawSize>(2,2)</drawSize>
     </graphicData>
-    <!--<startingHpRange>0.5~1.3</startingHpRange>-->
     <statBases>
       <MaxHitPoints>250</MaxHitPoints>
       <WorkToBuild>400</WorkToBuild>
-      <TrapMeleeDamage>100</TrapMeleeDamage>
+      <TrapMeleeDamage>20</TrapMeleeDamage>
       <TrapSpringChance>1.0</TrapSpringChance>
     </statBases>
     <selectable>false</selectable>
     <tickerType>Normal</tickerType>
     <fillPercent>0.25</fillPercent>
     <passability>Standable</passability>
-    <pathCost>42</pathCost>
+    <!--<pathCost>42</pathCost>-->
     <blockWind>true</blockWind>
     <filthLeaving>Filth_RubbleBuilding</filthLeaving>
     <rotatable>false</rotatable>
@@ -85,6 +84,13 @@
       <expandHomeArea>false</expandHomeArea>
       <ai_chillDestination>false</ai_chillDestination>
     </building>
+	<modExtensions>
+      <li Class="LTS_StonebornSiteGeneration.LTS_SFE_ModExtension">
+		<LTS_TexPath>Things/Building/Ruins/Traps/SpikeTrap_triggered</LTS_TexPath>
+		<LTS_ticks>300</LTS_ticks>
+      </li>
+    </modExtensions>
+	
   </ThingDef>
 
   <ThingDef ParentName="BuildingBase">

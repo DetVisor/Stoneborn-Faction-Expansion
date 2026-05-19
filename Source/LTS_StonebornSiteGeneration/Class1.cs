@@ -14,6 +14,7 @@ using Verse;
 using Verse.AI;
 using Verse.AI.Group;
 using Verse.Noise;
+using Verse.Sound;
 using static System.Collections.Specialized.BitVector32;
 using static UnityEngine.GraphicsBuffer;
 
@@ -58,6 +59,7 @@ namespace LTS_StonebornSiteGeneration
         public static PawnKindDef DV_Mimic_HermitCrate;
         public static ThingDef LTS_StonebornVaultEntrance;
         public static ThingDef LTS_StonebornVaultEntranceIntermediate;
+        public static ThingDef LTS_StonebornVaultExitOuter;
 
         static LTS_SFE_DefOf()
         {
@@ -67,8 +69,9 @@ namespace LTS_StonebornSiteGeneration
 
     public class LTS_SFE_ModExtension : DefModExtension
     {
-        public string LTS_TexPathOpen;
+        public string LTS_TexPath;
         public GenStepDef LTS_GenStepDef;
+        public int LTS_ticks;
     }
 
 
@@ -198,7 +201,8 @@ namespace LTS_StonebornSiteGeneration
         public override void Generate(Map map, GenStepParams parms)
         {
             //should only be 1
-            List<Building> dwarvenVaultEntrances = new List<Building>(map.listerBuildings.allBuildingsNonColonist.Where(building => building?.def?.portal != null && building.def.defName.Contains("Entrance")).Concat(map.listerBuildings.allBuildingsNonColonist.Where(building => building?.def?.portal != null && building.def.defName.Contains("Entrance"))));
+            //List<Building> dwarvenVaultEntrances = new List<Building>(map.listerBuildings.allBuildingsNonColonist.Where(building => building?.def?.portal != null && building.def.defName.Contains("Entrance")).Concat(map.listerBuildings.allBuildingsNonColonist.Where(building => building?.def?.portal != null && building.def.defName.Contains("Entrance"))));
+            List<Building> dwarvenVaultEntrances = new List<Building>(map.listerBuildings.allBuildingsNonColonist.Where(building => building.def.defName.Contains("Entrance")).Concat(map.listerBuildings.allBuildingsNonColonist.Where(building => building.def.defName.Contains("Entrance"))));
 
 
             foreach (Building dwarvenVaultEntrance in dwarvenVaultEntrances)
@@ -215,6 +219,31 @@ namespace LTS_StonebornSiteGeneration
                     IntVec3 position = dwarvenVaultEntrance.Position;
                     GenSpawn.Spawn(LTS_SFE_DefOf.LTS_StonebornVaultEntranceIntermediate, position, map);
                 }
+            }
+
+
+        }
+    }
+
+    public class LTS_GenStep_FirstFloorLadder : GenStep
+    {
+        public override int SeedPart
+        {
+            get
+            {
+                return 1568957891;
+            }
+        }
+        public override void Generate(Map map, GenStepParams parms)
+        {
+            //should only be 1
+            List<Building> dwarvenVaultExits = new List<Building>(map.listerBuildings.allBuildingsNonColonist.Where(building => building?.def?.portal != null && building.def.defName.Contains("Exit")).Concat(map.listerBuildings.allBuildingsNonColonist.Where(building => building?.def?.portal != null && building.def.defName.Contains("Exit"))));
+
+
+            foreach (Building dwarvenVaultExit in dwarvenVaultExits)
+            {
+                IntVec3 position = dwarvenVaultExit.Position;
+                GenSpawn.Spawn(LTS_SFE_DefOf.LTS_StonebornVaultExitOuter, position, map);
             }
 
 
@@ -249,7 +278,7 @@ namespace LTS_StonebornSiteGeneration
             base.SpawnSetup(map, respawningAfterLoad);
             this.openGraphicData = new GraphicData();
             this.openGraphicData.CopyFrom(this.def.graphicData);
-            this.openGraphicData.texPath = def.GetModExtension<LTS_SFE_ModExtension>()?.LTS_TexPathOpen ?? "Things/Building/AncientHatch/AncientHatch_Open";
+            this.openGraphicData.texPath = def.GetModExtension<LTS_SFE_ModExtension>()?.LTS_TexPath ?? "Things/Building/AncientHatch/AncientHatch_Open";
         }
 
         public override void Print(SectionLayer layer)
@@ -286,7 +315,7 @@ namespace LTS_StonebornSiteGeneration
 
         public override bool IsEnterable(out string reason)
         {
-            if (!this.Hackable.IsHacked)
+            if (!this.Hackable?.IsHacked ?? false)
             {
                 reason = "Locked".Translate();
                 return false;
@@ -297,7 +326,7 @@ namespace LTS_StonebornSiteGeneration
         public override string GetInspectString()
         {
             StringBuilder stringBuilder = new StringBuilder(base.GetInspectString());
-            if (this.Hackable.IsHacked)
+            if (this.Hackable?.IsHacked ?? true)
             {
                 stringBuilder.AppendLineIfNotEmpty();
                 stringBuilder.Append("HatchUnlocked".Translate());
@@ -321,6 +350,7 @@ namespace LTS_StonebornSiteGeneration
         private CompHackable hackableInt;
         private GraphicData openGraphicData;
     }
+    
     public class CompProperties_GasVent : CompProperties
     {
         public CompProperties_GasVent()
@@ -629,6 +659,62 @@ namespace LTS_StonebornSiteGeneration
                 return;
             }
             shadowGraphic.Print(layer, thing, 0f);
+        }
+    }
+
+    public class Building_TrapDamager_SelfRearming : Building_TrapDamager
+    {
+        public override void Print(SectionLayer layer)
+        {
+            if (ticksUntilArmed == 0)
+            {
+                this.Graphic.Print(layer, this, 0f);
+                return;
+            }
+            this.triggeredGraphicData.Graphic.Print(layer, this, 0f);
+        }
+        public override void SpawnSetup(Map map, bool respawningAfterLoad)
+        {
+            base.SpawnSetup(map, respawningAfterLoad);
+            this.triggeredGraphicData = new GraphicData();
+            this.triggeredGraphicData.CopyFrom(this.def.graphicData);
+            this.triggeredGraphicData.texPath = def.GetModExtension<LTS_SFE_ModExtension>()?.LTS_TexPath ?? "Things/Building/Ruins/Traps/SpikeTrap_triggered";
+        }
+        protected override void Tick()
+        {
+            base.Tick();
+            if (ticksUntilArmed > 0)
+            {
+                ticksUntilArmed--;
+            }
+            //Log.Message(ticksUntilArmed);
+        }
+        protected override void SpringSub(Pawn p)
+        {
+            //Log.Message("SpringSubbed: " + (def.GetModExtension<LTS_SFE_ModExtension>()?.LTS_ticks ?? 300));
+            base.SpringSub(p);
+            
+            ticksUntilArmed = def.GetModExtension<LTS_SFE_ModExtension>()?.LTS_ticks ?? 300;
+        }
+        //public override bool IsDangerousFor(Pawn p)
+        //{
+        //    bool knowsOfTrap = this.KnowsOfTrap(p);
+        //    return knowsOfTrap && ticksUntilArmed == 0;
+        //}
+        protected override float SpringChance(Pawn p)
+        {
+            if (ticksUntilArmed == 0)
+            {
+                return base.SpringChance(p);
+            }
+            return 0;
+        }
+        private GraphicData triggeredGraphicData;
+        public int ticksUntilArmed = 0;
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_Values.Look<int>(ref this.ticksUntilArmed, "ticksUntilArmed", 0);
         }
     }
 }
