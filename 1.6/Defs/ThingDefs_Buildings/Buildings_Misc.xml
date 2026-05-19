@@ -60,7 +60,7 @@
         <territoryRadius>6</territoryRadius>
         <monsterGroups>
 
-          <li>            <!-- 3-4 cavegunks defending an area -->
+          <li>            <!-- 3-4 cavegunks with alrauns -->
             <li>
               <pawnKind>DV_Monster_CaveGunk</pawnKind>
               <range>3~4</range>
@@ -68,7 +68,8 @@
             </li>
             <li>
               <thingDef>DV_Plant_Alraun</thingDef>
-              <range>4~5</range>
+              <range>5~8</range>
+              <initialPlantGrowth>0.9</initialPlantGrowth>
             </li>
           </li>
 
@@ -80,7 +81,7 @@
             </li>
           </li>
 
-          <li>            <!-- 3-4 cavegunks defending an area -->
+          <li>            <!-- 2-3 cavegunks and 1-2 rook-caps defending an area -->
             <li>
               <pawnKind>DV_Monster_CaveGunk</pawnKind>
               <range>2~3</range>
@@ -95,10 +96,11 @@
             <li>
               <thingDef>DV_Plant_Rookpod</thingDef>
               <range>3~4</range>
+              <initialPlantGrowth>0.9</initialPlantGrowth>
             </li>
           </li>
 
-          <li>            <!-- 3-4 gutterlatches defending an area -->
+          <li>            <!-- 2-4 rook-caps defending an area -->
             <li>
               <pawnKind>DV_Monster_ToxShroom</pawnKind>
               <range>2~4</range>
@@ -107,6 +109,26 @@
             <li>
               <thingDef>DV_Plant_Rookpod</thingDef>
               <range>4~5</range>
+              <initialPlantGrowth>0.9</initialPlantGrowth>
+            </li>
+          </li>
+
+          <li>            <!-- 2-4 rookcaps defending an area, with some alraun -->
+            <li>
+              <pawnKind>DV_Monster_ToxShroom</pawnKind>
+              <range>2~4</range>
+              <faction>DV_DungeonMonsters</faction>
+            </li>
+            <li>
+              <thingDef>DV_Plant_Rookpod</thingDef>
+              <range>4~5</range>
+              <initialPlantGrowth>0.9</initialPlantGrowth>
+            </li>
+
+            <li>
+              <thingDef>DV_Plant_Alraun</thingDef>
+              <range>5~8</range>
+              <initialPlantGrowth>0.9</initialPlantGrowth>
             </li>
           </li>
 
@@ -139,6 +161,20 @@
             </li>
           </li>
 
+          <li>            <!-- 1 ogre defending an area, with some alrauns -->
+            <li>
+              <pawnKind>DV_Monster_Tusktroll</pawnKind>
+              <range>1</range>
+              <faction>DV_DungeonMonsters</faction>
+            </li>
+
+            <li>
+              <thingDef>DV_Plant_Alraun</thingDef>
+              <range>5~8</range>
+              <initialPlantGrowth>0.9</initialPlantGrowth>
+            </li>
+          </li>
+
           <li>            <!-- 2 ogres defending an area -->
             <li>
               <pawnKind>DV_Monster_Tusktroll</pawnKind>
@@ -155,15 +191,34 @@
             </li>
           </li>
 
-          <li>            <!--4 feuding imps -->
+          <li>            <!--3 rook-caps and 3 razorbeaks feuding -->
             <li>
-              <pawnKind>DV_Monster_Imp</pawnKind>
+              <pawnKind>DV_Monster_ToxShroom</pawnKind>
+              <range>3</range>
+              <faction>DV_DungeonMonsters</faction>
+            </li>
+            <li>
+              <thingDef>DV_Plant_Rookpod</thingDef>
+              <range>4~5</range>
+              <initialPlantGrowth>0.9</initialPlantGrowth>
+            </li>
+
+            <li>
+              <pawnKind>DV_Monster_Razorbeak</pawnKind>
+              <range>3</range>
+              <faction>AncientsHostile</faction>
+            </li>
+          </li>
+
+          <li>            <!--2 ogres feuding -->
+            <li>
+              <pawnKind>DV_Monster_Tusktroll</pawnKind>
               <range>1</range>
               <faction>DV_DungeonMonsters</faction>
             </li>
             <li>
-              <pawnKind>DV_Monster_Razorbeak</pawnKind>
-              <range>4</range>
+              <pawnKind>DV_Monster_Tusktroll</pawnKind>
+              <range>1</range>
               <faction>AncientsHostile</faction>
             </li>
           </li>
