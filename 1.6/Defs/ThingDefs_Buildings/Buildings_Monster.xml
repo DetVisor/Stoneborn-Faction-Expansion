@@ -3,7 +3,7 @@
     <ThingDef ParentName="BuildingBase">
         <defName>DV_Monster_Gutterlatch</defName>
         <label>gutterlatch</label>
-        <description>A self-powered defense turret mounted with a weak but long-ranged slug-thrower. May explode when damaged.</description>
+        <description>A peculiar land-dwelling mollusk that resides within dank, dark and abandoned places. Gutterlatches are considered pests, as they can reproduce fast and take over entire structures if left unchecked. When threatened by anything, they can spit out globs of toxic goo to draw predators away.n/n/Their meat is considered a delicacy in some places, and pairs well with fungus.</description>
         <thingClass>Building_TurretGun</thingClass>
         <drawerType>MapMeshAndRealTime</drawerType>
         <graphicData>
@@ -20,6 +20,8 @@
                 <offset>(0,0,0)</offset>
             </shadowData>
         </graphicData>
+        <drawHighlight>true</drawHighlight>
+        <drawHighlightOnlyForHostile>true</drawHighlightOnlyForHostile>
         <soundImpactDefault>Pawn_Cavegunk_Hit</soundImpactDefault>
         <receivesSignals>true</receivesSignals>
         <altitudeLayer>Pawn</altitudeLayer>
@@ -46,12 +48,15 @@
                 <ticksPerHeal>6000</ticksPerHeal>                <!-- 60k ticks = 1 day, 10 hp per day -->
             </li>
             <li Class="CompProperties_Spawner">
-                <thingToSpawn>DV_Bullet_GutterlatchSpit</thingToSpawn>
-                <spawnCount>2</spawnCount>
-                <spawnIntervalRange>15000~20000</spawnIntervalRange>
+                <thingToSpawn>DV_Monster_Gutterlatchling</thingToSpawn>
+                <spawnCount>1</spawnCount>
                 <spawnMaxAdjacent>3</spawnMaxAdjacent>
-                <saveKeysPrefix>pod</saveKeysPrefix>
-                <inheritFaction>true</inheritFaction>
+                <spawnIntervalRange>
+                    <min>14000</min>
+                    <max>18000</max>
+                </spawnIntervalRange>
+                <writeTimeLeftToSpawn>true</writeTimeLeftToSpawn>
+                <showMessageIfOwned>true</showMessageIfOwned>
             </li>
             <li Class="CompProperties_HeatPusher">
                 <heatPerSecond>6</heatPerSecond>
@@ -71,10 +76,22 @@
             <li Class="CompProperties_AmbientSound">
                 <sound>Toxifier_Working</sound>
             </li>
+            <li Class="CompProperties_DrawAdditionalGraphics">
+                <graphics>
+                    <li>
+                        <graphicClass>Graphic_Single</graphicClass>
+                        <texPath>Things/Pawn/Animal/Gutterlatch/Gutterlatch_Under</texPath>
+                        <drawSize>(1.5,1.5)</drawSize>
+                        <drawOffset>(0, 0.6, 0)</drawOffset>
+                        <shaderType>Transparent</shaderType>
+                        <onGroundRandomRotateAngle>360</onGroundRandomRotateAngle>
+                    </li>
+                </graphics>
+            </li>
         </comps>
-        <killedLeavings>
-            <ChunkSlagSteel>1</ChunkSlagSteel>
-        </killedLeavings>
+        <killedLeavingsRanges>
+            <DV_Meat_Gutterlatch>30~45</DV_Meat_Gutterlatch>
+        </killedLeavingsRanges>
         <passability>PassThroughOnly</passability>
         <pathCost>50</pathCost>
         <fillPercent>0.4</fillPercent>
@@ -85,7 +102,7 @@
             <combatPower>45</combatPower>            <!-- same as a scavenger -->
             <ai_combatDangerous>true</ai_combatDangerous>
             <turretGunDef>DV_Gun_Gutterlatch</turretGunDef>
-            <turretBurstCooldownTime>2.1</turretBurstCooldownTime>
+            <turretBurstCooldownTime>2.4</turretBurstCooldownTime>
         </building>
     </ThingDef>
 
@@ -134,6 +151,10 @@
             <damageDef>BulletToxic</damageDef>
             <damageAmountBase>9</damageAmountBase>
             <speed>30</speed>
+            <stoppingPower>1</stoppingPower>
+            <shadowSize>0</shadowSize>
+            <filth>Filth_SpentAcid</filth>
+            <filthCount>1</filthCount>
         </projectile>
         <comps>
             <li Class="CompProperties_ProjectileEffecter">
@@ -145,14 +166,16 @@
     <ThingDef ParentName="BuildingBase">
         <defName>DV_Monster_Gutterlatchling</defName>
         <label>gutterlatchling</label>
-        <description>A self-powered hermetically-sealed crate for preserving valuable items. These can preserve their contents for a long time.</description>
+        <description>The larval stage of a gutterlatch, incapable of defending itself properly.</description>
         <size>(1, 1)</size>
         <graphicData>
-            <graphicClass>Graphic_Single</graphicClass>
+            <graphicClass>LTS_StonebornSiteGeneration.Graphic_Single_Growing</graphicClass>
             <texPath>Things/Pawn/Animal/Gutterlatch/Gutterlatchling</texPath>
             <drawSize>1.2</drawSize>
             <onGroundRandomRotateAngle>360</onGroundRandomRotateAngle>
         </graphicData>
+        <drawHighlight>true</drawHighlight>
+        <drawHighlightOnlyForHostile>true</drawHighlightOnlyForHostile>
         <fillPercent>0.40</fillPercent>
         <rotatable>false</rotatable>
         <statBases>
@@ -161,5 +184,34 @@
         </statBases>
         <interactionCellOffset>(0,0,0)</interactionCellOffset>
         <tickerType>Normal</tickerType>
+        <building>
+            <claimable>false</claimable>
+            <canBuildNonEdificesUnder>false</canBuildNonEdificesUnder>
+            <deconstructible>false</deconstructible>
+            <quickTargetable>true</quickTargetable>
+        </building>
+        <comps>
+            <li Class="CompProperties_SelfhealHitpoints">
+                <ticksPerHeal>6000</ticksPerHeal>                <!-- 60k ticks = 1 day-->
+            </li>
+            <li Class="LTS_StonebornSiteGeneration.CompProperties_GrowIntoThing">
+                <thing>DV_Monster_Gutterlatch</thing>
+                <ticksToGrow>60000</ticksToGrow>
+                <finalDrawSize>1.8</finalDrawSize>
+                <updateGraphicTicksInterval>10000</updateGraphicTicksInterval>
+            </li>
+            <li Class="CompProperties_DrawAdditionalGraphics">
+                <graphics>
+                    <li>
+                        <graphicClass>Graphic_Single</graphicClass>
+                        <texPath>Things/Pawn/Animal/Gutterlatch/Gutterlatchling_Under</texPath>
+                        <drawSize>(2,2)</drawSize>
+                        <drawOffset>(0, 0.6, 0)</drawOffset>
+                        <shaderType>Transparent</shaderType>
+                        <onGroundRandomRotateAngle>360</onGroundRandomRotateAngle>
+                    </li>
+                </graphics>
+            </li>
+        </comps>
     </ThingDef>
 </Defs> 

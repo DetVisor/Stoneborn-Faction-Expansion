@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+
+    <ThingDef>
+        <defName>DV_Meat_Gutterlatch</defName>
+        <label>gutterlatch flesh</label>
+        <description>Pieces of twisted muscle and gristle, bloated with tumorous growths. These bizarre shreds of flesh must have come from a horrific creature.</description>
+        <thingClass>ThingWithComps</thingClass>
+        <selectable>true</selectable>
+        <category>Item</category>
+        <drawerType>MapMeshOnly</drawerType>
+        <tickerType>Rare</tickerType>
+        <rotatable>false</rotatable>
+        <altitudeLayer>Item</altitudeLayer>
+        <resourceReadoutPriority>Middle</resourceReadoutPriority>
+        <drawGUIOverlay>true</drawGUIOverlay>
+        <healthAffectsPrice>false</healthAffectsPrice>
+        <stackLimit>75</stackLimit>
+        <alwaysHaulable>true</alwaysHaulable>
+        <socialPropernessMatters>true</socialPropernessMatters>
+        <tradeability>Sellable</tradeability>
+        <pathCost>14</pathCost>
+        <statBases>
+            <MaxHitPoints>60</MaxHitPoints>
+            <Beauty>-2</Beauty>
+            <DeteriorationRate>6</DeteriorationRate>
+            <Mass>0.03</Mass>
+            <Flammability>2</Flammability>
+            <Nutrition>0.08</Nutrition>
+            <MarketValue>0.5</MarketValue>
+        </statBases>
+        <graphicData>
+            <texPath>Things/Item/Resource/SpecialMeats/GutterlatchMeat</texPath>
+            <graphicClass>Graphic_StackCount</graphicClass>
+        </graphicData>
+        <thingCategories>
+            <li>MeatRaw</li>
+        </thingCategories>
+        <ingestible>
+            <foodType>Meat</foodType>
+            <preferability>RawBad</preferability>
+            <ingestEffect>EatMeat</ingestEffect>
+            <ingestSound>RawMeat_Eat</ingestSound>
+        </ingestible>
+        <comps>
+            <li Class="CompProperties_Forbiddable" />
+            <li Class="CompProperties_Rottable">
+                <daysToRotStart>2</daysToRotStart>
+                <rotDestroys>true</rotDestroys>
+            </li>
+        </comps>
+    </ThingDef>
+
+</Defs>

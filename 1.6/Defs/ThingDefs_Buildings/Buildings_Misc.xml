@@ -33,6 +33,36 @@
             </li>
           </li>
 
+          <li>            <!-- 3-4 cavegunks defending an area -->
+            <li>
+              <pawnKind>DV_Monster_CaveGunk</pawnKind>
+              <range>2~3</range>
+              <faction>DV_DungeonMonsters</faction>
+            </li>
+
+            <li>
+              <pawnKind>DV_Monster_ToxShroom</pawnKind>
+              <range>1~2</range>
+              <faction>DV_DungeonMonsters</faction>
+            </li>
+            <li>
+              <thingDef>DV_Plant_Rookpod</thingDef>
+              <range>3~4</range>
+            </li>
+          </li>
+
+          <li>            <!-- 3-4 gutterlatches defending an area -->
+            <li>
+              <pawnKind>DV_Monster_ToxShroom</pawnKind>
+              <range>2~4</range>
+              <faction>DV_DungeonMonsters</faction>
+            </li>
+            <li>
+              <thingDef>DV_Plant_Rookpod</thingDef>
+              <range>4~5</range>
+            </li>
+          </li>
+
           <li>            <!-- 3-4 gutterlatches defending an area -->
             <li>
               <thingDef>DV_Monster_Gutterlatch</thingDef>
