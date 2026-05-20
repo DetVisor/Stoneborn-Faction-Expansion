@@ -1044,6 +1044,12 @@
   </KCSG.SymbolDef>
 
   <KCSG.SymbolDef>
+    <defName>DV_PLACEHOLDERPLANT</defName>
+    <thing>DV_PlantBox</thing>
+    <spawnPartOfFaction>false</spawnPartOfFaction>    <!--default map faction, I.E. passive ancients-->
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
     <defName>DV_DwarvenCrate_Mimic</defName>
     <thing>DV_DwarvenCrate_Mimic</thing>
   </KCSG.SymbolDef>
@@ -1277,6 +1283,8 @@
   <KCSG.SymbolDef>
     <defName>DV_Dwarven_Spikes</defName>
     <thing>DV_Dwarven_Spikes</thing>
+    <spawnPartOfFaction>false</spawnPartOfFaction>    <!--default map faction, I.E. passive ancients-->
+    <faction>DV_DungeonMonsters</faction>
   </KCSG.SymbolDef>
 
   <KCSG.SymbolDef>

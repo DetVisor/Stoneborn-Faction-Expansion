@@ -744,7 +744,7 @@
     <race>
       <thinkTreeMain>VEF_AnimalWeirdEater</thinkTreeMain>
       <body>BeetleLikeWithClaw</body>
-      <baseHungerRate>0.3</baseHungerRate>
+      <baseHungerRate>0.6</baseHungerRate>
       <baseBodySize>1.12</baseBodySize>
       <baseHealthScale>2.2</baseHealthScale>
       <useMeatFrom>Megaspider</useMeatFrom>

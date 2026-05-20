@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef ParentName="PlantBase">
+        <defName>DV_Plant_Cavecarrot</defName>
+        <label>cavecarrot</label>
+        <description>The younger state of rook-caps. Rook-pods are mostly harmless, but not edible, as the fruiting bodies are chock full of toxins.</description>
+        <statBases>
+            <MaxHitPoints>85</MaxHitPoints>
+            <Nutrition>0.175</Nutrition>
+        </statBases>
+        <graphicData>
+            <texPath>Things/Plant/Cavecarrot</texPath>
+            <graphicClass>Graphic_Random</graphicClass>
+        </graphicData>
+        <selectable>true</selectable>
+        <pathCost>50</pathCost>
+        <ingestible />
+        <plant>
+            <fertilityMin>0</fertilityMin>
+            <fertilitySensitivity>0</fertilitySensitivity>
+            <harvestTag>Standard</harvestTag>
+            <harvestedThingDef>DV_RawCavecarrot</harvestedThingDef>
+            <harvestYield>15</harvestYield>
+            <topWindExposure>0</topWindExposure>
+            <growDays>4</growDays>
+            <cavePlantWeight>0.1</cavePlantWeight>
+            <visualSizeRange>0.8~1.2</visualSizeRange>
+            <purpose>Food</purpose>
+            <humanFoodPlant>true</humanFoodPlant>
+            <maxMeshCount>4</maxMeshCount>
+            <growMinGlow>0</growMinGlow>
+            <growOptimalGlow>0</growOptimalGlow>
+            <diesToLight>false</diesToLight>
+        </plant>
+    </ThingDef>
+
+    <ThingDef ParentName="PlantFoodRawBase">
+        <defName>DV_RawCavecarrot</defName>
+        <label>raw cavecarrot</label>
+        <description>Raw cavecarrot.</description>
+        <graphicData>
+            <texPath>Things/Item/Resource/Cavecarrot</texPath>
+            <graphicClass>Graphic_StackCount</graphicClass>
+        </graphicData>
+        <statBases>
+            <MarketValue>1.2</MarketValue>
+        </statBases>
+        <ingestible>
+            <foodType>VegetableOrFruit</foodType>
+        </ingestible>
+        <comps>
+            <li Class="CompProperties_Rottable">
+                <daysToRotStart>80</daysToRotStart>
+                <rotDestroys>true</rotDestroys>
+            </li>
+        </comps>
+    </ThingDef>
+
+</Defs>

@@ -3,4 +3,6 @@
 
 	<DV_GateJammed>Gate locked shut. Must be forced open.</DV_GateJammed>
 
+	<DV_HatchLocked>Hatch locked shut. Must be forced open.</DV_HatchLocked>
+
 </LanguageData>

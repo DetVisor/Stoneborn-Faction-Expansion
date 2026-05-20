@@ -2,6 +2,85 @@
 <Defs>
 
   <ThingDef ParentName="BuildingBase">
+    <defName>DV_PlantBox</defName>
+    <label>plant box</label>
+    <description>A self-powered hermetically-sealed crate for preserving valuable items. These can preserve their contents for a long time.</description>
+    <size>(1, 1)</size>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>Things/Building/PlantBox</texPath>
+    </graphicData>
+    <fillPercent>0.40</fillPercent>
+    <rotatable>false</rotatable>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <WorkToBuild>1000</WorkToBuild>
+    </statBases>
+    <interactionCellOffset>(0,0,0)</interactionCellOffset>
+    <receivesSignals>true</receivesSignals>
+    <comps>
+      <li Class="LTS_StonebornSiteGeneration.CompProperties_MonsterBox">
+        <territoryRadius>8</territoryRadius>
+        <monsterGroups>
+
+          <li>            <!-- alrauns -->
+            <li>
+              <thingDef>DV_Plant_Alraun</thingDef>
+              <range>4~5</range>
+              <initialPlantGrowth>1</initialPlantGrowth>
+            </li>
+            <li>
+              <thingDef>DV_Plant_Alraun</thingDef>
+              <range>5~6</range>
+              <initialPlantGrowth>0.3</initialPlantGrowth>
+            </li>
+          </li>
+
+          <li>            <!-- cavecarrots -->
+            <li>
+              <thingDef>DV_Plant_Cavecarrot</thingDef>
+              <range>4~5</range>
+              <initialPlantGrowth>1</initialPlantGrowth>
+            </li>
+            <li>
+              <thingDef>DV_Plant_Cavecarrot</thingDef>
+              <range>5~6</range>
+              <initialPlantGrowth>0.3</initialPlantGrowth>
+            </li>
+          </li>
+
+          <li>            <!-- cavecarrots -->
+            <li>
+              <thingDef>DV_Plant_Cavecarrot</thingDef>
+              <range>2~3</range>
+              <initialPlantGrowth>1</initialPlantGrowth>
+            </li>
+            <li>
+              <thingDef>DV_Plant_Cavecarrot</thingDef>
+              <range>3~5</range>
+              <initialPlantGrowth>0.3</initialPlantGrowth>
+            </li>
+
+            <li>
+              <thingDef>DV_Plant_Alraun</thingDef>
+              <range>2~3</range>
+              <initialPlantGrowth>1</initialPlantGrowth>
+            </li>
+            <li>
+              <thingDef>DV_Plant_Alraun</thingDef>
+              <range>3~5</range>
+              <initialPlantGrowth>0.3</initialPlantGrowth>
+            </li>
+          </li>
+
+        </monsterGroups>
+      </li>
+
+    </comps>
+    <tickerType>Normal</tickerType>
+  </ThingDef>
+
+  <ThingDef ParentName="BuildingBase">
     <defName>DV_RustBox</defName>
     <label>rustbug box</label>
     <description>A self-powered hermetically-sealed crate for preserving valuable items. These can preserve their contents for a long time.</description>
@@ -20,7 +99,7 @@
     <receivesSignals>true</receivesSignals>
     <comps>
       <li Class="LTS_StonebornSiteGeneration.CompProperties_MonsterBox">
-        <territoryRadius>50</territoryRadius>
+        <territoryRadius>35</territoryRadius>
         <monsterGroups>
 
           <li>            <!-- 3-4 cavegunks defending an area -->
@@ -68,8 +147,13 @@
             </li>
             <li>
               <thingDef>DV_Plant_Alraun</thingDef>
-              <range>5~8</range>
-              <initialPlantGrowth>0.9</initialPlantGrowth>
+              <range>2~3</range>
+              <initialPlantGrowth>1</initialPlantGrowth>
+            </li>
+            <li>
+              <thingDef>DV_Plant_Alraun</thingDef>
+              <range>3~4</range>
+              <initialPlantGrowth>0.3</initialPlantGrowth>
             </li>
           </li>
 
@@ -98,6 +182,11 @@
               <range>3~4</range>
               <initialPlantGrowth>0.9</initialPlantGrowth>
             </li>
+            <li>
+              <thingDef>DV_Plant_Rookpod</thingDef>
+              <range>4~5</range>
+              <initialPlantGrowth>0.3</initialPlantGrowth>
+            </li>
           </li>
 
           <li>            <!-- 2-4 rook-caps defending an area -->
@@ -111,24 +200,10 @@
               <range>4~5</range>
               <initialPlantGrowth>0.9</initialPlantGrowth>
             </li>
-          </li>
-
-          <li>            <!-- 2-4 rookcaps defending an area, with some alraun -->
-            <li>
-              <pawnKind>DV_Monster_ToxShroom</pawnKind>
-              <range>2~4</range>
-              <faction>DV_DungeonMonsters</faction>
-            </li>
             <li>
               <thingDef>DV_Plant_Rookpod</thingDef>
               <range>4~5</range>
-              <initialPlantGrowth>0.9</initialPlantGrowth>
-            </li>
-
-            <li>
-              <thingDef>DV_Plant_Alraun</thingDef>
-              <range>5~8</range>
-              <initialPlantGrowth>0.9</initialPlantGrowth>
+              <initialPlantGrowth>0.3</initialPlantGrowth>
             </li>
           </li>
 
@@ -170,8 +245,13 @@
 
             <li>
               <thingDef>DV_Plant_Alraun</thingDef>
-              <range>5~8</range>
-              <initialPlantGrowth>0.9</initialPlantGrowth>
+              <range>2~3</range>
+              <initialPlantGrowth>1</initialPlantGrowth>
+            </li>
+            <li>
+              <thingDef>DV_Plant_Alraun</thingDef>
+              <range>3~4</range>
+              <initialPlantGrowth>0.3</initialPlantGrowth>
             </li>
           </li>
 
@@ -257,6 +337,25 @@
     <graphicData>
       <graphicClass>Graphic_Single</graphicClass>
       <texPath>Things/Building/PlaceholderMonsterBox</texPath>
+    </graphicData>
+    <fillPercent>0.40</fillPercent>
+    <rotatable>false</rotatable>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <WorkToBuild>1000</WorkToBuild>
+    </statBases>
+    <interactionCellOffset>(0,0,0)</interactionCellOffset>
+    <tickerType>Normal</tickerType>
+  </ThingDef>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>DV_PLACEHOLDERPLANT</defName>
+    <label>plant placeholder</label>
+    <description>A self-powered hermetically-sealed crate for preserving valuable items. These can preserve their contents for a long time.</description>
+    <size>(1, 1)</size>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>Things/Building/PlaceholderPlant</texPath>
     </graphicData>
     <fillPercent>0.40</fillPercent>
     <rotatable>false</rotatable>
