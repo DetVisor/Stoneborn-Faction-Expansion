@@ -15,6 +15,7 @@ using Verse.AI;
 using Verse.AI.Group;
 using Verse.Noise;
 using Verse.Sound;
+using static RimWorld.ColonistBar;
 using static System.Collections.Specialized.BitVector32;
 using static UnityEngine.GraphicsBuffer;
 
@@ -207,17 +208,15 @@ namespace LTS_StonebornSiteGeneration
 
             foreach (Building dwarvenVaultEntrance in dwarvenVaultEntrances)
             {
-                //Log.Message("Firing 1");
-                if (new System.Random().Next(0, 100) <= 70)
+                if (new System.Random().Next(0, 100) <= SFE_Settings.extraIntermediateFloorChance)
                 {
-                    //Log.Message("Firing 2");
                     IntVec3 position = dwarvenVaultEntrance.Position;
-                    GenSpawn.Spawn(LTS_SFE_DefOf.LTS_StonebornVaultEntrance, position, map);
+                    GenSpawn.Spawn(LTS_SFE_DefOf.LTS_StonebornVaultEntranceIntermediate, position, map);
                 }
                 else
                 {
                     IntVec3 position = dwarvenVaultEntrance.Position;
-                    GenSpawn.Spawn(LTS_SFE_DefOf.LTS_StonebornVaultEntranceIntermediate, position, map);
+                    GenSpawn.Spawn(LTS_SFE_DefOf.LTS_StonebornVaultEntrance, position, map);
                 }
             }
 
@@ -715,6 +714,62 @@ namespace LTS_StonebornSiteGeneration
         {
             base.ExposeData();
             Scribe_Values.Look<int>(ref this.ticksUntilArmed, "ticksUntilArmed", 0);
+        }
+    }
+
+
+
+
+
+    public class StonebornFactionExpansionMod : Mod
+    {
+        public static SFE_Settings settings;
+        public StonebornFactionExpansionMod(ModContentPack pack) : base(pack)
+        {
+            settings = GetSettings<SFE_Settings>();
+        }
+        public override void DoSettingsWindowContents(Rect inRect)
+        {
+            settings.DoSettingsWindowContents(inRect);
+        }
+
+        public override string SettingsCategory()
+        {
+            return Content.Name;
+        }
+    }
+
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Struct)]
+    public class HotSwappableAttribute : Attribute
+    {
+    }
+
+    [HotSwappableAttribute]
+    public class SFE_Settings : ModSettings
+    {
+        public static int extraIntermediateFloorChance = 30;
+        private static Vector2 scrollPosition = Vector2.zero;
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_Values.Look(ref extraIntermediateFloorChance, "extraIntermediateFloorChance", 30);
+        }
+        public void DoSettingsWindowContents(Rect inRect)
+        {
+            Listing_Standard listing_Standard = new Listing_Standard();
+            Rect viewRect = inRect.ContractedBy(10f);
+            Widgets.BeginScrollView(inRect, ref scrollPosition, viewRect);
+            listing_Standard.Begin(viewRect);
+            //sliders:
+            extraIntermediateFloorChance = (int)listing_Standard.SliderLabeled("Extra intermediate vault floor per floor chance: " + extraIntermediateFloorChance + "%", extraIntermediateFloorChance, 0, 100);
+            //reset button:
+            if (listing_Standard.ButtonText("Reset".Translate(), widthPct: 0.3f))
+            {
+                extraIntermediateFloorChance = 30;
+            }
+
+            listing_Standard.End();
+            Widgets.EndScrollView();
         }
     }
 }
