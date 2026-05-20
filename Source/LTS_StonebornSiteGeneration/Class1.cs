@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using KCSG;
 using RimWorld;
+using RimWorld.Planet;
 using RimWorld.QuestGen;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ using Verse.AI;
 using Verse.AI.Group;
 using Verse.Noise;
 using Verse.Sound;
+using static HarmonyLib.Code;
 using static RimWorld.ColonistBar;
 using static System.Collections.Specialized.BitVector32;
 using static UnityEngine.GraphicsBuffer;
@@ -73,6 +75,7 @@ namespace LTS_StonebornSiteGeneration
         public string LTS_TexPath;
         public GenStepDef LTS_GenStepDef;
         public int LTS_ticks;
+        public FactionDef LTS_faction;
     }
 
 
@@ -678,6 +681,7 @@ namespace LTS_StonebornSiteGeneration
             this.triggeredGraphicData = new GraphicData();
             this.triggeredGraphicData.CopyFrom(this.def.graphicData);
             this.triggeredGraphicData.texPath = def.GetModExtension<LTS_SFE_ModExtension>()?.LTS_TexPath ?? "Things/Building/Ruins/Traps/SpikeTrap_triggered";
+            this.SetFaction(Find.FactionManager.FirstFactionOfDef(def.GetModExtension<LTS_SFE_ModExtension>()?.LTS_faction) ?? this.Map.ParentFaction); 
         }
         protected override void Tick()
         {
@@ -697,9 +701,9 @@ namespace LTS_StonebornSiteGeneration
         }
         //public override bool IsDangerousFor(Pawn p)
         //{
-        //    bool knowsOfTrap = this.KnowsOfTrap(p);
-        //    return knowsOfTrap && ticksUntilArmed == 0;
+        //    return base.IsDangerousFor(p);
         //}
+
         protected override float SpringChance(Pawn p)
         {
             if (ticksUntilArmed == 0)
