@@ -721,6 +721,67 @@ namespace LTS_StonebornSiteGeneration
         }
     }
 
+    public class Projectile_SpawnsThingLauncherColoured : Projectile
+    {
+        protected override void Impact(Thing hitThing, bool blockedByShield = false)
+        {
+            Map map = base.Map;
+            base.Impact(hitThing, blockedByShield);
+            IntVec3 loc = base.Position;
+            if (this.def.projectile.tryAdjacentFreeSpaces && base.Position.GetFirstBuilding(map) != null)
+            {
+                foreach (IntVec3 intVec in GenAdjFast.AdjacentCells8Way(base.Position))
+                {
+                    if (intVec.GetFirstBuilding(map) == null && intVec.Standable(map))
+                    {
+                        loc = intVec;
+                        break;
+                    }
+                }
+            }
+            Thing thing = GenSpawn.Spawn(ThingMaker.MakeThing(this.def.projectile.spawnsThingDef, null), loc, map, WipeMode.Vanish);
+            if (thing.def.CanHaveFaction)
+            {
+                thing.SetFaction(base.Launcher.Faction, null);
+            }
+            thing.TryGetComp<CompGlower>().GlowColor = colorInt;
+        }
+        public override void Launch(Thing launcher, Vector3 origin, LocalTargetInfo usedTarget, LocalTargetInfo intendedTarget, ProjectileHitFlags hitFlags, bool preventFriendlyFire = false, Thing equipment = null, ThingDef targetCoverDef = null)
+        {
+            base.Launch(launcher, origin, usedTarget, intendedTarget, hitFlags, preventFriendlyFire, equipment, targetCoverDef);
+
+            Color color = (launcher as Pawn).apparel.WornApparel.Where(apparel => apparel.def.defName == "LTS_Apparel_FlarePack").First().TryGetComp<CompColorable>().Color;
+            float vibrancy = 2.5f;
+
+            this.TryGetComp<CompColorable>().SetColor(color);
+
+            if (color.r == color.g && color.g == color.b)
+                colorInt = new ColorInt(Color.white);
+            else
+            {
+                while (color.r > 0 && color.r < 1 && color.g > 0 && color.g < 1 && color.b > 0 && color.b < 1)
+                {
+                    float average = (color.r+ color.g+ color.b) / 3;
+                    color.r = average + ((color.r - average) * vibrancy);
+                    color.g = average + ((color.g - average) * vibrancy);
+                    color.b = average + ((color.b - average) * vibrancy);
+                }
+
+                colorInt = new ColorInt(color);
+
+            }
+            
+            //this.TryGetComp<CompColorable>().SetColor(colorInt.ToColor);
+            //this.TryGetComp<CompColorable>().Notify_ColorChanged();
+        }
+        private ColorInt colorInt;
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_Values.Look<ColorInt>(ref colorInt, "colorInt", default(ColorInt), false);
+        }
+    }
+
 
 
 

@@ -203,4 +203,200 @@
     </tradeTags>
   </ThingDef>
 
+  <ThingDef ParentName="ApparelNoQualityBase">
+    <defName>LTS_Apparel_FlarePack</defName>
+    <label>chemlight belt</label>
+    <description>Flairs ain't ready yet!</description>
+    <techLevel>Industrial</techLevel>
+	<tradeability>Sellable</tradeability>
+    <generateCommonality>0</generateCommonality>
+    <mergeVerbGizmos>false</mergeVerbGizmos>
+    <graphicData>
+      <texPath>Things/Pawn/Humanlike/Apparel/ShieldBelt/ShieldBelt</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <comps>
+      <!--<li Class="CompProperties_DisruptorFlarePack">
+        <checkInterval>60</checkInterval>
+        <fieldRadius>8.9</fieldRadius>
+        <durationSeconds>30</durationSeconds>
+      </li>-->
+      <li Class="CompProperties_ApparelReloadable">
+        <hotKey>Misc4</hotKey>
+        <soundReload>Standard_Reload</soundReload>
+        <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+        <maxCharges>25</maxCharges>
+        <ammoDef>Chemfuel</ammoDef>
+        <ammoCountPerCharge>2</ammoCountPerCharge>
+        <baseReloadTicks>60</baseReloadTicks>
+        <chargeNoun>chemlights</chargeNoun>
+      </li>
+    </comps>
+    <verbs>
+      <li>
+        <verbClass>Verb_LaunchProjectileStatic</verbClass>
+        <label>deploy chemlight</label>
+        <defaultProjectile>LTS_Grenade_Flare</defaultProjectile>
+        <warmupTime>0.5</warmupTime>
+        <range>11.9</range>
+        <burstShotCount>1</burstShotCount>
+        <onlyManualCast>true</onlyManualCast>
+        <hasStandardCommand>true</hasStandardCommand>
+        <targetable>true</targetable>
+        <violent>false</violent>
+        <targetParams>
+          <canTargetPawns>false</canTargetPawns>
+          <canTargetBuildings>false</canTargetBuildings>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+        <soundCast>FlareLaunch</soundCast>
+        <rangedFireRulepack>Combat_RangedFire_Thrown</rangedFireRulepack>
+        <canGoWild>false</canGoWild>
+        <!--<explosionRadiusRingColor>(0.8, 0.8, 0.4, 1)</explosionRadiusRingColor>--><!-- Keep in sync with PlaceWorker_GlowRadius.RingColor -->
+      </li>
+    </verbs>
+    <recipeMaker>
+      <unfinishedThingDef>UnfinishedPack</unfinishedThingDef>
+      <researchPrerequisite>BiofuelRefining</researchPrerequisite>
+      <recipeUsers>
+        <li>TableMachining</li>
+      </recipeUsers>
+      <useIngredientsForColor>false</useIngredientsForColor>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <skillRequirements>
+        <Crafting>4</Crafting>
+      </skillRequirements>
+      <displayPriority>30</displayPriority>
+    </recipeMaker>
+    <costList>
+      <ComponentIndustrial>1</ComponentIndustrial>
+      <Chemfuel>50</Chemfuel>
+    </costList>
+    <tickerType>Normal</tickerType>
+    <statBases>
+      <WorkToMake>7200</WorkToMake>
+      <Mass>3</Mass>
+      <Flammability>0.4</Flammability>
+      <EquipDelay>2</EquipDelay>
+    </statBases>
+    <thingCategories>
+      <li>ApparelUtility</li>
+    </thingCategories>
+    <apparel>
+      <countsAsClothingForNudity>false</countsAsClothingForNudity>
+      <careIfWornByCorpse>false</careIfWornByCorpse>
+      <careIfDamaged>false</careIfDamaged>
+      <wearPerDay>0</wearPerDay>
+      <bodyPartGroups>
+        <li>Waist</li>
+      </bodyPartGroups>
+      <layers>
+        <li>Belt</li>
+      </layers>
+      <wornGraphicPath>Things/Pawn/Humanlike/Apparel/DisruptorFlarePack/DisruptorFlarePack</wornGraphicPath>
+      <wornGraphicData>
+        <renderUtilityAsPack>true</renderUtilityAsPack>
+        <north>
+          <offset>(0,-0.15)</offset>
+        </north>
+        <south>
+          <offset>(0,-0.15)</offset>
+        </south>
+        <east>
+          <offset>(-0.35,-0.1)</offset>
+          <thin><offset>(0.05,0)</offset></thin>
+          <hulk><offset>(-0.15,0)</offset></hulk>
+          <fat> <offset>(-0.20,0)</offset></fat>
+        </east>
+        <west>
+          <offset>(0.35,-0.1)</offset>
+          <thin><offset>(-0.05,0)</offset></thin>
+          <hulk><offset>(0.15,0)</offset></hulk>
+          <fat> <offset>(0.20,0)</offset></fat>
+        </west>
+        <male>  <scale>(0.4,0.4)</scale></male>
+        <female><scale>(0.4,0.4)</scale></female>
+        <thin>  <scale>(0.35,0.35)</scale></thin>
+        <hulk>  <scale>(0.45,0.45)</scale></hulk>
+        <fat>   <scale>(0.45,0.45)</scale></fat>
+      </wornGraphicData>
+    </apparel>
+    <allowedArchonexusCount>1</allowedArchonexusCount>
+    <tradeTags>
+      <li>ExoticMisc</li>
+    </tradeTags>
+	<colorGenerator Class="ColorGenerator_Options">
+      <options>
+        <li>
+          <weight>10</weight>
+          <only>(0.463,0.192,0.224,1)</only>
+        </li>
+		<li>
+          <weight>10</weight>
+          <only>(0.094,0.255,0.475,1)</only>
+        </li>
+		<li>
+          <weight>10</weight>
+          <only>(0.349,0.412,0.243,1)</only>
+        </li>
+		<li>
+          <weight>10</weight>
+          <only>(0.639,0.514,0.192,1)</only>
+        </li>
+      </options>
+    </colorGenerator>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>LTS_Grenade_Flare</defName>
+    <label>chemlight</label>
+    <graphicData>
+      <texPath>Things/Projectiles/LTS_Flare</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>MoteGlow</shaderType>
+	  <drawSize>0.5</drawSize>
+    </graphicData>
+    <thingClass>LTS_StonebornSiteGeneration.Projectile_SpawnsThingLauncherColoured</thingClass>
+    <projectile>
+      <speed>40</speed>
+      <arcHeightFactor>1.0</arcHeightFactor>
+      <spinRate>3</spinRate>
+      <!--<landedEffecter>DisruptorFlareLanded</landedEffecter>-->
+      <spawnsThingDef>LTS_Flare</spawnsThingDef>
+	  <useGraphicClass>true</useGraphicClass>
+    </projectile>
+	<comps>
+	  <li><compClass>CompColorable</compClass></li>
+	</comps>
+  </ThingDef>
+
+  <ThingDef>
+    <defName>LTS_Flare</defName>
+    <label>chemlight</label>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>Things/Projectiles/LTS_Flare</texPath>
+      <shaderType>Transparent</shaderType>
+      <onGroundRandomRotateAngle>360</onGroundRandomRotateAngle>
+	  <drawSize>0.5</drawSize>
+    </graphicData>
+    <selectable>false</selectable>
+    <tickerType>Normal</tickerType>
+    <thingClass>ThingWithComps</thingClass>
+    <useHitPoints>false</useHitPoints>
+    <rotatable>false</rotatable>
+    <comps>
+      <li Class="CompProperties_DestroyAfterDelay">
+        <delayTicks>14400</delayTicks>
+        <displayCountdownOnLabel>true</displayCountdownOnLabel>
+      </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>5</glowRadius>
+      </li>
+    </comps>
+  </ThingDef>
+
 </Defs>
