@@ -534,12 +534,18 @@ namespace LTS_StonebornSiteGeneration
             this.compClass = typeof(CompMonsterBox);
         }
 
-        public List<List<SpawnGroup>> monsterGroups;
+        //public List<List<SpawnGroup>> monsterGroups;
+        public List<Encounter> encounters;
         public FactionDef territorialFactionDef;
         public FactionDef attackingFactionDef;
         public int territoryRadius;
     }
 
+    public class Encounter
+    {
+        public List<SpawnGroup> spawnGroups;
+        public int spawnWeight = 1;
+    }
     public class SpawnGroup
     {
         public PawnKindDef pawnKind;
@@ -548,6 +554,7 @@ namespace LTS_StonebornSiteGeneration
         public FactionDef faction = null;
         public MentalStateDef mentalstateDef = null;
         public float initialPlantGrowth = -1;
+        
     }
 
     public class CompMonsterBox : ThingComp
@@ -572,9 +579,30 @@ namespace LTS_StonebornSiteGeneration
             Lord lordDefender = LordMaker.MakeNewLord(lordDefenderFaction, new LordJob_DefendPoint(this.parent.Position, Props.territoryRadius), this.parent.Map, null);
             Lord lordAttacker = LordMaker.MakeNewLord(lordAttackerFaction, new LordJob_DefendPoint(this.parent.Position, Props.territoryRadius), this.parent.Map, null);
 
-            List<SpawnGroup> selectedList = Props.monsterGroups.RandomElement();
+            //List<SpawnGroup> selectedEncounter = Props.monsterGroups.RandomElement();
+            int totalWeight = 0;
 
-            foreach (SpawnGroup spawnGroup in selectedList)
+            foreach (Encounter encounter in Props.encounters)
+            {
+                totalWeight += encounter.spawnWeight;
+            }
+
+            int remainingWeight = new System.Random().Next(0, totalWeight);
+            Encounter selectedEncounter = Props.encounters.First();
+
+            foreach (Encounter encounter in Props.encounters)
+            {
+                if (encounter.spawnWeight <= remainingWeight)
+                    remainingWeight -= encounter.spawnWeight;
+                else
+                {
+                    selectedEncounter = encounter;
+                    break;
+                }
+
+            }
+
+            foreach (SpawnGroup spawnGroup in selectedEncounter.spawnGroups)
             {
                 int numToSpawn = spawnGroup.range.RandomInRange;
 
