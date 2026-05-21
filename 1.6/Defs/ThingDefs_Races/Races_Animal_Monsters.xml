@@ -712,4 +712,175 @@
     </lifeStages>
   </PawnKindDef>
 
+  <ThingDef ParentName="AnimalThingBase">
+    <defName>DV_Monster_WildGolem</defName>
+    <label>wild golem</label>
+    <description>Shambling, large fungus fruiting bodies. The more belligerent and active cousin of plump helmets, rook-caps grow the ability to walk after just a few months in their lifespan, using stubby legs to tumble about and spread their spores. Mostly, they do this by headbutting whatever and whoever they sense.</description>
+    <statBases>
+      <MoveSpeed>2.75</MoveSpeed>
+      <ComfyTemperatureMin>-99</ComfyTemperatureMin>
+      <MarketValue>200</MarketValue>
+      <LeatherAmount>0</LeatherAmount>
+      <MeatAmount>0</MeatAmount>
+      <ArmorRating_Blunt>0.55</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.30</ArmorRating_Sharp>
+      <Wildness>0.2</Wildness>
+      <ToxicEnvironmentResistance>1</ToxicEnvironmentResistance>
+    </statBases>
+    <tools>
+      <li>
+        <label>clay-fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>22</power>
+        <cooldownTime>2.1</cooldownTime>
+      </li>
+    </tools>
+    <race>
+      <deathAction Class="DeathActionProperties_Divide">
+        <divideBloodFilthCountRange>3~4</divideBloodFilthCountRange>
+        <dividePawnCount>3</dividePawnCount>
+        <dividePawnKindOptions>
+          <li>DV_Monster_WildGolemite</li>
+        </dividePawnKindOptions>
+      </deathAction>
+      <fleshType>Normal</fleshType>
+      <body>DV_BipedalAnimalWithClaws</body>
+      <baseHungerRate>1</baseHungerRate>
+      <baseBodySize>2.2</baseBodySize>
+      <baseHealthScale>3</baseHealthScale>
+      <lifeExpectancy>50</lifeExpectancy>
+      <needsRest>false</needsRest>
+      <hasGenders>false</hasGenders>
+      <foodType>None</foodType>
+      <bloodDef>DV_Filth_MonsterMud</bloodDef>
+      <trainability>None</trainability>
+      <isImmuneToInfections>true</isImmuneToInfections>
+      <lifeStageAges>
+        <li>
+          <def>AnimalAdult</def>
+        </li>
+      </lifeStageAges>
+      <soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+      <soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+      <soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+    </race>
+  </ThingDef>
+
+  <PawnKindDef ParentName="AnimalKindBase">
+    <defName>DV_Monster_WildGolem</defName>
+    <label>wild golem</label>
+    <race>DV_Monster_WildGolem</race>
+    <combatPower>120</combatPower>
+    <defaultFactionDef>DV_DungeonMonsters</defaultFactionDef>
+    <canArriveManhunter>false</canArriveManhunter>
+    <ecoSystemWeight>0.40</ecoSystemWeight>
+    <canOpenDoors>false</canOpenDoors>
+    <chronologicalAgeRange>10~20</chronologicalAgeRange>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Animal/WildGolem/WildGolem</texPath>
+          <drawSize>2.5</drawSize>
+          <drawOffset>(0,0,0.3)</drawOffset>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/Animal/WildGolem/WildGolem</texPath>
+          <drawSize>2</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+  <ThingDef ParentName="AnimalThingBase">
+    <defName>DV_Monster_WildGolemite</defName>
+    <label>wild golemite</label>
+    <description>Shambling, large fungus fruiting bodies. The more belligerent and active cousin of plump helmets, rook-caps grow the ability to walk after just a few months in their lifespan, using stubby legs to tumble about and spread their spores. Mostly, they do this by headbutting whatever and whoever they sense.</description>
+    <statBases>
+      <MoveSpeed>4.9</MoveSpeed>
+      <ComfyTemperatureMin>-99</ComfyTemperatureMin>
+      <MarketValue>200</MarketValue>
+      <LeatherAmount>0</LeatherAmount>
+      <MeatAmount>0</MeatAmount>
+      <ArmorRating_Blunt>0.55</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.30</ArmorRating_Sharp>
+      <Wildness>0.2</Wildness>
+      <ToxicEnvironmentResistance>1</ToxicEnvironmentResistance>
+    </statBases>
+    <tools>
+      <li>
+        <label>headbutt</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>12</power>
+        <cooldownTime>2.1</cooldownTime>
+      </li>
+    </tools>
+    <race>
+      <deathAction Class="DeathActionProperties_Vanish">
+        <workerClass>DeathActionWorker_Vanish</workerClass>
+        <filth>DV_Filth_MonsterMud</filth>
+        <filthCountRange>1~2</filthCountRange>
+        <meatExplosionSize>Small</meatExplosionSize>
+      </deathAction>
+      <alwaysAwake>true</alwaysAwake>
+      <fleshType>Mechanoid</fleshType>
+      <body>DV_Monster_GolemBodyDef</body>
+      <baseHungerRate>0</baseHungerRate>
+      <baseBodySize>1.4</baseBodySize>
+      <baseHealthScale>1.2</baseHealthScale>
+      <lifeExpectancy>50</lifeExpectancy>
+      <needsRest>false</needsRest>
+      <hasGenders>false</hasGenders>
+      <foodType>None</foodType>
+      <bloodDef>DV_Filth_MonsterMud</bloodDef>
+      <trainability>None</trainability>
+      <isImmuneToInfections>true</isImmuneToInfections>
+      <lifeStageAges>
+        <li>
+          <def>AnimalAdult</def>
+          <minAge>0</minAge>
+        </li>
+      </lifeStageAges>
+      <soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+      <soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+      <soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+    </race>
+  </ThingDef>
+
+  <PawnKindDef ParentName="AnimalKindBase">
+    <defName>DV_Monster_WildGolemite</defName>
+    <label>wild golemite</label>
+    <race>DV_Monster_WildGolemite</race>
+    <combatPower>60</combatPower>
+    <defaultFactionDef>DV_DungeonMonsters</defaultFactionDef>
+    <overrideDeathOnDownedChance>1</overrideDeathOnDownedChance>
+    <canArriveManhunter>false</canArriveManhunter>
+    <ecoSystemWeight>0.40</ecoSystemWeight>
+    <alternateGraphicChance>0.80</alternateGraphicChance>
+    <canOpenDoors>false</canOpenDoors>
+    <alternateGraphics>
+      <li>
+        <texPath>Things/Pawn/Animal/WildGolemite/WildGolemite1</texPath>
+      </li>
+      <li>
+        <texPath>Things/Pawn/Animal/WildGolemite/WildGolemite2</texPath>
+      </li>
+    </alternateGraphics>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Animal/WildGolemite/WildGolemite1</texPath>
+          <drawSize>1.2</drawSize>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/Animal/WildGolemite/WildGolemite1</texPath>
+          <drawSize>1.1</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
 </Defs>

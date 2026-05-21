@@ -1,6 +1,54 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+  <ThingSetMakerDef MayRequire="det.epochspyrinth">
+    <defName>MapGen_Minecart_Pyrinth</defName>
+    <root Class="ThingSetMaker_RandomOption">
+      <options>
+
+        <!-- Components -->
+        <li>
+          <weight>1</weight>
+          <thingSetMaker Class="ThingSetMaker_StackCount">
+            <fixedParams>
+              <filter>
+                <thingDefs>
+                  <li>DV_Pyrinth</li>
+                </thingDefs>
+              </filter>
+              <countRange>25~32</countRange>
+            </fixedParams>
+          </thingSetMaker>
+        </li>
+
+      </options>
+    </root>
+  </ThingSetMakerDef>
+
+    <ThingSetMakerDef MayRequire="det.sbdelights">
+    <defName>MapGen_Minecart_Glimmerquartz</defName>
+    <root Class="ThingSetMaker_RandomOption">
+      <options>
+
+        <!-- Components -->
+        <li>
+          <weight>1</weight>
+          <thingSetMaker Class="ThingSetMaker_StackCount">
+            <fixedParams>
+              <filter>
+                <thingDefs>
+                  <li>SD_Glimmerquartz</li>
+                </thingDefs>
+              </filter>
+              <countRange>15~20</countRange>
+            </fixedParams>
+          </thingSetMaker>
+        </li>
+
+      </options>
+    </root>
+  </ThingSetMakerDef>
+
   <ThingSetMakerDef>
     <defName>MapGen_Minecart_Steel</defName>
     <root Class="ThingSetMaker_RandomOption">

@@ -21,10 +21,12 @@
     <comps>
       <li Class="LTS_StonebornSiteGeneration.CompProperties_MonsterBox">
         <territoryRadius>8</territoryRadius>
-        <monsterGroups>
+        <encounters>
 
           <li>            <!-- sagewick -->
-            <li>
+            <spawnWeight>1</spawnWeight>
+			<spawnGroups>
+			<li>
               <thingDef>DV_Plant_Cinderwort</thingDef>
               <range>3~4</range>
               <initialPlantGrowth>1</initialPlantGrowth>
@@ -34,10 +36,13 @@
               <range>4~5</range>
               <initialPlantGrowth>0.3</initialPlantGrowth>
             </li>
+			</spawnGroups>
           </li>
 
 
           <li>            <!-- sagewick and alraun -->
+		    <spawnWeight>1</spawnWeight>
+			<spawnGroups>
             <li>
               <thingDef>DV_Plant_Alraun</thingDef>
               <range>2~3</range>
@@ -59,10 +64,13 @@
               <range>2~4</range>
               <initialPlantGrowth>0.3</initialPlantGrowth>
             </li>
+			</spawnGroups>
           </li>
 
           <li>            <!-- sagewick and cavecarrots -->
-            <li>
+            <spawnWeight>1</spawnWeight>
+			<spawnGroups>
+			<li>
               <thingDef>DV_Plant_Cavecarrot</thingDef>
               <range>2~3</range>
               <initialPlantGrowth>1</initialPlantGrowth>
@@ -83,10 +91,13 @@
               <range>2~4</range>
               <initialPlantGrowth>0.3</initialPlantGrowth>
             </li>
+			</spawnGroups>
           </li>
 
           <li>            <!-- alrauns -->
-            <li>
+            <spawnWeight>1</spawnWeight>
+			<spawnGroups>
+			<li>
               <thingDef>DV_Plant_Alraun</thingDef>
               <range>4~5</range>
               <initialPlantGrowth>1</initialPlantGrowth>
@@ -96,10 +107,13 @@
               <range>5~6</range>
               <initialPlantGrowth>0.3</initialPlantGrowth>
             </li>
+			</spawnGroups>
           </li>
 
           <li>            <!-- cavecarrots -->
-            <li>
+            <spawnWeight>1</spawnWeight>
+			<spawnGroups>
+			<li>
               <thingDef>DV_Plant_Cavecarrot</thingDef>
               <range>4~5</range>
               <initialPlantGrowth>1</initialPlantGrowth>
@@ -109,10 +123,13 @@
               <range>5~6</range>
               <initialPlantGrowth>0.3</initialPlantGrowth>
             </li>
+			</spawnGroups>
           </li>
 
           <li>            <!-- cavecarrots and alraun -->
-            <li>
+            <spawnWeight>1</spawnWeight>
+			<spawnGroups>
+			<li>
               <thingDef>DV_Plant_Cavecarrot</thingDef>
               <range>2~3</range>
               <initialPlantGrowth>1</initialPlantGrowth>
@@ -133,9 +150,9 @@
               <range>3~5</range>
               <initialPlantGrowth>0.3</initialPlantGrowth>
             </li>
+			</spawnGroups>
           </li>
-
-        </monsterGroups>
+        </encounters>
       </li>
 
     </comps>
@@ -161,16 +178,18 @@
     <receivesSignals>true</receivesSignals>
     <comps>
       <li Class="LTS_StonebornSiteGeneration.CompProperties_MonsterBox">
-        <territoryRadius>35</territoryRadius>
-        <monsterGroups>
-
-          <li>            <!-- 3-4 cavegunks defending an area -->
-            <li>
-              <pawnKind>DV_Monster_Rustbug</pawnKind>
-              <range>10~11</range>
-            </li>
+        <territoryRadius>12</territoryRadius>
+        <encounters>
+          <li>            <!-- 11-12 Rustbugs-->
+            <spawnWeight>1</spawnWeight>
+			<spawnGroups>
+              <li>
+                <pawnKind>DV_Monster_Rustbug</pawnKind>
+                <range>10~11</range>
+              </li>
+			</spawnGroups>
           </li>
-        </monsterGroups>
+        </encounters>
       </li>
 
     </comps>
@@ -199,10 +218,12 @@
         <territorialFactionDef>DV_DungeonMonsters</territorialFactionDef>
         <attackingFactionDef>AncientsHostile</attackingFactionDef>
         <territoryRadius>6</territoryRadius>
-        <monsterGroups>
+        <encounters>
 
           <li>            <!-- 3-4 cavegunks with alrauns -->
-            <li>
+            <spawnWeight>1</spawnWeight>
+			<spawnGroups>
+			<li>
               <pawnKind>DV_Monster_CaveGunk</pawnKind>
               <range>3~4</range>
               <faction>DV_DungeonMonsters</faction>
@@ -217,18 +238,24 @@
               <range>3~4</range>
               <initialPlantGrowth>0.3</initialPlantGrowth>
             </li>
+			</spawnGroups>
           </li>
 
           <li>            <!-- 3-4 cavegunks defending an area -->
-            <li>
+            <spawnWeight>1</spawnWeight>
+			<spawnGroups>
+			<li>
               <pawnKind>DV_Monster_CaveGunk</pawnKind>
               <range>3~4</range>
               <faction>DV_DungeonMonsters</faction>
             </li>
+			</spawnGroups>
           </li>
 
           <li>            <!-- 2-3 cavegunks and 1-2 rook-caps defending an area -->
-            <li>
+            <spawnWeight>1</spawnWeight>
+			<spawnGroups>
+			<li>
               <pawnKind>DV_Monster_CaveGunk</pawnKind>
               <range>2~3</range>
               <faction>DV_DungeonMonsters</faction>
@@ -249,10 +276,13 @@
               <range>4~5</range>
               <initialPlantGrowth>0.3</initialPlantGrowth>
             </li>
+			</spawnGroups>
           </li>
 
           <li>            <!-- 2-4 rook-caps defending an area -->
-            <li>
+            <spawnWeight>1</spawnWeight>
+			<spawnGroups>
+			<li>
               <pawnKind>DV_Monster_ToxShroom</pawnKind>
               <range>2~4</range>
               <faction>DV_DungeonMonsters</faction>
@@ -267,10 +297,13 @@
               <range>4~5</range>
               <initialPlantGrowth>0.3</initialPlantGrowth>
             </li>
+			</spawnGroups>
           </li>
 
           <li>            <!-- 3-4 gutterlatches defending an area -->
-            <li>
+            <spawnWeight>1</spawnWeight>
+			<spawnGroups>
+			<li>
               <thingDef>DV_Monster_Gutterlatch</thingDef>
               <range>3~4</range>
               <faction>DV_DungeonMonsters</faction>
@@ -280,26 +313,35 @@
               <range>4~5</range>
               <faction>DV_DungeonMonsters</faction>
             </li>
+			</spawnGroups>
           </li>
 
           <li>            <!-- 2-3 imps defending an area -->
-            <li>
+            <spawnWeight>1</spawnWeight>
+			<spawnGroups>
+			<li>
               <pawnKind>DV_Monster_Imp</pawnKind>
               <range>2~3</range>
               <faction>DV_DungeonMonsters</faction>
             </li>
+			</spawnGroups>
           </li>
 
           <li>            <!-- 1 ogre defending an area -->
-            <li>
+            <spawnWeight>1</spawnWeight>
+			<spawnGroups>
+			<li>
               <pawnKind>DV_Monster_Tusktroll</pawnKind>
               <range>1</range>
               <faction>DV_DungeonMonsters</faction>
             </li>
+			</spawnGroups>
           </li>
 
           <li>            <!-- 1 ogre defending an area, with some alrauns -->
-            <li>
+            <spawnWeight>1</spawnWeight>
+			<spawnGroups>
+			<li>
               <pawnKind>DV_Monster_Tusktroll</pawnKind>
               <range>1</range>
               <faction>DV_DungeonMonsters</faction>
@@ -315,26 +357,35 @@
               <range>3~4</range>
               <initialPlantGrowth>0.3</initialPlantGrowth>
             </li>
+			</spawnGroups>
           </li>
 
           <li>            <!-- 2 ogres defending an area -->
-            <li>
+            <spawnWeight>1</spawnWeight>
+			<spawnGroups>
+			<li>
               <pawnKind>DV_Monster_Tusktroll</pawnKind>
               <range>2</range>
               <faction>DV_DungeonMonsters</faction>
             </li>
+			</spawnGroups>
           </li>
 
           <li>            <!-- 5-6 razorbeaks defending an area -->
-            <li>
+            <spawnWeight>1</spawnWeight>
+			<spawnGroups>
+			<li>
               <pawnKind>DV_Monster_Razorbeak</pawnKind>
               <range>5~6</range>
               <faction>DV_DungeonMonsters</faction>
             </li>
+			</spawnGroups>
           </li>
 
           <li>            <!--3 rook-caps and 3 razorbeaks feuding -->
-            <li>
+            <spawnWeight>1</spawnWeight>
+			<spawnGroups>
+			<li>
               <pawnKind>DV_Monster_ToxShroom</pawnKind>
               <range>3</range>
               <faction>DV_DungeonMonsters</faction>
@@ -350,10 +401,13 @@
               <range>3</range>
               <faction>AncientsHostile</faction>
             </li>
+			</spawnGroups>
           </li>
 
           <li>            <!--2 ogres feuding -->
-            <li>
+            <spawnWeight>1</spawnWeight>
+			<spawnGroups>
+			<li>
               <pawnKind>DV_Monster_Tusktroll</pawnKind>
               <range>1</range>
               <faction>DV_DungeonMonsters</faction>
@@ -363,9 +417,10 @@
               <range>1</range>
               <faction>AncientsHostile</faction>
             </li>
+			</spawnGroups>
           </li>
 
-        </monsterGroups>
+        </encounters>
       </li>
 
     </comps>

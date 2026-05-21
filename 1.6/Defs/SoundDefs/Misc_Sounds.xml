@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
+
+  <SoundDef>
+    <defName>Pawn_Golem_Moving</defName>
+    <context>MapOnly</context>
+    <sustain>True</sustain>
+    <maxSimultaneous>3</maxSimultaneous>
+    <priorityMode>PrioritizeNearest</priorityMode>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>Weapon/Artillery/Mortar_Explode_Dry</clipFolderPath>
+          </li>
+        </grains>    
+        <pitchRange>0.85~1.15</pitchRange>
+        <volumeRange>5~10</volumeRange>
+        <gameSpeedRange>1</gameSpeedRange>
+        <muteWhenPaused>true</muteWhenPaused>
+        <sustainIntervalRange>1</sustainIntervalRange>
+        <repeatMode>NeverTwice</repeatMode>
+        <sustainLoop>false</sustainLoop>
+      </li>
+    </subSounds>
+  </SoundDef>
+
   <SoundDef>
     <defName>Plant_SagewickSizzle</defName>
     <context>MapOnly</context>
