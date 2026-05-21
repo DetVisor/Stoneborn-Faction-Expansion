@@ -2,6 +2,26 @@
 <Defs>
 
     <ThingDef ParentName="BaseFilth">
+        <defName>DV_Filth_MonsterMud</defName>
+        <label>mud clay</label>
+        <statBases>
+            <Beauty>-30</Beauty>
+            <Cleanliness>-5</Cleanliness>
+        </statBases>
+        <graphicData>
+            <texPath>Things/Filth/PoolSoft</texPath>
+            <color>(98, 67, 50)</color>
+        </graphicData>
+        <filth>
+            <disappearsInDays>35~40</disappearsInDays>
+            <rainWashes>true</rainWashes>
+            <cleaningWorkToReduceThickness>70</cleaningWorkToReduceThickness>
+            <canFilthAttach>true</canFilthAttach>
+            <cleaningSound>Interact_CleanFilth_Fluid</cleaningSound>
+        </filth>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseFilth">
         <defName>DV_Filth_BrokenEquipment</defName>
         <label>broken equipment</label>
         <graphicData>

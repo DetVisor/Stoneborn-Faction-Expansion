@@ -54,7 +54,7 @@
 			<li>RockChunks</li>
 
 			<li>LTS_StonebornVault</li>
-
+			<li>LTS_MinecartContents</li>
 			<li>LTS_StonebornVaultFindPlayerStartSpot</li>
 			<li>LTS_HermitCrates</li>
 
@@ -94,6 +94,7 @@
 
 			<li>LTS_StonebornVaultIntermediate</li>
 
+			<li>LTS_MinecartContents</li>
 			<li>LTS_ExtraIntermediateLevelChance</li>
 			<li>LTS_StonebornVaultFindPlayerStartSpot</li>
 			<li>LTS_HermitCrates</li>
@@ -116,6 +117,12 @@
 			<clearFogInRect>false</clearFogInRect>			<!-- Clear fog on the structure -->
 			<preventBridgeable>true</preventBridgeable>			<!-- Prevent lake/river/marsh (bridgeable) -->
 		</genStep>
+	</GenStepDef>
+
+	<GenStepDef>
+		<defName>LTS_MinecartContents</defName>
+		<order>556</order>
+		<genStep Class="LTS_StonebornSiteGeneration.LTS_GenStep_MinecartContents"/>
 	</GenStepDef>
 
 	<MapGeneratorDef>		<!--this should be the same as MapGeneratorDef LTS_StonebornVaultIntermediate, with an added genSteps to make it's exit portal into an outer one-->
@@ -1019,6 +1026,7 @@
 			<li>vanillaexpanded.vfecore</li>
 		</modRequirements>
 	</KCSG.StructureLayoutDef>
+
 	<KCSG.StructureLayoutDef>
 		<defName>DV_StonebornVault_IntermediateDelta</defName>
 		<spawnConduits>false</spawnConduits>
@@ -1063,7 +1071,7 @@
 				<li>Granite,Granite,Granite,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,DV_Dwarven_RuinedCounter1x3c_South,DV_Dwarven_RuinedWall,Granite,Granite,Granite,Granite,Granite,Granite,.,Granite,Granite,.,.,.,.,.,DV_Dwarven_MinecartRails,DV_Filth_MithriumBits_North,.,.,.,.,.,.,.,Granite,Granite,Granite,Granite,Granite</li>
 				<li>Granite,Granite,Granite,DV_Dwarven_RuinedWall,.,.,.,DV_Dwarven_RuinedUrn,.,DV_Dwarven_RuinedBrazier,.,.,.,.,.,.,DV_Dwarven_RuinedLamp,.,.,.,.,DV_Dwarven_RuinedWall,Granite,Granite,Granite,Granite,Granite,.,.,.,.,.,.,.,DV_Dwarven_MinecartRails,DV_Dwarven_MinecartRails,DV_Dwarven_MinecartRails,.,.,.,.,.,.,DV_Dwarven_Minecart,.,Granite,Granite,Granite,Granite,Granite</li>
 				<li>Granite,Granite,Granite,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,.,.,.,DV_Dwarven_RuinedBrazier,.,.,.,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,Granite,Granite,Granite,Granite,Granite,Granite,.,.,.,.,.,.,.,.,.,DV_Filth_BrokenEquipment_North,.,.,.,.,.,.,.,Granite,Granite,Granite,Granite,Granite</li>
-				<li>Granite,Granite,Granite,Granite,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedGate_North,.,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedGate_North,.,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,.,.,.,.,DV_Filth_BrokenEquipment_North,.,.,.,DV_Dwarven_MineSupport,.,.,.,.,.,.,.,DV_Dwarven_Minecart_Jade,.,.,Granite,Granite,Granite,Granite,Granite,Granite</li>
+				<li>Granite,Granite,Granite,Granite,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedGate_North,.,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedGate_North,.,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,.,.,.,.,DV_Filth_BrokenEquipment_North,.,.,.,DV_Dwarven_MineSupport,.,.,.,.,.,.,.,DV_Dwarven_Minecart_Jade_South,.,.,Granite,Granite,Granite,Granite,Granite,Granite</li>
 				<li>Granite,Granite,Granite,Granite,DV_Dwarven_RuinedWall,.,.,.,.,DV_Dwarven_RuinedLamp,DV_Dwarven_RuinedBrazier,.,.,.,.,.,.,.,.,.,.,.,.,.,.,DV_ChunkSlagMithrium,.,.,.,.,.,.,.,.,.,.,.,Granite,.,.,.,.,.,.,Granite,Granite,Granite,Granite,Granite,Granite</li>
 				<li>Granite,Granite,Granite,Granite,DV_Dwarven_RuinedWall,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,DV_ChunkSlagMithrium,.,.,DV_Dwarven_RuinedGateLocked_East,.,.,.,.,DV_RuinedRug_Small_West,.,.,DV_Filth_BrokenEquipment_North,.,.,.,.,.,.,Granite,Granite,Granite,.,.,Granite,Granite,Granite,Granite,Granite,Granite,Granite</li>
 				<li>Granite,Granite,Granite,Granite,DV_Dwarven_RuinedWall,.,.,Table_Royal3x3c_WoodLog,.,.,.,.,.,DV_Filth_MithriumBits_North,DV_RuinedRug_Large_South,.,.,.,.,.,DV_RuinedRug_Small_South,.,.,DV_Dwarven_RuinedWall,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite</li>
@@ -1822,6 +1830,10 @@
 		<thing>DV_Dwarven_Aqueduct</thing>
 	</KCSG.SymbolDef>
 
+	<KCSG.SymbolDef>
+		<defName>DV_Dwarven_MinecartRails</defName>
+		<thing>DV_Dwarven_MinecartRails</thing>
+	</KCSG.SymbolDef>
 
 	<KCSG.SymbolDef>
 		<defName>LTS_StonebornVaultEntranceOuter</defName>
@@ -1839,27 +1851,34 @@
 		<thing>DV_Dwarven_MineSupport</thing>
 	</KCSG.SymbolDef>
 
-
-
 	<KCSG.SymbolDef>
 		<defName>DV_Dwarven_Minecart</defName>
 		<thing>DV_Dwarven_Minecart</thing>
+		<rotation>East</rotation>
 	</KCSG.SymbolDef>
-
 
 	<KCSG.SymbolDef>
 		<defName>DV_Dwarven_Minecart_Steel</defName>
 		<thing>DV_Dwarven_Minecart_Steel</thing>
+		<rotation>East</rotation>
 	</KCSG.SymbolDef>
 
 	<KCSG.SymbolDef>
 		<defName>DV_Dwarven_Minecart_Gold</defName>
 		<thing>DV_Dwarven_Minecart_Gold</thing>
+		<rotation>East</rotation>
 	</KCSG.SymbolDef>
 
 	<KCSG.SymbolDef>
-		<defName>DV_Dwarven_Minecart_Jade</defName>
+		<defName>DV_Dwarven_Minecart_Jade_East</defName>
 		<thing>DV_Dwarven_Minecart_Jade</thing>
+		<rotation>East</rotation>
+	</KCSG.SymbolDef>
+
+		<KCSG.SymbolDef>
+		<defName>DV_Dwarven_Minecart_Jade_South</defName>
+		<thing>DV_Dwarven_Minecart_Jade</thing>
+		<rotation>South</rotation>
 	</KCSG.SymbolDef>
 
 

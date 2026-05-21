@@ -1208,15 +1208,14 @@
     <noRightClickDraftAttack>true</noRightClickDraftAttack>
     <graphicData>
       <texPath>Things/Building/Ruins/Dwarven_Minecarts/Minecart_Open</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
+      <graphicClass>Graphic_Multi</graphicClass>
       <drawSize>(3,3)</drawSize>
-      <drawOffset>(0, 0, 0.16)</drawOffset>
       <shadowData>
         <volume>(0.76,0.3,0.15)</volume>
         <offset>(0,0,-0.39)</offset>
       </shadowData>
     </graphicData>
-    <startingHpRange>0.5~1.3</startingHpRange>
+    <defaultPlacingRot>East</defaultPlacingRot>
     <statBases>
       <MaxHitPoints>120</MaxHitPoints>
     </statBases>
@@ -1225,7 +1224,7 @@
     <pathCost>42</pathCost>
     <blockWind>true</blockWind>
     <filthLeaving>DV_Filth_MithriumBits</filthLeaving>
-    <rotatable>false</rotatable>
+    <rotatable>true</rotatable>
     <costList>
       <WoodLog>20</WoodLog>
     </costList>
@@ -1251,23 +1250,22 @@
     <description>A box filled with valuable components. Some are intact and useable.</description>
     <graphicData>
       <texPath>Things/Building/Ruins/Dwarven_Minecarts/Minecart_Steel</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
+      <graphicClass>Graphic_Multi</graphicClass>
       <drawSize>(3,3)</drawSize>
-      <drawOffset>(0, 0, 0.16)</drawOffset>
     </graphicData>
+    <defaultPlacingRot>East</defaultPlacingRot>
     <size>(1, 1)</size>
     <fillPercent>0.25</fillPercent>
     <statBases>
       <MaxHitPoints>120</MaxHitPoints>
     </statBases>
-    <rotatable>false</rotatable>
+    <rotatable>true</rotatable>
     <comps>
       <li Class="CompProperties_EmptyStateGraphic">
         <graphicData>
           <texPath>Things/Building/Ruins/Dwarven_Minecarts/Minecart_Open</texPath>
-          <graphicClass>Graphic_Single</graphicClass>
+          <graphicClass>Graphic_Multi</graphicClass>
           <drawSize>(3,3)</drawSize>
-          <drawOffset>(0, 0, 0.16)</drawOffset>
         </graphicData>
       </li>
       <li Class="CompProperties_LootSpawn">
@@ -1282,23 +1280,22 @@
     <description>A box filled with valuable components. Some are intact and useable.</description>
     <graphicData>
       <texPath>Things/Building/Ruins/Dwarven_Minecarts/Minecart_Gold</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
+      <graphicClass>Graphic_Multi</graphicClass>
       <drawSize>(3,3)</drawSize>
-      <drawOffset>(0, 0, 0.16)</drawOffset>
     </graphicData>
+    <defaultPlacingRot>East</defaultPlacingRot>
     <size>(1, 1)</size>
     <fillPercent>0.25</fillPercent>
     <statBases>
       <MaxHitPoints>120</MaxHitPoints>
     </statBases>
-    <rotatable>false</rotatable>
+    <rotatable>true</rotatable>
     <comps>
       <li Class="CompProperties_EmptyStateGraphic">
         <graphicData>
           <texPath>Things/Building/Ruins/Dwarven_Minecarts/Minecart_Open</texPath>
-          <graphicClass>Graphic_Single</graphicClass>
+          <graphicClass>Graphic_Multi</graphicClass>
           <drawSize>(3,3)</drawSize>
-          <drawOffset>(0, 0, 0.16)</drawOffset>
         </graphicData>
       </li>
       <li Class="CompProperties_LootSpawn">
@@ -1313,27 +1310,90 @@
     <description>A box filled with valuable components. Some are intact and useable.</description>
     <graphicData>
       <texPath>Things/Building/Ruins/Dwarven_Minecarts/Minecart_Jade</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
+      <graphicClass>Graphic_Multi</graphicClass>
       <drawSize>(3,3)</drawSize>
-      <drawOffset>(0, 0, 0.16)</drawOffset>
     </graphicData>
+    <defaultPlacingRot>East</defaultPlacingRot>
     <size>(1, 1)</size>
     <fillPercent>0.25</fillPercent>
     <statBases>
       <MaxHitPoints>120</MaxHitPoints>
     </statBases>
-    <rotatable>false</rotatable>
+    <rotatable>true</rotatable>
     <comps>
       <li Class="CompProperties_EmptyStateGraphic">
         <graphicData>
           <texPath>Things/Building/Ruins/Dwarven_Minecarts/Minecart_Open</texPath>
-          <graphicClass>Graphic_Single</graphicClass>
+          <graphicClass>Graphic_Multi</graphicClass>
           <drawSize>(3,3)</drawSize>
-          <drawOffset>(0, 0, 0.16)</drawOffset>
         </graphicData>
       </li>
       <li Class="CompProperties_LootSpawn">
         <contents>MapGen_Minecart_Jade</contents>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef MayRequire="det.sbdelights" ParentName="DV_MinecartCrate">
+    <defName>DV_Dwarven_Minecart_Glimmerquartz</defName>
+    <label>glimmerquartz minecart</label>
+    <description>A box filled with valuable components. Some are intact and useable.</description>
+    <graphicData>
+      <texPath>Things/Building/Ruins/Dwarven_Minecarts/Minecart_Glimmerquartz</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(3,3)</drawSize>
+    </graphicData>
+    <defaultPlacingRot>East</defaultPlacingRot>
+    <size>(1, 1)</size>
+    <fillPercent>0.25</fillPercent>
+    <statBases>
+      <MaxHitPoints>120</MaxHitPoints>
+    </statBases>
+    <rotatable>true</rotatable>
+    <comps>
+      <li Class="CompProperties_EmptyStateGraphic">
+        <graphicData>
+          <texPath>Things/Building/Ruins/Dwarven_Minecarts/Minecart_Open</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>(3,3)</drawSize>
+        </graphicData>
+      </li>
+      <li Class="CompProperties_LootSpawn">
+        <contents>MapGen_Minecart_Glimmerquartz</contents>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef MayRequire="det.epochspyrinth" ParentName="DV_MinecartCrate">
+    <defName>DV_Dwarven_Minecart_Pyrinth</defName>
+    <label>pyrinth minecart</label>
+    <description>A box filled with valuable components. Some are intact and useable.</description>
+    <graphicData>
+      <texPath>Things/Building/Ruins/Dwarven_Minecarts/Minecart_Pyrinth</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(3,3)</drawSize>
+    </graphicData>
+    <defaultPlacingRot>East</defaultPlacingRot>
+    <size>(1, 1)</size>
+    <fillPercent>0.25</fillPercent>
+    <statBases>
+      <MaxHitPoints>120</MaxHitPoints>
+    </statBases>
+    <rotatable>true</rotatable>
+    <comps>
+      <li Class="CompProperties_EmptyStateGraphic">
+        <graphicData>
+          <texPath>Things/Building/Ruins/Dwarven_Minecarts/Minecart_Open</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>(3,3)</drawSize>
+        </graphicData>
+      </li>
+      <li Class="CompProperties_LootSpawn">
+        <contents>MapGen_Minecart_Pyrinth</contents>
+      </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>10</glowRadius>
+        <glowColor>(192,117,77,0)</glowColor>
       </li>
     </comps>
   </ThingDef>
@@ -1349,6 +1409,7 @@
       <texPath>Things/Building/Ruins/Dwarven_RailAtlas</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <linkType>Transmitter</linkType>
+      <drawOffset>(0, 0, -0.2)</drawOffset>
       <linkFlags>
         <li>PowerConduit</li>
       </linkFlags>
