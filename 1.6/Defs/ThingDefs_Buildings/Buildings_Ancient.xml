@@ -401,6 +401,49 @@
     <designationCategory>Structure</designationCategory>
   </ThingDef>
 
+  <ThingDef Name="DwarvenRuinedAqueduct" ParentName="BuildingBase">
+    <defName>DV_Dwarven_Aqueduct</defName>
+    <label>ruined aqueduct</label>
+    <description>A heavily-reinforced stone wall, made of tough rock and mithrium.</description>
+    <uiIconPath>Things/Building/Ruins/Dwarven_RuinedWall_MenuIcon</uiIconPath>
+    <designationCategory IsNull="True"/>
+    <graphicData inherit="False">
+      <texPath>Things/Building/Ruins/Dwarven_Aqueduct</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <color>(107, 100, 90)</color>
+      <linkType>CornerFiller</linkType>
+      <linkFlags>
+        <li>Custom6</li>
+      </linkFlags>
+    </graphicData>
+    <altitudeLayer>Floor</altitudeLayer>
+    <rotatable>false</rotatable>
+    <stealable>false</stealable>
+    <castEdgeShadows>false</castEdgeShadows>
+    <building>
+      <paintable>false</paintable>
+      <deconstructible>false</deconstructible>
+      <claimable>false</claimable>
+      <neverBuildable>true</neverBuildable>
+      <artificialForMeditationPurposes>false</artificialForMeditationPurposes>
+      <isAirtight>false</isAirtight>
+    </building>
+    <stuffCategories Inherit="False"/>
+    <costStuffCount>0</costStuffCount>
+    <useStuffTerrainAffordance>false</useStuffTerrainAffordance>
+    <fillPercent>0.50</fillPercent>
+    <passability>PassThroughOnly</passability>
+    <pathCost>200</pathCost>
+    <statBases>
+      <MaxHitPoints>2500</MaxHitPoints>
+      <Flammability>0</Flammability>
+      <MeditationFocusStrength>0</MeditationFocusStrength>
+    </statBases>
+    <comps Inherit="False"/>
+    <designationCategory>Structure</designationCategory>
+  </ThingDef>
+
   <ThingDef Name="DwarvenRuinedWallThin" ParentName="Wall">
     <defName>DV_Dwarven_RuinedWall</defName>
     <label>ruined wall</label>
@@ -961,6 +1004,393 @@
         <spawnRadius>1</spawnRadius>
       </li>
     </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>DV_Dwarven_AncientMachinery</defName>
+    <label>ruined machinery</label>
+    <thingClass>Building</thingClass>
+    <category>Building</category>
+    <description>A ruined piece of machinery, still functioning despite its age.</description>
+    <noRightClickDraftAttack>true</noRightClickDraftAttack>
+    <graphicData>
+      <texPath>Things/Building/Ruins/Dwarven_AncientMachinery</texPath>
+      <graphicClass>Graphic_Random</graphicClass>
+      <drawSize>(5,5)</drawSize>
+      <shadowData>
+        <volume>(0.76,0.3,0.15)</volume>
+        <offset>(0,0,-0.39)</offset>
+      </shadowData>
+    </graphicData>
+    <size>(3,3)</size>
+    <startingHpRange>0.5~1.3</startingHpRange>
+    <statBases>
+      <MaxHitPoints>800</MaxHitPoints>
+      <WorkToBuild>400</WorkToBuild>
+    </statBases>
+    <fillPercent>0.25</fillPercent>
+    <passability>PassThroughOnly</passability>
+    <pathCost>42</pathCost>
+    <blockWind>true</blockWind>
+    <filthLeaving>DV_Filth_MithriumBits</filthLeaving>
+    <rotatable>false</rotatable>
+    <costList>
+      <DV_Mithrium>5</DV_Mithrium>
+    </costList>
+    <building>
+      <claimable>false</claimable>
+      <deconstructible>false</deconstructible>
+      <isInert>true</isInert>
+      <ai_chillDestination>false</ai_chillDestination>
+      <canLandGravshipOn>true</canLandGravshipOn>
+    </building>
+    <comps>
+      <li Class="CompProperties_HeatPusher">
+        <compClass>CompHeatPusher</compClass>
+        <heatPerSecond>60</heatPerSecond>
+        <heatPushMaxTemperature>400</heatPushMaxTemperature>
+      </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>6</glowRadius>
+        <glowColor>(255,120,7,0)</glowColor>
+      </li>
+      <li Class="CompProperties_AmbientSound">
+        <sound>Toxifier_Working</sound>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>DV_Dwarven_Pipes</defName>
+    <label>ancient piping</label>
+    <description>A bundle of electrical cables for moving power around. Can be placed under walls and other buildings.</description>
+    <thingClass>Building</thingClass>
+    <category>Building</category>
+    <noRightClickDraftAttack>true</noRightClickDraftAttack>
+    <graphicData>
+      <texPath>Things/Building/Ruins/Dwarven_PipeAtlas</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <linkType>Transmitter</linkType>
+      <linkFlags>
+        <li>PowerConduit</li>
+      </linkFlags>
+      <damageData>
+        <rect>(0,0.35,1,0.3)</rect>
+      </damageData>
+    </graphicData>
+    <uiIconPath>Things/Building/Linked/PowerConduit_MenuIcon</uiIconPath>
+    <uiIconScale>0.7</uiIconScale>
+    <building>
+      <claimable>false</claimable>
+      <deconstructible>false</deconstructible>
+      <ai_chillDestination>false</ai_chillDestination>
+      <isInert>true</isInert>
+      <isEdifice>false</isEdifice>
+      <canLandGravshipOn>true</canLandGravshipOn>
+      <canConstructInCorner>true</canConstructInCorner>
+    </building>
+    <drawerType>MapMeshOnly</drawerType>
+    <altitudeLayer>Conduits</altitudeLayer>
+    <passability>Standable</passability>
+    <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+    <resourcesFractionWhenDeconstructed>0</resourcesFractionWhenDeconstructed>
+    <statBases>
+      <MaxHitPoints>80</MaxHitPoints>
+      <WorkToBuild>35</WorkToBuild>
+      <Flammability>0.7</Flammability>
+      <Beauty>-2</Beauty>
+    </statBases>
+    <drawStyleCategory>Conduits</drawStyleCategory>
+    <costList>
+      <Steel>1</Steel>
+    </costList>
+    <rotatable>false</rotatable>
+    <selectable>false</selectable>
+    <neverMultiSelect>true</neverMultiSelect>
+    <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <designationCategory>Power</designationCategory>
+    <uiOrder>2000</uiOrder>
+    <constructEffect>ConstructMetal</constructEffect>
+    <clearBuildingArea>false</clearBuildingArea>
+  </ThingDef>
+
+  <!-- Mineshafts and caves -->
+
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>DV_Dwarven_MineSupport</defName>
+    <label>mine support</label>
+    <thingClass>Building</thingClass>
+    <category>Building</category>
+    <description>A sturdy wooden support. Keeps the ceiling from falling.</description>
+    <noRightClickDraftAttack>true</noRightClickDraftAttack>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <graphicData>
+      <texPath>Things/Building/Ruins/Dwarven_MineSupport</texPath>
+      <shaderType>CutoutComplex</shaderType>
+      <graphicClass>Graphic_Random</graphicClass>
+      <drawSize>(3,3)</drawSize>
+      <drawOffset>(0,0,1)</drawOffset>
+      <shadowData>
+        <volume>(0.76,0.3,0.15)</volume>
+        <offset>(0,0,-0.39)</offset>
+      </shadowData>
+    </graphicData>
+    <startingHpRange>0.5~1.3</startingHpRange>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <WorkToBuild>400</WorkToBuild>
+    </statBases>
+    <fillPercent>0.25</fillPercent>
+    <passability>PassThroughOnly</passability>
+    <pathCost>42</pathCost>
+    <blockWind>true</blockWind>
+    <filthLeaving>Filth_RubbleBuilding</filthLeaving>
+    <rotatable>false</rotatable>
+    <costList>
+      <WoodLog>25</WoodLog>
+    </costList>
+    <building>
+      <claimable>false</claimable>
+      <deconstructible>false</deconstructible>
+      <isInert>true</isInert>
+      <ai_chillDestination>false</ai_chillDestination>
+      <canLandGravshipOn>true</canLandGravshipOn>
+    </building>
+  </ThingDef>
+
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>DV_Dwarven_WoodPile</defName>
+    <label>wood pile</label>
+    <thingClass>Building</thingClass>
+    <category>Building</category>
+    <description>Planks of wood treated by stoneborn.</description>
+    <noRightClickDraftAttack>true</noRightClickDraftAttack>
+    <graphicData>
+      <texPath>Things/Building/Ruins/Dwarven_WoodPile</texPath>
+      <graphicClass>Graphic_Random</graphicClass>
+      <drawSize>(2.5,2.5)</drawSize>
+      <shadowData>
+        <volume>(0.76,0.3,0.15)</volume>
+        <offset>(0,0,-0.39)</offset>
+      </shadowData>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>50</MaxHitPoints>
+      <WorkToBuild>400</WorkToBuild>
+    </statBases>
+    <fillPercent>0.25</fillPercent>
+    <passability>PassThroughOnly</passability>
+    <pathCost>42</pathCost>
+    <blockWind>true</blockWind>
+    <filthLeaving>DV_Filth_MithriumBits</filthLeaving>
+    <rotatable>false</rotatable>
+    <costList>
+      <WoodLog>60</WoodLog>
+    </costList>
+    <building>
+      <claimable>false</claimable>
+      <deconstructible>true</deconstructible>
+      <isInert>true</isInert>
+      <ai_chillDestination>false</ai_chillDestination>
+      <canLandGravshipOn>true</canLandGravshipOn>
+    </building>
+  </ThingDef>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>DV_Dwarven_Minecart</defName>
+    <label>empty minecart</label>
+    <thingClass>Building</thingClass>
+    <category>Building</category>
+    <description>Planks of wood treated by stoneborn.</description>
+    <noRightClickDraftAttack>true</noRightClickDraftAttack>
+    <graphicData>
+      <texPath>Things/Building/Ruins/Dwarven_Minecarts/Minecart_Open</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(3,3)</drawSize>
+      <drawOffset>(0, 0, 0.16)</drawOffset>
+      <shadowData>
+        <volume>(0.76,0.3,0.15)</volume>
+        <offset>(0,0,-0.39)</offset>
+      </shadowData>
+    </graphicData>
+    <startingHpRange>0.5~1.3</startingHpRange>
+    <statBases>
+      <MaxHitPoints>120</MaxHitPoints>
+    </statBases>
+    <fillPercent>0.25</fillPercent>
+    <passability>PassThroughOnly</passability>
+    <pathCost>42</pathCost>
+    <blockWind>true</blockWind>
+    <filthLeaving>DV_Filth_MithriumBits</filthLeaving>
+    <rotatable>false</rotatable>
+    <costList>
+      <WoodLog>20</WoodLog>
+    </costList>
+    <building>
+      <claimable>false</claimable>
+      <deconstructible>true</deconstructible>
+      <isInert>true</isInert>
+      <ai_chillDestination>false</ai_chillDestination>
+      <canLandGravshipOn>true</canLandGravshipOn>
+    </building>
+  </ThingDef>
+
+  <ThingDef ParentName="CrateBase" Name="DV_MinecartCrate" Abstract="True">
+    <building>
+      <openingStartedSound>Building_Deconstructed</openingStartedSound>
+    </building>
+  </ThingDef>
+
+
+  <ThingDef ParentName="DV_MinecartCrate">
+    <defName>DV_Dwarven_Minecart_Steel</defName>
+    <label>steel minecart</label>
+    <description>A box filled with valuable components. Some are intact and useable.</description>
+    <graphicData>
+      <texPath>Things/Building/Ruins/Dwarven_Minecarts/Minecart_Steel</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(3,3)</drawSize>
+      <drawOffset>(0, 0, 0.16)</drawOffset>
+    </graphicData>
+    <size>(1, 1)</size>
+    <fillPercent>0.25</fillPercent>
+    <statBases>
+      <MaxHitPoints>120</MaxHitPoints>
+    </statBases>
+    <rotatable>false</rotatable>
+    <comps>
+      <li Class="CompProperties_EmptyStateGraphic">
+        <graphicData>
+          <texPath>Things/Building/Ruins/Dwarven_Minecarts/Minecart_Open</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+          <drawSize>(3,3)</drawSize>
+          <drawOffset>(0, 0, 0.16)</drawOffset>
+        </graphicData>
+      </li>
+      <li Class="CompProperties_LootSpawn">
+        <contents>MapGen_Minecart_Steel</contents>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="DV_MinecartCrate">
+    <defName>DV_Dwarven_Minecart_Gold</defName>
+    <label>gold minecart</label>
+    <description>A box filled with valuable components. Some are intact and useable.</description>
+    <graphicData>
+      <texPath>Things/Building/Ruins/Dwarven_Minecarts/Minecart_Gold</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(3,3)</drawSize>
+      <drawOffset>(0, 0, 0.16)</drawOffset>
+    </graphicData>
+    <size>(1, 1)</size>
+    <fillPercent>0.25</fillPercent>
+    <statBases>
+      <MaxHitPoints>120</MaxHitPoints>
+    </statBases>
+    <rotatable>false</rotatable>
+    <comps>
+      <li Class="CompProperties_EmptyStateGraphic">
+        <graphicData>
+          <texPath>Things/Building/Ruins/Dwarven_Minecarts/Minecart_Open</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+          <drawSize>(3,3)</drawSize>
+          <drawOffset>(0, 0, 0.16)</drawOffset>
+        </graphicData>
+      </li>
+      <li Class="CompProperties_LootSpawn">
+        <contents>MapGen_Minecart_Gold</contents>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="DV_MinecartCrate">
+    <defName>DV_Dwarven_Minecart_Jade</defName>
+    <label>jade minecart</label>
+    <description>A box filled with valuable components. Some are intact and useable.</description>
+    <graphicData>
+      <texPath>Things/Building/Ruins/Dwarven_Minecarts/Minecart_Jade</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(3,3)</drawSize>
+      <drawOffset>(0, 0, 0.16)</drawOffset>
+    </graphicData>
+    <size>(1, 1)</size>
+    <fillPercent>0.25</fillPercent>
+    <statBases>
+      <MaxHitPoints>120</MaxHitPoints>
+    </statBases>
+    <rotatable>false</rotatable>
+    <comps>
+      <li Class="CompProperties_EmptyStateGraphic">
+        <graphicData>
+          <texPath>Things/Building/Ruins/Dwarven_Minecarts/Minecart_Open</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+          <drawSize>(3,3)</drawSize>
+          <drawOffset>(0, 0, 0.16)</drawOffset>
+        </graphicData>
+      </li>
+      <li Class="CompProperties_LootSpawn">
+        <contents>MapGen_Minecart_Jade</contents>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>DV_Dwarven_MinecartRails</defName>
+    <label>minecart rails</label>
+    <description>A bundle of electrical cables for moving power around. Can be placed under walls and other buildings.</description>
+    <thingClass>Building</thingClass>
+    <category>Building</category>
+    <noRightClickDraftAttack>true</noRightClickDraftAttack>
+    <graphicData>
+      <texPath>Things/Building/Ruins/Dwarven_RailAtlas</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <linkType>Transmitter</linkType>
+      <linkFlags>
+        <li>PowerConduit</li>
+      </linkFlags>
+      <damageData>
+        <rect>(0,0.35,1,0.3)</rect>
+      </damageData>
+    </graphicData>
+    <uiIconPath>Things/Building/Linked/PowerConduit_MenuIcon</uiIconPath>
+    <uiIconScale>0.7</uiIconScale>
+    <building>
+      <claimable>false</claimable>
+      <deconstructible>false</deconstructible>
+      <ai_chillDestination>false</ai_chillDestination>
+      <isInert>true</isInert>
+      <isEdifice>false</isEdifice>
+      <canLandGravshipOn>true</canLandGravshipOn>
+      <canConstructInCorner>true</canConstructInCorner>
+    </building>
+    <drawerType>MapMeshOnly</drawerType>
+    <altitudeLayer>Conduits</altitudeLayer>
+    <passability>Standable</passability>
+    <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+    <resourcesFractionWhenDeconstructed>0</resourcesFractionWhenDeconstructed>
+    <statBases>
+      <MaxHitPoints>80</MaxHitPoints>
+      <WorkToBuild>35</WorkToBuild>
+      <Flammability>0.7</Flammability>
+      <Beauty>-2</Beauty>
+    </statBases>
+    <drawStyleCategory>Conduits</drawStyleCategory>
+    <costList>
+      <Steel>1</Steel>
+    </costList>
+    <rotatable>false</rotatable>
+    <selectable>false</selectable>
+    <neverMultiSelect>true</neverMultiSelect>
+    <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <designationCategory>Power</designationCategory>
+    <uiOrder>2000</uiOrder>
+    <constructEffect>ConstructMetal</constructEffect>
+    <clearBuildingArea>false</clearBuildingArea>
   </ThingDef>
 
 </Defs>

@@ -49,8 +49,8 @@
   <ThingDef ParentName="BuildingBase">
     <defName>DV_Dwarven_Spikes</defName>
     <label>spike trap</label>
-	<thingClass>LTS_StonebornSiteGeneration.Building_TrapDamager_SelfRearming</thingClass>
-	<tickerType>Normal</tickerType>
+    <thingClass>LTS_StonebornSiteGeneration.Building_TrapDamager_SelfRearming</thingClass>
+    <tickerType>Normal</tickerType>
     <description>An ancient stoneborn brazier, made from mithrium.</description>
     <noRightClickDraftAttack>true</noRightClickDraftAttack>
     <graphicData>
@@ -58,6 +58,7 @@
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(2,2)</drawSize>
     </graphicData>
+    <altitudeLayer>FloorCoverings</altitudeLayer>
     <statBases>
       <MaxHitPoints>250</MaxHitPoints>
       <WorkToBuild>400</WorkToBuild>
@@ -84,13 +85,13 @@
       <expandHomeArea>false</expandHomeArea>
       <ai_chillDestination>false</ai_chillDestination>
     </building>
-	<modExtensions>
+    <modExtensions>
       <li Class="LTS_StonebornSiteGeneration.LTS_SFE_ModExtension">
-		<LTS_TexPath>Things/Building/Ruins/Traps/SpikeTrap_triggered</LTS_TexPath>
-		<LTS_ticks>300</LTS_ticks>
+        <LTS_TexPath>Things/Building/Ruins/Traps/SpikeTrap_triggered</LTS_TexPath>
+        <LTS_ticks>300</LTS_ticks>
+        <LTS_faction>DV_DungeonMonsters</LTS_faction>
       </li>
     </modExtensions>
-	
   </ThingDef>
 
   <ThingDef ParentName="BuildingBase">

@@ -2,6 +2,25 @@
 <Defs>
 
   <SoundDef>
+    <defName>Plant_SagewickSizzle</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/SizzlingSagewick</clipPath>
+          </li>
+        </grains>
+        <onCamera>True</onCamera>
+        <volumeRange>16~22</volumeRange>
+        <pitchRange>1~1.5</pitchRange>
+        <distRange>0~50</distRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
     <defName>Plant_AlraunScream</defName>
     <context>MapOnly</context>
     <maxSimultaneous>2</maxSimultaneous>

@@ -118,6 +118,8 @@
       <EatingSpeed>1.5</EatingSpeed>
       <Wildness>0.80</Wildness>
       <FilthRate>8</FilthRate>
+      <ArmorRating_Blunt>0.32</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.32</ArmorRating_Sharp>
       <MeatAmount>80</MeatAmount>
     </statBases>
     <tools>
@@ -179,7 +181,7 @@
       <predator>true</predator>
       <maxPreyBodySize>8.5</maxPreyBodySize>
       <baseBodySize>2</baseBodySize>
-      <baseHealthScale>2</baseHealthScale>
+      <baseHealthScale>3</baseHealthScale>
       <baseHungerRate>1.5</baseHungerRate>
       <trainability>None</trainability>
       <foodType>OmnivoreAnimal, OvivoreAnimal</foodType>
@@ -603,120 +605,6 @@
       </li>
     </lifeStages>
   </PawnKindDef>
-
-  <ThingDef ParentName="PlantBase">
-    <defName>DV_Plant_Rookpod</defName>
-    <label>rook-pod</label>
-    <description>The younger state of rook-caps. Rook-pods are mostly harmless, but not edible, as the fruiting bodies are chock full of toxins.</description>
-    <statBases>
-      <MaxHitPoints>85</MaxHitPoints>
-      <Nutrition>0.175</Nutrition>
-    </statBases>
-    <graphicData>
-      <texPath>Things/Plant/Rookpod</texPath>
-      <graphicClass>Graphic_Random</graphicClass>
-    </graphicData>
-    <selectable>true</selectable>
-    <pathCost>50</pathCost>
-    <ingestible />
-    <plant>
-      <fertilityMin>0</fertilityMin>
-      <fertilitySensitivity>0</fertilitySensitivity>
-      <harvestTag>Standard</harvestTag>
-      <harvestedThingDef>RawFungus</harvestedThingDef>
-      <harvestYield>30</harvestYield>
-      <topWindExposure>0</topWindExposure>
-      <growDays>12</growDays>
-      <cavePlantWeight>0.1</cavePlantWeight>
-      <visualSizeRange>1~1.2</visualSizeRange>
-      <purpose>Food</purpose>
-      <humanFoodPlant>true</humanFoodPlant>
-      <maxMeshCount>1</maxMeshCount>
-      <growMinGlow>0</growMinGlow>
-      <growOptimalGlow>0</growOptimalGlow>
-      <diesToLight>false</diesToLight>
-    </plant>
-  </ThingDef>
-
-  <ThingDef ParentName="PlantBase">
-    <defName>DV_Plant_Alraun</defName>
-    <label>alraun</label>
-    <description>The younger state of rook-caps. Rook-pods are mostly harmless, but not edible, as the fruiting bodies are chock full of toxins.</description>
-    <statBases>
-      <MaxHitPoints>85</MaxHitPoints>
-      <Nutrition>0.175</Nutrition>
-    </statBases>
-    <graphicData>
-      <texPath>Things/Plant/Mandrake</texPath>
-      <graphicClass>Graphic_Random</graphicClass>
-    </graphicData>
-    <selectable>true</selectable>
-    <pathCost>50</pathCost>
-    <ingestible />
-    <plant>
-      <fertilityMin>0</fertilityMin>
-      <fertilitySensitivity>0</fertilitySensitivity>
-      <harvestTag>Standard</harvestTag>
-      <harvestedThingDef>DV_RawAlraun</harvestedThingDef>
-      <harvestYield>15</harvestYield>
-      <topWindExposure>0</topWindExposure>
-      <growDays>4</growDays>
-      <cavePlantWeight>0.1</cavePlantWeight>
-      <visualSizeRange>0.8~1.2</visualSizeRange>
-      <purpose>Food</purpose>
-      <humanFoodPlant>true</humanFoodPlant>
-      <maxMeshCount>4</maxMeshCount>
-      <growMinGlow>0</growMinGlow>
-      <growOptimalGlow>0</growOptimalGlow>
-      <diesToLight>false</diesToLight>
-    </plant>
-    <comps>
-      <li Class="CompProperties_GiveThoughtToAllMapPawnsOnDestroy">
-        <thought>DV_AlraunScream</thought>
-        <message>An alraun has been harvested, and it emitted a psychic scream.</message>
-      </li>
-      <li Class="CompProperties_PlaySoundOnDestroy">
-        <sound>Plant_AlraunScream</sound>
-      </li>
-    </comps>
-  </ThingDef>
-
-  <ThoughtDef>
-    <defName>DV_AlraunScream</defName>
-    <durationDays>2</durationDays>
-    <stackLimit>3</stackLimit>
-    <effectMultiplyingStat>PsychicSensitivity</effectMultiplyingStat>
-    <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
-    <stages>
-      <li>
-        <label>alraun scream</label>
-        <description>What an annoying scream, like chalk on a board...</description>
-        <baseMoodEffect>-3</baseMoodEffect>
-      </li>
-    </stages>
-  </ThoughtDef>
-
-  <ThingDef ParentName="PlantFoodRawBase">
-    <defName>DV_RawAlraun</defName>
-    <label>raw alraun</label>
-    <description>Raw alraun.</description>
-    <graphicData>
-      <texPath>Things/Item/Resource/Mandrake</texPath>
-      <graphicClass>Graphic_StackCount</graphicClass>
-    </graphicData>
-    <statBases>
-      <MarketValue>3</MarketValue>
-    </statBases>
-    <ingestible>
-      <foodType>VegetableOrFruit</foodType>
-    </ingestible>
-    <comps>
-      <li Class="CompProperties_Rottable">
-        <daysToRotStart>40</daysToRotStart>
-        <rotDestroys>true</rotDestroys>
-      </li>
-    </comps>
-  </ThingDef>
 
   <ThingDef ParentName="BaseInsect">
     <defName>DV_Monster_Rustbug</defName>

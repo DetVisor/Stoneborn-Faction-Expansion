@@ -23,6 +23,68 @@
         <territoryRadius>8</territoryRadius>
         <monsterGroups>
 
+          <li>            <!-- sagewick -->
+            <li>
+              <thingDef>DV_Plant_Cinderwort</thingDef>
+              <range>3~4</range>
+              <initialPlantGrowth>1</initialPlantGrowth>
+            </li>
+            <li>
+              <thingDef>DV_Plant_Cinderwort</thingDef>
+              <range>4~5</range>
+              <initialPlantGrowth>0.3</initialPlantGrowth>
+            </li>
+          </li>
+
+
+          <li>            <!-- sagewick and alraun -->
+            <li>
+              <thingDef>DV_Plant_Alraun</thingDef>
+              <range>2~3</range>
+              <initialPlantGrowth>1</initialPlantGrowth>
+            </li>
+            <li>
+              <thingDef>DV_Plant_Alraun</thingDef>
+              <range>3~5</range>
+              <initialPlantGrowth>0.3</initialPlantGrowth>
+            </li>
+
+            <li>
+              <thingDef>DV_Plant_Cinderwort</thingDef>
+              <range>1~2</range>
+              <initialPlantGrowth>1</initialPlantGrowth>
+            </li>
+            <li>
+              <thingDef>DV_Plant_Cinderwort</thingDef>
+              <range>2~4</range>
+              <initialPlantGrowth>0.3</initialPlantGrowth>
+            </li>
+          </li>
+
+          <li>            <!-- sagewick and cavecarrots -->
+            <li>
+              <thingDef>DV_Plant_Cavecarrot</thingDef>
+              <range>2~3</range>
+              <initialPlantGrowth>1</initialPlantGrowth>
+            </li>
+            <li>
+              <thingDef>DV_Plant_Cavecarrot</thingDef>
+              <range>3~5</range>
+              <initialPlantGrowth>0.3</initialPlantGrowth>
+            </li>
+
+            <li>
+              <thingDef>DV_Plant_Cinderwort</thingDef>
+              <range>1~2</range>
+              <initialPlantGrowth>1</initialPlantGrowth>
+            </li>
+            <li>
+              <thingDef>DV_Plant_Cinderwort</thingDef>
+              <range>2~4</range>
+              <initialPlantGrowth>0.3</initialPlantGrowth>
+            </li>
+          </li>
+
           <li>            <!-- alrauns -->
             <li>
               <thingDef>DV_Plant_Alraun</thingDef>
@@ -49,7 +111,7 @@
             </li>
           </li>
 
-          <li>            <!-- cavecarrots -->
+          <li>            <!-- cavecarrots and alraun -->
             <li>
               <thingDef>DV_Plant_Cavecarrot</thingDef>
               <range>2~3</range>

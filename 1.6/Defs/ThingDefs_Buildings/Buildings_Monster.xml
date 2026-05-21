@@ -73,9 +73,6 @@
                     <li>Stun</li>
                 </affectedDamageDefs>
             </li>
-            <li Class="CompProperties_AmbientSound">
-                <sound>Toxifier_Working</sound>
-            </li>
             <li Class="CompProperties_DrawAdditionalGraphics">
                 <graphics>
                     <li>

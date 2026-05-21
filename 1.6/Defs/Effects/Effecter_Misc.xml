@@ -2,6 +2,40 @@
 <Defs>
 
   <EffecterDef>
+    <defName>DV_SagewickSizzle</defName>
+    <children>
+      <li>
+        <subEffecterClass>SubEffecter_DrifterEmoteChance</subEffecterClass>
+        <scale>0.1~0.22</scale>
+        <chancePerTick>0.01</chancePerTick>
+        <positionRadius>0.3</positionRadius>
+        <burstCount>1</burstCount>
+        <moteDef>DV_Mote_SagewickSpark</moteDef>
+        <speed>0.12</speed>
+        <rotation>0.1</rotation>
+      </li>
+    </children>
+  </EffecterDef>
+
+  <ThingDef ParentName="MoteBase">
+    <defName>DV_Mote_SagewickSpark</defName>
+    <graphicData>
+      <texPath>Things/Mote/SparkThrown</texPath>
+      <shaderType>MoteGlow</shaderType>
+      <color>(229,118,46,255)</color>
+    </graphicData>
+    <thingClass>MoteThrownAttached</thingClass>
+    <altitudeLayer>MetaOverlays</altitudeLayer>
+    <mote>
+      <fadeInTime>0.34</fadeInTime>
+      <solidTime>0.33</solidTime>
+      <fadeOutTime>0.55</fadeOutTime>
+      <attachedDrawOffset>(0, 0, 0)</attachedDrawOffset>
+      <collide>true</collide>
+    </mote>
+  </ThingDef>
+
+  <EffecterDef>
     <defName>DV_GutterlatchSpitStream</defName>
     <children>
       <li>
@@ -167,7 +201,7 @@
             <clipPath>Things/GasFlow</clipPath>
           </li>
         </grains>
-        <volumeRange>5</volumeRange>
+        <volumeRange>2</volumeRange>
       </li>
     </subSounds>
   </SoundDef>

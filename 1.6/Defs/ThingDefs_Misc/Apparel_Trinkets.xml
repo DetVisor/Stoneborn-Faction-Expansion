@@ -208,7 +208,7 @@
     <label>chemlight belt</label>
     <description>Flairs ain't ready yet!</description>
     <techLevel>Industrial</techLevel>
-	<tradeability>Sellable</tradeability>
+    <tradeability>Sellable</tradeability>
     <generateCommonality>0</generateCommonality>
     <mergeVerbGizmos>false</mergeVerbGizmos>
     <graphicData>
@@ -225,7 +225,7 @@
         <hotKey>Misc4</hotKey>
         <soundReload>Standard_Reload</soundReload>
         <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
-        <maxCharges>25</maxCharges>
+        <maxCharges>12</maxCharges>
         <ammoDef>Chemfuel</ammoDef>
         <ammoCountPerCharge>2</ammoCountPerCharge>
         <baseReloadTicks>60</baseReloadTicks>
@@ -238,7 +238,7 @@
         <label>deploy chemlight</label>
         <defaultProjectile>LTS_Grenade_Flare</defaultProjectile>
         <warmupTime>0.5</warmupTime>
-        <range>11.9</range>
+        <range>14.9</range>
         <burstShotCount>1</burstShotCount>
         <onlyManualCast>true</onlyManualCast>
         <hasStandardCommand>true</hasStandardCommand>
@@ -249,10 +249,10 @@
           <canTargetBuildings>false</canTargetBuildings>
           <canTargetLocations>true</canTargetLocations>
         </targetParams>
-        <soundCast>FlareLaunch</soundCast>
+        <soundCast>ThrowGrenade</soundCast>
         <rangedFireRulepack>Combat_RangedFire_Thrown</rangedFireRulepack>
         <canGoWild>false</canGoWild>
-        <!--<explosionRadiusRingColor>(0.8, 0.8, 0.4, 1)</explosionRadiusRingColor>--><!-- Keep in sync with PlaceWorker_GlowRadius.RingColor -->
+        <!--<explosionRadiusRingColor>(0.8, 0.8, 0.4, 1)</explosionRadiusRingColor>-->        <!-- Keep in sync with PlaceWorker_GlowRadius.RingColor -->
       </li>
     </verbs>
     <recipeMaker>
@@ -296,6 +296,7 @@
       <layers>
         <li>Belt</li>
       </layers>
+      <!--
       <wornGraphicPath>Things/Pawn/Humanlike/Apparel/DisruptorFlarePack/DisruptorFlarePack</wornGraphicPath>
       <wornGraphicData>
         <renderUtilityAsPack>true</renderUtilityAsPack>
@@ -323,26 +324,27 @@
         <hulk>  <scale>(0.45,0.45)</scale></hulk>
         <fat>   <scale>(0.45,0.45)</scale></fat>
       </wornGraphicData>
+      -->
     </apparel>
     <allowedArchonexusCount>1</allowedArchonexusCount>
     <tradeTags>
       <li>ExoticMisc</li>
     </tradeTags>
-	<colorGenerator Class="ColorGenerator_Options">
+    <colorGenerator Class="ColorGenerator_Options">
       <options>
         <li>
           <weight>10</weight>
           <only>(0.463,0.192,0.224,1)</only>
         </li>
-		<li>
+        <li>
           <weight>10</weight>
           <only>(0.094,0.255,0.475,1)</only>
         </li>
-		<li>
+        <li>
           <weight>10</weight>
           <only>(0.349,0.412,0.243,1)</only>
         </li>
-		<li>
+        <li>
           <weight>10</weight>
           <only>(0.639,0.514,0.192,1)</only>
         </li>
@@ -354,23 +356,25 @@
     <defName>LTS_Grenade_Flare</defName>
     <label>chemlight</label>
     <graphicData>
-      <texPath>Things/Projectiles/LTS_Flare</texPath>
+      <texPath>Things/Projectiles/LTS_FlareOff</texPath>
       <graphicClass>Graphic_Single</graphicClass>
-      <shaderType>MoteGlow</shaderType>
-	  <drawSize>0.5</drawSize>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>0.8</drawSize>
     </graphicData>
     <thingClass>LTS_StonebornSiteGeneration.Projectile_SpawnsThingLauncherColoured</thingClass>
     <projectile>
-      <speed>40</speed>
+      <speed>20</speed>
       <arcHeightFactor>1.0</arcHeightFactor>
-      <spinRate>3</spinRate>
+      <spinRate>2</spinRate>
       <!--<landedEffecter>DisruptorFlareLanded</landedEffecter>-->
       <spawnsThingDef>LTS_Flare</spawnsThingDef>
-	  <useGraphicClass>true</useGraphicClass>
+      <useGraphicClass>true</useGraphicClass>
     </projectile>
-	<comps>
-	  <li><compClass>CompColorable</compClass></li>
-	</comps>
+    <comps>
+      <li>
+        <compClass>CompColorable</compClass>
+      </li>
+    </comps>
   </ThingDef>
 
   <ThingDef>
@@ -381,7 +385,7 @@
       <texPath>Things/Projectiles/LTS_Flare</texPath>
       <shaderType>Transparent</shaderType>
       <onGroundRandomRotateAngle>360</onGroundRandomRotateAngle>
-	  <drawSize>0.5</drawSize>
+      <drawSize>0.8</drawSize>
     </graphicData>
     <selectable>false</selectable>
     <tickerType>Normal</tickerType>

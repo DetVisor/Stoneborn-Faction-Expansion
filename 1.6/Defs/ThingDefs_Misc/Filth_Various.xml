@@ -2,6 +2,26 @@
 <Defs>
 
     <ThingDef ParentName="BaseFilth">
+        <defName>DV_Filth_BrokenEquipment</defName>
+        <label>broken equipment</label>
+        <graphicData>
+            <graphicClass>Graphic_Random</graphicClass>
+            <texPath>Things/Filth/BrokenEquipment</texPath>
+        </graphicData>
+        <filth>
+            <placementMask>
+                <li>Terrain</li>
+                <li>Unnatural</li>
+            </placementMask>
+            <ignoreFilthMultiplierStat>true</ignoreFilthMultiplierStat>
+            <disappearsInDays>35~40</disappearsInDays>
+            <cleaningWorkToReduceThickness>25</cleaningWorkToReduceThickness>
+            <canFilthAttach>true</canFilthAttach>
+            <cleaningSound>Interact_CleanFilth_Scattered</cleaningSound>
+        </filth>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseFilth">
         <defName>DV_Filth_OldAlcohol</defName>
         <label>old alcohol</label>
         <description>A puddle of old, flammable alcohol.</description>
