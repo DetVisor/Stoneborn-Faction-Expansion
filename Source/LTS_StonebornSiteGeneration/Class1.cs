@@ -207,9 +207,8 @@ namespace LTS_StonebornSiteGeneration
                 return 1568957891;
             }
         }
-        public override void Generate(Map map, GenStepParams parms)
+        public override void Generate(Map map, GenStepParams parms) 
         {
-            //Log.Message("Firing LTS_GenStep_HermitCrates");
 
             List<ThingDef> cartTypes = new List<ThingDef> { LTS_SFE_DefOf.DV_Dwarven_Minecart, LTS_SFE_DefOf.DV_Dwarven_Minecart_Steel, LTS_SFE_DefOf.DV_Dwarven_Minecart_Jade, LTS_SFE_DefOf.DV_Dwarven_Minecart_Gold };
 
@@ -218,7 +217,6 @@ namespace LTS_StonebornSiteGeneration
             if (ModsConfig.IsActive("det.epochspyrinth"))
                 cartTypes.Add(ThingDef.Named("DV_Dwarven_Minecart_Pyrinth"));
 
-            //List<Building> Minecarts = new List<Building>(map.listerBuildings.allBuildingsNonColonist.Where(building => building.def == LTS_SFE_DefOf.DV_DwarvenCrate).Concat(map.listerBuildings.allBuildingsColonist.Where(building => building.def == LTS_SFE_DefOf.DV_DwarvenCrate)));
             List<Building> Minecarts = new List<Building>(map.listerBuildings.allBuildingsNonColonist.Where(building => cartTypes.Contains(building.def)).Concat(map.listerBuildings.allBuildingsColonist.Where(building => cartTypes.Contains(building.def))));
 
             int totalWeight = 0;
@@ -491,6 +489,9 @@ namespace LTS_StonebornSiteGeneration
         public PawnKindDef pawnKind;
         //public Type lordJob;
         public string useMessage;
+        public bool tryBondingToUser = false;
+        public MessageTypeDef messagetype;
+
     }
 
     public class CompUseEffect_SpawnPawn : CompUseEffect
@@ -515,8 +516,14 @@ namespace LTS_StonebornSiteGeneration
 
             if (this.Props.useMessage != null)
             {
-                Messages.Message(string.Format(this.Props.useMessage, this.parent.Label, Props.pawnKind.label), pawn, MessageTypeDefOf.NegativeEvent, false);
+                Messages.Message(string.Format(this.Props.useMessage, this.parent.Label, Props.pawnKind.label, user.Name), pawn, Props.messagetype, false);
             }
+
+            if (this.Props.tryBondingToUser)
+            {
+                pawn.SetFaction(user.Faction);
+                pawn.relations.AddDirectRelation(PawnRelationDefOf.Bond, user);//goes both ways, even if it doesn't show up in
+            }//add the intelligent attack skill to the goreflea
         }
     }
 

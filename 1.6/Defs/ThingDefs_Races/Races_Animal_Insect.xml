@@ -45,6 +45,9 @@
       <meatLabel>insect meat</meatLabel>
       <lifeExpectancy>8</lifeExpectancy>
       <trainability>Advanced</trainability>
+	  <specialTrainables MayRequire="Ludeon.RimWorld.Odyssey">
+        <li>AttackTarget</li>
+      </specialTrainables>
       <nuzzleMtbHours>12</nuzzleMtbHours>
       <lifeStageAges>
         <li>

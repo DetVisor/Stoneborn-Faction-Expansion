@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-    <ThingDef ParentName="EggFertBase">
+    <ThingDef ParentName="ResourceBase">
         <defName>DV_RazorbugEgg</defName>
         <label>razorbug pod</label>
-        <description>A fertilized chicken egg. If all goes well, it should hatch into a chick. It can be eaten raw, but it's much better cooked.</description>
+        <description>An artificial cryptobiotic egg grown by experienced stoneborn gene-seers. Upon being hatched, it will socially bond with the first person it sees. It can be eaten raw, but it's much better cooked.</description>
         <possessionCount>1</possessionCount>
         <altitudeLayer>Item</altitudeLayer>
         <passability>PassThroughOnly</passability>
@@ -15,29 +15,31 @@
             <drawSize>1.2</drawSize>
             <flipExtraRotation>80</flipExtraRotation>
           </graphicData>
-          <ingestible>
-            <foodType>AnimalProduct</foodType>
-            <ingestEffect>EatMeat</ingestEffect>
-            <ingestSound>RawMeat_Eat</ingestSound>
-            <tasteThought>AteRawFood</tasteThought>
-          </ingestible>
-          <socialPropernessMatters>true</socialPropernessMatters>
           <statBases>
             <MarketValue>500</MarketValue>
             <Mass>1.5</Mass>
             <MaxHitPoints>125</MaxHitPoints>
             <DeteriorationRate>0.5</DeteriorationRate>
             <Flammability>0.2</Flammability>
-            <Nutrition>0.5</Nutrition>
-            <FoodPoisonChanceFixedHuman>0.02</FoodPoisonChanceFixedHuman>
           </statBases>
           <stackLimit>1</stackLimit>
         <comps>
-          <li Class="CompProperties_Hatcher">
-            <hatcherDaystoHatch>10</hatcherDaystoHatch>
-            <hatcherPawn>DV_Goreflea</hatcherPawn>
-          </li>
-        </comps>
+		  <li Class="CompProperties_Usable">
+			<useJob>UseItem</useJob>
+			<useLabel>Open {0_label}</useLabel>
+			<useDuration>300</useDuration>
+		  </li>
+		  <li Class="CompProperties_UseEffectDestroySelf" />
+		  <li Class="LTS_StonebornSiteGeneration.CompProperties_UseEffectSpawnPawn">
+			<pawnKind>DV_Goreflea</pawnKind>
+			<useMessage>a {1} has emerged from its pod and imprinted upon {2}!</useMessage>
+			<messagetype>PositiveEvent</messagetype>
+			<tryBondingToUser>True</tryBondingToUser>
+		  </li>
+		</comps>
+		<thingCategories>
+		  <li>Manufactured</li>
+		</thingCategories>
       </ThingDef>
 
 </Defs>
