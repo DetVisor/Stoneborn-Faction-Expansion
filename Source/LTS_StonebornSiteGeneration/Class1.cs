@@ -546,12 +546,13 @@ namespace LTS_StonebornSiteGeneration
         public List<SpawnGroup> spawnGroups;
         public int spawnWeight = 1;
     }
+    
     public class SpawnGroup
     {
         public PawnKindDef pawnKind;
         public ThingDef thingDef;
         public IntRange range;
-        public FactionDef faction = null;
+        public FactionDef faction;
         public MentalStateDef mentalstateDef = null;
         public float initialPlantGrowth = -1;
         
@@ -611,7 +612,7 @@ namespace LTS_StonebornSiteGeneration
                     for (int i = 0; i < numToSpawn; i++)
                     {
                         PawnKindDef pawnKind = spawnGroup.pawnKind;
-                        Faction faction = FactionUtility.DefaultFactionFrom(spawnGroup.faction) ?? null;
+                        Faction faction = FactionUtility.DefaultFactionFrom(spawnGroup.faction ?? null) ?? null;
                         PawnGenerationContext context = PawnGenerationContext.NonPlayer;
                         //float? fixedBiologicalAge = new float?(0f);
                         Pawn pawn = PawnGenerator.GeneratePawn(new PawnGenerationRequest(pawnKind, faction, context, null, true, false, false, true, false, 1f, false, true, false, true, true, false, false, false, false, 0f, 0f, null, 1f, null, null, null, null, null, null, null, null, null, null, null, null, false, false, false, false, null, null, null, null, null, 0f, DevelopmentalStage.Adult, null, null, null, false, false, false, -1, 0, false));
@@ -869,6 +870,107 @@ namespace LTS_StonebornSiteGeneration
         {
             base.ExposeData();
             Scribe_Values.Look<ColorInt>(ref colorInt, "colorInt", default(ColorInt), false);
+        }
+    }
+
+    public class CompProperties_DeathEffects : CompProperties
+    {
+        public CompProperties_DeathEffects()
+        {
+            this.compClass = typeof(CompDeathEffects);
+        }
+
+        public List<SpawnGroup> spawnGroups = new List<SpawnGroup>();
+        public int pawnSpawnLaunchDistance;
+        public ThingDef filthDef = null;
+        public IntRange filthLayersRange;
+        public float filthRadius;
+        public List<ItemSpawningInfo> extraItemList = new List<ItemSpawningInfo>();
+        public bool vanish;
+        public EffecterDef effecterDef;
+    }
+
+    public class ItemSpawningInfo
+    {
+        public ThingDef thingDef;
+        public IntRange countRange;
+        public int dropChancePercent = 100;
+    }
+
+    public class CompDeathEffects : ThingComp
+    {
+        public CompProperties_DeathEffects Props
+        {
+            get
+            {
+                return (CompProperties_DeathEffects)this.props;
+            }
+        }
+
+        public override void Notify_Killed(Map prevMap, DamageInfo? dinfo = null)
+        {
+            base.Notify_Killed(prevMap, dinfo);
+
+            foreach (SpawnGroup spawnGroup in Props.spawnGroups)//spawn pawns
+            {
+                int numToSpawn = spawnGroup.range.RandomInRange;
+                for (int i = 0; i < numToSpawn; i++)
+                {
+                    PawnKindDef pawnKind = spawnGroup.pawnKind;
+                    Faction faction = FactionUtility.DefaultFactionFrom(spawnGroup.faction ?? null) ?? parent.Faction;
+                    PawnGenerationContext context = PawnGenerationContext.NonPlayer;
+                    float? fixedBiologicalAge = new float?(0f);
+                    Pawn pawn = PawnGenerator.GeneratePawn(new PawnGenerationRequest(pawnKind, faction, context, null, true, false, false, true, false, 1f, false, true, false, true, true, false, false, false, false, 0f, 0f, null, 1f, null, null, null, null, null, fixedBiologicalAge, null, null, null, null, null, null, false, false, false, false, null, null, null, null, null, 0f, DevelopmentalStage.Adult, null, null, null, false, false, false, -1, 0, false));
+                    CellFinder.TryFindRandomCellNear(this.parent.Position, prevMap, Props.pawnSpawnLaunchDistance, c => c.GetFirstBuilding(this.parent.Map) == null && c.InBounds(this.parent.Map) && c.IsValid, out var validCell);
+                    GenSpawn.Spawn(pawn, parent.Position, prevMap, WipeMode.VanishOrMoveAside);
+                    if (Props.pawnSpawnLaunchDistance > 0)
+                    {
+                        pawn.rotationTracker.FaceCell(validCell);
+                        PawnFlyer pawnFlyer = PawnFlyer.MakeFlyer(ThingDefOf.PawnFlyer_Stun, pawn, validCell, null, null, false, null, null, default(LocalTargetInfo));
+                        if (pawnFlyer != null)
+                        {
+                            GenSpawn.Spawn(pawnFlyer, parent.Position, prevMap, WipeMode.VanishOrMoveAside);
+                        }
+
+                    }
+
+                }
+            }
+
+            if (Props.filthDef != null)//spawn filth
+            {
+                foreach (IntVec3 position in GenRadial.RadialCellsAround(parent.Position, Props.filthRadius, true))
+                {
+                    for (int layers = 0; layers < Props.filthLayersRange.RandomInRange; layers++)
+                    {
+                        FilthMaker.TryMakeFilth(position, prevMap, Props.filthDef);
+                    }
+                }
+            }
+
+            if (this.Props.effecterDef != null)
+            {
+                Effecter effecter = this.Props.effecterDef.Spawn(parent.Position, prevMap, 1);
+                //effecter.Trigger(innerPawn, innerPawn, -1);
+                effecter.Cleanup();
+            }
+
+            foreach (ItemSpawningInfo itemSpawningInfo in Props.extraItemList)
+            {
+                if (new System.Random().Next(0, 100) < itemSpawningInfo.dropChancePercent)
+                {
+                    for (int itemCount = 0; itemCount < itemSpawningInfo.countRange.RandomInRange;  itemCount++)
+                    {
+                        GenSpawn.Spawn(itemSpawningInfo.thingDef, parent.Position, prevMap, WipeMode.VanishOrMoveAside);
+                    }
+                }
+            }
+
+            if (Props.vanish)
+            {
+                parent.Destroy();
+            }
+            
         }
     }
 
