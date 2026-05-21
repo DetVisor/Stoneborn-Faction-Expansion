@@ -63,6 +63,10 @@ namespace LTS_StonebornSiteGeneration
         public static ThingDef LTS_StonebornVaultEntrance;
         public static ThingDef LTS_StonebornVaultEntranceIntermediate;
         public static ThingDef LTS_StonebornVaultExitOuter;
+        public static ThingDef DV_Dwarven_Minecart;
+        public static ThingDef DV_Dwarven_Minecart_Steel;
+        public static ThingDef DV_Dwarven_Minecart_Jade;
+        public static ThingDef DV_Dwarven_Minecart_Gold;
 
         static LTS_SFE_DefOf()
         {
@@ -76,6 +80,7 @@ namespace LTS_StonebornSiteGeneration
         public GenStepDef LTS_GenStepDef;
         public int LTS_ticks;
         public FactionDef LTS_faction;
+        public int LTS_spawnWeight;
     }
 
 
@@ -190,6 +195,56 @@ namespace LTS_StonebornSiteGeneration
             }
 
 
+        }
+    }
+
+    public class LTS_GenStep_MinecartContents : GenStep
+    {
+        public override int SeedPart
+        {
+            get
+            {
+                return 1568957891;
+            }
+        }
+        public override void Generate(Map map, GenStepParams parms)
+        {
+            //Log.Message("Firing LTS_GenStep_HermitCrates");
+
+            List<ThingDef> cartTypes = new List<ThingDef> { LTS_SFE_DefOf.DV_Dwarven_Minecart, LTS_SFE_DefOf.DV_Dwarven_Minecart_Steel, LTS_SFE_DefOf.DV_Dwarven_Minecart_Jade, LTS_SFE_DefOf.DV_Dwarven_Minecart_Gold };
+
+            if (ModsConfig.IsActive("det.sbdelights"))
+                cartTypes.Add(ThingDef.Named("DV_Dwarven_Minecart_Glimmerquartz"));
+            if (ModsConfig.IsActive("det.epochspyrinth"))
+                cartTypes.Add(ThingDef.Named("DV_Dwarven_Minecart_Pyrinth"));
+
+            //List<Building> Minecarts = new List<Building>(map.listerBuildings.allBuildingsNonColonist.Where(building => building.def == LTS_SFE_DefOf.DV_DwarvenCrate).Concat(map.listerBuildings.allBuildingsColonist.Where(building => building.def == LTS_SFE_DefOf.DV_DwarvenCrate)));
+            List<Building> Minecarts = new List<Building>(map.listerBuildings.allBuildingsNonColonist.Where(building => cartTypes.Contains(building.def)).Concat(map.listerBuildings.allBuildingsColonist.Where(building => cartTypes.Contains(building.def))));
+
+            int totalWeight = 0;
+
+            foreach (ThingDef cartType in cartTypes) 
+            {
+                totalWeight += cartType.GetModExtension<LTS_SFE_ModExtension>()?.LTS_spawnWeight ?? 1;
+            }
+            
+            foreach (Building Minecart in Minecarts)//for each building on the map
+            {
+                int remainingWeight = new System.Random().Next(0, totalWeight);
+                foreach (ThingDef cartType in cartTypes)//foreach type of cart the cart could become
+                {
+                    if ((cartType.GetModExtension<LTS_SFE_ModExtension>()?.LTS_spawnWeight ?? 1) <= remainingWeight)
+                    {
+                        remainingWeight -= (cartType.GetModExtension<LTS_SFE_ModExtension>()?.LTS_spawnWeight ?? 1);
+                    }
+                    else
+                    {
+                        GenSpawn.Spawn(cartType, Minecart.Position, map, Minecart.Rotation);
+                        break;
+                    }
+
+                }
+            }
         }
     }
 
