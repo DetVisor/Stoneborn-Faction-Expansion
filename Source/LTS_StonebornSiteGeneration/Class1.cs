@@ -555,7 +555,8 @@ namespace LTS_StonebornSiteGeneration
         public FactionDef faction;
         public MentalStateDef mentalstateDef = null;
         public float initialPlantGrowth = -1;
-        
+
+        //public bool factionless = false;
     }
 
     public class CompMonsterBox : ThingComp
@@ -886,8 +887,9 @@ namespace LTS_StonebornSiteGeneration
         public IntRange filthLayersRange;
         public float filthRadius;
         public List<ItemSpawningInfo> extraItemList = new List<ItemSpawningInfo>();
-        public bool vanish;
+        public bool vanish = false;
         public EffecterDef effecterDef;
+        
     }
 
     public class ItemSpawningInfo
@@ -910,67 +912,69 @@ namespace LTS_StonebornSiteGeneration
         public override void Notify_Killed(Map prevMap, DamageInfo? dinfo = null)
         {
             base.Notify_Killed(prevMap, dinfo);
-
-            foreach (SpawnGroup spawnGroup in Props.spawnGroups)//spawn pawns
+            //spawn pawns
+            foreach (SpawnGroup spawnGroup in Props.spawnGroups)
             {
+                PawnKindDef pawnKind = spawnGroup.pawnKind;
+                Faction faction = FactionUtility.DefaultFactionFrom(spawnGroup.faction ?? null) ?? parent.Faction;
+                Lord lord = LordMaker.MakeNewLord(faction, new LordJob_DefendPoint(this.parent.Position, 5), prevMap, null);
+
                 int numToSpawn = spawnGroup.range.RandomInRange;
                 for (int i = 0; i < numToSpawn; i++)
                 {
-                    PawnKindDef pawnKind = spawnGroup.pawnKind;
-                    Faction faction = FactionUtility.DefaultFactionFrom(spawnGroup.faction ?? null) ?? parent.Faction;
+                    
                     PawnGenerationContext context = PawnGenerationContext.NonPlayer;
                     float? fixedBiologicalAge = new float?(0f);
                     Pawn pawn = PawnGenerator.GeneratePawn(new PawnGenerationRequest(pawnKind, faction, context, null, true, false, false, true, false, 1f, false, true, false, true, true, false, false, false, false, 0f, 0f, null, 1f, null, null, null, null, null, fixedBiologicalAge, null, null, null, null, null, null, false, false, false, false, null, null, null, null, null, 0f, DevelopmentalStage.Adult, null, null, null, false, false, false, -1, 0, false));
-                    CellFinder.TryFindRandomCellNear(this.parent.Position, prevMap, Props.pawnSpawnLaunchDistance, c => c.GetFirstBuilding(this.parent.Map) == null && c.InBounds(this.parent.Map) && c.IsValid, out var validCell);
                     GenSpawn.Spawn(pawn, parent.Position, prevMap, WipeMode.VanishOrMoveAside);
                     if (Props.pawnSpawnLaunchDistance > 0)
                     {
-                        pawn.rotationTracker.FaceCell(validCell);
-                        PawnFlyer pawnFlyer = PawnFlyer.MakeFlyer(ThingDefOf.PawnFlyer_Stun, pawn, validCell, null, null, false, null, null, default(LocalTargetInfo));
-                        if (pawnFlyer != null)
+                        //CellFinder.TryFindRandomCellNear(this.parent.Position, prevMap, Props.pawnSpawnLaunchDistance, c => c.GetFirstBuilding(this.parent.Map) == null && c.InBounds(this.parent.Map) && c.IsValid, out var validCell);
+                        if (RCellFinder.TryFindRandomCellNearWith(parent.Position, (IntVec3 c) => !c.Fogged(prevMap) && c.Standable(prevMap) && c.GetFirstPawn(prevMap) == null && GenSight.LineOfSight(parent.Position, c, prevMap, true, null, 0, 0), prevMap, out var validCell, 5, Props.pawnSpawnLaunchDistance))
                         {
-                            GenSpawn.Spawn(pawnFlyer, parent.Position, prevMap, WipeMode.VanishOrMoveAside);
+                            pawn.rotationTracker.FaceCell(validCell);
+                            PawnFlyer pawnFlyer = PawnFlyer.MakeFlyer(ThingDefOf.PawnFlyer_Stun, pawn, validCell, null, null, false, null, null, default(LocalTargetInfo));
+                            if (pawnFlyer != null)
+                            {
+                                GenSpawn.Spawn(pawnFlyer, parent.Position, prevMap, WipeMode.VanishOrMoveAside);
+                            }
                         }
-
                     }
-
+                    lord.AddPawn(pawn);
                 }
             }
-
-            if (Props.filthDef != null)//spawn filth
+            //spawn filth
+            if (Props.filthDef != null)
             {
                 foreach (IntVec3 position in GenRadial.RadialCellsAround(parent.Position, Props.filthRadius, true))
                 {
-                    for (int layers = 0; layers < Props.filthLayersRange.RandomInRange; layers++)
-                    {
-                        FilthMaker.TryMakeFilth(position, prevMap, Props.filthDef);
-                    }
+                    //for (int layers = 0; layers < Props.filthLayersRange.RandomInRange; layers++)
+                    //{
+                    //    FilthMaker.TryMakeFilth(position, prevMap, Props.filthDef);
+                    //}
+                    FilthMaker.TryMakeFilth(position, prevMap, Props.filthDef, Props.filthLayersRange.RandomInRange);
                 }
             }
-
+            //spawn effect
             if (this.Props.effecterDef != null)
             {
-                Effecter effecter = this.Props.effecterDef.Spawn(parent.Position, prevMap, 1);
-                //effecter.Trigger(innerPawn, innerPawn, -1);
-                effecter.Cleanup();
+                this.Props.effecterDef.Spawn(parent.Position, prevMap).Cleanup();
             }
-
+            //spawn items
             foreach (ItemSpawningInfo itemSpawningInfo in Props.extraItemList)
             {
                 if (new System.Random().Next(0, 100) < itemSpawningInfo.dropChancePercent)
                 {
-                    for (int itemCount = 0; itemCount < itemSpawningInfo.countRange.RandomInRange;  itemCount++)
-                    {
-                        GenSpawn.Spawn(itemSpawningInfo.thingDef, parent.Position, prevMap, WipeMode.VanishOrMoveAside);
-                    }
+                    Thing thing = ThingMaker.MakeThing(itemSpawningInfo.thingDef);
+                    thing.stackCount = itemSpawningInfo.countRange.RandomInRange;
+                    GenPlace.TryPlaceThing(thing, parent.Position, prevMap, ThingPlaceMode.Direct);
                 }
             }
-
-            if (Props.vanish)
+            //destroy corpse
+            if (Props.vanish && !(parent.ParentHolder as Thing).Destroyed)
             {
-                parent.Destroy();
+                (parent.ParentHolder as Thing).Destroy();
             }
-            
         }
     }
 
