@@ -133,9 +133,6 @@
         <compClass>CompHeatPusher</compClass>
         <heatPerSecond>-50</heatPerSecond>
       </li>
-      <li Class="CompProperties_Effecter">
-        <effecterDef>DV_FreezeReleasing</effecterDef>
-      </li>
     </comps>
   </ThingDef>
 
@@ -178,9 +175,6 @@
         <compClass>CompHeatPusher</compClass>
         <heatPerSecond>150</heatPerSecond>
         <heatPushMaxTemperature>400</heatPushMaxTemperature>
-      </li>
-      <li Class="CompProperties_Effecter">
-        <effecterDef>DV_FreezeReleasing</effecterDef>
       </li>
       <li Class="CompProperties_Glower">
         <glowRadius>2</glowRadius>
@@ -308,6 +302,7 @@
       <li Class="LTS_StonebornSiteGeneration.CompProperties_UseEffectSpawnPawn">
         <pawnKind>DV_Mimic_HermitCrate</pawnKind>
         <useMessage>The {0} was a {1}!</useMessage>
+        <messagetype>NeutralEvent</messagetype>
       </li>
     </comps>
     <tickerType>Normal</tickerType>

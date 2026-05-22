@@ -253,4 +253,39 @@
         </stages>
     </ThoughtDef>
 
+    <ThingDef ParentName="PlantBase">
+        <defName>DV_Plant_Glowlichen</defName>
+        <label>glowlichen</label>
+        <description>Wild grass. Grows anywhere there is a little light and minimally fertile ground.</description>
+        <statBases>
+            <MaxHitPoints>85</MaxHitPoints>
+            <Flammability>1.3</Flammability>
+            <Nutrition>0.50</Nutrition>
+        </statBases>
+        <graphicData>
+            <texPath>Things/Plant/Glowlichen</texPath>
+            <graphicClass>Graphic_Random</graphicClass>
+            <shaderType>TransparentPlant</shaderType>
+        </graphicData>
+        <hideAtSnowOrSandDepth>0.5</hideAtSnowOrSandDepth>
+        <ingestible />
+        <plant>
+            <fertilityMin>0</fertilityMin>
+            <fertilitySensitivity>0</fertilitySensitivity>
+            <growDays>2.5</growDays>
+            <harvestWork>40</harvestWork>
+            <maxMeshCount>9</maxMeshCount>
+            <visualSizeRange>0.4~0.6</visualSizeRange>
+            <topWindExposure>0.1</topWindExposure>
+            <wildOrder>1</wildOrder>
+            <maxGrowthTemperature>75</maxGrowthTemperature>
+        </plant>
+        <comps>
+            <li Class="CompProperties_Glower">
+                <glowRadius>1</glowRadius>
+                <glowColor>(138, 227, 208, 0)</glowColor>
+            </li>
+        </comps>
+    </ThingDef>
+
 </Defs>

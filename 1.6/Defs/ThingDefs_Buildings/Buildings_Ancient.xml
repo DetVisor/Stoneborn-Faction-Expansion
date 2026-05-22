@@ -923,6 +923,7 @@
     <category>Building</category>
     <description>An ancient stoneborn pillar, made from mithrium.</description>
     <noRightClickDraftAttack>true</noRightClickDraftAttack>
+    <altitudeLayer>PawnUnused</altitudeLayer>
     <graphicData>
       <texPath>Things/Building/Ruins/Dwarven_RuinedPillar</texPath>
       <shaderType>CutoutComplex</shaderType>

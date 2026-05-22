@@ -25,132 +25,148 @@
 
           <li>            <!-- sagewick -->
             <spawnWeight>1</spawnWeight>
-			<spawnGroups>
-			<li>
-              <thingDef>DV_Plant_Cinderwort</thingDef>
-              <range>3~4</range>
-              <initialPlantGrowth>1</initialPlantGrowth>
-            </li>
-            <li>
-              <thingDef>DV_Plant_Cinderwort</thingDef>
-              <range>4~5</range>
-              <initialPlantGrowth>0.3</initialPlantGrowth>
-            </li>
-			</spawnGroups>
+            <spawnGroups>
+              <li>
+                <thingDef>DV_Plant_Glowlichen</thingDef>
+                <range>5~7</range>
+                <initialPlantGrowth>1</initialPlantGrowth>
+              </li>
+              <li>
+                <thingDef>DV_Plant_Glowlichen</thingDef>
+                <range>6~8</range>
+                <initialPlantGrowth>0.3</initialPlantGrowth>
+              </li>
+            </spawnGroups>
+          </li>
+
+          <li>            <!-- sagewick -->
+            <spawnWeight>1</spawnWeight>
+            <spawnGroups>
+              <li>
+                <thingDef>DV_Plant_Cinderwort</thingDef>
+                <range>3~4</range>
+                <initialPlantGrowth>1</initialPlantGrowth>
+              </li>
+              <li>
+                <thingDef>DV_Plant_Cinderwort</thingDef>
+                <range>4~5</range>
+                <initialPlantGrowth>0.3</initialPlantGrowth>
+              </li>
+            </spawnGroups>
           </li>
 
 
           <li>            <!-- sagewick and alraun -->
-		    <spawnWeight>1</spawnWeight>
-			<spawnGroups>
-            <li>
-              <thingDef>DV_Plant_Alraun</thingDef>
-              <range>2~3</range>
-              <initialPlantGrowth>1</initialPlantGrowth>
-            </li>
-            <li>
-              <thingDef>DV_Plant_Alraun</thingDef>
-              <range>3~5</range>
-              <initialPlantGrowth>0.3</initialPlantGrowth>
-            </li>
+            <spawnWeight>1</spawnWeight>
+            <spawnGroups>
+              <li>
+                <thingDef>DV_Plant_Alraun</thingDef>
+                <range>2~3</range>
+                <initialPlantGrowth>1</initialPlantGrowth>
+              </li>
+              <li>
+                <thingDef>DV_Plant_Alraun</thingDef>
+                <range>3~5</range>
+                <initialPlantGrowth>0.3</initialPlantGrowth>
+              </li>
 
-            <li>
-              <thingDef>DV_Plant_Cinderwort</thingDef>
-              <range>1~2</range>
-              <initialPlantGrowth>1</initialPlantGrowth>
-            </li>
-            <li>
-              <thingDef>DV_Plant_Cinderwort</thingDef>
-              <range>2~4</range>
-              <initialPlantGrowth>0.3</initialPlantGrowth>
-            </li>
-			</spawnGroups>
+              <li>
+                <thingDef>DV_Plant_Cinderwort</thingDef>
+                <range>1~2</range>
+                <initialPlantGrowth>1</initialPlantGrowth>
+              </li>
+              <li>
+                <thingDef>DV_Plant_Cinderwort</thingDef>
+                <range>2~4</range>
+                <initialPlantGrowth>0.3</initialPlantGrowth>
+              </li>
+            </spawnGroups>
           </li>
 
           <li>            <!-- sagewick and cavecarrots -->
             <spawnWeight>1</spawnWeight>
-			<spawnGroups>
-			<li>
-              <thingDef>DV_Plant_Cavecarrot</thingDef>
-              <range>2~3</range>
-              <initialPlantGrowth>1</initialPlantGrowth>
-            </li>
-            <li>
-              <thingDef>DV_Plant_Cavecarrot</thingDef>
-              <range>3~5</range>
-              <initialPlantGrowth>0.3</initialPlantGrowth>
-            </li>
+            <spawnGroups>
+              <li>
+                <thingDef>DV_Plant_Cavecarrot</thingDef>
+                <range>2~3</range>
+                <initialPlantGrowth>1</initialPlantGrowth>
+              </li>
+              <li>
+                <thingDef>DV_Plant_Cavecarrot</thingDef>
+                <range>3~5</range>
+                <initialPlantGrowth>0.3</initialPlantGrowth>
+              </li>
 
-            <li>
-              <thingDef>DV_Plant_Cinderwort</thingDef>
-              <range>1~2</range>
-              <initialPlantGrowth>1</initialPlantGrowth>
-            </li>
-            <li>
-              <thingDef>DV_Plant_Cinderwort</thingDef>
-              <range>2~4</range>
-              <initialPlantGrowth>0.3</initialPlantGrowth>
-            </li>
-			</spawnGroups>
+              <li>
+                <thingDef>DV_Plant_Cinderwort</thingDef>
+                <range>1~2</range>
+                <initialPlantGrowth>1</initialPlantGrowth>
+              </li>
+              <li>
+                <thingDef>DV_Plant_Cinderwort</thingDef>
+                <range>2~4</range>
+                <initialPlantGrowth>0.3</initialPlantGrowth>
+              </li>
+            </spawnGroups>
           </li>
 
           <li>            <!-- alrauns -->
             <spawnWeight>1</spawnWeight>
-			<spawnGroups>
-			<li>
-              <thingDef>DV_Plant_Alraun</thingDef>
-              <range>4~5</range>
-              <initialPlantGrowth>1</initialPlantGrowth>
-            </li>
-            <li>
-              <thingDef>DV_Plant_Alraun</thingDef>
-              <range>5~6</range>
-              <initialPlantGrowth>0.3</initialPlantGrowth>
-            </li>
-			</spawnGroups>
+            <spawnGroups>
+              <li>
+                <thingDef>DV_Plant_Alraun</thingDef>
+                <range>4~5</range>
+                <initialPlantGrowth>1</initialPlantGrowth>
+              </li>
+              <li>
+                <thingDef>DV_Plant_Alraun</thingDef>
+                <range>5~6</range>
+                <initialPlantGrowth>0.3</initialPlantGrowth>
+              </li>
+            </spawnGroups>
           </li>
 
           <li>            <!-- cavecarrots -->
             <spawnWeight>1</spawnWeight>
-			<spawnGroups>
-			<li>
-              <thingDef>DV_Plant_Cavecarrot</thingDef>
-              <range>4~5</range>
-              <initialPlantGrowth>1</initialPlantGrowth>
-            </li>
-            <li>
-              <thingDef>DV_Plant_Cavecarrot</thingDef>
-              <range>5~6</range>
-              <initialPlantGrowth>0.3</initialPlantGrowth>
-            </li>
-			</spawnGroups>
+            <spawnGroups>
+              <li>
+                <thingDef>DV_Plant_Cavecarrot</thingDef>
+                <range>4~5</range>
+                <initialPlantGrowth>1</initialPlantGrowth>
+              </li>
+              <li>
+                <thingDef>DV_Plant_Cavecarrot</thingDef>
+                <range>5~6</range>
+                <initialPlantGrowth>0.3</initialPlantGrowth>
+              </li>
+            </spawnGroups>
           </li>
 
           <li>            <!-- cavecarrots and alraun -->
             <spawnWeight>1</spawnWeight>
-			<spawnGroups>
-			<li>
-              <thingDef>DV_Plant_Cavecarrot</thingDef>
-              <range>2~3</range>
-              <initialPlantGrowth>1</initialPlantGrowth>
-            </li>
-            <li>
-              <thingDef>DV_Plant_Cavecarrot</thingDef>
-              <range>3~5</range>
-              <initialPlantGrowth>0.3</initialPlantGrowth>
-            </li>
+            <spawnGroups>
+              <li>
+                <thingDef>DV_Plant_Cavecarrot</thingDef>
+                <range>2~3</range>
+                <initialPlantGrowth>1</initialPlantGrowth>
+              </li>
+              <li>
+                <thingDef>DV_Plant_Cavecarrot</thingDef>
+                <range>3~5</range>
+                <initialPlantGrowth>0.3</initialPlantGrowth>
+              </li>
 
-            <li>
-              <thingDef>DV_Plant_Alraun</thingDef>
-              <range>2~3</range>
-              <initialPlantGrowth>1</initialPlantGrowth>
-            </li>
-            <li>
-              <thingDef>DV_Plant_Alraun</thingDef>
-              <range>3~5</range>
-              <initialPlantGrowth>0.3</initialPlantGrowth>
-            </li>
-			</spawnGroups>
+              <li>
+                <thingDef>DV_Plant_Alraun</thingDef>
+                <range>2~3</range>
+                <initialPlantGrowth>1</initialPlantGrowth>
+              </li>
+              <li>
+                <thingDef>DV_Plant_Alraun</thingDef>
+                <range>3~5</range>
+                <initialPlantGrowth>0.3</initialPlantGrowth>
+              </li>
+            </spawnGroups>
           </li>
         </encounters>
       </li>
@@ -182,12 +198,12 @@
         <encounters>
           <li>            <!-- 11-12 Rustbugs-->
             <spawnWeight>1</spawnWeight>
-			<spawnGroups>
+            <spawnGroups>
               <li>
                 <pawnKind>DV_Monster_Rustbug</pawnKind>
-                <range>10~11</range>
+                <range>8~9</range>
               </li>
-			</spawnGroups>
+            </spawnGroups>
           </li>
         </encounters>
       </li>
@@ -222,202 +238,281 @@
 
           <li>            <!-- 3-4 cavegunks with alrauns -->
             <spawnWeight>1</spawnWeight>
-			<spawnGroups>
-			<li>
-              <pawnKind>DV_Monster_CaveGunk</pawnKind>
-              <range>3~4</range>
-              <faction>DV_DungeonMonsters</faction>
-            </li>
-            <li>
-              <thingDef>DV_Plant_Alraun</thingDef>
-              <range>2~3</range>
-              <initialPlantGrowth>1</initialPlantGrowth>
-            </li>
-            <li>
-              <thingDef>DV_Plant_Alraun</thingDef>
-              <range>3~4</range>
-              <initialPlantGrowth>0.3</initialPlantGrowth>
-            </li>
-			</spawnGroups>
+            <spawnGroups>
+              <li>
+                <pawnKind>DV_Monster_WildGolem</pawnKind>
+                <range>1~2</range>
+                <faction>DV_DungeonMonsters</faction>
+              </li>
+              <li>
+                <pawnKind>DV_Monster_WildGolemite</pawnKind>
+                <range>2~3</range>
+                <faction>DV_DungeonMonsters</faction>
+              </li>
+            </spawnGroups>
+          </li>
+
+          <li>            <!-- 3-4 cavegunks with alrauns -->
+            <spawnWeight>1</spawnWeight>
+            <spawnGroups>
+              <li>
+                <pawnKind>DV_Monster_WildGolem</pawnKind>
+                <range>1~2</range>
+                <faction>DV_DungeonMonsters</faction>
+              </li>
+              <li>
+                <thingDef>DV_Plant_Cinderwort</thingDef>
+                <range>2~3</range>
+                <initialPlantGrowth>1</initialPlantGrowth>
+              </li>
+              <li>
+                <thingDef>DV_Plant_Cinderwort</thingDef>
+                <range>3~4</range>
+                <initialPlantGrowth>0.3</initialPlantGrowth>
+              </li>
+            </spawnGroups>
+          </li>
+
+          <li>            <!-- 3-4 cavegunks with alrauns -->
+            <spawnWeight>1</spawnWeight>
+            <spawnGroups>
+              <li>
+                <pawnKind>DV_Monster_WildGolem</pawnKind>
+                <range>1~2</range>
+                <faction>DV_DungeonMonsters</faction>
+              </li>
+              <li>
+                <thingDef>DV_Plant_Cavecarrot</thingDef>
+                <range>2~3</range>
+                <initialPlantGrowth>1</initialPlantGrowth>
+              </li>
+              <li>
+                <thingDef>DV_Plant_Cavecarrot</thingDef>
+                <range>3~4</range>
+                <initialPlantGrowth>0.3</initialPlantGrowth>
+              </li>
+            </spawnGroups>
+          </li>
+
+          <li>            <!-- 3-4 cavegunks with alrauns -->
+            <spawnWeight>1</spawnWeight>
+            <spawnGroups>
+              <li>
+                <pawnKind>DV_Monster_WildGolem</pawnKind>
+                <range>1~2</range>
+                <faction>DV_DungeonMonsters</faction>
+              </li>
+              <li>
+                <thingDef>DV_Plant_Alraun</thingDef>
+                <range>2~3</range>
+                <initialPlantGrowth>1</initialPlantGrowth>
+              </li>
+              <li>
+                <thingDef>DV_Plant_Alraun</thingDef>
+                <range>3~4</range>
+                <initialPlantGrowth>0.3</initialPlantGrowth>
+              </li>
+            </spawnGroups>
+          </li>
+
+          <li>            <!-- 3-4 cavegunks with alrauns -->
+            <spawnWeight>1</spawnWeight>
+            <spawnGroups>
+              <li>
+                <pawnKind>DV_Monster_CaveGunk</pawnKind>
+                <range>3~4</range>
+                <faction>DV_DungeonMonsters</faction>
+              </li>
+              <li>
+                <thingDef>DV_Plant_Alraun</thingDef>
+                <range>2~3</range>
+                <initialPlantGrowth>1</initialPlantGrowth>
+              </li>
+              <li>
+                <thingDef>DV_Plant_Alraun</thingDef>
+                <range>3~4</range>
+                <initialPlantGrowth>0.3</initialPlantGrowth>
+              </li>
+            </spawnGroups>
           </li>
 
           <li>            <!-- 3-4 cavegunks defending an area -->
             <spawnWeight>1</spawnWeight>
-			<spawnGroups>
-			<li>
-              <pawnKind>DV_Monster_CaveGunk</pawnKind>
-              <range>3~4</range>
-              <faction>DV_DungeonMonsters</faction>
-            </li>
-			</spawnGroups>
+            <spawnGroups>
+              <li>
+                <pawnKind>DV_Monster_CaveGunk</pawnKind>
+                <range>3~4</range>
+                <faction>DV_DungeonMonsters</faction>
+              </li>
+            </spawnGroups>
           </li>
 
           <li>            <!-- 2-3 cavegunks and 1-2 rook-caps defending an area -->
             <spawnWeight>1</spawnWeight>
-			<spawnGroups>
-			<li>
-              <pawnKind>DV_Monster_CaveGunk</pawnKind>
-              <range>2~3</range>
-              <faction>DV_DungeonMonsters</faction>
-            </li>
+            <spawnGroups>
+              <li>
+                <pawnKind>DV_Monster_CaveGunk</pawnKind>
+                <range>2~3</range>
+                <faction>DV_DungeonMonsters</faction>
+              </li>
 
-            <li>
-              <pawnKind>DV_Monster_ToxShroom</pawnKind>
-              <range>1~2</range>
-              <faction>DV_DungeonMonsters</faction>
-            </li>
-            <li>
-              <thingDef>DV_Plant_Rookpod</thingDef>
-              <range>3~4</range>
-              <initialPlantGrowth>0.9</initialPlantGrowth>
-            </li>
-            <li>
-              <thingDef>DV_Plant_Rookpod</thingDef>
-              <range>4~5</range>
-              <initialPlantGrowth>0.3</initialPlantGrowth>
-            </li>
-			</spawnGroups>
+              <li>
+                <pawnKind>DV_Monster_ToxShroom</pawnKind>
+                <range>1~2</range>
+                <faction>DV_DungeonMonsters</faction>
+              </li>
+              <li>
+                <thingDef>DV_Plant_Rookpod</thingDef>
+                <range>3~4</range>
+                <initialPlantGrowth>0.9</initialPlantGrowth>
+              </li>
+              <li>
+                <thingDef>DV_Plant_Rookpod</thingDef>
+                <range>4~5</range>
+                <initialPlantGrowth>0.3</initialPlantGrowth>
+              </li>
+            </spawnGroups>
           </li>
 
           <li>            <!-- 2-4 rook-caps defending an area -->
             <spawnWeight>1</spawnWeight>
-			<spawnGroups>
-			<li>
-              <pawnKind>DV_Monster_ToxShroom</pawnKind>
-              <range>2~4</range>
-              <faction>DV_DungeonMonsters</faction>
-            </li>
-            <li>
-              <thingDef>DV_Plant_Rookpod</thingDef>
-              <range>4~5</range>
-              <initialPlantGrowth>0.9</initialPlantGrowth>
-            </li>
-            <li>
-              <thingDef>DV_Plant_Rookpod</thingDef>
-              <range>4~5</range>
-              <initialPlantGrowth>0.3</initialPlantGrowth>
-            </li>
-			</spawnGroups>
+            <spawnGroups>
+              <li>
+                <pawnKind>DV_Monster_ToxShroom</pawnKind>
+                <range>2~4</range>
+                <faction>DV_DungeonMonsters</faction>
+              </li>
+              <li>
+                <thingDef>DV_Plant_Rookpod</thingDef>
+                <range>4~5</range>
+                <initialPlantGrowth>0.9</initialPlantGrowth>
+              </li>
+              <li>
+                <thingDef>DV_Plant_Rookpod</thingDef>
+                <range>4~5</range>
+                <initialPlantGrowth>0.3</initialPlantGrowth>
+              </li>
+            </spawnGroups>
           </li>
 
           <li>            <!-- 3-4 gutterlatches defending an area -->
             <spawnWeight>1</spawnWeight>
-			<spawnGroups>
-			<li>
-              <thingDef>DV_Monster_Gutterlatch</thingDef>
-              <range>3~4</range>
-              <faction>DV_DungeonMonsters</faction>
-            </li>
-            <li>
-              <thingDef>DV_Monster_Gutterlatchling</thingDef>
-              <range>4~5</range>
-              <faction>DV_DungeonMonsters</faction>
-            </li>
-			</spawnGroups>
+            <spawnGroups>
+              <li>
+                <thingDef>DV_Monster_Gutterlatch</thingDef>
+                <range>3~4</range>
+                <faction>DV_DungeonMonsters</faction>
+              </li>
+              <li>
+                <thingDef>DV_Monster_Gutterlatchling</thingDef>
+                <range>4~5</range>
+                <faction>DV_DungeonMonsters</faction>
+              </li>
+            </spawnGroups>
           </li>
 
           <li>            <!-- 2-3 imps defending an area -->
             <spawnWeight>1</spawnWeight>
-			<spawnGroups>
-			<li>
-              <pawnKind>DV_Monster_Imp</pawnKind>
-              <range>2~3</range>
-              <faction>DV_DungeonMonsters</faction>
-            </li>
-			</spawnGroups>
+            <spawnGroups>
+              <li>
+                <pawnKind>DV_Monster_Imp</pawnKind>
+                <range>2~3</range>
+                <faction>DV_DungeonMonsters</faction>
+              </li>
+            </spawnGroups>
           </li>
 
           <li>            <!-- 1 ogre defending an area -->
             <spawnWeight>1</spawnWeight>
-			<spawnGroups>
-			<li>
-              <pawnKind>DV_Monster_Tusktroll</pawnKind>
-              <range>1</range>
-              <faction>DV_DungeonMonsters</faction>
-            </li>
-			</spawnGroups>
+            <spawnGroups>
+              <li>
+                <pawnKind>DV_Monster_Tusktroll</pawnKind>
+                <range>1</range>
+                <faction>DV_DungeonMonsters</faction>
+              </li>
+            </spawnGroups>
           </li>
 
           <li>            <!-- 1 ogre defending an area, with some alrauns -->
             <spawnWeight>1</spawnWeight>
-			<spawnGroups>
-			<li>
-              <pawnKind>DV_Monster_Tusktroll</pawnKind>
-              <range>1</range>
-              <faction>DV_DungeonMonsters</faction>
-            </li>
+            <spawnGroups>
+              <li>
+                <pawnKind>DV_Monster_Tusktroll</pawnKind>
+                <range>1</range>
+                <faction>DV_DungeonMonsters</faction>
+              </li>
 
-            <li>
-              <thingDef>DV_Plant_Alraun</thingDef>
-              <range>2~3</range>
-              <initialPlantGrowth>1</initialPlantGrowth>
-            </li>
-            <li>
-              <thingDef>DV_Plant_Alraun</thingDef>
-              <range>3~4</range>
-              <initialPlantGrowth>0.3</initialPlantGrowth>
-            </li>
-			</spawnGroups>
+              <li>
+                <thingDef>DV_Plant_Alraun</thingDef>
+                <range>2~3</range>
+                <initialPlantGrowth>1</initialPlantGrowth>
+              </li>
+              <li>
+                <thingDef>DV_Plant_Alraun</thingDef>
+                <range>3~4</range>
+                <initialPlantGrowth>0.3</initialPlantGrowth>
+              </li>
+            </spawnGroups>
           </li>
 
           <li>            <!-- 2 ogres defending an area -->
             <spawnWeight>1</spawnWeight>
-			<spawnGroups>
-			<li>
-              <pawnKind>DV_Monster_Tusktroll</pawnKind>
-              <range>2</range>
-              <faction>DV_DungeonMonsters</faction>
-            </li>
-			</spawnGroups>
+            <spawnGroups>
+              <li>
+                <pawnKind>DV_Monster_Tusktroll</pawnKind>
+                <range>2</range>
+                <faction>DV_DungeonMonsters</faction>
+              </li>
+            </spawnGroups>
           </li>
 
           <li>            <!-- 5-6 razorbeaks defending an area -->
             <spawnWeight>1</spawnWeight>
-			<spawnGroups>
-			<li>
-              <pawnKind>DV_Monster_Razorbeak</pawnKind>
-              <range>5~6</range>
-              <faction>DV_DungeonMonsters</faction>
-            </li>
-			</spawnGroups>
+            <spawnGroups>
+              <li>
+                <pawnKind>DV_Monster_Razorbeak</pawnKind>
+                <range>5~6</range>
+                <faction>DV_DungeonMonsters</faction>
+              </li>
+            </spawnGroups>
           </li>
 
           <li>            <!--3 rook-caps and 3 razorbeaks feuding -->
             <spawnWeight>1</spawnWeight>
-			<spawnGroups>
-			<li>
-              <pawnKind>DV_Monster_ToxShroom</pawnKind>
-              <range>3</range>
-              <faction>DV_DungeonMonsters</faction>
-            </li>
-            <li>
-              <thingDef>DV_Plant_Rookpod</thingDef>
-              <range>4~5</range>
-              <initialPlantGrowth>0.9</initialPlantGrowth>
-            </li>
+            <spawnGroups>
+              <li>
+                <pawnKind>DV_Monster_ToxShroom</pawnKind>
+                <range>3</range>
+                <faction>DV_DungeonMonsters</faction>
+              </li>
+              <li>
+                <thingDef>DV_Plant_Rookpod</thingDef>
+                <range>4~5</range>
+                <initialPlantGrowth>0.9</initialPlantGrowth>
+              </li>
 
-            <li>
-              <pawnKind>DV_Monster_Razorbeak</pawnKind>
-              <range>3</range>
-              <faction>AncientsHostile</faction>
-            </li>
-			</spawnGroups>
+              <li>
+                <pawnKind>DV_Monster_Razorbeak</pawnKind>
+                <range>3</range>
+                <faction>AncientsHostile</faction>
+              </li>
+            </spawnGroups>
           </li>
 
           <li>            <!--2 ogres feuding -->
             <spawnWeight>1</spawnWeight>
-			<spawnGroups>
-			<li>
-              <pawnKind>DV_Monster_Tusktroll</pawnKind>
-              <range>1</range>
-              <faction>DV_DungeonMonsters</faction>
-            </li>
-            <li>
-              <pawnKind>DV_Monster_Tusktroll</pawnKind>
-              <range>1</range>
-              <faction>AncientsHostile</faction>
-            </li>
-			</spawnGroups>
+            <spawnGroups>
+              <li>
+                <pawnKind>DV_Monster_Tusktroll</pawnKind>
+                <range>1</range>
+                <faction>DV_DungeonMonsters</faction>
+              </li>
+              <li>
+                <pawnKind>DV_Monster_Tusktroll</pawnKind>
+                <range>1</range>
+                <faction>AncientsHostile</faction>
+              </li>
+            </spawnGroups>
           </li>
 
         </encounters>

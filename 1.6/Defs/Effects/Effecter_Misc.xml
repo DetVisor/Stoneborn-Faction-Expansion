@@ -2,6 +2,204 @@
 <Defs>
 
   <EffecterDef>
+    <defName>DV_Damage_SlimeVanish</defName>
+    <children>
+      <li>
+        <subEffecterClass>SubEffecter_SoundTriggered</subEffecterClass>
+        <soundDef>CocoonDestroyed</soundDef>
+        <spawnLocType>OnTarget</spawnLocType>
+      </li>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+        <moteDef>Mote_CocoonDestroyedMist</moteDef>
+        <burstCount>2</burstCount>
+        <rotation>-150~150</rotation>
+        <positionRadius>0.7</positionRadius>
+        <spawnLocType>OnSource</spawnLocType>
+      </li>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+        <moteDef>DV_Mote_FlyingSlime</moteDef>
+        <burstCount>3</burstCount>
+        <rotation>-150~150</rotation>
+        <positionRadius>0.6</positionRadius>
+        <speed>0.8~1.2</speed>
+        <spawnLocType>OnSource</spawnLocType>
+      </li>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+        <moteDef>DV_Mote_FlyingDrop</moteDef>
+        <burstCount>5</burstCount>
+        <rotation>-150~150</rotation>
+        <positionRadius>0.5</positionRadius>
+        <speed>5~8</speed>
+        <fleckUsesAngleForVelocity>true</fleckUsesAngleForVelocity>
+        <spawnLocType>OnSource</spawnLocType>
+      </li>
+    </children>
+  </EffecterDef>
+
+  <EffecterDef>
+    <defName>DV_Damage_HitMonsterGunk</defName>
+    <children>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+        <positionRadius>0.4</positionRadius>
+        <fleckDef>AirPuff</fleckDef>
+        <burstCount>2~3</burstCount>
+        <speed>0.4~0.8</speed>
+        <scale>1.0~1.3</scale>
+        <color>(200, 200, 200)</color>
+        <spawnLocType>OnSource</spawnLocType>
+      </li>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+        <moteDef>DV_Mote_FlyingSlimeSmall</moteDef>
+        <burstCount>2</burstCount>
+        <rotation>-150~150</rotation>
+        <positionRadius>0.2</positionRadius>
+        <speed>0.8~1.2</speed>
+        <spawnLocType>OnSource</spawnLocType>
+      </li>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+        <positionRadius>0.0</positionRadius>
+        <fleckDef>BodyImpact</fleckDef>
+        <burstCount>1</burstCount>
+        <scale>0.55</scale>
+        <color>(200, 200, 10, 60)</color>
+        <spawnLocType>OnSource</spawnLocType>
+      </li>
+    </children>
+    <offsetTowardsTarget>0.12~0.28</offsetTowardsTarget>
+    <positionRadius>0.1</positionRadius>
+  </EffecterDef>
+
+  <ThingDef ParentName="MoteBase">
+    <defName>DV_Mote_FlyingSlimeSmall</defName>
+    <thingClass>MoteThrown</thingClass>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <mote>
+      <fadeInTime>0.03</fadeInTime>
+      <fadeOutTime>0.2</fadeOutTime>
+      <solidTime>0.4</solidTime>
+      <growthRate>1</growthRate>
+      <archHeight>0.5</archHeight>
+      <archDuration>0.5</archDuration>
+      <speedPerTime>-3</speedPerTime>
+    </mote>
+    <graphicData>
+      <texPath>Things/Filth/Spatter</texPath>
+      <graphicClass>Graphic_MoteRandom</graphicClass>
+      <color>(163, 195, 83, 170)</color>
+    </graphicData>
+  </ThingDef>
+
+  <ThingDef ParentName="MoteBase">
+    <defName>DV_Mote_FlyingSlime</defName>
+    <thingClass>MoteThrown</thingClass>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <mote>
+      <fadeInTime>0.03</fadeInTime>
+      <fadeOutTime>0.2</fadeOutTime>
+      <solidTime>0.4</solidTime>
+      <growthRate>2</growthRate>
+      <archHeight>0.5</archHeight>
+      <archDuration>0.5</archDuration>
+      <speedPerTime>-3</speedPerTime>
+    </mote>
+    <graphicData>
+      <texPath>Things/Filth/Spatter</texPath>
+      <graphicClass>Graphic_MoteRandom</graphicClass>
+      <color>(163, 195, 83, 170)</color>
+    </graphicData>
+  </ThingDef>
+
+  <ThingDef ParentName="MoteBase">
+    <defName>DV_Mote_FlyingDrop</defName>
+    <thingClass>MoteThrown</thingClass>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <mote>
+      <fadeInTime>0.03</fadeInTime>
+      <fadeOutTime>0.1</fadeOutTime>
+      <solidTime>0.30</solidTime>
+      <growthRate>1.4</growthRate>
+      <archHeight>0.5</archHeight>
+      <archDuration>0.5</archDuration>
+      <speedPerTime>-3</speedPerTime>
+    </mote>
+    <graphicData>
+      <texPath>Things/Mote/SlimeDrop</texPath>
+      <drawSize>0.23</drawSize>
+    </graphicData>
+  </ThingDef>
+
+  <EffecterDef>
+    <defName>DV_Damage_GolemVanish</defName>
+    <children>
+      <li>
+        <subEffecterClass>SubEffecter_SoundTriggered</subEffecterClass>
+        <soundDef>Stone_Drop</soundDef>
+      </li>
+      <li>
+        <subEffecterClass>SubEffecter_CameraShakeSingle</subEffecterClass>
+        <initialDelayTicks>0</initialDelayTicks>
+        <positionOffset>(0, 0, 0)</positionOffset>
+        <cameraShake>.1</cameraShake>
+        <lifespanMaxTicks>1</lifespanMaxTicks>
+        <distanceAttenuationScale>1</distanceAttenuationScale>
+      </li>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+        <positionRadius>0.3</positionRadius>
+        <fleckDef>BloodSplash</fleckDef>
+        <burstCount>5~7</burstCount>
+        <scale>2~2.5</scale>
+        <color>(98, 67, 50)</color>
+        <spawnLocType>OnSource</spawnLocType>
+        <speed>3.3~5</speed>
+        <angle>-30~30</angle>
+      </li>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+        <positionRadius>0.3</positionRadius>
+        <moteDef>DV_BloodSplash</moteDef>
+        <burstCount>3~4</burstCount>
+        <speed>2.3~3</speed>
+        <scale>2~2.5</scale>
+        <color>(98, 67, 50)</color>
+        <spawnLocType>OnSource</spawnLocType>
+      </li>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+        <positionRadius>0.03</positionRadius>
+        <moteDef>Mote_SparkThrownFast</moteDef>
+        <burstCount>4~5</burstCount>
+        <speed>3.3~5</speed>
+        <scale>0.1~0.2</scale>
+        <spawnLocType>OnSource</spawnLocType>
+      </li>
+    </children>
+    <offsetTowardsTarget>0.25~0.25</offsetTowardsTarget>
+    <positionRadius>0.1</positionRadius>
+  </EffecterDef>
+
+  <ThingDef ParentName="MoteBase">
+    <defName>DV_BloodSplash</defName>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <mote>
+      <fadeInTime>0.03</fadeInTime>
+      <solidTime>0.04</solidTime>
+      <fadeOutTime>0.13</fadeOutTime>
+      <collide>true</collide>
+    </mote>
+    <graphicData>
+      <texPath>Things/Mote/BloodSplash</texPath>
+      <shaderType>Mote</shaderType>
+    </graphicData>
+  </ThingDef>
+
+  <EffecterDef>
     <defName>DV_Damage_HitMonsterGolem</defName>
     <children>
       <li>

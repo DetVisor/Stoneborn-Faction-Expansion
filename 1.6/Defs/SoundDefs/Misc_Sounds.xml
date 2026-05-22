@@ -1,6 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
+  <SoundDef>
+    <defName>DV_VaultEntered</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/VaultEntered</clipPath>
+          </li>
+        </grains>
+        <onCamera>True</onCamera>
+        <volumeRange>12~18</volumeRange>
+        <pitchRange>1~1.5</pitchRange>
+        <distRange>0~50</distRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>DV_Ambient_Vault</defName>
+    <sustain>True</sustain>
+    <context>MapOnly</context>
+    <priorityMode>PrioritizeNearest</priorityMode>
+    <subSounds>
+      <li>
+        <onCamera>True</onCamera>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/VaultAmbience2</clipPath>
+          </li>
+        </grains>
+        <volumeRange>1</volumeRange>
+        <paramMappings>
+          <li>
+            <inParam Class="SoundParamSource_AmbientVolume" />
+            <outParam Class="SoundParamTarget_Volume" />
+          </li>
+        </paramMappings>
+        <randomStartPoint>true</randomStartPoint>
+      </li>
+      <li>
+        <onCamera>True</onCamera>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>Things/MetallicSounds</clipFolderPath>
+          </li>
+        </grains>
+        <volumeRange>2~3</volumeRange>
+        <pitchRange>0.4~1.6</pitchRange>
+        <sustainLoop>false</sustainLoop>
+        <sustainIntervalRange>5~25</sustainIntervalRange>
+        <startDelayRange>10~15</startDelayRange>
+        <paramMappings>
+          <li>
+            <inParam Class="SoundParamSource_AmbientVolume" />
+            <outParam Class="SoundParamTarget_Volume" />
+          </li>
+        </paramMappings>
+      </li>
+    </subSounds>
+  </SoundDef>
+
 
   <SoundDef>
     <defName>Pawn_Golem_Moving</defName>
@@ -11,15 +74,15 @@
     <subSounds>
       <li>
         <grains>
-          <li Class="AudioGrain_Folder">
-            <clipFolderPath>Weapon/Artillery/Mortar_Explode_Dry</clipFolderPath>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/FootStepBig</clipPath>
           </li>
-        </grains>    
+        </grains>
         <pitchRange>0.85~1.15</pitchRange>
         <volumeRange>5~10</volumeRange>
         <gameSpeedRange>1</gameSpeedRange>
         <muteWhenPaused>true</muteWhenPaused>
-        <sustainIntervalRange>1</sustainIntervalRange>
+        <sustainIntervalRange>0.6</sustainIntervalRange>
         <repeatMode>NeverTwice</repeatMode>
         <sustainLoop>false</sustainLoop>
       </li>

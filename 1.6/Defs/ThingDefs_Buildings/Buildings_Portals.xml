@@ -174,6 +174,10 @@
       <pocketMapGenerator>LTS_StonebornVaultFirstFloor</pocketMapGenerator>
       <exitDef>LTS_StonebornVaultExitOuter</exitDef>
       <pocketMapSize>75</pocketMapSize>
+      <enteredLetterLabel>Stoneborn vault</enteredLetterLabel>
+      <enteredLetterText>The ancient entrance brought you to an abandoned stoneborn vault.\n\nThe air is damp, and there's no light, but if you have the courage, these ancient halls are full of monsters, treasure and glory waiting to be found.</enteredLetterText>
+      <enteredLetterDef>NeutralEvent</enteredLetterDef>
+      <traverseSound>DV_VaultEntered</traverseSound>
     </portal>
     <comps>
       <li Class="CompProperties_Hackable">

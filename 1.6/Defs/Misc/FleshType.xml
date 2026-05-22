@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <FleshTypeDef>
+        <defName>DV_Fleshtype_MonsterGolem</defName>
+        <corpseCategory>CorpsesAnimal</corpseCategory>
+        <damageEffecter>DV_Damage_HitMonsterGolem</damageEffecter>
+        <isOrganic>false</isOrganic>
+        <genericWounds>
+            <li>
+                <texture>Things/Pawn/Wounds/WoundA</texture>
+                <color>(98, 67, 50)</color>
+            </li>
+            <li>
+                <texture>Things/Pawn/Wounds/WoundB</texture>
+                <color>(98, 67, 50)</color>
+            </li>
+            <li>
+                <texture>Things/Pawn/Wounds/WoundC</texture>
+                <color>(98, 67, 50)</color>
+            </li>
+        </genericWounds>
+    </FleshTypeDef>
+
+    <FleshTypeDef>
+        <defName>DV_Fleshtype_MonsterGunk</defName>
+        <corpseCategory>CorpsesAnimal</corpseCategory>
+        <damageEffecter>DV_Damage_HitMonsterGunk</damageEffecter>
+        <isOrganic>false</isOrganic>
+        <genericWounds>
+            <li>
+                <texture>Things/Pawn/Wounds/SlimeWoundA</texture>
+            </li>
+            <li>
+                <texture>Things/Pawn/Wounds/SlimeWoundB</texture>
+            </li>
+            <li>
+                <texture>Things/Pawn/Wounds/SlimeWoundC</texture>
+            </li>
+        </genericWounds>
+    </FleshTypeDef>
+
+</Defs>

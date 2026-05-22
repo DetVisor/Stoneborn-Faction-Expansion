@@ -10,8 +10,8 @@
       <ComfyTemperatureMin>-32</ComfyTemperatureMin>
       <MarketValue>200</MarketValue>
       <LeatherAmount>0</LeatherAmount>
-      <ArmorRating_Blunt>0.80</ArmorRating_Blunt>
-      <ArmorRating_Sharp>0.22</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.60</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.10</ArmorRating_Sharp>
       <Wildness>0.2</Wildness>
     </statBases>
     <tools>
@@ -25,18 +25,13 @@
       </li>
     </tools>
     <race>
-      <deathAction Class="DeathActionProperties_Vanish">
-        <workerClass>DeathActionWorker_Vanish</workerClass>
-        <filth>DV_Filth_CavegunkGoop</filth>
-        <filthCountRange>1~2</filthCountRange>
-        <meatExplosionSize>Small</meatExplosionSize>
-      </deathAction>
+      <fleshType>DV_Fleshtype_MonsterGunk</fleshType>
       <body>DV_Gooplike</body>
       <baseHungerRate>0.40</baseHungerRate>
       <baseBodySize>1.12</baseBodySize>
-      <baseHealthScale>2.2</baseHealthScale>
+      <baseHealthScale>1.2</baseHealthScale>
       <meatLabel>goop</meatLabel>
-      <lifeExpectancy>16</lifeExpectancy>
+      <lifeExpectancy>500</lifeExpectancy>
       <needsRest>false</needsRest>
       <hasGenders>false</hasGenders>
       <foodType>None</foodType>
@@ -60,6 +55,19 @@
     <comps>
       <li Class="CompProperties_Effecter">
         <effecterDef>DV_DrippingGunk</effecterDef>
+      </li>
+      <li Class="LTS_StonebornSiteGeneration.CompProperties_DeathEffects">
+        <filthDef>DV_Filth_CavegunkGoop</filthDef>
+        <filthLayersRange>0~2</filthLayersRange>
+        <filthRadius>1</filthRadius>
+        <vanish>True</vanish>
+        <effecterDef>DV_Damage_SlimeVanish</effecterDef>
+        <extraItemList>
+          <li MayRequireAnyOf ="det.epochsgolems,det.epochspottery">
+            <thingDef>DV_Clay</thingDef>
+            <countRange>5~10</countRange>
+          </li>
+        </extraItemList>
       </li>
     </comps>
   </ThingDef>
@@ -103,6 +111,7 @@
     </lifeStages>
   </PawnKindDef>
 
+  <!--================================================ -->
 
   <ThingDef ParentName="AnimalThingBase">
     <defName>DV_Monster_Tusktroll</defName>
@@ -249,6 +258,8 @@
     </lifeStages>
   </PawnKindDef>
 
+  <!--================================================ -->
+
   <ThingDef ParentName="BigBirdThingBase">
     <defName>DV_Monster_Razorbeak</defName>
     <label>razorbeak</label>
@@ -369,6 +380,8 @@
       </li>
     </lifeStages>
   </PawnKindDef>
+
+  <!--================================================ -->
 
   <ThingDef ParentName="AnimalThingBase">
     <defName>DV_Monster_Imp</defName>
@@ -517,6 +530,8 @@
     </lifeStages>
   </PawnKindDef>
 
+  <!--================================================ -->
+
   <ThingDef ParentName="BaseInsect">
     <defName>DV_Monster_ToxShroom</defName>
     <label>rook-cap</label>
@@ -605,6 +620,8 @@
       </li>
     </lifeStages>
   </PawnKindDef>
+
+  <!--================================================ -->
 
   <ThingDef ParentName="BaseInsect">
     <defName>DV_Monster_Rustbug</defName>
@@ -712,6 +729,8 @@
     </lifeStages>
   </PawnKindDef>
 
+  <!--================================================ -->
+
   <ThingDef ParentName="AnimalThingBase">
     <defName>DV_Monster_WildGolem</defName>
     <label>wild golem</label>
@@ -722,6 +741,7 @@
       <MarketValue>200</MarketValue>
       <LeatherAmount>0</LeatherAmount>
       <MeatAmount>0</MeatAmount>
+      <Flammability>2</Flammability>
       <ArmorRating_Blunt>0.55</ArmorRating_Blunt>
       <ArmorRating_Sharp>0.30</ArmorRating_Sharp>
       <Wildness>0.2</Wildness>
@@ -738,15 +758,9 @@
       </li>
     </tools>
     <race>
-      <deathAction Class="DeathActionProperties_Divide">
-        <divideBloodFilthCountRange>3~4</divideBloodFilthCountRange>
-        <dividePawnCount>3</dividePawnCount>
-        <dividePawnKindOptions>
-          <li>DV_Monster_WildGolemite</li>
-        </dividePawnKindOptions>
-      </deathAction>
-      <fleshType>Normal</fleshType>
-      <body>DV_BipedalAnimalWithClaws</body>
+      <soundMoving>Pawn_Golem_Moving</soundMoving>
+      <fleshType>DV_Fleshtype_MonsterGolem</fleshType>
+      <body>DV_Golemlike</body>
       <baseHungerRate>1</baseHungerRate>
       <baseBodySize>2.2</baseBodySize>
       <baseHealthScale>3</baseHealthScale>
@@ -766,6 +780,33 @@
       <soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
       <soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
     </race>
+    <comps>
+      <li Class="LTS_StonebornSiteGeneration.CompProperties_DeathEffects">
+        <spawnGroups>
+          <li>
+            <pawnKind>DV_Monster_WildGolemite</pawnKind>
+            <range>3~4</range>
+          </li>
+        </spawnGroups>
+        <pawnSpawnLaunchDistance>0.5</pawnSpawnLaunchDistance>
+        <filthDef>DV_Filth_MonsterMud</filthDef>
+        <filthLayersRange>0~3</filthLayersRange>
+        <filthRadius>2</filthRadius>
+        <vanish>True</vanish>
+        <effecterDef>DV_Damage_GolemVanish</effecterDef>
+        <extraItemList>
+          <li MayRequire="det.epochsgolems">
+            <thingDef>DV_AnimaLog</thingDef>
+            <countRange>1~5</countRange>
+            <dropChancePercent>20</dropChancePercent>
+          </li>
+          <li MayRequireAnyOf ="det.epochsgolems,det.epochspottery">
+            <thingDef>DV_Clay</thingDef>
+            <countRange>15~60</countRange>
+          </li>
+        </extraItemList>
+      </li>
+    </comps>
   </ThingDef>
 
   <PawnKindDef ParentName="AnimalKindBase">
@@ -778,6 +819,7 @@
     <ecoSystemWeight>0.40</ecoSystemWeight>
     <canOpenDoors>false</canOpenDoors>
     <chronologicalAgeRange>10~20</chronologicalAgeRange>
+    <overrideDeathOnDownedChance>1</overrideDeathOnDownedChance>
     <lifeStages>
       <li>
         <bodyGraphicData>
@@ -792,6 +834,8 @@
       </li>
     </lifeStages>
   </PawnKindDef>
+
+  <!--================================================ -->
 
   <ThingDef ParentName="AnimalThingBase">
     <defName>DV_Monster_WildGolemite</defName>
@@ -819,15 +863,9 @@
       </li>
     </tools>
     <race>
-      <deathAction Class="DeathActionProperties_Vanish">
-        <workerClass>DeathActionWorker_Vanish</workerClass>
-        <filth>DV_Filth_MonsterMud</filth>
-        <filthCountRange>1~2</filthCountRange>
-        <meatExplosionSize>Small</meatExplosionSize>
-      </deathAction>
       <alwaysAwake>true</alwaysAwake>
-      <fleshType>Mechanoid</fleshType>
-      <body>DV_Monster_GolemBodyDef</body>
+      <fleshType>DV_Fleshtype_MonsterGolem</fleshType>
+      <body>DV_Golemlike</body>
       <baseHungerRate>0</baseHungerRate>
       <baseBodySize>1.4</baseBodySize>
       <baseHealthScale>1.2</baseHealthScale>
@@ -848,6 +886,21 @@
       <soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
       <soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
     </race>
+    <comps>
+      <li Class="LTS_StonebornSiteGeneration.CompProperties_DeathEffects">
+        <filthDef>DV_Filth_MonsterMud</filthDef>
+        <filthLayersRange>0~3</filthLayersRange>
+        <filthRadius>1</filthRadius>
+        <vanish>True</vanish>
+        <effecterDef>DV_Damage_GolemVanish</effecterDef>
+        <extraItemList>
+          <li MayRequireAnyOf ="det.epochsgolems,det.epochspottery">
+            <thingDef>DV_Clay</thingDef>
+            <countRange>5~10</countRange>
+          </li>
+        </extraItemList>
+      </li>
+    </comps>
   </ThingDef>
 
   <PawnKindDef ParentName="AnimalKindBase">
@@ -882,5 +935,165 @@
       </li>
     </lifeStages>
   </PawnKindDef>
+
+  <!--================================================ -->
+
+  <ThingDef Abstract="True" ParentName="AnimalThingBase" Name="BaseMonsterHate">
+    <statBases>
+      <MoveSpeed>6.0</MoveSpeed>
+      <MarketValue>50</MarketValue>
+      <ComfyTemperatureMin>-30</ComfyTemperatureMin>
+      <Wildness>0.75</Wildness>
+    </statBases>
+    <tools>
+      <li>
+        <capacities>
+          <li>Bite</li>
+        </capacities>
+        <power>3.4</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+      </li>
+      <li>
+        <label>bladekick left</label>
+        <capacities>
+          <li>Blunt</li>
+          <li>Cut</li>
+        </capacities>
+        <power>12</power>
+        <cooldownTime>1.82</cooldownTime>
+        <linkedBodyPartsGroup>DV_BackLeftFoot</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+      </li>
+
+      <li>
+        <label>bladekick right</label>
+        <capacities>
+          <li>Blunt</li>
+          <li>Cut</li>
+        </capacities>
+        <power>12</power>
+        <cooldownTime>1.82</cooldownTime>
+        <linkedBodyPartsGroup>DV_BackRightFoot</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+      </li>
+    </tools>
+    <race>
+      <body>DV_QuadrupedAnimalWithPawsAndTail</body>
+      <baseBodySize>0.2</baseBodySize>
+      <baseHungerRate>0.13</baseHungerRate>
+      <baseHealthScale>0.4</baseHealthScale>
+      <foodType>VegetarianRoughAnimal</foodType>
+      <leatherDef>Leather_Light</leatherDef>
+      <trainability>None</trainability>
+      <petness>0.08</petness>
+      <mateMtbHours>8</mateMtbHours>
+      <gestationPeriodDays>5.661</gestationPeriodDays>
+      <soundEating>Rodent_Eat</soundEating>
+      <litterSizeCurve>
+        <points>
+          <li>(1.0, 0)</li>
+          <li>(1.5, 1)</li>
+          <li>(2.0, 1)</li>
+          <li>(2.5, 0)</li>
+        </points>
+      </litterSizeCurve>
+      <lifeExpectancy>8</lifeExpectancy>
+      <manhunterOnDamageChance>0.8</manhunterOnDamageChance>
+      <manhunterOnTameFailChance>0.2</manhunterOnTameFailChance>
+      <lifeStageAges>
+        <li>
+          <def>AnimalBaby</def>
+          <minAge>0</minAge>
+        </li>
+        <li>
+          <def>AnimalJuvenile</def>
+          <minAge>0.1</minAge>
+        </li>
+        <li>
+          <def>AnimalAdult</def>
+          <minAge>0.2222</minAge>
+          <soundWounded>Pawn_Hare_Wounded</soundWounded>
+          <soundDeath>Pawn_Hare_Death</soundDeath>
+          <soundCall>Pawn_Hare_Call</soundCall>
+          <soundAngry>Pawn_Hare_Angry</soundAngry>
+        </li>
+      </lifeStageAges>
+      <soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
+      <soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
+      <soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
+    </race>
+  </ThingDef>
+
+  <PawnKindDef Abstract="True" ParentName="AnimalKindBase" Name="BaseMonsterHarePawnkind">
+    <combatPower>60</combatPower>
+    <ecoSystemWeight>0.25</ecoSystemWeight>
+  </PawnKindDef>
+
+  <ThingDef ParentName="BaseMonsterHate">
+    <defName>DV_Monster_Switchrabbit</defName>
+    <label>switchrabbit</label>
+    <description>Small herbivorous mammals, native to vaults. Switchrabbits, also colloquially referred to as cave hares, are lagomorphs adapted to dwelling in dark, sparsely lit hallways and caverns. Despite their seemingly passive demeanor, when put in a life or death scenario, switchrabbits extend bony blades out of their hindfeet; combined with their viciousness in combat, they're able to decapitate even experienced trackers.</description>
+    <uiIconScale>1.5</uiIconScale>
+    <race>
+      <headPosPerRotation>
+        <li>(0.0, 0, 0.07)</li>
+        <li>(0.19, 0, 0)</li>
+        <li>(0.0, 0, -0.07)</li>
+        <li>(-0.19, 0, 0)</li>
+      </headPosPerRotation>
+    </race>
+  </ThingDef>
+
+  <PawnKindDef ParentName="BaseMonsterHarePawnkind">
+    <defName>DV_Monster_Switchrabbit</defName>
+    <label>switchrabbit</label>
+    <race>DV_Monster_Switchrabbit</race>
+    <canArriveManhunter>false</canArriveManhunter>
+    <alternateGraphicChance>0.5</alternateGraphicChance>
+    <canOpenDoors>false</canOpenDoors>
+    <alternateGraphics>
+      <li>
+        <texPath>Things/Pawn/Animal/Switchrabbit/Switchrabbit2</texPath>
+      </li>
+    </alternateGraphics>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Animal/Switchrabbit/Switchrabbit</texPath>
+          <drawSize>0.7</drawSize>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/Animal/Switchrabbit/Switchrabbit_Dessicated</texPath>
+          <drawSize>0.7</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Animal/Switchrabbit/Switchrabbit</texPath>
+          <drawSize>1</drawSize>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/Animal/Switchrabbit/Switchrabbit_Dessicated</texPath>
+          <drawSize>1</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Animal/Switchrabbit/Switchrabbit</texPath>
+          <drawSize>1.15</drawSize>
+          <shadowData>
+            <volume>(0.32, 0.35, 0.32)</volume>
+            <offset>(0,0,0)</offset>
+          </shadowData>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/Animal/Switchrabbit/Switchrabbit_Dessicated</texPath>
+          <drawSize>1.15</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
 
 </Defs>
