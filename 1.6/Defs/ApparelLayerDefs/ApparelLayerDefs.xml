@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ApparelLayerDef>
+        <defName>LTS_Necklace</defName>
+        <label>necklace</label>
+        <drawOrder>501</drawOrder>
+    </ApparelLayerDef>
+
+</Defs>
