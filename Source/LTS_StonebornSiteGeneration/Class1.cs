@@ -978,6 +978,17 @@ namespace LTS_StonebornSiteGeneration
         }
     }
 
+    public class Verb_CastAbilityDash : Verb_CastAbilityJump
+    {
+        public override ThingDef JumpFlyerDef
+        {
+            get
+            {
+                return ThingDef.Named("LTS_SFE_DashPawnFlier");
+            }
+        }
+    }
+
 
 
 
