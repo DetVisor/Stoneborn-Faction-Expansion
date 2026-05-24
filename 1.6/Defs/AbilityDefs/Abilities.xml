@@ -60,7 +60,7 @@
     <description>There was a description here.</description>
     <iconPath>UI/Icons/Genes/Gene_Bloodfeeder</iconPath>
     <jobDef>CastAbilityOnThingWithoutWeapon</jobDef>
-    <canUseAoeToGetTargets>True</canUseAoeToGetTargets>
+    <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
     <ai_SearchAOEForTargets>true</ai_SearchAOEForTargets>
     <targetRequired>false</targetRequired>
     <showCastingProgressBar>true</showCastingProgressBar>
@@ -98,7 +98,7 @@
     </comps>
   </AbilityDef>
 
-  <AbilityDef Name="LongJumpMech">
+  <AbilityDef>
     <defName>DV_Exemplar_Dash</defName>
     <label>elven dash</label>
     <description>Jump to a distant location using special ultrafast mechanoid muscles.</description>
