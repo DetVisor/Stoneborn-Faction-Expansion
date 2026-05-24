@@ -1389,6 +1389,10 @@
       <li Class="CompProperties_Effecter">
         <effecterDef>DV_ExemplarAttached</effecterDef>
       </li>
+      <li Class="LTS_StonebornSiteGeneration.CompProperties_RoamingEncounterLeader">
+        <roamIntervalTicks>3600</roamIntervalTicks>
+        <positionRadius>6</positionRadius>
+      </li>
     </comps>
   </ThingDef>
 
