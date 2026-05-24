@@ -497,6 +497,28 @@
     </smeltProducts>
   </ThingDef>
 
+  <ThingDef ParentName="ChunkBase">
+    <defName>DV_KnyfevynRemains</defName>
+    <label>elven remains</label>
+    <description>A chunk of mithrium slag. While it's useless in its current form, it can be smelted to recover mithrium.</description>
+    <graphicData>
+      <texPath>Things/Building/Ruins/Dwarven_KnyfevynScraps</texPath>
+      <graphicClass>Graphic_Random</graphicClass>
+      <drawSize>(1.9,1.9)</drawSize>
+    </graphicData>
+    <statBases>
+      <Mass>12</Mass>
+    </statBases>
+    <soundDrop>ChunkSlag_Drop</soundDrop>
+    <thingCategories>
+      <li>Chunks</li>
+    </thingCategories>
+    <smeltable>true</smeltable>
+    <smeltProducts>
+      <Steel>15</Steel>
+    </smeltProducts>
+  </ThingDef>
+
   <ThingDef ParentName="BuildingBase">
     <defName>DV_Dwarven_RuinedChair</defName>
     <label>ruined chair</label>
@@ -1192,7 +1214,7 @@
       <WoodLog>60</WoodLog>
     </costList>
     <building>
-      <claimable>false</claimable>
+      <claimable>true</claimable>
       <deconstructible>true</deconstructible>
       <isInert>true</isInert>
       <ai_chillDestination>false</ai_chillDestination>
@@ -1240,7 +1262,13 @@
 
   <ThingDef ParentName="CrateBase" Name="DV_MinecartCrate" Abstract="True">
     <building>
-      <openingStartedSound>Building_Deconstructed</openingStartedSound>
+      <openingStartedSound>DV_CrateOpened</openingStartedSound>
+    </building>
+  </ThingDef>
+
+  <ThingDef ParentName="CrateBase" Name="DV_SackCrate" Abstract="True">
+    <building>
+      <openingStartedSound>DV_SackOpened</openingStartedSound>
     </building>
   </ThingDef>
 
@@ -1453,6 +1481,35 @@
     <uiOrder>2000</uiOrder>
     <constructEffect>ConstructMetal</constructEffect>
     <clearBuildingArea>false</clearBuildingArea>
+  </ThingDef>
+
+  <ThingDef MayRequire="det.sbcuisine" ParentName="DV_SackCrate">
+    <defName>DV_Dwarven_FlourSack</defName>
+    <label>flour sack</label>
+    <description>A box filled with valuable components. Some are intact and useable.</description>
+    <graphicData>
+      <texPath>Things/Building/Ruins/Dwarven_FlourSack/FlourSackFull</texPath>
+      <graphicClass>Graphic_Random</graphicClass>
+      <drawSize>(2.2,2.2)</drawSize>
+    </graphicData>
+    <size>(1, 1)</size>
+    <fillPercent>0.25</fillPercent>
+    <statBases>
+      <MaxHitPoints>120</MaxHitPoints>
+    </statBases>
+    <rotatable>false</rotatable>
+    <comps>
+      <li Class="CompProperties_EmptyStateGraphic">
+        <graphicData>
+          <texPath>Things/Building/Ruins/Dwarven_FlourSack/FlourSackEmpty</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+          <drawSize>(2.2,2.2)</drawSize>
+        </graphicData>
+      </li>
+      <li Class="CompProperties_LootSpawn">
+        <contents>MapGen_Sack_Flour</contents>
+      </li>
+    </comps>
   </ThingDef>
 
 </Defs>

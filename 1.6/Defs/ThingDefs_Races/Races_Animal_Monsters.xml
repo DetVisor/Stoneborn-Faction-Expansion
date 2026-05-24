@@ -1096,4 +1096,333 @@
   </PawnKindDef>
 
 
+
+
+  <ThingDef ParentName="BasePawn" Name="DV_BaseKnyfevyn" Abstract="True">
+    <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+    <statBases>
+      <MarketValue>1200</MarketValue>
+      <PsychicSensitivity>2</PsychicSensitivity>
+      <ToxicResistance>1</ToxicResistance>
+      <Flammability>0</Flammability>
+      <ComfyTemperatureMin>-100</ComfyTemperatureMin>
+      <ComfyTemperatureMax>250</ComfyTemperatureMax>
+      <MeatAmount>0</MeatAmount>
+      <ArmorRating_Heat>2.00</ArmorRating_Heat>
+      <ToxicEnvironmentResistance>1</ToxicEnvironmentResistance>
+    </statBases>
+    <receivesSignals>true</receivesSignals>
+    <tradeability>None</tradeability>
+    <race>
+      <thinkTreeMain>Mechanoid</thinkTreeMain>
+      <fleshType>Mechanoid</fleshType>
+      <needsRest>false</needsRest>
+      <hasGenders>false</hasGenders>
+      <foodType>None</foodType>
+      <lifeExpectancy>2500</lifeExpectancy>
+      <bloodDef>Filth_MachineBits</bloodDef>
+      <soundCallIntervalRange>1000~2000</soundCallIntervalRange>
+      <canFlyInVacuum>true</canFlyInVacuum>
+    </race>
+  </ThingDef>
+
+  <PawnKindDef Name="DV_BaseyKnyfevynKind" Abstract="True">
+    <defaultFactionDef>DV_DungeonMonsters</defaultFactionDef>
+    <aiAvoidCover>true</aiAvoidCover>
+    <destroyGearOnDrop>true</destroyGearOnDrop>
+    <canStrip>false</canStrip>
+    <minGenerationAge>200</minGenerationAge>
+    <forceNormalGearQuality>true</forceNormalGearQuality>
+  </PawnKindDef>
+
+  <ThingDef ParentName="DV_BaseKnyfevyn" Name="DV_BaseAcolyte" Abstract="True">
+    <statBases>
+      <MoveSpeed>5</MoveSpeed>
+      <ArmorRating_Blunt>0.40</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.40</ArmorRating_Sharp>
+    </statBases>
+    <race>
+      <intelligence>ToolUser</intelligence>
+      <baseBodySize>1.0</baseBodySize>
+      <lifeStageAges>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>0</minAge>
+        </li>
+      </lifeStageAges>
+    </race>
+    <butcherProducts>
+      <Steel>15</Steel>
+    </butcherProducts>
+    <comps>
+      <li Class="LTS_StonebornSiteGeneration.CompProperties_DeathEffects">
+        <effecterDef>DV_KnyfevynBanish_Acolyte</effecterDef>
+        <filthDef>Filth_MachineBits</filthDef>
+        <filthLayersRange>0~2</filthLayersRange>
+        <filthRadius>1</filthRadius>
+        <vanish>True</vanish>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="DV_BaseAcolyte">
+    <defName>DV_Monster_KnyfevynAcolyte</defName>
+    <label>possessed acolyte</label>
+    <description>Fast human-sized combat mechanoids built for medium and long-range combat. Their bodies are light, making them vulnerable targets at close range - especially in melee combat.</description>
+    <tools>
+      <li>
+        <label>left fist</label>
+        <labelNoLocation>fist</labelNoLocation>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>12.0</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+        <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+      </li>
+      <li>
+        <label>right fist</label>
+        <labelNoLocation>fist</labelNoLocation>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>12.0</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+        <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+      </li>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8.5</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.2</chanceFactor>
+      </li>
+    </tools>
+    <race>
+      <body>Human</body>
+      <baseHealthScale>1.6</baseHealthScale>
+    </race>
+  </ThingDef>
+
+  <PawnKindDef ParentName="DV_BaseyKnyfevynKind">
+    <defName>DV_Monster_KnyfevynAcolyte</defName>
+    <label>possessed acolyte</label>
+    <race>DV_Monster_KnyfevynAcolyte</race>
+    <combatPower>190</combatPower>
+    <alternateGraphicChance>0.4</alternateGraphicChance>
+    <canOpenDoors>false</canOpenDoors>
+    <alternateGraphics>
+      <li>
+        <texPath>Things/Pawn/Animal/KnyfevynAcolyte/KnyfevynAcolyte2</texPath>
+      </li>
+    </alternateGraphics>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Animal/KnyfevynAcolyte/KnyfevynAcolyte</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.7</drawSize>
+          <shadowData>
+            <volume>(0.4, 0.8, 0.4)</volume>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+    <weaponMoney>9999~9999</weaponMoney>
+    <weaponTags>
+      <li>DV_KnyfevynWeapon_Melee</li>
+    </weaponTags>
+    <techHediffsChance>1</techHediffsChance>
+    <techHediffsMoney>9999~9999</techHediffsMoney>
+  </PawnKindDef>
+
+  <ThingDef ParentName="DV_BaseAcolyte">
+    <defName>DV_Monster_KnyfevynAdept</defName>
+    <label>possessed adept</label>
+    <description>Fast human-sized combat mechanoids built for medium and long-range combat. Their bodies are light, making them vulnerable targets at close range - especially in melee combat.</description>
+    <tools>
+      <li>
+        <label>left fist</label>
+        <labelNoLocation>fist</labelNoLocation>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>12.0</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+        <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+      </li>
+      <li>
+        <label>right fist</label>
+        <labelNoLocation>fist</labelNoLocation>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>12.0</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+        <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+      </li>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8.5</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.2</chanceFactor>
+      </li>
+    </tools>
+    <race>
+      <body>Human</body>
+      <baseHealthScale>2</baseHealthScale>
+    </race>
+    <comps Inherit="False">
+      <li Class="LTS_StonebornSiteGeneration.CompProperties_DeathEffects">
+        <effecterDef>DV_KnyfevynBanish_Adept</effecterDef>
+        <filthDef>Filth_MachineBits</filthDef>
+        <filthLayersRange>0~2</filthLayersRange>
+        <filthRadius>1</filthRadius>
+        <vanish>True</vanish>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <PawnKindDef ParentName="DV_BaseyKnyfevynKind">
+    <defName>DV_Monster_KnyfevynAdept</defName>
+    <label>possessed adept</label>
+    <race>DV_Monster_KnyfevynAdept</race>
+    <combatPower>190</combatPower>
+    <canOpenDoors>false</canOpenDoors>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Animal/KnyfevynAdept/KnyfevynAdept</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.7</drawSize>
+          <shadowData>
+            <volume>(0.4, 0.8, 0.4)</volume>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+    <weaponMoney>9999~9999</weaponMoney>
+    <weaponTags>
+      <li>DV_KnyfevynWeapon_Ranged</li>
+    </weaponTags>
+    <techHediffsChance>1</techHediffsChance>
+    <techHediffsMoney>9999~9999</techHediffsMoney>
+  </PawnKindDef>
+
+  <ThingDef ParentName="DV_BaseAcolyte">
+    <defName>DV_Monster_KnyfevynExemplar</defName>
+    <label>possessed exemplar</label>
+    <description>Fast human-sized combat mechanoids built for medium and long-range combat. Their bodies are light, making them vulnerable targets at close range - especially in melee combat.</description>
+    <statBases>
+      <MoveSpeed>6</MoveSpeed>
+      <MeleeDodgeChance>0.5</MeleeDodgeChance>
+      <MeleeHitChance>1</MeleeHitChance>
+      <ArmorRating_Blunt>0.55</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.70</ArmorRating_Sharp>
+      <ArmorRating_Heat>1.2</ArmorRating_Heat>
+    </statBases>
+    <tools>
+      <li>
+        <label>left fist</label>
+        <labelNoLocation>fist</labelNoLocation>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>16.0</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+        <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+      </li>
+      <li>
+        <label>right fist</label>
+        <labelNoLocation>fist</labelNoLocation>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>16.0</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+        <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+      </li>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8.5</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.2</chanceFactor>
+      </li>
+    </tools>
+    <race>
+      <body>Human</body>
+      <baseHealthScale>3.2</baseHealthScale>
+    </race>
+    <comps Inherit="False">
+      <li Class="LTS_StonebornSiteGeneration.CompProperties_DeathEffects">
+        <effecterDef>DV_KnyfevynBanish_Exemplar</effecterDef>
+        <filthDef>Filth_MachineBits</filthDef>
+        <filthLayersRange>0~2</filthLayersRange>
+        <filthRadius>1</filthRadius>
+        <vanish>True</vanish>
+      </li>
+      <li Class="CompProperties_LetterOnRevealed">
+        <label>The Exemplar</label>
+        <text>Emerging with a graceful yet unnatural gait from the gloom, an ornately adorned warrior, crackling with psychic power makes himself known.\n\nYour colonists' eyes dart across the figure: twisted faces in pain sewn together forming a grand, tattered cloak. Glistening yet ruined gold accents lining the fine armor.\n\nAn Exemplar of the long-dead knyfevyn stands before you, glaive in hand, ready for combat, as he was ages ago.</text>
+        <letterDef>ThreatBig</letterDef>
+      </li>
+      <li Class="CompProperties_Effecter">
+        <effecterDef>DV_ExemplarAttached</effecterDef>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <PawnKindDef ParentName="DV_BaseyKnyfevynKind">
+    <defName>DV_Monster_KnyfevynExemplar</defName>
+    <label>possessed exemplar</label>
+    <race>DV_Monster_KnyfevynExemplar</race>
+    <combatPower>190</combatPower>
+    <canOpenDoors>true</canOpenDoors>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Animal/KnyfevynExemplar/KnyfevynExemplar</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.8</drawSize>
+          <drawOffset>(0,0,0.4)</drawOffset>
+          <shadowData>
+            <volume>(0.4, 0.8, 0.4)</volume>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+    <weaponMoney>9999~9999</weaponMoney>
+    <weaponTags>
+      <li>DV_KnyfevynWeapon_MeleeStrong</li>
+    </weaponTags>
+    <techHediffsChance>1</techHediffsChance>
+    <techHediffsMoney>9999~9999</techHediffsMoney>
+    <abilities>
+      <li>DV_Exemplar_SkipAway</li>
+      <li>DV_Exemplar_Firebolts</li>
+      <li>DV_Exemplar_PsychicBlast</li>
+      <li>DV_Exemplar_Dash</li>
+    </abilities>
+  </PawnKindDef>
+
 </Defs>

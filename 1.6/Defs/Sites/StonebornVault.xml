@@ -2,10 +2,10 @@
 <Defs>
 	<SitePartDef>
 		<defName>LTS_StonebornVaultSite</defName>
-		<label>stoneborn ruins</label>
-		<description>A ruined site.</description>
+		<label>stoneborn vault</label>
+		<description>An ancient stoneborn vault.</description>
 		<siteTexture>World/WorldObjects/Sites/GenericSite</siteTexture>
-		<expandingIconTexture>World/StonebornRuin</expandingIconTexture>
+		<expandingIconTexture>World/StonebornVault</expandingIconTexture>
 		<handlesWorldObjectTimeoutInspectString>true</handlesWorldObjectTimeoutInspectString>
 		<gravShipsCanLandOn>true</gravShipsCanLandOn>
 		<tags>
@@ -45,6 +45,8 @@
 			<li>RockChunks</li>
 			<li>DV_ScatterMithriumChunksLarge</li>
 			<li>DV_ScatterWoodPiles</li>
+			<li MayRequire="det.sbcuisine">DV_ScatterFlour</li>
+			<li>DV_ScatterKnyfevynRemains</li>
 
 			<li>LTS_StonebornVault</li>
 			<li>LTS_MinecartContents</li>
@@ -104,6 +106,8 @@
 			<li>RockChunks</li>
 			<li>DV_ScatterMithriumChunks</li>
 			<li>DV_ScatterWoodPiles</li>
+			<li MayRequire="det.sbcuisine">DV_ScatterFlour</li>
+			<li>DV_ScatterKnyfevynRemains</li>
 
 			<li>LTS_StonebornVaultIntermediate</li>
 
@@ -154,7 +158,43 @@
 	</GenStepDef>
 
 	<GenStepDef>
-		<order>552</order>
+		<order>553</order>
+		<defName>DV_ScatterKnyfevynRemains</defName>
+		<genStep Class="GenStep_ScatterGroup">
+			<minSpacing>11</minSpacing>
+			<count>3</count>
+			<validators>
+				<li Class="ScattererValidator_Buildable">
+					<affordance>Heavy</affordance>
+				</li>
+			</validators>
+			<groups>
+				<li>
+					<things>
+						<DV_KnyfevynRemains>3</DV_KnyfevynRemains>
+					</things>
+					<coveredCellsPer10Cells>0.8~1.5</coveredCellsPer10Cells>
+					<filthDef>Filth_MachineBits</filthDef>
+					<filthExpandBy>1</filthExpandBy>
+					<filthChance>0.3</filthChance>
+					<clusterRectRadius>3~4</clusterRectRadius>
+				</li>
+				<li>
+					<things>
+						<DV_KnyfevynRemains>3</DV_KnyfevynRemains>
+					</things>
+					<coveredCellsPer10Cells>0.8~1.5</coveredCellsPer10Cells>
+					<filthDef>Filth_MachineBits</filthDef>
+					<filthExpandBy>1</filthExpandBy>
+					<filthChance>0.3</filthChance>
+					<clusterRectRadius>3~4</clusterRectRadius>
+				</li>
+			</groups>
+		</genStep>
+	</GenStepDef>
+
+	<GenStepDef>
+		<order>554</order>
 		<defName>DV_ScatterMithriumChunksLarge</defName>
 		<genStep Class="GenStep_ScatterGroup">
 			<minSpacing>12</minSpacing>
@@ -190,7 +230,7 @@
 	</GenStepDef>
 
 	<GenStepDef>
-		<order>552</order>
+		<order>553</order>
 		<defName>DV_ScatterWoodPiles</defName>
 		<genStep Class="GenStep_ScatterGroup">
 			<minSpacing>14</minSpacing>
@@ -206,7 +246,30 @@
 						<DV_Dwarven_WoodPile>1</DV_Dwarven_WoodPile>
 					</things>
 					<coveredCellsPer10Cells>0.8~1.5</coveredCellsPer10Cells>
-					<clusterRectRadius>2~3</clusterRectRadius>
+					<clusterRectRadius>2~2</clusterRectRadius>
+				</li>
+			</groups>
+		</genStep>
+	</GenStepDef>
+
+	<GenStepDef MayRequire="det.sbcuisine">
+		<order>554</order>
+		<defName>DV_ScatterFlour</defName>
+		<genStep Class="GenStep_ScatterGroup">
+			<minSpacing>9</minSpacing>
+			<count>2</count>
+			<validators>
+				<li Class="ScattererValidator_Buildable">
+					<affordance>Heavy</affordance>
+				</li>
+			</validators>
+			<groups>
+				<li>
+					<things>
+						<DV_Dwarven_FlourSack>1</DV_Dwarven_FlourSack>
+					</things>
+					<coveredCellsPer10Cells>0.8~1.5</coveredCellsPer10Cells>
+					<clusterRectRadius>2~2</clusterRectRadius>
 				</li>
 			</groups>
 		</genStep>
@@ -251,6 +314,8 @@
 			<li>RockChunks</li>
 			<li>DV_ScatterMithriumChunks</li>
 			<li>DV_ScatterWoodPiles</li>
+			<li MayRequire="det.sbcuisine">DV_ScatterFlour</li>
+			<li>DV_ScatterKnyfevynRemains</li>
 
 			<li>LTS_StonebornVaultIntermediate</li>			<!--keep this, as it's first floor layers we're pulling from-->
 
@@ -1148,8 +1213,8 @@
 				<li>Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite</li>
 				<li>Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,.,.,.,.,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite</li>
 				<li>Granite,Granite,Granite,Granite,Granite,Granite,Granite,.,.,.,.,.,.,.,.,.,.,.,Granite,Granite,Granite,Granite,Granite,Granite,Granite,.,.,.,.,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite</li>
-				<li>Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,.,.,.,.,.,.,.,.,.,.,.,.,.,.,DV_Dwarven_MinecartRails,DV_Dwarven_MinecartRails,DV_Dwarven_MinecartRails,DV_Dwarven_MinecartRails,DV_Dwarven_Minecart_Steel,DV_Dwarven_MinecartRails,DV_Dwarven_MinecartRails,.,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,Granite,Granite,Granite</li>
-				<li>Granite,Granite,Granite,Granite,Granite,Granite,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,DV_Dwarven_Minecart_Steel,.,DV_Dwarven_RuinedWall,.,.,DV_Dwarven_RuinedBrazier,.,DV_Dwarven_RuinedUrn,.,.,.,.,.,DV_Dwarven_RuinedWall,.,DV_DwarvenCrate,.,DV_Dwarven_RuinedUrn,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,Granite,Granite</li>
+				<li>Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,.,.,.,.,.,.,.,.,.,.,.,.,.,.,DV_Dwarven_MinecartRails,DV_Dwarven_MinecartRails,DV_Dwarven_MinecartRails,DV_Dwarven_MinecartRails,DV_Dwarven_Minecart,DV_Dwarven_MinecartRails,DV_Dwarven_MinecartRails,.,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,Granite,Granite,Granite</li>
+				<li>Granite,Granite,Granite,Granite,Granite,Granite,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,DV_Dwarven_Minecart,.,DV_Dwarven_RuinedWall,.,.,DV_Dwarven_RuinedBrazier,.,DV_Dwarven_RuinedUrn,.,.,.,.,.,DV_Dwarven_RuinedWall,.,DV_DwarvenCrate,.,DV_Dwarven_RuinedUrn,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,Granite,Granite</li>
 				<li>Granite,Granite,Granite,Granite,Granite,.,.,.,.,.,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,.,.,DV_Filth_MithriumBits_North,.,.,.,.,.,DV_Dwarven_RuinedWall,.,.,.,.,.,.,.,.,DV_Dwarven_RuinedBrazier,.,.,.,.,.,.,.,DV_Dwarven_RuinedWall,Granite,Granite</li>
 				<li>Granite,Granite,Granite,Granite,Granite,.,.,.,.,.,DV_Dwarven_RuinedWall,DV_Filth_OldAlcohol_North,DV_Filth_OldAlcohol_North,DV_Filth_OldAlcohol_North,DV_Filth_OldAlcohol_North,DV_Filth_OldAlcohol_North,DV_Filth_OldAlcohol_North,DV_Filth_OldAlcohol_North,DV_Filth_OldAlcohol_North,.,.,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,.,.,.,.,.,.,.,DV_Dwarven_RuinedGateLocked_West,.,.,.,DV_Filth_MithriumBits_North,.,.,.,.,.,.,.,.,.,.,DV_Dwarven_RuinedChair_East,DV_Dwarven_RuinedCounter1x3c_North,DV_Dwarven_RuinedWall,Granite,Granite</li>
 				<li>Granite,Granite,Granite,Granite,Granite,.,.,.,.,.,DV_Dwarven_RuinedWall,DV_Filth_OldAlcohol_North,DV_Dwarven_AlcoholVat,.,DV_Filth_OldAlcohol_North,DV_Dwarven_AlcoholVat,.,DV_Filth_OldAlcohol_North,DV_Dwarven_AlcoholVat,.,.,.,DV_Dwarven_RuinedWall,.,.,.,DV_RuinedRug_Large_West,.,.,.,.,.,.,.,.,.,DV_Dwarven_RuinedChair_East,DV_Dwarven_RuinedTable2x2c,.,.,.,DV_Dwarven_RuinedPillar,.,.,.,.,.,DV_Dwarven_RuinedWall,Granite,Granite</li>
@@ -1161,13 +1226,13 @@
 				<li>Granite,Granite,Granite,Granite,Granite,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedCounter1x3c_North,DV_Dwarven_RuinedChair_West,.,.,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,.,DV_Dwarven_RuinedGateLocked_South,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,.,DV_Dwarven_RuinedGateLocked_South,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,Granite,.,.,.,DV_Dwarven_MinecartRails,DV_Filth_BrokenEquipment_North,.,DV_Dwarven_RuinedWall,.,DV_Dwarven_RuinedBrazier,.,DV_Dwarven_RuinedChair_South,.,DV_Dwarven_RuinedUrn,.,.,.,.,DV_Dwarven_RuinedWall,.,.,.,.,DV_Dwarven_WoodPile,DV_Dwarven_RuinedWall,Granite,Granite</li>
 				<li>Granite,Granite,Granite,Granite,Granite,DV_Dwarven_RuinedWall,.,.,.,.,.,.,.,.,.,.,.,.,.,DV_Dwarven_RuinedBrazier,DV_Dwarven_RuinedWall,Granite,Granite,Granite,.,.,DV_Dwarven_MineSupport,DV_Dwarven_MinecartRails,.,.,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Filth_MithriumBits_North,.,.,.,DV_DwarvenCrate,DV_Dwarven_RuinedWall,Granite,Granite</li>
 				<li>Granite,Granite,Granite,Granite,Granite,DV_Dwarven_RuinedWall,.,DV_Dwarven_RuinedChair_South,.,.,.,.,.,.,.,.,.,.,.,.,DV_Dwarven_RuinedWall,Granite,Granite,.,.,.,.,DV_Dwarven_MinecartRails,.,.,.,.,Granite,DV_Dwarven_Pipes,Granite,Granite,Granite,Granite,Granite,Granite,Granite,DV_Dwarven_RuinedWall,.,.,.,.,.,DV_Dwarven_RuinedWall,Granite,Granite</li>
-				<li>Granite,Granite,Granite,Granite,Granite,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedCounter1x3c_North,.,DV_Dwarven_RuinedScrollshelf_North,.,.,DV_Dwarven_RuinedScrollshelf_North,.,.,.,DV_Dwarven_RuinedScrollshelf_North,.,DV_Dwarven_RuinedScrollshelf_North,.,.,DV_Dwarven_RuinedWall,Granite,Granite,.,.,.,.,DV_Dwarven_MinecartRails,.,.,DV_Dwarven_Minecart_Steel,.,.,DV_Dwarven_Pipes,.,Granite,Granite,Granite,Granite,Granite,Granite,DV_Dwarven_RuinedWall,.,.,.,.,DV_Dwarven_RuinedUrn,DV_Dwarven_RuinedWall,Granite,Granite</li>
+				<li>Granite,Granite,Granite,Granite,Granite,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedCounter1x3c_North,.,DV_Dwarven_RuinedScrollshelf_North,.,.,DV_Dwarven_RuinedScrollshelf_North,.,.,.,DV_Dwarven_RuinedScrollshelf_North,.,DV_Dwarven_RuinedScrollshelf_North,.,.,DV_Dwarven_RuinedWall,Granite,Granite,.,.,.,.,DV_Dwarven_MinecartRails,.,.,DV_Dwarven_Minecart,.,.,DV_Dwarven_Pipes,.,Granite,Granite,Granite,Granite,Granite,Granite,DV_Dwarven_RuinedWall,.,.,.,.,DV_Dwarven_RuinedUrn,DV_Dwarven_RuinedWall,Granite,Granite</li>
 				<li>Granite,Granite,Granite,Granite,Granite,DV_Dwarven_RuinedWall,.,.,.,.,DV_RuinedRug_Large_West,.,.,DV_Filth_MithriumBits_North,.,.,.,.,.,.,DV_Dwarven_RuinedWall,Granite,Granite,.,DV_Dwarven_Minecart,.,.,DV_Dwarven_MinecartRails,DV_Filth_MithriumBits_North,.,.,.,.,DV_Dwarven_Pipes,.,.,Granite,Granite,Granite,Granite,Granite,DV_Dwarven_RuinedWall,.,.,.,.,.,DV_Dwarven_RuinedWall,Granite,Granite</li>
 				<li>Granite,Granite,Granite,Granite,Granite,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedUrn,.,.,.,.,.,.,.,.,.,.,.,.,.,DV_Dwarven_RuinedWall,Granite,Granite,.,.,.,.,.,.,.,.,.,.,DV_Dwarven_Pipes,.,.,Granite,Granite,Granite,Granite,Granite,DV_Dwarven_RuinedWall,.,.,LTS_StonebornVaultEntrance,.,.,DV_Dwarven_RuinedWall,Granite,Granite</li>
 				<li>Granite,Granite,Granite,Granite,Granite,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedScrollshelf_North,.,.,DV_Dwarven_RuinedScrollshelf_North,.,.,DV_Dwarven_RuinedScrollshelf_North,.,DV_Dwarven_RuinedScrollshelf_North,.,.,DV_Dwarven_RuinedScrollshelf_North,.,.,DV_Dwarven_RuinedWall,Granite,Granite,Granite,.,Granite,Granite,.,.,.,.,.,.,DV_Dwarven_Pipes,.,.,.,Granite,Granite,Granite,Granite,DV_Dwarven_RuinedWall,.,.,.,.,DV_Dwarven_RuinedLamp,DV_Dwarven_RuinedWall,Granite,Granite</li>
 				<li>Granite,Granite,Granite,Granite,Granite,DV_Dwarven_RuinedWall,.,.,.,.,.,.,DV_Filth_MithriumBits_North,.,.,.,.,.,.,DV_Dwarven_RuinedUrn,DV_Dwarven_RuinedWall,DV_Dwarven_Pipes,DV_Dwarven_Pipes,DV_Dwarven_Pipes,DV_Dwarven_Pipes,DV_Dwarven_Pipes,DV_Dwarven_Pipes,DV_Dwarven_Pipes,DV_Dwarven_Pipes,DV_Dwarven_Pipes,DV_Dwarven_Pipes,DV_Dwarven_Pipes,DV_Dwarven_Pipes,DV_Dwarven_Pipes,.,.,.,.,.,.,Granite,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedUrn,.,.,DV_Dwarven_RuinedBrazier,.,DV_Dwarven_RuinedWall,Granite,Granite</li>
 				<li>Granite,Granite,Granite,Granite,Granite,DV_Dwarven_RuinedWall,.,.,.,.,.,.,.,.,.,.,.,.,.,.,DV_Dwarven_RuinedWall,Granite,Granite,Granite,Granite,Granite,Granite,Granite,.,.,.,.,.,.,.,.,.,.,.,.,.,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,Granite,Granite</li>
-				<li>Granite,Granite,Granite,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,.,DV_Dwarven_RuinedScrollshelf_North,.,DV_Dwarven_RuinedPillar,.,.,.,.,DV_Dwarven_RuinedPillar,DV_Dwarven_RuinedScrollshelf_North,.,.,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,.,DV_Dwarven_MinecartRails,DV_Dwarven_MinecartRails,DV_Dwarven_MinecartRails,DV_Dwarven_MinecartRails,.,.,DV_Dwarven_Minecart_Steel,.,.,.,.,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite</li>
+				<li>Granite,Granite,Granite,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,.,DV_Dwarven_RuinedScrollshelf_North,.,DV_Dwarven_RuinedPillar,.,.,.,.,DV_Dwarven_RuinedPillar,DV_Dwarven_RuinedScrollshelf_North,.,.,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,.,DV_Dwarven_MinecartRails,DV_Dwarven_MinecartRails,DV_Dwarven_MinecartRails,DV_Dwarven_MinecartRails,.,.,DV_Dwarven_Minecart,.,.,.,.,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite</li>
 				<li>Granite,Granite,Granite,DV_Dwarven_RuinedWall,.,DV_Dwarven_RuinedCounter1x3c_West,.,.,.,.,.,.,.,.,.,.,.,.,.,.,DV_Dwarven_RuinedBrazier,.,.,.,.,.,.,.,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,.,.,.,.,DV_Filth_MithriumBits_North,.,.,DV_Filth_MithriumBits_North,.,.,.,.,.,Granite,Granite,Granite,Granite,Granite,Granite,Granite</li>
 				<li>Granite,Granite,Granite,DV_Dwarven_RuinedWall,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,DV_Dwarven_RuinedLamp,.,.,DV_PLACEHOLDER,.,.,.,DV_Dwarven_RuinedWall,DV_Dwarven_WoodPile,.,.,.,.,.,DV_Dwarven_MinecartRails,DV_Dwarven_MinecartRails,DV_Dwarven_MinecartRails,DV_Dwarven_MinecartRails,DV_Dwarven_MinecartRails,DV_Dwarven_MinecartRails,.,.,Granite,Granite,Granite,Granite,Granite,Granite</li>
 				<li>Granite,Granite,Granite,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedCounter1x3c_South,DV_Dwarven_RuinedChair_West,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,DV_Dwarven_RuinedPillar,.,.,.,.,.,.,DV_Dwarven_RuinedUrn,DV_Dwarven_RuinedWall,.,.,.,.,.,.,.,.,.,.,.,.,DV_Dwarven_WoodPile,.,Granite,Granite,Granite,Granite,Granite,Granite</li>
@@ -1183,7 +1248,7 @@
 				<li>Granite,Granite,Granite,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,DV_Dwarven_RuinedCounter1x3c_South,DV_Dwarven_RuinedWall,Granite,Granite,Granite,Granite,Granite,Granite,.,Granite,Granite,.,.,.,.,.,DV_Dwarven_MinecartRails,DV_Filth_MithriumBits_North,.,.,.,.,.,.,.,Granite,Granite,Granite,Granite,Granite</li>
 				<li>Granite,Granite,Granite,DV_Dwarven_RuinedWall,.,.,.,DV_Dwarven_RuinedUrn,.,DV_Dwarven_RuinedBrazier,.,.,.,.,.,.,DV_Dwarven_RuinedLamp,.,.,.,.,DV_Dwarven_RuinedWall,Granite,Granite,Granite,Granite,Granite,.,.,.,.,.,.,.,DV_Dwarven_MinecartRails,DV_Dwarven_MinecartRails,DV_Dwarven_MinecartRails,.,.,.,.,.,.,DV_Dwarven_Minecart,.,Granite,Granite,Granite,Granite,Granite</li>
 				<li>Granite,Granite,Granite,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,.,.,.,DV_Dwarven_RuinedBrazier,.,.,.,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,Granite,Granite,Granite,Granite,Granite,Granite,.,.,.,.,.,.,.,.,.,DV_Filth_BrokenEquipment_North,.,.,.,.,.,.,.,Granite,Granite,Granite,Granite,Granite</li>
-				<li>Granite,Granite,Granite,Granite,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedGate_North,.,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedGate_North,.,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,.,.,.,.,DV_Filth_BrokenEquipment_North,.,.,.,DV_Dwarven_MineSupport,.,.,.,.,.,.,.,DV_Dwarven_Minecart_Jade_South,.,.,Granite,Granite,Granite,Granite,Granite,Granite</li>
+				<li>Granite,Granite,Granite,Granite,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedGate_North,.,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedGate_North,.,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,DV_Dwarven_RuinedWall,.,.,.,.,DV_Filth_BrokenEquipment_North,.,.,.,DV_Dwarven_MineSupport,.,.,.,.,.,.,.,DV_Dwarven_Minecart_South,.,.,Granite,Granite,Granite,Granite,Granite,Granite</li>
 				<li>Granite,Granite,Granite,Granite,DV_Dwarven_RuinedWall,.,.,.,.,DV_Dwarven_RuinedLamp,DV_Dwarven_RuinedBrazier,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,Granite,.,.,.,.,.,.,Granite,Granite,Granite,Granite,Granite,Granite</li>
 				<li>Granite,Granite,Granite,Granite,DV_Dwarven_RuinedWall,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,DV_Dwarven_RuinedGateLocked_East,.,.,.,.,DV_RuinedRug_Small_West,.,.,DV_Filth_BrokenEquipment_North,.,.,.,.,.,.,Granite,Granite,Granite,.,.,Granite,Granite,Granite,Granite,Granite,Granite,Granite</li>
 				<li>Granite,Granite,Granite,Granite,DV_Dwarven_RuinedWall,.,.,Table_Royal3x3c_WoodLog,.,.,.,.,.,DV_Filth_MithriumBits_North,DV_RuinedRug_Large_South,.,.,.,.,.,DV_RuinedRug_Small_South,.,.,DV_Dwarven_RuinedWall,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite</li>
@@ -1233,7 +1298,7 @@
 				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,DV_Dwarven_Minecart,.,.,.,.,.,.,.,.</li>
 				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
 				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,DV_Dwarven_Minecart_Gold,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,DV_Dwarven_Minecart,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
 				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
 				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
 				<li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>

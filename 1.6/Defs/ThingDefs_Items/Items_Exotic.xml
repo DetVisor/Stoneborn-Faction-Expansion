@@ -1,45 +1,68 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-    <ThingDef ParentName="ResourceBase">
-        <defName>DV_RazorbugEgg</defName>
-        <label>razorbug pod</label>
-        <description>An artificial cryptobiotic egg grown by experienced stoneborn gene-seers. Upon being hatched, it will socially bond with the first person it sees. It can be eaten raw, but it's much better cooked.</description>
-        <possessionCount>1</possessionCount>
-        <altitudeLayer>Item</altitudeLayer>
-        <passability>PassThroughOnly</passability>
-        <fillPercent>0.50</fillPercent>
-        <graphicData>
-            <texPath>Things/Item/Special/RazorbugPod</texPath>
-            <graphicClass>Graphic_Random</graphicClass>
-            <drawSize>1.2</drawSize>
-            <flipExtraRotation>80</flipExtraRotation>
-          </graphicData>
-          <statBases>
-            <MarketValue>500</MarketValue>
-            <Mass>1.5</Mass>
-            <MaxHitPoints>125</MaxHitPoints>
-            <DeteriorationRate>0.5</DeteriorationRate>
-            <Flammability>0.2</Flammability>
-          </statBases>
-          <stackLimit>1</stackLimit>
-        <comps>
-		  <li Class="CompProperties_Usable">
-			<useJob>UseItem</useJob>
-			<useLabel>Hatch {0_label}</useLabel>
-			<useDuration>300</useDuration>
-		  </li>
-		  <li Class="CompProperties_UseEffectDestroySelf" />
-		  <li Class="LTS_StonebornSiteGeneration.CompProperties_UseEffectSpawnPawn">
-			<pawnKind>DV_Goreflea</pawnKind>
-			<useMessage>a {1} has emerged from its pod and imprinted upon {2}!</useMessage>
-			<messagetype>PositiveEvent</messagetype>
-			<tryBondingToUser>True</tryBondingToUser>
-		  </li>
-		</comps>
-		<thingCategories>
-		  <li>Manufactured</li>
-		</thingCategories>
-      </ThingDef>
+  <ThingDef ParentName="ResourceBase">
+    <defName>DV_RazorbugEgg</defName>
+    <label>razorbug pod</label>
+    <description>An artificial cryptobiotic egg grown by experienced stoneborn gene-seers. Upon being hatched, it will socially bond with the first person it sees. It can be eaten raw, but it's much better cooked.</description>
+    <possessionCount>1</possessionCount>
+    <altitudeLayer>Item</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <fillPercent>0.50</fillPercent>
+    <graphicData>
+      <texPath>Things/Item/Special/RazorbugPod</texPath>
+      <graphicClass>Graphic_Random</graphicClass>
+      <drawSize>1.2</drawSize>
+      <flipExtraRotation>80</flipExtraRotation>
+    </graphicData>
+    <statBases>
+      <MarketValue>500</MarketValue>
+      <Mass>1.5</Mass>
+      <MaxHitPoints>125</MaxHitPoints>
+      <DeteriorationRate>0.5</DeteriorationRate>
+      <Flammability>0.2</Flammability>
+    </statBases>
+    <stackLimit>1</stackLimit>
+    <comps>
+      <li Class="CompProperties_Usable">
+        <useJob>UseItem</useJob>
+        <useLabel>Hatch {0_label}</useLabel>
+        <useDuration>300</useDuration>
+      </li>
+      <li Class="CompProperties_UseEffectDestroySelf" />
+      <li Class="LTS_StonebornSiteGeneration.CompProperties_UseEffectSpawnPawn">
+        <pawnKind>DV_Goreflea</pawnKind>
+        <useMessage>a {1} has emerged from its pod and imprinted upon {2}!</useMessage>
+        <messagetype>PositiveEvent</messagetype>
+        <tryBondingToUser>True</tryBondingToUser>
+      </li>
+    </comps>
+    <thingCategories>
+      <li>Manufactured</li>
+    </thingCategories>
+  </ThingDef>
+
+  <ThingDef ParentName="ResourceBase">
+    <defName>DV_GutterlatchPearls</defName>
+    <label>gutterpearls</label>
+    <description>An ancient and famed stoneborn alloy. Mithrium is an extremely reliable metal, which absorbs blows and strikes with eases, and is easy to forge into mighty weapons.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/Gutterpearls</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <soundInteract>Metal_Drop</soundInteract>
+    <soundDrop>Metal_Drop</soundDrop>
+    <useHitPoints>false</useHitPoints>
+    <healthAffectsPrice>false</healthAffectsPrice>
+    <statBases>
+      <MarketValue>24</MarketValue>
+      <Mass>0.35</Mass>
+    </statBases>
+    <thingCategories>
+      <li>ResourcesRaw</li>
+    </thingCategories>
+    <burnableByRecipe>false</burnableByRecipe>
+    <allowedArchonexusCount>80</allowedArchonexusCount>
+  </ThingDef>
 
 </Defs>

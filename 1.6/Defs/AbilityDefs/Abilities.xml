@@ -1,6 +1,214 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+  <AbilityDef>
+    <defName>DV_Exemplar_Firebolts</defName>
+    <label>heatspikes</label>
+    <description>Fire a burst of low-accuracy energy bolts.</description>
+    <writeCombatLog>True</writeCombatLog>
+    <aiCanUse>true</aiCanUse>
+    <ai_SearchAOEForTargets>true</ai_SearchAOEForTargets>
+    <jobDef>CastAbilityOnThing</jobDef>
+    <targetRequired>true</targetRequired>
+    <showPsycastEffects>True</showPsycastEffects>
+    <cooldownTicksRange>500</cooldownTicksRange>    <!-- 1.5 to 3 seconds -->
+    <verbProperties>
+      <verbClass>Verb_AbilityShoot</verbClass>
+      <defaultProjectile>DV_Bullet_Knyfebolt</defaultProjectile>
+      <range>30.9</range>
+      <soundCast>Shot_MiniFlameblaster</soundCast>
+      <muzzleFlashScale>9</muzzleFlashScale>
+      <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+      <warmupTime>0</warmupTime>
+      <burstShotCount>5</burstShotCount>
+      <accuracyTouch>0.9</accuracyTouch>
+      <accuracyShort>0.8</accuracyShort>
+      <accuracyMedium>0.7</accuracyMedium>
+      <accuracyLong>0.6</accuracyLong>
+      <ai_IsWeapon>false</ai_IsWeapon>
+      <targetParams>
+        <canTargetLocations>false</canTargetLocations>
+        <canTargetPawns>true</canTargetPawns>
+        <canTargetBuildings>false</canTargetBuildings>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+      </li>
+    </comps>
+  </AbilityDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>DV_Bullet_Knyfebolt</defName>
+    <label>knyfebolt</label>
+    <graphicData>
+      <texPath>Things/Projectiles/Bullet_Knyfearrow</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>MoteGlow</shaderType>
+    </graphicData>
+    <projectile>
+      <damageDef>Burn</damageDef>
+      <damageAmountBase>14</damageAmountBase>
+      <speed>90</speed>
+    </projectile>
+  </ThingDef>
+
+  <AbilityDef>
+    <defName>DV_Exemplar_PsychicBlast</defName>
+    <label>psychic blast</label>
+    <description>There was a description here.</description>
+    <iconPath>UI/Icons/Genes/Gene_Bloodfeeder</iconPath>
+    <jobDef>CastAbilityOnThingWithoutWeapon</jobDef>
+    <canUseAoeToGetTargets>True</canUseAoeToGetTargets>
+    <ai_SearchAOEForTargets>true</ai_SearchAOEForTargets>
+    <targetRequired>false</targetRequired>
+    <showCastingProgressBar>true</showCastingProgressBar>
+    <aiCanUse>True</aiCanUse>
+    <cooldownTicksRange>250</cooldownTicksRange>
+    <warmupMoteSocialSymbol>UI/Abilities/BerserkTrance</warmupMoteSocialSymbol>
+    <statBases>
+      <Ability_EffectRadius>10</Ability_EffectRadius>
+    </statBases>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <warmupEffecter>DV_Exemplar_PsychicBlastCoreo</warmupEffecter>
+      <warmupTime>3</warmupTime>
+      <requireLineOfSight>false</requireLineOfSight>
+      <range>3.9</range>
+      <drawAimPie>false</drawAimPie>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+        <canTargetPawns>false</canTargetPawns>
+      </targetParams>
+      <soundCast>DV_BlastCast</soundCast>
+    </verbProperties>
+    <comps>
+      <li Class="EBSGFramework.CompProperties_EBSGBurst">
+        <explosion>
+          <radius>3.9</radius>
+          <damageDef>Stun</damageDef>
+          <explosionSound>Explosion_Vaporize</explosionSound>
+          <damageAmount>10</damageAmount>
+        </explosion>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+      </li>
+    </comps>
+  </AbilityDef>
+
+  <AbilityDef Name="LongJumpMech">
+    <defName>DV_Exemplar_Dash</defName>
+    <label>elven dash</label>
+    <description>Jump to a distant location using special ultrafast mechanoid muscles.</description>
+    <jobDef>CastAbilityOnThing</jobDef>
+    <iconPath>UI/Abilities/FireBurst</iconPath>
+    <cooldownTicksRange>120</cooldownTicksRange>
+    <aiCanUse>true</aiCanUse>
+    <ai_SearchAOEForTargets>true</ai_SearchAOEForTargets>
+    <targetRequired>true</targetRequired>
+    <hostile>false</hostile>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>LTS_StonebornSiteGeneration.Verb_CastAbilityDash</verbClass>
+      <label>jump</label>
+      <violent>false</violent>
+      <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+      <warmupTime>0.5</warmupTime>
+      <minRange>5.9</minRange>
+      <range>30.9</range>
+      <requireLineOfSight>true</requireLineOfSight>
+      <soundCast>Longjump_Jump</soundCast>
+      <soundLanding>Longjump_Land</soundLanding>
+      <flyWithCarriedThing>false</flyWithCarriedThing>
+      <targetParams>
+        <canTargetLocations>false</canTargetLocations>
+        <canTargetPawns>true</canTargetPawns>
+        <canTargetBuildings>false</canTargetBuildings>
+      </targetParams>
+    </verbProperties>
+  </AbilityDef>
+
+  <ThingDef ParentName="EtherealThingBase">
+    <defName>LTS_SFE_DashPawnFlier</defName>
+    <label>dash</label>
+    <thingClass>PawnFlyer</thingClass>
+    <useHitPoints>false</useHitPoints>
+    <drawOffscreen>true</drawOffscreen>
+    <tickerType>Normal</tickerType>
+    <altitudeLayer>Skyfaller</altitudeLayer>
+    <drawerType>RealtimeOnly</drawerType>
+
+    <pawnFlyer>
+      <flightDurationMin>0</flightDurationMin>
+      <flightSpeed>50</flightSpeed>
+      <workerClass>PawnFlyerWorker</workerClass>
+      <heightFactor>0</heightFactor>
+      <progressCurve>
+
+        <points>
+          <li>(0, 0)</li>
+
+          <li>(0.1, 0.02)</li>
+          <li>(0.2, 0.08)</li>
+          <li>(0.3, 0.18)</li>
+          <li>(0.4, 0.32)</li>
+          <li>(0.5, 0.5)</li>
+          <li>(0.6, 0.68)</li>
+          <li>(0.7, 0.82)</li>
+          <li>(0.8, 0.92)</li>
+          <li>(0.9, 0.98)</li>
+
+          <li>(1, 1)</li>
+        </points>
+      </progressCurve>
+    </pawnFlyer>
+  </ThingDef>
+
+  <AbilityDef>
+    <defName>DV_Exemplar_SkipAway</defName>
+    <label>skip away</label>
+    <description>Emit a burst of burning fuel in all directions to form puddles of ignited liquid on the ground.</description>
+    <jobDef>CastAbilityOnThingWithoutWeapon</jobDef>
+    <iconPath>UI/Abilities/FireBurst</iconPath>
+    <cooldownTicksRange>400</cooldownTicksRange>
+    <aiCanUse>true</aiCanUse>
+    <ai_SearchAOEForTargets>true</ai_SearchAOEForTargets>
+    <targetRequired>false</targetRequired>
+    <displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
+    <showCastingProgressBar>true</showCastingProgressBar>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <warmupTime>0.25</warmupTime>
+      <range>24.9</range>
+      <targetParams>
+        <canTargetSelf>False</canTargetSelf>
+        <canTargetAnimals>True</canTargetAnimals>
+        <canTargetItems>True</canTargetItems>
+      </targetParams>
+      <soundCast>DV_SkipCast</soundCast>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilityTeleport">
+        <compClass>CompAbilityEffect_Teleport</compClass>
+        <destination>RandomInRange</destination>
+        <randomRange>6.9~24.9</randomRange>
+        <clamorType>Ability</clamorType>
+        <clamorRadius>10</clamorRadius>
+        <destClamorType>Ability</destClamorType>
+        <destClamorRadius>10</destClamorRadius>
+        <stunTicks>70~120</stunTicks>
+        <goodwillImpact>-15</goodwillImpact>
+        <applyGoodwillImpactToLodgers>False</applyGoodwillImpactToLodgers>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+      </li>
+    </comps>
+  </AbilityDef>
+
   <AbilityDef ParentName="LongJumpMech">
     <defName>DV_RocketBoots_Boost</defName>
     <label>rocket boost</label>
@@ -303,7 +511,7 @@
     </comps>
   </AbilityDef>
 
-    <TrainableDef MayRequire="Ludeon.RimWorld.Odyssey">
+  <TrainableDef MayRequire="Ludeon.RimWorld.Odyssey">
     <defName>DV_ImpFireSpewDef</defName>
     <label>fire spew</label>
     <description>Command the animal to spit bellows of fire from its maw.</description>

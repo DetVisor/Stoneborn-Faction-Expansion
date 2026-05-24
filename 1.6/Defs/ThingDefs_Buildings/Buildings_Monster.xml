@@ -20,6 +20,9 @@
                 <offset>(0,0,0)</offset>
             </shadowData>
         </graphicData>
+        <costList>
+            <DV_Meat_Gutterlatch>120</DV_Meat_Gutterlatch>
+        </costList>
         <drawHighlight>true</drawHighlight>
         <drawHighlightOnlyForHostile>true</drawHighlightOnlyForHostile>
         <soundImpactDefault>Pawn_Cavegunk_Hit</soundImpactDefault>
@@ -28,8 +31,12 @@
         <stealable>false</stealable>
         <rotatable>false</rotatable>
         <passability>Impassable</passability>
+        <killedLeavingsChance>0.3</killedLeavingsChance>
+        <killedLeavingsRanges>
+            <DV_GutterlatchPearls>2~4</DV_GutterlatchPearls>
+        </killedLeavingsRanges>
         <statBases>
-            <MaxHitPoints>250</MaxHitPoints>
+            <MaxHitPoints>300</MaxHitPoints>
             <Flammability>1</Flammability>
             <Mass>10</Mass>
             <ShootingAccuracyTurret>0.94</ShootingAccuracyTurret>
@@ -73,6 +80,9 @@
                     <li>Stun</li>
                 </affectedDamageDefs>
             </li>
+            <li Class="CompProperties_SpawnEffecterOnDestroy">
+                <effect>DV_GutterlatchDestroyedLarge</effect>
+            </li>
             <li Class="CompProperties_DrawAdditionalGraphics">
                 <graphics>
                     <li>
@@ -86,9 +96,6 @@
                 </graphics>
             </li>
         </comps>
-        <killedLeavingsRanges>
-            <DV_Meat_Gutterlatch>30~45</DV_Meat_Gutterlatch>
-        </killedLeavingsRanges>
         <passability>PassThroughOnly</passability>
         <pathCost>50</pathCost>
         <fillPercent>0.4</fillPercent>
@@ -171,8 +178,12 @@
             <drawSize>1.2</drawSize>
             <onGroundRandomRotateAngle>360</onGroundRandomRotateAngle>
         </graphicData>
+        <costList>
+            <DV_Meat_Gutterlatch>40</DV_Meat_Gutterlatch>
+        </costList>
         <drawHighlight>true</drawHighlight>
         <drawHighlightOnlyForHostile>true</drawHighlightOnlyForHostile>
+        <soundImpactDefault>Pawn_Cavegunk_Hit</soundImpactDefault>
         <fillPercent>0.40</fillPercent>
         <rotatable>false</rotatable>
         <statBases>
@@ -196,6 +207,9 @@
                 <ticksToGrow>60000</ticksToGrow>
                 <finalDrawSize>1.8</finalDrawSize>
                 <updateGraphicTicksInterval>10000</updateGraphicTicksInterval>
+            </li>
+            <li Class="CompProperties_SpawnEffecterOnDestroy">
+                <effect>DV_GutterlatchDestroyedSmall</effect>
             </li>
             <li Class="CompProperties_DrawAdditionalGraphics">
                 <graphics>

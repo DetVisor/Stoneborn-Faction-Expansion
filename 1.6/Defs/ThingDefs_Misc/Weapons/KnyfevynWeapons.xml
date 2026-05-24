@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef ParentName="BaseMeleeWeapon_Sharp_Quality">
+        <defName>DV_MeleeWeapon_KnyfevynBoneblade</defName>
+        <label>knyfevyin boneblade</label>
+        <description>A shiny and finely forged staff decorated with the shape of an anvil, which exudes authorithy. Although initially unassuming, the bearded axe blade can prove to be quite the effective weapon in close combat. \n\nAs an ancestral weapon, none beside the stoneborn have the skill to create it, and it must be bought, stolen or acquired from a quest.</description>
+        <techLevel>Spacer</techLevel>
+        <smeltable>false</smeltable>
+        <statBases>
+            <MarketValue>500</MarketValue>
+            <WorkToMake>15500</WorkToMake>
+            <Beauty>3</Beauty>
+            <Mass>2.5</Mass>
+            <EBSG_DamageFactor_Mechanoid>2</EBSG_DamageFactor_Mechanoid>
+        </statBases>
+        <recipeMaker IsNull="True" />
+        <weaponTags>
+            <li>DV_KnyfevynWeapon_Melee</li>
+        </weaponTags>
+        <weaponClasses>
+            <li>Melee</li>
+        </weaponClasses>
+        <tools>
+            <li>
+                <label>handle</label>
+                <capacities>
+                    <li>Poke</li>
+                </capacities>
+                <power>9</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+            <li>
+                <label>edge</label>
+                <labelUsedInLogging>false</labelUsedInLogging>
+                <capacities>
+                    <li>Cut</li>
+                    <li>Stab</li>
+                </capacities>
+                <power>24</power>
+                <cooldownTime>2.3</cooldownTime>
+            </li>
+        </tools>
+        <equippedAngleOffset>-30</equippedAngleOffset>
+        <graphicData>
+            <texPath>Things/Item/Equipment/WeaponMelee/KnyfevynBlade</texPath>
+            <drawSize>1.4</drawSize>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseHumanMakeableGun">
+        <defName>DV_Gun_KnyfevynBow</defName>
+        <label>knyfevyn bonebow</label>
+        <description>A long-range, advanced blazenail crossbow. Utilizing various hydraulic mechanisms to draw the large metallic limbs, it can fire heavy steel nails at blinding speeds, piercing armor and flesh. The complex mechanisms may sometimes overheat, purging all the energy into the projectile as it is fired, burning flesh and setting anything it touches aflame.\n\nA weapon found in the arsenal of all stoneborn insect slayers as the incredible piercing potential of each nail makes dealing with bugs a cakewalk.</description>
+        <techLevel>Spacer</techLevel>
+        <graphicData>
+            <texPath>Things/Item/Equipment/WeaponRanged/KnyfevynBow</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>1.1</drawSize>
+        </graphicData>
+        <equippedAngleOffset>-45</equippedAngleOffset>
+        <soundInteract>Interact_ChargeLance</soundInteract>
+        <statBases>
+            <Mass>8</Mass>
+            <AccuracyTouch>0.63</AccuracyTouch>
+            <AccuracyShort>0.66</AccuracyShort>
+            <AccuracyMedium>0.76</AccuracyMedium>
+            <AccuracyLong>0.80</AccuracyLong>
+            <RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
+            <WorkToMake>53000</WorkToMake>
+        </statBases>
+        <recipeMaker IsNull="True" />
+        <costList>
+            <Steel>60</Steel>
+            <ComponentSpacer>6</ComponentSpacer>
+        </costList>
+        <weaponTags>
+            <li>DV_KnyfevynWeapon_Ranged</li>
+        </weaponTags>
+        <weaponClasses>
+            <li>Ranged</li>
+        </weaponClasses>
+        <verbs>
+            <li>
+                <verbClass>Verb_Shoot</verbClass>
+                <hasStandardCommand>true</hasStandardCommand>
+                <defaultProjectile>DV_Bullet_KnyfevynBow</defaultProjectile>
+                <warmupTime>0.8</warmupTime>
+                <range>32.9</range>
+                <burstShotCount>1</burstShotCount>
+                <soundCast>Shot_Blazenail</soundCast>
+                <soundCastTail>GunTail_Medium</soundCastTail>
+                <muzzleFlashScale>0</muzzleFlashScale>
+            </li>
+        </verbs>
+        <tools>
+            <li>
+                <label>limb</label>
+                <capacities>
+                    <li>Poke</li>
+                </capacities>
+                <power>9</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+            <li>
+                <label>front</label>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>9</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+        </tools>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>DV_Bullet_KnyfevynBow</defName>
+        <label>arrowbolt</label>
+        <graphicData>
+            <texPath>Things/Projectiles/Bullet_Knyfearrow</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>MoteGlow</shaderType>
+        </graphicData>
+        <projectile>
+            <damageDef>Bullet</damageDef>
+            <damageAmountBase>22</damageAmountBase>
+            <armorPenetrationBase>0.32</armorPenetrationBase>
+            <speed>70</speed>
+        </projectile>
+    </ThingDef>
+
+
+    <ThingDef ParentName="BaseMeleeWeapon_Sharp_Quality">
+        <defName>DV_MeleeWeapon_KnyfevynBoneglaive</defName>
+        <label>knyfevyin boneglaive</label>
+        <description>A shiny and finely forged staff decorated with the shape of an anvil, which exudes authorithy. Although initially unassuming, the bearded axe blade can prove to be quite the effective weapon in close combat. \n\nAs an ancestral weapon, none beside the stoneborn have the skill to create it, and it must be bought, stolen or acquired from a quest.</description>
+        <techLevel>Spacer</techLevel>
+        <smeltable>false</smeltable>
+        <statBases>
+            <MarketValue>500</MarketValue>
+            <WorkToMake>15500</WorkToMake>
+            <Beauty>3</Beauty>
+            <Mass>2.5</Mass>
+            <EBSG_DamageFactor_Mechanoid>2</EBSG_DamageFactor_Mechanoid>
+        </statBases>
+        <recipeMaker IsNull="True" />
+        <weaponTags>
+            <li>DV_KnyfevynWeapon_MeleeStrong</li>
+        </weaponTags>
+        <weaponClasses>
+            <li>Melee</li>
+        </weaponClasses>
+        <tools>
+            <li>
+                <label>handle</label>
+                <capacities>
+                    <li>Poke</li>
+                </capacities>
+                <power>9</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+            <li>
+                <label>staff</label>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>14</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+            <li>
+                <label>edge</label>
+                <labelUsedInLogging>false</labelUsedInLogging>
+                <capacities>
+                    <li>Cut</li>
+                    <li>Stab</li>
+                </capacities>
+                <power>24</power>
+                <cooldownTime>2.2</cooldownTime>
+            </li>
+        </tools>
+        <equippedAngleOffset>-30</equippedAngleOffset>
+        <graphicData>
+            <texPath>Things/Item/Equipment/WeaponMelee/KnyfevynGlaive</texPath>
+            <drawSize>1.4</drawSize>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+    </ThingDef>
+
+
+</Defs>

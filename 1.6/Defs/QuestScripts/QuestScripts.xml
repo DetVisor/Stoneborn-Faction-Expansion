@@ -9,7 +9,7 @@
     <isRootSpecial>true</isRootSpecial>
     <questNameRules>
       <rulesStrings>
-        
+
         <!-- quest name -->
         <li>questName(p=3)->[complexAdj] stoneborn [complex]</li>
         <li>questName->stoneborn [complex]</li>
@@ -32,8 +32,8 @@
     </questNameRules>
     <questDescriptionRules>
       <rulesStrings>
-        <li>questDescription->You've [discoveryDesc] of an ancient Stoneborn ruin nearby.\n\nYou can break in and loot the ruin for a chance to obtain rare stoneborn materials and technology.\n\nBe warned - these kinds of structures can contain a variety of threats, and your activity at the complex might draw unwanted attention.</li>
-        
+        <li>questDescription->You've [discoveryDesc] of an ancient stoneborn ruin nearby.\n\nYou can break in and loot the ruin for a chance to obtain rare stoneborn materials and technology.\n\nBe warned - these kinds of structures can contain a variety of threats, and your activity at the complex might draw unwanted attention.</li>
+
         <!-- Snippets -->
         <li>discoveryDesc(discovered==false)->learned</li>
         <li>discoveryDesc(discovered==true)->determined the location</li>
@@ -46,7 +46,7 @@
     </questDescriptionAndNameRules>
     <root Class="LTS_StonebornSiteGeneration.QuestNode_Root_Loot_AncientComplex_Stoneborn" />
   </QuestScriptDef>
-  
+
   <QuestScriptDef>
     <defName>LTS_OpportunitySite_AncientStonebornVault</defName>
     <rootSelectionWeight>0</rootSelectionWeight>
@@ -56,7 +56,7 @@
     <isRootSpecial>true</isRootSpecial>
     <questNameRules>
       <rulesStrings>
-        
+
         <!-- quest name -->
         <li>questName(p=3)->[complexAdj] stoneborn [complex]</li>
         <li>questName->stoneborn [complex]</li>
@@ -79,10 +79,12 @@
     </questNameRules>
     <questDescriptionRules>
       <rulesStrings>
-        <li>questDescription->You've [discoveryDesc] of an ancient Stoneborn vault nearby.\n\nYou can break in and loot the ruin for a chance to obtain rare stoneborn materials and technology.\n\nBe warned - these kinds of structures can contain a variety of threats, and your activity at the complex might draw unwanted attention.</li>
-        
+        <li>questDescription->You've [discoveryDesc] of an ancient stoneborn vault nearby.\n\nYou can break in and loot the ruin for a chance to obtain rare stoneborn materials and technology.\n\nBe warned - these kinds of structures can contain a variety of threats, and your activity at the complex might draw unwanted attention.</li>
+
         <!-- Snippets -->
+        <li>discoveryDesc(discovered==false)->discovered</li>
         <li>discoveryDesc(discovered==false)->learned</li>
+        <li>discoveryDesc(discovered==false)->triangulated the location</li>
         <li>discoveryDesc(discovered==true)->determined the location</li>
 
       </rulesStrings>

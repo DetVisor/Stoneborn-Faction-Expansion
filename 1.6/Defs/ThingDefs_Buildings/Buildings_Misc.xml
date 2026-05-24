@@ -236,8 +236,61 @@
         <territoryRadius>6</territoryRadius>
         <encounters>
 
+          <li>            <!-- knyfevyn armors -->
+            <spawnWeight>0.6</spawnWeight>
+            <spawnGroups>
+              <li>
+                <pawnKind>DV_Monster_KnyfevynAcolyte</pawnKind>
+                <range>1~2</range>
+                <faction>DV_DungeonMonsters</faction>
+              </li>
+              <li>
+                <pawnKind>DV_Monster_KnyfevynAdept</pawnKind>
+                <range>1~2</range>
+                <faction>DV_DungeonMonsters</faction>
+              </li>
+            </spawnGroups>
+          </li>
+
+          <li>            <!-- knyfevyn armors -->
+            <spawnWeight>0.4</spawnWeight>
+            <spawnGroups>
+              <li>
+                <pawnKind>DV_Monster_KnyfevynAcolyte</pawnKind>
+                <range>2~3</range>
+                <faction>DV_DungeonMonsters</faction>
+              </li>
+              <li>
+                <pawnKind>DV_Monster_KnyfevynAdept</pawnKind>
+                <range>1~2</range>
+                <faction>DV_DungeonMonsters</faction>
+              </li>
+            </spawnGroups>
+          </li>
+
+          <li>            <!-- knyfevyn armors -->
+            <spawnWeight>0.2</spawnWeight>
+            <spawnGroups>
+              <li>
+                <pawnKind>DV_Monster_KnyfevynAcolyte</pawnKind>
+                <range>2~3</range>
+                <faction>DV_DungeonMonsters</faction>
+              </li>
+              <li>
+                <pawnKind>DV_Monster_KnyfevynAdept</pawnKind>
+                <range>2~3</range>
+                <faction>DV_DungeonMonsters</faction>
+              </li>
+              <li>
+                <pawnKind>DV_Monster_KnyfevynExemplar</pawnKind>
+                <range>1</range>
+                <faction>DV_DungeonMonsters</faction>
+              </li>
+            </spawnGroups>
+          </li>
+
           <li>            <!-- 3-4 cavegunks with alrauns -->
-            <spawnWeight>1</spawnWeight>
+            <spawnWeight>0.8</spawnWeight>
             <spawnGroups>
               <li>
                 <pawnKind>DV_Monster_WildGolem</pawnKind>
@@ -253,7 +306,7 @@
           </li>
 
           <li>            <!-- 3-4 cavegunks with alrauns -->
-            <spawnWeight>1</spawnWeight>
+            <spawnWeight>0.9</spawnWeight>
             <spawnGroups>
               <li>
                 <pawnKind>DV_Monster_WildGolem</pawnKind>
@@ -274,7 +327,7 @@
           </li>
 
           <li>            <!-- 3-4 cavegunks with alrauns -->
-            <spawnWeight>1</spawnWeight>
+            <spawnWeight>0.9</spawnWeight>
             <spawnGroups>
               <li>
                 <pawnKind>DV_Monster_WildGolem</pawnKind>
@@ -295,7 +348,7 @@
           </li>
 
           <li>            <!-- 3-4 cavegunks with alrauns -->
-            <spawnWeight>1</spawnWeight>
+            <spawnWeight>0.9</spawnWeight>
             <spawnGroups>
               <li>
                 <pawnKind>DV_Monster_WildGolem</pawnKind>
@@ -316,7 +369,7 @@
           </li>
 
           <li>            <!-- 3-4 cavegunks with alrauns -->
-            <spawnWeight>1</spawnWeight>
+            <spawnWeight>0.8</spawnWeight>
             <spawnGroups>
               <li>
                 <pawnKind>DV_Monster_CaveGunk</pawnKind>
@@ -348,7 +401,7 @@
           </li>
 
           <li>            <!-- 2-3 cavegunks and 1-2 rook-caps defending an area -->
-            <spawnWeight>1</spawnWeight>
+            <spawnWeight>0.8</spawnWeight>
             <spawnGroups>
               <li>
                 <pawnKind>DV_Monster_CaveGunk</pawnKind>
@@ -434,7 +487,7 @@
           </li>
 
           <li>            <!-- 1 ogre defending an area, with some alrauns -->
-            <spawnWeight>1</spawnWeight>
+            <spawnWeight>0.8</spawnWeight>
             <spawnGroups>
               <li>
                 <pawnKind>DV_Monster_Tusktroll</pawnKind>
@@ -478,7 +531,7 @@
           </li>
 
           <li>            <!--3 rook-caps and 3 razorbeaks feuding -->
-            <spawnWeight>1</spawnWeight>
+            <spawnWeight>0.5</spawnWeight>
             <spawnGroups>
               <li>
                 <pawnKind>DV_Monster_ToxShroom</pawnKind>
@@ -498,23 +551,6 @@
               </li>
             </spawnGroups>
           </li>
-
-          <li>            <!--2 ogres feuding -->
-            <spawnWeight>1</spawnWeight>
-            <spawnGroups>
-              <li>
-                <pawnKind>DV_Monster_Tusktroll</pawnKind>
-                <range>1</range>
-                <faction>DV_DungeonMonsters</faction>
-              </li>
-              <li>
-                <pawnKind>DV_Monster_Tusktroll</pawnKind>
-                <range>1</range>
-                <faction>AncientsHostile</faction>
-              </li>
-            </spawnGroups>
-          </li>
-
         </encounters>
       </li>
 

@@ -2,6 +2,22 @@
 <Defs>
 
   <DamageDef ParentName="StunBase">
+    <defName>DV_PsychicStun</defName>
+    <label>stun</label>
+    <workerClass>DamageWorker_Stun</workerClass>
+    <externalViolence>true</externalViolence>
+    <deathMessage>{0} has been stunned to death.</deathMessage>
+    <defaultDamage>20</defaultDamage>
+    <explosionCellFleck>BlastDry</explosionCellFleck>
+    <soundExplosion>Explosion_Stun</soundExplosion>
+    <combatLogRules>Damage_Stun</combatLogRules>
+    <causeStun>true</causeStun>
+    <explosionCenterEffecter>DV_ExemplarAttached</explosionCenterEffecter>
+    <explosionCellFleck>BlastEMP</explosionCellFleck>
+    <explosionColorEdge>(0.15, 0.23, 0, 0)</explosionColorEdge>
+  </DamageDef>
+
+  <DamageDef ParentName="StunBase">
     <defName>SpecialEMP</defName>
     <label>emp</label>
     <workerClass>DamageWorker_Stun</workerClass>

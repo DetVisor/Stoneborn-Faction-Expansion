@@ -2,6 +2,125 @@
 <Defs>
 
   <SoundDef>
+    <defName>DV_BlastCast</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>2</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/BlastCast</clipPath>
+          </li>
+        </grains>
+        <volumeRange>15~20</volumeRange>
+        <pitchRange>1~1.2</pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+    <SoundDef>
+    <defName>DV_BoltCast</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/BoltCast</clipPath>
+          </li>
+        </grains>
+        <volumeRange>15~20</volumeRange>
+        <pitchRange>1~1.2</pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>DV_SkipCast</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/SkipCast</clipPath>
+          </li>
+        </grains>
+        <volumeRange>20~20</volumeRange>
+        <pitchRange>1~1.2</pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+    <SoundDef>
+    <defName>DV_ExemplarDeath</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>2</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/ExemplarDeath</clipPath>
+          </li>
+        </grains>
+        <volumeRange>15~20</volumeRange>
+        <pitchRange>1~1.2</pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>DV_KnyfevynVanish</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>2</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/KnyfevynVanish</clipPath>
+          </li>
+        </grains>
+        <volumeRange>15~20</volumeRange>
+        <pitchRange>0.6~1.2</pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>DV_SackOpened</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/SackOpen</clipPath>
+          </li>
+        </grains>
+        <volumeRange>10~10</volumeRange>
+        <pitchRange>0.7~0.9</pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>DV_CrateOpened</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/CrateOpened</clipPath>
+          </li>
+        </grains>
+        <volumeRange>10~10</volumeRange>
+        <pitchRange>0.7~0.9</pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
     <defName>DV_VaultEntered</defName>
     <context>MapOnly</context>
     <maxSimultaneous>1</maxSimultaneous>

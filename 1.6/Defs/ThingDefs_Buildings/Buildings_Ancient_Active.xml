@@ -329,7 +329,7 @@
     </statBases>
     <interactionCellOffset>(0,0,0)</interactionCellOffset>
     <building>
-      <openingEffect>DV_HermeticCanisterOpened</openingEffect>
+      <openingEffect>DV_DwarvenCrateOpened</openingEffect>
     </building>
     <comps>
       <li Class="CompProperties_EmptyStateGraphic">
