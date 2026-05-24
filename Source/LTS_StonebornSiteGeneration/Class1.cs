@@ -899,6 +899,7 @@ namespace LTS_StonebornSiteGeneration
         public IntRange countRange;
         public int dropChancePercent = 100;
         public string dropMessage;
+        public string exclusionaryTag;
     }
 
     public class CompDeathEffects : ThingComp
@@ -963,17 +964,24 @@ namespace LTS_StonebornSiteGeneration
                 this.Props.effecterDef.Spawn(parent.Position, prevMap).Cleanup();
             }
             //spawn items
+            List<string> exclusionaryTags = new List<string>();
             foreach (ItemSpawningInfo itemSpawningInfo in Props.extraItemList)
             {
                 if (new System.Random().Next(0, 100) < itemSpawningInfo.dropChancePercent)
                 {
-                    Thing thing = ThingMaker.MakeThing(itemSpawningInfo.thingDef);
-                    thing.stackCount = itemSpawningInfo.countRange.RandomInRange;
-                    GenPlace.TryPlaceThing(thing, parent.Position, prevMap, ThingPlaceMode.Near);
-                    if (itemSpawningInfo.dropMessage != null)
+                    if (!(itemSpawningInfo.exclusionaryTag != null && exclusionaryTags.Contains(itemSpawningInfo.exclusionaryTag)))
                     {
-                        Messages.Message(string.Format(itemSpawningInfo.dropMessage, parent.Label, thing.Label), thing, MessageTypeDefOf.PositiveEvent, false);
+                        exclusionaryTags.Add(itemSpawningInfo.exclusionaryTag);
+
+                        Thing thing = ThingMaker.MakeThing(itemSpawningInfo.thingDef);
+                        thing.stackCount = itemSpawningInfo.countRange.RandomInRange;
+                        GenPlace.TryPlaceThing(thing, parent.Position, prevMap, ThingPlaceMode.Near);
+                        if (itemSpawningInfo.dropMessage != null)
+                        {
+                            Messages.Message(string.Format(itemSpawningInfo.dropMessage, parent.Label, thing.Label), thing, MessageTypeDefOf.PositiveEvent, false);
+                        }
                     }
+                    
                 }
             }
             //destroy corpse
