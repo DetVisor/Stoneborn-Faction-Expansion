@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	
+	<ThingDef ParentName="BaseMeleeWeapon_Blunt_Quality">
+		<defName>LTS_Apparel_FortressShield</defName>
+		<label>fortress shield</label>
+		<description>An advanced heavy shield made out of layered plasteel-weave plates with solid ablative coatings. More a portable wall than a shield, it provides maximum protection at the cost of heavy encumbrance.\n\nThis type of shield is commonly used by advanced police forces and space marine pointmen.</description>
+		<graphicData>
+			<texPath>Things/Pawn/Apparel/FortressShield/FortressShield</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>1</drawSize>
+		</graphicData>
+		<recipeMaker>
+			<researchPrerequisite>PoweredArmor</researchPrerequisite>
+			
+			<unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
+			<skillRequirements>
+				<Crafting>7</Crafting>
+			</skillRequirements>
+			<recipeUsers Inherit="False">
+			  <li>FabricationBench</li>
+			</recipeUsers>
+		</recipeMaker>
+		<costList>
+		  <ComponentSpacer>4</ComponentSpacer>
+		  <Plasteel>200</Plasteel>
+		  <Uranium>10</Uranium>
+		</costList>
+		<statBases>
+			<MaxHitPoints>1000</MaxHitPoints>
+			<Flammability>0.1</Flammability>
+			<ArmorRating_Sharp>1.2</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.5</ArmorRating_Blunt>
+			<ArmorRating_Heat>0.6</ArmorRating_Heat>
+			<WorkToMake>60000</WorkToMake>
+			<Mass>12</Mass>
+			
+			<EnergyShieldEnergyMax>2</EnergyShieldEnergyMax>
+			<EnergyShieldRechargeRate>0.1</EnergyShieldRechargeRate>
+			<PackRadius>3</PackRadius>
+		</statBases>
+		<equippedStatOffsets>
+		  <MoveSpeed>-0.4</MoveSpeed>
+		  <ShootingAccuracyPawn>-2</ShootingAccuracyPawn>
+		  <MeleeHitChance>-2</MeleeHitChance>
+		  <MeleeDodgeChance>-5</MeleeDodgeChance>
+		</equippedStatOffsets>
+		<comps>
+			<li Class="VEF.Apparels.CompProperties_Shield">
+				<shieldTags>
+					<li>SpacerMilitary</li>
+				</shieldTags>
+				<useDeflectMetalEffect>true</useDeflectMetalEffect>
+				<coveredBodyPartGroups>
+					<li>Neck</li>
+					<li>Torso</li>
+					<li>Arms</li>
+					<li>Hands</li>
+					<li>Legs</li>
+				</coveredBodyPartGroups>
+				<offHandGraphicData>
+					<texPath>Things/Pawn/Apparel/FortressShield/FortressShield</texPath>
+					<graphicClass>Graphic_Multi</graphicClass>
+					<shaderType>CutoutComplex</shaderType>
+					<drawSize>1.6</drawSize>
+				</offHandGraphicData>
+				<offHandHoldOffset>
+					<northDefault>
+						<offset>(-0.3, 0, 0.3)</offset>
+						<behind>true</behind>
+					</northDefault>
+					<east>
+						<offset>(-0.1, 0, 0.1)</offset><!--across depth height-->
+						<behind>true</behind>
+					</east>
+					<south>
+						<offset>(0.3, -0.04, 0.2)</offset>
+					</south>
+					<west>
+						<offset>(0.1, 0, 0.1)</offset>
+					</west>
+				</offHandHoldOffset>
+			</li>
+			
+			<li Class="VEF.Apparels.CompProperties_ShieldField">
+			  <compClass>VEF.Apparels.CompShieldField</compClass>
+			  <activeAlways>true</activeAlways>
+			  <initialEnergyPercentage>0.2</initialEnergyPercentage>
+			  <rechargeTicksWhenDepleted>3200</rechargeTicksWhenDepleted>
+			  <!--<shortCircuitChancePerEnergyLost>0.01</shortCircuitChancePerEnergyLost>-->
+			  <shieldRadiusStat>PackRadius</shieldRadiusStat>
+			  <shieldEnergyMaxStat>EnergyShieldEnergyMax</shieldEnergyMaxStat>
+			  <rechargeRateStat>EnergyShieldRechargeRate</rechargeRateStat>
+			  <healthColorPoints>
+			    <li>
+			  	  <healthPercent>0.1</healthPercent>
+			  	  <color>(1.0, 0.0, 0.0, 0.4)</color>
+			    </li>
+			    <li>
+			  	  <healthPercent>0.5</healthPercent>
+				  <color>(1.0, 0.65, 0.0, 0.35)</color>
+			    </li>
+			  </healthColorPoints>
+		    </li>
+			<li>
+				<compClass>CompColorable</compClass>
+			</li>
+		</comps>
+		<tickerType>Normal</tickerType>
+		
+		
+		
+		<techLevel>Spacer</techLevel>
+		<thingClass>VEF.Apparels.Apparel_Shield</thingClass>
+		<apparel>
+			<careIfWornByCorpse>false</careIfWornByCorpse>
+			<careIfDamaged>false</careIfDamaged>
+			<wearPerDay>0</wearPerDay>
+			<bodyPartGroups>
+				<li>LeftHand</li>
+				<li>Arms</li>
+			</bodyPartGroups>
+			<defaultOutfitTags>
+				<li>Soldier</li>
+			</defaultOutfitTags>
+			<layers>
+				<li>VFEC_OuterShell</li>
+			</layers>
+		</apparel>
+		<thingCategories Inherit="False">
+			<li>VFEC_Shields</li>
+		</thingCategories>
+		<colorGenerator Class="ColorGenerator_Options">
+		  <options>
+			<li>
+			  <weight>10</weight>
+			  <only>(0.9,0.9,0.9)</only>
+			</li>
+			<li>
+			  <weight>10</weight>
+			  <only>(0.33,0.33,0.33)</only>
+			</li>
+			<li>
+			  <weight>10</weight>
+			  <only>(0.65,0.65,0.65)</only>
+			</li>
+			<li>
+			  <weight>6</weight>
+			  <min>(0.3,0.3,0.3)</min>
+			  <max>(0.5,0.5,0.5)</max>
+			</li>
+		  </options>
+		</colorGenerator>
+		<equippedAngleOffset>0</equippedAngleOffset>
+		<tools>
+			<li>
+				<label>centre</label>
+				<labelUsedInLogging>false</labelUsedInLogging>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+	
+</Defs>

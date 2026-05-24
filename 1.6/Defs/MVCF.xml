@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <MVCF.ModDef>
+        <defName>LTS_SFE</defName>
+        <label>Stoneborn Faction Expansion</label>
+        <description>MVCF for drawing energy shields on regular shields harmony patch</description>
+        <ActivateFeatures>
+            <li>Drawing</li>
+        </ActivateFeatures>
+    </MVCF.ModDef>
+</Defs>

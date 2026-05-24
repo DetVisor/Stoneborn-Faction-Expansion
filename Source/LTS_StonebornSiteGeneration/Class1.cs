@@ -7,10 +7,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.NetworkInformation;
+using System.Security.Cryptography;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using VEF;
+using VEF.Apparels;
 using Verse;
 using Verse.AI;
 using Verse.AI.Group;
@@ -49,6 +52,71 @@ namespace LTS_StonebornSiteGeneration
         }
     }
 
+    [HarmonyPatch(typeof(VEF.Apparels.Apparel_Shield))]
+    [HarmonyPatch(nameof(VEF.Apparels.Apparel_Shield.DrawShield))]//patch for drawing energy shields on regular shields
+    class VEF_Apparels_Apparel_Shield_DrawShield_Patch //patch to make shields draw their energy shields
+    {
+        [HarmonyPostfix]
+        public static void VEF_Apparels_Apparel_Shield_DrawShield_Postfix(VEF.Apparels.CompShield comp, Vector3 drawPos, Rot4 rot4, Apparel_Shield __instance)
+        {
+            if (!ModsConfig.IsActive("LTS.PS"))//skip if power shields is active, as it's the same Postfix.It should probably be that mod that has to check, with this mod having the custom shield option... Actually, I suppose I could just add that code to spacer shields too, instead.
+            {
+                CompShieldBubble compShieldBubble = __instance.TryGetComp<CompShieldBubble>();
+
+                if (compShieldBubble != null)//if this shield has an energy shield, draws the CompShieldBubble's ShieldBubble
+                {
+                    if (compShieldBubble.ShieldState == ShieldState.Active && compShieldBubble.Energy > 0f)//if the energy shield should be drawn
+                    {
+                        HoldOffset holdOffset = comp.Props.offHandHoldOffset.Pick(rot4);
+
+                        var getAimingVector = AccessTools.Method(typeof(Apparel_Shield), "GetAimingVector");
+                        Vector3 aimingVector = (Vector3)getAimingVector.Invoke(__instance, new object[] { drawPos, rot4 });
+                        Vector3 loc = aimingVector + holdOffset.offset + new Vector3(0f, holdOffset.behind ? -0.0390625f : 0.0390625f, 0f);
+
+                        __instance.ShieldGraphic.Draw(loc, holdOffset.flip ? rot4.Opposite : rot4, __instance, 0f);
+
+                        //float scale = Mathf.Lerp(compShieldBubble.Props.minShieldSize, compShieldBubble.Props.maxShieldSize, compShieldBubble.Energy);
+                        float scale = 1.6f;
+                        Vector3 vectorScale = new Vector3(scale, 1f, scale);
+                        Matrix4x4 matrix = default(Matrix4x4);
+                        //matrix.SetTRS(loc, Quaternion.AngleAxis(rot4.AsAngle, Vector3.up), scale);
+                        matrix.SetTRS(loc, Quaternion.AngleAxis(0, Vector3.up), vectorScale);
+
+                        Material bubbleMat = MaterialPool.MatFrom(compShieldBubble.Props.shieldTexPath, ShaderDatabase.Transparent, compShieldBubble.Props.shieldColor);
+                        Graphics.DrawMesh(MeshPool.plane10, matrix, bubbleMat, 0);
+
+                    }
+                }
+
+                CompShieldField compShieldField = __instance.TryGetComp<CompShieldField>();
+
+                if (compShieldField != null)//similarly to above, but for CompShieldField
+                {
+                    bool shouldShowShield = __instance.Wearer.Faction != Faction.OfPlayer || __instance.Wearer.Drafted || compShieldField.Energy != compShieldField.MaxEnergy;
+
+                    if (compShieldField.active && (compShieldField.Energy > 0f || compShieldField.Indestructible) && shouldShowShield)
+                    {
+                        Vector3 vector = __instance.Wearer.DrawPos;
+                        vector.y = AltitudeLayer.MoteOverhead.AltitudeFor();
+
+                        float angle;
+                        if (__instance.def.GetModExtension<LTS_SFE_ModExtension>()?.LTS_spinning ?? false)
+                            angle = (float)Rand.Range(0, 45);
+                        else
+                            angle = 0;
+
+                        Vector3 s = new Vector3(1 + 2 * compShieldField.ShieldRadius, 1f, 1 + 2 * compShieldField.ShieldRadius);
+
+                        Matrix4x4 matrix = default(Matrix4x4);
+                        matrix.SetTRS(vector, Quaternion.AngleAxis(angle, Vector3.up), s);
+
+                        Graphics.DrawMesh(MeshPool.plane10, matrix, MaterialPool.MatFrom(__instance.def.GetModExtension<LTS_SFE_ModExtension>()?.LTS_TexPath ?? "Other/ForceField", ShaderDatabase.Transparent, new Color(1, 1, 1, __instance.def.GetModExtension<LTS_SFE_ModExtension>()?.LTS_opacity ?? 0.3f)), 0, null, 0, new MaterialPropertyBlock());
+                    }
+                }
+            }
+        }
+    }
+
 
 
 
@@ -83,6 +151,8 @@ namespace LTS_StonebornSiteGeneration
         public int LTS_ticks;
         public FactionDef LTS_faction;
         public int LTS_spawnWeight;
+        public float LTS_opacity;
+        public bool LTS_spinning;
     }
 
 
