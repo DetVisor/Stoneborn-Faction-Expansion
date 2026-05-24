@@ -14,6 +14,7 @@ using UnityEngine;
 using Verse;
 using Verse.AI;
 using Verse.AI.Group;
+using Verse.Grammar;
 using Verse.Noise;
 using Verse.Sound;
 using static HarmonyLib.Code;
@@ -1069,6 +1070,121 @@ namespace LTS_StonebornSiteGeneration
 
             }
         }
+    }
+
+    public class BookOutcomeProperties_GiveQuestFromList : BookOutcomeProperties_GiveQuest
+    {
+        public override Type DoerClass
+        {
+            get
+            {
+                return typeof(LTS_StonebornSiteGeneration.BookOutcomeDoer_GiveQuestFromList);
+            }
+        }
+        public List<QuestScriptDef> questScriptDefs;
+
+    }
+
+    [StaticConstructorOnStartup]
+    public class BookOutcomeDoer_GiveQuestFromList : BookOutcomeDoer_GiveQuest
+    {
+        public new BookOutcomeProperties_GiveQuestFromList Props
+        {
+            get
+            {
+                return (BookOutcomeProperties_GiveQuestFromList)this.props;
+            }
+        }
+
+        private bool QuestGiven
+        {
+            get
+            {
+                return this.quest != null;
+            }
+        }
+
+        public override void OnBookGenerated(Pawn author = null)
+        {
+            if (!ModsConfig.OdysseyActive)
+            {
+                return;
+            }
+            this.hasQuest = Rand.Chance(this.Props.questChance);
+            Log.Message("hasQuest: "+ hasQuest);
+            if (this.hasQuest)
+            {
+                this.questDef = this.GetQuestDef();
+                Log.Message("questDef" + questDef.defName);
+            }
+            if (this.questDef == null)
+            {
+                this.hasQuest = false;
+            }
+        }
+
+        private QuestScriptDef GetQuestDef()
+        {
+            //IEnumerable<QuestScriptDef> giverQuests = QuestUtility.GetGiverQuests(QuestGiverTag.Reading);
+            IEnumerable<QuestScriptDef> giverQuests = Props.questScriptDefs;
+            if (giverQuests.EnumerableNullOrEmpty<QuestScriptDef>())
+            {
+                return null;
+            }
+            return giverQuests.RandomElementByWeight((QuestScriptDef q) => q.rootSelectionWeight);
+        }
+
+        public override void OnReadingTick(Pawn reader, float factor)
+        {
+            if (!this.hasQuest || this.QuestGiven)
+            {
+                return;
+            }
+            if (Rand.MTBEventOccurs(12500f, 1f, 1f) || this.giveNext)
+            {
+                this.GenerateQuest(reader);
+            }
+        }
+
+        private void GenerateQuest(Pawn reader)
+        {
+            Slate slate = new Slate();
+            slate.Set<float>("points", StorytellerUtility.DefaultThreatPointsNow(reader.Map), false);
+            slate.Set<TaggedString>("discoveryMethod", "QuestDiscoveredFromBook".Translate(base.Book.Named("BOOK"), reader.Named("READER")), false);
+            if (this.questDef == null)
+            {
+                this.questDef = this.GetQuestDef();
+            }
+            if (this.questDef == null)
+            {
+                return;
+            }
+            this.quest = QuestUtility.GenerateQuestAndMakeAvailable(this.questDef, slate);
+            Messages.Message("MessageBookGaveQuest".Translate(this.quest.name, base.Book.Named("BOOK"), reader.Named("READER")), MessageTypeDefOf.PositiveEvent, true);
+            if (!this.quest.hidden && this.quest.root.sendAvailableLetter)
+            {
+                QuestUtility.SendLetterQuestAvailable(this.quest, slate.Get<string>("discoveryMethod", null, false));
+            }
+        }
+
+        public override void PostExposeData()
+        {
+            Scribe_Values.Look<bool>(ref this.hasQuest, "hasQuest", false, false);
+            Scribe_Defs.Look<QuestScriptDef>(ref this.questDef, "questDef");
+            Scribe_References.Look<Quest>(ref this.quest, "quest", false);
+        }
+
+        private bool hasQuest;
+
+        private QuestScriptDef questDef;
+
+        private Quest quest;
+
+        private bool giveNext;
+
+        private const int ReceiveQuestMTBTicks = 12500;
+
+        private static readonly Texture2D ViewQuestCommandTex = ContentFinder<Texture2D>.Get("UI/Commands/ViewQuest", true);
     }
 
 
