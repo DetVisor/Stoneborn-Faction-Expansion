@@ -20,6 +20,7 @@ using static HarmonyLib.Code;
 using static RimWorld.ColonistBar;
 using static System.Collections.Specialized.BitVector32;
 using static UnityEngine.GraphicsBuffer;
+using static UnityEngine.Scripting.GarbageCollector;
 
 namespace LTS_StonebornSiteGeneration
 {
@@ -985,6 +986,94 @@ namespace LTS_StonebornSiteGeneration
             get
             {
                 return ThingDef.Named("LTS_SFE_DashPawnFlier");
+            }
+        }
+    }
+
+    public class CompProperties_RoamingEncounterLeader : CompProperties
+    {
+        public CompProperties_RoamingEncounterLeader()
+        {
+            this.compClass = typeof(CompRoamingEncounterLeader);
+        }
+
+        public int roamIntervalTicks = 3600; //3600 = 1 minute
+        public float positionRadius = 6;
+    }
+
+    public class CompRoamingEncounterLeader : ThingComp
+    {
+        public CompProperties_RoamingEncounterLeader Props
+        {
+            get
+            {
+                return (CompProperties_RoamingEncounterLeader)this.props;
+            }
+        }
+
+        public override void CompTick()
+        {
+            base.CompTick();
+
+            //every [interval], SetDefendPoint this lord to a random reachable tile. May need to make a custom version of the lordToil to do this.
+            
+            if (parent.IsHashIntervalTick(Props.roamIntervalTicks))
+            {
+                //makes a new lord+lordjob to defend a pos
+
+                //CellFinder.TryFindRandomReachableNearbyCell(this.parent.Position, parent.Map, Props.maxRoamDistance, TraverseMode.ByPawn, (IntVec3 x) => (parent as Pawn).CanReach(x, PathEndMode.OnCell, Danger.Deadly, false, false, TraverseMode.ByPawn), null, out IntVec3 result);
+
+                //RCellFinder.
+
+                //Log.Message(result);
+
+                //IntVec3 newPosition;
+
+                //while (true) 
+                //{
+
+                //}
+
+
+
+
+
+                CellRect cellRect = parent.Map.BoundsRect();
+                IntVec3 destination = parent.Position;
+                int attempts = 0;
+                while (destination == parent.Position)
+                {
+                    if (attempts == 200)//give up after 200 attempts
+                    {
+                        return;
+                    }
+                    attempts++;
+
+                    destination = cellRect.RandomCell;
+
+                    if (destination.Standable(parent.Map) && parent.Map.reachability.CanReach(destination, parent.Position, PathEndMode.OnCell, TraverseMode.PassDoors))
+                    {
+                        break;
+                    }
+                    else
+                        destination = parent.Position;
+                }
+
+                List<Pawn> leaderGroup = (parent as Pawn).lord.ownedPawns;
+
+                foreach (Pawn pawn in leaderGroup)//clear all previous lords
+                {
+                    if (pawn.lord != null)
+                    {
+                        pawn.lord.Cleanup();
+                    }
+                }
+
+                Lord lordLeader = LordMaker.MakeNewLord(parent.Faction, new LordJob_DefendPoint(destination, Props.positionRadius), this.parent.Map, null);
+                lordLeader.AddPawn(parent as Pawn);
+                leaderGroup.Remove(parent as Pawn);
+                Lord lordEscort = LordMaker.MakeNewLord(parent.Faction, new LordJob_EscortPawn(parent as Pawn), this.parent.Map, leaderGroup);
+
             }
         }
     }
