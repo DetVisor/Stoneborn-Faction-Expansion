@@ -898,6 +898,7 @@ namespace LTS_StonebornSiteGeneration
         public ThingDef thingDef;
         public IntRange countRange;
         public int dropChancePercent = 100;
+        public string dropMessage;
     }
 
     public class CompDeathEffects : ThingComp
@@ -968,7 +969,11 @@ namespace LTS_StonebornSiteGeneration
                 {
                     Thing thing = ThingMaker.MakeThing(itemSpawningInfo.thingDef);
                     thing.stackCount = itemSpawningInfo.countRange.RandomInRange;
-                    GenPlace.TryPlaceThing(thing, parent.Position, prevMap, ThingPlaceMode.Direct);
+                    GenPlace.TryPlaceThing(thing, parent.Position, prevMap, ThingPlaceMode.Near);
+                    if (itemSpawningInfo.dropMessage != null)
+                    {
+                        Messages.Message(string.Format(itemSpawningInfo.dropMessage, parent.Label, thing.Label), thing, MessageTypeDefOf.PositiveEvent, false);
+                    }
                 }
             }
             //destroy corpse
@@ -1016,9 +1021,9 @@ namespace LTS_StonebornSiteGeneration
         {
             base.CompTick();
             
-            if (parent.IsHashIntervalTick(Props.roamIntervalTicks))
+            if (parent.IsHashIntervalTick(Props.roamIntervalTicks) && !(parent as Pawn).MentalStateDef.IsAggro)
             {
-                CellRect cellRect = parent.Map.BoundsRect();
+                CellRect cellRect = parent.Map.BoundsRect(10);
                 IntVec3 destination = parent.Position;
                 int attempts = 0;
                 while (destination == parent.Position)
