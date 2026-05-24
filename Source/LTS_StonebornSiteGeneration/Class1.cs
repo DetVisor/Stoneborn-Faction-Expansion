@@ -999,6 +999,7 @@ namespace LTS_StonebornSiteGeneration
 
         public int roamIntervalTicks = 3600; //3600 = 1 minute
         public float positionRadius = 6;
+        public TraverseMode traverseMode = TraverseMode.NoPassClosedDoors;
     }
 
     public class CompRoamingEncounterLeader : ThingComp
@@ -1014,30 +1015,9 @@ namespace LTS_StonebornSiteGeneration
         public override void CompTick()
         {
             base.CompTick();
-
-            //every [interval], SetDefendPoint this lord to a random reachable tile. May need to make a custom version of the lordToil to do this.
             
             if (parent.IsHashIntervalTick(Props.roamIntervalTicks))
             {
-                //makes a new lord+lordjob to defend a pos
-
-                //CellFinder.TryFindRandomReachableNearbyCell(this.parent.Position, parent.Map, Props.maxRoamDistance, TraverseMode.ByPawn, (IntVec3 x) => (parent as Pawn).CanReach(x, PathEndMode.OnCell, Danger.Deadly, false, false, TraverseMode.ByPawn), null, out IntVec3 result);
-
-                //RCellFinder.
-
-                //Log.Message(result);
-
-                //IntVec3 newPosition;
-
-                //while (true) 
-                //{
-
-                //}
-
-
-
-
-
                 CellRect cellRect = parent.Map.BoundsRect();
                 IntVec3 destination = parent.Position;
                 int attempts = 0;
@@ -1051,7 +1031,7 @@ namespace LTS_StonebornSiteGeneration
 
                     destination = cellRect.RandomCell;
 
-                    if (destination.Standable(parent.Map) && parent.Map.reachability.CanReach(destination, parent.Position, PathEndMode.OnCell, TraverseMode.PassDoors))
+                    if (destination.Standable(parent.Map) && parent.Map.reachability.CanReach(destination, parent.Position, PathEndMode.OnCell, Props.traverseMode))
                     {
                         break;
                     }
