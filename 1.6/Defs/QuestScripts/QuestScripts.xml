@@ -2,7 +2,7 @@
 <Defs>
   <QuestScriptDef>
     <defName>LTS_OpportunitySite_AncientStonebornRuin</defName>
-    <rootSelectionWeight>0</rootSelectionWeight>
+    <rootSelectionWeight>1</rootSelectionWeight>
     <rootMinPoints>350</rootMinPoints>
     <autoAccept>true</autoAccept>
     <defaultChallengeRating>1</defaultChallengeRating>
@@ -49,7 +49,7 @@
 
   <QuestScriptDef>
     <defName>LTS_OpportunitySite_AncientStonebornVault</defName>
-    <rootSelectionWeight>0</rootSelectionWeight>
+    <rootSelectionWeight>1</rootSelectionWeight>
     <rootMinPoints>350</rootMinPoints>
     <autoAccept>true</autoAccept>
     <defaultChallengeRating>1</defaultChallengeRating>
