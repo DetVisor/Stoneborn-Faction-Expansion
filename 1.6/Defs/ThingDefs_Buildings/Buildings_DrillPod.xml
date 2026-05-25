@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <ThingDef ParentName="BuildingBase">
+        <defName>DV_Raid_DrillPod</defName>
+        <label>drillpod</label>
+        <thingClass>LTS_StonebornSiteGeneration.ThingClass_DrillPod</thingClass>
+        <description>A launchable sub-terrestrial cargo pod capable of carrying people, items, or animals. Can be used for sending gifts, transporting people or supplies, surprise attacks, or reinforcing battles.</description>
+        <graphicData>
+          <texPath>Things/Special/DropPod</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+          <drawSize>(2,2)</drawSize>
+        </graphicData>
+        <size>(1,1)</size>
+        <rotatable>false</rotatable>
+        <tickerType>Rare</tickerType>
+        <altitudeLayer>BuildingOnTop</altitudeLayer>
+        <passability>PassThroughOnly</passability>
+        <castEdgeShadows>false</castEdgeShadows>
+        <designationHotKey>Misc12</designationHotKey>
+        <fillPercent>0.5</fillPercent>
+        <designationCategory>Misc</designationCategory>
+        <uiOrder>2200</uiOrder>
+        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+        <statBases>
+          <MaxHitPoints>250</MaxHitPoints>
+          <WorkToBuild>1600</WorkToBuild>
+          <Flammability>0.5</Flammability>
+        </statBases>
+		<soundOpen>DropPod_Open</soundOpen>
+      </ThingDef>
+
+      <ThingDef ParentName="EtherealThingBase">
+        <defName>DV_Ethereal_DrillPod</defName>
+        <label>tunnel</label>
+        <thingClass>LTS_StonebornSiteGeneration.ThingClass_ExcavationGroundSpawner</thingClass>
+        <tickerType>Normal</tickerType>
+        <drawerType>RealtimeOnly</drawerType>
+        <alwaysFlee>true</alwaysFlee>
+        <building>
+          <groundSpawnerSustainedEffecter>EmergencePointSustained2X2</groundSpawnerSustainedEffecter>
+          <groundSpawnerCompleteEffecter>EmergencePointComplete2X2</groundSpawnerCompleteEffecter>
+        </building>
+      </ThingDef>
+</Defs>

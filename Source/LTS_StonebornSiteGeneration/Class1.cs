@@ -137,6 +137,8 @@ namespace LTS_StonebornSiteGeneration
         public static ThingDef DV_Dwarven_Minecart_Steel;
         public static ThingDef DV_Dwarven_Minecart_Jade;
         public static ThingDef DV_Dwarven_Minecart_Gold;
+        public static ThingDef DV_Raid_DrillPod;
+        public static ThingDef DV_Ethereal_DrillPod;
 
         static LTS_SFE_DefOf()
         {
@@ -1100,7 +1102,7 @@ namespace LTS_StonebornSiteGeneration
         {
             base.CompTick();
             
-            if (parent.IsHashIntervalTick(Props.roamIntervalTicks) && !(parent as Pawn).MentalStateDef.IsAggro)
+            if (parent.IsHashIntervalTick(Props.roamIntervalTicks) && !(parent as Pawn).MentalStateDef.IsAggro) //at interval, if not currently in combat, find a new place to move to
             {
                 CellRect cellRect = parent.Map.BoundsRect(10);
                 IntVec3 destination = parent.Position;
@@ -1310,6 +1312,182 @@ namespace LTS_StonebornSiteGeneration
 
             listing_Standard.End();
             Widgets.EndScrollView();
+        }
+    }
+
+
+
+
+
+    //Based on Thekiborg's drillpod code:
+    
+    public class PawnsArrivalModeWorker_Excavation : PawnsArrivalModeWorker
+    {
+        public override void Arrive(List<Pawn> pawns, IncidentParms parms)
+        {
+            Map map = (Map)parms.target;
+            //List<Pawn> tempList = [.. pawns];
+            List<Pawn> tempList = new List<Pawn>(pawns);
+            int timesToLoop = CalculateHowManyDrillPodsToSpawn(pawns.Count);
+
+            int indexOnList = 0;
+            for (int i = 0; i < timesToLoop; i++)
+            {
+                ThingClass_ExcavationGroundSpawner groundSpawner = (ThingClass_ExcavationGroundSpawner)ThingMaker.MakeThing(LTS_SFE_DefOf.DV_Ethereal_DrillPod);
+                //CellFinder.TryFindRandomCellNear(parms.spawnCenter, map, 5, c => GenAdjFast.AdjacentCells8Way(c).All(c => c.GetFirstBuilding(map) == null && c.InBounds(map) && c.IsValid), out var validCell);
+
+                CellFinder.TryFindRandomCellNear(parms.spawnCenter, map, 5, c => c.GetFirstBuilding(map) == null && c.InBounds(map) && c.IsValid, out var validCell);
+
+                ThingClass_DrillPod drillPod = (ThingClass_DrillPod)ThingMaker.MakeThing(LTS_SFE_DefOf.DV_Raid_DrillPod);
+                groundSpawner.drillPod = drillPod;
+
+                // The count of pawns to get the range of pawns for each drill pod
+                // Calculated by multiplying the count of all pawns by the index of the drill pod we're in right now (+1 because indexes start at 0)
+                // We divide that by the total amount of drop pods that will be spawned and we substract the pawns already spawned (0 at first iteration)
+                int countOfPawns = (tempList.Count * (i + 1) / timesToLoop) - indexOnList;
+                drillPod.pawns = tempList.GetRange(indexOnList, countOfPawns);
+                GenSpawn.Spawn(groundSpawner, validCell, map);
+
+                //Thing groundSpawnerThing = ThingMaker.MakeThing((Thing)groundSpawner);
+                //GenPlace.TryPlaceThing(groundSpawner, validCell, prevMap, ThingPlaceMode.Near);
+
+                //parms.letterHyperlinkThingDefs.Add((Thing)groundSpawner);
+
+                indexOnList += countOfPawns;
+            }
+        }
+
+        /// <summary>
+        /// Finds the raid spawn center using the same logic the insectoids have to spawn.
+        /// </summary>
+        /// <param name="parms"></param>
+        /// <returns></returns>
+        public override bool TryResolveRaidSpawnCenter(IncidentParms parms)
+        {
+            Map map = (Map)parms.target;
+            parms.spawnCenter = FindRootTunnelLoc(map, true, true);
+            parms.spawnRotation = Rot4.Random;
+            return true;
+        }
+
+        /// <summary>
+        /// Code from infestationutility
+        /// </summary>
+        /// <param name="map"></param>
+        /// <param name="spawnAnywhereIfNoGoodCell"></param>
+        /// <param name="ignoreRoofIfNoGoodCell"></param>
+        /// <returns></returns>
+        private static IntVec3 FindRootTunnelLoc(Map map, bool spawnAnywhereIfNoGoodCell = false, bool ignoreRoofIfNoGoodCell = false)
+        {
+            if (InfestationCellFinder.TryFindCell(out var cell, map))
+            {
+                return cell;
+            }
+            if (!spawnAnywhereIfNoGoodCell)
+            {
+                return IntVec3.Invalid;
+            }
+            Func<IntVec3, bool, bool> validator = delegate (IntVec3 x, bool canIgnoreRoof)
+            {
+                if (!x.Standable(map) || x.Fogged(map))
+                {
+                    return false;
+                }
+                if (!canIgnoreRoof)
+                {
+                    bool flag = false;
+                    int num = GenRadial.NumCellsInRadius(3f);
+                    for (int i = 0; i < num; i++)
+                    {
+                        IntVec3 c = x + GenRadial.RadialPattern[i];
+                        if (c.InBounds(map))
+                        {
+                            RoofDef roof = c.GetRoof(map);
+                            if (roof != null && roof.isThickRoof)
+                            {
+                                flag = true;
+                                break;
+                            }
+                        }
+                    }
+                    if (!flag)
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            };
+            if (RCellFinder.TryFindRandomCellNearTheCenterOfTheMapWith((IntVec3 x) => validator(x, arg2: false), map, out cell))
+            {
+                return cell;
+            }
+            if (ignoreRoofIfNoGoodCell && RCellFinder.TryFindRandomCellNearTheCenterOfTheMapWith((IntVec3 x) => validator(x, arg2: true), map, out cell))
+            {
+                return cell;
+            }
+            return IntVec3.Invalid;
+        }
+
+        private int CalculateHowManyDrillPodsToSpawn(int countOfPawns)
+        {
+            //if (countOfPawns <= 8)
+            //{
+            //    return 1;
+            //}
+            //else if (countOfPawns <= 12)
+            //{
+            //    return 2;
+            //}
+            //else
+            //{
+            //    return 3;
+            //}
+
+            return (countOfPawns / 2); //2 not including oveflow, so, 3 in most with 2 in the remainder
+        }
+    }
+
+    /// <summary>
+    /// Spawns a raider every 250 ticks, won't do anything when there's any raiders left to spawn in the pod. Presumably destroys itself with a comp
+    /// I beg to differ - LTS
+    /// </summary>
+    public class ThingClass_DrillPod : Building
+    {
+        internal List<Pawn> pawns = new List<Pawn>();
+
+        public override void TickRare()
+        {
+            base.TickRare();
+            Pawn pawn;
+            if (!pawns.NullOrEmpty())
+            {
+                pawn = (Pawn)GenSpawn.Spawn(pawns[0], Position, Map);
+                pawns.Remove(pawn);
+            }
+            else
+            {
+                
+
+                GenPlace.TryPlaceThing(ThingMaker.MakeThing(ThingDefOf.ChunkSlagSteel, null), base.Position, Map, ThingPlaceMode.Near, null, null, null, 1);
+                if (this.def.soundOpen != null)
+                {
+                    this.def.soundOpen.PlayOneShot(new TargetInfo(base.Position, Map, false));
+                }
+                this.Destroy(DestroyMode.Vanish);
+            }
+        }
+    }
+
+    /// <summary>
+    /// Will spawn the drillPod once the animation finishes
+    /// </summary>
+    public class ThingClass_ExcavationGroundSpawner : GroundSpawner
+    {
+        internal Thing drillPod;
+        protected override void Spawn(Map map, IntVec3 loc)
+        {
+            GenSpawn.Spawn(drillPod, loc, map);
+            base.Spawn(map, loc);
         }
     }
 }

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <PawnsArrivalModeDef>
+        <defName>Det_PawnsArrivalMode_Excavation</defName>
+        <workerClass>LTS_StonebornSiteGeneration.PawnsArrivalModeWorker_Excavation</workerClass>
+        <selectionWeightCurve>
+          <points>
+            <li>(1, 0)</li> <!--should exclude all factions besides stoneborn(?)-->
+          </points>
+        </selectionWeightCurve>
+        <textEnemy>A group of {0} from {1} have arrived in drillpods.</textEnemy>
+        <textFriendly>A group of friendly {0} from {1} have arrived in drillpods nearby.</textFriendly>
+        <textWillArrive>{0_pawnsPluralDef} will arrive in drillpods.</textWillArrive>
+        <walkIn>true</walkIn>
+		
+		<selectionWeightCurvesPerFaction>
+			<li>
+				<faction>OutlanderRoughStoneborn</faction>
+				<selectionWeightPerPointsCurve>
+					<points>
+						<li>(300, 1.0)</li>
+						<li>(700, 0.4)</li>
+					</points>
+				</selectionWeightPerPointsCurve>
+			</li>
+		</selectionWeightCurvesPerFaction>
+		<layerBlacklist>
+			<li MayRequire="ludeon.rimworld.odyssey">Orbit</li>
+		</layerBlacklist>
+      </PawnsArrivalModeDef>
+</Defs>
