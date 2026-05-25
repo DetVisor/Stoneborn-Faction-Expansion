@@ -2,52 +2,78 @@
 <Defs>
 
   <ThingDef ParentName="ApparelBase">
-    <defName>LTS_Apparel_TestNecklace</defName>
-    <label>test necklace</label>
-    <description>A heavy duty shield belt designed by the stoneborn. It not only boasts a larger shield capacitor than a standard shield belt, it also allows projectiles to exit its field while still preventing them from entering. However, these modifications have made the components in it unstable, causing it to release an EMP blast upon breaking. This can lead to a chain reaction of breaking shields, but such concerns are nothing to worry about if the shield is too strong to break in the first place.</description>
-    <thingClass>Apparel</thingClass>
+    <defName>DV_Exemplar_AmuletOfIllyavrith</defName>
+    <label>amulet of Illyavrith</label>
+    <description>A single-person burst rocket for short-ranged flight. With its integrated harness and guidance assistant, the jump pack allows anyone to leap long distances at high speed, even over obstacles. It must be recharged after several uses.\n\nSome spacer tech militaries have melee combat specialists who use jump packs to bypass obstacles and rapidly close with the enemy.</description>
+    <techLevel>Spacer</techLevel>
+    <recipeMaker IsNull="True" />
+    <costList>
+      <Steel>30</Steel>
+    </costList>
     <graphicData>
-      <texPath>Things/Pawn/Apparel/Belts/AbsorptionShield</texPath>
+      <texPath>Things/Item/Equipment/Loot/Exemplar/Exemplar_Amulet</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <tickerType>Normal</tickerType>
-    <techLevel>Spacer</techLevel>
     <statBases>
+      <WorkToMake>14000</WorkToMake>
       <Mass>3</Mass>
-      <Flammability>0</Flammability>
-      <EquipDelay>2.5</EquipDelay>
-      <EnergyShieldEnergyMax>2.5</EnergyShieldEnergyMax>
-      <EnergyShieldRechargeRate>0.05</EnergyShieldRechargeRate>
+      <Flammability>0.4</Flammability>
+      <EquipDelay>2</EquipDelay>
     </statBases>
     <thingSetMakerTags>
       <li>RewardStandardQualitySuper</li>
     </thingSetMakerTags>
-    <costList>
-      <ComponentIndustrial>5</ComponentIndustrial>
-      <Steel>75</Steel>
-      <Plasteel>30</Plasteel>
-    </costList>
-    <recipeMaker>
-      <unfinishedThingDef>UnfinishedBelt</unfinishedThingDef>
-      <researchPrerequisite>DV_Research_BattleEquipment</researchPrerequisite>
-      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-      <workSkill>Crafting</workSkill>
-      <effectWorking>Smith</effectWorking>
-      <soundWorking>Recipe_Machining</soundWorking>
-      <recipeUsers>
-        <li>TableMachining</li>
-      </recipeUsers>
-      <useIngredientsForColor>false</useIngredientsForColor>
-      <skillRequirements>
-        <Crafting>8</Crafting>
-      </skillRequirements>
-      <displayPriority>300</displayPriority>
-    </recipeMaker>
     <thingCategories>
       <li>ApparelUtility</li>
     </thingCategories>
     <apparel>
+      <abilities>
+        <li>DV_Exemplar_PsychicBlast</li>
+      </abilities>
       <countsAsClothingForNudity>false</countsAsClothingForNudity>
+      <scoreOffset>4</scoreOffset>
+      <wornGraphicPath>Things/Item/Equipment/Loot/Exemplar/Exemplar_Amulet</wornGraphicPath>
+      <useWornGraphicMask>false</useWornGraphicMask>
+      <wornGraphicData>
+        <renderUtilityAsPack>true</renderUtilityAsPack>
+        <south>
+          <offset>(0,0.17)</offset>
+          <thin><offset>(0,-0.13)</offset></thin>
+          <female><offset>(0,-0.08)</offset></female>
+          <hulk><offset>(0,-0.14)</offset></hulk>
+          <fat><offset>(0,-0.10)</offset></fat>
+        </south>
+        <north>
+          <offset>(0,-0.17)</offset>
+          <thin><offset>(0,-0.13)</offset></thin>
+          <male><offset>(0,-0.12)</offset></male>
+          <hulk><offset>(0,-0.20)</offset></hulk>
+          <female><offset>(0,-0.12)</offset></female>
+          <fat><offset>(0,-0.14)</offset></fat>
+        </north>
+        <east>
+          <offset>(0.05, 0.05)</offset>
+          <thin><offset>(0.12,-0.10)</offset></thin>
+          <male><offset>(0.12,-0.05)</offset></male>
+          <hulk><offset>(-0.04,-0.12)</offset></hulk>
+          <fat><offset>(-0.15,0)</offset></fat>
+          <female><offset>(0.08,-0.05)</offset></female>
+        </east>
+        <west>
+          <offset>(0.35,-0.17)</offset>
+          <thin><offset>(-0.12,-0.10)</offset></thin>
+          <male><offset>(-0.12,-0.05)</offset></male>
+          <hulk><offset>(0.04,-0.12)</offset></hulk>
+          <fat><offset>(0.15,0)</offset></fat>
+          <female><offset>(-0.08,-0.05)</offset></female>
+        </west>
+        <male><scale>(0.5,0.5)</scale></male>
+        <female><scale>(0.5,0.5)</scale></female>
+        <thin><scale>(0.4,0.4)</scale></thin>
+        <hulk><scale>(0.7,0.7)</scale></hulk>
+        <fat><scale>(0.7,0.7)</scale></fat>
+      </wornGraphicData>
       <careIfWornByCorpse>false</careIfWornByCorpse>
       <careIfDamaged>false</careIfDamaged>
       <wearPerDay>0</wearPerDay>
@@ -55,10 +81,13 @@
         <li>Neck</li>
       </bodyPartGroups>
       <layers>
-        <li>LTS_Necklace</li>
+        <li>Belt</li>
       </layers>
-      <developmentalStageFilter>Child, Adult</developmentalStageFilter>
     </apparel>
+    <tradeTags>
+      <li>ExoticMisc</li>
+      <li>Clothing</li>
+    </tradeTags>
     <allowedArchonexusCount>1</allowedArchonexusCount>
   </ThingDef>
 

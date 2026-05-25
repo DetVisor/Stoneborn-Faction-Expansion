@@ -1095,8 +1095,7 @@
     </lifeStages>
   </PawnKindDef>
 
-
-
+  <!--================================================ -->
 
   <ThingDef ParentName="BasePawn" Name="DV_BaseKnyfevyn" Abstract="True">
     <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
@@ -1119,14 +1118,14 @@
       <needsRest>false</needsRest>
       <hasGenders>false</hasGenders>
       <foodType>None</foodType>
-      <lifeExpectancy>2500</lifeExpectancy>
+      <lifeExpectancy>800</lifeExpectancy>
       <bloodDef>Filth_MachineBits</bloodDef>
       <soundCallIntervalRange>1000~2000</soundCallIntervalRange>
       <canFlyInVacuum>true</canFlyInVacuum>
     </race>
   </ThingDef>
 
-  <PawnKindDef Name="DV_BaseyKnyfevynKind" Abstract="True">
+  <PawnKindDef Name="DV_BaseKnyfevynKind" Abstract="True">
     <defaultFactionDef>DV_DungeonMonsters</defaultFactionDef>
     <aiAvoidCover>true</aiAvoidCover>
     <destroyGearOnDrop>true</destroyGearOnDrop>
@@ -1210,7 +1209,7 @@
     </race>
   </ThingDef>
 
-  <PawnKindDef ParentName="DV_BaseyKnyfevynKind">
+  <PawnKindDef ParentName="DV_BaseKnyfevynKind">
     <defName>DV_Monster_KnyfevynAcolyte</defName>
     <label>possessed acolyte</label>
     <race>DV_Monster_KnyfevynAcolyte</race>
@@ -1296,7 +1295,7 @@
     </comps>
   </ThingDef>
 
-  <PawnKindDef ParentName="DV_BaseyKnyfevynKind">
+  <PawnKindDef ParentName="DV_BaseKnyfevynKind">
     <defName>DV_Monster_KnyfevynAdept</defName>
     <label>possessed adept</label>
     <race>DV_Monster_KnyfevynAdept</race>
@@ -1396,7 +1395,7 @@
     </comps>
   </ThingDef>
 
-  <PawnKindDef ParentName="DV_BaseyKnyfevynKind">
+  <PawnKindDef ParentName="DV_BaseKnyfevynKind">
     <defName>DV_Monster_KnyfevynExemplar</defName>
     <label>possessed exemplar</label>
     <race>DV_Monster_KnyfevynExemplar</race>
@@ -1427,6 +1426,129 @@
       <li>DV_Exemplar_PsychicBlast</li>
       <li>DV_Exemplar_Dash</li>
     </abilities>
+  </PawnKindDef>
+
+  <!--================================================ -->
+
+  <ThingDef ParentName="BasePawn" Name="DV_BaseAutomaton" Abstract="True">
+    <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+    <statBases>
+      <MarketValue>1200</MarketValue>
+      <PsychicSensitivity>0</PsychicSensitivity>
+      <ToxicResistance>1</ToxicResistance>
+      <Flammability>0</Flammability>
+      <ComfyTemperatureMin>-100</ComfyTemperatureMin>
+      <ComfyTemperatureMax>250</ComfyTemperatureMax>
+      <MeatAmount>0</MeatAmount>
+      <ArmorRating_Heat>2.00</ArmorRating_Heat>
+      <ToxicEnvironmentResistance>1</ToxicEnvironmentResistance>
+      <MoveSpeed>5</MoveSpeed>
+      <ArmorRating_Blunt>0.40</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.40</ArmorRating_Sharp>
+    </statBases>
+    <receivesSignals>true</receivesSignals>
+    <tradeability>None</tradeability>
+    <race>
+      <thinkTreeMain>Mechanoid</thinkTreeMain>
+      <fleshType>Mechanoid</fleshType>
+      <needsRest>false</needsRest>
+      <hasGenders>false</hasGenders>
+      <foodType>None</foodType>
+      <lifeExpectancy>1000</lifeExpectancy>
+      <bloodDef>Filth_MachineBits</bloodDef>
+      <soundCallIntervalRange>1000~2000</soundCallIntervalRange>
+      <canFlyInVacuum>true</canFlyInVacuum>
+      <intelligence>ToolUser</intelligence>
+      <baseBodySize>1.0</baseBodySize>
+      <lifeStageAges>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>0</minAge>
+        </li>
+      </lifeStageAges>
+    </race>
+    <comps>
+      <li Class="LTS_StonebornSiteGeneration.CompProperties_DeathEffects">
+        <effecterDef>DV_AutomatonDestroyed</effecterDef>
+        <filthDef>Filth_MachineBits</filthDef>
+        <filthLayersRange>0~2</filthLayersRange>
+        <filthRadius>1</filthRadius>
+        <vanish>True</vanish>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <PawnKindDef Name="DV_BaseAutomatonKind" Abstract="True">
+    <defaultFactionDef>DV_DungeonMonsters</defaultFactionDef>
+    <aiAvoidCover>true</aiAvoidCover>
+    <destroyGearOnDrop>true</destroyGearOnDrop>
+    <canStrip>false</canStrip>
+    <minGenerationAge>200</minGenerationAge>
+    <forceNormalGearQuality>true</forceNormalGearQuality>
+  </PawnKindDef>
+
+
+  <ThingDef ParentName="DV_BaseAcolyte">
+    <defName>DV_Automaton_Autognome</defName>
+    <label>autognome</label>
+    <description>Fast human-sized combat mechanoids built for medium and long-range combat. Their bodies are light, making them vulnerable targets at close range - especially in melee combat.</description>
+    <tools>
+      <li>
+        <label>right welder</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+        <alwaysTreatAsWeapon>false</alwaysTreatAsWeapon>
+      </li>
+      <li>
+        <label>left sawblade</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>18</power>
+        <cooldownTime>1.6</cooldownTime>
+        <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+        <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+      </li>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8.5</power>
+        <cooldownTime>2.2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.2</chanceFactor>
+      </li>
+    </tools>
+    <race>
+      <body>Human</body>
+      <baseHealthScale>1.6</baseHealthScale>
+    </race>
+  </ThingDef>
+
+  <PawnKindDef ParentName="DV_BaseKnyfevynKind">
+    <defName>DV_Automaton_Autognome</defName>
+    <label>autognome</label>
+    <race>DV_Automaton_Autognome</race>
+    <combatPower>80</combatPower>
+    <canOpenDoors>false</canOpenDoors>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Animal/Autognome/Autognome</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.4</drawSize>
+          <shadowData>
+            <volume>(0.4, 0.8, 0.4)</volume>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
   </PawnKindDef>
 
 </Defs>

@@ -1,6 +1,121 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>DV_Turret_AncientBallista</defName>
+    <label>ancient ballista sentry</label>
+    <description>A portable automatic turret. Requires steel to refurbish its barrel after heavy use. May explode when damaged. Its dumb AI brain can't be directly controlled, so beware of friendly fire.</description>
+    <thingClass>Building_TurretGun</thingClass>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <graphicData>
+      <texPath>Things/Building/Security/AncientStonebornTurret_Base</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1.2,1.2)</drawSize>
+      <damageData>
+        <rect>(0.2,0.2,0.6,0.6)</rect>
+      </damageData>
+      <shadowData>
+        <volume>(0.27,0.25,0.27)</volume>
+        <offset>(0,0,0)</offset>
+      </shadowData>
+    </graphicData>
+    <uiIconPath>Things/Building/Security/AncientTurretBallista_MenuIcon</uiIconPath>
+    <uiIconScale>0.90</uiIconScale>
+    <minifiedDef IsNull="True" />
+    <altitudeLayer>Building</altitudeLayer>
+    <stealable>false</stealable>
+    <rotatable>false</rotatable>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Flammability>0.7</Flammability>
+      <WorkToBuild>1800</WorkToBuild>
+      <Mass>8</Mass>
+      <Beauty>-20</Beauty>
+      <ShootingAccuracyTurret>0.95</ShootingAccuracyTurret>
+    </statBases>
+    <tickerType>Normal</tickerType>
+    <passability>PassThroughOnly</passability>
+    <pathCost>50</pathCost>
+    <fillPercent>0.4</fillPercent>
+    <hasTooltip>true</hasTooltip>
+    <costList>
+      <DV_Mithrium>75</DV_Mithrium>
+      <ComponentIndustrial>5</ComponentIndustrial>
+    </costList>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <designationCategory>Security</designationCategory>
+    <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+    <building>
+      <combatPower>55</combatPower>      <!-- same as a scavenger -->
+      <ai_combatDangerous>true</ai_combatDangerous>
+      <turretGunDef>DV_Gun_AncientBallista</turretGunDef>
+      <turretBurstCooldownTime>3.2</turretBurstCooldownTime>
+    </building>
+    <placeWorkers>
+      <li>PlaceWorker_TurretTop</li>
+      <li>PlaceWorker_ShowTurretRadius</li>
+    </placeWorkers>
+    <designationHotKey>Misc2</designationHotKey>
+    <researchPrerequisites>
+      <li>GunTurrets</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>DV_AncientBallistaTurret_Bolt</defName>
+    <label>ancient ballista bolt</label>
+    <graphicData>
+      <texPath>Things/Projectiles/Bullet_NailLong</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1.2</drawSize>
+    </graphicData>
+    <projectile>
+      <damageDef>DV_Nail</damageDef>
+      <damageAmountBase>15</damageAmountBase>
+      <stoppingPower>2.1</stoppingPower>
+      <armorPenetrationBase>0.33</armorPenetrationBase>
+      <speed>60</speed>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseWeaponTurret">
+    <defName>DV_Gun_AncientBallista</defName>
+    <label>ancient ballista turret</label>
+    <description>A simple automatic gun made to be mounted on a turret.</description>
+    <graphicData>
+      <texPath>Things/Building/Security/AncientTurretBallista_Top</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>0.7</drawSize>
+    </graphicData>
+    <statBases>
+      <AccuracyTouch>0.54</AccuracyTouch>
+      <AccuracyShort>0.67</AccuracyShort>
+      <AccuracyMedium>0.75</AccuracyMedium>
+      <AccuracyLong>0.60</AccuracyLong>
+      <RangedWeapon_Cooldown>3.2</RangedWeapon_Cooldown>
+      <DeteriorationRate>0</DeteriorationRate>
+      <Mass>5</Mass>
+      <Flammability>0</Flammability>
+    </statBases>
+    <weaponTags>
+      <li>AutomatonGun</li>
+    </weaponTags>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <defaultProjectile>DV_AncientBallistaTurret_Bolt</defaultProjectile>
+        <warmupTime>0</warmupTime>
+        <range>24.9</range>
+        <ticksBetweenBurstShots>15</ticksBetweenBurstShots>
+        <burstShotCount>3</burstShotCount>
+        <soundCast>Shot_Blazenail</soundCast>
+        <soundCastTail>GunTail_Light</soundCastTail>
+        <muzzleFlashScale>0</muzzleFlashScale>
+      </li>
+    </verbs>
+  </ThingDef>
+
   <ThingDef ParentName="BuildingBase">
     <defName>DV_DwarvenGrate</defName>
     <label>grate</label>

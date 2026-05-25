@@ -2,6 +2,138 @@
 <Defs>
 
   <EffecterDef>
+    <defName>DV_AutomatonDestroyed</defName>
+    <children>
+      <li>
+        <subEffecterClass>SubEffecter_SoundTriggered</subEffecterClass>
+        <soundDef>BuildingDestroyed_Metal_Medium</soundDef>
+        <spawnLocType>OnTarget</spawnLocType>
+      </li>
+      <li>
+        <subEffecterClass>SubEffecter_CameraShakeSingle</subEffecterClass>
+        <initialDelayTicks>0</initialDelayTicks>
+        <positionOffset>(0, 0, 0)</positionOffset>
+        <cameraShake>.1</cameraShake>
+        <lifespanMaxTicks>1</lifespanMaxTicks>
+        <distanceAttenuationScale>1</distanceAttenuationScale>
+      </li>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+        <positionRadius>0.4</positionRadius>
+        <fleckDef>AirPuff</fleckDef>
+        <burstCount>2~3</burstCount>
+        <speed>0.4~0.8</speed>
+        <scale>1.0~1.3</scale>
+        <color>(200, 200, 200)</color>
+        <spawnLocType>OnSource</spawnLocType>
+      </li>
+
+      <li>
+        <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+        <positionRadius>0.4</positionRadius>
+        <moteDef>DV_AirPuff</moteDef>
+        <burstCount>4~6</burstCount>
+        <rotationRate>-120~120</rotationRate>
+        <rotation>-120~120</rotation>
+        <speed>2</speed>
+        <scale>1.4~1.85</scale>
+        <spawnLocType>OnSource</spawnLocType>
+      </li>
+
+      <li>
+        <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+        <fleckDef>DV_ArmorDestroyedBits</fleckDef>
+        <burstCount>2</burstCount>
+        <rotation>-150~150</rotation>
+        <positionRadius>0.7</positionRadius>
+        <speed>0.6~1.1</speed>
+        <fleckUsesAngleForVelocity>true</fleckUsesAngleForVelocity>
+        <spawnLocType>OnSource</spawnLocType>
+      </li>
+
+      <li>
+        <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+        <moteDef>DV_Mote_MithriumScrap</moteDef>
+        <burstCount>2~3</burstCount>
+        <rotation>-150~150</rotation>
+        <positionRadius>0.3</positionRadius>
+        <speed>3~3.4</speed>
+        <fleckUsesAngleForVelocity>true</fleckUsesAngleForVelocity>
+        <spawnLocType>OnSource</spawnLocType>
+      </li>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+        <moteDef>DV_Mote_MechanicalPieces</moteDef>
+        <burstCount>1~2</burstCount>
+        <rotation>-150~150</rotation>
+        <positionRadius>0.3</positionRadius>
+        <speed>3~3.4</speed>
+        <fleckUsesAngleForVelocity>true</fleckUsesAngleForVelocity>
+        <spawnLocType>OnSource</spawnLocType>
+      </li>
+
+    </children>
+    <offsetTowardsTarget>0.25~0.25</offsetTowardsTarget>
+    <positionRadius>0.1</positionRadius>
+  </EffecterDef>
+
+  <ThingDef ParentName="MoteBase">
+    <defName>DV_Mote_MechanicalPieces</defName>
+    <thingClass>MoteThrown</thingClass>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <mote>
+      <fadeInTime>0.03</fadeInTime>
+      <fadeOutTime>0.1</fadeOutTime>
+      <solidTime>0.5</solidTime>
+      <archHeight>0.9</archHeight>
+      <archDuration>0.6</archDuration>
+      <speedPerTime>-3</speedPerTime>
+    </mote>
+    <graphicData>
+      <texPath>Things/Mote/MechanicalPieces</texPath>
+      <graphicClass>Graphic_MoteRandom</graphicClass>
+      <drawSize>0.5</drawSize>
+    </graphicData>
+  </ThingDef>
+
+  <ThingDef ParentName="MoteBase">
+    <defName>DV_Mote_MithriumScrap</defName>
+    <thingClass>MoteThrown</thingClass>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <mote>
+      <fadeInTime>0.03</fadeInTime>
+      <fadeOutTime>0.1</fadeOutTime>
+      <solidTime>0.5</solidTime>
+      <archHeight>0.9</archHeight>
+      <archDuration>0.6</archDuration>
+      <speedPerTime>-3</speedPerTime>
+    </mote>
+    <graphicData>
+      <texPath>Things/Mote/MithriumPieces</texPath>
+      <graphicClass>Graphic_MoteRandom</graphicClass>
+      <drawSize>0.5</drawSize>
+    </graphicData>
+  </ThingDef>
+
+  <ThingDef ParentName="MoteBase">
+    <defName>DV_AirPuff</defName>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <mote>
+      <fadeInTime>0.03</fadeInTime>
+      <fadeOutTime>0.4</fadeOutTime>
+      <solidTime>0.6</solidTime>
+      <speedPerTime>-2</speedPerTime>
+      <growthRate>0.6</growthRate>
+    </mote>
+    <graphicData>
+      <texPath>Things/Mote/Smoke</texPath>
+      <shaderType>Mote</shaderType>
+      <color>(255, 255, 255, 170)</color>
+      <drawSize>1</drawSize>
+    </graphicData>
+  </ThingDef>
+
+  <EffecterDef>
     <defName>DV_Exemplar_PsychicBlastCoreo</defName>
     <children>
       <li>
