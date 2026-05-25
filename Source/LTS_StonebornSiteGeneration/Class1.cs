@@ -117,6 +117,19 @@ namespace LTS_StonebornSiteGeneration
         }
     }
 
+    [HarmonyPatch(typeof(ApparelLayerDef), nameof(ApparelLayerDef.IsUtilityLayer), MethodType.Getter)]
+    public static class ApparelLayerDef_IsUtilityLayer_Patch
+    {
+        [HarmonyPostfix]
+        public static void Postfix(ref bool __result, ApparelLayerDef __instance)
+        {
+            if (__instance == LTS_SFE_DefOf.LTS_Necklace)
+            {
+                __result = true;
+            }
+        }
+    }
+
 
 
 
@@ -139,6 +152,7 @@ namespace LTS_StonebornSiteGeneration
         public static ThingDef DV_Dwarven_Minecart_Gold;
         public static ThingDef DV_Raid_DrillPod;
         public static ThingDef DV_Ethereal_DrillPod;
+        public static ApparelLayerDef LTS_Necklace;
 
         static LTS_SFE_DefOf()
         {
