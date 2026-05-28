@@ -3,7 +3,7 @@
     <ThingDef ParentName="BuildingBase">
         <defName>DV_Monster_Gutterlatch</defName>
         <label>gutterlatch</label>
-        <description>A peculiar land-dwelling mollusk that resides within dank, dark and abandoned places. Gutterlatches are considered pests, as they can reproduce fast and take over entire structures if left unchecked. When threatened by anything, they can spit out globs of toxic goo to draw predators away.n/n/Their meat is considered a delicacy in some places, and pairs well with fungus.</description>
+        <description>A peculiar land-dwelling mollusk that resides within dank, dark and abandoned places. Gutterlatches are considered pests, as they can reproduce fast and take over entire structures if left unchecked. When threatened by anything, they can spit out globs of toxic goo to ward predators off./n/nTheir meat is considered a delicacy in some places, and pairs well with fungus.</description>
         <thingClass>Building_TurretGun</thingClass>
         <drawerType>MapMeshAndRealTime</drawerType>
         <graphicData>

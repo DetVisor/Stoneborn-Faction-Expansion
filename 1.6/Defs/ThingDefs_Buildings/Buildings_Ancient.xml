@@ -404,7 +404,7 @@
   <ThingDef Name="DwarvenRuinedAqueduct" ParentName="BuildingBase">
     <defName>DV_Dwarven_Aqueduct</defName>
     <label>ruined aqueduct</label>
-    <description>A heavily-reinforced stone wall, made of tough rock and mithrium.</description>
+    <description>An ancient stoneborn aquaduct, lined with unidentifiable residue.</description>
     <uiIconPath>Things/Building/Ruins/Dwarven_RuinedWall_MenuIcon</uiIconPath>
     <designationCategory IsNull="True"/>
     <graphicData inherit="False">
@@ -500,7 +500,7 @@
   <ThingDef ParentName="ChunkBase">
     <defName>DV_KnyfevynRemains</defName>
     <label>elven remains</label>
-    <description>A chunk of mithrium slag. While it's useless in its current form, it can be smelted to recover mithrium.</description>
+    <description>A section of ancient knyfevyn power armour. While it's useless in its current form, it can be smelted to recover plasteel.</description>
     <graphicData>
       <texPath>Things/Building/Ruins/Dwarven_KnyfevynScraps</texPath>
       <graphicClass>Graphic_Random</graphicClass>
@@ -515,7 +515,7 @@
     </thingCategories>
     <smeltable>true</smeltable>
     <smeltProducts>
-      <Steel>15</Steel>
+      <Plasteel>15</Plasteel>
     </smeltProducts>
   </ThingDef>
 
@@ -524,7 +524,7 @@
     <label>ruined chair</label>
     <thingClass>Building</thingClass>
     <category>Building</category>
-    <description>An ancient stoneborn chair, made from mithrium.</description>
+    <description>An ancient stoneborn chair, made from reinforced stone and mithrium.</description>
     <noRightClickDraftAttack>true</noRightClickDraftAttack>
     <graphicData>
       <texPath>Things/Building/Ruins/Ruined_DwarvenChair/Ruined_DwarvenChair</texPath>
@@ -568,7 +568,7 @@
   <ThingDef ParentName="BuildingBase">
     <defName>DV_Dwarven_RuinedGateLocked</defName>
     <label>ruined gate (locked)</label>
-    <description>Divides rooms. A weathered mithrium gate that has been locked ages go.</description>
+    <description>Divides rooms. A weathered mithrium gate that has remained locked for centuries.</description>
     <statBases>
       <WorkToBuild>15000</WorkToBuild>
       <MaxHitPoints>250</MaxHitPoints>
@@ -812,7 +812,7 @@
     <label>ruined scrollshelf</label>
     <thingClass>Building</thingClass>
     <category>Building</category>
-    <description>An ancient table made of reinforced stone.</description>
+    <description>An ancient scrollshelf made of reinforced stone and mithrium. The remaining scrolls that haven't been ruined, eaten or disintegrated with the passage of time are written in rocktongue and seemingly contain uninteresting clerical data.</description>
     <noRightClickDraftAttack>true</noRightClickDraftAttack>
     <graphicData>
       <texPath>Things/Building/Ruins/Dwarven_AncientScrollshelf/Dwarven_AncientScrollshelf</texPath>
@@ -943,7 +943,7 @@
     <label>ruined pillar</label>
     <thingClass>Building</thingClass>
     <category>Building</category>
-    <description>An ancient stoneborn pillar, made from mithrium.</description>
+    <description>An ancient stoneborn pillar, made from reinforced stone and mithrium.</description>
     <noRightClickDraftAttack>true</noRightClickDraftAttack>
     <altitudeLayer>PawnUnused</altitudeLayer>
     <graphicData>
@@ -986,7 +986,7 @@
     <label>ruined alcohol vat</label>
     <thingClass>Building</thingClass>
     <category>Building</category>
-    <description>An ancient vat full of a brownish much that reeks of alcohol.</description>
+    <description>An ancient vat full of a brownish mush that reeks of alcohol.</description>
     <noRightClickDraftAttack>true</noRightClickDraftAttack>
     <graphicData>
       <texPath>Things/Building/Ruins/Dwarven_AncientAlcoholVat</texPath>
@@ -1086,7 +1086,7 @@
   <ThingDef ParentName="BuildingBase">
     <defName>DV_Dwarven_Pipes</defName>
     <label>ancient piping</label>
-    <description>A bundle of electrical cables for moving power around. Can be placed under walls and other buildings.</description>
+    <description>A section of robust mithrium piping. Hot to the touch.</description>
     <thingClass>Building</thingClass>
     <category>Building</category>
     <noRightClickDraftAttack>true</noRightClickDraftAttack>
@@ -1227,7 +1227,7 @@
     <label>empty minecart</label>
     <thingClass>Building</thingClass>
     <category>Building</category>
-    <description>Planks of wood treated by stoneborn.</description>
+    <description>An ancient stoneborn minecart, rusted beyond use.</description>
     <noRightClickDraftAttack>true</noRightClickDraftAttack>
     <graphicData>
       <texPath>Things/Building/Ruins/Dwarven_Minecarts/Minecart_Open</texPath>
@@ -1276,7 +1276,7 @@
   <ThingDef ParentName="DV_MinecartCrate">
     <defName>DV_Dwarven_Minecart_Steel</defName>
     <label>steel minecart</label>
-    <description>A box filled with valuable components. Some are intact and useable.</description>
+    <description>An ancient stoneborn minecart, rusted beyond use. This one still contains usable metal ores.</description>
     <graphicData>
       <texPath>Things/Building/Ruins/Dwarven_Minecarts/Minecart_Steel</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
@@ -1306,7 +1306,7 @@
   <ThingDef ParentName="DV_MinecartCrate">
     <defName>DV_Dwarven_Minecart_Gold</defName>
     <label>gold minecart</label>
-    <description>A box filled with valuable components. Some are intact and useable.</description>
+    <description>An ancient stoneborn minecart, rusted beyond use. This one still contains a pile of glimmering gold.</description>
     <graphicData>
       <texPath>Things/Building/Ruins/Dwarven_Minecarts/Minecart_Gold</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
@@ -1336,7 +1336,7 @@
   <ThingDef ParentName="DV_MinecartCrate">
     <defName>DV_Dwarven_Minecart_Jade</defName>
     <label>jade minecart</label>
-    <description>A box filled with valuable components. Some are intact and useable.</description>
+    <description>An ancient stoneborn minecart, rusted beyond use. This one still contains chunks of jade.</description>
     <graphicData>
       <texPath>Things/Building/Ruins/Dwarven_Minecarts/Minecart_Jade</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
@@ -1366,7 +1366,7 @@
   <ThingDef MayRequire="det.sbdelights" ParentName="DV_MinecartCrate">
     <defName>DV_Dwarven_Minecart_Glimmerquartz</defName>
     <label>glimmerquartz minecart</label>
-    <description>A box filled with valuable components. Some are intact and useable.</description>
+    <description>An ancient stoneborn minecart, rusted beyond use. This one still contains chunks of glimmerquartz.</description>
     <graphicData>
       <texPath>Things/Building/Ruins/Dwarven_Minecarts/Minecart_Glimmerquartz</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
@@ -1396,7 +1396,7 @@
   <ThingDef MayRequire="det.epochspyrinth" ParentName="DV_MinecartCrate">
     <defName>DV_Dwarven_Minecart_Pyrinth</defName>
     <label>pyrinth minecart</label>
-    <description>A box filled with valuable components. Some are intact and useable.</description>
+    <description>An ancient stoneborn minecart, rusted beyond use. This one still contains chunks of glowing pyrinth.</description>
     <graphicData>
       <texPath>Things/Building/Ruins/Dwarven_Minecarts/Minecart_Pyrinth</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
@@ -1430,7 +1430,7 @@
   <ThingDef ParentName="BuildingBase">
     <defName>DV_Dwarven_MinecartRails</defName>
     <label>minecart rails</label>
-    <description>A bundle of electrical cables for moving power around. Can be placed under walls and other buildings.</description>
+    <description>A set of rusty minecart rails.</description>
     <thingClass>Building</thingClass>
     <category>Building</category>
     <noRightClickDraftAttack>true</noRightClickDraftAttack>
@@ -1486,7 +1486,7 @@
   <ThingDef MayRequire="det.sbcuisine" ParentName="DV_SackCrate">
     <defName>DV_Dwarven_FlourSack</defName>
     <label>flour sack</label>
-    <description>A box filled with valuable components. Some are intact and useable.</description>
+    <description>A threadbare sack of fungal flour that has miraculously remained dry over the centuries.</description>
     <graphicData>
       <texPath>Things/Building/Ruins/Dwarven_FlourSack/FlourSackFull</texPath>
       <graphicClass>Graphic_Random</graphicClass>

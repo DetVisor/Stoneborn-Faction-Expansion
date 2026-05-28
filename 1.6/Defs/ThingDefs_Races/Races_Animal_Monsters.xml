@@ -734,7 +734,7 @@
   <ThingDef ParentName="AnimalThingBase">
     <defName>DV_Monster_WildGolem</defName>
     <label>wild golem</label>
-    <description>Shambling, large fungus fruiting bodies. The more belligerent and active cousin of plump helmets, rook-caps grow the ability to walk after just a few months in their lifespan, using stubby legs to tumble about and spread their spores. Mostly, they do this by headbutting whatever and whoever they sense.</description>
+    <description>A large, hulking clay construct. Wild golems are naturally born from the roots of anima trees being sliced off of the main body, usually by underground herbivores. The roots essentially take the place of anima dolls, animating the dirt and clay around them to form a new body. These restless, orderless golems wander around without purpose, and default back to aggression as their main directive. Upon death, the golem splits into multiple "golemites".</description>
     <statBases>
       <MoveSpeed>2.75</MoveSpeed>
       <ComfyTemperatureMin>-99</ComfyTemperatureMin>
@@ -840,7 +840,7 @@
   <ThingDef ParentName="AnimalThingBase">
     <defName>DV_Monster_WildGolemite</defName>
     <label>wild golemite</label>
-    <description>Shambling, large fungus fruiting bodies. The more belligerent and active cousin of plump helmets, rook-caps grow the ability to walk after just a few months in their lifespan, using stubby legs to tumble about and spread their spores. Mostly, they do this by headbutting whatever and whoever they sense.</description>
+    <description>A small clay construct, Golemites are either really small wild golems, or what remains of a destroyed larger golem. Larger wild golems, lacking any direction, tend to show parental instinct towards golemites, protecting them from danger.</description>
     <statBases>
       <MoveSpeed>4.9</MoveSpeed>
       <ComfyTemperatureMin>-99</ComfyTemperatureMin>
@@ -1167,7 +1167,7 @@
   <ThingDef ParentName="DV_BaseAcolyte">
     <defName>DV_Monster_KnyfevynAcolyte</defName>
     <label>possessed acolyte</label>
-    <description>Fast human-sized combat mechanoids built for medium and long-range combat. Their bodies are light, making them vulnerable targets at close range - especially in melee combat.</description>
+    <description>The skeletal remains a vile, ancient warrior, carapaced in a set of corroded power armour. Despite their death centuries ago, a cruel psychic presence still clings to the armaments, animating them to inflict further suffering.</description>
     <tools>
       <li>
         <label>left fist</label>
@@ -1244,7 +1244,7 @@
   <ThingDef ParentName="DV_BaseAcolyte">
     <defName>DV_Monster_KnyfevynAdept</defName>
     <label>possessed adept</label>
-    <description>Fast human-sized combat mechanoids built for medium and long-range combat. Their bodies are light, making them vulnerable targets at close range - especially in melee combat.</description>
+    <description>The skeletal remains a vile, ancient warrior, carapaced in a set of corroded power armour. Despite their death centuries ago, a cruel psychic presence still clings to the armaments, animating them to inflict further suffering.</description>
     <tools>
       <li>
         <label>left fist</label>
@@ -1324,7 +1324,7 @@
   <ThingDef ParentName="DV_BaseAcolyte">
     <defName>DV_Monster_KnyfevynExemplar</defName>
     <label>possessed exemplar</label>
-    <description>Fast human-sized combat mechanoids built for medium and long-range combat. Their bodies are light, making them vulnerable targets at close range - especially in melee combat.</description>
+    <description>The skeletal remains a vile, ancient warrior, carapaced in a set of corroded power armour. Despite their death centuries ago, a cruel psychic presence still clings to the armaments, animating them to inflict further suffering./n/nThis suit in particular is adorned with with the gilded accents and ornementation of a knyfevyn exemplar, and seems to crackle with psychic potential.</description>
     <statBases>
       <MoveSpeed>6</MoveSpeed>
       <MeleeDodgeChance>0.5</MeleeDodgeChance>
@@ -1382,7 +1382,7 @@
       </li>
       <li Class="CompProperties_LetterOnRevealed">
         <label>The Exemplar</label>
-        <text>Emerging with a graceful yet unnatural gait from the gloom, an ornately adorned warrior, crackling with psychic power makes himself known.\n\nYour colonists' eyes dart across the figure: twisted faces in pain sewn together forming a grand, tattered cloak. Glistening yet ruined gold accents lining the fine armor.\n\nAn Exemplar of the long-dead knyfevyn stands before you, glaive in hand, ready for combat, as he was ages ago.</text>
+        <text>Emerging with a graceful yet unnatural gait from the gloom, an ornately adorned warrior, crackling with psychic power makes himself known.\n\nYour colonists' eyes dart across the figure: twisted faces in pain sewn together forming a grand, tattered cloak. Glistening yet ruined gold accents lining the fine armor.\n\nAn Exemplar of the long-dead knyfevyn stands before you, glaive in hand, ready for combat, as he was in ages past.</text>
         <letterDef>ThreatBig</letterDef>
       </li>
       <li Class="CompProperties_Effecter">

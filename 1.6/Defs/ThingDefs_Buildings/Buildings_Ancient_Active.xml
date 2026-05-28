@@ -5,7 +5,7 @@
   <ThingDef ParentName="BuildingBase">
     <defName>DV_Turret_AncientBallista</defName>
     <label>ancient ballista sentry</label>
-    <description>A portable automatic turret. Requires steel to refurbish its barrel after heavy use. May explode when damaged. Its dumb AI brain can't be directly controlled, so beware of friendly fire.</description>
+    <description>An autonomous ballista turret containing a long-lasting battery.</description>
     <thingClass>Building_TurretGun</thingClass>
     <drawerType>MapMeshAndRealTime</drawerType>
     <graphicData>
@@ -166,7 +166,7 @@
     <label>spike trap</label>
     <thingClass>LTS_StonebornSiteGeneration.Building_TrapDamager_SelfRearming</thingClass>
     <tickerType>Normal</tickerType>
-    <description>An ancient stoneborn brazier, made from mithrium.</description>
+    <description>An ancient mechanical spike trap, capable of autonomously rearming.</description>
     <noRightClickDraftAttack>true</noRightClickDraftAttack>
     <graphicData>
       <texPath>Things/Building/Ruins/Traps/SpikeTrap</texPath>
@@ -213,7 +213,7 @@
     <defName>DV_Dwarven_FreezeVent</defName>
     <label>freeze vent</label>
     <thingClass>ThingWithComps</thingClass>
-    <description>An ancient stoneborn brazier, made from mithrium.</description>
+    <description>An ancient vent trap designed to make a room inhospitably cold.</description>
     <noRightClickDraftAttack>true</noRightClickDraftAttack>
     <graphicData>
       <texPath>Things/Building/Ruins/Traps/FreezeVent</texPath>
@@ -255,7 +255,7 @@
     <defName>DV_Dwarven_HeatVent</defName>
     <label>heat vent</label>
     <thingClass>ThingWithComps</thingClass>
-    <description>An ancient stoneborn brazier, made from mithrium.</description>
+    <description>An ancient vent trap designed to make a room inhospitably hot.</description>
     <noRightClickDraftAttack>true</noRightClickDraftAttack>
     <graphicData>
       <texPath>Things/Building/Ruins/Traps/HeatVent</texPath>
@@ -303,7 +303,7 @@
     <defName>DV_Dwarven_RotstinkVent</defName>
     <label>rotstink vent</label>
     <thingClass>ThingWithComps</thingClass>
-    <description>An ancient stoneborn brazier, made from mithrium.</description>
+    <description>An ancient vent trap designed to flood a room with rotstink.</description>
     <noRightClickDraftAttack>true</noRightClickDraftAttack>
     <graphicData>
       <texPath>Things/Building/Ruins/Traps/Vent</texPath>

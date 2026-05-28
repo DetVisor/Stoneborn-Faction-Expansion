@@ -2,8 +2,8 @@
 <Defs>
 
   <ThingDef Name="LTS_StonebornVaultEntranceClosedBase" ParentName="BuildingBase" Abstract="True">
-    <label>vault entrance</label>
-    <description>The entrance to a long-abandoned stoneborn vault. Hack it to open the hatch.</description>
+    <label>floor entrance</label>
+    <description>The entrance to a lower floor of the stoneborn vault. It is jammed shut and must be forced open.</description>
     <size>(3,3)</size>
     <useHitPoints>false</useHitPoints>
     <rotatable>false</rotatable>
@@ -34,8 +34,8 @@
 
   <ThingDef Name="LTS_StonebornVaultEntranceOpenBase" ParentName="BuildingBase" Abstract="True">
     <thingClass>LTS_StonebornSiteGeneration.LTS_VaultHatch</thingClass>
-    <label>vault entrance</label>
-    <description>The entrance to a long-abandoned stoneborn vault. Hack it to open the hatch.</description>
+    <label>floor entrance</label>
+    <description>The entrance to a lower floor of the stoneborn vault.</description>
     <size>(3,3)</size>
     <useHitPoints>false</useHitPoints>
     <rotatable>false</rotatable>
@@ -69,8 +69,8 @@
   </ThingDef>
 
   <ThingDef Name="LTS_StonebornVaultExitBase" ParentName="PocketMapExit" Abstract="True">
-    <label>vault exit</label>
-    <description>A ladder which links to the surface hatch above.</description>
+    <label>floor exit</label>
+    <description>A stairway which links to the hatch above.</description>
     <size>(3,3)</size>
     <drawerType>RealtimeOnly</drawerType>
     <graphicData>
@@ -165,6 +165,8 @@
 
   <ThingDef ParentName="LTS_StonebornVaultEntranceOpenBase">
     <defName>LTS_StonebornVaultEntranceOuter</defName>
+	<label>vault entrance</label>
+    <description>The entrance to a long-abandoned stoneborn vault. Hack it to open the hatch.</description>
     <graphicData>
       <graphicClass>Graphic_Single</graphicClass>
       <texPath>Things/Building/Ruins/Dwarven_VaultDoor/Dwarven_VaultDoor_Closed</texPath>
@@ -241,6 +243,8 @@
 
   <ThingDef ParentName="LTS_StonebornVaultExitBase">
     <defName>LTS_StonebornVaultExitOuter</defName>
+	<label>vault exit</label>
+    <description>A ladder which links to the surface hatch above.</description>
     <graphicData>
       <graphicClass>Graphic_Single</graphicClass>
       <texPath>Things/Building/Ruins/Dwarven_VaultDoor/Dwarven_VaultDoor_ExitBottom</texPath>

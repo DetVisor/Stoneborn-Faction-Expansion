@@ -50,7 +50,7 @@
       <li>PlaceWorker_Conduit</li>
     </placeWorkers>
     <rotatable>false</rotatable>
-    <selectable>true</selectable>
+    <selectable>false</selectable>
     <neverMultiSelect>true</neverMultiSelect>
     <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
     <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
