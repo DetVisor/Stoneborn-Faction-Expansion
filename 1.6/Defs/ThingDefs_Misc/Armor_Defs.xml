@@ -6,7 +6,7 @@
     <ThingDef ParentName="ApparelArmorHelmetPowerBase">
         <defName>DV_Apparel_BeardedHelmet</defName>
         <label>firedrake mask</label>
-        <description>A complex air-tight rig with a built-in rebreather and oxygen pump. The mask completely nullifies the effects of tox gas and protects the wearer from noxious substances. /n/nMasks like these are used by stoneborn workers and exterminators, but their most frequent and most infamous users are the menacing firedrakes.</description>
+        <description>A complex air-tight rig with a built-in rebreather and oxygen pump. The mask completely nullifies the effects of tox gas and protects the wearer from noxious substances. \n\nMasks like these are used by stoneborn workers and exterminators, but their most frequent and most infamous users are the menacing firedrakes.</description>
         <tradeTags>
           <li>DwarfArmorHelmet</li>
         </tradeTags>

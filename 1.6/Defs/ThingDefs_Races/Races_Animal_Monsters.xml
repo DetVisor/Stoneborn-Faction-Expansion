@@ -116,7 +116,7 @@
   <ThingDef ParentName="AnimalThingBase">
     <defName>DV_Monster_Tusktroll</defName>
     <label>ogre</label>
-    <description>The larger, meaner and smarter cousin of the common northern troll. Ogres, unlike their cousins, are solitary creatures, preferring to live alone in ruins to brood.n/n/Ogres are only found outside of their hideouts during mating season, where they're exceptionally rowdy.</description>
+    <description>The larger, meaner and smarter cousin of the common northern troll. Ogres, unlike their cousins, are solitary creatures, preferring to live alone in ruins to brood.\n\nOgres are only found outside of their hideouts during mating season, where they're exceptionally rowdy.</description>
     <statBases>
       <MoveSpeed>3</MoveSpeed>
       <MarketValue>550</MarketValue>
@@ -1324,7 +1324,7 @@
   <ThingDef ParentName="DV_BaseAcolyte">
     <defName>DV_Monster_KnyfevynExemplar</defName>
     <label>possessed exemplar</label>
-    <description>The skeletal remains a vile, ancient warrior, carapaced in a set of corroded power armour. Despite their death centuries ago, a cruel psychic presence still clings to the armaments, animating them to inflict further suffering./n/nThis suit in particular is adorned with with the gilded accents and ornementation of a knyfevyn exemplar, and seems to crackle with psychic potential.</description>
+    <description>The skeletal remains a vile, ancient warrior, carapaced in a set of corroded power armour. Despite their death centuries ago, a cruel psychic presence still clings to the armaments, animating them to inflict further suffering.\n\nThis suit in particular is adorned with with the gilded accents and ornementation of a knyfevyn exemplar, and seems to crackle with psychic potential.</description>
     <statBases>
       <MoveSpeed>6</MoveSpeed>
       <MeleeDodgeChance>0.5</MeleeDodgeChance>
