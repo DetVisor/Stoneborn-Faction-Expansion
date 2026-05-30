@@ -903,29 +903,6 @@ namespace LTS_StonebornSiteGeneration
 
     public class Projectile_SpawnsThingLauncherColoured : Projectile
     {
-        protected override void Impact(Thing hitThing, bool blockedByShield = false)
-        {
-            Map map = base.Map;
-            base.Impact(hitThing, blockedByShield);
-            IntVec3 loc = base.Position;
-            if (this.def.projectile.tryAdjacentFreeSpaces && base.Position.GetFirstBuilding(map) != null)
-            {
-                foreach (IntVec3 intVec in GenAdjFast.AdjacentCells8Way(base.Position))
-                {
-                    if (intVec.GetFirstBuilding(map) == null && intVec.Standable(map))
-                    {
-                        loc = intVec;
-                        break;
-                    }
-                }
-            }
-            Thing thing = GenSpawn.Spawn(ThingMaker.MakeThing(this.def.projectile.spawnsThingDef, null), loc, map, WipeMode.Vanish);
-            if (thing.def.CanHaveFaction)
-            {
-                thing.SetFaction(base.Launcher.Faction, null);
-            }
-            thing.TryGetComp<CompGlower>().GlowColor = colorInt;
-        }
         public override void Launch(Thing launcher, Vector3 origin, LocalTargetInfo usedTarget, LocalTargetInfo intendedTarget, ProjectileHitFlags hitFlags, bool preventFriendlyFire = false, Thing equipment = null, ThingDef targetCoverDef = null)
         {
             base.Launch(launcher, origin, usedTarget, intendedTarget, hitFlags, preventFriendlyFire, equipment, targetCoverDef);
@@ -953,6 +930,29 @@ namespace LTS_StonebornSiteGeneration
             
             //this.TryGetComp<CompColorable>().SetColor(colorInt.ToColor);
             //this.TryGetComp<CompColorable>().Notify_ColorChanged();
+        }
+        protected override void Impact(Thing hitThing, bool blockedByShield = false)
+        {
+            Map map = base.Map;
+            base.Impact(hitThing, blockedByShield);
+            IntVec3 loc = base.Position;
+            if (this.def.projectile.tryAdjacentFreeSpaces && base.Position.GetFirstBuilding(map) != null)
+            {
+                foreach (IntVec3 intVec in GenAdjFast.AdjacentCells8Way(base.Position))
+                {
+                    if (intVec.GetFirstBuilding(map) == null && intVec.Standable(map))
+                    {
+                        loc = intVec;
+                        break;
+                    }
+                }
+            }
+            Thing thing = GenSpawn.Spawn(ThingMaker.MakeThing(this.def.projectile.spawnsThingDef, null), loc, map, WipeMode.Vanish);
+            if (thing.def.CanHaveFaction)
+            {
+                thing.SetFaction(base.Launcher.Faction, null);
+            }
+            thing.TryGetComp<CompGlower>().GlowColor = colorInt;
         }
         private ColorInt colorInt;
         public override void ExposeData()
@@ -1273,6 +1273,168 @@ namespace LTS_StonebornSiteGeneration
         private static readonly Texture2D ViewQuestCommandTex = ContentFinder<Texture2D>.Get("UI/Commands/ViewQuest", true);
     }
 
+    public class CompProperties_Chemlight : CompProperties
+    {
+        public CompProperties_Chemlight()
+        {
+            this.compClass = typeof(CompChemlight);
+        }
+
+        public bool inheritAngle;
+        public bool inheritColour;
+        public ThingDef filthDef;
+    }
+
+    public class CompChemlight : ThingComp
+    {
+        public CompProperties_Chemlight Props
+        {
+            get
+            {
+                return (CompProperties_Chemlight)this.props;
+            }
+        }
+        private int WarnTick
+        {
+            get
+            {
+                return this.destroyDelayedComp.DestructionTick - DestroyWarningTicks;
+            }
+        }
+        private float WarnAlpha
+        {
+            get
+            {
+                return Mathf.InverseLerp((float)this.WarnTick, (float)this.destroyDelayedComp.DestructionTick, (float)Find.TickManager.TicksGame);
+            }
+        }
+        public override void PostSpawnSetup(bool respawningAfterLoad)
+        {
+            base.PostSpawnSetup(respawningAfterLoad);
+            this.glowComp = this.parent.GetComp<CompGlower>();
+            this.destroyDelayedComp = this.parent.GetComp<CompDestroyAfterDelay>();
+            if (respawningAfterLoad)
+            {
+                return;
+            }
+        }
+        public override void CompTick()
+        {
+            base.CompTick();
+            if (Find.TickManager.TicksGame >= this.WarnTick)
+            {
+                float warnAlpha = this.WarnAlpha;
+                ColorInt glowColor = this.glowComp.GlowColor;
+                glowColor.a = (int)((byte)Mathf.Lerp((float)glowColor.a, 0f, warnAlpha));
+                this.glowComp.GlowRadius = Mathf.Lerp(this.parent.def.GetCompProperties<CompProperties_Glower>().glowRadius, 0.1f, warnAlpha*0.8f);
+                this.glowComp.GlowColor = glowColor;
+            }
+            //Log.Message("Parent rotation: " + parent.Graphic.DrawRotatedExtraAngleOffset);
+            //Log.Message("Parent rotation: " + parent.Graphic);
+        }
+        public override void PostDestroy(DestroyMode mode, Map previousMap)
+        {
+            base.PostDestroy(mode, previousMap);
+            //spawn filthDef thing
+            //inherit angle
+            //inherit colour
+
+            Thing filth = ThingMaker.MakeThing(Props.filthDef);
+
+            //filth.Graphic.color = parent.TryGetComp<CompGlower>().GlowColor.ToColor;
+
+            //filth.DrawColor = parent.TryGetComp<CompGlower>().GlowColor.ToColor;
+
+            //Log.Message("Rotation: " + filth.Graphic.DrawRotatedExtraAngleOffset);
+            //Log.Message("Parent rotation: " + parent.DrawColor);
+            
+
+            //filth.Rotation = parent.Rotation;
+
+
+
+
+
+
+            //filth.SetColor(parent.TryGetComp<CompGlower>().GlowColor.ToColor);
+
+            //(filth as Filth).SetOverrideDrawPositionAndRotation(parent.DrawPos, parent.Graphic.DrawRotatedExtraAngleOffset);
+
+            GenPlace.TryPlaceThing(filth, parent.Position, previousMap, ThingPlaceMode.Direct);
+
+            //filth.Graphic.color = parent.TryGetComp<CompGlower>().GlowColor.ToColor;
+            //filth.DrawColor = parent.TryGetComp<CompGlower>().GlowColor.ToColor;
+            //(filth as Filth).SetOverrideDrawPositionAndRotation(parent.DrawPos, parent.Graphic.DrawRotatedExtraAngleOffset);
+
+            //(filth as Filth).DirtyMapMesh(previousMap);
+
+            //Log.Message("New rotation: " + filth.Graphic.DrawRotatedExtraAngleOffset);
+
+            //FilthMaker.TryMakeFilth(parent.Position, previousMap, Props.filthDef, 1, FilthSourceFlags.None, false);
+
+            //thing.
+        }
+
+        private const int DestroyWarningTicks = 600;
+        private CompDestroyAfterDelay destroyDelayedComp;
+        private CompGlower glowComp;
+    }
+
+    public class Graphic_Single_SpecialFilth : Graphic_Single
+    {
+        public override void Print(SectionLayer layer, Thing thing, float extraRotation)
+        {
+            Vector2 vector;
+            bool flag;
+            if (this.ShouldDrawRotated)
+            {
+                vector = this.drawSize;
+                flag = false;
+            }
+            else
+            {
+                if (!thing.Rotation.IsHorizontal)
+                {
+                    vector = this.drawSize;
+                }
+                else
+                {
+                    vector = this.drawSize.Rotated();
+                }
+                flag = ((thing.Rotation == Rot4.West && this.WestFlipped) || (thing.Rotation == Rot4.East && this.EastFlipped));
+            }
+            if (thing.MultipleItemsPerCellDrawn())
+            {
+                vector *= 0.8f;
+            }
+            float num = this.AngleFromRot(thing.Rotation) + extraRotation;
+            if (flag && this.data != null)
+            {
+                num += this.data.flipExtraRotation;
+            }
+            Vector3 center = thing.TrueCenter() + this.DrawOffset(thing.Rotation);
+            Material mat = this.MatAt(thing.Rotation, thing);
+            Vector2[] uvs;
+            Color32 color;
+            Graphic.TryGetTextureAtlasReplacementInfo(mat, thing.def.category.ToAtlasGroup(), flag, true, out mat, out uvs, out color);
+            Printer_Plane.PrintPlane(layer, center, vector, mat, num, flag, uvs, new Color32[]
+            {
+                color,
+                color,
+                color,
+                color
+            }, 0.01f, 0f);
+            Graphic_Shadow shadowGraphic = this.ShadowGraphic;
+            if (shadowGraphic == null)
+            {
+                return;
+            }
+            shadowGraphic.Print(layer, thing, 0f);
+        }
+    }
+
+
+
 
 
 
@@ -1333,7 +1495,9 @@ namespace LTS_StonebornSiteGeneration
 
 
 
-    //Based on Thekiborg's drillpod code:
+
+
+    //Edited version of Thekiborg's drillpod code:
     
     public class PawnsArrivalModeWorker_Excavation : PawnsArrivalModeWorker
     {
@@ -1457,7 +1621,8 @@ namespace LTS_StonebornSiteGeneration
             //    return 3;
             //}
 
-            return (countOfPawns / 2); //2 not including oveflow, so, 3 in most with 2 in the remainder
+            //return (countOfPawns / 2); //2 not including oveflow, so, 3 in most with 2 in the remainder
+            return (countOfPawns / 3);
         }
     }
 

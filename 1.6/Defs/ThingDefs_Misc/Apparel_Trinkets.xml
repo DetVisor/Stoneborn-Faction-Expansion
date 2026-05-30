@@ -206,7 +206,7 @@
   <ThingDef ParentName="ApparelNoQualityBase">
     <defName>LTS_Apparel_FlarePack</defName>
     <label>chemlight belt</label>
-    <description>Flairs ain't ready yet!</description>
+    <description>A belt of chemlight flares that can be thrown to temporarily light up an area.</description>
     <techLevel>Industrial</techLevel>
     <tradeability>Sellable</tradeability>
     <generateCommonality>0</generateCommonality>
@@ -273,7 +273,7 @@
     </recipeMaker>
     <costList>
       <ComponentIndustrial>1</ComponentIndustrial>
-      <Chemfuel>50</Chemfuel>
+      <Chemfuel>24</Chemfuel>
     </costList>
     <tickerType>Normal</tickerType>
     <statBases>
@@ -400,7 +400,31 @@
       <li Class="CompProperties_Glower">
         <glowRadius>5</glowRadius>
       </li>
+	  <li Class="LTS_StonebornSiteGeneration.CompProperties_Chemlight">
+		<filthDef>LTS_Filth_ExpendedFlare</filthDef>
+	  </li>
     </comps>
   </ThingDef>
+  
+  <ThingDef ParentName="BaseFilth">
+        <defName>LTS_Filth_ExpendedFlare</defName>
+        <label>expended chemlight</label>
+		<drawerType>RealtimeOnly</drawerType>
+        <graphicData>
+            <graphicClass>Graphic_Single</graphicClass>
+            <texPath>Things/Projectiles/LTS_FlareOff</texPath>
+			<shaderType>CutoutComplex</shaderType>
+			<onGroundRandomRotateAngle>360</onGroundRandomRotateAngle>
+			<drawSize>0.8</drawSize>
+			<color>(1,1,1,0.5)</color>
+        </graphicData>
+        <filth>
+            <ignoreFilthMultiplierStat>true</ignoreFilthMultiplierStat>
+            <disappearsInDays>35~40</disappearsInDays>
+            <cleaningWorkToReduceThickness>25</cleaningWorkToReduceThickness>
+            <canFilthAttach>true</canFilthAttach>
+            <cleaningSound>Interact_CleanFilth_Scattered</cleaningSound>
+        </filth>
+    </ThingDef>
 
 </Defs>
