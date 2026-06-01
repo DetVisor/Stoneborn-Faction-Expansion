@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Defs>
-
+  
+  <!--Bases-->
+  
   <ThingDef Name="LTS_StonebornVaultEntranceClosedBase" ParentName="BuildingBase" Abstract="True">
     <label>floor entrance</label>
     <description>The entrance to a lower floor of the stoneborn vault. It is jammed shut and must be forced open.</description>
@@ -80,90 +82,10 @@
     </graphicData>
     <destroyable>true</destroyable>    <!--for switching types during genstep-->
   </ThingDef>
-
-  <ThingDef ParentName="LTS_StonebornVaultEntranceClosedBase">
-    <defName>LTS_StonebornVaultEntrance</defName>
-    <comps>
-      <li Class="VEF.Buildings.CompProperties_JammedAirlock">
-        <doorToConvertTo>LTS_StonebornVaultEntranceOpen</doorToConvertTo>
-        <activeTicks>1</activeTicks>
-        <ticksToActivate>1800</ticksToActivate>
-        <activateTexPath>UI/ForceHatchOpen</activateTexPath>
-        <activateLabelString>Force open...</activateLabelString>
-        <activateDescString>Choose someone to force this vault hatch open.</activateDescString>
-        <guiLabelString>Choose who should do this</guiLabelString>
-        <jobString>Force this vault hatch open</jobString>
-        <activatingStringPending>forcing vault hatch open</activatingStringPending>
-        <activatingString>forcing vault hatch open: {1}s</activatingString>
-        <messageCompletedString>{PAWN_nameDef} has successfully forced the vault hatch open.</messageCompletedString>
-        <targetingParameters>
-          <canTargetBuildings>false</canTargetBuildings>
-          <canTargetAnimals>false</canTargetAnimals>
-          <canTargetMechs>false</canTargetMechs>
-          <onlyTargetControlledPawns>true</onlyTargetControlledPawns>
-        </targetingParameters>
-        <stringExtra>DV_HatchLocked</stringExtra>
-      </li>
-    </comps>
-  </ThingDef>
-
-  <ThingDef ParentName="LTS_StonebornVaultEntranceOpenBase">
-    <defName>LTS_StonebornVaultEntranceOpen</defName>
-    <portal>
-      <pocketMapGenerator>LTS_StonebornVault</pocketMapGenerator>
-      <exitDef>LTS_StonebornVaultExit</exitDef>
-      <pocketMapSize>75</pocketMapSize>
-    </portal>
-    <modExtensions>
-      <li Class="LTS_StonebornSiteGeneration.LTS_SFE_ModExtension">
-        <LTS_GenStepDef>LTS_StonebornVault</LTS_GenStepDef>
-        <LTS_TexPath>Things/Building/Ruins/Dwarven_VaultDoor/Dwarven_EntranceHatch_Open</LTS_TexPath>
-      </li>
-    </modExtensions>
-  </ThingDef>
-
-  <ThingDef ParentName="LTS_StonebornVaultEntranceClosedBase">
-    <defName>LTS_StonebornVaultEntranceIntermediate</defName>
-    <comps>
-      <li Class="VEF.Buildings.CompProperties_JammedAirlock">
-        <doorToConvertTo>LTS_StonebornVaultEntranceIntermediateOpen</doorToConvertTo>
-        <activeTicks>1</activeTicks>
-        <ticksToActivate>1800</ticksToActivate>
-        <activateTexPath>UI/ForceHatchOpen</activateTexPath>
-        <activateLabelString>Force open...</activateLabelString>
-        <activateDescString>Choose someone to force this vault hatch open.</activateDescString>
-        <guiLabelString>Choose who should do this</guiLabelString>
-        <jobString>Force this vault hatch open</jobString>
-        <activatingStringPending>forcing vault hatch open</activatingStringPending>
-        <activatingString>forcing vault hatch open: {1}s</activatingString>
-        <messageCompletedString>{PAWN_nameDef} has successfully forced the vault hatch open.</messageCompletedString>
-        <targetingParameters>
-          <canTargetBuildings>false</canTargetBuildings>
-          <canTargetAnimals>false</canTargetAnimals>
-          <canTargetMechs>false</canTargetMechs>
-          <onlyTargetControlledPawns>true</onlyTargetControlledPawns>
-        </targetingParameters>
-        <stringExtra>DV_HatchLocked</stringExtra>
-      </li>
-    </comps>
-  </ThingDef>
-
-  <ThingDef ParentName="LTS_StonebornVaultEntranceOpenBase">
-    <defName>LTS_StonebornVaultEntranceIntermediateOpen</defName>
-    <portal>
-      <pocketMapGenerator>LTS_StonebornVaultIntermediate</pocketMapGenerator>
-      <exitDef>LTS_StonebornVaultExitIntermediate</exitDef>
-      <pocketMapSize>75</pocketMapSize>
-    </portal>
-    <modExtensions>
-      <li Class="LTS_StonebornSiteGeneration.LTS_SFE_ModExtension">
-        <LTS_GenStepDef>LTS_StonebornVaultIntermediate</LTS_GenStepDef>
-        <LTS_TexPath>Things/Building/Ruins/Dwarven_VaultDoor/Dwarven_EntranceHatch_Open</LTS_TexPath>
-      </li>
-    </modExtensions>
-  </ThingDef>
-
-  <ThingDef ParentName="LTS_StonebornVaultEntranceOpenBase">
+  
+  <!--Entrances-->
+  
+  <ThingDef ParentName="LTS_StonebornVaultEntranceOpenBase"><!--Outer-->
     <defName>LTS_StonebornVaultEntranceOuter</defName>
 	<label>vault entrance</label>
     <description>The entrance to a long-abandoned stoneborn vault. Hack it to open the hatch.</description>
@@ -200,28 +122,139 @@
       </li>
     </modExtensions>
   </ThingDef>
-
-  <ThingDef ParentName="LTS_StonebornVaultExitBase">
-    <defName>LTS_StonebornVaultExit</defName>
+  
+  <ThingDef ParentName="LTS_StonebornVaultEntranceClosedBase"><!--Intermediate-->
+    <defName>LTS_StonebornVaultEntranceIntermediate</defName>
+    <comps>
+      <li Class="VEF.Buildings.CompProperties_JammedAirlock">
+        <doorToConvertTo>LTS_StonebornVaultEntranceIntermediateOpen</doorToConvertTo>
+        <activeTicks>1</activeTicks>
+        <ticksToActivate>1800</ticksToActivate>
+        <activateTexPath>UI/ForceHatchOpen</activateTexPath>
+        <activateLabelString>Force open...</activateLabelString>
+        <activateDescString>Choose someone to force this vault hatch open.</activateDescString>
+        <guiLabelString>Choose who should do this</guiLabelString>
+        <jobString>Force this vault hatch open</jobString>
+        <activatingStringPending>forcing vault hatch open</activatingStringPending>
+        <activatingString>forcing vault hatch open: {1}s</activatingString>
+        <messageCompletedString>{PAWN_nameDef} has successfully forced the vault hatch open.</messageCompletedString>
+        <targetingParameters>
+          <canTargetBuildings>false</canTargetBuildings>
+          <canTargetAnimals>false</canTargetAnimals>
+          <canTargetMechs>false</canTargetMechs>
+          <onlyTargetControlledPawns>true</onlyTargetControlledPawns>
+        </targetingParameters>
+        <stringExtra>DV_HatchLocked</stringExtra>
+      </li>
+    </comps>
+  </ThingDef>
+  <ThingDef ParentName="LTS_StonebornVaultEntranceOpenBase">
+    <defName>LTS_StonebornVaultEntranceIntermediateOpen</defName>
     <portal>
-      <exitDef>LTS_StonebornVaultEntranceOpen</exitDef>
+      <pocketMapGenerator>LTS_StonebornVaultIntermediate</pocketMapGenerator>
+      <exitDef>LTS_StonebornVaultExitIntermediate</exitDef>
+      <pocketMapSize>75</pocketMapSize>
+    </portal>
+    <modExtensions>
+      <li Class="LTS_StonebornSiteGeneration.LTS_SFE_ModExtension">
+        <LTS_GenStepDef>LTS_StonebornVaultIntermediate</LTS_GenStepDef>
+        <LTS_TexPath>Things/Building/Ruins/Dwarven_VaultDoor/Dwarven_EntranceHatch_Open</LTS_TexPath>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  
+  <ThingDef ParentName="LTS_StonebornVaultEntranceClosedBase"><!--Final-->
+    <defName>LTS_StonebornVaultEntrance</defName>
+    <comps>
+      <li Class="VEF.Buildings.CompProperties_JammedAirlock">
+        <doorToConvertTo>LTS_StonebornVaultEntranceOpen</doorToConvertTo>
+        <activeTicks>1</activeTicks>
+        <ticksToActivate>1800</ticksToActivate>
+        <activateTexPath>UI/ForceHatchOpen</activateTexPath>
+        <activateLabelString>Force open...</activateLabelString>
+        <activateDescString>Choose someone to force this vault hatch open.</activateDescString>
+        <guiLabelString>Choose who should do this</guiLabelString>
+        <jobString>Force this vault hatch open</jobString>
+        <activatingStringPending>forcing vault hatch open</activatingStringPending>
+        <activatingString>forcing vault hatch open: {1}s</activatingString>
+        <messageCompletedString>{PAWN_nameDef} has successfully forced the vault hatch open.</messageCompletedString>
+        <targetingParameters>
+          <canTargetBuildings>false</canTargetBuildings>
+          <canTargetAnimals>false</canTargetAnimals>
+          <canTargetMechs>false</canTargetMechs>
+          <onlyTargetControlledPawns>true</onlyTargetControlledPawns>
+        </targetingParameters>
+        <stringExtra>DV_HatchLocked</stringExtra>
+      </li>
+    </comps>
+  </ThingDef>
+  <ThingDef ParentName="LTS_StonebornVaultEntranceOpenBase">
+    <defName>LTS_StonebornVaultEntranceOpen</defName>
+    <portal>
+      <pocketMapGenerator>LTS_StonebornVault</pocketMapGenerator>
+      <exitDef>LTS_StonebornVaultExit</exitDef>
+      <pocketMapSize>75</pocketMapSize>
+    </portal>
+    <modExtensions>
+      <li Class="LTS_StonebornSiteGeneration.LTS_SFE_ModExtension">
+        <LTS_GenStepDef>LTS_StonebornVault</LTS_GenStepDef>
+        <LTS_TexPath>Things/Building/Ruins/Dwarven_VaultDoor/Dwarven_EntranceHatch_Open</LTS_TexPath>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  
+  <ThingDef ParentName="LTS_StonebornVaultEntranceOpenBase"><!--Cave Final-->
+    <defName>LTS_StonebornVaultEntranceOpenCaveFinal</defName>
+    <portal>
+      <pocketMapGenerator>LTS_StonebornVaultCaveFinal</pocketMapGenerator>
+      <exitDef>LTS_StonebornVaultExitCaveFinal</exitDef>
+      <pocketMapSize>75</pocketMapSize>
+    </portal>
+    <modExtensions>
+      <li Class="LTS_StonebornSiteGeneration.LTS_SFE_ModExtension">
+        <LTS_GenStepDef>LTS_StonebornVaultCaveFinal</LTS_GenStepDef>
+        <LTS_TexPath>Things/Building/PitBurrow/PitBurrowA</LTS_TexPath>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  
+  <!--Exits-->
+  
+  <ThingDef ParentName="LTS_StonebornVaultExitBase"><!--Outer-->
+    <defName>LTS_StonebornVaultExitOuter</defName>
+	<label>vault exit</label>
+    <description>A ladder which links to the surface hatch above.</description>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>Things/Building/Ruins/Dwarven_VaultDoor/Dwarven_VaultDoor_ExitBottom</texPath>
+      <drawSize>(3,3)</drawSize>
+    </graphicData>
+    <portal>
+      <exitDef>LTS_StonebornVaultEntranceOuter</exitDef>
     </portal>
     <comps>
       <li Class="CompProperties_DrawAdditionalGraphics">
         <graphics>
           <li>
             <graphicClass>Graphic_Single</graphicClass>
-            <texPath>Things/Building/Ruins/Dwarven_VaultDoor/Dwarven_EntranceHatch_ExitStairs</texPath>
+            <texPath>Things/Building/Ruins/Dwarven_VaultDoor/Dwarven_VaultDoor_ExitStairs</texPath>
             <drawSize>(3,3)</drawSize>
             <drawOffset>(0, 0.01, 0.7)</drawOffset>
             <shaderType>Transparent</shaderType>
           </li>
         </graphics>
       </li>
+	  <li Class="CompProperties_Glower">
+        <glowRadius>10</glowRadius>
+        <glowColor>(140,160,184,0)</glowColor>
+      </li>
+      <li Class="CompProperties_Effecter">
+        <effecterDef>UndercaveMapExitLightshafts</effecterDef>
+      </li>
     </comps>
   </ThingDef>
 
-  <ThingDef ParentName="LTS_StonebornVaultExitBase">
+  <ThingDef ParentName="LTS_StonebornVaultExitBase"><!--Intermediate-->
     <defName>LTS_StonebornVaultExitIntermediate</defName>
     <portal>
       <exitDef>LTS_StonebornVaultEntranceIntermediateOpen</exitDef>
@@ -240,25 +273,45 @@
       </li>
     </comps>
   </ThingDef>
-
-  <ThingDef ParentName="LTS_StonebornVaultExitBase">
-    <defName>LTS_StonebornVaultExitOuter</defName>
-	<label>vault exit</label>
-    <description>A ladder which links to the surface hatch above.</description>
-    <graphicData>
-      <graphicClass>Graphic_Single</graphicClass>
-      <texPath>Things/Building/Ruins/Dwarven_VaultDoor/Dwarven_VaultDoor_ExitBottom</texPath>
-      <drawSize>(3,3)</drawSize>
-    </graphicData>
+  
+  <ThingDef ParentName="LTS_StonebornVaultExitBase"><!--Final-->
+    <defName>LTS_StonebornVaultExit</defName>
     <portal>
-      <exitDef>LTS_StonebornVaultEntranceOuter</exitDef>
+      <exitDef>LTS_StonebornVaultEntranceOpen</exitDef>
     </portal>
     <comps>
       <li Class="CompProperties_DrawAdditionalGraphics">
         <graphics>
           <li>
             <graphicClass>Graphic_Single</graphicClass>
-            <texPath>Things/Building/Ruins/Dwarven_VaultDoor/Dwarven_VaultDoor_ExitStairs</texPath>
+            <texPath>Things/Building/Ruins/Dwarven_VaultDoor/Dwarven_EntranceHatch_ExitStairs</texPath>
+            <drawSize>(3,3)</drawSize>
+            <drawOffset>(0, 0.01, 0.7)</drawOffset>
+            <shaderType>Transparent</shaderType>
+          </li>
+        </graphics>
+      </li>
+    </comps>
+  </ThingDef>
+  
+  <ThingDef ParentName="LTS_StonebornVaultExitBase"><!--Cave Final-->
+    <defName>LTS_StonebornVaultExitCaveFinal</defName>
+    <label>cave exit</label>
+    <description>A rope which links to the hole above.</description>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>Things/Building/Misc/CaveExit/CaveExit</texPath>
+      <drawSize>(3,3)</drawSize>
+    </graphicData>
+	<portal>
+      <exitDef>LTS_StonebornVaultEntranceOpenCaveFinal</exitDef>
+    </portal>
+    <comps>
+      <li Class="CompProperties_DrawAdditionalGraphics">
+        <graphics>
+          <li>
+            <graphicClass>Graphic_Single</graphicClass>
+            <texPath>Things/Building/Misc/CaveExit/CaveExit_Rope</texPath>
             <drawSize>(3,3)</drawSize>
             <drawOffset>(0, 0.01, 0.7)</drawOffset>
             <shaderType>Transparent</shaderType>

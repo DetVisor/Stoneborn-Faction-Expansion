@@ -169,6 +169,7 @@ namespace LTS_StonebornSiteGeneration
         public int LTS_spawnWeight;
         public float LTS_opacity;
         public bool LTS_spinning;
+        public List<ThingWithWeight> LTS_ThingsWithWeights;
     }
 
 
@@ -352,20 +353,60 @@ namespace LTS_StonebornSiteGeneration
 
             foreach (Building dwarvenVaultEntrance in dwarvenVaultEntrances)
             {
+                IntVec3 position = dwarvenVaultEntrance.Position;
                 if (new System.Random().Next(0, 100) <= SFE_Settings.extraIntermediateFloorChance)
                 {
-                    IntVec3 position = dwarvenVaultEntrance.Position;
                     GenSpawn.Spawn(LTS_SFE_DefOf.LTS_StonebornVaultEntranceIntermediate, position, map);
                 }
                 else
                 {
-                    IntVec3 position = dwarvenVaultEntrance.Position;
-                    GenSpawn.Spawn(LTS_SFE_DefOf.LTS_StonebornVaultEntrance, position, map);
+                    //GenSpawn.Spawn(LTS_SFE_DefOf.LTS_StonebornVaultEntrance, position, map);
+
+                    List<ThingWithWeight> exitList = this.def.GetModExtension<LTS_SFE_ModExtension>().LTS_ThingsWithWeights;
+                    int totalWeight = 0;
+
+                    foreach (ThingWithWeight exit in exitList)
+                    {
+                        totalWeight += exit.weight;
+                    }
+
+                    int remainingWeight = new System.Random().Next(0, totalWeight);
+                    ThingWithWeight selectedExit = exitList.First();
+
+                    foreach (ThingWithWeight exit in exitList)
+                    {
+                        if (exit.weight <= remainingWeight)
+                            remainingWeight -= exit.weight;
+                        else
+                        {
+                            selectedExit = exit;
+                            break;
+                        }
+
+                    }
+
+                    //List<IntVec3> cellsToClear = GenAdjFast.AdjacentCells8Way(position);
+                    //cellsToClear.Add(position);//no idea if this is redundant, though it shouldn't really matter.
+                    //foreach (IntVec3 cell in cellsToClear)
+                    //{
+                    //    foreach (Thing thing in Find.CurrentMap.thingGrid.ThingsAt(cell))
+                    //    {
+                    //        thing.Destroy(DestroyMode.Vanish);
+                    //    }
+                    //}
+
+                    GenSpawn.Spawn(selectedExit.thingdef, position, map);
                 }
             }
 
 
         }
+    }
+
+    public class ThingWithWeight
+    {
+        public ThingDef thingdef;
+        public int weight = 1;
     }
 
     public class LTS_GenStep_FirstFloorLadder : GenStep
@@ -1515,6 +1556,8 @@ namespace LTS_StonebornSiteGeneration
                 //CellFinder.TryFindRandomCellNear(parms.spawnCenter, map, 5, c => GenAdjFast.AdjacentCells8Way(c).All(c => c.GetFirstBuilding(map) == null && c.InBounds(map) && c.IsValid), out var validCell);
 
                 CellFinder.TryFindRandomCellNear(parms.spawnCenter, map, 5, c => c.GetFirstBuilding(map) == null && c.InBounds(map) && c.IsValid, out var validCell);
+                //CellFinder.TryFindRandomCellNear(parms.spawnCenter, map, 5, c => c.GetFirstBuilding(map) == null && c.InBounds(map) && c.IsValid && GenAdjFast.AdjacentCells8Way(c).All(ac => ac.GetFirstBuilding(map).def != LTS_SFE_DefOf.DV_Ethereal_DrillPod), out var validCell);
+                //CellFinder.TryFindRandomCellNear(parms.spawnCenter, map, 5, c => GenAdjFast.AdjacentCells8Way(c).All(d => d.GetFirstBuilding(map)?.def != LTS_SFE_DefOf.DV_Ethereal_DrillPod && c.InBounds(map) && c.IsValid), out var validCell);
 
                 ThingClass_DrillPod drillPod = (ThingClass_DrillPod)ThingMaker.MakeThing(LTS_SFE_DefOf.DV_Raid_DrillPod);
                 groundSpawner.drillPod = drillPod;

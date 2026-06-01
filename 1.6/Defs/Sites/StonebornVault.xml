@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-	<SitePartDef>
+	<SitePartDef><!--Surface-->
 		<defName>LTS_StonebornVaultSite</defName>
 		<label>stoneborn vault</label>
 		<description>An ancient stoneborn vault.</description>
@@ -12,8 +12,7 @@
 			<li>LTS_StonebornVaultSite</li>
 		</tags>
 	</SitePartDef>
-
-	<GenStepDef>
+	<GenStepDef><!--Surface Maps-->
 		<defName>LTS_StonebornVaultSite</defName>
 		<linkWithSite>LTS_StonebornVaultSite</linkWithSite>
 		<order>460</order>
@@ -28,7 +27,85 @@
 		</genStep>
 	</GenStepDef>
 
-	<MapGeneratorDef>
+	<MapGeneratorDef><!--Intermediate-->
+		<defName>LTS_StonebornVaultIntermediate</defName>
+		<label>ancient stoneborn vault</label>
+		<isUnderground>true</isUnderground>
+		<disableCallAid>true</disableCallAid>
+		<pocketMapProperties>
+			<biome>DV_UndergroundVault</biome>
+			<temperature>12</temperature>
+			<canBeCleaned>true</canBeCleaned>
+		</pocketMapProperties>
+		<genSteps>
+			<li>ElevationFertility</li>
+			<li>Underground_RocksFromGrid</li>
+			<li>Terrain</li>
+			<li>RockChunks</li>
+			<li>DV_ScatterMithriumChunks</li>
+			<li>DV_ScatterWoodPiles</li>
+			<li MayRequire="det.sbcuisine">DV_ScatterFlour</li>
+			<li>DV_ScatterKnyfevynRemains</li>
+
+			<li>LTS_StonebornVaultIntermediate</li>
+
+
+			<li>LTS_MinecartContents</li>
+			<li>LTS_NextMapEntranceHandler</li>
+			<li>LTS_StonebornVaultFindPlayerStartSpot</li>
+			<li>LTS_HermitCrates</li>
+
+			<li>Fog</li>
+		</genSteps>
+	</MapGeneratorDef>	
+	<MapGeneratorDef><!--FirstIntermediate-->		<!--this should be the same as MapGeneratorDef LTS_StonebornVaultIntermediate, with an added genSteps to make it's exit portal into an outer one-->
+		<defName>LTS_StonebornVaultFirstFloor</defName>
+		<label>ancient stoneborn vault</label>
+		<isUnderground>true</isUnderground>
+		<disableCallAid>true</disableCallAid>
+		<pocketMapProperties>
+			<biome>DV_UndergroundVault</biome>
+			<temperature>12</temperature>
+			<canBeCleaned>true</canBeCleaned>
+		</pocketMapProperties>
+		<genSteps>
+			<li>ElevationFertility</li>
+			<li>Underground_RocksFromGrid</li>
+			<li>Terrain</li>
+			<li>RockChunks</li>
+			<li>DV_ScatterMithriumChunks</li>
+			<li>DV_ScatterWoodPiles</li>
+			<li MayRequire="det.sbcuisine">DV_ScatterFlour</li>
+			<li>DV_ScatterKnyfevynRemains</li>
+
+			<li>LTS_StonebornVaultIntermediate</li>			<!--keep this, as it's first floor layers we're pulling from-->
+
+			<li>LTS_MinecartContents</li>
+			<li>LTS_NextMapEntranceHandler</li>
+			<li>LTS_StonebornVaultFindPlayerStartSpot</li>
+			<li>LTS_HermitCrates</li>
+			<li>LTS_FirstFloorLadder</li>
+
+			<li>Fog</li>
+		</genSteps>
+	</MapGeneratorDef>
+	<GenStepDef><!--Intermediate Maps-->
+		<defName>LTS_StonebornVaultIntermediate</defName>
+		<order>551</order>		<!--fog is 1500, so this just needs to be before that-->
+		<genStep Class="KCSG.GenStep_CustomStructureGen">
+			<structureLayoutDefs>
+				<li>DV_StonebornVault_IntermediateAlpha</li>
+				<li>DV_StonebornVault_IntermediateBeta</li>
+				<li>DV_StonebornVault_IntermediateCharlie</li>
+				<li>DV_StonebornVault_IntermediateDelta</li>
+			</structureLayoutDefs>
+			<fullClear>true</fullClear>			<!-- Clear any impassable in the way -->
+			<clearFogInRect>false</clearFogInRect>			<!-- Clear fog on the structure -->
+			<preventBridgeable>true</preventBridgeable>			<!-- Prevent lake/river/marsh (bridgeable) -->
+		</genStep>
+	</GenStepDef>
+
+	<MapGeneratorDef><!--Final-->
 		<defName>LTS_StonebornVault</defName>
 		<label>ancient stoneborn vault</label>
 		<isUnderground>true</isUnderground>
@@ -56,7 +133,63 @@
 			<li>Fog</li>
 		</genSteps>
 	</MapGeneratorDef>
+	<GenStepDef><!--Final Maps-->
+		<defName>LTS_StonebornVault</defName>
+		<order>551</order>		<!--fog is 1500, so this just needs to be before that-->
+		<genStep Class="KCSG.GenStep_CustomStructureGen">
+			<structureLayoutDefs>
+				<li>DV_StonebornVaultAlpha</li>
+				<li>DV_StonebornVaultBeta</li>
+			</structureLayoutDefs>
+			<fullClear>true</fullClear>			<!-- Clear any impassable in the way -->
+			<clearFogInRect>false</clearFogInRect>			<!-- Clear fog on the structure -->
+			<preventBridgeable>true</preventBridgeable>			<!-- Prevent lake/river/marsh (bridgeable) -->
+		</genStep>
+	</GenStepDef>
+	
+	<MapGeneratorDef><!--Cave Final-->
+		<defName>LTS_StonebornVaultCaveFinal</defName>
+		<label>ancient stoneborn cave</label>
+		<isUnderground>true</isUnderground>
+		<disableCallAid>true</disableCallAid>
+		<pocketMapProperties>
+			<biome>DV_UndergroundVault</biome>
+			<temperature>9</temperature>
+			<canBeCleaned>true</canBeCleaned>
+		</pocketMapProperties>
+		<genSteps>
+			<li>ElevationFertility</li>
+			<li>Underground_RocksFromGrid</li>
+			<li>Terrain</li>
+			<li>RockChunks</li>
+			<li>DV_ScatterMithriumChunksLarge</li>
+			<li>DV_ScatterWoodPiles</li>
+			<li MayRequire="det.sbcuisine">DV_ScatterFlour</li>
+			<li>DV_ScatterKnyfevynRemains</li>
 
+			<li>LTS_StonebornVaultCaveFinal</li>
+			<li>LTS_MinecartContents</li>
+			<li>LTS_StonebornVaultFindPlayerStartSpot</li>
+			<li>LTS_HermitCrates</li>
+
+			<li>Fog</li>
+		</genSteps>
+	</MapGeneratorDef>
+	<GenStepDef><!--Cave Final Maps-->
+		<defName>LTS_StonebornVaultCaveFinal</defName>
+		<order>551</order>		<!--fog is 1500, so this just needs to be before that-->
+		<genStep Class="KCSG.GenStep_CustomStructureGen">
+			<structureLayoutDefs>
+				<li>LTS_StonebornVaultCaveFinalTest</li>
+			</structureLayoutDefs>
+			<fullClear>true</fullClear>			<!-- Clear any impassable in the way -->
+			<clearFogInRect>false</clearFogInRect>			<!-- Clear fog on the structure -->
+			<preventBridgeable>true</preventBridgeable>			<!-- Prevent lake/river/marsh (bridgeable) -->
+		</genStep>
+	</GenStepDef>
+
+	<!--Other-->
+	
 	<BiomeDef ParentName="Biome_Underground">
 		<defName>DV_UndergroundVault</defName>
 		<label>underground vault</label>
@@ -74,55 +207,61 @@
 			<li>DV_Ambient_Vault</li>
 		</ambientSounds>
 	</WeatherDef>
+	
+	<!--Misc GenSteps-->
 
 	<GenStepDef>
-		<defName>LTS_StonebornVault</defName>
-		<order>551</order>		<!--fog is 1500, so this just needs to be before that-->
-		<genStep Class="KCSG.GenStep_CustomStructureGen">
-			<structureLayoutDefs>
-				<li>DV_StonebornVaultAlpha</li>
-				<li>DV_StonebornVaultBeta</li>
-			</structureLayoutDefs>
-			<fullClear>true</fullClear>			<!-- Clear any impassable in the way -->
-			<clearFogInRect>false</clearFogInRect>			<!-- Clear fog on the structure -->
-			<preventBridgeable>true</preventBridgeable>			<!-- Prevent lake/river/marsh (bridgeable) -->
-		</genStep>
+		<defName>LTS_StonebornVaultFindPlayerStartSpot</defName>
+		<order>552</order>
+		<genStep Class="LTS_StonebornSiteGeneration.LTS_GenStep_FindStart"/>
 	</GenStepDef>
 
-	<MapGeneratorDef>
-		<defName>LTS_StonebornVaultIntermediate</defName>
-		<label>ancient stoneborn vault</label>
-		<isUnderground>true</isUnderground>
-		<disableCallAid>true</disableCallAid>
-		<pocketMapProperties>
-			<biome>DV_UndergroundVault</biome>
-			<temperature>12</temperature>
-			<canBeCleaned>true</canBeCleaned>
-		</pocketMapProperties>
-		<genSteps>
-			<li>ElevationFertility</li>
-			<li>Underground_RocksFromGrid</li>
-			<li>Terrain</li>
-			<li>RockChunks</li>
-			<li>DV_ScatterMithriumChunks</li>
-			<li>DV_ScatterWoodPiles</li>
-			<li MayRequire="det.sbcuisine">DV_ScatterFlour</li>
-			<li>DV_ScatterKnyfevynRemains</li>
-
-			<li>LTS_StonebornVaultIntermediate</li>
-
-
-			<li>LTS_MinecartContents</li>
-			<li>LTS_ExtraIntermediateLevelChance</li>
-			<li>LTS_StonebornVaultFindPlayerStartSpot</li>
-			<li>LTS_HermitCrates</li>
-
-			<li>Fog</li>
-		</genSteps>
-	</MapGeneratorDef>
+	<GenStepDef>
+		<defName>LTS_HermitCrates</defName>
+		<order>553</order>
+		<genStep Class="LTS_StonebornSiteGeneration.LTS_GenStep_HermitCrates"/>
+	</GenStepDef>
 
 	<GenStepDef>
-		<order>552</order>
+		<defName>LTS_NextMapEntranceHandler</defName>
+		<order>554</order>
+		<genStep Class="LTS_StonebornSiteGeneration.LTS_GenStep_ExtraIntermediateLevelChance"/>
+		<modExtensions>
+		  <li Class="LTS_StonebornSiteGeneration.LTS_SFE_ModExtension">
+			<LTS_GenStepDef>LTS_StonebornVault</LTS_GenStepDef>
+			<LTS_TexPath>Things/Building/Ruins/Dwarven_VaultDoor/Dwarven_EntranceHatch_Open</LTS_TexPath>
+			
+			<LTS_ThingsWithWeights>
+			  <li>
+			    <thingdef>LTS_StonebornVaultEntrance</thingdef>
+				<weight>1</weight>
+			  </li>
+			  <li>
+			    <thingdef>LTS_StonebornVaultEntranceOpenCaveFinal</thingdef>
+				<weight>1</weight>
+			  </li>
+			</LTS_ThingsWithWeights>
+			
+		  </li>
+		</modExtensions>
+	</GenStepDef>
+
+	<GenStepDef>
+		<defName>LTS_FirstFloorLadder</defName>
+		<order>555</order>
+		<genStep Class="LTS_StonebornSiteGeneration.LTS_GenStep_FirstFloorLadder"/>
+	</GenStepDef>
+	
+	<GenStepDef>
+		<defName>LTS_MinecartContents</defName>
+		<order>556</order>
+		<genStep Class="LTS_StonebornSiteGeneration.LTS_GenStep_MinecartContents"/>
+	</GenStepDef>
+
+	<!--Scatter Gensteps-->
+	
+	<GenStepDef>
+		<order>576</order>
 		<defName>DV_ScatterMithriumChunks</defName>
 		<genStep Class="GenStep_ScatterGroup">
 			<minSpacing>11</minSpacing>
@@ -158,7 +297,7 @@
 	</GenStepDef>
 
 	<GenStepDef>
-		<order>553</order>
+		<order>577</order>
 		<defName>DV_ScatterKnyfevynRemains</defName>
 		<genStep Class="GenStep_ScatterGroup">
 			<minSpacing>11</minSpacing>
@@ -194,7 +333,7 @@
 	</GenStepDef>
 
 	<GenStepDef>
-		<order>554</order>
+		<order>578</order>
 		<defName>DV_ScatterMithriumChunksLarge</defName>
 		<genStep Class="GenStep_ScatterGroup">
 			<minSpacing>12</minSpacing>
@@ -230,7 +369,7 @@
 	</GenStepDef>
 
 	<GenStepDef>
-		<order>553</order>
+		<order>579</order>
 		<defName>DV_ScatterWoodPiles</defName>
 		<genStep Class="GenStep_ScatterGroup">
 			<minSpacing>14</minSpacing>
@@ -253,7 +392,7 @@
 	</GenStepDef>
 
 	<GenStepDef MayRequire="det.sbcuisine">
-		<order>554</order>
+		<order>580</order>
 		<defName>DV_ScatterFlour</defName>
 		<genStep Class="GenStep_ScatterGroup">
 			<minSpacing>9</minSpacing>
@@ -273,86 +412,6 @@
 				</li>
 			</groups>
 		</genStep>
-	</GenStepDef>
-
-	<GenStepDef>
-		<defName>LTS_StonebornVaultIntermediate</defName>
-		<order>551</order>		<!--fog is 1500, so this just needs to be before that-->
-		<genStep Class="KCSG.GenStep_CustomStructureGen">
-			<structureLayoutDefs>
-				<li>DV_StonebornVault_IntermediateAlpha</li>
-				<li>DV_StonebornVault_IntermediateBeta</li>
-				<li>DV_StonebornVault_IntermediateCharlie</li>
-				<li>DV_StonebornVault_IntermediateDelta</li>
-			</structureLayoutDefs>
-			<fullClear>true</fullClear>			<!-- Clear any impassable in the way -->
-			<clearFogInRect>false</clearFogInRect>			<!-- Clear fog on the structure -->
-			<preventBridgeable>true</preventBridgeable>			<!-- Prevent lake/river/marsh (bridgeable) -->
-		</genStep>
-	</GenStepDef>
-
-	<GenStepDef>
-		<defName>LTS_MinecartContents</defName>
-		<order>556</order>
-		<genStep Class="LTS_StonebornSiteGeneration.LTS_GenStep_MinecartContents"/>
-	</GenStepDef>
-
-	<MapGeneratorDef>		<!--this should be the same as MapGeneratorDef LTS_StonebornVaultIntermediate, with an added genSteps to make it's exit portal into an outer one-->
-		<defName>LTS_StonebornVaultFirstFloor</defName>
-		<label>ancient stoneborn vault</label>
-		<isUnderground>true</isUnderground>
-		<disableCallAid>true</disableCallAid>
-		<pocketMapProperties>
-			<biome>DV_UndergroundVault</biome>
-			<temperature>12</temperature>
-			<canBeCleaned>true</canBeCleaned>
-		</pocketMapProperties>
-		<genSteps>
-			<li>ElevationFertility</li>
-			<li>Underground_RocksFromGrid</li>
-			<li>Terrain</li>
-			<li>RockChunks</li>
-			<li>DV_ScatterMithriumChunks</li>
-			<li>DV_ScatterWoodPiles</li>
-			<li MayRequire="det.sbcuisine">DV_ScatterFlour</li>
-			<li>DV_ScatterKnyfevynRemains</li>
-
-			<li>LTS_StonebornVaultIntermediate</li>			<!--keep this, as it's first floor layers we're pulling from-->
-
-			<li>LTS_MinecartContents</li>
-			<li>LTS_ExtraIntermediateLevelChance</li>
-			<li>LTS_StonebornVaultFindPlayerStartSpot</li>
-			<li>LTS_HermitCrates</li>
-			<li>LTS_FirstFloorLadder</li>
-
-			<li>Fog</li>
-		</genSteps>
-	</MapGeneratorDef>
-
-	<!--Misc GenSteps-->
-
-	<GenStepDef>
-		<defName>LTS_StonebornVaultFindPlayerStartSpot</defName>
-		<order>552</order>
-		<genStep Class="LTS_StonebornSiteGeneration.LTS_GenStep_FindStart"/>
-	</GenStepDef>
-
-	<GenStepDef>
-		<defName>LTS_HermitCrates</defName>
-		<order>553</order>
-		<genStep Class="LTS_StonebornSiteGeneration.LTS_GenStep_HermitCrates"/>
-	</GenStepDef>
-
-	<GenStepDef>
-		<defName>LTS_ExtraIntermediateLevelChance</defName>
-		<order>554</order>
-		<genStep Class="LTS_StonebornSiteGeneration.LTS_GenStep_ExtraIntermediateLevelChance"/>
-	</GenStepDef>
-
-	<GenStepDef>
-		<defName>LTS_FirstFloorLadder</defName>
-		<order>555</order>
-		<genStep Class="LTS_StonebornSiteGeneration.LTS_GenStep_FirstFloorLadder"/>
 	</GenStepDef>
 
 	<!--Upper Structure Layout Defs-->
@@ -1424,6 +1483,7 @@
 			<li>vanillaexpanded.vfecore</li>
 		</modRequirements>
 	</KCSG.StructureLayoutDef>
+	
 	<!--Lower Structure Layout Defs-->
 
 	<KCSG.StructureLayoutDef>
@@ -1999,9 +2059,107 @@
 			<li>vanillaexpanded.vfecore</li>
 		</modRequirements>
 	</KCSG.StructureLayoutDef>
-
+	
+	<!--Cave Lower Structure Layout Defs-->
+	
+	<KCSG.StructureLayoutDef>
+	  <defName>LTS_StonebornVaultCaveFinalTest</defName>
+	  <spawnConduits>false</spawnConduits>
+	  <layouts>
+		<li>
+		  <li>Granite,Granite,Granite,Granite,Granite,CollapsedRocks_North,DV_Dwarven_MinecartRails,Granite,Granite,Granite,Granite,Granite,Granite</li>
+		  <li>Granite,Granite,Granite,Granite,Granite,.,DV_Dwarven_MinecartRails,Granite,Granite,Granite,Granite,Granite,Granite</li>
+		  <li>Granite,Granite,Granite,.,.,.,DV_Dwarven_MinecartRails,.,.,.,Granite,Granite,Granite</li>
+		  <li>Granite,Granite,.,DV_Dwarven_MineSupport,.,.,DV_Dwarven_MinecartRails,.,.,DV_Dwarven_MineSupport,LTS_Flare,Granite,Granite</li>
+		  <li>Granite,Granite,.,.,LTS_Flare,.,LTS_Dwarven_MinecartRailBumper_North,.,.,.,Granite,Granite,Granite</li>
+		  <li>Granite,.,.,.,.,.,.,.,.,.,.,.,CollapsedRocks_North</li>
+		  <li>DV_Dwarven_MinecartRails,DV_Dwarven_MinecartRails,DV_Dwarven_MinecartRails,DV_Dwarven_MinecartRails,LTS_InertConduitConnector,.,LTS_StonebornVaultExitCaveFinal,.,LTS_InertConduitConnector,DV_Dwarven_MinecartRails,DV_Dwarven_MinecartRails,DV_Dwarven_MinecartRails,DV_Dwarven_MinecartRails</li>
+		  <li>CollapsedRocks_North,.,.,.,.,.,.,.,.,.,.,.,CollapsedRocks_North</li>
+		  <li>CollapsedRocks_North,.,.,.,.,LTS_Flare,LTS_InertConduitConnector,.,.,.,.,.,Granite</li>
+		  <li>Granite,Granite,.,DV_Dwarven_MineSupport,.,.,DV_Dwarven_MinecartRails,.,.,DV_Dwarven_MineSupport,.,Granite,Granite</li>
+		  <li>Granite,Granite,.,.,.,.,DV_Dwarven_MinecartRails,.,.,.,Granite,Granite,Granite</li>
+		  <li>Granite,Granite,Granite,Granite,.,.,DV_Dwarven_MinecartRails,.,.,Granite,Granite,Granite,Granite</li>
+		  <li>Granite,Granite,Granite,Granite,Granite,.,DV_Dwarven_MinecartRails,.,Granite,Granite,Granite,Granite,Granite</li>
+		  <li>Granite,Granite,Granite,Granite,Granite,CollapsedRocks_North,CollapsedRocks_North,CollapsedRocks_North,Granite,Granite,Granite,Granite,Granite</li>
+		</li>
+		<li>
+		  <li>.,.,.,.,.,.,CollapsedRocks_North,.,.,.,.,.,.</li>
+		  <li>.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+		  <li>.,.,.,.,.,.,DV_Dwarven_Minecart_South,.,.,.,.,.,.</li>
+		  <li>.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+		  <li>.,.,.,.,.,.,LTS_InertConduitConnector,.,.,.,.,.,.</li>
+		  <li>.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+		  <li>CollapsedRocks_North,.,.,DV_Dwarven_Minecart_Gold_East,LTS_Dwarven_MinecartRailBumper_East,.,.,.,LTS_Dwarven_MinecartRailBumper_West,.,DV_Dwarven_Minecart_Glimmerquartz_East,.,CollapsedRocks_North</li>
+		  <li>.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+		  <li>.,.,.,.,.,.,LTS_Dwarven_MinecartRailBumper_South,.,.,.,.,.,.</li>
+		  <li>.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+		  <li>.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+		  <li>.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+		  <li>.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+		  <li>.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+		</li>
+	  </layouts>
+	  <roofGrid>
+		<li>3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+		<li>3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+		<li>3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+		<li>3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+		<li>3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+		<li>3,3,3,3,3,3,3,3,3,3,3,3,.</li>
+		<li>3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+		<li>3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+		<li>3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+		<li>3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+		<li>3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+		<li>3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+		<li>3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+		<li>3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+	  </roofGrid>
+	  <terrainGrid>
+		<li>.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+		<li>.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+		<li>.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+		<li>.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+		<li>.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+		<li>.,.,.,.,.,.,.,.,.,.,.,.,Granite_RoughHewn</li>
+		<li>.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+		<li>.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+		<li>.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+		<li>.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+		<li>.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+		<li>.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+		<li>.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+		<li>.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+	  </terrainGrid>
+	  <forceGenerateRoof>true</forceGenerateRoof>
+	  <modRequirements>
+		<li>det.stonebornfaction</li>
+	  </modRequirements>
+	</KCSG.StructureLayoutDef>
+	
 	<!--Symbols-->
+	
+	<KCSG.SymbolDef>
+	  <defName>LTS_Dwarven_MinecartRailBumper</defName>
+	  <thing>LTS_Dwarven_MinecartRailBumper</thing>
+	</KCSG.SymbolDef>
 
+	<KCSG.SymbolDef>
+	  <defName>LTS_InertConduitConnector</defName>
+	  <thing>LTS_InertConduitConnector</thing>
+	</KCSG.SymbolDef>
+
+	<KCSG.SymbolDef>
+	  <defName>LTS_StonebornVaultExitCaveFinal</defName>
+	  <thing>LTS_StonebornVaultExitCaveFinal</thing>
+	</KCSG.SymbolDef>
+
+	<KCSG.SymbolDef>
+	  <defName>DV_Dwarven_Minecart_Glimmerquartz</defName>
+	  <thing>DV_Dwarven_Minecart_Glimmerquartz</thing>
+	  <rotation>East</rotation>
+	</KCSG.SymbolDef>
+	
 	<KCSG.SymbolDef>
 		<defName>DV_Dwarven_Aqueduct</defName>
 		<thing>DV_Dwarven_Aqueduct</thing>
@@ -2016,7 +2174,6 @@
 		<defName>LTS_StonebornVaultEntranceOuter</defName>
 		<thing>LTS_StonebornVaultEntranceOuter</thing>
 	</KCSG.SymbolDef>
-
 
 	<KCSG.SymbolDef>
 		<defName>DV_Dwarven_WoodPile</defName>
