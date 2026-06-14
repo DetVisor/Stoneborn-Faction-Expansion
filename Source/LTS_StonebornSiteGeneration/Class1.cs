@@ -1421,58 +1421,58 @@ namespace LTS_StonebornSiteGeneration
         private CompGlower glowComp;
     }
 
-    public class Graphic_Single_SpecialFilth : Graphic_Single
-    {
-        public override void Print(SectionLayer layer, Thing thing, float extraRotation)
-        {
-            Vector2 vector;
-            bool flag;
-            if (this.ShouldDrawRotated)
-            {
-                vector = this.drawSize;
-                flag = false;
-            }
-            else
-            {
-                if (!thing.Rotation.IsHorizontal)
-                {
-                    vector = this.drawSize;
-                }
-                else
-                {
-                    vector = this.drawSize.Rotated();
-                }
-                flag = ((thing.Rotation == Rot4.West && this.WestFlipped) || (thing.Rotation == Rot4.East && this.EastFlipped));
-            }
-            if (thing.MultipleItemsPerCellDrawn())
-            {
-                vector *= 0.8f;
-            }
-            float num = this.AngleFromRot(thing.Rotation) + extraRotation;
-            if (flag && this.data != null)
-            {
-                num += this.data.flipExtraRotation;
-            }
-            Vector3 center = thing.TrueCenter() + this.DrawOffset(thing.Rotation);
-            Material mat = this.MatAt(thing.Rotation, thing);
-            Vector2[] uvs;
-            Color32 color;
-            Graphic.TryGetTextureAtlasReplacementInfo(mat, thing.def.category.ToAtlasGroup(), flag, true, out mat, out uvs, out color);
-            Printer_Plane.PrintPlane(layer, center, vector, mat, num, flag, uvs, new Color32[]
-            {
-                color,
-                color,
-                color,
-                color
-            }, 0.01f, 0f);
-            Graphic_Shadow shadowGraphic = this.ShadowGraphic;
-            if (shadowGraphic == null)
-            {
-                return;
-            }
-            shadowGraphic.Print(layer, thing, 0f);
-        }
-    }
+    //public class Graphic_Single_SpecialFilth : Graphic_Single
+    //{
+    //    public override void Print(SectionLayer layer, Thing thing, float extraRotation)
+    //    {
+    //        Vector2 vector;
+    //        bool flag;
+    //        if (this.ShouldDrawRotated)
+    //        {
+    //            vector = this.drawSize;
+    //            flag = false;
+    //        }
+    //        else
+    //        {
+    //            if (!thing.Rotation.IsHorizontal)
+    //            {
+    //                vector = this.drawSize;
+    //            }
+    //            else
+    //            {
+    //                vector = this.drawSize.Rotated();
+    //            }
+    //            flag = ((thing.Rotation == Rot4.West && this.WestFlipped) || (thing.Rotation == Rot4.East && this.EastFlipped));
+    //        }
+    //        if (thing.MultipleItemsPerCellDrawn())
+    //        {
+    //            vector *= 0.8f;
+    //        }
+    //        float num = this.AngleFromRot(thing.Rotation) + extraRotation;
+    //        if (flag && this.data != null)
+    //        {
+    //            num += this.data.flipExtraRotation;
+    //        }
+    //        Vector3 center = thing.TrueCenter() + this.DrawOffset(thing.Rotation);
+    //        Material mat = this.MatAt(thing.Rotation, thing);
+    //        Vector2[] uvs;
+    //        Color32 color;
+    //        Graphic.TryGetTextureAtlasReplacementInfo(mat, thing.def.category.ToAtlasGroup(), flag, true, out mat, out uvs, out color);
+    //        Printer_Plane.PrintPlane(layer, center, vector, mat, num, flag, uvs, new Color32[]
+    //        {
+    //            color,
+    //            color,
+    //            color,
+    //            color
+    //        }, 0.01f, 0f);
+    //        Graphic_Shadow shadowGraphic = this.ShadowGraphic;
+    //        if (shadowGraphic == null)
+    //        {
+    //            return;
+    //        }
+    //        shadowGraphic.Print(layer, thing, 0f);
+    //    }
+    //}
 
 
 
@@ -1538,7 +1538,7 @@ namespace LTS_StonebornSiteGeneration
 
 
 
-    //Edited version of Thekiborg's drillpod code:
+    //Edited version of Thekiborg's commissioned drillpod code:
     
     public class PawnsArrivalModeWorker_Excavation : PawnsArrivalModeWorker
     {

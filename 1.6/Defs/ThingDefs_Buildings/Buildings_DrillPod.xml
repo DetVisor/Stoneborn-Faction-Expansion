@@ -8,7 +8,7 @@
         <description>A launchable sub-terrestrial cargo pod capable of carrying people, items, or animals. Can be used for sending gifts, transporting people or supplies, surprise attacks, or reinforcing battles.</description>
         <graphicData>
           <!--<texPath>Things/Special/DropPod</texPath>-->
-		  <texPath>Things/Building/AncientLaunchPod/AncientLaunchPodA</texPath>
+		  <texPath>Things/Special/DrillPod</texPath>
           <graphicClass>Graphic_Single</graphicClass>
           <drawSize>(2,2)</drawSize>
         </graphicData>
