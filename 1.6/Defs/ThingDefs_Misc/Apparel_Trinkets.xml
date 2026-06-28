@@ -212,8 +212,9 @@
     <generateCommonality>0</generateCommonality>
     <mergeVerbGizmos>false</mergeVerbGizmos>
     <graphicData>
-      <texPath>Things/Pawn/Humanlike/Apparel/ShieldBelt/ShieldBelt</texPath>
+      <texPath>Things/Pawn/Apparel/Belts/ChemlightBelt</texPath>
       <graphicClass>Graphic_Single</graphicClass>
+	  <shaderType>CutoutComplex</shaderType>
     </graphicData>
     <comps>
       <!--<li Class="CompProperties_DisruptorFlarePack">
