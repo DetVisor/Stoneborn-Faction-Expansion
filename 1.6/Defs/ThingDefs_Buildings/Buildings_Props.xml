@@ -51,7 +51,7 @@
 		<prop>LTS_Prop_Stoneborn_RuinedRug_Large</prop>
     </VFEProps.PropDef>
   
-    <ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+    <ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="VanillaExpanded.VFEPropsandDecor">
 		<defName>LTS_Prop_Stoneborn_Dwarven_RuinedUrn</defName>
 		<label>weathered urn</label>
 		<description>An ancient stoneborn urn, sculpted out of stone and decorated with mithrium trims. This one's a replica.</description>
@@ -90,7 +90,7 @@
 		<prop>LTS_Prop_Stoneborn_Dwarven_RuinedUrn</prop>
     </VFEProps.PropDef>
 	
-	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="VanillaExpanded.VFEPropsandDecor">
 		<defName>LTS_Prop_Stoneborn_Dwarven_RuinedStatue_LegendaryPick</defName>
 		<label>legendary Pickaxe statue</label>
 		<description>An ode to a legendary stoneborn weapon. This one's a replica.</description>
@@ -123,7 +123,7 @@
 		<prop>LTS_Prop_Stoneborn_Dwarven_RuinedStatue_LegendaryPick</prop>
     </VFEProps.PropDef>
 	
-	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="VanillaExpanded.VFEPropsandDecor">
 		<defName>LTS_Prop_Stoneborn_Dwarven_RuinedStatue_LegendaryWarrior</defName>
 		<label>legendary Warrior statue</label>
 		<description>An ode to a legendary stoneborn warrior. His name is lost to time. This one's a replica.</description>
@@ -156,7 +156,7 @@
 		<prop>LTS_Prop_Stoneborn_Dwarven_RuinedStatue_LegendaryWarrior</prop>
     </VFEProps.PropDef>
 	
-	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="VanillaExpanded.VFEPropsandDecor">
 		<defName>LTS_Prop_Stoneborn_Dwarven_RuinedShelf</defName>
 		<label>ruined shelf</label>
 		<description>An ancient shelf made of reinforced stone and mithrium. This one's a replica.</description>
@@ -185,7 +185,7 @@
 		<prop>LTS_Prop_Stoneborn_Dwarven_RuinedShelf</prop>
     </VFEProps.PropDef>
 	
-	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="VanillaExpanded.VFEPropsandDecor">
 		<defName>LTS_Prop_Stoneborn_Dwarven_RuinedCounter1x3c</defName>
 		<label>ruined counter</label>
 		<description>An ancient counter made of reinforced stone. This one's a replica.</description>
@@ -223,7 +223,7 @@
 		<prop>LTS_Prop_Stoneborn_Dwarven_RuinedCounter1x3c</prop>
     </VFEProps.PropDef>
 	
-	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="VanillaExpanded.VFEPropsandDecor">
 		<defName>LTS_Prop_Stoneborn_Dwarven_RuinedLamp</defName>
 		<label>ruined gloomlamp</label>
 		<description>An ancient self-powered stoneborn lamp. This one's a replica.</description>
@@ -249,7 +249,7 @@
 		<prop>LTS_Prop_Stoneborn_Dwarven_RuinedLamp</prop>
     </VFEProps.PropDef>
 	
-	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="VanillaExpanded.VFEPropsandDecor">
 		<defName>LTS_Prop_Stoneborn_Dwarven_MithriumWall</defName>
 		<label>mithrium wall</label>
 		<description>A heavily-reinforced stone wall, made of tough rock and mithrium. This one's a replica.</description>
@@ -280,7 +280,7 @@
 		<prop>LTS_Prop_Stoneborn_Dwarven_MithriumWall</prop>
     </VFEProps.PropDef>
 	
-	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="VanillaExpanded.VFEPropsandDecor">
 		<defName>LTS_Prop_Stoneborn_Dwarven_Aqueduct</defName>
 		<label>ruined aqueduct</label>
 		<description>An ancient stoneborn aquaduct, lined with unidentifiable residue. This one's a replica.</description>
@@ -316,7 +316,7 @@
 		<prop>LTS_Prop_Stoneborn_Dwarven_Aqueduct</prop>
     </VFEProps.PropDef>
 	
-	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="VanillaExpanded.VFEPropsandDecor">
 		<defName>LTS_Prop_Stoneborn_Dwarven_RuinedWall</defName>
 		<label>ruined wall</label>
 		<description>A heavily-reinforced stone wall, made of tough rock and mithrium. This one's a replica.</description>
@@ -349,7 +349,7 @@
 		<prop>LTS_Prop_Stoneborn_Dwarven_RuinedWall</prop>
     </VFEProps.PropDef>
 
-	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="VanillaExpanded.VFEPropsandDecor">
 		<defName>LTS_Prop_Stoneborn_Dwarven_RuinedChair</defName>
 		<label>ruined chair</label>
 		<description>An ancient stoneborn chair, made from reinforced stone and mithrium. This one's a replica.</description>
@@ -388,7 +388,7 @@
 		<prop>LTS_Prop_Stoneborn_Dwarven_RuinedChair</prop>
     </VFEProps.PropDef>
 	
-	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="VanillaExpanded.VFEPropsandDecor">
 		<defName>LTS_Prop_Stoneborn_Dwarven_RuinedGateLocked</defName>
 		<label>ruined gate (locked)</label>
 		<description>A weathered mithrium gate that has remained locked for centuries. This one's a replica.</description>
@@ -420,7 +420,7 @@
 		<prop>LTS_Prop_Stoneborn_Dwarven_RuinedGateLocked</prop>
     </VFEProps.PropDef>
 	
-	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="VanillaExpanded.VFEPropsandDecor">
 		<defName>LTS_Prop_Stoneborn_Dwarven_RuinedGate</defName>
 		<label>ruined gate frame</label>
 		<description>A weathered mithrium gate. Tough and durable. This one's a replica.</description>
@@ -455,7 +455,7 @@
 		<prop>LTS_Prop_Stoneborn_Dwarven_RuinedGate</prop>
     </VFEProps.PropDef>
 	
-	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="VanillaExpanded.VFEPropsandDecor">
 		<defName>LTS_Prop_Stoneborn_Dwarven_RuinedBrazier</defName>
 		<label>ruined brazier</label>
 		<description>An ancient stoneborn brazier, made from mithrium. This one's a replica.</description>
@@ -486,7 +486,7 @@
 		<prop>LTS_Prop_Stoneborn_Dwarven_RuinedBrazier</prop>
     </VFEProps.PropDef>
 	
-	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="VanillaExpanded.VFEPropsandDecor">
 		<defName>LTS_Prop_Stoneborn_Dwarven_BurntOutCampfire</defName>
 		<label>burnt-out campfire</label>
 		<description>An old pile of wood, burnt to cinders.</description>
@@ -517,7 +517,7 @@
 		<prop>LTS_Prop_Stoneborn_Dwarven_BurntOutCampfire</prop>
     </VFEProps.PropDef>
 	
-	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="VanillaExpanded.VFEPropsandDecor">
 		<defName>LTS_Prop_Stoneborn_Dwarven_RuinedTable1x2c</defName>
 		<label>ruined table (1x2)</label>
 		<description>An ancient table made of reinforced stone. This one's a replica.</description>
@@ -555,7 +555,7 @@
 		<prop>LTS_Prop_Stoneborn_Dwarven_RuinedTable1x2c</prop>
     </VFEProps.PropDef>
 	
-	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="VanillaExpanded.VFEPropsandDecor">
 		<defName>LTS_Prop_Stoneborn_Dwarven_RuinedScrollshelf</defName>
 		<label>ruined scrollshelf</label>
 		<description>An ancient scrollshelf made of reinforced stone and mithrium. This one's a replica.</description>
@@ -588,7 +588,7 @@
 		<prop>LTS_Prop_Stoneborn_Dwarven_RuinedScrollshelf</prop>
     </VFEProps.PropDef>
 	
-	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="VanillaExpanded.VFEPropsandDecor">
 		<defName>LTS_Prop_Stoneborn_Dwarven_RuinedTable2x2c</defName>
 		<label>ruined table (2x2)</label>
 		<description>An ancient table made of reinforced stone. This one's a replica.</description>
@@ -626,7 +626,7 @@
 		<prop>LTS_Prop_Stoneborn_Dwarven_RuinedTable2x2c</prop>
     </VFEProps.PropDef>
 	
-	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="VanillaExpanded.VFEPropsandDecor">
 		<defName>LTS_Prop_Stoneborn_Dwarven_RuinedTable3x3c</defName>
 		<label>ruined table (3x3)</label>
 		<description>An ancient table made of reinforced stone. This one's a replica.</description>
@@ -664,7 +664,7 @@
 		<prop>LTS_Prop_Stoneborn_Dwarven_RuinedTable3x3c</prop>
     </VFEProps.PropDef>
 	
-	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="VanillaExpanded.VFEPropsandDecor">
 		<defName>LTS_Prop_Stoneborn_Dwarven_RuinedPillar</defName>
 		<label>ruined pillar</label>
 		<description>An ancient stoneborn pillar, made from reinforced stone and mithrium. This one's a replica.</description>
@@ -698,7 +698,7 @@
 		<prop>LTS_Prop_Stoneborn_Dwarven_RuinedPillar</prop>
     </VFEProps.PropDef>
 	
-	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="VanillaExpanded.VFEPropsandDecor">
 		<defName>LTS_Prop_Stoneborn_Dwarven_AlcoholVat</defName>
 		<label>ruined alcohol vat</label>
 		<description>An ancient vat full of a brownish mush that reeks of alcohol. This one's a replica.</description>
@@ -729,7 +729,7 @@
 		<prop>LTS_Prop_Stoneborn_Dwarven_AlcoholVat</prop>
     </VFEProps.PropDef>
 	
-	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="VanillaExpanded.VFEPropsandDecor">
 		<defName>LTS_Prop_Stoneborn_Dwarven_AncientMachinery</defName>
 		<label>ruined machinery</label>
 		<description>A ruined piece of machinery. This one's a replica.</description>
@@ -760,7 +760,7 @@
 		<prop>LTS_Prop_Stoneborn_Dwarven_AncientMachinery</prop>
     </VFEProps.PropDef>
 	
-	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="VanillaExpanded.VFEPropsandDecor">
 		<defName>LTS_Prop_Stoneborn_Dwarven_Pipes</defName>
 		<label>ancient piping</label>
 		<description>A section of robust mithrium piping. This one's a replica.</description>
@@ -800,7 +800,7 @@
 		<prop>LTS_Prop_Stoneborn_Dwarven_Pipes</prop>
     </VFEProps.PropDef>
 	
-	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="VanillaExpanded.VFEPropsandDecor">
 		<defName>LTS_Prop_Stoneborn_Dwarven_MineSupport</defName>
 		<label>mine support</label>
 		<description>A sturdy wooden support. Keeps the ceiling from falling. This one doesn't look very sturdy.</description>
@@ -834,7 +834,7 @@
 		<prop>LTS_Prop_Stoneborn_Dwarven_MineSupport</prop>
     </VFEProps.PropDef>
 	
-	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="VanillaExpanded.VFEPropsandDecor">
 		<defName>LTS_Prop_Stoneborn_Dwarven_WoodPile</defName>
 		<label>wood pile</label>
 		<description>Planks of wood treated by stoneborn. This one's a replica.</description>
@@ -865,7 +865,7 @@
 		<prop>LTS_Prop_Stoneborn_Dwarven_WoodPile</prop>
     </VFEProps.PropDef>
 	
-	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="VanillaExpanded.VFEPropsandDecor">
 		<defName>LTS_Prop_Stoneborn_Dwarven_Minecart</defName>
 		<label>empty minecart</label>
 		<description>An ancient stoneborn minecart, rusted beyond use. This one's a replica.</description>
@@ -897,7 +897,7 @@
 		<prop>LTS_Prop_Stoneborn_Dwarven_Minecart</prop>
     </VFEProps.PropDef>
 	
-	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="VanillaExpanded.VFEPropsandDecor">
 		<defName>LTS_Prop_Stoneborn_Dwarven_Minecart_Steel</defName>
 		<label>steel minecart</label>
 		<description>An ancient stoneborn minecart, rusted beyond use. This one's a replica.</description>
@@ -925,7 +925,7 @@
 		<prop>LTS_Prop_Stoneborn_Dwarven_Minecart_Steel</prop>
     </VFEProps.PropDef>
 	
-	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="VanillaExpanded.VFEPropsandDecor">
 		<defName>LTS_Prop_Stoneborn_Dwarven_Minecart_Gold</defName>
 		<label>gold minecart</label>
 		<description>An ancient stoneborn minecart, rusted beyond use. This one's a replica.</description>
@@ -957,7 +957,7 @@
 		<prop>LTS_Prop_Stoneborn_Dwarven_Minecart_Gold</prop>
     </VFEProps.PropDef>
 	
-	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="VanillaExpanded.VFEPropsandDecor">
 		<defName>LTS_Prop_Stoneborn_Dwarven_Minecart_Jade</defName>
 		<label>jade minecart</label>
 		<description>An ancient stoneborn minecart, rusted beyond use. This one's a replica.</description>
@@ -989,7 +989,7 @@
 		<prop>LTS_Prop_Stoneborn_Dwarven_Minecart_Jade</prop>
     </VFEProps.PropDef>
 	
-	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="det.sbdelights">
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="det.sbdelights,VanillaExpanded.VFEPropsandDecor">
 		<defName>LTS_Prop_Stoneborn_Dwarven_Minecart_Glimmerquartz</defName>
 		<label>glimmerquartz minecart</label>
 		<description>An ancient stoneborn minecart, rusted beyond use. This one's a replica.</description>
@@ -1021,7 +1021,7 @@
 		<prop>LTS_Prop_Stoneborn_Dwarven_Minecart_Glimmerquartz</prop>
     </VFEProps.PropDef>
 	
-	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="det.epochspyrinth">
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="det.epochspyrinth,VanillaExpanded.VFEPropsandDecor">
 		<defName>LTS_Prop_Stoneborn_Dwarven_Minecart_Pyrinth</defName>
 		<label>pyrinth minecart</label>
 		<description>An ancient stoneborn minecart, rusted beyond use. This one's a replica.</description>
@@ -1053,7 +1053,7 @@
 		<prop>LTS_Prop_Stoneborn_Dwarven_Minecart_Pyrinth</prop>
     </VFEProps.PropDef>
 	
-	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="VanillaExpanded.VFEPropsandDecor">
 		<defName>LTS_Prop_Stoneborn_Dwarven_MinecartRails</defName>
 		<label>minecart rails</label>
 		<description>A set of rusty minecart rails.</description>
@@ -1094,7 +1094,7 @@
 		<prop>LTS_Prop_Stoneborn_Dwarven_MinecartRails</prop>
     </VFEProps.PropDef>
 	
-	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="VanillaExpanded.VFEPropsandDecor">
 		<defName>LTS_Prop_Stoneborn_InertRailConnector</defName>
 		<label>minecart rails</label>
 		<description>inert, invisible conduits for connecting rails.</description>
@@ -1133,7 +1133,7 @@
 		<prop>LTS_Prop_Stoneborn_InertRailConnector</prop>
     </VFEProps.PropDef>
 	
-	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="VanillaExpanded.VFEPropsandDecor">
 		<defName>LTS_Prop_Stoneborn_Dwarven_MinecartRailCorner</defName>
 		<label>minecart rail curve</label>
 		<description>A curved section of rusty minecart rails.</description>
@@ -1170,7 +1170,7 @@
 		<prop>LTS_Prop_Stoneborn_Dwarven_MinecartRailCorner</prop>
     </VFEProps.PropDef>
 	
-	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="VanillaExpanded.VFEPropsandDecor">
 		<defName>LTS_Prop_Stoneborn_Dwarven_MinecartRailBumper</defName>
 		<label>minecart bumper</label>
 		<description>A sturdy wooden bumper, designed to stop minecarts. This one's a replica.</description>
@@ -1204,7 +1204,7 @@
 		<prop>LTS_Prop_Stoneborn_Dwarven_MinecartRailBumper</prop>
     </VFEProps.PropDef>
 	
-	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="det.sbcuisine">
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="det.sbcuisine,VanillaExpanded.VFEPropsandDecor">
 		<defName>LTS_Prop_Stoneborn_Dwarven_FlourSack</defName>
 		<label>flour sack</label>
 		<description>A threadbare sack of chalk dust.</description>
@@ -1231,7 +1231,7 @@
 		<prop>LTS_Prop_Stoneborn_Dwarven_FlourSack</prop>
     </VFEProps.PropDef>
 	
-	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="det.sbcuisine">
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="det.sbcuisine,VanillaExpanded.VFEPropsandDecor">
 		<defName>LTS_Prop_Stoneborn_Dwarven_FlourSackOpen</defName>
 		<label>empty flour sack</label>
 		<description>A threadbare sack.</description>
@@ -1260,7 +1260,7 @@
 	
 	<!--Buildings_Ancient_Active-->
 	
-	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="VanillaExpanded.VFEPropsandDecor">
 		<defName>LTS_Prop_Stoneborn_DwarvenGrate</defName>
 		<label>grate</label>
 		<description>A vent for equalizing the temperature between two rooms without allowing people to walk between them. This one's a replica.</description>
@@ -1293,7 +1293,7 @@
 		<prop>LTS_Prop_Stoneborn_DwarvenGrate</prop>
     </VFEProps.PropDef>
 	
-	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="VanillaExpanded.VFEPropsandDecor">
 		<defName>LTS_Prop_Stoneborn_Dwarven_Spikes</defName>
 		<label>spike trap</label>
 		<description>An ancient mechanical spike trap. This one's a replica.</description>
@@ -1321,7 +1321,7 @@
 		<prop>LTS_Prop_Stoneborn_Dwarven_Spikes</prop>
     </VFEProps.PropDef>
 	
-	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="VanillaExpanded.VFEPropsandDecor">
 		<defName>LTS_Prop_Stoneborn_Dwarven_FreezeVent</defName>
 		<label>freeze vent</label>
 		<description>An ancient vent trap designed to make a room inhospitably cold. This one's a replica.</description>
@@ -1349,7 +1349,7 @@
 		<prop>LTS_Prop_Stoneborn_Dwarven_FreezeVent</prop>
     </VFEProps.PropDef>
 	
-	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="VanillaExpanded.VFEPropsandDecor">
 		<defName>LTS_Prop_Stoneborn_Dwarven_HeatVent</defName>
 		<label>heat vent</label>
 		<description>An ancient vent trap designed to make a room inhospitably hot. This one's a replica.</description>
@@ -1377,7 +1377,7 @@
 		<prop>LTS_Prop_Stoneborn_Dwarven_HeatVent</prop>
     </VFEProps.PropDef>
 	
-	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="VanillaExpanded.VFEPropsandDecor">
 		<defName>LTS_Prop_Stoneborn_Dwarven_RotstinkVent</defName>
 		<label>rotstink vent</label>
 		<description>An ancient vent trap designed to flood a room with rotstink. This one's a replica.</description>
@@ -1405,7 +1405,7 @@
 		<prop>LTS_Prop_Stoneborn_Dwarven_RotstinkVent</prop>
     </VFEProps.PropDef>
 	
-	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="VanillaExpanded.VFEPropsandDecor">
 		<defName>LTS_Prop_Stoneborn_HermeticCanister</defName>
 		<label>hermetic canister</label>
 		<description>A self-powered hermetically-sealed crate for preserving valuable items. This one's a replica.</description>
@@ -1435,7 +1435,7 @@
 		<prop>LTS_Prop_Stoneborn_HermeticCanister</prop>
     </VFEProps.PropDef>
 	
-	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="VanillaExpanded.VFEPropsandDecor">
 		<defName>LTS_Prop_Stoneborn_HermeticCanisterOpen</defName>
 		<label>empty hermetic canister</label>
 		<description>A self-powered hermetically-sealed crate for preserving valuable items. This one's empty.</description>
@@ -1465,7 +1465,7 @@
 		<prop>LTS_Prop_Stoneborn_HermeticCanisterOpen</prop>
     </VFEProps.PropDef>
 	
-	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="VanillaExpanded.VFEPropsandDecor">
 		<defName>LTS_Prop_Stoneborn_Mimic</defName>
 		<label>slimy dwarven crate</label>
 		<description>A sturdy stoneborn crate for preserving valuable items. This one seems to be leaking...</description>
@@ -1495,7 +1495,7 @@
 		<prop>LTS_Prop_Stoneborn_Mimic</prop>
     </VFEProps.PropDef>
 	
-	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="VanillaExpanded.VFEPropsandDecor">
 		<defName>LTS_Prop_Stoneborn_DwarvenCrate</defName>
 		<label>dwarven crate</label>
 		<description>A sturdy stoneborn crate for preserving valuable items. This one's a replica.</description>
@@ -1525,7 +1525,7 @@
 		<prop>LTS_Prop_Stoneborn_DwarvenCrate</prop>
     </VFEProps.PropDef>
 	
-	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="VanillaExpanded.VFEPropsandDecor">
 		<defName>LTS_Prop_Stoneborn_DwarvenCrateOpen</defName>
 		<label>empty dwarven crate</label>
 		<description>A sturdy stoneborn crate for preserving valuable items. This one's empty.</description>
@@ -1555,7 +1555,7 @@
 		<prop>LTS_Prop_Stoneborn_DwarvenCrateOpen</prop>
     </VFEProps.PropDef>
 	
-	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="VanillaExpanded.VFEPropsandDecor">
 		<defName>LTS_Prop_Stoneborn_TremorbrewBarrel</defName>
 		<label>tremorbrew barrel</label>
 		<description>An ancient, broken barrel that looks like it once contained waste of some sort. The only thing it contains now is a smear of dried sludge.</description>
