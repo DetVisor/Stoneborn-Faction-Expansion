@@ -290,7 +290,7 @@
 
   <ThingDef ParentName="BuildingBase">
     <defName>DV_Dwarven_RuinedCounter1x3c</defName>
-    <label>ruined counter (1x2)</label>
+    <label>ruined counter</label>
     <thingClass>Building</thingClass>
     <category>Building</category>
     <description>An ancient counter made of reinforced stone.</description>
@@ -1440,7 +1440,7 @@
       <linkType>Transmitter</linkType>
       <drawOffset>(0, 0, -0.2)</drawOffset>
       <linkFlags>
-        <li>PowerConduit</li>
+        <li>Custom7</li>
       </linkFlags>
       <damageData>
         <rect>(0,0.35,1,0.3)</rect>
@@ -1484,7 +1484,7 @@
   </ThingDef>
 
   <ThingDef ParentName="BuildingBase">
-    <defName>LTS_InertConduitConnector</defName>
+    <defName>LTS_InertRailConnector</defName>
     <label>minecart rails</label>
 	<description>inert, invisible conduits for connecting rails.</description>
     <thingClass>Building</thingClass>
@@ -1495,7 +1495,7 @@
       <graphicClass>Graphic_Single</graphicClass>
       <linkType>Transmitter</linkType>
       <linkFlags>
-        <li>PowerConduit</li>
+        <li>Custom7</li>
       </linkFlags>
 	
       <color>(0,0,0,0)</color>
@@ -1552,8 +1552,8 @@
   
   <ThingDef ParentName="BuildingBase">
     <defName>LTS_Dwarven_MinecartRailCorner</defName>
-    <label>minecart rails</label>
-    <description>minecart rail corners</description>
+    <label>minecart rail curve</label>
+    <description>A curved section of rusty minecart rails.</description>
     <thingClass>Building</thingClass>
     <category>Building</category>
     <noRightClickDraftAttack>true</noRightClickDraftAttack>
@@ -1562,7 +1562,7 @@
       <graphicClass>Graphic_Multi</graphicClass>
 	  <drawSize>(4,4)</drawSize>
       <linkFlags>
-        <li>PowerConduit</li>
+        <li>Custom7</li>
       </linkFlags>
       <damageData>
         <rect>(0,0.35,1,0.3)</rect>
@@ -1616,7 +1616,7 @@
       <graphicClass>Graphic_Multi</graphicClass>
 	  <drawSize>(2,2)</drawSize>
       <linkFlags>
-        <li>PowerConduit</li>
+        <li>Custom7</li>
       </linkFlags>
       <damageData>
         <rect>(0,0.35,1,0.3)</rect>

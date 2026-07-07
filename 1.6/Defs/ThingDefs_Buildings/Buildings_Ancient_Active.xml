@@ -386,7 +386,7 @@
   <ThingDef ParentName="BuildingBase">
     <defName>DV_DwarvenCrate_Mimic</defName>
     <label>dwarven crate</label>
-    <description>A self-powered hermetically-sealed crate for preserving valuable items. These can preserve their contents for a long time.</description>
+    <description>A sturdy stoneborn crate for preserving valuable items.</description>
     <size>(1, 1)</size>
     <fillPercent>0.40</fillPercent>
     <rotatable>false</rotatable>
@@ -426,7 +426,7 @@
   <ThingDef ParentName="CrateBase">
     <defName>DV_DwarvenCrate</defName>
     <label>dwarven crate</label>
-    <description>A self-powered hermetically-sealed crate for preserving valuable items. These can preserve their contents for a long time.</description>
+    <description>A sturdy stoneborn crate for preserving valuable items.</description>
     <size>(1, 1)</size>
     <fillPercent>0.40</fillPercent>
     <rotatable>false</rotatable>

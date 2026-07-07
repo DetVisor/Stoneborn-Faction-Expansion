@@ -1421,58 +1421,82 @@ namespace LTS_StonebornSiteGeneration
         private CompGlower glowComp;
     }
 
-    //public class Graphic_Single_SpecialFilth : Graphic_Single
-    //{
-    //    public override void Print(SectionLayer layer, Thing thing, float extraRotation)
-    //    {
-    //        Vector2 vector;
-    //        bool flag;
-    //        if (this.ShouldDrawRotated)
-    //        {
-    //            vector = this.drawSize;
-    //            flag = false;
-    //        }
-    //        else
-    //        {
-    //            if (!thing.Rotation.IsHorizontal)
-    //            {
-    //                vector = this.drawSize;
-    //            }
-    //            else
-    //            {
-    //                vector = this.drawSize.Rotated();
-    //            }
-    //            flag = ((thing.Rotation == Rot4.West && this.WestFlipped) || (thing.Rotation == Rot4.East && this.EastFlipped));
-    //        }
-    //        if (thing.MultipleItemsPerCellDrawn())
-    //        {
-    //            vector *= 0.8f;
-    //        }
-    //        float num = this.AngleFromRot(thing.Rotation) + extraRotation;
-    //        if (flag && this.data != null)
-    //        {
-    //            num += this.data.flipExtraRotation;
-    //        }
-    //        Vector3 center = thing.TrueCenter() + this.DrawOffset(thing.Rotation);
-    //        Material mat = this.MatAt(thing.Rotation, thing);
-    //        Vector2[] uvs;
-    //        Color32 color;
-    //        Graphic.TryGetTextureAtlasReplacementInfo(mat, thing.def.category.ToAtlasGroup(), flag, true, out mat, out uvs, out color);
-    //        Printer_Plane.PrintPlane(layer, center, vector, mat, num, flag, uvs, new Color32[]
-    //        {
-    //            color,
-    //            color,
-    //            color,
-    //            color
-    //        }, 0.01f, 0f);
-    //        Graphic_Shadow shadowGraphic = this.ShadowGraphic;
-    //        if (shadowGraphic == null)
-    //        {
-    //            return;
-    //        }
-    //        shadowGraphic.Print(layer, thing, 0f);
-    //    }
-    //}
+    public class LTS_Hediff_DefensiveImpaler : Hediff
+    {
+        public override void Notify_PawnPostApplyDamage(DamageInfo dinfo, float totalDamageDealt)
+        {
+            base.Notify_PawnPostApplyDamage(dinfo, totalDamageDealt);
+            if (pawn.Dead)
+            {
+                return;
+            }
+            if (dinfo.Instigator != null && pawn.Position.InHorDistOf(dinfo.Instigator.Position, 1.5f))//attacker next to user //apply 6 stab damage, 20% penetration
+            {
+                //SoundDefOf..PlayOneShot(pawn);
+                //BattleLogEntry_DamageTaken battleLogEntry_DamageTaken = new BattleLogEntry_DamageTaken(pawn, RulePackDefOf.DamageEvent_UnnaturalDarkness);
+                //Find.BattleLog.Add(battleLogEntry_DamageTaken);
+                //dinfo.Instigator.TakeDamage(new DamageInfo(DamageDefOf.Stab, 6)).AssociateWithLog(battleLogEntry_DamageTaken);
+                dinfo.Instigator.TakeDamage(new DamageInfo(DamageDefOf.Stab, 6));
+
+            }
+        }
+    }
+
+    public class LTS_CompProperties_ThornApparel : CompProperties
+    {
+        public LTS_CompProperties_ThornApparel()
+        {
+            this.compClass = typeof(LTS_CompThornApparel);
+        }
+
+        public float damageFloat;
+        public DamageDef damageDef;
+        public SoundDef soundDef = null;
+        public bool affectsRangedAttacks = false;
+        public float damagePenetration;
+    }
+
+    public class LTS_CompThornApparel : ThingComp
+    {
+        public LTS_CompProperties_ThornApparel Props
+        {
+            get
+            {
+                return (LTS_CompProperties_ThornApparel)this.props;
+            }
+        }
+
+        //public override void PostPostApplyDamage(DamageInfo dinfo, float totalDamageDealt)
+        //{
+        //    Log.Error("firing 1");
+        //    base.PostPostApplyDamage(dinfo, totalDamageDealt);
+        //    Pawn pawn = (parent as Apparel).Wearer;
+        //    if (pawn.Dead)
+        //    {
+        //        return;
+        //    }
+        //    if (dinfo.Instigator != null && (Props.affectsRangedAttacks || pawn.Position.InHorDistOf(dinfo.Instigator.Position, 1.5f)))//attacker next to user
+        //    {
+        //        Props.soundDef.PlayOneShot(pawn);
+        //        dinfo.Instigator.TakeDamage(new DamageInfo(Props.damageDef, Props.damageFloat, Props.damagePenetration));
+        //    }
+        //}
+
+        public override void PostPreApplyDamage(ref DamageInfo dinfo, out bool absorbed)
+        {
+            absorbed = false;
+            Pawn pawn = (parent as Apparel).Wearer;
+            if (pawn.Dead)
+            {
+                return;
+            }
+            if (dinfo.Instigator != null && (Props.affectsRangedAttacks || pawn.Position.InHorDistOf(dinfo.Instigator.Position, 1.5f)))//attacker next to user
+            {
+                if(Props.soundDef != null) Props.soundDef.PlayOneShot(pawn);
+                dinfo.Instigator.TakeDamage(new DamageInfo(Props.damageDef, Props.damageFloat, Props.damagePenetration));
+            }
+        }
+    }
 
 
 

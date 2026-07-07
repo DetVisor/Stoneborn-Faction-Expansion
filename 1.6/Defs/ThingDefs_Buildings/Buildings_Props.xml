@@ -1,0 +1,1596 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+	<VFEProps.PropCategoryDef MayRequire="VanillaExpanded.VFEPropsandDecor">
+		<defName>LTS_PropCategory_Stoneborn</defName>
+		<label>stoneborn</label>
+		<description>Stoneborn structures that are used for purely decorative purposes.</description>
+		<priority>0</priority>
+		<icon>UI/Categories/Props_Stoneborn</icon>
+	</VFEProps.PropCategoryDef>
+	
+  <!--Buildings_Ancient-->
+  
+	<ThingDef ParentName="DecalBase" MayRequire="VanillaExpanded.VFEPropsandDecor">
+		<defName>LTS_Prop_Stoneborn_RuinedRug_Small</defName>
+		<label>ancient stoneborn rug (small)</label>
+		<description>A fine rug, elegantly weaved out of creamsilk. This one's a replica.</description>
+		<size>(3,3)</size>
+		<graphicData>
+		<graphicClass>Graphic_Single</graphicClass>
+		<texPath>Things/Building/Ruins/Dwarven_AncientRugs/DwarvenAncientRug_Small</texPath>
+		<drawSize>(3,3)</drawSize>
+		<shaderType>CutoutComplex</shaderType>
+		<color>(135, 70, 66)</color>
+		</graphicData>
+	</ThingDef>
+	<VFEProps.PropDef MayRequire="VanillaExpanded.VFEPropsandDecor">
+		<defName>LTS_Prop_Stoneborn_RuinedRug_Small</defName>
+		<category>LTS_PropCategory_Stoneborn</category>
+		<priority>1</priority>
+		<prop>LTS_Prop_Stoneborn_RuinedRug_Small</prop>
+	</VFEProps.PropDef>
+  
+	<ThingDef ParentName="DecalBase" MayRequire="VanillaExpanded.VFEPropsandDecor">
+		<defName>LTS_Prop_Stoneborn_RuinedRug_Large</defName>
+		<label>ancient stoneborn rug (large)</label>
+		<description>A large fine rug, elegantly weaved out of creamsilk. This one's a replica.</description>
+		<size>(6,3)</size>
+		<graphicData>
+		<graphicClass>Graphic_Single</graphicClass>
+		<texPath>Things/Building/Ruins/Dwarven_AncientRugs/DwarvenAncientRug_Large</texPath>
+		<drawSize>(6,3)</drawSize>
+		<shaderType>CutoutComplex</shaderType>
+		<color>(135, 70, 66)</color>
+		</graphicData>
+    </ThingDef>
+    <VFEProps.PropDef MayRequire="VanillaExpanded.VFEPropsandDecor">
+		<defName>LTS_Prop_Stoneborn_RuinedRug_Large</defName>
+		<category>LTS_PropCategory_Stoneborn</category>
+		<priority>1</priority>
+		<prop>LTS_Prop_Stoneborn_RuinedRug_Large</prop>
+    </VFEProps.PropDef>
+  
+    <ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+		<defName>LTS_Prop_Stoneborn_Dwarven_RuinedUrn</defName>
+		<label>weathered urn</label>
+		<description>An ancient stoneborn urn, sculpted out of stone and decorated with mithrium trims. This one's a replica.</description>
+		<size>(1,1)</size>
+		<fillPercent>0.25</fillPercent>
+		<graphicData>
+		  <texPath>Things/Building/Ruins/Dwarven_RuinedUrn</texPath>
+		  <graphicClass>Graphic_Random</graphicClass>
+		  <shaderType>CutoutComplex</shaderType>
+		  <color>(107, 100, 90)</color>
+		  <drawSize>(1.2,1.2)</drawSize>
+		  <shadowData>
+			<volume>(0.76,0.3,0.15)</volume>
+			<offset>(0,0,-0.39)</offset>
+		  </shadowData>
+		  <damageData>
+			<rectN>(0,0,1,0.703125)</rectN>
+			<rectS>(0.09375,0,0.84375,1)</rectS>
+			<rectE>(0,0,0.84375,0.625)</rectE>
+			<rectW>(0.15625,0,0.84375,0.625)</rectW>
+		  </damageData>
+		</graphicData>
+		<rotatable>false</rotatable>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>0</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<passability>PassThroughOnly</passability>
+		<pathCost>42</pathCost>
+	</ThingDef>
+	<VFEProps.PropDef MayRequire="VanillaExpanded.VFEPropsandDecor">
+		<defName>LTS_Prop_Stoneborn_Dwarven_RuinedUrn</defName>
+		<category>LTS_PropCategory_Stoneborn</category>
+		<priority>1</priority>
+		<prop>LTS_Prop_Stoneborn_Dwarven_RuinedUrn</prop>
+    </VFEProps.PropDef>
+	
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+		<defName>LTS_Prop_Stoneborn_Dwarven_RuinedStatue_LegendaryPick</defName>
+		<label>legendary Pickaxe statue</label>
+		<description>An ode to a legendary stoneborn weapon. This one's a replica.</description>
+		<size>(2,2)</size>
+		<fillPercent>0.25</fillPercent>
+		<graphicData>
+		  <texPath>Things/Building/Ruins/Dwarven_AncientStatues/Dwarven_LegendaryPick</texPath>
+		  <graphicClass>Graphic_Single</graphicClass>
+		  <drawSize>(4,4)</drawSize>
+		  <shaderType>CutoutComplex</shaderType>
+		  <color>(107, 100, 90)</color>
+		  <shadowData>
+			<volume>(0.76,0.3,0.15)</volume>
+			<offset>(0,0,-0.39)</offset>
+		  </shadowData>
+		</graphicData>
+		<rotatable>false</rotatable>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>0</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<passability>PassThroughOnly</passability>
+		<pathCost>42</pathCost>
+	</ThingDef>
+	<VFEProps.PropDef MayRequire="VanillaExpanded.VFEPropsandDecor">
+		<defName>LTS_Prop_Stoneborn_Dwarven_RuinedStatue_LegendaryPick</defName>
+		<category>LTS_PropCategory_Stoneborn</category>
+		<priority>1</priority>
+		<prop>LTS_Prop_Stoneborn_Dwarven_RuinedStatue_LegendaryPick</prop>
+    </VFEProps.PropDef>
+	
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+		<defName>LTS_Prop_Stoneborn_Dwarven_RuinedStatue_LegendaryWarrior</defName>
+		<label>legendary Warrior statue</label>
+		<description>An ode to a legendary stoneborn warrior. His name is lost to time. This one's a replica.</description>
+		<size>(2,2)</size>
+		<fillPercent>0.25</fillPercent>
+		<graphicData>
+		  <texPath>Things/Building/Ruins/Dwarven_AncientStatues/Dwarven_LegendaryWarrior</texPath>
+		  <graphicClass>Graphic_Single</graphicClass>
+		  <drawSize>(4,4)</drawSize>
+		  <shaderType>CutoutComplex</shaderType>
+		  <color>(107, 100, 90)</color>
+		  <shadowData>
+			<volume>(0.76,0.3,0.15)</volume>
+			<offset>(0,0,-0.39)</offset>
+		  </shadowData>
+		</graphicData>
+		<rotatable>false</rotatable>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>0</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<passability>PassThroughOnly</passability>
+		<pathCost>42</pathCost>
+	</ThingDef>
+	<VFEProps.PropDef MayRequire="VanillaExpanded.VFEPropsandDecor">
+		<defName>LTS_Prop_Stoneborn_Dwarven_RuinedStatue_LegendaryWarrior</defName>
+		<category>LTS_PropCategory_Stoneborn</category>
+		<priority>1</priority>
+		<prop>LTS_Prop_Stoneborn_Dwarven_RuinedStatue_LegendaryWarrior</prop>
+    </VFEProps.PropDef>
+	
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+		<defName>LTS_Prop_Stoneborn_Dwarven_RuinedShelf</defName>
+		<label>ruined shelf</label>
+		<description>An ancient shelf made of reinforced stone and mithrium. This one's a replica.</description>
+		<size>(1,2)</size>
+		<fillPercent>0.25</fillPercent>
+		<graphicData>
+		  <texPath>Things/Building/Ruins/Dwarven_RuinedShelf/Dwarven_RuinedShelf</texPath>
+		  <graphicClass>Graphic_Multi</graphicClass>
+		  <shaderType>CutoutComplex</shaderType>
+		  <drawSize>(2,3)</drawSize>
+		  <color>(107, 100, 90)</color>
+		</graphicData>
+		<rotatable>true</rotatable>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>0</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<passability>PassThroughOnly</passability>
+		<pathCost>42</pathCost>
+	</ThingDef>
+	<VFEProps.PropDef MayRequire="VanillaExpanded.VFEPropsandDecor">
+		<defName>LTS_Prop_Stoneborn_Dwarven_RuinedShelf</defName>
+		<category>LTS_PropCategory_Stoneborn</category>
+		<priority>1</priority>
+		<prop>LTS_Prop_Stoneborn_Dwarven_RuinedShelf</prop>
+    </VFEProps.PropDef>
+	
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+		<defName>LTS_Prop_Stoneborn_Dwarven_RuinedCounter1x3c</defName>
+		<label>ruined counter</label>
+		<description>An ancient counter made of reinforced stone. This one's a replica.</description>
+		<size>(1,3)</size>
+		<fillPercent>0.25</fillPercent>
+		<graphicData>
+		  <texPath>Things/Building/Ruins/Dwarven_RuinedTables/Dwarven_RuinedCounter</texPath>
+		  <graphicClass>Graphic_Multi</graphicClass>
+		  <drawSize>(3,5)</drawSize>
+		  <color>(107, 100, 90)</color>
+		  <shadowData>
+			<volume>(0.76,0.3,0.15)</volume>
+			<offset>(0,0,-0.39)</offset>
+		  </shadowData>
+		  <damageData>
+			<cornerTL>Damage/Corner</cornerTL>
+			<cornerTR>Damage/Corner</cornerTR>
+			<cornerBL>Damage/Corner</cornerBL>
+			<cornerBR>Damage/Corner</cornerBR>
+		  </damageData>
+		</graphicData>
+		<rotatable>true</rotatable>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>0</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<passability>PassThroughOnly</passability>
+		<pathCost>42</pathCost>
+	</ThingDef>
+	<VFEProps.PropDef MayRequire="VanillaExpanded.VFEPropsandDecor">
+		<defName>LTS_Prop_Stoneborn_Dwarven_RuinedCounter1x3c</defName>
+		<category>LTS_PropCategory_Stoneborn</category>
+		<priority>1</priority>
+		<prop>LTS_Prop_Stoneborn_Dwarven_RuinedCounter1x3c</prop>
+    </VFEProps.PropDef>
+	
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+		<defName>LTS_Prop_Stoneborn_Dwarven_RuinedLamp</defName>
+		<label>ruined gloomlamp</label>
+		<description>An ancient self-powered stoneborn lamp. This one's a replica.</description>
+		<size>(1,1)</size>
+		<fillPercent>0.25</fillPercent>
+		<graphicData>
+		  <graphicClass>Graphic_Random</graphicClass>
+		  <texPath>Things/Building/Ruins/Dwarven_RuinedLamp</texPath>
+		</graphicData>
+		<rotatable>false</rotatable>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>0</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<passability>PassThroughOnly</passability>
+		<pathCost>42</pathCost>
+	</ThingDef>
+	<VFEProps.PropDef MayRequire="VanillaExpanded.VFEPropsandDecor">
+		<defName>LTS_Prop_Stoneborn_Dwarven_RuinedLamp</defName>
+		<category>LTS_PropCategory_Stoneborn</category>
+		<priority>1</priority>
+		<prop>LTS_Prop_Stoneborn_Dwarven_RuinedLamp</prop>
+    </VFEProps.PropDef>
+	
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+		<defName>LTS_Prop_Stoneborn_Dwarven_MithriumWall</defName>
+		<label>mithrium wall</label>
+		<description>A heavily-reinforced stone wall, made of tough rock and mithrium. This one's a replica.</description>
+		<size>(1,1)</size>
+		<fillPercent>0.25</fillPercent>
+		<uiIconPath>Things/Building/Ruins/Dwarven_RuinedWall_MenuIcon</uiIconPath>
+		<graphicData>
+		  <texPath>Things/Building/Ruins/Dwarven_MithriumWall</texPath>
+		  <graphicClass>Graphic_Single</graphicClass>
+		  <linkType>CornerFiller</linkType>
+		  <linkFlags>
+			<li>Wall</li>
+			<li>Rock</li>
+		  </linkFlags>
+		</graphicData>
+		<drawStyleCategory>Walls</drawStyleCategory>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>0</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<passability>Impassable</passability>
+	</ThingDef>
+	<VFEProps.PropDef MayRequire="VanillaExpanded.VFEPropsandDecor">
+		<defName>LTS_Prop_Stoneborn_Dwarven_MithriumWall</defName>
+		<category>LTS_PropCategory_Stoneborn</category>
+		<priority>1</priority>
+		<prop>LTS_Prop_Stoneborn_Dwarven_MithriumWall</prop>
+    </VFEProps.PropDef>
+	
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+		<defName>LTS_Prop_Stoneborn_Dwarven_Aqueduct</defName>
+		<label>ruined aqueduct</label>
+		<description>An ancient stoneborn aquaduct, lined with unidentifiable residue. This one's a replica.</description>
+		<size>(1,1)</size>
+		<fillPercent>0.5</fillPercent>
+		<uiIconPath>Things/Building/Ruins/Dwarven_RuinedWall_MenuIcon</uiIconPath>
+		<graphicData>
+		  <texPath>Things/Building/Ruins/Dwarven_Aqueduct</texPath>
+		  <graphicClass>Graphic_Single</graphicClass>
+		  <shaderType>CutoutComplex</shaderType>
+		  <color>(107, 100, 90)</color>
+		  <linkType>CornerFiller</linkType>
+		  <linkFlags>
+			<li>Custom6</li>
+		  </linkFlags>
+		</graphicData>
+		<altitudeLayer>Floor</altitudeLayer>
+		<rotatable>false</rotatable>
+		<castEdgeShadows>false</castEdgeShadows>
+		<drawStyleCategory>Walls</drawStyleCategory>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>0</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<passability>PassThroughOnly</passability>
+		<pathCost>200</pathCost>
+	</ThingDef>
+	<VFEProps.PropDef MayRequire="VanillaExpanded.VFEPropsandDecor">
+		<defName>LTS_Prop_Stoneborn_Dwarven_Aqueduct</defName>
+		<category>LTS_PropCategory_Stoneborn</category>
+		<priority>1</priority>
+		<prop>LTS_Prop_Stoneborn_Dwarven_Aqueduct</prop>
+    </VFEProps.PropDef>
+	
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+		<defName>LTS_Prop_Stoneborn_Dwarven_RuinedWall</defName>
+		<label>ruined wall</label>
+		<description>A heavily-reinforced stone wall, made of tough rock and mithrium. This one's a replica.</description>
+		<size>(1,1)</size>
+		<fillPercent>0.25</fillPercent>
+		<uiIconPath>Things/Building/Ruins/Dwarven_RuinedWall_MenuIcon</uiIconPath>
+		<graphicData>
+		  <texPath>Things/Building/Ruins/Dwarven_RuinedWallThin</texPath>
+		  <graphicClass>Graphic_Single</graphicClass>
+		  <shaderType>CutoutComplex</shaderType>
+		<color>(107, 100, 90)</color>
+		  <linkType>CornerFiller</linkType>
+		  <linkFlags>
+			<li>Wall</li>
+			<li>Rock</li>
+		  </linkFlags>
+		</graphicData>
+		<drawStyleCategory>Walls</drawStyleCategory>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>0</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<passability>Impassable</passability>
+	</ThingDef>
+	<VFEProps.PropDef MayRequire="VanillaExpanded.VFEPropsandDecor">
+		<defName>LTS_Prop_Stoneborn_Dwarven_RuinedWall</defName>
+		<category>LTS_PropCategory_Stoneborn</category>
+		<priority>1</priority>
+		<prop>LTS_Prop_Stoneborn_Dwarven_RuinedWall</prop>
+    </VFEProps.PropDef>
+
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+		<defName>LTS_Prop_Stoneborn_Dwarven_RuinedChair</defName>
+		<label>ruined chair</label>
+		<description>An ancient stoneborn chair, made from reinforced stone and mithrium. This one's a replica.</description>
+		<size>(1,1)</size>
+		<fillPercent>0.25</fillPercent>
+		<graphicData>
+		  <texPath>Things/Building/Ruins/Ruined_DwarvenChair/Ruined_DwarvenChair</texPath>
+		  <graphicClass>Graphic_Multi</graphicClass>
+		  <shaderType>CutoutComplex</shaderType>
+		  <color>(107, 100, 90)</color>
+		  <drawSize>(1,1)</drawSize>
+		  <shadowData>
+			<volume>(0.76,0.3,0.15)</volume>
+			<offset>(0,0,-0.39)</offset>
+		  </shadowData>
+		  <damageData>
+			<rectN>(0,0,1,0.703125)</rectN>
+			<rectS>(0.09375,0,0.84375,1)</rectS>
+			<rectE>(0,0,0.84375,0.625)</rectE>
+			<rectW>(0.15625,0,0.84375,0.625)</rectW>
+		  </damageData>
+		</graphicData>
+		<rotatable>false</rotatable>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>0</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<passability>PassThroughOnly</passability>
+		<pathCost>42</pathCost>
+	</ThingDef>
+	<VFEProps.PropDef MayRequire="VanillaExpanded.VFEPropsandDecor">
+		<defName>LTS_Prop_Stoneborn_Dwarven_RuinedChair</defName>
+		<category>LTS_PropCategory_Stoneborn</category>
+		<priority>1</priority>
+		<prop>LTS_Prop_Stoneborn_Dwarven_RuinedChair</prop>
+    </VFEProps.PropDef>
+	
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+		<defName>LTS_Prop_Stoneborn_Dwarven_RuinedGateLocked</defName>
+		<label>ruined gate (locked)</label>
+		<description>A weathered mithrium gate that has remained locked for centuries. This one's a replica.</description>
+		<size>(2,1)</size>
+		<fillPercent>0.25</fillPercent>
+		<graphicData>
+		  <texPath>Things/Building/Ruins/Dwarven_RuinedGates/DwarvenGate2x1_Locked</texPath>
+		  <graphicClass>Graphic_Multi</graphicClass>
+		  <shaderType>CutoutComplex</shaderType>
+		  <color>(107, 100, 90)</color>
+		  <drawSize>(3.1, 2.15)</drawSize>
+		  <drawOffset>0, 5, 0.11</drawOffset>
+		  <damageData>
+			<enabled>false</enabled>
+		  </damageData>
+		</graphicData>
+		<rotatable>true</rotatable>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>0</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<passability>Impassable</passability>
+	</ThingDef>
+	<VFEProps.PropDef MayRequire="VanillaExpanded.VFEPropsandDecor">
+		<defName>LTS_Prop_Stoneborn_Dwarven_RuinedGateLocked</defName>
+		<category>LTS_PropCategory_Stoneborn</category>
+		<priority>1</priority>
+		<prop>LTS_Prop_Stoneborn_Dwarven_RuinedGateLocked</prop>
+    </VFEProps.PropDef>
+	
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+		<defName>LTS_Prop_Stoneborn_Dwarven_RuinedGate</defName>
+		<label>ruined gate frame</label>
+		<description>A weathered mithrium gate. Tough and durable. This one's a replica.</description>
+		<size>(2,1)</size>
+		<fillPercent>0.25</fillPercent>
+		<graphicData>
+		  <texPath>Things/Building/Ruins/Dwarven_RuinedGates/DwarvenGate2x1_Frame</texPath>
+		  <graphicClass>Graphic_Multi</graphicClass>
+		  <color>(107, 100, 90)</color>
+		  <drawSize>(3.1, 2.15)</drawSize>
+		  <drawOffset>0, 5, 0.11</drawOffset>
+		  <damageData>
+			<enabled>false</enabled>
+		  </damageData>
+		</graphicData>
+		<building>
+		  <isEdifice>false</isEdifice>
+		</building>
+		<rotatable>true</rotatable>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>0</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<passability>PassThroughOnly</passability>
+		<pathCost>42</pathCost>
+	</ThingDef>
+	<VFEProps.PropDef MayRequire="VanillaExpanded.VFEPropsandDecor">
+		<defName>LTS_Prop_Stoneborn_Dwarven_RuinedGate</defName>
+		<category>LTS_PropCategory_Stoneborn</category>
+		<priority>1</priority>
+		<prop>LTS_Prop_Stoneborn_Dwarven_RuinedGate</prop>
+    </VFEProps.PropDef>
+	
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+		<defName>LTS_Prop_Stoneborn_Dwarven_RuinedBrazier</defName>
+		<label>ruined brazier</label>
+		<description>An ancient stoneborn brazier, made from mithrium. This one's a replica.</description>
+		<size>(1,1)</size>
+		<fillPercent>0.25</fillPercent>
+		<graphicData>
+		  <texPath>Things/Building/Ruins/Dwarven_RuinedBrazier</texPath>
+		  <graphicClass>Graphic_Random</graphicClass>
+		  <drawSize>(1,1)</drawSize>
+		  <shadowData>
+			<volume>(0.76,0.3,0.15)</volume>
+			<offset>(0,0,-0.39)</offset>
+		  </shadowData>
+		</graphicData>
+		<rotatable>false</rotatable>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>0</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<passability>PassThroughOnly</passability>
+		<pathCost>42</pathCost>
+	</ThingDef>
+	<VFEProps.PropDef MayRequire="VanillaExpanded.VFEPropsandDecor">
+		<defName>LTS_Prop_Stoneborn_Dwarven_RuinedBrazier</defName>
+		<category>LTS_PropCategory_Stoneborn</category>
+		<priority>1</priority>
+		<prop>LTS_Prop_Stoneborn_Dwarven_RuinedBrazier</prop>
+    </VFEProps.PropDef>
+	
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+		<defName>LTS_Prop_Stoneborn_Dwarven_BurntOutCampfire</defName>
+		<label>burnt-out campfire</label>
+		<description>An old pile of wood, burnt to cinders.</description>
+		<size>(1,1)</size>
+		<fillPercent>0.25</fillPercent>
+		<graphicData>
+		  <texPath>Things/Building/Ruins/BurntOutCampfire</texPath>
+		  <graphicClass>Graphic_Random</graphicClass>
+		  <drawSize>(1,1)</drawSize>
+		  <shadowData>
+			<volume>(0.76,0.3,0.15)</volume>
+			<offset>(0,0,-0.39)</offset>
+		  </shadowData>
+		</graphicData>
+		<rotatable>false</rotatable>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>0</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<passability>PassThroughOnly</passability>
+		<pathCost>42</pathCost>
+	</ThingDef>
+	<VFEProps.PropDef MayRequire="VanillaExpanded.VFEPropsandDecor">
+		<defName>LTS_Prop_Stoneborn_Dwarven_BurntOutCampfire</defName>
+		<category>LTS_PropCategory_Stoneborn</category>
+		<priority>1</priority>
+		<prop>LTS_Prop_Stoneborn_Dwarven_BurntOutCampfire</prop>
+    </VFEProps.PropDef>
+	
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+		<defName>LTS_Prop_Stoneborn_Dwarven_RuinedTable1x2c</defName>
+		<label>ruined table (1x2)</label>
+		<description>An ancient table made of reinforced stone. This one's a replica.</description>
+		<size>(1,2)</size>
+		<fillPercent>0.25</fillPercent>
+		<graphicData>
+		  <texPath>Things/Building/Ruins/Dwarven_RuinedTables/Dwarven_RuinedTable1x2</texPath>
+		  <graphicClass>Graphic_Multi</graphicClass>
+		  <drawSize>(3,4)</drawSize>
+		  <color>(107, 100, 90)</color>
+		  <shadowData>
+			<volume>(0.76,0.3,0.15)</volume>
+			<offset>(0,0,-0.39)</offset>
+		  </shadowData>
+		  <damageData>
+			<cornerTL>Damage/Corner</cornerTL>
+			<cornerTR>Damage/Corner</cornerTR>
+			<cornerBL>Damage/Corner</cornerBL>
+			<cornerBR>Damage/Corner</cornerBR>
+		  </damageData>
+		</graphicData>
+		<rotatable>true</rotatable>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>0</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<passability>PassThroughOnly</passability>
+		<pathCost>42</pathCost>
+	</ThingDef>
+	<VFEProps.PropDef MayRequire="VanillaExpanded.VFEPropsandDecor">
+		<defName>LTS_Prop_Stoneborn_Dwarven_RuinedTable1x2c</defName>
+		<category>LTS_PropCategory_Stoneborn</category>
+		<priority>1</priority>
+		<prop>LTS_Prop_Stoneborn_Dwarven_RuinedTable1x2c</prop>
+    </VFEProps.PropDef>
+	
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+		<defName>LTS_Prop_Stoneborn_Dwarven_RuinedScrollshelf</defName>
+		<label>ruined scrollshelf</label>
+		<description>An ancient scrollshelf made of reinforced stone and mithrium. This one's a replica.</description>
+		<size>(1,2)</size>
+		<fillPercent>0.25</fillPercent>
+		<graphicData>
+		  <texPath>Things/Building/Ruins/Dwarven_AncientScrollshelf/Dwarven_AncientScrollshelf</texPath>
+		  <graphicClass>Graphic_Multi</graphicClass>
+		  <shaderType>CutoutComplex</shaderType>
+		  <drawSize>(4,3)</drawSize>
+		  <color>(107, 100, 90)</color>
+		  <shadowData>
+			<volume>(0.76,0.3,0.15)</volume>
+			<offset>(0,0,-0.39)</offset>
+		  </shadowData>
+		</graphicData>
+		<rotatable>true</rotatable>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>0</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<passability>PassThroughOnly</passability>
+		<pathCost>42</pathCost>
+	</ThingDef>
+	<VFEProps.PropDef MayRequire="VanillaExpanded.VFEPropsandDecor">
+		<defName>LTS_Prop_Stoneborn_Dwarven_RuinedScrollshelf</defName>
+		<category>LTS_PropCategory_Stoneborn</category>
+		<priority>1</priority>
+		<prop>LTS_Prop_Stoneborn_Dwarven_RuinedScrollshelf</prop>
+    </VFEProps.PropDef>
+	
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+		<defName>LTS_Prop_Stoneborn_Dwarven_RuinedTable2x2c</defName>
+		<label>ruined table (2x2)</label>
+		<description>An ancient table made of reinforced stone. This one's a replica.</description>
+		<size>(2,2)</size>
+		<fillPercent>0.25</fillPercent>
+		<graphicData>
+		  <texPath>Things/Building/Ruins/Dwarven_RuinedTables/Dwarven_RuinedTable2x2_north</texPath>
+		  <graphicClass>Graphic_Single</graphicClass>
+		  <drawSize>(4,4)</drawSize>
+		  <color>(107, 100, 90)</color>
+		  <shadowData>
+			<volume>(0.76,0.3,0.15)</volume>
+			<offset>(0,0,-0.39)</offset>
+		  </shadowData>
+		  <damageData>
+			<cornerTL>Damage/Corner</cornerTL>
+			<cornerTR>Damage/Corner</cornerTR>
+			<cornerBL>Damage/Corner</cornerBL>
+			<cornerBR>Damage/Corner</cornerBR>
+		  </damageData>
+		</graphicData>
+		<rotatable>false</rotatable>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>0</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<passability>PassThroughOnly</passability>
+		<pathCost>42</pathCost>
+	</ThingDef>
+	<VFEProps.PropDef MayRequire="VanillaExpanded.VFEPropsandDecor">
+		<defName>LTS_Prop_Stoneborn_Dwarven_RuinedTable2x2c</defName>
+		<category>LTS_PropCategory_Stoneborn</category>
+		<priority>1</priority>
+		<prop>LTS_Prop_Stoneborn_Dwarven_RuinedTable2x2c</prop>
+    </VFEProps.PropDef>
+	
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+		<defName>LTS_Prop_Stoneborn_Dwarven_RuinedTable3x3c</defName>
+		<label>ruined table (3x3)</label>
+		<description>An ancient table made of reinforced stone. This one's a replica.</description>
+		<size>(3,3)</size>
+		<fillPercent>0.25</fillPercent>
+		<graphicData>
+		  <texPath>Things/Building/Ruins/Dwarven_RuinedTables/Dwarven_RuinedTable3x3_north</texPath>
+		  <graphicClass>Graphic_Single</graphicClass>
+		  <drawSize>(5,5)</drawSize>
+		  <color>(107, 100, 90)</color>
+		  <shadowData>
+			<volume>(0.76,0.3,0.15)</volume>
+			<offset>(0,0,-0.39)</offset>
+		  </shadowData>
+		  <damageData>
+			<cornerTL>Damage/Corner</cornerTL>
+			<cornerTR>Damage/Corner</cornerTR>
+			<cornerBL>Damage/Corner</cornerBL>
+			<cornerBR>Damage/Corner</cornerBR>
+		  </damageData>
+		</graphicData>
+		<rotatable>false</rotatable>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>0</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<passability>PassThroughOnly</passability>
+		<pathCost>42</pathCost>
+	</ThingDef>
+	<VFEProps.PropDef MayRequire="VanillaExpanded.VFEPropsandDecor">
+		<defName>LTS_Prop_Stoneborn_Dwarven_RuinedTable3x3c</defName>
+		<category>LTS_PropCategory_Stoneborn</category>
+		<priority>1</priority>
+		<prop>LTS_Prop_Stoneborn_Dwarven_RuinedTable3x3c</prop>
+    </VFEProps.PropDef>
+	
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+		<defName>LTS_Prop_Stoneborn_Dwarven_RuinedPillar</defName>
+		<label>ruined pillar</label>
+		<description>An ancient stoneborn pillar, made from reinforced stone and mithrium. This one's a replica.</description>
+		<size>(1,1)</size>
+		<fillPercent>0.25</fillPercent>
+		<graphicData>
+		  <texPath>Things/Building/Ruins/Dwarven_RuinedPillar</texPath>
+		  <shaderType>CutoutComplex</shaderType>
+		  <graphicClass>Graphic_Random</graphicClass>
+		  <color>(107, 100, 90)</color>
+		  <drawSize>(3,3)</drawSize>
+		  <drawOffset>(0,0,1)</drawOffset>
+		  <shadowData>
+			<volume>(0.76,0.3,0.15)</volume>
+			<offset>(0,0,-0.39)</offset>
+		  </shadowData>
+		</graphicData>
+		<rotatable>false</rotatable>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>0</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<passability>PassThroughOnly</passability>
+		<pathCost>42</pathCost>
+	</ThingDef>
+	<VFEProps.PropDef MayRequire="VanillaExpanded.VFEPropsandDecor">
+		<defName>LTS_Prop_Stoneborn_Dwarven_RuinedPillar</defName>
+		<category>LTS_PropCategory_Stoneborn</category>
+		<priority>1</priority>
+		<prop>LTS_Prop_Stoneborn_Dwarven_RuinedPillar</prop>
+    </VFEProps.PropDef>
+	
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+		<defName>LTS_Prop_Stoneborn_Dwarven_AlcoholVat</defName>
+		<label>ruined alcohol vat</label>
+		<description>An ancient vat full of a brownish mush that reeks of alcohol. This one's a replica.</description>
+		<size>(2,2)</size>
+		<fillPercent>0.25</fillPercent>
+		<graphicData>
+		  <texPath>Things/Building/Ruins/Dwarven_AncientAlcoholVat</texPath>
+		  <graphicClass>Graphic_Random</graphicClass>
+		  <drawSize>(4,4)</drawSize>
+		  <shadowData>
+			<volume>(0.76,0.3,0.15)</volume>
+			<offset>(0,0,-0.39)</offset>
+		  </shadowData>
+		</graphicData>
+		<rotatable>false</rotatable>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>0</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<passability>PassThroughOnly</passability>
+		<pathCost>42</pathCost>
+	</ThingDef>
+	<VFEProps.PropDef MayRequire="VanillaExpanded.VFEPropsandDecor">
+		<defName>LTS_Prop_Stoneborn_Dwarven_AlcoholVat</defName>
+		<category>LTS_PropCategory_Stoneborn</category>
+		<priority>1</priority>
+		<prop>LTS_Prop_Stoneborn_Dwarven_AlcoholVat</prop>
+    </VFEProps.PropDef>
+	
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+		<defName>LTS_Prop_Stoneborn_Dwarven_AncientMachinery</defName>
+		<label>ruined machinery</label>
+		<description>A ruined piece of machinery. This one's a replica.</description>
+		<size>(3,3)</size>
+		<fillPercent>0.25</fillPercent>
+		<graphicData>
+		  <texPath>Things/Building/Ruins/Dwarven_AncientMachinery</texPath>
+		  <graphicClass>Graphic_Random</graphicClass>
+		  <drawSize>(5,5)</drawSize>
+		  <shadowData>
+			<volume>(0.76,0.3,0.15)</volume>
+			<offset>(0,0,-0.39)</offset>
+		  </shadowData>
+		</graphicData>
+		<rotatable>false</rotatable>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>0</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<passability>PassThroughOnly</passability>
+		<pathCost>42</pathCost>
+	</ThingDef>
+	<VFEProps.PropDef MayRequire="VanillaExpanded.VFEPropsandDecor">
+		<defName>LTS_Prop_Stoneborn_Dwarven_AncientMachinery</defName>
+		<category>LTS_PropCategory_Stoneborn</category>
+		<priority>1</priority>
+		<prop>LTS_Prop_Stoneborn_Dwarven_AncientMachinery</prop>
+    </VFEProps.PropDef>
+	
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+		<defName>LTS_Prop_Stoneborn_Dwarven_Pipes</defName>
+		<label>ancient piping</label>
+		<description>A section of robust mithrium piping. This one's a replica.</description>
+		<size>(1,1)</size>
+		<fillPercent>0.5</fillPercent>
+		<uiIconPath>Things/Building/Linked/PowerConduit_MenuIcon</uiIconPath>
+		<graphicData>
+		  <texPath>Things/Building/Ruins/Dwarven_PipeAtlas</texPath>
+		  <graphicClass>Graphic_Single</graphicClass>
+		  <linkType>Transmitter</linkType>
+		  <linkFlags>
+			<li>PowerConduit</li>
+		  </linkFlags>
+		  <damageData>
+			<rect>(0,0.35,1,0.3)</rect>
+		  </damageData>
+		</graphicData>
+		<altitudeLayer>Conduits</altitudeLayer>
+		<building>
+		  <isEdifice>false</isEdifice>
+		</building>
+		<rotatable>false</rotatable>
+		<castEdgeShadows>false</castEdgeShadows>
+		<drawStyleCategory>Walls</drawStyleCategory>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>0</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<passability>Standable</passability>
+		<pathCost>0</pathCost>
+	</ThingDef>
+	<VFEProps.PropDef MayRequire="VanillaExpanded.VFEPropsandDecor">
+		<defName>LTS_Prop_Stoneborn_Dwarven_Pipes</defName>
+		<category>LTS_PropCategory_Stoneborn</category>
+		<priority>1</priority>
+		<prop>LTS_Prop_Stoneborn_Dwarven_Pipes</prop>
+    </VFEProps.PropDef>
+	
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+		<defName>LTS_Prop_Stoneborn_Dwarven_MineSupport</defName>
+		<label>mine support</label>
+		<description>A sturdy wooden support. Keeps the ceiling from falling. This one doesn't look very sturdy.</description>
+		<size>(1,1)</size>
+		<fillPercent>0.25</fillPercent>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+		  <texPath>Things/Building/Ruins/Dwarven_MineSupport</texPath>
+		  <shaderType>CutoutComplex</shaderType>
+		  <graphicClass>Graphic_Random</graphicClass>
+		  <drawSize>(3,3)</drawSize>
+		  <drawOffset>(0,0,1)</drawOffset>
+		  <shadowData>
+			<volume>(0.76,0.3,0.15)</volume>
+			<offset>(0,0,-0.39)</offset>
+		  </shadowData>
+		</graphicData>
+		<rotatable>false</rotatable>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>0</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<passability>PassThroughOnly</passability>
+		<pathCost>42</pathCost>
+	</ThingDef>
+	<VFEProps.PropDef MayRequire="VanillaExpanded.VFEPropsandDecor">
+		<defName>LTS_Prop_Stoneborn_Dwarven_MineSupport</defName>
+		<category>LTS_PropCategory_Stoneborn</category>
+		<priority>1</priority>
+		<prop>LTS_Prop_Stoneborn_Dwarven_MineSupport</prop>
+    </VFEProps.PropDef>
+	
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+		<defName>LTS_Prop_Stoneborn_Dwarven_WoodPile</defName>
+		<label>wood pile</label>
+		<description>Planks of wood treated by stoneborn. This one's a replica.</description>
+		<size>(1,1)</size>
+		<fillPercent>0.25</fillPercent>
+		<graphicData>
+		  <texPath>Things/Building/Ruins/Dwarven_WoodPile</texPath>
+		  <graphicClass>Graphic_Random</graphicClass>
+		  <drawSize>(2.5,2.5)</drawSize>
+		  <shadowData>
+			<volume>(0.76,0.3,0.15)</volume>
+			<offset>(0,0,-0.39)</offset>
+		  </shadowData>
+		</graphicData>
+		<rotatable>false</rotatable>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>0</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<passability>PassThroughOnly</passability>
+		<pathCost>42</pathCost>
+	</ThingDef>
+	<VFEProps.PropDef MayRequire="VanillaExpanded.VFEPropsandDecor">
+		<defName>LTS_Prop_Stoneborn_Dwarven_WoodPile</defName>
+		<category>LTS_PropCategory_Stoneborn</category>
+		<priority>1</priority>
+		<prop>LTS_Prop_Stoneborn_Dwarven_WoodPile</prop>
+    </VFEProps.PropDef>
+	
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+		<defName>LTS_Prop_Stoneborn_Dwarven_Minecart</defName>
+		<label>empty minecart</label>
+		<description>An ancient stoneborn minecart, rusted beyond use. This one's a replica.</description>
+		<size>(1,1)</size>
+		<fillPercent>0.25</fillPercent>
+		<graphicData>
+		  <texPath>Things/Building/Ruins/Dwarven_Minecarts/Minecart_Open</texPath>
+		  <graphicClass>Graphic_Multi</graphicClass>
+		  <drawSize>(3,3)</drawSize>
+		  <shadowData>
+			<volume>(0.76,0.3,0.15)</volume>
+			<offset>(0,0,-0.39)</offset>
+		  </shadowData>
+		</graphicData>
+		<defaultPlacingRot>East</defaultPlacingRot>
+		<rotatable>true</rotatable>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>0</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<passability>PassThroughOnly</passability>
+		<pathCost>42</pathCost>
+	</ThingDef>
+	<VFEProps.PropDef MayRequire="VanillaExpanded.VFEPropsandDecor">
+		<defName>LTS_Prop_Stoneborn_Dwarven_Minecart</defName>
+		<category>LTS_PropCategory_Stoneborn</category>
+		<priority>1</priority>
+		<prop>LTS_Prop_Stoneborn_Dwarven_Minecart</prop>
+    </VFEProps.PropDef>
+	
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+		<defName>LTS_Prop_Stoneborn_Dwarven_Minecart_Steel</defName>
+		<label>steel minecart</label>
+		<description>An ancient stoneborn minecart, rusted beyond use. This one's a replica.</description>
+		<size>(1,1)</size>
+		<fillPercent>0.25</fillPercent>
+		<graphicData>
+		  <texPath>Things/Building/Ruins/Dwarven_Minecarts/Minecart_Steel</texPath>
+		  <graphicClass>Graphic_Multi</graphicClass>
+		  <drawSize>(3,3)</drawSize>
+		</graphicData>
+		<defaultPlacingRot>East</defaultPlacingRot>
+		<rotatable>true</rotatable>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>0</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<passability>PassThroughOnly</passability>
+		<pathCost>42</pathCost>
+	</ThingDef>
+	<VFEProps.PropDef MayRequire="VanillaExpanded.VFEPropsandDecor">
+		<defName>LTS_Prop_Stoneborn_Dwarven_Minecart_Steel</defName>
+		<category>LTS_PropCategory_Stoneborn</category>
+		<priority>1</priority>
+		<prop>LTS_Prop_Stoneborn_Dwarven_Minecart_Steel</prop>
+    </VFEProps.PropDef>
+	
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+		<defName>LTS_Prop_Stoneborn_Dwarven_Minecart_Gold</defName>
+		<label>gold minecart</label>
+		<description>An ancient stoneborn minecart, rusted beyond use. This one's a replica.</description>
+		<size>(1,1)</size>
+		<fillPercent>0.25</fillPercent>
+		<graphicData>
+		  <texPath>Things/Building/Ruins/Dwarven_Minecarts/Minecart_Gold</texPath>
+		  <graphicClass>Graphic_Multi</graphicClass>
+		  <drawSize>(3,3)</drawSize>
+		  <shadowData>
+			<volume>(0.76,0.3,0.15)</volume>
+			<offset>(0,0,-0.39)</offset>
+		  </shadowData>
+		</graphicData>
+		<defaultPlacingRot>East</defaultPlacingRot>
+		<rotatable>true</rotatable>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>0</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<passability>PassThroughOnly</passability>
+		<pathCost>42</pathCost>
+	</ThingDef>
+	<VFEProps.PropDef MayRequire="VanillaExpanded.VFEPropsandDecor">
+		<defName>LTS_Prop_Stoneborn_Dwarven_Minecart_Gold</defName>
+		<category>LTS_PropCategory_Stoneborn</category>
+		<priority>1</priority>
+		<prop>LTS_Prop_Stoneborn_Dwarven_Minecart_Gold</prop>
+    </VFEProps.PropDef>
+	
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+		<defName>LTS_Prop_Stoneborn_Dwarven_Minecart_Jade</defName>
+		<label>jade minecart</label>
+		<description>An ancient stoneborn minecart, rusted beyond use. This one's a replica.</description>
+		<size>(1,1)</size>
+		<fillPercent>0.25</fillPercent>
+		<graphicData>
+		  <texPath>Things/Building/Ruins/Dwarven_Minecarts/Minecart_Jade</texPath>
+		  <graphicClass>Graphic_Multi</graphicClass>
+		  <drawSize>(3,3)</drawSize>
+		  <shadowData>
+			<volume>(0.76,0.3,0.15)</volume>
+			<offset>(0,0,-0.39)</offset>
+		  </shadowData>
+		</graphicData>
+		<defaultPlacingRot>East</defaultPlacingRot>
+		<rotatable>true</rotatable>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>0</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<passability>PassThroughOnly</passability>
+		<pathCost>42</pathCost>
+	</ThingDef>
+	<VFEProps.PropDef MayRequire="VanillaExpanded.VFEPropsandDecor">
+		<defName>LTS_Prop_Stoneborn_Dwarven_Minecart_Jade</defName>
+		<category>LTS_PropCategory_Stoneborn</category>
+		<priority>1</priority>
+		<prop>LTS_Prop_Stoneborn_Dwarven_Minecart_Jade</prop>
+    </VFEProps.PropDef>
+	
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="det.sbdelights">
+		<defName>LTS_Prop_Stoneborn_Dwarven_Minecart_Glimmerquartz</defName>
+		<label>glimmerquartz minecart</label>
+		<description>An ancient stoneborn minecart, rusted beyond use. This one's a replica.</description>
+		<size>(1,1)</size>
+		<fillPercent>0.25</fillPercent>
+		<graphicData>
+		  <texPath>Things/Building/Ruins/Dwarven_Minecarts/Minecart_Glimmerquartz</texPath>
+		  <graphicClass>Graphic_Multi</graphicClass>
+		  <drawSize>(3,3)</drawSize>
+		  <shadowData>
+			<volume>(0.76,0.3,0.15)</volume>
+			<offset>(0,0,-0.39)</offset>
+		  </shadowData>
+		</graphicData>
+		<defaultPlacingRot>East</defaultPlacingRot>
+		<rotatable>true</rotatable>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>0</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<passability>PassThroughOnly</passability>
+		<pathCost>42</pathCost>
+	</ThingDef>
+	<VFEProps.PropDef MayRequire="VanillaExpanded.VFEPropsandDecor,det.sbdelights">
+		<defName>LTS_Prop_Stoneborn_Dwarven_Minecart_Glimmerquartz</defName>
+		<category>LTS_PropCategory_Stoneborn</category>
+		<priority>1</priority>
+		<prop>LTS_Prop_Stoneborn_Dwarven_Minecart_Glimmerquartz</prop>
+    </VFEProps.PropDef>
+	
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="det.epochspyrinth">
+		<defName>LTS_Prop_Stoneborn_Dwarven_Minecart_Pyrinth</defName>
+		<label>pyrinth minecart</label>
+		<description>An ancient stoneborn minecart, rusted beyond use. This one's a replica.</description>
+		<size>(1,1)</size>
+		<fillPercent>0.25</fillPercent>
+		<graphicData>
+		  <texPath>Things/Building/Ruins/Dwarven_Minecarts/Minecart_Pyrinth</texPath>
+		  <graphicClass>Graphic_Multi</graphicClass>
+		  <drawSize>(3,3)</drawSize>
+		  <shadowData>
+			<volume>(0.76,0.3,0.15)</volume>
+			<offset>(0,0,-0.39)</offset>
+		  </shadowData>
+		</graphicData>
+		<defaultPlacingRot>East</defaultPlacingRot>
+		<rotatable>true</rotatable>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>0</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<passability>PassThroughOnly</passability>
+		<pathCost>42</pathCost>
+	</ThingDef>
+	<VFEProps.PropDef MayRequire="VanillaExpanded.VFEPropsandDecor,det.epochspyrinth">
+		<defName>LTS_Prop_Stoneborn_Dwarven_Minecart_Pyrinth</defName>
+		<category>LTS_PropCategory_Stoneborn</category>
+		<priority>1</priority>
+		<prop>LTS_Prop_Stoneborn_Dwarven_Minecart_Pyrinth</prop>
+    </VFEProps.PropDef>
+	
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+		<defName>LTS_Prop_Stoneborn_Dwarven_MinecartRails</defName>
+		<label>minecart rails</label>
+		<description>A set of rusty minecart rails.</description>
+		<size>(1,1)</size>
+		<fillPercent>0.5</fillPercent>
+		<uiIconPath>Things/Building/Linked/PowerConduit_MenuIcon</uiIconPath>
+		<graphicData>
+		  <texPath>Things/Building/Ruins/Dwarven_RailAtlas</texPath>
+		  <graphicClass>Graphic_Single</graphicClass>
+		  <linkType>Transmitter</linkType>
+		  <drawOffset>(0, 0, -0.2)</drawOffset>
+		  <linkFlags>
+			<li>Custom7</li>
+		  </linkFlags>
+		  <damageData>
+			<rect>(0,0.35,1,0.3)</rect>
+		  </damageData>
+		</graphicData>
+		<altitudeLayer>Conduits</altitudeLayer>
+		<building>
+		  <isEdifice>false</isEdifice>
+		</building>
+		<rotatable>false</rotatable>
+		<castEdgeShadows>false</castEdgeShadows>
+		<drawStyleCategory>Walls</drawStyleCategory>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>0</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<passability>Standable</passability>
+		<pathCost>0</pathCost>
+	</ThingDef>
+	<VFEProps.PropDef MayRequire="VanillaExpanded.VFEPropsandDecor">
+		<defName>LTS_Prop_Stoneborn_Dwarven_MinecartRails</defName>
+		<category>LTS_PropCategory_Stoneborn</category>
+		<priority>1</priority>
+		<prop>LTS_Prop_Stoneborn_Dwarven_MinecartRails</prop>
+    </VFEProps.PropDef>
+	
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+		<defName>LTS_Prop_Stoneborn_InertRailConnector</defName>
+		<label>minecart rails</label>
+		<description>inert, invisible conduits for connecting rails.</description>
+		<size>(1,1)</size>
+		<fillPercent>0.5</fillPercent>
+		<uiIconPath>Things/Building/Linked/HiddenConduit_MenuIcon</uiIconPath>
+		<graphicData>
+		  <texPath>Things/Building/Linked/PowerConduit_Atlas</texPath>
+		  <graphicClass>Graphic_Single</graphicClass>
+		  <linkType>Transmitter</linkType>
+		  <linkFlags>
+			<li>Custom7</li>
+		  </linkFlags>
+		  <color>(0,0,0,0)</color>
+		  <shaderType>Transparent</shaderType>
+		</graphicData>
+		<altitudeLayer>Conduits</altitudeLayer>
+		<building>
+		  <isEdifice>false</isEdifice>
+		</building>
+		<rotatable>false</rotatable>
+		<castEdgeShadows>false</castEdgeShadows>
+		<drawStyleCategory>Walls</drawStyleCategory>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>0</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<passability>Standable</passability>
+		<pathCost>0</pathCost>
+	</ThingDef>
+	<VFEProps.PropDef MayRequire="VanillaExpanded.VFEPropsandDecor">
+		<defName>LTS_Prop_Stoneborn_InertRailConnector</defName>
+		<category>LTS_PropCategory_Stoneborn</category>
+		<priority>1</priority>
+		<prop>LTS_Prop_Stoneborn_InertRailConnector</prop>
+    </VFEProps.PropDef>
+	
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+		<defName>LTS_Prop_Stoneborn_Dwarven_MinecartRailCorner</defName>
+		<label>minecart rail curve</label>
+		<description>A curved section of rusty minecart rails.</description>
+		<size>(4,4)</size>
+		<fillPercent>0.25</fillPercent>
+		<altitudeLayer>Floor</altitudeLayer>
+		<graphicData>
+		  <texPath>Things/Building/Ruins/Dwarven_RailCorner/Dwarven_RailCorner</texPath>
+		  <graphicClass>Graphic_Multi</graphicClass>
+		  <drawSize>(4,4)</drawSize>
+		  <linkFlags>
+			<li>Custom7</li>
+		  </linkFlags>
+		  <damageData>
+			<rect>(0,0.35,1,0.3)</rect>
+		  </damageData>
+		</graphicData>
+		<building>
+		  <isEdifice>false</isEdifice>
+		</building>
+		<rotatable>true</rotatable>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>0</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<passability>Standable</passability>
+		<pathCost>0</pathCost>
+	</ThingDef>
+	<VFEProps.PropDef MayRequire="VanillaExpanded.VFEPropsandDecor">
+		<defName>LTS_Prop_Stoneborn_Dwarven_MinecartRailCorner</defName>
+		<category>LTS_PropCategory_Stoneborn</category>
+		<priority>1</priority>
+		<prop>LTS_Prop_Stoneborn_Dwarven_MinecartRailCorner</prop>
+    </VFEProps.PropDef>
+	
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+		<defName>LTS_Prop_Stoneborn_Dwarven_MinecartRailBumper</defName>
+		<label>minecart bumper</label>
+		<description>A sturdy wooden bumper, designed to stop minecarts. This one's a replica.</description>
+		<size>(1,1)</size>
+		<fillPercent>0.25</fillPercent>
+		<graphicData>
+		  <texPath>Things/Building/Ruins/Dwarven_RailEnd/Dwarven_RailEnd</texPath>
+		  <graphicClass>Graphic_Multi</graphicClass>
+		  <drawSize>(2,2)</drawSize>
+		  <linkFlags>
+			<li>Custom7</li>
+		  </linkFlags>
+		  <damageData>
+			<rect>(0,0.35,1,0.3)</rect>
+		  </damageData>
+		</graphicData>
+		<defaultPlacingRot>East</defaultPlacingRot>
+		<rotatable>true</rotatable>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>0</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<passability>PassThroughOnly</passability>
+		<pathCost>42</pathCost>
+	</ThingDef>
+	<VFEProps.PropDef MayRequire="VanillaExpanded.VFEPropsandDecor">
+		<defName>LTS_Prop_Stoneborn_Dwarven_MinecartRailBumper</defName>
+		<category>LTS_PropCategory_Stoneborn</category>
+		<priority>1</priority>
+		<prop>LTS_Prop_Stoneborn_Dwarven_MinecartRailBumper</prop>
+    </VFEProps.PropDef>
+	
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="det.sbcuisine">
+		<defName>LTS_Prop_Stoneborn_Dwarven_FlourSack</defName>
+		<label>flour sack</label>
+		<description>A threadbare sack of chalk dust.</description>
+		<size>(1,1)</size>
+		<fillPercent>0.25</fillPercent>
+		<graphicData>
+		  <texPath>Things/Building/Ruins/Dwarven_FlourSack/FlourSackFull</texPath>
+		  <graphicClass>Graphic_Random</graphicClass>
+		  <drawSize>(2.2,2.2)</drawSize>
+		</graphicData>
+		<rotatable>false</rotatable>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>0</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<passability>PassThroughOnly</passability>
+		<pathCost>42</pathCost>
+	</ThingDef>
+	<VFEProps.PropDef MayRequire="VanillaExpanded.VFEPropsandDecor,det.sbcuisine">
+		<defName>LTS_Prop_Stoneborn_Dwarven_FlourSack</defName>
+		<category>LTS_PropCategory_Stoneborn</category>
+		<priority>1</priority>
+		<prop>LTS_Prop_Stoneborn_Dwarven_FlourSack</prop>
+    </VFEProps.PropDef>
+	
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase" MayRequire="det.sbcuisine">
+		<defName>LTS_Prop_Stoneborn_Dwarven_FlourSackOpen</defName>
+		<label>empty flour sack</label>
+		<description>A threadbare sack.</description>
+		<size>(1,1)</size>
+		<fillPercent>0.25</fillPercent>
+		<graphicData>
+		  <texPath>Things/Building/Ruins/Dwarven_FlourSack/FlourSackEmpty</texPath>
+		  <graphicClass>Graphic_Single</graphicClass>
+		  <drawSize>(2.2,2.2)</drawSize>
+		</graphicData>
+		<rotatable>false</rotatable>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>0</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<passability>PassThroughOnly</passability>
+		<pathCost>42</pathCost>
+	</ThingDef>
+	<VFEProps.PropDef MayRequire="VanillaExpanded.VFEPropsandDecor,det.sbcuisine">
+		<defName>LTS_Prop_Stoneborn_Dwarven_FlourSackOpen</defName>
+		<category>LTS_PropCategory_Stoneborn</category>
+		<priority>1</priority>
+		<prop>LTS_Prop_Stoneborn_Dwarven_FlourSackOpen</prop>
+    </VFEProps.PropDef>
+	
+	<!--Buildings_Ancient_Active-->
+	
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+		<defName>LTS_Prop_Stoneborn_DwarvenGrate</defName>
+		<label>grate</label>
+		<description>A vent for equalizing the temperature between two rooms without allowing people to walk between them. This one's a replica.</description>
+		<size>(1,1)</size>
+		<fillPercent>0.25</fillPercent>
+		<graphicData>
+		  <texPath>Things/Building/Ruins/Traps/Grate</texPath>
+		  <graphicClass>Graphic_Multi</graphicClass>
+		  <damageData>
+			<cornerTL>Damage/Corner</cornerTL>
+			<cornerTR>Damage/Corner</cornerTR>
+			<cornerBL>Damage/Corner</cornerBL>
+			<cornerBR>Damage/Corner</cornerBR>
+		  </damageData>
+		</graphicData>
+		<defaultPlacingRot>East</defaultPlacingRot>
+		<rotatable>true</rotatable>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>0</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<passability>PassThroughOnly</passability>
+		<pathCost>42</pathCost>
+	</ThingDef>
+	<VFEProps.PropDef MayRequire="VanillaExpanded.VFEPropsandDecor">
+		<defName>LTS_Prop_Stoneborn_DwarvenGrate</defName>
+		<category>LTS_PropCategory_Stoneborn</category>
+		<priority>1</priority>
+		<prop>LTS_Prop_Stoneborn_DwarvenGrate</prop>
+    </VFEProps.PropDef>
+	
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+		<defName>LTS_Prop_Stoneborn_Dwarven_Spikes</defName>
+		<label>spike trap</label>
+		<description>An ancient mechanical spike trap. This one's a replica.</description>
+		<size>(1,1)</size>
+		<fillPercent>0.25</fillPercent>
+		<graphicData>
+		  <texPath>Things/Building/Ruins/Traps/SpikeTrap</texPath>
+		  <graphicClass>Graphic_Single</graphicClass>
+		  <drawSize>(2,2)</drawSize>
+		</graphicData>
+		<altitudeLayer>Floor</altitudeLayer>
+		<rotatable>false</rotatable>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>0</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<passability>Standable</passability>
+		<pathCost>0</pathCost>
+	</ThingDef>
+	<VFEProps.PropDef MayRequire="VanillaExpanded.VFEPropsandDecor">
+		<defName>LTS_Prop_Stoneborn_Dwarven_Spikes</defName>
+		<category>LTS_PropCategory_Stoneborn</category>
+		<priority>1</priority>
+		<prop>LTS_Prop_Stoneborn_Dwarven_Spikes</prop>
+    </VFEProps.PropDef>
+	
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+		<defName>LTS_Prop_Stoneborn_Dwarven_FreezeVent</defName>
+		<label>freeze vent</label>
+		<description>An ancient vent trap designed to make a room inhospitably cold. This one's a replica.</description>
+		<size>(1,1)</size>
+		<fillPercent>0.25</fillPercent>
+		<graphicData>
+		  <texPath>Things/Building/Ruins/Traps/FreezeVent</texPath>
+		  <graphicClass>Graphic_Random</graphicClass>
+		  <drawSize>(1,1)</drawSize>
+		</graphicData>
+		<altitudeLayer>Floor</altitudeLayer>
+		<rotatable>false</rotatable>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>0</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<passability>Standable</passability>
+		<pathCost>0</pathCost>
+	</ThingDef>
+	<VFEProps.PropDef MayRequire="VanillaExpanded.VFEPropsandDecor">
+		<defName>LTS_Prop_Stoneborn_Dwarven_FreezeVent</defName>
+		<category>LTS_PropCategory_Stoneborn</category>
+		<priority>1</priority>
+		<prop>LTS_Prop_Stoneborn_Dwarven_FreezeVent</prop>
+    </VFEProps.PropDef>
+	
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+		<defName>LTS_Prop_Stoneborn_Dwarven_HeatVent</defName>
+		<label>heat vent</label>
+		<description>An ancient vent trap designed to make a room inhospitably hot. This one's a replica.</description>
+		<size>(1,1)</size>
+		<fillPercent>0.25</fillPercent>
+		<graphicData>
+		  <texPath>Things/Building/Ruins/Traps/HeatVent</texPath>
+		  <graphicClass>Graphic_Single</graphicClass>
+		  <drawSize>(1,1)</drawSize>
+		</graphicData>
+		<altitudeLayer>Floor</altitudeLayer>
+		<rotatable>false</rotatable>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>0</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<passability>Standable</passability>
+		<pathCost>0</pathCost>
+	</ThingDef>
+	<VFEProps.PropDef MayRequire="VanillaExpanded.VFEPropsandDecor">
+		<defName>LTS_Prop_Stoneborn_Dwarven_HeatVent</defName>
+		<category>LTS_PropCategory_Stoneborn</category>
+		<priority>1</priority>
+		<prop>LTS_Prop_Stoneborn_Dwarven_HeatVent</prop>
+    </VFEProps.PropDef>
+	
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+		<defName>LTS_Prop_Stoneborn_Dwarven_RotstinkVent</defName>
+		<label>rotstink vent</label>
+		<description>An ancient vent trap designed to flood a room with rotstink. This one's a replica.</description>
+		<size>(1,1)</size>
+		<fillPercent>0.25</fillPercent>
+		<graphicData>
+		  <texPath>Things/Building/Ruins/Traps/Vent</texPath>
+		  <graphicClass>Graphic_Single</graphicClass>
+		  <drawSize>(2,2)</drawSize>
+		</graphicData>
+		<altitudeLayer>Floor</altitudeLayer>
+		<rotatable>false</rotatable>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>0</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<passability>Standable</passability>
+		<pathCost>0</pathCost>
+	</ThingDef>
+	<VFEProps.PropDef MayRequire="VanillaExpanded.VFEPropsandDecor">
+		<defName>LTS_Prop_Stoneborn_Dwarven_RotstinkVent</defName>
+		<category>LTS_PropCategory_Stoneborn</category>
+		<priority>1</priority>
+		<prop>LTS_Prop_Stoneborn_Dwarven_RotstinkVent</prop>
+    </VFEProps.PropDef>
+	
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+		<defName>LTS_Prop_Stoneborn_HermeticCanister</defName>
+		<label>hermetic canister</label>
+		<description>A self-powered hermetically-sealed crate for preserving valuable items. This one's a replica.</description>
+		<size>(1,1)</size>
+		<fillPercent>0.25</fillPercent>
+		<graphicData>
+		  <texPath>Things/Building/Ruins/Canister</texPath>
+		  <graphicClass>Graphic_Single</graphicClass>
+		  <drawSize>(2, 2)</drawSize>
+		  <shadowData>
+			<volume>(0.8, 0.8, 0.8)</volume>
+		  </shadowData>
+		</graphicData>
+		<rotatable>false</rotatable>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>0</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<passability>PassThroughOnly</passability>
+		<pathCost>42</pathCost>
+	</ThingDef>
+	<VFEProps.PropDef MayRequire="VanillaExpanded.VFEPropsandDecor">
+		<defName>LTS_Prop_Stoneborn_HermeticCanister</defName>
+		<category>LTS_PropCategory_Stoneborn</category>
+		<priority>1</priority>
+		<prop>LTS_Prop_Stoneborn_HermeticCanister</prop>
+    </VFEProps.PropDef>
+	
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+		<defName>LTS_Prop_Stoneborn_HermeticCanisterOpen</defName>
+		<label>empty hermetic canister</label>
+		<description>A self-powered hermetically-sealed crate for preserving valuable items. This one's empty.</description>
+		<size>(1,1)</size>
+		<fillPercent>0.25</fillPercent>
+		<graphicData>
+		  <texPath>Things/Building/Ruins/CanisterEmpty</texPath>
+		  <graphicClass>Graphic_Single</graphicClass>
+		  <drawSize>(2, 2)</drawSize>
+		  <shadowData>
+			<volume>(0.8, 0.8, 0.8)</volume>
+		  </shadowData>
+		</graphicData>
+		<rotatable>false</rotatable>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>0</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<passability>PassThroughOnly</passability>
+		<pathCost>42</pathCost>
+	</ThingDef>
+	<VFEProps.PropDef MayRequire="VanillaExpanded.VFEPropsandDecor">
+		<defName>LTS_Prop_Stoneborn_HermeticCanisterOpen</defName>
+		<category>LTS_PropCategory_Stoneborn</category>
+		<priority>1</priority>
+		<prop>LTS_Prop_Stoneborn_HermeticCanisterOpen</prop>
+    </VFEProps.PropDef>
+	
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+		<defName>LTS_Prop_Stoneborn_Mimic</defName>
+		<label>slimy dwarven crate</label>
+		<description>A sturdy stoneborn crate for preserving valuable items. This one seems to be leaking...</description>
+		<size>(1,1)</size>
+		<fillPercent>0.25</fillPercent>
+		<graphicData>
+		  <texPath>Things/Building/Ruins/DwarvenCrate_Mimic</texPath>
+		  <graphicClass>Graphic_Single</graphicClass>
+		  <drawSize>(2, 2)</drawSize>
+		  <shadowData>
+			<volume>(0.8, 0.8, 0.8)</volume>
+		  </shadowData>
+		</graphicData>
+		<rotatable>false</rotatable>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>0</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<passability>PassThroughOnly</passability>
+		<pathCost>42</pathCost>
+	</ThingDef>
+	<VFEProps.PropDef MayRequire="VanillaExpanded.VFEPropsandDecor">
+		<defName>LTS_Prop_Stoneborn_Mimic</defName>
+		<category>LTS_PropCategory_Stoneborn</category>
+		<priority>1</priority>
+		<prop>LTS_Prop_Stoneborn_Mimic</prop>
+    </VFEProps.PropDef>
+	
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+		<defName>LTS_Prop_Stoneborn_DwarvenCrate</defName>
+		<label>dwarven crate</label>
+		<description>A sturdy stoneborn crate for preserving valuable items. This one's a replica.</description>
+		<size>(1,1)</size>
+		<fillPercent>0.25</fillPercent>
+		<graphicData>
+		  <texPath>Things/Building/Ruins/DwarvenCrate</texPath>
+		  <graphicClass>Graphic_Single</graphicClass>
+		  <drawSize>(2, 2)</drawSize>
+		  <shadowData>
+			<volume>(0.8, 0.8, 0.8)</volume>
+		  </shadowData>
+		</graphicData>
+		<rotatable>false</rotatable>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>0</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<passability>PassThroughOnly</passability>
+		<pathCost>42</pathCost>
+	</ThingDef>
+	<VFEProps.PropDef MayRequire="VanillaExpanded.VFEPropsandDecor">
+		<defName>LTS_Prop_Stoneborn_DwarvenCrate</defName>
+		<category>LTS_PropCategory_Stoneborn</category>
+		<priority>1</priority>
+		<prop>LTS_Prop_Stoneborn_DwarvenCrate</prop>
+    </VFEProps.PropDef>
+	
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+		<defName>LTS_Prop_Stoneborn_DwarvenCrateOpen</defName>
+		<label>empty dwarven crate</label>
+		<description>A sturdy stoneborn crate for preserving valuable items. This one's empty.</description>
+		<size>(1,1)</size>
+		<fillPercent>0.25</fillPercent>
+		<graphicData>
+		  <texPath>Things/Building/Ruins/DwarvenCrateEmpty</texPath>
+		  <graphicClass>Graphic_Single</graphicClass>
+		  <drawSize>(2, 2)</drawSize>
+		  <shadowData>
+			<volume>(0.8, 0.8, 0.8)</volume>
+		  </shadowData>
+		</graphicData>
+		<rotatable>false</rotatable>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>0</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<passability>PassThroughOnly</passability>
+		<pathCost>42</pathCost>
+	</ThingDef>
+	<VFEProps.PropDef MayRequire="VanillaExpanded.VFEPropsandDecor">
+		<defName>LTS_Prop_Stoneborn_DwarvenCrateOpen</defName>
+		<category>LTS_PropCategory_Stoneborn</category>
+		<priority>1</priority>
+		<prop>LTS_Prop_Stoneborn_DwarvenCrateOpen</prop>
+    </VFEProps.PropDef>
+	
+	<ThingDef ParentName="VFEPD_NonColourableFurnitureBase">
+		<defName>LTS_Prop_Stoneborn_TremorbrewBarrel</defName>
+		<label>tremorbrew barrel</label>
+		<description>An ancient, broken barrel that looks like it once contained waste of some sort. The only thing it contains now is a smear of dried sludge.</description>
+		<size>(1,1)</size>
+		<fillPercent>0.25</fillPercent>
+		<graphicData>
+		  <texPath>Things/Building/Ruins/TremorbrewBarrel</texPath>
+		  <graphicClass>Graphic_Random</graphicClass>
+		  <drawSize>(2, 2)</drawSize>
+		  <shadowData>
+			<volume>(0.7, 0.5, 0.7)</volume>
+		  </shadowData>
+		</graphicData>
+		<rotatable>false</rotatable>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>0</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<passability>PassThroughOnly</passability>
+		<pathCost>42</pathCost>
+	</ThingDef>
+	<VFEProps.PropDef MayRequire="VanillaExpanded.VFEPropsandDecor">
+		<defName>LTS_Prop_Stoneborn_TremorbrewBarrel</defName>
+		<category>LTS_PropCategory_Stoneborn</category>
+		<priority>1</priority>
+		<prop>LTS_Prop_Stoneborn_TremorbrewBarrel</prop>
+    </VFEProps.PropDef>
+	
+	<!--Buildings_Special-->
+	
+	<!--Buildings_Portals-->
+	
+	<!--Plants_Dungeon-->
+	
+	<!--Filth-->
+	
+</Defs>

@@ -427,5 +427,100 @@
             <cleaningSound>Interact_CleanFilth_Scattered</cleaningSound>
         </filth>
     </ThingDef>
-
+  
+  <ThingDef ParentName="ApparelNoQualityBase">
+    <defName>LTS_Apparel_ElectrothornPack</defName>
+    <label>electrothorn pack</label>
+    <description>A utility pack that shoots disruptor flares. On impact, the flare burns a capsule of bioferrite, which creates a bright flash and a local psychic disruption. This stuns psychically sensitive creatures, revealing those that are invisible, and reducing their consciousness and movement speed for a short while. Afterwards, the flare continues to burn, lighting up a wide area for some time.</description>
+    <techLevel>Industrial</techLevel>
+    <mergeVerbGizmos>false</mergeVerbGizmos>
+    <graphicData>
+      <texPath>Things/Pawn/Apparel/ElectrothornPack/ElectrothornPack</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(0.7,0.7)</drawSize>
+    </graphicData>
+    <comps>
+	  <li Class="LTS_StonebornSiteGeneration.LTS_CompProperties_ThornApparel">
+        <damageFloat>5</damageFloat>
+        <damageDef>Burn</damageDef>
+        <!--<soundDef></soundDef>-->
+		<affectsRangedAttacks>false</affectsRangedAttacks>
+		<damagePenetration>0.2</damagePenetration>
+      </li>
+    </comps>
+	<recipeMaker>
+      <unfinishedThingDef>UnfinishedPack</unfinishedThingDef>
+      <researchPrerequisite>DisruptorFlares</researchPrerequisite>
+      <recipeUsers>
+        <li>BioferriteShaper</li>
+      </recipeUsers>
+      <useIngredientsForColor>false</useIngredientsForColor>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <skillRequirements>
+        <Crafting>4</Crafting>
+      </skillRequirements>
+      <displayPriority>30</displayPriority>
+    </recipeMaker>
+    <costList>
+      <ComponentIndustrial>1</ComponentIndustrial>
+      <Bioferrite>30</Bioferrite>
+    </costList>
+    <!--<tickerType>Normal</tickerType>-->
+    <statBases>
+      <WorkToMake>7200</WorkToMake>
+      <Mass>3</Mass>
+      <Flammability>0.4</Flammability>
+      <EquipDelay>2</EquipDelay>
+    </statBases>
+    <thingCategories>
+      <li>ApparelUtility</li>
+    </thingCategories>
+    <apparel>
+      <countsAsClothingForNudity>false</countsAsClothingForNudity>
+      <careIfWornByCorpse>false</careIfWornByCorpse>
+      <careIfDamaged>false</careIfDamaged>
+      <wearPerDay>0</wearPerDay>
+      <bodyPartGroups>
+        <li>Waist</li>
+      </bodyPartGroups>
+      <layers>
+        <li>Belt</li>
+      </layers>
+      <wornGraphicPath>Things/Pawn/Apparel/ElectrothornPack/ElectrothornPack</wornGraphicPath>
+      <wornGraphicData>
+        <renderUtilityAsPack>true</renderUtilityAsPack>
+        <north>
+          <offset>(0,-0.15)</offset>
+        </north>
+        <south>
+          <offset>(0,-0.15)</offset>
+        </south>
+        <east>
+          <offset>(-0.35,-0.1)</offset>
+          <thin><offset>(0.05,0)</offset></thin>
+          <hulk><offset>(-0.15,0)</offset></hulk>
+          <fat> <offset>(-0.20,0)</offset></fat>
+        </east>
+        <west>
+          <offset>(0.35,-0.1)</offset>
+          <thin><offset>(-0.05,0)</offset></thin>
+          <hulk><offset>(0.15,0)</offset></hulk>
+          <fat> <offset>(0.20,0)</offset></fat>
+        </west>
+        <male>  <scale>(0.4,0.4)</scale></male>
+        <female><scale>(0.4,0.4)</scale></female>
+        <thin>  <scale>(0.35,0.35)</scale></thin>
+        <hulk>  <scale>(0.45,0.45)</scale></hulk>
+        <fat>   <scale>(0.45,0.45)</scale></fat>
+      </wornGraphicData>
+    </apparel>
+    <allowedArchonexusCount>1</allowedArchonexusCount>
+    <tradeTags>
+      <li>ExoticMisc</li>
+    </tradeTags>
+  </ThingDef>
+  
 </Defs>

@@ -17,6 +17,7 @@
 		<li>det.stoneborn</li>
 		<li>ebsg.framework</li>
 		<li>smartkar.athenaframework</li>
+		<li>VanillaExpanded.VFEPropsandDecor</li>
 	</loadAfter>
 	<modDependencies>
 		<li>
