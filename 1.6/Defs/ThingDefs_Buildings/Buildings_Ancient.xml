@@ -6,7 +6,7 @@
     <label>ancient lore scroll</label>
     <thingClass>Building</thingClass>
     <category>Building</category>
-    <description>An ancient stoneborn brazier, made from mithrium.</description>
+    <description>An ancient stoneborn lecturn, made from reinforced stone and holding an intact lorescroll.</description>
     <noRightClickDraftAttack>true</noRightClickDraftAttack>
     <graphicData>
       <texPath>Things/Building/Ruins/Dwarven_AncientLore/Dwarven_AncientLore1</texPath>
