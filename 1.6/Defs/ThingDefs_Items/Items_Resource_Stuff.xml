@@ -49,6 +49,7 @@
         <WorkToBuild>2.2</WorkToBuild>
         <MeleeWeapon_CooldownMultiplier>1.05</MeleeWeapon_CooldownMultiplier>
       </statFactors>
+	  <isAirtight>true</isAirtight>
     </stuffProps>
     <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
     <allowedArchonexusCount>80</allowedArchonexusCount>
