@@ -1,19 +1,25 @@
 ﻿using HarmonyLib;
 using KCSG;
+using Mono.Cecil;
 using RimWorld;
 using RimWorld.Planet;
 using RimWorld.QuestGen;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.NetworkInformation;
+using System.Resources;
 using System.Security.Cryptography;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Windows;
 using VEF;
+using VEF.AnimalBehaviours;
 using VEF.Apparels;
+using VEF.Weapons;
 using Verse;
 using Verse.AI;
 using Verse.AI.Group;
@@ -25,6 +31,7 @@ using static RimWorld.ColonistBar;
 using static System.Collections.Specialized.BitVector32;
 using static UnityEngine.GraphicsBuffer;
 using static UnityEngine.Scripting.GarbageCollector;
+using static VEF.Graphics.TaggedDefProperties;
 
 namespace LTS_StonebornSiteGeneration
 {
@@ -52,8 +59,7 @@ namespace LTS_StonebornSiteGeneration
         }
     }
 
-    [HarmonyPatch(typeof(VEF.Apparels.Apparel_Shield))]
-    [HarmonyPatch(nameof(VEF.Apparels.Apparel_Shield.DrawShield))]//patch for drawing energy shields on regular shields
+    [HarmonyPatch(typeof(VEF.Apparels.Apparel_Shield), nameof(VEF.Apparels.Apparel_Shield.DrawShield))]//patch for drawing energy shields on regular shields
     class VEF_Apparels_Apparel_Shield_DrawShield_Patch //patch to make shields draw their energy shields
     {
         [HarmonyPostfix]
@@ -234,7 +240,7 @@ namespace LTS_StonebornSiteGeneration
         }
     }
 
-    public class LTS_GenStep_FindStart : GenStep
+    public class LTS_GenStep_FindStartPortalMap : GenStep
     {
         public override int SeedPart
         {
@@ -1421,27 +1427,6 @@ namespace LTS_StonebornSiteGeneration
         private CompGlower glowComp;
     }
 
-    public class LTS_Hediff_DefensiveImpaler : Hediff
-    {
-        public override void Notify_PawnPostApplyDamage(DamageInfo dinfo, float totalDamageDealt)
-        {
-            base.Notify_PawnPostApplyDamage(dinfo, totalDamageDealt);
-            if (pawn.Dead)
-            {
-                return;
-            }
-            if (dinfo.Instigator != null && pawn.Position.InHorDistOf(dinfo.Instigator.Position, 1.5f))//attacker next to user //apply 6 stab damage, 20% penetration
-            {
-                //SoundDefOf..PlayOneShot(pawn);
-                //BattleLogEntry_DamageTaken battleLogEntry_DamageTaken = new BattleLogEntry_DamageTaken(pawn, RulePackDefOf.DamageEvent_UnnaturalDarkness);
-                //Find.BattleLog.Add(battleLogEntry_DamageTaken);
-                //dinfo.Instigator.TakeDamage(new DamageInfo(DamageDefOf.Stab, 6)).AssociateWithLog(battleLogEntry_DamageTaken);
-                dinfo.Instigator.TakeDamage(new DamageInfo(DamageDefOf.Stab, 6));
-
-            }
-        }
-    }
-
     public class LTS_CompProperties_ThornApparel : CompProperties
     {
         public LTS_CompProperties_ThornApparel()
@@ -1466,22 +1451,6 @@ namespace LTS_StonebornSiteGeneration
             }
         }
 
-        //public override void PostPostApplyDamage(DamageInfo dinfo, float totalDamageDealt)
-        //{
-        //    Log.Error("firing 1");
-        //    base.PostPostApplyDamage(dinfo, totalDamageDealt);
-        //    Pawn pawn = (parent as Apparel).Wearer;
-        //    if (pawn.Dead)
-        //    {
-        //        return;
-        //    }
-        //    if (dinfo.Instigator != null && (Props.affectsRangedAttacks || pawn.Position.InHorDistOf(dinfo.Instigator.Position, 1.5f)))//attacker next to user
-        //    {
-        //        Props.soundDef.PlayOneShot(pawn);
-        //        dinfo.Instigator.TakeDamage(new DamageInfo(Props.damageDef, Props.damageFloat, Props.damagePenetration));
-        //    }
-        //}
-
         public override void PostPreApplyDamage(ref DamageInfo dinfo, out bool absorbed)
         {
             absorbed = false;
@@ -1494,6 +1463,583 @@ namespace LTS_StonebornSiteGeneration
             {
                 if(Props.soundDef != null) Props.soundDef.PlayOneShot(pawn);
                 dinfo.Instigator.TakeDamage(new DamageInfo(Props.damageDef, Props.damageFloat, Props.damagePenetration));
+            }
+        }
+    }
+
+    // ---------------------------------  !!!BE WARNED!!!  ---------------------------------
+    
+    // Beyond this point lies the sanity-crumbling tangle of code for the cave shuttle quest
+
+    // This place is not a place of competency. 
+    // No highly refined code is written here. 
+    // Nothing valued is here.
+
+    public enum MiningQuotaQuestState
+    {
+        AwaitingAcceptance,
+        
+        ColonyShuttleArriving,
+        ColonyShuttleReady,
+        ColonyShuttleLeaving,
+
+        CaveShuttleArriving,
+        CaveShuttleReady,
+        CaveShuttleLeaving,
+
+        ReturnShuttleArriving,
+        ReturnShuttleUnloading,
+        ReturnShuttleLeaving,
+
+        Complete,
+        Failed
+    }
+
+    public class QuestNode_Mission_MiningQuota : QuestNode
+    {
+        public List<ThingDef> resourceDefs;
+        public SimpleCurve resourceRequirementsPerQuestPointsCurve; //quest points to required amount should probably be on a plateuing quadratic curve
+        //public ThingDef incomingShuttleDef;
+        public ThingDef shuttleDef;
+        //public ThingDef outgoingShuttleDef;
+
+        public int pocketMapSize;
+        public MapGeneratorDef pocketMapGenerator;
+        public IEnumerable<GenStepWithParams> extraGenStepDefs;
+
+
+
+        public Thing shuttle;//might be best to keep
+
+        protected override bool TestRunInt(Slate slate)
+        {
+            if (resourceDefs == null || resourceDefs.Count == 0)
+            {
+                Log.Error("QuestNode_Mission_MiningQuota: resourceDefs not set");
+                return false;
+            }
+            else if (shuttleDef == null)
+            {
+                Log.Error("QuestNode_Mission_MiningQuota: shuttle ThingDef not set");
+                return false;
+            }
+            else if (pocketMapGenerator == null)
+            {
+                Log.Error("QuestNode_Mission_MiningQuota: pocketMapGenerator not set");
+                return false;
+            }
+            else if (Find.FactionManager.FirstFactionOfDef(FactionDef.Named("OutlanderRoughStoneborn")) == null)
+            {
+                Log.Error("QuestNode_Mission_MiningQuota: OutlanderRoughStoneborn faction not found");
+                return false;
+            }
+            return true;
+        }
+        protected override void RunInt()
+        {
+            Quest quest = QuestGen.quest;
+            float points = QuestGen.slate.Get("points", 0f);
+            ThingDef resourceDef = resourceDefs.RandomElement();
+            int resourceAmount = (int)(resourceRequirementsPerQuestPointsCurve.Evaluate(points) / resourceDef.BaseMarketValue);
+            Map map = QuestGen_Get.GetMap(false, null, true);
+            Slate slate = QuestGen.slate;
+            string resourceTotalValue = (resourceAmount * resourceDef.BaseMarketValue).ToStringMoney();
+
+            slate.Set("resourceDef", resourceDef);
+            slate.Set("resourceAmount", resourceAmount);
+            slate.Set("resourceTotalValue", resourceTotalValue);
+
+
+
+            slate.Set<Map>("map", map, false);
+            float x = slate.Get<float>("points", 0f, false);
+            Pawn asker = Find.FactionManager.FirstFactionOfDef(FactionDef.Named("OutlanderRoughStoneborn")).leader;
+
+            QuestPart_MiningQuota questPart = new QuestPart_MiningQuota//QuestParts are for ongoing stuff. everything else in the questnode is instantly read.
+            {
+                resourceDef = resourceDef,//This, surprisingly, works.
+                resourceAmount = resourceAmount,
+                colonyMap = map,
+                //incomingShuttleDef = incomingShuttleDef,
+                shuttleDef = shuttleDef,
+                //outgoingShuttleDef = outgoingShuttleDef,
+
+                pocketMapSize = pocketMapSize,
+                pocketMapGenerator = pocketMapGenerator,
+                extraGenStepDefs = extraGenStepDefs,
+                //state = MiningQuotaQuestState.AwaitingAcceptance,
+
+
+                shuttle = shuttle,
+
+                inSignalEnable = QuestGenUtility.HardcodedSignalWithQuestID("Initiate"),//this sets the signal that will enable the questpart and it's ticking.
+
+                shuttleInventory = new ThingOwner<Thing>(),
+
+                //drillShuttleEmergeTicks = ((shuttleDef.comps.Where(comp => comp is CompProperties_DrillShuttle).First() as CompProperties_DrillShuttle).incomingShuttleDef) as GroundSpawner).,
+                //drillShuttleSubmergeTicks = (shuttleDef.comps.Where(comp => comp is CompProperties_DrillShuttle).First() as CompProperties_DrillShuttle).LTS_DrillShuttleOutgoing,
+                drillShuttleEmergeTicks = 1650,
+                drillShuttleSubmergeTicks = 1650,
+                drillShuttleTravelTicks = 6000,
+            };
+            quest.AddPart(questPart);
+
+            
+            
+
+
+            //quest.SpawnThing(map, shuttle = ThingMaker.MakeThing(shuttleDef), null, null, QuestGenUtility.HardcodedSignalWithQuestID("Initiate"), true, true, null, null);//spawn shuttle after quest accepted.
+            //quest.SpawnThing(map, shuttle = ThingMaker.MakeThing(incomingShuttleDef), asker.Faction, null, QuestGenUtility.HardcodedSignalWithQuestID("Initiate"), true, true, null, null);//spawn emerging shuttle after quest accepted.
+            quest.SpawnThing(map, ThingMaker.MakeThing((shuttleDef.comps.Where(comp => comp is CompProperties_DrillShuttle).First() as CompProperties_DrillShuttle).incomingShuttleDef), asker.Faction, null, QuestGenUtility.HardcodedSignalWithQuestID("Initiate"), true, true, null, null);//spawn emerging shuttle after quest accepted.
+            quest.SpawnThing(map, shuttle = ThingMaker.MakeThing(shuttleDef), asker.Faction, shuttle.Position, QuestGenUtility.HardcodedSignalWithQuestID("ShuttleArrived"), true, true, null, null, true);//spawn shuttle after shuttle emerged.
+            //quest.QuestSelectTargets.AddItem(shuttle);
+            
+            //quest.SpawnThing(map, ThingMaker.MakeThing(outgoingShuttleDef), asker.Faction, shuttle.Position, QuestGenUtility.HardcodedSignalWithQuestID("ShuttleLaunched"), true, true, null, null);
+
+            
+            
+            
+
+            //quest end:
+
+            quest.Delay(120, delegate
+            {
+                QuestScriptDefOf.Util_GetDefaultRewardValueFromPoints.Run();//this is not necessary, but seemingly sets the rewardValue to an appropriate number.
+                float rewardValue = slate.Get<float>("rewardValue", 0f, false);
+                RewardsGeneratorParams parms = new RewardsGeneratorParams
+                {
+                    rewardValue = rewardValue,
+                    allowGoodwill = true,
+                };
+
+                quest.GiveRewards(parms, "SuccessSignal", null, null, null, null, null, null, null, false, asker, false, false, null);
+            }, null, null, null, false, null, null, false, null, null, null, false, QuestPart.SignalListenMode.OngoingOnly, true);
+            quest.End(QuestEndOutcome.Success, 0, null, "SuccessSignal", QuestPart.SignalListenMode.OngoingOnly, true, false);
+            quest.End(QuestEndOutcome.Fail, 0, null, "FailSignal", QuestPart.SignalListenMode.OngoingOnly, true, false);
+
+            slate.Set<Pawn>("asker", asker, false);
+            slate.Set<bool>("askerIsNull", asker == null, false);
+        }
+    }
+
+    public class QuestPart_MiningQuota : QuestPartActivable
+    {
+        public ThingDef resourceDef;
+        public int resourceAmount;
+        public Map colonyMap;
+        public Map pocketMap;
+        //public ThingDef incomingShuttleDef;
+        public ThingDef shuttleDef;
+        //public ThingDef outgoingShuttleDef;
+        public Thing incomingShuttle;
+        public Thing shuttle;
+        public Thing outgoingShuttle;
+        public int pocketMapSize;
+        public MapGeneratorDef pocketMapGenerator;
+        public IEnumerable<GenStepWithParams> extraGenStepDefs;
+        public MiningQuotaQuestState state;
+        public ThingOwner<Thing> shuttleInventory;
+
+        
+        private int ticksAtLaunch = -1;
+        public int drillShuttleEmergeTicks;
+        public int drillShuttleSubmergeTicks;
+        public int drillShuttleTravelTicks;
+
+        private IntVec3 shuttlePosition;
+
+        public bool returning = false;
+
+        public Faction OutlanderRoughStoneborn = Find.FactionManager.FirstFactionOfDef(FactionDef.Named("OutlanderRoughStoneborn"));
+
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_Defs.Look(ref resourceDef, "resourceDef");
+            Scribe_Values.Look(ref resourceAmount, "resourceAmount", 500);
+            Scribe_References.Look(ref colonyMap,"colonyMap");
+            Scribe_References.Look(ref pocketMap, "pocketMap");
+            Scribe_References.Look(ref incomingShuttle, "incomingShuttle");
+            Scribe_References.Look(ref shuttle, "shuttle");
+            Scribe_References.Look(ref outgoingShuttle, "outgoingShuttle");
+
+            Scribe_Values.Look(ref drillShuttleEmergeTicks, "drillShuttleEmergeTicks", 120);
+            Scribe_Values.Look(ref drillShuttleSubmergeTicks, "drillShuttleSubmergeTicks", 120);
+            Scribe_Values.Look(ref drillShuttleTravelTicks, "drillShuttleTravelTicks", 120);
+
+            Scribe_Values.Look(ref state, "state");
+            Scribe_Deep.Look(ref shuttleInventory, "shuttleInventory");
+            //Scribe_Values.Look<string>(ref this.inSignal, "inSignal", null, false);
+
+            //Scribe_Values.Look(ref state, "state");
+            Scribe_Values.Look(ref returning, "returning", false);
+        }
+
+        public void LaunchDrillShuttle(CompDrillShuttle compDrillShuttle)
+        {
+            ticksAtLaunch = Find.TickManager.TicksGame;
+            if (true)//check if we're leaving a pocketmap
+            {
+                //check if we succeeded or failed, then send the respective signal to the quest.
+            }
+        }
+
+        public override void QuestPartTick()
+        {
+            base.QuestPartTick();
+            //Log.Warning("QuestPart Ticking");
+
+
+            if (ticksAtLaunch > -1)
+            {
+                
+                if (!returning)
+                {
+                    if (ticksAtLaunch + drillShuttleSubmergeTicks + drillShuttleTravelTicks == Find.TickManager.TicksGame)//after launch, submergence animation and travel
+                    {
+                        //ThingDef mineableDef = DefDatabase<ThingDef>.AllDefsListForReading.FirstOrDefault(def => def.defName.Contains("Mineable" + resourceDef.defName));//upgrade this to deal with resources with mod prefixes
+                        ThingDef mineableDef = DefDatabase<ThingDef>.AllDefsListForReading.FirstOrDefault(def => def.defName.Contains("Mineable") && def.defName.Contains(char.ToUpper(resourceDef.label[0]) + resourceDef.label.Substring(1)));
+                        //, StringComparison.OrdinalIgnoreCase
+                        GenStep_ScatterLumpsMineable genStep_ExtraOresForQuest = new GenStep_ScatterLumpsMineable
+                        {
+                            count = Rand.RangeInclusive(5, 8),
+                            nearMapCenter = false,
+                            forcedDefToScatter = mineableDef,
+                            forcedLumpSize = (int)(resourceAmount / mineableDef.building.mineableYield)
+                        };
+
+                        pocketMap = PocketMapUtility.GeneratePocketMap(new IntVec3(pocketMapSize, 1, pocketMapSize), pocketMapGenerator, extraGenStepDefs, colonyMap);//generating pocket map similarly to a portal
+
+                        genStep_ExtraOresForQuest.Generate(pocketMap, new GenStepParams());
+                        new GenStep_Fog().Generate(pocketMap, new GenStepParams());
+
+                        CellFinder.TryFindRandomCell(pocketMap, c => CanFitBuilding(c, pocketMap, ThingDef.Named("LTS_DrillShuttle")) && c.IsValid, out var shuttleCell);
+                        shuttlePosition = shuttleCell;
+                        GenSpawn.Spawn((ThingDef.Named("LTS_DrillShuttle").comps.Where(comp => comp is CompProperties_DrillShuttle).First() as CompProperties_DrillShuttle).incomingShuttleDef, shuttlePosition, pocketMap);
+                        CameraJumper.TryJump(new GlobalTargetInfo(shuttleCell, pocketMap));//jump to incoming shuttle on pocketmap
+                    }
+                    if (ticksAtLaunch + drillShuttleSubmergeTicks + drillShuttleTravelTicks + drillShuttleEmergeTicks == Find.TickManager.TicksGame)//after launch, submergence animation, travel and re-emergence animation
+                    {
+                        shuttle = GenSpawn.Spawn(ThingDef.Named("LTS_DrillShuttle"), shuttlePosition, pocketMap);
+                        
+                        //Log.Warning("QuestLookTargets.EnumerableCount: "+ QuestLookTargets.EnumerableCount());
+                        //QuestLookTargets.Add(shuttle);
+                        //this.loo
+                        //Log.Warning("QuestLookTargets.EnumerableCount: " + QuestLookTargets.EnumerableCount());
+                        //QuestLookTargets.AddItem(shuttle);
+                        //shuttle.TryGetComp<CompTransporter>().GetDirectlyHeldThings().TryAddRangeOrTransfer(shuttleInventory, true, true);
+                        //shuttle.TryGetComp<CompTransporter>().innerContainer.TryDropAll(shuttle.Position, shuttle.Map, ThingPlaceMode.Near);
+                        shuttleInventory.TryDropAll(shuttle.Position, shuttle.Map, ThingPlaceMode.Near);//dump stuff straight from the quest inventory at the feet of the shuttle.
+
+                        ticksAtLaunch = -1;
+                    }
+                }
+                else
+                {
+                    if (ticksAtLaunch + drillShuttleSubmergeTicks == Find.TickManager.TicksGame)//after launch and submergence animation
+                    {
+                        //pocketMap.Dispose();
+                        PocketMapUtility.DestroyPocketMap(pocketMap);
+                    }
+                    if (ticksAtLaunch + drillShuttleSubmergeTicks + drillShuttleTravelTicks == Find.TickManager.TicksGame)//after launch, submergence animation and travel
+                    {
+                        GenSpawn.Spawn((shuttleDef.comps.Where(comp => comp is CompProperties_DrillShuttle).First() as CompProperties_DrillShuttle).incomingShuttleDef, shuttlePosition = DropCellFinder.GetBestShuttleLandingSpot(colonyMap, OutlanderRoughStoneborn), colonyMap);
+                        //CameraJumper.TryJump(new GlobalTargetInfo(shuttleCell, pocketMap));
+                        
+                    }
+                    if (ticksAtLaunch + drillShuttleSubmergeTicks + drillShuttleTravelTicks + drillShuttleEmergeTicks == Find.TickManager.TicksGame)//after launch, submergence animation, travel and re-emergence
+                    {
+                        GenSpawn.Spawn((shuttleDef.comps.Where(comp => comp is CompProperties_DrillShuttle).First() as CompProperties_DrillShuttle).outgoingShuttleDef, shuttlePosition, colonyMap);
+
+                        bool successful = false;
+
+                        if (shuttleInventory.TotalStackCountOfDef(resourceDef) >= resourceAmount)
+                        {
+                            int resourceAmountToRemove = resourceAmount;
+                            foreach (Thing thing in shuttleInventory.Where(t => t.def == resourceDef).ToList())
+                            {
+                                int amountFromStack = Mathf.Min(thing.stackCount, resourceAmountToRemove);
+                                thing.SplitOff(amountFromStack).Destroy();
+                                resourceAmountToRemove -= amountFromStack;
+                                if (resourceAmountToRemove <= 0)
+                                    break;
+                            }
+                            successful = true;
+                            //quest.Notify_SignalReceived(new Signal("Quest" + quest.id + ".SuccessSignal"));
+                        }
+
+                        shuttleInventory.TryDropAll(shuttlePosition, colonyMap, ThingPlaceMode.Near);
+
+                        if (successful)
+                        {
+                            quest.Notify_SignalReceived(new Signal("Quest" + quest.id + ".SuccessSignal"));
+                        }
+                        else
+                        {
+                            quest.Notify_SignalReceived(new Signal("Quest" + quest.id + ".FailSignal"));
+                        }
+                        
+                    }
+                    //if (ticksAtLaunch + 2 * drillShuttleSubmergeTicks + drillShuttleTravelTicks + drillShuttleEmergeTicks == Find.TickManager.TicksGame)//after launch, submergence animation, travel, re-emergence and departure
+                    //{
+                    //    //clean up and terminate all quest processes
+                    //}
+                }
+
+
+
+            }
+        }
+        public static bool CanFitBuilding(IntVec3 cell, Map map, ThingDef buildingDef)//checks if a cell can have a building spawned on it.
+        {
+            CellRect footprint = GenAdj.OccupiedRect(cell, Rot4.North, buildingDef.size);
+            foreach (IntVec3 checkCell in footprint)
+            {
+                if (!checkCell.InBounds(map) || !checkCell.Standable(map) || checkCell.GetFirstBuilding(map) != null || checkCell.GetFirstItem(map) != null)
+                    return false;
+            }
+            return true;
+        }
+        public override IEnumerable<GlobalTargetInfo> QuestLookTargets
+        {
+            get
+            {
+                foreach (GlobalTargetInfo target in base.QuestLookTargets)
+                    yield return target;
+
+                if (shuttle != null && !base.QuestLookTargets.Contains(shuttle))
+                    yield return shuttle;
+            }
+        }
+        //public override void QuestPartTick()
+        //{
+        //    base.QuestPartTick();
+        //    if (state == MiningQuotaQuestState.Complete)
+        //        return;
+
+        //}
+
+        //public override void Notify_QuestSignalReceived(Signal signal)
+        //{
+        //    base.Notify_QuestSignalReceived(signal);
+        //    //Log.Warning(signal.tag);
+        //    //Log.Warning("Quest" + quest.id + ".Initiate");
+        //    if (signal.tag == "Quest" + quest.id + ".Initiate")//I should probably make a function to prefix the '"Quest" + quest.id + "." + '
+        //    {
+        //        QuestAccepted();
+        //    }
+
+        //    //switch (signal.tag)
+        //    //{
+        //    //    case QuestAcceptedSignal:
+        //    //        QuestAccepted();
+        //    //        break;
+        //    //    case "inSignal":
+        //    //        QuestAccepted();
+        //    //        break;
+
+        //    //}
+        //}
+
+
+
+        //public void QuestAccepted()
+        //{
+        //    if (colonyMap == null)
+        //        colonyMap = Find.CurrentMap;
+        //    state = MiningQuotaQuestState.ColonyShuttleArriving;
+        //    SpawnIncomingShuttle(colonyMap, out shuttle);
+        //}
+
+
+
+
+
+        //private void SpawnIncomingShuttle(Map map, out Thing shuttle)
+        //{
+        //    IntVec3 cell = DropCellFinder.GetBestShuttleLandingSpot(map, OutlanderRoughStoneborn);//should probably finda way to get this from the quest giver
+        //    shuttle = ThingMaker.MakeThing(incomingShuttleDef);
+        //    //GenSpawn.Spawn(shuttle, cell, map, WipeMode.Vanish);
+        //    Log.Warning("1");
+        //    quest.SpawnSkyfaller(map, incomingShuttleDef, Gen.YieldSingle<Thing>(shuttle), OutlanderRoughStoneborn, cell, null, false, false, null, null);
+        //    Log.Warning("2");
+        //}
+    }
+
+    public class CompProperties_DrillShuttle : CompProperties
+    {
+        public ThingDef incomingShuttleDef;
+        public ThingDef outgoingShuttleDef;
+        public CompProperties_DrillShuttle()
+        {
+            compClass = typeof(CompDrillShuttle);
+        }
+    }
+
+    public class CompDrillShuttle : ThingComp
+    {
+        //public Quest quest;
+        public CompProperties_DrillShuttle Props
+        {
+            get
+            {
+                return (CompProperties_DrillShuttle)props;
+            }
+        }
+        private CompTransporter cachedCompTransporter;
+        public CompTransporter compTransporter
+        {
+            get
+            {
+                CompTransporter compTransporter;
+                if ((compTransporter = this.cachedCompTransporter) == null)
+                {
+                    compTransporter = (this.cachedCompTransporter = this.parent.GetComp<CompTransporter>());
+                }
+                return compTransporter;
+            }
+        }
+        public void GetChildHolders(List<IThingHolder> outChildren) //check for stuff held in a pawns' inventories
+        {
+            ThingOwnerUtility.AppendThingHoldersFromThings(outChildren, compTransporter.innerContainer);
+        }
+        public override IEnumerable<Gizmo> CompGetGizmosExtra()
+        {
+            foreach (Gizmo gizmo in base.CompGetGizmosExtra())
+                yield return gizmo;
+            //IEnumerator<Gizmo> enumerator = null;
+
+            //foreach (Gizmo gizmo3 in QuestUtility.GetQuestRelatedGizmos(this.parent))
+            //{
+            //    yield return gizmo3;
+            //}
+            //enumerator = null;
+            //yield break;
+
+
+            yield return new Command_Action
+            {
+                defaultLabel = "Launch CaveShuttle",
+                defaultDesc = "Launch the expedition caveshuttle and everything aboard it.",
+                icon = ContentFinder<Texture2D>.Get("UI/LaunchDrillShuttle"),
+                action = delegate ()
+                {
+                    Quest quest = Find.QuestManager.QuestsListForReading.FirstOrDefault(q => q.QuestLookTargets.Contains(parent));
+                    //if (parent.Map.IsPocketMap)
+                    //    quest.Notify_SignalReceived(new Signal("Quest" + quest.id + ".ShuttleLaunched"));
+                    //else
+                    //    quest.Notify_SignalReceived(new Signal("Quest" + quest.id + ".ReturnShuttleLaunched"));
+                    QuestPart_MiningQuota questPart = quest.PartsListForReading.FirstOrDefault(p => p.GetType() == typeof(QuestPart_MiningQuota)) as QuestPart_MiningQuota;
+                    questPart.LaunchDrillShuttle(this);
+                    if (parent.Map.IsPocketMap)
+                    {
+                        questPart.returning = true;
+                    }
+                        
+                    GenSpawn.Spawn(Props.outgoingShuttleDef, parent.Position, parent.Map);
+
+                    //questPart.shuttle = parent;//Just in case...
+                    //parent.GetComp<CompTransporter>().loa
+                    compTransporter.TryRemoveLord(parent.Map);//end shuttle loading task
+                                                              //ThingOwner shuttleInventory = compTransporter.GetDirectlyHeldThings();
+                                                              //activeTransporter.Contents.innerContainer.TryAddRangeOrTransfer(directlyHeldThings, true, true);
+                                                              //ThingOwner a.inner // .TryAddRangeOrTransfer(shuttleInventory, true, true);
+
+                    questPart.shuttleInventory.TryAddRangeOrTransfer(compTransporter.GetDirectlyHeldThings(), true, true);//moves everything in the shuttle to the QuestPart_MiningQuota
+                                                                                                                          //questPart.shuttleInventory.TryAddRangeOrTransfer(null, true, true);
+
+                    compTransporter.CleanUpLoadingVars(parent.Map);
+                    parent.Destroy(DestroyMode.Vanish);
+
+                    //parent.DeSpawn(DestroyMode.Vanish);
+                }
+
+            };
+            //else//if the shuttle's preparing to return
+            //{
+            //    yield return new Command_Action
+            //    {
+            //        defaultLabel = "Return to colony",
+            //        defaultDesc = "Return the expedition shuttle " + "and everything aboard it to the colony.",
+            //        icon = TexCommand.GatherSpotActive,
+            //        //action = ReturnToColony
+            //    };
+            //}
+
+
+        }
+        //public virtual AcceptanceReport CanLaunch()
+        //{
+        //    //if (parent.GetComp<CompTransporter>().innerContainer.)
+        //    if (false)
+        //    {
+        //        return "can't launch becuse...";//actually, launching without any pawns should probably just work but trigger a quest failiure and cancel submap creation.
+        //    }
+        //    return true;
+        //}
+        public override IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)//this lets you right click on the vehicle to load the pawn directly.
+        {
+            if (!selPawn.CanReach(this.parent, PathEndMode.Touch, Danger.Deadly, false, false, TraverseMode.ByPawn))
+            {
+                yield break;
+            }
+            string text = "EnterShuttle".Translate();
+
+            yield return new FloatMenuOption(text, delegate ()
+            {
+                if (!this.compTransporter.LoadingInProgressOrReadyToLaunch)
+                {
+                    TransporterUtility.InitiateLoading(Gen.YieldSingle<CompTransporter>(this.compTransporter));
+                }
+                Job job = JobMaker.MakeJob(JobDefOf.EnterTransporter, this.parent);
+                selPawn.jobs.TryTakeOrderedJob(job, new JobTag?(JobTag.Misc), false);
+            }, MenuOptionPriority.Default, null, null, 0f, null, null, true, 0);
+            yield break;
+        }        
+    }
+
+    public class EmergingDrillShuttle : GroundSpawner
+    {
+        protected override void Spawn(Map map, IntVec3 loc)
+        {
+            if (!map.IsPocketMap)
+            {
+                Quest quest = Find.QuestManager.QuestsListForReading.FirstOrDefault(q => q.QuestLookTargets.Contains(this));
+                if (quest != null)//if this isn't the return shuttle
+                {
+                    quest.Notify_SignalReceived(new Signal("Quest" + quest.id + ".ShuttleArrived"));//when emerging done, send signal for quest to spawn shuttle
+                }
+            }
+            else
+            {
+                //find quest
+                //Spawn shuttle stored in quest
+            }
+        }
+    }
+
+    // -------------------------------------------------------------------------------------
+
+    public class LTS_GenStep_FindStartShuttleMap : GenStep
+    {
+        public override int SeedPart
+        {
+            get
+            {
+                return 1568957891;
+            }
+        }
+        public override void Generate(Map map, GenStepParams parms)//find a random space that can fit the drill shuttle
+        {
+            if (!MapGenerator.PlayerStartSpotValid)
+            {
+                CellFinder.TryFindRandomCell(map, c => c.IsValid, out var validCell);
+                MapGenerator.PlayerStartSpot = validCell;
+
+                
+                //emergingDrillShuttle.
+
+                //CameraJumper.TryJump(new GlobalTargetInfo(validCell, map));
             }
         }
     }
@@ -1695,7 +2241,6 @@ namespace LTS_StonebornSiteGeneration
 
     /// <summary>
     /// Spawns a raider every 250 ticks, won't do anything when there's any raiders left to spawn in the pod. Presumably destroys itself with a comp
-    /// I beg to differ - LTS
     /// </summary>
     public class ThingClass_DrillPod : Building
     {

@@ -95,4 +95,77 @@
     </questDescriptionAndNameRules>
     <root Class="LTS_StonebornSiteGeneration.QuestNode_Root_Loot_AncientVault_Stoneborn" />
   </QuestScriptDef>
+
+  <QuestScriptDef>
+    <defName>LTS_Mission_StonebornCave</defName>
+    <rootSelectionWeight>1</rootSelectionWeight>
+    <rootMinPoints>350</rootMinPoints>
+    <expireDaysRange>10</expireDaysRange>
+    <!--<affectedByPopulation>false</affectedByPopulation>-->
+    <everAcceptableInSpace>false</everAcceptableInSpace>
+    <!--<successHistoryEvent MayRequire="Ludeon.RimWorld.Ideology">Raided_BanditCamp</successHistoryEvent>
+	<isRootSpecial>true</isRootSpecial>-->
+    <questNameRules>
+      <rulesStrings>
+        <li>questName->[questNameInner]</li>
+        <li>questName->[asker_nameDef]'s [questNameInner]</li>
+
+        <li>questNameInner->[drill] [work]</li>
+
+        <li>drill->drill</li>
+        <li>drill->mine</li>
+        <li>drill->cave</li>
+		<li>drill->caveshuttle</li>
+
+        <li>work->work</li>
+        <li>work->job</li>
+		<li>work->expedition</li>
+		<li>work->prospecting</li>
+		<li>work->quota</li>
+      </rulesStrings>
+    </questNameRules>
+    <questDescriptionRules>
+      <rulesStrings>
+        <li>questDescription->[asker_nameDef] is planning to set up an underground outpost, but requires more information on the mineral wealth of the cave [asker_pronoun]'s considering. [asker_pronoun] would like you to travel to the cave and gather:
+\n  [resourceAmount]x [resourceDef_label] (worth [resourceTotalValue]).
+\n[asker_pronoun] will send a caveshuttle to pick up your miners, bring them to the cave, and take them home afterward. [asker_pronoun] states that you're free to keep any excess [resourceDef_label] you gather, as well as any other resources you extract.</li>
+	  </rulesStrings>
+    </questDescriptionRules>
+	
+	<!--<root Class="LTS_StonebornSiteGeneration.QuestNode_Root_Mission_MiningQuota">
+	  <factionsToDrawLeaderFrom>
+        <li>OutlanderRoughStoneborn</li>
+      </factionsToDrawLeaderFrom>
+	  <ResourceDefs>
+        <li>Steel</li>
+		<li>Plasteel</li>
+		<li>Gold</li>
+		<li>Silver</li>
+		<li>Uranium</li>
+		<li>Jade</li>
+      </ResourceDefs>
+	</root>-->
+	<root Class="LTS_StonebornSiteGeneration.QuestNode_Mission_MiningQuota">
+      <resourceDefs>
+        <li>Steel</li>
+        <li>Plasteel</li>
+        <li>Gold</li>
+		<li>Silver</li>
+        <li>Uranium</li>
+		<li MayRequire="det.epochspyrinth">DV_Pyrinth</li>
+		<!--<li MayRequire="det.sbdelights">Uranium</li>-->
+      </resourceDefs>
+      <resourceRequirementsPerQuestPointsCurve>
+        <points>
+          <li>(0, 500)</li>
+          <li>(10000, 5000)</li>
+        </points>
+      </resourceRequirementsPerQuestPointsCurve>
+      <shuttleDef>LTS_DrillShuttle</shuttleDef>
+	  <pocketMapSize>75</pocketMapSize>
+	  <pocketMapGenerator>LTS_StonebornCave</pocketMapGenerator>
+    </root>
+	
+  </QuestScriptDef>
+  
 </Defs>

@@ -1853,7 +1853,7 @@
 	
 	<ThingDef ParentName="VFEPD_ColourableFurnitureBase" MayRequire="VanillaExpanded.VFEPropsandDecor">
 		<defName>LTS_Prop_Stoneborn_Plant_Alraun</defName>
-		<label>rook-pod</label>
+		<label>alraun</label>
         <description>Head-sized vegetables with a thin psychic presence. Alrauns were engineered by stoneborn seers as a way to cripple psychic opponents, as when they're disturbed and ripped out of the soil, they emit a psychic pulse that can deafen and daze highly attuned psycasters. These ones are made of plastic.</description>
 		<size>(1,1)</size>
 		<fillPercent>0.25</fillPercent>

@@ -1,46 +1,249 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Defs>
 
-    <ThingDef ParentName="BuildingBase">
-        <defName>DV_Raid_DrillPod</defName>
-        <label>drillpod</label>
-        <thingClass>LTS_StonebornSiteGeneration.ThingClass_DrillPod</thingClass>
-        <description>A launchable sub-terrestrial cargo pod capable of carrying people, items, or animals. Can be used for sending gifts, transporting people or supplies, surprise attacks, or reinforcing battles.</description>
-        <graphicData>
-          <!--<texPath>Things/Special/DropPod</texPath>-->
-		  <texPath>Things/Special/DrillPod</texPath>
-          <graphicClass>Graphic_Single</graphicClass>
-          <drawSize>(2,2)</drawSize>
-        </graphicData>
-        <size>(1,1)</size>
-        <rotatable>false</rotatable>
-        <tickerType>Rare</tickerType>
-        <altitudeLayer>BuildingOnTop</altitudeLayer>
-        <passability>PassThroughOnly</passability>
-        <castEdgeShadows>false</castEdgeShadows>
-        <designationHotKey>Misc12</designationHotKey>
-        <fillPercent>0.5</fillPercent>
-        <designationCategory>Misc</designationCategory>
-        <uiOrder>2200</uiOrder>
-        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
-        <statBases>
-          <MaxHitPoints>250</MaxHitPoints>
-          <WorkToBuild>1600</WorkToBuild>
-          <Flammability>0.5</Flammability>
-        </statBases>
-		<soundOpen>DropPod_Open</soundOpen>
-      </ThingDef>
+  <ThingDef ParentName="BuildingBase">
+	<defName>DV_Raid_DrillPod</defName>
+	<label>drillpod</label>
+	<thingClass>LTS_StonebornSiteGeneration.ThingClass_DrillPod</thingClass>
+	<description>A launchable sub-terrestrial cargo pod capable of carrying people, items, or animals. Can be used for sending gifts, transporting people or supplies, surprise attacks, or reinforcing battles.</description>
+	<graphicData>
+	  <!--<texPath>Things/Special/DropPod</texPath>-->
+	  <texPath>Things/Special/DrillPod</texPath>
+	  <graphicClass>Graphic_Single</graphicClass>
+	  <drawSize>(2,2)</drawSize>
+	</graphicData>
+	<size>(1,1)</size>
+	<rotatable>false</rotatable>
+	<tickerType>Rare</tickerType>
+	<altitudeLayer>BuildingOnTop</altitudeLayer>
+	<passability>PassThroughOnly</passability>
+	<castEdgeShadows>false</castEdgeShadows>
+	<designationHotKey>Misc12</designationHotKey>
+	<fillPercent>0.5</fillPercent>
+	<designationCategory>Misc</designationCategory>
+	<uiOrder>2200</uiOrder>
+	<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+	<statBases>
+	  <MaxHitPoints>250</MaxHitPoints>
+	  <WorkToBuild>1600</WorkToBuild>
+	  <Flammability>0.5</Flammability>
+	</statBases>
+	<soundOpen>DropPod_Open</soundOpen>
+  </ThingDef>
 
-      <ThingDef ParentName="EtherealThingBase">
-        <defName>DV_Ethereal_DrillPod</defName>
-        <label>tunnel</label>
-        <thingClass>LTS_StonebornSiteGeneration.ThingClass_ExcavationGroundSpawner</thingClass>
-        <tickerType>Normal</tickerType>
-        <drawerType>RealtimeOnly</drawerType>
-        <alwaysFlee>true</alwaysFlee>
-        <building>
-          <groundSpawnerSustainedEffecter>EmergencePointSustained2X2</groundSpawnerSustainedEffecter>
-          <groundSpawnerCompleteEffecter>EmergencePointComplete2X2</groundSpawnerCompleteEffecter>
-        </building>
-      </ThingDef>
+  <ThingDef ParentName="EtherealThingBase">
+	<defName>DV_Ethereal_DrillPod</defName>
+	<label>tunnel</label>
+	<thingClass>LTS_StonebornSiteGeneration.ThingClass_ExcavationGroundSpawner</thingClass>
+	<tickerType>Normal</tickerType>
+	<drawerType>RealtimeOnly</drawerType>
+	<alwaysFlee>true</alwaysFlee>
+	<building>
+	  <groundSpawnerSustainedEffecter>EmergencePointSustained2X2</groundSpawnerSustainedEffecter>
+	  <groundSpawnerCompleteEffecter>EmergencePointComplete2X2</groundSpawnerCompleteEffecter>
+	</building>
+  </ThingDef>
+	  
+	  
+	  
+  <ThingDef Name="LTS_CaveShuttleBase" ParentName="BuildingBase">
+	<defName>LTS_DrillShuttle</defName>
+	<label>caveshuttle</label>
+	<description>A sub-terrestrial vehicle designed for transporting soldiers and resources between underground locations and the surface. To prevent unsanctioned use, the shuttle is locked to the pilot's bio-signature.</description>
+	<altitudeLayer>Building</altitudeLayer>
+	<preventDroppingThingsOn>true</preventDroppingThingsOn>
+	<pathCost>50</pathCost>
+	<blockWind>true</blockWind>
+	<passability>PassThroughOnly</passability>
+	<fillPercent>1.0</fillPercent>
+	<size>(5,3)</size>
+	<!--<drawHighlight>true</drawHighlight>
+	<highlightColor>(0.56, 0.62, 0.9)</highlightColor>-->
+	<graphicData>
+	  <texPath>Things/Special/CaveShuttle</texPath>
+	  <graphicClass>Graphic_Single</graphicClass>
+	  <drawSize>(6,3)</drawSize>
+	  <!--<color>(162,164,149)</color>-->
+	  <shadowData>
+		<volume>(4.1, 1.0, 1.8)</volume>
+		<offset>(-0.5, 0, -0.1)</offset>
+	  </shadowData>
+	</graphicData>
+	<useHitPoints>false</useHitPoints>
+	<holdsRoof>true</holdsRoof>
+    <destroyable>true</destroyable>
+	<statBases>
+	  <Flammability>0</Flammability>
+	  <Comfort>0.65</Comfort>
+	</statBases>
+	<tickerType>Normal</tickerType>
+	<canOverlapZones>false</canOverlapZones>
+	<killedLeavings>
+	  <Plasteel>50</Plasteel>
+	  <Uranium>50</Uranium>
+	  <ChunkSlagSteel>4</ChunkSlagSteel>
+	  <ComponentIndustrial>4</ComponentIndustrial>
+	</killedLeavings>
+	<rotatable>false</rotatable>
+	<bringAlongOnGravship>false</bringAlongOnGravship>
+	<!--<hasInteractionCell>true</hasInteractionCell>
+	<interactionCellOffset>(-1, 0, -2)</interactionCellOffset>-->
+	<selectable>true</selectable>
+	<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+	<soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+	<preventSkyfallersLandingOn>true</preventSkyfallersLandingOn>
+	<drawerType>RealtimeOnly</drawerType>
+	<repairEffect>ConstructMetal</repairEffect>
+	<forceDebugSpawnable>true</forceDebugSpawnable>
+	<uiIconScale>1.4</uiIconScale>
+	<building>
+	  <isEdifice>true</isEdifice>
+      <deconstructible>false</deconstructible>
+      <isTargetable>false</isTargetable>
+      <isInert>true</isInert>
+      <claimable>false</claimable>
+      <expandHomeArea>false</expandHomeArea>
+	</building>
+	<inspectorTabs>
+	  <li>ITab_ContentsTransporter</li>
+	</inspectorTabs>
+	<comps>
+	
+	  <li Class="LTS_StonebornSiteGeneration.CompProperties_DrillShuttle">
+	    <incomingShuttleDef>LTS_DrillShuttleIncoming</incomingShuttleDef>
+		<outgoingShuttleDef>LTS_DrillShuttleOutgoing</outgoingShuttleDef>
+	  </li>
+	  
+	  <li Class="CompProperties_Transporter">
+		<massCapacity>2000</massCapacity>
+		<max1PerGroup>true</max1PerGroup>
+		<canChangeAssignedThingsAfterStarting>true</canChangeAssignedThingsAfterStarting>
+		<showOverallStats>false</showOverallStats>
+		<pawnLoadedSound>Shuttle_PawnLoaded</pawnLoadedSound>
+		<pawnExitSound>Shuttle_PawnExit</pawnExitSound>
+	  </li>
+	  <li Class="CompProperties_AmbientSound">
+		<sound>ShuttleIdle_Ambience</sound>
+	  </li>
+	</comps>
+  </ThingDef>
+  
+  <ThingDef ParentName="EtherealThingBase">
+    <defName>LTS_DrillShuttleIncoming</defName>
+    <label>emerging cave shuttle</label>
+    <thingClass>LTS_StonebornSiteGeneration.EmergingDrillShuttle</thingClass>
+    <tickerType>Normal</tickerType>
+    <drawerType>RealtimeOnly</drawerType>
+    <alwaysFlee>false</alwaysFlee>
+    <building>
+      <groundSpawnerSustainedEffecter>EmergencePointSustained2X2</groundSpawnerSustainedEffecter>
+      <groundSpawnerCompleteEffecter>EmergencePointComplete2X2</groundSpawnerCompleteEffecter>
+    </building>
+  </ThingDef>
+  
+  <ThingDef ParentName="EtherealThingBase">
+    <defName>LTS_DrillShuttleOutgoing</defName>
+    <label>outgoing cave shuttle</label>
+    <thingClass>GroundSpawner</thingClass>
+    <tickerType>Normal</tickerType>
+    <drawerType>RealtimeOnly</drawerType>
+    <alwaysFlee>false</alwaysFlee>
+    <building>
+      <groundSpawnerSustainedEffecter>EmergencePointSustained2X2</groundSpawnerSustainedEffecter>
+      <groundSpawnerCompleteEffecter>EmergencePointComplete2X2</groundSpawnerCompleteEffecter>
+    </building>
+  </ThingDef>
+  
+  <!--<ThingDef ParentName="ShuttleSkyfallerBase">
+    <defName>LTS_DrillShuttleIncoming</defName>
+    <label>caveshuttle (incoming)</label>
+    <thingClass>ShuttleIncoming</thingClass>
+	<size>(5,3)</size>
+    <graphicData>
+      <texPath>Things/Special/CaveShuttle</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutFlying</shaderType>
+      <drawSize>(6,3)</drawSize>
+    </graphicData>
+    <skyfaller>
+      <anticipationSound>Shuttle_Landing</anticipationSound>
+      <anticipationSoundTicks>250</anticipationSoundTicks>
+      <ticksToImpactRange>200~250</ticksToImpactRange>
+      <angleCurve>
+        <points>
+          <li>(0,-60)</li>
+          <li>(1,-90)</li>
+        </points>
+      </angleCurve>
+      <rotationCurve>
+        <points>
+          <li>(0,30)</li>
+          <li>(0.5,5)</li>
+          <li>(0.9,-5)</li>
+          <li>(0.95,0)</li>
+        </points>
+      </rotationCurve>
+      <zPositionCurve>
+        <points>
+          <li>(0.95,2.5)</li>
+          <li>(1,0)</li>
+        </points>
+      </zPositionCurve>
+      <speedCurve>
+        <points>
+          <li>(0.6,0.6)</li>
+          <li>(0.95,0.1)</li>
+        </points>
+      </speedCurve>
+    </skyfaller>
+  </ThingDef>
+
+  <ThingDef ParentName="ShuttleSkyfallerBase">
+    <defName>LTS_DrillShuttleOutgoing</defName>
+    <label>caveshuttle (leaving)</label>
+    <thingClass>FlyShipLeaving</thingClass>
+	<size>(5,3)</size>
+    <graphicData>
+      <texPath>Things/Special/CaveShuttle</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutFlying</shaderType>
+      <drawSize>(6,3)</drawSize>
+    </graphicData>
+    <skyfaller>
+      <reversed>true</reversed>
+      <anticipationSound>Shuttle_Leaving</anticipationSound>
+      <anticipationSoundTicks>-10</anticipationSoundTicks>
+      <ticksToImpactRange>-40~-15</ticksToImpactRange>
+      <moteSpawnTime>0.05</moteSpawnTime>
+      <shadow>Things/Skyfaller/SkyfallerShadowRectangle</shadow>
+      <shadowSize>(5.5,3.5)</shadowSize>
+      <motesPerCell>1</motesPerCell>
+      <angleCurve>
+        <points>
+          <li>(0,90)</li>
+          <li>(1,70)</li>
+        </points>
+      </angleCurve>
+      <rotationCurve>
+        <points>
+          <li>(0,0)</li>
+          <li>(0.15,10)</li>
+          <li>(0.5,-5)</li>
+        </points>
+      </rotationCurve>
+      <zPositionCurve>
+        <points>
+          <li>(0,0)</li>
+          <li>(0.08,2)</li>
+        </points>
+      </zPositionCurve>
+      <speedCurve>
+        <points>
+          <li>(0,0.2)</li>
+          <li>(0.4,0.7)</li>
+        </points>
+      </speedCurve>
+    </skyfaller>
+  </ThingDef>-->
+	  
 </Defs>

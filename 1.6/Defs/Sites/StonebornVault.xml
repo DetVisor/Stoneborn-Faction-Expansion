@@ -52,7 +52,7 @@
 
 			<li>LTS_MinecartContents</li>
 			<li>LTS_NextMapEntranceHandler</li>
-			<li>LTS_StonebornVaultFindPlayerStartSpot</li>
+			<li>LTS_StonebornPortalMapFindPlayerStartSpot</li>
 			<li>LTS_HermitCrates</li>
 
 			<li>Fog</li>
@@ -82,7 +82,7 @@
 
 			<li>LTS_MinecartContents</li>
 			<li>LTS_NextMapEntranceHandler</li>
-			<li>LTS_StonebornVaultFindPlayerStartSpot</li>
+			<li>LTS_StonebornPortalMapFindPlayerStartSpot</li>
 			<li>LTS_HermitCrates</li>
 			<li>LTS_FirstFloorLadder</li>
 
@@ -127,7 +127,7 @@
 
 			<li>LTS_StonebornVault</li>
 			<li>LTS_MinecartContents</li>
-			<li>LTS_StonebornVaultFindPlayerStartSpot</li>
+			<li>LTS_StonebornPortalMapFindPlayerStartSpot</li>
 			<li>LTS_HermitCrates</li>
 
 			<li>Fog</li>
@@ -169,7 +169,7 @@
 
 			<li>LTS_StonebornVaultCaveFinal</li>
 			<li>LTS_MinecartContents</li>
-			<li>LTS_StonebornVaultFindPlayerStartSpot</li>
+			<li>LTS_StonebornPortalMapFindPlayerStartSpot</li>
 			<li>LTS_HermitCrates</li>
 
 			<li>Fog</li>
@@ -211,9 +211,9 @@
 	<!--Misc GenSteps-->
 
 	<GenStepDef>
-		<defName>LTS_StonebornVaultFindPlayerStartSpot</defName>
+		<defName>LTS_StonebornPortalMapFindPlayerStartSpot</defName>
 		<order>552</order>
-		<genStep Class="LTS_StonebornSiteGeneration.LTS_GenStep_FindStart"/>
+		<genStep Class="LTS_StonebornSiteGeneration.LTS_GenStep_FindStartPortalMap"/>
 	</GenStepDef>
 
 	<GenStepDef>

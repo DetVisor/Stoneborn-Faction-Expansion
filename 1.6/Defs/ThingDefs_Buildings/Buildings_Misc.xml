@@ -4,7 +4,7 @@
   <ThingDef ParentName="BuildingBase">
     <defName>DV_PlantBox</defName>
     <label>plant box</label>
-    <description>A self-powered hermetically-sealed crate for preserving valuable items. These can preserve their contents for a long time.</description>
+    <description>An encounter marker.</description>
     <size>(1, 1)</size>
     <graphicData>
       <graphicClass>Graphic_Single</graphicClass>
@@ -178,7 +178,7 @@
   <ThingDef ParentName="BuildingBase">
     <defName>DV_RustBox</defName>
     <label>rustbug box</label>
-    <description>A self-powered hermetically-sealed crate for preserving valuable items. These can preserve their contents for a long time.</description>
+    <description>An encounter marker.</description>
     <size>(1, 1)</size>
     <graphicData>
       <graphicClass>Graphic_Single</graphicClass>
@@ -215,7 +215,7 @@
   <ThingDef ParentName="BuildingBase">
     <defName>DV_MonsterBox</defName>
     <label>monster box</label>
-    <description>A self-powered hermetically-sealed crate for preserving valuable items. These can preserve their contents for a long time.</description>
+    <description>An encounter marker.</description>
     <size>(1, 1)</size>
     <graphicData>
       <graphicClass>Graphic_Single</graphicClass>
@@ -561,7 +561,7 @@
   <ThingDef ParentName="BuildingBase">
     <defName>DV_PLACEHOLDER</defName>
     <label>placeholder</label>
-    <description>A self-powered hermetically-sealed crate for preserving valuable items. These can preserve their contents for a long time.</description>
+    <description>An encounter marker.</description>
     <size>(1, 1)</size>
     <graphicData>
       <graphicClass>Graphic_Single</graphicClass>
@@ -580,7 +580,7 @@
   <ThingDef ParentName="BuildingBase">
     <defName>DV_PLACEHOLDER_BAD</defName>
     <label>monster placeholder</label>
-    <description>A self-powered hermetically-sealed crate for preserving valuable items. These can preserve their contents for a long time.</description>
+    <description>An encounter marker.</description>
     <size>(1, 1)</size>
     <graphicData>
       <graphicClass>Graphic_Single</graphicClass>
@@ -599,7 +599,7 @@
   <ThingDef ParentName="BuildingBase">
     <defName>DV_PLACEHOLDERPLANT</defName>
     <label>plant placeholder</label>
-    <description>A self-powered hermetically-sealed crate for preserving valuable items. These can preserve their contents for a long time.</description>
+    <description>An encounter marker.</description>
     <size>(1, 1)</size>
     <graphicData>
       <graphicClass>Graphic_Single</graphicClass>

@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!--<SitePartDef>
+    <defName>LTS_StonebornCaveSite</defName>
+    <label>stoneborn ruins</label>
+    <description>A ruined site.</description>
+    <siteTexture>World/WorldObjects/Sites/GenericSite</siteTexture>
+    <expandingIconTexture>World/StonebornRuin</expandingIconTexture>
+    <handlesWorldObjectTimeoutInspectString>true</handlesWorldObjectTimeoutInspectString>
+    <gravShipsCanLandOn>true</gravShipsCanLandOn>
+    <tags>
+      <li>LTS_StonebornCaveSite</li>
+    </tags>
+    <extraGenSteps>
+      <li>LTS_StonebornCaveSite</li>
+      <li>LTS_HermitCrates_StonebornRuinSite</li>
+    </extraGenSteps>
+  </SitePartDef>-->
+  
+  <MapGeneratorDef>
+		<defName>LTS_StonebornCave</defName>
+		<label>cave</label>
+		<isUnderground>true</isUnderground>
+		<disableCallAid>true</disableCallAid>
+		
+		<forceCaves>true</forceCaves>
+		<ignoreAreaRevealedLetter>true</ignoreAreaRevealedLetter>
+		
+		<pocketMapProperties>
+			<biome>Underground</biome>
+			<temperature>15</temperature>
+			<canBeCleaned>true</canBeCleaned>
+			<tileMutators>
+				<li>UndergroundCave</li>
+		    </tileMutators>
+		</pocketMapProperties>
+		<genSteps>
+		  <li>ElevationFertility</li>
+		  <li>MutatorPostElevationFertility</li>
+		  <li>Underground_RocksFromGrid</li>
+		  <li>Terrain</li>
+		  <li>MutatorPostTerrain</li>
+			
+		  <li>Underground_ScatterRuinsSimple</li>
+		  <li>MutatorCriticalStructures</li>
+		  <li>MutatorNonCriticalStructures</li>
+			
+		  <li>RockChunks</li>
+
+		  <!--<li>PlaceCaveExit</li>-->
+		  <li>LTS_StonebornPocketMapFindPlayerStartSpot</li>
+		  
+		  <li>Plants</li>
+		  <li>MutatorFinal</li>
+		  <li>Fog</li>
+		</genSteps>
+	</MapGeneratorDef>
+
+  <!--<GenStepDef>
+    <defName>LTS_StonebornCave</defName>
+    <order>460</order>
+    <genStep Class="KCSG.GenStep_CustomStructureGen">
+      <structureLayoutDefs>
+        <li>LTS_StonebornCave_Test</li>
+      </structureLayoutDefs>
+
+      <fullClear>true</fullClear>
+      <clearFogInRect>false</clearFogInRect>
+      <preventBridgeable>true</preventBridgeable>
+    </genStep>
+  </GenStepDef>-->
+
+  <!--<GenStepDef>
+    <defName>LTS_HermitCrates_StonebornRuinSite</defName>
+    <order>553</order>
+    <genStep Class="LTS_StonebornSiteGeneration.LTS_GenStep_HermitCrates"/>
+    <linkWithSite>LTS_StonebornRuinSite</linkWithSite>
+  </GenStepDef>-->
+
+  <!--Misc GenSteps-->
+
+	<GenStepDef>
+		<defName>LTS_StonebornPocketMapFindPlayerStartSpot</defName>
+		<order>552</order>
+		<genStep Class="LTS_StonebornSiteGeneration.LTS_GenStep_FindStartShuttleMap"/>
+	</GenStepDef>
+
+  <!--Structure Layout Defs-->
+
+  <!--<KCSG.StructureLayoutDef>
+  <defName>LTS_StonebornCave_Test</defName>
+  <spawnConduits>false</spawnConduits>
+  <layouts>
+    <li>
+      <li>Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite</li>
+      <li>Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite</li>
+      <li>Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,MineableUranium,MineableUranium,MineableUranium,MineableUranium,Granite,Granite,Granite,Granite,.,.,.,.,.,Granite,Granite,Granite</li>
+      <li>Granite,Granite,Granite,MineableUranium,MineableUranium,Granite,Granite,Granite,Granite,Granite,Granite,Granite,MineableUranium,MineableUranium,Granite,Granite,Granite,.,.,.,.,.,.,.,Granite,Granite</li>
+      <li>Granite,Granite,MineableUranium,MineableUranium,MineableUranium,Granite,Granite,Granite,Granite,Granite,Granite,Granite,.,.,.,Granite,.,.,.,.,.,LTS_DrillShuttleExit,.,.,Granite,Granite</li>
+      <li>Granite,Granite,Granite,MineableUranium,Granite,Granite,Granite,Granite,Granite,Granite,Granite,.,.,.,.,.,.,.,.,.,.,.,.,.,Granite,Granite</li>
+      <li>Granite,Granite,Granite,.,.,.,Granite,Granite,Granite,Granite,Granite,.,.,.,DV_Dwarven_MineSupport,.,.,.,.,Granite,.,.,Granite,Granite,Granite,Granite</li>
+      <li>Granite,Granite,Granite,.,.,.,Granite,Granite,Granite,Granite,.,.,.,.,.,.,.,.,.,Granite,Granite,Granite,Granite,Granite,Granite,Granite</li>
+      <li>Granite,Granite,Granite,Granite,.,.,.,Granite,Granite,.,.,.,.,.,.,.,.,.,.,Granite,Granite,Granite,Granite,Granite,Granite,Granite</li>
+      <li>Granite,Granite,Granite,Granite,.,.,.,.,Granite,.,.,.,.,.,.,.,.,.,.,CollapsedRocks_North,CollapsedRocks_North,CollapsedRocks_North,CollapsedRocks_North,CollapsedRocks_North,Granite,Granite</li>
+      <li>Granite,Granite,Granite,Granite,Granite,.,.,.,.,.,.,DV_Dwarven_MinecartRails,DV_Dwarven_MinecartRails,DV_Dwarven_MinecartRails,DV_Dwarven_MinecartRails,DV_Dwarven_MinecartRails,DV_Dwarven_MinecartRails,DV_Dwarven_MinecartRails,DV_Dwarven_MinecartRails,DV_Dwarven_MinecartRails,DV_Dwarven_MinecartRails,DV_Dwarven_MinecartRails,DV_Dwarven_MinecartRails,DV_Dwarven_MinecartRails,DV_Dwarven_MinecartRails,Granite</li>
+      <li>Granite,Granite,Granite,Granite,Granite,.,.,.,.,.,.,.,.,.,.,.,.,.,CollapsedRocks_North,CollapsedRocks_North,CollapsedRocks_North,CollapsedRocks_North,CollapsedRocks_North,CollapsedRocks_North,Granite,Granite</li>
+      <li>Granite,Granite,Granite,Granite,Granite,.,.,AncientExcavator_West,.,.,.,.,.,.,.,.,.,.,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite</li>
+      <li>Granite,Granite,Granite,Granite,.,.,.,.,.,.,DV_Dwarven_MineSupport,.,.,.,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite</li>
+      <li>Granite,Granite,Granite,Granite,.,.,.,DV_Dwarven_MinecartRails,.,.,.,.,.,MineableUranium,MineableUranium,MineableUranium,MineableUranium,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite</li>
+      <li>Granite,Granite,Granite,Granite,Granite,.,.,DV_Dwarven_MinecartRails,.,.,.,MineableUranium,MineableUranium,MineableUranium,MineableUranium,MineableUranium,MineableUranium,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite</li>
+      <li>Granite,Granite,Granite,Granite,Granite,Granite,CollapsedRocks_North,DV_Dwarven_MinecartRails,CollapsedRocks_North,Granite,Granite,Granite,Granite,Granite,MineableUranium,MineableUranium,MineableUranium,MineableUranium,MineableUranium,Granite,Granite,Granite,Granite,Granite,Granite,Granite</li>
+      <li>Granite,Granite,Granite,Granite,Granite,Granite,CollapsedRocks_North,DV_Dwarven_MinecartRails,CollapsedRocks_North,Granite,Granite,Granite,Granite,Granite,Granite,Granite,MineableUranium,MineableUranium,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite</li>
+      <li>Granite,Granite,Granite,Granite,Granite,Granite,CollapsedRocks_North,DV_Dwarven_MinecartRails,CollapsedRocks_North,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite</li>
+      <li>Granite,Granite,Granite,Granite,Granite,Granite,Granite,DV_Dwarven_MinecartRails,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite</li>
+      <li>Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite,Granite</li>
+    </li>
+    <li>
+      <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,CollapsedRocks_North,CollapsedRocks_North,CollapsedRocks_North,CollapsedRocks_North,CollapsedRocks_North,CollapsedRocks_North,.</li>
+      <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,.,.,.,.,.,.,CollapsedRocks_North,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,.,.,.,.,.,.,CollapsedRocks_North,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,.,.,.,.,.,.,CollapsedRocks_North,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+    </li>
+  </layouts>
+  <roofGrid>
+    <li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+    <li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+    <li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,.,3,3,3,3,3,3,3</li>
+    <li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,.,3,3,3,3,3,3,3,3</li>
+    <li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,.,3,3,3,3,3,3,3,3</li>
+    <li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+    <li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+    <li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+    <li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+    <li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+    <li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+    <li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+    <li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+    <li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+    <li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+    <li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+    <li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+    <li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+    <li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+    <li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+    <li>3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3</li>
+  </roofGrid>
+  <terrainGrid>
+    <li>Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn</li>
+    <li>Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn</li>
+    <li>Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn</li>
+    <li>Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn</li>
+    <li>Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn</li>
+    <li>Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn</li>
+    <li>Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn</li>
+    <li>Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn</li>
+    <li>Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn</li>
+    <li>Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn</li>
+    <li>Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn</li>
+    <li>Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn</li>
+    <li>Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn</li>
+    <li>Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn</li>
+    <li>Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn</li>
+    <li>Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn</li>
+    <li>Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn</li>
+    <li>Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn</li>
+    <li>Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn</li>
+    <li>Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn</li>
+    <li>Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn,Granite_RoughHewn</li>
+  </terrainGrid>
+  <forceGenerateRoof>true</forceGenerateRoof>
+  <modRequirements>
+    <li>det.stonebornfaction</li>
+    <li>ludeon.rimworld.odyssey</li>
+  </modRequirements>
+</KCSG.StructureLayoutDef>-->
+
+  <!--Symbols-->
+  
+<!--<KCSG.SymbolDef>
+  <defName>LTS_DrillShuttleExit</defName>
+  <thing>LTS_DrillShuttleExit</thing>
+</KCSG.SymbolDef>-->
+  
+</Defs>
