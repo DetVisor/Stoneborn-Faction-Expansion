@@ -1789,6 +1789,12 @@ namespace LTS_StonebornSiteGeneration
 
 
             }
+
+            if (Find.TickManager.TicksGame % 30 == 0 && !returning && pocketMap != null && !(pocketMap.mapPawns.AllPawns.Any(p => !p.Dead && p.IsColonist) || shuttleInventory.Any(t => t is Pawn pawn && !pawn.Dead && pawn.IsColonist)))//every half second, check if the pocketmap exists and, if so, if there are any living colonists in it.
+            {
+                quest.End(QuestEndOutcome.Fail);
+                PocketMapUtility.DestroyPocketMap(pocketMap);
+            }
         }
         public static bool CanFitBuilding(IntVec3 cell, Map map, ThingDef buildingDef)//checks if a cell can have a building spawned on it.
         {
@@ -1907,15 +1913,6 @@ namespace LTS_StonebornSiteGeneration
         {
             foreach (Gizmo gizmo in base.CompGetGizmosExtra())
                 yield return gizmo;
-            //IEnumerator<Gizmo> enumerator = null;
-
-            //foreach (Gizmo gizmo3 in QuestUtility.GetQuestRelatedGizmos(this.parent))
-            //{
-            //    yield return gizmo3;
-            //}
-            //enumerator = null;
-            //yield break;
-
 
             yield return new Command_Action
             {
@@ -1924,34 +1921,54 @@ namespace LTS_StonebornSiteGeneration
                 icon = ContentFinder<Texture2D>.Get("UI/LaunchDrillShuttle"),
                 action = delegate ()
                 {
-                    Quest quest = Find.QuestManager.QuestsListForReading.FirstOrDefault(q => q.QuestLookTargets.Contains(parent));
-                    //if (parent.Map.IsPocketMap)
-                    //    quest.Notify_SignalReceived(new Signal("Quest" + quest.id + ".ShuttleLaunched"));
-                    //else
-                    //    quest.Notify_SignalReceived(new Signal("Quest" + quest.id + ".ReturnShuttleLaunched"));
-                    QuestPart_MiningQuota questPart = quest.PartsListForReading.FirstOrDefault(p => p.GetType() == typeof(QuestPart_MiningQuota)) as QuestPart_MiningQuota;
-                    questPart.LaunchDrillShuttle(this);
-                    if (parent.Map.IsPocketMap)
-                    {
-                        questPart.returning = true;
-                    }
-                        
-                    GenSpawn.Spawn(Props.outgoingShuttleDef, parent.Position, parent.Map);
+                    //confirmation popup. If accepted, delete inventory and fail quest in no player controlled pawns onboard.
+                    string warningText;
+                    if (!parent.Map.IsPocketMap) warningText = "Warning:\n\nOppertunities to gather food on this expedition may be limited so it is recomended to pack sufficient food and medical supplies.\n\nOnce the expedition is launched, there will be no oppertunities to send additional supplies or reinforcements before the end of the mission.";
+                    else warningText = "Warning:\n\nAnything left behind when the shuttle departs will be permentntly lost.";
 
-                    //questPart.shuttle = parent;//Just in case...
-                    //parent.GetComp<CompTransporter>().loa
-                    compTransporter.TryRemoveLord(parent.Map);//end shuttle loading task
-                                                              //ThingOwner shuttleInventory = compTransporter.GetDirectlyHeldThings();
-                                                              //activeTransporter.Contents.innerContainer.TryAddRangeOrTransfer(directlyHeldThings, true, true);
-                                                              //ThingOwner a.inner // .TryAddRangeOrTransfer(shuttleInventory, true, true);
+                    Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation(warningText, delegate ()
+                        {
+                            Quest quest = Find.QuestManager.QuestsListForReading.FirstOrDefault(q => q.QuestLookTargets.Contains(parent));
+                            QuestPart_MiningQuota questPart = quest.PartsListForReading.FirstOrDefault(p => p.GetType() == typeof(QuestPart_MiningQuota)) as QuestPart_MiningQuota;
 
-                    questPart.shuttleInventory.TryAddRangeOrTransfer(compTransporter.GetDirectlyHeldThings(), true, true);//moves everything in the shuttle to the QuestPart_MiningQuota
-                                                                                                                          //questPart.shuttleInventory.TryAddRangeOrTransfer(null, true, true);
+                            if (parent.Map.IsPocketMap || compTransporter.innerContainer.Any(p => p is Pawn pawn && pawn.IsColonist))//should return true for any amount of colonists /inclusive or we're already on the pocket map.
+                            {
 
-                    compTransporter.CleanUpLoadingVars(parent.Map);
-                    parent.Destroy(DestroyMode.Vanish);
+                                questPart.LaunchDrillShuttle(this);
+                                if (parent.Map.IsPocketMap)
+                                {
+                                    questPart.returning = true;
+                                }
 
-                    //parent.DeSpawn(DestroyMode.Vanish);
+                                GenSpawn.Spawn(Props.outgoingShuttleDef, parent.Position, parent.Map);
+
+                                
+
+                                questPart.shuttleInventory.TryAddRangeOrTransfer(compTransporter.GetDirectlyHeldThings(), true, true);//moves everything in the shuttle to the QuestPart_MiningQuota
+
+                                compTransporter.CleanUpLoadingVars(parent.Map);
+                                //parent.Destroy(DestroyMode.Vanish);
+                            }
+                            else //destroy inventory, fail quest.
+                            {
+                                //string lostItemLetterText = ;
+                                
+                                
+                                
+                                Find.LetterStack.ReceiveLetter("Expedition Lost", "The cave shuttle was launched without any colonists aboard. All items remaining aboard have been lost.",LetterDefOf.NegativeEvent);
+
+                                compTransporter.GetDirectlyHeldThings().ClearAndDestroyContents(DestroyMode.Vanish);
+                                quest.End(QuestEndOutcome.Fail);
+                            }
+
+                            compTransporter.TryRemoveLord(parent.Map);//end shuttle loading task
+                            parent.Destroy(DestroyMode.Vanish);
+                        }, false, null, WindowLayer.Dialog
+                    ));
+
+
+
+                    
                 }
 
             };
@@ -2018,8 +2035,6 @@ namespace LTS_StonebornSiteGeneration
         }
     }
 
-    // -------------------------------------------------------------------------------------
-
     public class LTS_GenStep_FindStartShuttleMap : GenStep
     {
         public override int SeedPart
@@ -2043,6 +2058,8 @@ namespace LTS_StonebornSiteGeneration
             }
         }
     }
+
+    // -------------------------------------------------------------------------------------
 
 
 
