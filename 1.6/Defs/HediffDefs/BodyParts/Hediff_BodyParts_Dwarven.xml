@@ -52,7 +52,7 @@
   <HediffDef ParentName="ImplantHediffBase">
     <defName>DV_CarrierMultiarm</defName>
     <label>carrier multi-arm</label>
-    <labelNoun>a carrier arm</labelNoun>
+    <labelNoun>a carrier multi-arm</labelNoun>
     <description>A heavy bionic multi-arm designed to aid in lifting and carrying.</description>
     <defaultInstallPart>Shoulder</defaultInstallPart>
     <stages>
@@ -182,7 +182,7 @@
   <HediffDef ParentName="ImplantHediffBase">
     <defName>DV_AssistantMultiarm</defName>
     <label>assistant multi-arm</label>
-    <labelNoun>an assistant arm</labelNoun>
+    <labelNoun>an assistant multi-arm</labelNoun>
     <description>A heavy bionic multi-arm designed to aid in general labor.</description>
     <defaultInstallPart>Shoulder</defaultInstallPart>
     <stages>
@@ -313,7 +313,7 @@
   <HediffDef ParentName="ImplantHediffBase">
     <defName>DV_ConstructorMultiarm</defName>
     <label>constructor multi-arm</label>
-    <labelNoun>a constructor arm</labelNoun>
+    <labelNoun>a constructor multi-arm</labelNoun>
     <description>A heavy bionic multi-arm designed to aid in construction.</description>
     <defaultInstallPart>Shoulder</defaultInstallPart>
     <stages>
@@ -440,7 +440,7 @@
   <HediffDef ParentName="ImplantHediffBase">
     <defName>DV_MinerMultiarm</defName>
     <label>miner multi-arm</label>
-    <labelNoun>a mining arm</labelNoun>
+    <labelNoun>a mining multi-arm</labelNoun>
     <description>A heavy bionic multi-arm designed to aid in mining.</description>
     <defaultInstallPart>Shoulder</defaultInstallPart>
     <stages>
@@ -524,7 +524,6 @@
 
   <!--Crafting arm-->
 
-
   <ThingDef ParentName="MultiArmBionicDwarven">
     <defName>DV_CrafterArmThing</defName>
     <label>crafting multi-arm</label>
@@ -571,8 +570,8 @@
 
   <HediffDef ParentName="ImplantHediffBase">
     <defName>DV_CrafterMultiarm</defName>
-    <label>crafter arm</label>
-    <labelNoun>a crafter arm</labelNoun>
+    <label>crafter multi-arm</label>
+    <labelNoun>a crafter multi-arm</labelNoun>
     <description>A heavy bionic multi-arm designed to aid in crafting.</description>
     <defaultInstallPart>Shoulder</defaultInstallPart>
     <stages>
@@ -654,7 +653,6 @@
   </HediffDef>
 
   <!--Socket surgery -->
-
 
   <ThingDef ParentName="MultiArmBionicDwarven">
     <defName>DV_SocketJointThing</defName>
@@ -1291,7 +1289,6 @@
     </appliedOnFixedBodyParts>
     <addsHediff>DV_ArmCannon</addsHediff>
   </RecipeDef>
-
 
   <!-- Shock fist  -->
 
