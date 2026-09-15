@@ -502,4 +502,65 @@
     </tradeTags>
   </ThingDef>
   
+  <ThingDef ParentName="ApparelNoQualityBase">
+    <defName>LTS_Apparel_Exemplar_DimensionalBag</defName>
+    <label>dimensional bag</label>
+    <description>A portable gateway to a pocket dimension, used for storing items. Its inner workings are a mystery to all human minds.</description>
+    <techLevel>Archotech</techLevel>
+    <graphicData>
+      <texPath>Things/Item/Equipment/Loot/Exemplar/Exemplar_DimensionalBag</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1</drawSize>
+    </graphicData>
+	<!--<recipeMaker>
+      <unfinishedThingDef>UnfinishedPack</unfinishedThingDef>
+      <researchPrerequisite>DisruptorFlares</researchPrerequisite>
+      <recipeUsers>
+        <li>BioferriteShaper</li>
+      </recipeUsers>
+      <useIngredientsForColor>false</useIngredientsForColor>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <skillRequirements>
+        <Crafting>4</Crafting>
+      </skillRequirements>
+      <displayPriority>30</displayPriority>
+    </recipeMaker>
+    <costList>
+      <ComponentIndustrial>1</ComponentIndustrial>
+      <Bioferrite>30</Bioferrite>
+    </costList>-->
+    <!--<tickerType>Normal</tickerType>-->
+	
+	<smeltable>false</smeltable>
+	<equippedStatOffsets>
+		<CarryingCapacity>500</CarryingCapacity>
+		<VEF_MassCarryCapacity>500</VEF_MassCarryCapacity>
+	</equippedStatOffsets>
+	
+    <statBases>
+      <Mass>3</Mass>
+      <Flammability>0.4</Flammability>
+      <EquipDelay>2</EquipDelay>
+    </statBases>
+    <thingCategories>
+      <li>ApparelUtility</li>
+    </thingCategories>
+    <apparel>
+      <countsAsClothingForNudity>false</countsAsClothingForNudity>
+      <careIfWornByCorpse>false</careIfWornByCorpse>
+      <careIfDamaged>false</careIfDamaged>
+      <wearPerDay>0</wearPerDay>
+      <bodyPartGroups>
+        <li>Waist</li>
+      </bodyPartGroups>
+      <layers>
+        <li>Belt</li>
+      </layers>
+    </apparel>
+    <allowedArchonexusCount>1</allowedArchonexusCount>
+  </ThingDef>
+  
 </Defs>

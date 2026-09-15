@@ -249,6 +249,10 @@
                 <range>1~2</range>
                 <faction>DV_DungeonMonsters</faction>
               </li>
+			  <li>
+			    <thingDef>LTS_Knyfevyn_Standard</thingDef>
+				<range>0~1</range>
+			  </li>
             </spawnGroups>
           </li>
 
@@ -265,6 +269,10 @@
                 <range>1~2</range>
                 <faction>DV_DungeonMonsters</faction>
               </li>
+			  <li>
+			    <thingDef>LTS_Knyfevyn_Standard</thingDef>
+				<range>0~1</range>
+			  </li>
             </spawnGroups>
           </li>
 
@@ -286,6 +294,10 @@
                 <range>1</range>
                 <faction>DV_DungeonMonsters</faction>
               </li>
+			  <li>
+			    <thingDef>LTS_Knyfevyn_Standard</thingDef>
+				<range>1</range>
+			  </li>
             </spawnGroups>
           </li>
 

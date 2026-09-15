@@ -225,4 +225,62 @@
             </li>
         </comps>
     </ThingDef>
+
+
+
+	<ThingDef ParentName="BuildingBase">
+    <defName>LTS_Knyfevyn_Standard</defName>
+    <label>knyfevyn standard</label>
+    <thingClass>Building</thingClass>
+    <category>Building</category>
+    <description>A sturdy wooden support. Keeps the ceiling from falling.</description>
+    <noRightClickDraftAttack>true</noRightClickDraftAttack>
+    <!--<altitudeLayer>MoteOverhead</altitudeLayer>-->
+    <graphicData>
+      <texPath>Things/Building/Ruins/Knyfevyn_Standard</texPath>
+      <shaderType>CutoutComplex</shaderType>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>2.5</drawSize>
+      <drawOffset>(0,0,0.5)</drawOffset>
+      <shadowData>
+        <volume>(0.76,0.3,0.15)</volume>
+        <offset>(0,0,-0.39)</offset>
+      </shadowData>
+    </graphicData>
+	<drawerType>RealtimeOnly</drawerType>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <WorkToBuild>400</WorkToBuild>
+    </statBases>
+    <fillPercent>0.25</fillPercent>
+    <passability>PassThroughOnly</passability>
+    <pathCost>42</pathCost>
+    <blockWind>true</blockWind>
+    <filthLeaving>Filth_RubbleBuilding</filthLeaving>
+    <rotatable>false</rotatable>
+    <costList>
+      <Leather_Human>25</Leather_Human>
+    </costList>
+    <building>
+      <claimable>false</claimable>
+      <deconstructible>false</deconstructible>
+      <isInert>true</isInert>
+      <ai_chillDestination>false</ai_chillDestination>
+      <canLandGravshipOn>true</canLandGravshipOn>
+    </building>
+	<comps>
+      <li Class="CompProperties_DrawAdditionalGraphics">
+        <graphics>
+          <li>
+            <graphicClass>Graphic_Single</graphicClass>
+            <texPath>Things/Building/Ruins/Knyfevyn_Standard_Glow</texPath>
+            <drawSize>2.5</drawSize>
+            <drawOffset>(0,0.01,0.5)</drawOffset>
+            <shaderType>TransparentPostLight</shaderType>
+          </li>
+        </graphics>
+      </li>
+    </comps>
+  </ThingDef>
+	
 </Defs> 

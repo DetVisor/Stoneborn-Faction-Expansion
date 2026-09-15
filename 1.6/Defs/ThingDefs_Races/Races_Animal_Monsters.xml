@@ -1379,10 +1379,23 @@
         <filthLayersRange>0~2</filthLayersRange>
         <filthRadius>1</filthRadius>
         <vanish>True</vanish>
+		<extraItemList>
+          <li>
+            <thingDef>DV_Exemplar_AmuletOfIllyavrith</thingDef>
+            <countRange>1</countRange>
+            <dropChancePercent>66</dropChancePercent>
+			<exclusionaryTag>BossDrop</exclusionaryTag>
+          </li>
+          <li>
+            <thingDef>LTS_Apparel_Exemplar_DimensionalBag</thingDef>
+            <countRange>1</countRange>
+			<exclusionaryTag>BossDrop</exclusionaryTag>
+          </li>
+        </extraItemList>
       </li>
       <li Class="CompProperties_LetterOnRevealed">
         <label>The Exemplar</label>
-        <text>Emerging with a graceful yet unnatural gait from the gloom, an ornately adorned warrior, crackling with psychic power makes himself known.\n\nYour colonists' eyes dart across the figure: twisted faces in pain sewn together forming a grand, tattered cloak. Glistening yet ruined gold accents lining the fine armor.\n\nAn Exemplar of the long-dead knyfevyn stands before you, glaive in hand, ready for combat, as he was in ages past.</text>
+        <text>Emerging with a graceful yet unnatural gait from the gloom, an ornately adorned warrior, crackling with psychic power makes himself known.\n\nYour colonists' eyes dart across the figure: faces, twisted in pain, sewn together forming a grand, tattered cloak. Glistening yet ruined gold accents lining the fine armor.\n\nAn Exemplar of the long-dead knyfevyn stands before you, glaive in hand, ready for combat, as he was in ages past.</text>
         <letterDef>ThreatBig</letterDef>
       </li>
       <li Class="CompProperties_Effecter">
