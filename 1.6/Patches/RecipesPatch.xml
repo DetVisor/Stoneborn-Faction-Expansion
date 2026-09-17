@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Patch>
+	
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="ElectricSmelter"]/recipes</xpath>
+        <value>
+            <li>LTS_ExtractMetalFromSlag</li>
+        </value>
+    </Operation>
+	
+	<Operation Class="PatchOperationAdd">
+        <xpath>Defs/RecipeDef[defName="ExtractMetalFromSlag"]/ingredients/li/filter/thingDefs</xpath>
+        <value>
+            <li>DV_KnyfevynRemains</li>
+        </value>
+    </Operation>
+	<Operation Class="PatchOperationAdd">
+        <xpath>Defs/RecipeDef[defName="ExtractMetalFromSlag"]/fixedIngredientFilter/thingDefs</xpath>
+        <value>
+            <li>DV_KnyfevynRemains</li>
+        </value>
+    </Operation>
+	
+</Patch> 

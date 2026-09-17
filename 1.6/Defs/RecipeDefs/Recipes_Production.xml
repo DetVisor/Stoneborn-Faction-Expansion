@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <RecipeDef>
+    <defName>LTS_ExtractMithriumFromSlag</defName>
+    <label>smelt mithrium from slag</label>
+    <description>Use heat and strong electromagnets to extract useful metal from mithrium slag chunks.</description>
+    <jobString>Smelting mithrium from slag.</jobString>
+    <workAmount>400</workAmount>
+    <workSpeedStat>SmeltingSpeed</workSpeedStat>
+    <effectWorking>Smelt</effectWorking>
+    <soundWorking>Recipe_Smelt</soundWorking>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>DV_ChunkSlagMithrium</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <products>
+      <DV_Mithrium>5</DV_Mithrium>
+    </products>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>DV_ChunkSlagMithrium</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+	<displayPriority>1</displayPriority>
+  </RecipeDef>
+
+</Defs>
