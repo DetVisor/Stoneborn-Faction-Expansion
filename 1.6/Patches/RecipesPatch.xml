@@ -5,11 +5,18 @@
     <Operation Class="PatchOperationAdd">
         <xpath>Defs/ThingDef[defName="ElectricSmelter"]/recipes</xpath>
         <value>
-            <li>LTS_ExtractMetalFromSlag</li>
+            <li>LTS_ExtractMithriumFromSlag</li>
+        </value>
+    </Operation>
+
+	<Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="ElectricSmelter"]/recipes</xpath>
+        <value>
+            <li>LTS_ExtractPlasteelFromSlag</li>
         </value>
     </Operation>
 	
-	<Operation Class="PatchOperationAdd">
+	<!--<Operation Class="PatchOperationAdd">
         <xpath>Defs/RecipeDef[defName="ExtractMetalFromSlag"]/ingredients/li/filter/thingDefs</xpath>
         <value>
             <li>DV_KnyfevynRemains</li>
@@ -20,6 +27,6 @@
         <value>
             <li>DV_KnyfevynRemains</li>
         </value>
-    </Operation>
+    </Operation>-->
 	
 </Patch> 

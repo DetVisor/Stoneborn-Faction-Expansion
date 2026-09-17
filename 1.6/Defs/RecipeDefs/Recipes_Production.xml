@@ -30,5 +30,35 @@
     </fixedIngredientFilter>
 	<displayPriority>1</displayPriority>
   </RecipeDef>
+  
+  <RecipeDef>
+    <defName>LTS_ExtractPlasteelFromSlag</defName>
+    <label>smelt plasteel from slag</label>
+    <description>Use heat and strong electromagnets to extract useful metal from plasteel slag chunks.</description>
+    <jobString>Smelting plasteel from slag.</jobString>
+    <workAmount>400</workAmount>
+    <workSpeedStat>SmeltingSpeed</workSpeedStat>
+    <effectWorking>Smelt</effectWorking>
+    <soundWorking>Recipe_Smelt</soundWorking>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>DV_KnyfevynRemains</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <products>
+      <Plasteel>5</Plasteel>
+    </products>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>DV_KnyfevynRemains</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+	<displayPriority>2</displayPriority>
+  </RecipeDef>
 
 </Defs>
