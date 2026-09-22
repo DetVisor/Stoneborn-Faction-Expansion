@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Patch>
+	
+    <Operation Class="PatchOperationReplace" MayRequire="turnovus.submod.backpacksarenotbelts">
+        <xpath>Defs/ThingDef[defName="LTS_Apparel_Exemplar_DimensionalBag"]/apparel/layers/li</xpath>
+        <value>
+			<li>PacksAreNotBelts_Artifact</li>
+        </value>
+    </Operation>
+	
+</Patch> 

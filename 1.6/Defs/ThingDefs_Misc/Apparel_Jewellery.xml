@@ -89,6 +89,7 @@
       <li>Clothing</li>
     </tradeTags>
     <allowedArchonexusCount>1</allowedArchonexusCount>
+	<generateAllowChance>0</generateAllowChance>
   </ThingDef>
 
 </Defs>

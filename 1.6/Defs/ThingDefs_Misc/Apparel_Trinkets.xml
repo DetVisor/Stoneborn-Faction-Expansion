@@ -561,6 +561,7 @@
       </layers>
     </apparel>
     <allowedArchonexusCount>1</allowedArchonexusCount>
+	<generateAllowChance>0</generateAllowChance>
   </ThingDef>
   
 </Defs>
