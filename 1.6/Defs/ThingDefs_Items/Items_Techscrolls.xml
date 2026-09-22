@@ -13,11 +13,14 @@
         <healthAffectsPrice>false</healthAffectsPrice>
         <useHitPoints>true</useHitPoints>
         <statBases>
-          <MarketValue>700</MarketValue>
+          <MarketValue>850</MarketValue>
           <MaxHitPoints>100</MaxHitPoints>
           <Mass>1.5</Mass>
           <Flammability>0</Flammability>
         </statBases>
+        <tradeTags>
+          <li>ExoticMisc</li>
+        </tradeTags>
         <intricate>true</intricate>
         <thingCategories>
           <li>Manufactured</li>
@@ -35,15 +38,6 @@
         <graphicData>
           <color>(201, 177, 60)</color>
         </graphicData>
-        <statBases>
-          <MarketValue>800</MarketValue>
-          <MaxHitPoints>100</MaxHitPoints>
-          <Mass>1.5</Mass>
-          <Flammability>0</Flammability>
-        </statBases>
-        <tradeTags>
-          <li>ExoticMisc</li>
-        </tradeTags>
         <comps>
           <li Class="CompProperties_CompAnalyzableUnlockResearch">
             <analysisID>26771936</analysisID>
@@ -52,7 +46,7 @@
             <!-- Analyzable -->
     
             <analysisDurationHours>0.5</analysisDurationHours>
-            <destroyedOnAnalyzed>false</destroyedOnAnalyzed>
+            <destroyedOnAnalyzed>true</destroyedOnAnalyzed>
             <completedLetterLabel>Techscroll deciphered: {RESEARCH} unlocked</completedLetterLabel>
             <completedLetter>By deciphering and translating the ancient techscroll, {PAWN_labelShort} has acquired the insight needed for the research project(s) {RESEARCH}.\n\nYour researchers can now use research benches to begin researching how to actually use the technology.</completedLetter>
             <completedLetterDef>PositiveEvent</completedLetterDef>
@@ -84,15 +78,6 @@
         <graphicData>
           <color>(66, 134, 148)</color>
         </graphicData>
-        <statBases>
-          <MarketValue>800</MarketValue>
-          <MaxHitPoints>100</MaxHitPoints>
-          <Mass>1.5</Mass>
-          <Flammability>0</Flammability>
-        </statBases>
-        <tradeTags>
-          <li>ExoticMisc</li>
-        </tradeTags>
         <comps>
           <li Class="CompProperties_CompAnalyzableUnlockResearch">
             <analysisID>72563418</analysisID>
@@ -101,7 +86,7 @@
             <!-- Analyzable -->
     
             <analysisDurationHours>0.5</analysisDurationHours>
-            <destroyedOnAnalyzed>false</destroyedOnAnalyzed>
+            <destroyedOnAnalyzed>true</destroyedOnAnalyzed>
             <completedLetterLabel>Techscroll deciphered: {RESEARCH} unlocked</completedLetterLabel>
             <completedLetter>By deciphering and translating the ancient techscroll, {PAWN_labelShort} has acquired the insight needed for the research project(s) {RESEARCH}.\n\nYour researchers can now use research benches to begin researching how to actually use the technology.</completedLetter>
             <completedLetterDef>PositiveEvent</completedLetterDef>
@@ -133,15 +118,6 @@
         <graphicData>
           <color>(148, 66, 66)</color>
         </graphicData>
-        <statBases>
-          <MarketValue>850</MarketValue>
-          <MaxHitPoints>100</MaxHitPoints>
-          <Mass>1.5</Mass>
-          <Flammability>0</Flammability>
-        </statBases>
-        <tradeTags>
-          <li>ExoticMisc</li>
-        </tradeTags>
         <comps>
           <li Class="CompProperties_CompAnalyzableUnlockResearch">
             <analysisID>51829763</analysisID>
@@ -150,7 +126,7 @@
             <!-- Analyzable -->
     
             <analysisDurationHours>0.5</analysisDurationHours>
-            <destroyedOnAnalyzed>false</destroyedOnAnalyzed>
+            <destroyedOnAnalyzed>true</destroyedOnAnalyzed>
             <completedLetterLabel>Techscroll deciphered: {RESEARCH} unlocked</completedLetterLabel>
             <completedLetter>By deciphering and translating the ancient techscroll, {PAWN_labelShort} has acquired the insight needed for the research project(s) {RESEARCH}.\n\nYour researchers can now use research benches to begin researching how to actually use the technology.</completedLetter>
             <completedLetterDef>PositiveEvent</completedLetterDef>
@@ -182,15 +158,6 @@
         <graphicData>
           <color>(66, 148, 66)</color>
         </graphicData>
-        <statBases>
-          <MarketValue>850</MarketValue>
-          <MaxHitPoints>100</MaxHitPoints>
-          <Mass>1.5</Mass>
-          <Flammability>0</Flammability>
-        </statBases>
-        <tradeTags>
-          <li>ExoticMisc</li>
-        </tradeTags>
         <comps>
           <li Class="CompProperties_CompAnalyzableUnlockResearch">
             <analysisID>94637201</analysisID>
@@ -199,7 +166,7 @@
             <!-- Analyzable -->
     
             <analysisDurationHours>0.5</analysisDurationHours>
-            <destroyedOnAnalyzed>false</destroyedOnAnalyzed>
+            <destroyedOnAnalyzed>true</destroyedOnAnalyzed>
             <completedLetterLabel>Techscroll deciphered: {RESEARCH} unlocked</completedLetterLabel>
             <completedLetter>By deciphering and translating the ancient techscroll, {PAWN_labelShort} has acquired the insight needed for the research project(s) {RESEARCH}.\n\nYour researchers can now use research benches to begin researching how to actually use the technology.</completedLetter>
             <completedLetterDef>PositiveEvent</completedLetterDef>

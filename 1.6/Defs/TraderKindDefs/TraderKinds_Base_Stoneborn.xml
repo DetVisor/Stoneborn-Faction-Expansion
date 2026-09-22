@@ -99,15 +99,19 @@
       <!-- Techscrolls -->
       <li Class="StockGenerator_SingleDef">
         <thingDef>DV_RedTechscroll</thingDef>
-        <countRange>1~2</countRange>
+        <countRange>0~1</countRange>
       </li>
       <li Class="StockGenerator_SingleDef">
         <thingDef>DV_BlueTechscroll</thingDef>
-        <countRange>1~2</countRange>
+        <countRange>0~1</countRange>
       </li>
       <li Class="StockGenerator_SingleDef">
         <thingDef>DV_GreenTechscroll</thingDef>
-        <countRange>1~2</countRange>
+        <countRange>0~1</countRange>
+      </li>
+	  <li Class="StockGenerator_SingleDef">
+        <thingDef>DV_YellowTechscroll</thingDef>
+        <countRange>0~1</countRange>
       </li>
 
       <!-- Weapons -->

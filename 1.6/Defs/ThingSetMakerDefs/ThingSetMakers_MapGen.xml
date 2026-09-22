@@ -298,6 +298,7 @@
                   <li>DV_BlueTechscroll</li>
                   <li>DV_RedTechscroll</li>
                   <li>DV_GreenTechscroll</li>
+				  <li>DV_YellowTechscroll</li>
                 </thingDefs>
               </filter>
               <countRange>1</countRange>

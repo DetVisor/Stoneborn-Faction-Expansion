@@ -45,7 +45,6 @@ namespace LTS_StonebornSiteGeneration
             harmony.PatchAll();
         }
     }
-
     [HarmonyPatch(typeof(PawnRenderer), nameof(PawnRenderer.BodyAngle))]//this should probably be done with a prefix.
     public static class PawnRenderer_BodyAngle_Patch
     {
@@ -58,7 +57,6 @@ namespace LTS_StonebornSiteGeneration
             }
         }
     }
-
     [HarmonyPatch(typeof(VEF.Apparels.Apparel_Shield), nameof(VEF.Apparels.Apparel_Shield.DrawShield))]//patch for drawing energy shields on regular shields
     class VEF_Apparels_Apparel_Shield_DrawShield_Patch //patch to make shields draw their energy shields
     {
@@ -122,7 +120,6 @@ namespace LTS_StonebornSiteGeneration
             }
         }
     }
-
     [HarmonyPatch(typeof(ApparelLayerDef), nameof(ApparelLayerDef.IsUtilityLayer), MethodType.Getter)]
     public static class ApparelLayerDef_IsUtilityLayer_Patch
     {
@@ -132,6 +129,54 @@ namespace LTS_StonebornSiteGeneration
             if (__instance == LTS_SFE_DefOf.LTS_Necklace)
             {
                 __result = true;
+            }
+        }
+    }
+    [HarmonyPatch(typeof(ThingSetMaker_TraderStock), nameof(ThingSetMaker_TraderStock.Generate))]
+    public static class ThingSetMaker_TraderStock_Generate_Patch //remove studied tech scrolls from traders.
+    {
+        [HarmonyPostfix]
+        public static void Postfix(ThingSetMakerParams parms, List<Thing> outThings)
+        {
+            outThings.RemoveAll(thing =>
+            {
+                if (!thing.def.defName.Contains("Techscroll"))//if the thing is not a techscroll
+                    return false;
+                //Log.Warning(thing.Label);
+                CompProperties_CompAnalyzableUnlockResearch compProperties_CompAnalyzableUnlockResearch = thing.def.CompDefForAssignableFrom<CompAnalyzable>() as CompProperties_CompAnalyzableUnlockResearch;
+                if (compProperties_CompAnalyzableUnlockResearch == null)//if techscroll not Analyzable
+                    return false;
+                //Log.Warning("Analyzable");
+                Find.AnalysisManager.TryGetAnalysisProgress(compProperties_CompAnalyzableUnlockResearch.analysisID, out AnalysisDetails analysisDetails);
+                //if (analysisDetails != null && analysisDetails.Satisfied) //if techscroll Analyzed
+                //    Log.Warning("Analyzed");
+                return analysisDetails != null && analysisDetails.Satisfied;
+            });
+        }
+    }
+    [HarmonyPatch(typeof(ThingSetMaker_RandomOption), nameof(ThingSetMaker_RandomOption.Generate))]
+    public static class ThingSetMaker_RandomOption_Generate_Patch //replaces studied tech scrolls from hermetic chests.
+    {
+        [HarmonyPostfix]
+        public static void Postfix(ThingSetMakerParams parms, List<Thing> outThings, ThingSetMaker_StackCount __instance)
+        {
+            //List<Thing> newOutThings = new List<Thing>();
+
+
+            if (outThings.Where(thing => //if outThings contains an analyzed techscroll
+            {
+                if (!thing.def.defName.Contains("Techscroll"))//if the thing is not a techscroll
+                    return false;
+                CompProperties_CompAnalyzableUnlockResearch compProperties_CompAnalyzableUnlockResearch = thing.def.CompDefForAssignableFrom<CompAnalyzable>() as CompProperties_CompAnalyzableUnlockResearch;
+                if (compProperties_CompAnalyzableUnlockResearch == null)//if techscroll not Analyzable
+                    return false;
+                Find.AnalysisManager.TryGetAnalysisProgress(compProperties_CompAnalyzableUnlockResearch.analysisID, out AnalysisDetails analysisDetails);
+                return analysisDetails != null && analysisDetails.Satisfied;
+            }).Count() > 0) //end of if statement
+            {
+                Log.Message("Container generated with analyzed techscroll. Regenerating.");
+                outThings.Clear();
+                outThings.AddRange(__instance.Generate(parms));
             }
         }
     }
@@ -165,7 +210,6 @@ namespace LTS_StonebornSiteGeneration
             DefOfHelper.EnsureInitializedInCtor(typeof(LTS_SFE_DefOf));
         }
     }
-
     public class LTS_SFE_ModExtension : DefModExtension
     {
         public string LTS_TexPath;
@@ -217,7 +261,6 @@ namespace LTS_StonebornSiteGeneration
             base.RunInt();
         }
     }
-
     public class QuestNode_Root_Loot_AncientVault_Stoneborn : QuestNode_Root_Loot_AncientComplex
     {
         protected override SitePartDef SitePartDef
@@ -239,7 +282,6 @@ namespace LTS_StonebornSiteGeneration
             base.RunInt();
         }
     }
-
     public class LTS_GenStep_FindStartPortalMap : GenStep
     {
         public override int SeedPart
@@ -257,7 +299,6 @@ namespace LTS_StonebornSiteGeneration
             }
         }
     }
-
     public class LTS_GenStep_HermitCrates : GenStep
     {
         public override int SeedPart
@@ -292,7 +333,6 @@ namespace LTS_StonebornSiteGeneration
 
         }
     }
-
     public class LTS_GenStep_MinecartContents : GenStep
     {
         public override int SeedPart
@@ -340,7 +380,6 @@ namespace LTS_StonebornSiteGeneration
             }
         }
     }
-
     public class LTS_GenStep_ExtraIntermediateLevelChance : GenStep
     {
         public override int SeedPart
@@ -408,13 +447,11 @@ namespace LTS_StonebornSiteGeneration
 
         }
     }
-
     public class ThingWithWeight
     {
         public ThingDef thingdef;
         public int weight = 1;
     }
-
     public class LTS_GenStep_FirstFloorLadder : GenStep
     {
         public override int SeedPart
@@ -439,7 +476,6 @@ namespace LTS_StonebornSiteGeneration
 
         }
     }
-
     [StaticConstructorOnStartup]
     public class LTS_VaultHatch : MapPortal
     {
@@ -540,7 +576,6 @@ namespace LTS_StonebornSiteGeneration
         private CompHackable hackableInt;
         private GraphicData openGraphicData;
     }
-    
     public class CompProperties_GasVent : CompProperties
     {
         public CompProperties_GasVent()
@@ -552,7 +587,6 @@ namespace LTS_StonebornSiteGeneration
         public float cellsToFill;
         public EffecterDef effecterReleasing;
     }
-
     public class CompGasVent : ThingComp
     {
         public CompProperties_GasVent Props
@@ -614,7 +648,6 @@ namespace LTS_StonebornSiteGeneration
         private Effecter effecter;
         private const int ReleaseGasInterval = 30;
     }
-
     public class CompProperties_UseEffectSpawnPawn : CompProperties_UseEffect
     {
         public CompProperties_UseEffectSpawnPawn()
@@ -628,7 +661,6 @@ namespace LTS_StonebornSiteGeneration
         public MessageTypeDef messagetype;
 
     }
-
     public class CompUseEffect_SpawnPawn : CompUseEffect
     {
         public CompProperties_UseEffectSpawnPawn Props
@@ -661,7 +693,6 @@ namespace LTS_StonebornSiteGeneration
             }//add the intelligent attack skill to the goreflea
         }
     }
-
     public class CompProperties_MonsterBox : CompProperties
     {
         public CompProperties_MonsterBox()
@@ -675,13 +706,11 @@ namespace LTS_StonebornSiteGeneration
         public FactionDef attackingFactionDef;
         public int territoryRadius;
     }
-
     public class Encounter
     {
         public List<SpawnGroup> spawnGroups;
         public int spawnWeight = 1;
     }
-    
     public class SpawnGroup
     {
         public PawnKindDef pawnKind;
@@ -693,7 +722,6 @@ namespace LTS_StonebornSiteGeneration
 
         //public bool factionless = false;
     }
-
     public class CompMonsterBox : ThingComp
     {
         public CompProperties_MonsterBox Props
@@ -782,7 +810,6 @@ namespace LTS_StonebornSiteGeneration
             parent.Destroy();
         }
     }
-
     public class CompProperties_GrowIntoThing : CompProperties
     {
         public CompProperties_GrowIntoThing()
@@ -795,7 +822,6 @@ namespace LTS_StonebornSiteGeneration
         public Vector2 finalDrawSize;
         public int updateGraphicTicksInterval;
     }
-
     public class CompGrowIntoThing : ThingComp
     {
         public CompProperties_GrowIntoThing Props
@@ -825,7 +851,6 @@ namespace LTS_StonebornSiteGeneration
             }
         }
     }
-
     public class Graphic_Single_Growing : Graphic_Single
     {
         public Vector2 getDrawSize(Thing thing)
@@ -890,7 +915,6 @@ namespace LTS_StonebornSiteGeneration
             shadowGraphic.Print(layer, thing, 0f);
         }
     }
-
     public class Building_TrapDamager_SelfRearming : Building_TrapDamager
     {
         public override void Print(SectionLayer layer)
@@ -947,7 +971,6 @@ namespace LTS_StonebornSiteGeneration
             Scribe_Values.Look<int>(ref this.ticksUntilArmed, "ticksUntilArmed", 0);
         }
     }
-
     public class Projectile_SpawnsThingLauncherColoured : Projectile
     {
         public override void Launch(Thing launcher, Vector3 origin, LocalTargetInfo usedTarget, LocalTargetInfo intendedTarget, ProjectileHitFlags hitFlags, bool preventFriendlyFire = false, Thing equipment = null, ThingDef targetCoverDef = null)
@@ -1008,7 +1031,6 @@ namespace LTS_StonebornSiteGeneration
             Scribe_Values.Look<ColorInt>(ref colorInt, "colorInt", default(ColorInt), false);
         }
     }
-
     public class CompProperties_DeathEffects : CompProperties
     {
         public CompProperties_DeathEffects()
@@ -1026,7 +1048,6 @@ namespace LTS_StonebornSiteGeneration
         public EffecterDef effecterDef;
         
     }
-
     public class ItemSpawningInfo
     {
         public ThingDef thingDef;
@@ -1035,7 +1056,6 @@ namespace LTS_StonebornSiteGeneration
         public string dropMessage;
         public string exclusionaryTag;
     }
-
     public class CompDeathEffects : ThingComp
     {
         public CompProperties_DeathEffects Props
@@ -1125,7 +1145,6 @@ namespace LTS_StonebornSiteGeneration
             }
         }
     }
-
     public class Verb_CastAbilityDash : Verb_CastAbilityJump
     {
         public override ThingDef JumpFlyerDef
@@ -1136,7 +1155,6 @@ namespace LTS_StonebornSiteGeneration
             }
         }
     }
-
     public class CompProperties_RoamingEncounterLeader : CompProperties
     {
         public CompProperties_RoamingEncounterLeader()
@@ -1148,7 +1166,6 @@ namespace LTS_StonebornSiteGeneration
         public float positionRadius = 6;
         public TraverseMode traverseMode = TraverseMode.NoPassClosedDoors;
     }
-
     public class CompRoamingEncounterLeader : ThingComp
     {
         public CompProperties_RoamingEncounterLeader Props
@@ -1204,7 +1221,6 @@ namespace LTS_StonebornSiteGeneration
             }
         }
     }
-
     public class BookOutcomeProperties_GiveQuestFromList : BookOutcomeProperties_GiveQuest
     {
         public override Type DoerClass
@@ -1217,7 +1233,6 @@ namespace LTS_StonebornSiteGeneration
         public List<QuestScriptDef> questScriptDefs;
 
     }
-
     [StaticConstructorOnStartup]
     public class BookOutcomeDoer_GiveQuestFromList : BookOutcomeDoer_GiveQuest
     {
@@ -1319,7 +1334,6 @@ namespace LTS_StonebornSiteGeneration
 
         private static readonly Texture2D ViewQuestCommandTex = ContentFinder<Texture2D>.Get("UI/Commands/ViewQuest", true);
     }
-
     public class CompProperties_Chemlight : CompProperties
     {
         public CompProperties_Chemlight()
@@ -1331,7 +1345,6 @@ namespace LTS_StonebornSiteGeneration
         public bool inheritColour;
         public ThingDef filthDef;
     }
-
     public class CompChemlight : ThingComp
     {
         public CompProperties_Chemlight Props
@@ -1426,7 +1439,6 @@ namespace LTS_StonebornSiteGeneration
         private CompDestroyAfterDelay destroyDelayedComp;
         private CompGlower glowComp;
     }
-
     public class LTS_CompProperties_ThornApparel : CompProperties
     {
         public LTS_CompProperties_ThornApparel()
@@ -1440,7 +1452,6 @@ namespace LTS_StonebornSiteGeneration
         public bool affectsRangedAttacks = false;
         public float damagePenetration;
     }
-
     public class LTS_CompThornApparel : ThingComp
     {
         public LTS_CompProperties_ThornApparel Props
@@ -1475,6 +1486,10 @@ namespace LTS_StonebornSiteGeneration
     // No highly refined code is written here. 
     // Nothing valued is here.
 
+    // Though, seriously, if you're looking through this code in the hopes of learning how to 
+    // make something similar, all the pieces are likely here but I'd recommend reconfiguring
+    // them into a less ramshackled implementation.
+
     public enum MiningQuotaQuestState
     {
         AwaitingAcceptance,
@@ -1494,7 +1509,6 @@ namespace LTS_StonebornSiteGeneration
         Complete,
         Failed
     }
-
     public class QuestNode_Mission_MiningQuota : QuestNode
     {
         public List<ThingDef> resourceDefs;
@@ -1621,7 +1635,6 @@ namespace LTS_StonebornSiteGeneration
             slate.Set<bool>("askerIsNull", asker == null, false);
         }
     }
-
     public class QuestPart_MiningQuota : QuestPartActivable
     {
         public ThingDef resourceDef;
@@ -1871,7 +1884,6 @@ namespace LTS_StonebornSiteGeneration
         //    Log.Warning("2");
         //}
     }
-
     public class CompProperties_DrillShuttle : CompProperties
     {
         public ThingDef incomingShuttleDef;
@@ -1881,7 +1893,6 @@ namespace LTS_StonebornSiteGeneration
             compClass = typeof(CompDrillShuttle);
         }
     }
-
     public class CompDrillShuttle : ThingComp
     {
         //public Quest quest;
@@ -2014,7 +2025,6 @@ namespace LTS_StonebornSiteGeneration
             yield break;
         }        
     }
-
     public class EmergingDrillShuttle : GroundSpawner
     {
         protected override void Spawn(Map map, IntVec3 loc)
@@ -2034,7 +2044,6 @@ namespace LTS_StonebornSiteGeneration
             }
         }
     }
-
     public class LTS_GenStep_FindStartShuttleMap : GenStep
     {
         public override int SeedPart
@@ -2065,8 +2074,6 @@ namespace LTS_StonebornSiteGeneration
 
 
 
-
-
     public class StonebornFactionExpansionMod : Mod
     {
         public static SFE_Settings settings;
@@ -2084,12 +2091,10 @@ namespace LTS_StonebornSiteGeneration
             return Content.Name;
         }
     }
-
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Struct)]
     public class HotSwappableAttribute : Attribute
     {
     }
-
     [HotSwappableAttribute]
     public class SFE_Settings : ModSettings
     {
@@ -2118,8 +2123,6 @@ namespace LTS_StonebornSiteGeneration
             Widgets.EndScrollView();
         }
     }
-
-
 
 
 
@@ -2255,7 +2258,6 @@ namespace LTS_StonebornSiteGeneration
             return (countOfPawns / 3);
         }
     }
-
     /// <summary>
     /// Spawns a raider every 250 ticks, won't do anything when there's any raiders left to spawn in the pod. Presumably destroys itself with a comp
     /// </summary>
@@ -2285,7 +2287,6 @@ namespace LTS_StonebornSiteGeneration
             }
         }
     }
-
     /// <summary>
     /// Will spawn the drillPod once the animation finishes
     /// </summary>
