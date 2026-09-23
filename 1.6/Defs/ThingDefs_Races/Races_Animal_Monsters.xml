@@ -1383,13 +1383,13 @@
           <li>
             <thingDef>DV_Exemplar_AmuletOfIllyavrith</thingDef>
             <countRange>1</countRange>
-            <dropChancePercent>66</dropChancePercent>
-			<exclusionaryTag>BossDrop</exclusionaryTag>
+            <dropChancePercent>50</dropChancePercent>
+			<exclusionaryTag>BossLoot</exclusionaryTag>
           </li>
           <li>
             <thingDef>LTS_Apparel_Exemplar_DimensionalBag</thingDef>
             <countRange>1</countRange>
-			<exclusionaryTag>BossDrop</exclusionaryTag>
+			<exclusionaryTag>BossLoot</exclusionaryTag>
           </li>
         </extraItemList>
       </li>

@@ -1478,8 +1478,49 @@ namespace LTS_StonebornSiteGeneration
         }
     }
 
+    public class CompProperties_CustomUseableGizmo : CompProperties_Usable
+    {
+        public CompProperties_CustomUseableGizmo()
+        {
+            this.compClass = typeof(CompCustomUseableGizmo);
+        }
+        public string useGizmoIconTexPath;
+        public string useGizmoLabel;
+        public string useGizmoDescription;
+    }
+
+    public class CompCustomUseableGizmo : CompUsable //custom CompUsable that lets us set a custom use gizmo.
+    {
+        public CompProperties_CustomUseableGizmo Props
+        {
+            get
+            {
+                return (CompProperties_CustomUseableGizmo)this.props;
+            }
+        }
+        public override IEnumerable<Gizmo> CompGetGizmosExtra()
+        {
+            if (!this.Props.showUseGizmo)
+            {
+                yield break;
+            }
+            yield return new Command_Action
+            {
+                icon = ContentFinder<Texture2D>.Get(Props.useGizmoIconTexPath, true) ?? this.parent.def.uiIcon,
+                defaultLabel = Props.useGizmoLabel ?? string.Format("{0} {1}...", "UseGizmo".Translate(), this.parent.def.label),
+                defaultDesc = Props.useGizmoDescription ?? "UseGizmoTooltip".Translate(this.parent.def.label),
+                action = delegate ()
+                {
+                    SoundDefOf.Tick_Tiny.PlayOneShotOnCamera(null);
+                    Find.Targeter.BeginTargeting(this, null, false, null, null, true);
+                }
+            };
+            yield break;
+        }
+    }
+
     // ---------------------------------  !!!BE WARNED!!!  ---------------------------------
-    
+
     // Beyond this point lies the sanity-crumbling tangle of code for the cave shuttle quest
 
     // This place is not a place of competency. 

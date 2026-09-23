@@ -406,12 +406,18 @@
     <interactionCellOffset>(0,0,0)</interactionCellOffset>
     <building>
       <openingEffect>DV_HermeticCanisterOpened</openingEffect>
+	  <deconstructible>false</deconstructible>
     </building>
     <comps>
-      <li Class="CompProperties_Usable">
+      <li Class="LTS_StonebornSiteGeneration.CompProperties_CustomUseableGizmo">
         <useJob>UseItem</useJob>
         <useLabel>Open {0_label}</useLabel>
         <useDuration>300</useDuration>
+		
+		<showUseGizmo>true</showUseGizmo>
+		<useGizmoIconTexPath>UI/Designators/Open</useGizmoIconTexPath>
+		<useGizmoLabel>Open</useGizmoLabel>
+		<useGizmoDescription>Open containers.</useGizmoDescription>
       </li>
       <li Class="CompProperties_UseEffectDestroySelf" />
       <li Class="LTS_StonebornSiteGeneration.CompProperties_UseEffectSpawnPawn">
