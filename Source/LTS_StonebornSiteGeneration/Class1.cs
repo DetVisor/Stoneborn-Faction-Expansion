@@ -1477,7 +1477,6 @@ namespace LTS_StonebornSiteGeneration
             }
         }
     }
-
     public class CompProperties_CustomUseableGizmo : CompProperties_Usable
     {
         public CompProperties_CustomUseableGizmo()
@@ -1488,7 +1487,6 @@ namespace LTS_StonebornSiteGeneration
         public string useGizmoLabel;
         public string useGizmoDescription;
     }
-
     public class CompCustomUseableGizmo : CompUsable //custom CompUsable that lets us set a custom use gizmo.
     {
         public CompProperties_CustomUseableGizmo Props
@@ -1844,7 +1842,7 @@ namespace LTS_StonebornSiteGeneration
 
             }
 
-            if (Find.TickManager.TicksGame % 30 == 0 && !returning && pocketMap != null && !(pocketMap.mapPawns.AllPawns.Any(p => !p.Dead && p.IsColonist) || shuttleInventory.Any(t => t is Pawn pawn && !pawn.Dead && pawn.IsColonist)))//every half second, check if the pocketmap exists and, if so, if there are any living colonists in it.
+            if (Find.TickManager.TicksGame % 30 == 0 && !returning && pocketMap != null && !(pocketMap.mapPawns.AllPawns.Any(p => (!p.Dead || p.HasDeathRefusalOrResurrecting) && p.IsColonist) || shuttleInventory.Any(t => t is Pawn pawn && !pawn.Dead && pawn.IsColonist)))//every half second, check if the pocketmap exists and, if so, if there are any living colonists in it.
             {
                 quest.End(QuestEndOutcome.Fail);
                 PocketMapUtility.DestroyPocketMap(pocketMap);
