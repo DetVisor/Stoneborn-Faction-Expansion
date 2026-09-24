@@ -2,6 +2,127 @@
 <Defs>
 
   <EffecterDef>
+    <defName>LTS_DrillpodEmergencePointComplete2X2</defName>
+    <maintainTicks>10</maintainTicks>
+    <children>
+      <li>
+        <subEffecterClass>SubEffecter_CameraShakeSingle</subEffecterClass>
+        <cameraShake>.1</cameraShake>
+        <distanceAttenuationScale>1</distanceAttenuationScale>
+        <distanceAttenuationMax>100</distanceAttenuationMax>
+      </li>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+        <fleckDef>DustPuffThick</fleckDef>
+        <burstCount>40</burstCount>
+        <spawnLocType>OnSource</spawnLocType>
+        <positionRadius>3</positionRadius>
+        <scale>1.5~3</scale>
+        <rotation>0</rotation>
+        <rotationRate>-60~60</rotationRate>
+        <absoluteAngle>False</absoluteAngle>
+        <positionOffset>(0, 0, 0)</positionOffset>
+        <angle>0~360</angle>
+        <fleckUsesAngleForVelocity>True</fleckUsesAngleForVelocity>
+        <speed>.6~.75</speed>
+      </li>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
+        <fleckDef>ThrownDebris</fleckDef>
+        <initialDelayTicks>0</initialDelayTicks>
+        <chancePerTick>1</chancePerTick>
+        <chancePeriodTicks>3</chancePeriodTicks>
+        <burstCount>2~5</burstCount>
+        <lifespanMaxTicks>40</lifespanMaxTicks>
+        <spawnLocType>OnSource</spawnLocType>
+        <rotationRate>100~200</rotationRate>
+        <positionRadius>2</positionRadius>
+        <positionRadiusMin>2</positionRadiusMin>
+        <scale>1~1.5</scale>
+        <rotation>0~360</rotation>
+        <absoluteAngle>False</absoluteAngle>
+        <positionOffset>(-.5, 0, -.5)</positionOffset>
+        <angle>0~360</angle>
+        <fleckUsesAngleForVelocity>True</fleckUsesAngleForVelocity>
+        <speed>.5~3</speed>
+      </li>
+	  
+	  <li>
+        <subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
+        <fleckDef>ThrownDebris</fleckDef>
+        <initialDelayTicks>0</initialDelayTicks>
+        <chancePerTick>1</chancePerTick>
+        <chancePeriodTicks>3</chancePeriodTicks>
+        <burstCount>6</burstCount>
+        <lifespanMaxTicks>60</lifespanMaxTicks>
+        <spawnLocType>OnSource</spawnLocType>
+        <rotationRate>100~200</rotationRate>
+        <positionRadius>1</positionRadius>
+        <positionRadiusMin>1</positionRadiusMin>
+        <scale>0.5~3</scale>
+        <rotation>0~360</rotation>
+        <absoluteAngle>False</absoluteAngle>
+        <positionOffset>(0, 0, 0)</positionOffset>
+        <angle>110~160</angle>
+        <fleckUsesAngleForVelocity>True</fleckUsesAngleForVelocity>
+        <speed>10~30</speed>
+      </li>
+	  
+	  <li>
+        <subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
+        <fleckDef>DustPuffThick</fleckDef>
+        <initialDelayTicks>0</initialDelayTicks>
+        <chancePerTick>1</chancePerTick>
+        <chancePeriodTicks>3</chancePeriodTicks>
+        <burstCount>10</burstCount>
+        <spawnLocType>OnSource</spawnLocType>
+        <rotationRate>-60~60</rotationRate>
+        <positionRadius>1</positionRadius>
+        <positionRadiusMin>1</positionRadiusMin>
+        <scale>1.5~3</scale>
+        <rotation>0~360</rotation>
+        <absoluteAngle>False</absoluteAngle>
+        <positionOffset>(0, 0, 0)</positionOffset>
+        <angle>90~180</angle>
+        <fleckUsesAngleForVelocity>True</fleckUsesAngleForVelocity>
+        <speed>0~5</speed>
+      </li>
+	  
+	  <!--<li>
+        <subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
+        <chancePeriodTicks>7</chancePeriodTicks>
+        <lifespanMaxTicks>80</lifespanMaxTicks>
+        <chancePerTick>.3</chancePerTick>
+        <fleckDef>ThrownDebris</fleckDef>
+        <burstCount>2~3</burstCount>
+        <spawnLocType>OnSource</spawnLocType>
+        <positionRadius>0</positionRadius>
+        <positionOffset>(0, 0, 0)</positionOffset>
+        <scale>1~2</scale>
+        <absoluteAngle>True</absoluteAngle>
+        <rotationRate>0</rotationRate>
+        <rotation>0</rotation>
+        <speed>0</speed>
+      </li>-->
+      <!--<li>
+        <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+        <fleckDef>WaterChurnNoise</fleckDef>
+        <burstCount>10~12</burstCount>
+        <spawnLocType>OnSource</spawnLocType>
+        <positionRadius>.5</positionRadius>
+        <positionOffset>(0, 0, 0)</positionOffset>
+        <scale>4~10</scale>
+        <angle>0~360</angle>
+        <fleckUsesAngleForVelocity>True</fleckUsesAngleForVelocity>
+        <absoluteAngle>false</absoluteAngle>
+        <rotationRate>30~50</rotationRate>
+        <rotation>0</rotation>
+        <speed>-3~3</speed>
+      </li>-->
+    </children>
+  </EffecterDef>
+
+  <EffecterDef>
     <defName>DV_AutomatonDestroyed</defName>
     <children>
       <li>

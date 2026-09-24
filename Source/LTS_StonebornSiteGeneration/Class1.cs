@@ -2280,22 +2280,10 @@ namespace LTS_StonebornSiteGeneration
 
         private int CalculateHowManyDrillPodsToSpawn(int countOfPawns)
         {
-            //if (countOfPawns <= 8)
-            //{
-            //    return 1;
-            //}
-            //else if (countOfPawns <= 12)
-            //{
-            //    return 2;
-            //}
-            //else
-            //{
-            //    return 3;
-            //}
-
-            //return (countOfPawns / 2); //2 not including oveflow, so, 3 in most with 2 in the remainder
             return (countOfPawns / 3);
         }
+
+
     }
     /// <summary>
     /// Spawns a raider every 250 ticks, won't do anything when there's any raiders left to spawn in the pod. Presumably destroys itself with a comp
@@ -2312,18 +2300,21 @@ namespace LTS_StonebornSiteGeneration
             {
                 pawn = (Pawn)GenSpawn.Spawn(pawns[0], Position, Map);
                 pawns.Remove(pawn);
-            }
-            else
-            {
-                
-
-                GenPlace.TryPlaceThing(ThingMaker.MakeThing(ThingDefOf.ChunkSlagSteel, null), base.Position, Map, ThingPlaceMode.Near, null, null, null, 1);
-                if (this.def.soundOpen != null)
+                if (pawns.NullOrEmpty())
                 {
-                    this.def.soundOpen.PlayOneShot(new TargetInfo(base.Position, Map, false));
+                    GenPlace.TryPlaceThing(ThingMaker.MakeThing(ThingDefOf.ChunkSlagSteel, null), base.Position, Map, ThingPlaceMode.Near, null, null, null, 1);
+                    if (this.def.soundOpen != null)
+                    {
+                        this.def.soundOpen.PlayOneShot(new TargetInfo(base.Position, Map, false));
+                    }
+                    this.Destroy(DestroyMode.Vanish);
                 }
-                this.Destroy(DestroyMode.Vanish);
             }
+        }
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_Collections.Look<Pawn>(ref this.pawns, "pawns", LookMode.Deep);
         }
     }
     /// <summary>
@@ -2334,8 +2325,14 @@ namespace LTS_StonebornSiteGeneration
         internal Thing drillPod;
         protected override void Spawn(Map map, IntVec3 loc)
         {
-            GenSpawn.Spawn(drillPod, loc, map);
+            GenSpawn.Spawn(drillPod ?? ThingMaker.MakeThing(LTS_SFE_DefOf.DV_Raid_DrillPod), loc, map);
             base.Spawn(map, loc);
+        }
+
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_Deep.Look<Thing>(ref this.drillPod, "drillPod");
         }
     }
 }

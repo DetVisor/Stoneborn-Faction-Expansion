@@ -40,7 +40,7 @@
 	<alwaysFlee>true</alwaysFlee>
 	<building>
 	  <groundSpawnerSustainedEffecter>EmergencePointSustained2X2</groundSpawnerSustainedEffecter>
-	  <groundSpawnerCompleteEffecter>EmergencePointComplete2X2</groundSpawnerCompleteEffecter>
+	  <groundSpawnerCompleteEffecter>LTS_DrillpodEmergencePointComplete2X2</groundSpawnerCompleteEffecter>
 	</building>
   </ThingDef>
 	  

@@ -251,6 +251,7 @@
     <statBases>
       <MaxHitPoints>250</MaxHitPoints>
       <WorkToBuild>400</WorkToBuild>
+	  <TerrorSource>25</TerrorSource>
     </statBases>
     <fillPercent>0.25</fillPercent>
     <passability>PassThroughOnly</passability>
