@@ -43,7 +43,7 @@
 	  <groundSpawnerCompleteEffecter>LTS_DrillpodEmergencePointComplete2X2</groundSpawnerCompleteEffecter>
 	</building>
   </ThingDef>
-	  
+	
 	  
 	  
   <ThingDef Name="LTS_CaveShuttleBase" ParentName="BuildingBase">
@@ -128,9 +128,9 @@
 	</comps>
   </ThingDef>
   
-  <ThingDef ParentName="EtherealThingBase">
+  <!--<ThingDef ParentName="EtherealThingBase">
     <defName>LTS_DrillShuttleIncoming</defName>
-    <label>emerging cave shuttle</label>
+    <label>caveshuttle (emerging)</label>
     <thingClass>LTS_StonebornSiteGeneration.EmergingDrillShuttle</thingClass>
     <tickerType>Normal</tickerType>
     <drawerType>RealtimeOnly</drawerType>
@@ -139,11 +139,11 @@
       <groundSpawnerSustainedEffecter>EmergencePointSustained2X2</groundSpawnerSustainedEffecter>
       <groundSpawnerCompleteEffecter>EmergencePointComplete2X2</groundSpawnerCompleteEffecter>
     </building>
-  </ThingDef>
+  </ThingDef>-->
   
-  <ThingDef ParentName="EtherealThingBase">
+  <!--<ThingDef ParentName="EtherealThingBase">
     <defName>LTS_DrillShuttleOutgoing</defName>
-    <label>outgoing cave shuttle</label>
+    <label>caveshuttle (submerging)</label>
     <thingClass>GroundSpawner</thingClass>
     <tickerType>Normal</tickerType>
     <drawerType>RealtimeOnly</drawerType>
@@ -152,47 +152,107 @@
       <groundSpawnerSustainedEffecter>EmergencePointSustained2X2</groundSpawnerSustainedEffecter>
       <groundSpawnerCompleteEffecter>EmergencePointComplete2X2</groundSpawnerCompleteEffecter>
     </building>
-  </ThingDef>
+  </ThingDef>-->
   
-  <!--<ThingDef ParentName="ShuttleSkyfallerBase">
+  <ThingDef ParentName="ShuttleSkyfallerBase">
     <defName>LTS_DrillShuttleIncoming</defName>
-    <label>caveshuttle (incoming)</label>
-    <thingClass>ShuttleIncoming</thingClass>
+    <label>caveshuttle (emerging)</label>
+    <thingClass>LTS_StonebornSiteGeneration.DrillShuttleIncoming</thingClass>
+	<!--<altitudeLayer IsNull="True" />-->
+	<altitudeLayer>Building</altitudeLayer>
 	<size>(5,3)</size>
     <graphicData>
       <texPath>Things/Special/CaveShuttle</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-      <shaderType>CutoutFlying</shaderType>
+      <graphicClass>LTS_StonebornSiteGeneration.Graphic_Single_GroundClipped</graphicClass>
+	  <shaderType>LTS_CutoutFlyingAboveZ</shaderType>
       <drawSize>(6,3)</drawSize>
     </graphicData>
+	<building>
+      <groundSpawnerSustainedEffecter>LTS_DrillShuttleEmergencePoint3x3</groundSpawnerSustainedEffecter>
+      <groundSpawnerCompleteEffecter>LTS_DrillShuttleEmergencePointComplete3X3</groundSpawnerCompleteEffecter>
+    </building>
     <skyfaller>
       <anticipationSound>Shuttle_Landing</anticipationSound>
       <anticipationSoundTicks>250</anticipationSoundTicks>
-      <ticksToImpactRange>200~250</ticksToImpactRange>
-      <angleCurve>
+      <ticksToImpactRange>600</ticksToImpactRange>
+	  
+	  <spawnThing>LTS_DrillShuttle</spawnThing>
+	  
+      <angleCurve><!--angle shuttle's moving at-->
         <points>
-          <li>(0,-60)</li>
-          <li>(1,-90)</li>
+          <!--<li>(0,-60)</li>
+          <li>(1,-90)</li>-->
+		  
+		  <li>(0,225)</li>
+		  <li>(0.9,255)</li>
+		  <!--<li>(0.75,360)</li>-->
         </points>
       </angleCurve>
-      <rotationCurve>
+      <rotationCurve><!--angle shuttle's drawn-->
         <points>
-          <li>(0,30)</li>
+          <!--<li>(0,30)</li>
           <li>(0.5,5)</li>
           <li>(0.9,-5)</li>
-          <li>(0.95,0)</li>
+          <li>(0.95,0)</li>-->
+		  
+		  <!--<li>(0.88,-45)</li>
+		  <li>(0.90,-43)</li>
+		  <li>(0.92,-38)</li>
+		  <li>(0.94,-29)</li>
+		  <li>(0.96,-16)</li>
+		  <li>(0.98,6)</li>
+		  <li>(1,0)</li>-->
+		  
+		  <li>(0,-45)</li>
+		  <li>(0.90,-30)</li>
+		  <li>(0.92,-27.5)</li>
+		  <li>(0.94,-24)</li>
+		  <li>(0.96,-18)</li>
+		  <li>(0.98,0)</li>
+		  <li>(0.99,5)</li>
+		  <li>(1,0)</li>
+		  
         </points>
       </rotationCurve>
-      <zPositionCurve>
+	  <zPositionCurve>
         <points>
-          <li>(0.95,2.5)</li>
-          <li>(1,0)</li>
+          <!--<li>(0.95,2.5)</li>
+          <li>(1,0)</li>-->
+		  
+		  <!--<li>(0.4,-0.1)</li>
+		  <li>(0.6,0.1)</li>
+		  <li>(0.75,0)</li>-->
+		  
+		  <!--<li>(0.88,1)</li>
+		  <li>(1,0)</li>-->
+		  
+		  <li>(0.88,1)</li>
+		  <li>(0.90,0.96)</li>
+		  <li>(0.92,0.84)</li>
+		  <li>(0.94,0.64)</li>
+		  <li>(0.96,0.36)</li>
+		  <li>(0.98,0)</li>
+		  <li>(0.99,-0.08)</li>
+		  <li>(1,0)</li>
         </points>
       </zPositionCurve>
-      <speedCurve>
+      <speedCurve><!--This seems to actually be how far away the shuttle is from it's destination?-->
         <points>
-          <li>(0.6,0.6)</li>
-          <li>(0.95,0.1)</li>
+          <!--<li>(0.6,0.6)</li>
+          <li>(0.95,0.1)</li>-->
+		  
+		  <!--<li>(0,0)</li>-->
+		  
+		  <!--<li>(0,0.002)</li>
+		  <li>(78,0.002)</li>
+		  <li>(0.98,0.0)</li>-->
+		  
+		  <!--<li>(0,0.003)</li>
+		  <li>(0.98,0.003)</li>
+		  <li>(1,0.003)</li>-->
+		  
+		  <li>(0,0.005)</li>
+		  
         </points>
       </speedCurve>
     </skyfaller>
@@ -200,50 +260,70 @@
 
   <ThingDef ParentName="ShuttleSkyfallerBase">
     <defName>LTS_DrillShuttleOutgoing</defName>
-    <label>caveshuttle (leaving)</label>
-    <thingClass>FlyShipLeaving</thingClass>
+    <label>caveshuttle (submerging)</label>
+    <thingClass>LTS_StonebornSiteGeneration.DrillShuttleOutgoing</thingClass>
+	<altitudeLayer>Building</altitudeLayer>
 	<size>(5,3)</size>
     <graphicData>
       <texPath>Things/Special/CaveShuttle</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-      <shaderType>CutoutFlying</shaderType>
+      <graphicClass>LTS_StonebornSiteGeneration.Graphic_Single_GroundClipped</graphicClass>
+      <shaderType>LTS_CutoutFlyingAboveZ</shaderType>
       <drawSize>(6,3)</drawSize>
     </graphicData>
+	<building>
+      <groundSpawnerSustainedEffecter>LTS_DrillShuttleSubmergencePoint3x3</groundSpawnerSustainedEffecter>
+    </building>
     <skyfaller>
       <reversed>true</reversed>
       <anticipationSound>Shuttle_Leaving</anticipationSound>
       <anticipationSoundTicks>-10</anticipationSoundTicks>
-      <ticksToImpactRange>-40~-15</ticksToImpactRange>
+      <ticksToImpactRange>-100</ticksToImpactRange>
       <moteSpawnTime>0.05</moteSpawnTime>
       <shadow>Things/Skyfaller/SkyfallerShadowRectangle</shadow>
       <shadowSize>(5.5,3.5)</shadowSize>
       <motesPerCell>1</motesPerCell>
       <angleCurve>
         <points>
-          <li>(0,90)</li>
-          <li>(1,70)</li>
+          <!--<li>(0,90)</li>
+          <li>(1,0)</li>-->
+		  
+		  <!--<li>(0.0,90)</li>
+		  <li>(0.1,117)</li>
+		  <li>(0.2,126)</li>
+		  <li>(0.3,131)</li>
+		  <li>(0.4,134)</li>		  
+		  <li>(0.6,135)</li>-->
+		  
+		  <li>(0,112.5)</li>
         </points>
       </angleCurve>
       <rotationCurve>
         <points>
           <li>(0,0)</li>
-          <li>(0.15,10)</li>
-          <li>(0.5,-5)</li>
+          <li>(1,45)</li>
         </points>
       </rotationCurve>
       <zPositionCurve>
         <points>
-          <li>(0,0)</li>
-          <li>(0.08,2)</li>
+          <!--<li>(0,0)</li>
+          <li>(1,-1)</li>-->
+		  
+		  <li>(0,0)</li>
+		  <li>(0.2,-0.02)</li>
+		  <li>(0.4,-0.08)</li>
+		  <li>(0.6,-0.2)</li>
+		  <li>(0.8,-0.4)</li>
+          <li>(1,-1)</li>
         </points>
       </zPositionCurve>
       <speedCurve>
         <points>
-          <li>(0,0.2)</li>
-          <li>(0.4,0.7)</li>
+          <!--<li>(0,0.2)</li>
+          <li>(0.4,0.7)</li>-->
+		  <li>(0,0.01)</li>
         </points>
       </speedCurve>
     </skyfaller>
-  </ThingDef>-->
+  </ThingDef>
 	  
 </Defs>

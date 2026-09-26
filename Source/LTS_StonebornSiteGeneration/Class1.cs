@@ -1631,8 +1631,8 @@ namespace LTS_StonebornSiteGeneration
 
                 //drillShuttleEmergeTicks = ((shuttleDef.comps.Where(comp => comp is CompProperties_DrillShuttle).First() as CompProperties_DrillShuttle).incomingShuttleDef) as GroundSpawner).,
                 //drillShuttleSubmergeTicks = (shuttleDef.comps.Where(comp => comp is CompProperties_DrillShuttle).First() as CompProperties_DrillShuttle).LTS_DrillShuttleOutgoing,
-                drillShuttleEmergeTicks = 1650,
-                drillShuttleSubmergeTicks = 1650,
+                drillShuttleEmergeTicks = Math.Abs((shuttleDef.comps.Where(comp => comp is CompProperties_DrillShuttle).First() as CompProperties_DrillShuttle).incomingShuttleDef.skyfaller.ticksToImpactRange.max),
+                drillShuttleSubmergeTicks = Math.Abs((shuttleDef.comps.Where(comp => comp is CompProperties_DrillShuttle).First() as CompProperties_DrillShuttle).outgoingShuttleDef.skyfaller.ticksToImpactRange.max),
                 drillShuttleTravelTicks = 6000,
             };
             quest.AddPart(questPart);
@@ -1644,7 +1644,7 @@ namespace LTS_StonebornSiteGeneration
             //quest.SpawnThing(map, shuttle = ThingMaker.MakeThing(shuttleDef), null, null, QuestGenUtility.HardcodedSignalWithQuestID("Initiate"), true, true, null, null);//spawn shuttle after quest accepted.
             //quest.SpawnThing(map, shuttle = ThingMaker.MakeThing(incomingShuttleDef), asker.Faction, null, QuestGenUtility.HardcodedSignalWithQuestID("Initiate"), true, true, null, null);//spawn emerging shuttle after quest accepted.
             quest.SpawnThing(map, ThingMaker.MakeThing((shuttleDef.comps.Where(comp => comp is CompProperties_DrillShuttle).First() as CompProperties_DrillShuttle).incomingShuttleDef), asker.Faction, null, QuestGenUtility.HardcodedSignalWithQuestID("Initiate"), true, true, null, null);//spawn emerging shuttle after quest accepted.
-            quest.SpawnThing(map, shuttle = ThingMaker.MakeThing(shuttleDef), asker.Faction, shuttle.Position, QuestGenUtility.HardcodedSignalWithQuestID("ShuttleArrived"), true, true, null, null, true);//spawn shuttle after shuttle emerged.
+            //quest.SpawnThing(map, shuttle = ThingMaker.MakeThing(shuttleDef), asker.Faction, shuttle.Position, QuestGenUtility.HardcodedSignalWithQuestID("ShuttleArrived"), true, true, null, null, true);//spawn shuttle after shuttle emerged.
             //quest.QuestSelectTargets.AddItem(shuttle);
             
             //quest.SpawnThing(map, ThingMaker.MakeThing(outgoingShuttleDef), asker.Faction, shuttle.Position, QuestGenUtility.HardcodedSignalWithQuestID("ShuttleLaunched"), true, true, null, null);
@@ -1696,7 +1696,7 @@ namespace LTS_StonebornSiteGeneration
         private int ticksAtLaunch = -1;
         public int drillShuttleEmergeTicks;
         public int drillShuttleSubmergeTicks;
-        public int drillShuttleTravelTicks;
+        public int drillShuttleTravelTicks = 120;
 
         private IntVec3 shuttlePosition;
 
@@ -1715,9 +1715,11 @@ namespace LTS_StonebornSiteGeneration
             Scribe_References.Look(ref shuttle, "shuttle");
             Scribe_References.Look(ref outgoingShuttle, "outgoingShuttle");
 
-            Scribe_Values.Look(ref drillShuttleEmergeTicks, "drillShuttleEmergeTicks", 120);
-            Scribe_Values.Look(ref drillShuttleSubmergeTicks, "drillShuttleSubmergeTicks", 120);
-            Scribe_Values.Look(ref drillShuttleTravelTicks, "drillShuttleTravelTicks", 120);
+            Scribe_Values.Look(ref drillShuttleEmergeTicks, "drillShuttleEmergeTicks", Math.Abs((shuttleDef.comps.Where(comp => comp is CompProperties_DrillShuttle).First() as CompProperties_DrillShuttle).incomingShuttleDef.skyfaller.ticksToImpactRange.max));
+            Scribe_Values.Look(ref drillShuttleSubmergeTicks, "drillShuttleSubmergeTicks", Math.Abs((shuttleDef.comps.Where(comp => comp is CompProperties_DrillShuttle).First() as CompProperties_DrillShuttle).outgoingShuttleDef.skyfaller.ticksToImpactRange.max));
+            //Scribe_Values.Look(ref drillShuttleEmergeTicks, "drillShuttleEmergeTicks", 120);
+            //Scribe_Values.Look(ref drillShuttleSubmergeTicks, "drillShuttleSubmergeTicks", 120);
+            //Scribe_Values.Look(ref drillShuttleTravelTicks, "drillShuttleTravelTicks", 120);
 
             Scribe_Values.Look(ref state, "state");
             Scribe_Deep.Look(ref shuttleInventory, "shuttleInventory");
@@ -1749,6 +1751,9 @@ namespace LTS_StonebornSiteGeneration
                 {
                     if (ticksAtLaunch + drillShuttleSubmergeTicks + drillShuttleTravelTicks == Find.TickManager.TicksGame)//after launch, submergence animation and travel
                     {
+                        //Log.Warning("drillShuttleEmergeTicks: " + drillShuttleEmergeTicks);
+                        //Log.Warning("drillShuttleSubmergeTicks: " + drillShuttleSubmergeTicks);
+
                         //ThingDef mineableDef = DefDatabase<ThingDef>.AllDefsListForReading.FirstOrDefault(def => def.defName.Contains("Mineable" + resourceDef.defName));//upgrade this to deal with resources with mod prefixes
                         ThingDef mineableDef = DefDatabase<ThingDef>.AllDefsListForReading.FirstOrDefault(def => def.defName.Contains("Mineable") && def.defName.Contains(char.ToUpper(resourceDef.label[0]) + resourceDef.label.Substring(1)));
                         //, StringComparison.OrdinalIgnoreCase
@@ -1788,7 +1793,7 @@ namespace LTS_StonebornSiteGeneration
                 }
                 else
                 {
-                    if (ticksAtLaunch + drillShuttleSubmergeTicks == Find.TickManager.TicksGame)//after launch and submergence animation
+                    if (ticksAtLaunch + drillShuttleEmergeTicks == Find.TickManager.TicksGame)//after launch and submergence animation //I know it should be drillShuttleSubmergeTicks not drillShuttleEmergeTicks, shut up.
                     {
                         //pocketMap.Dispose();
                         PocketMapUtility.DestroyPocketMap(pocketMap);
@@ -1801,6 +1806,9 @@ namespace LTS_StonebornSiteGeneration
                     }
                     if (ticksAtLaunch + drillShuttleSubmergeTicks + drillShuttleTravelTicks + drillShuttleEmergeTicks == Find.TickManager.TicksGame)//after launch, submergence animation, travel and re-emergence
                     {
+                        //shuttle.Destroy();
+
+
                         GenSpawn.Spawn((shuttleDef.comps.Where(comp => comp is CompProperties_DrillShuttle).First() as CompProperties_DrillShuttle).outgoingShuttleDef, shuttlePosition, colonyMap);
 
                         bool successful = false;
@@ -1990,7 +1998,7 @@ namespace LTS_StonebornSiteGeneration
                                     questPart.returning = true;
                                 }
 
-                                GenSpawn.Spawn(Props.outgoingShuttleDef, parent.Position, parent.Map);
+                                
 
                                 
 
@@ -2003,13 +2011,16 @@ namespace LTS_StonebornSiteGeneration
                             {
                                 //string lostItemLetterText = ;
                                 
+                                if (!compTransporter.innerContainer.NullOrEmpty())//only warn about lost items if there were any
+                                {
+                                    Find.LetterStack.ReceiveLetter("Expedition Lost", "The cave shuttle was launched without any colonists aboard. All items remaining aboard have been lost.", LetterDefOf.NegativeEvent);
+                                }
                                 
-                                
-                                Find.LetterStack.ReceiveLetter("Expedition Lost", "The cave shuttle was launched without any colonists aboard. All items remaining aboard have been lost.",LetterDefOf.NegativeEvent);
-
                                 compTransporter.GetDirectlyHeldThings().ClearAndDestroyContents(DestroyMode.Vanish);
                                 quest.End(QuestEndOutcome.Fail);
                             }
+
+                            GenSpawn.Spawn(Props.outgoingShuttleDef, parent.Position, parent.Map);
 
                             compTransporter.TryRemoveLord(parent.Map);//end shuttle loading task
                             parent.Destroy(DestroyMode.Vanish);
@@ -2064,23 +2075,357 @@ namespace LTS_StonebornSiteGeneration
             yield break;
         }        
     }
-    public class EmergingDrillShuttle : GroundSpawner
+    //public class EmergingDrillShuttle : GroundSpawner
+    //{
+    //    protected override void Spawn(Map map, IntVec3 loc)
+    //    {
+    //        if (!map.IsPocketMap)
+    //        {
+    //            Quest quest = Find.QuestManager.QuestsListForReading.FirstOrDefault(q => q.QuestLookTargets.Contains(this));
+    //            if (quest != null)//if this isn't the return shuttle
+    //            {
+    //                quest.Notify_SignalReceived(new Signal("Quest" + quest.id + ".ShuttleArrived"));//when emerging done, send signal for quest to spawn shuttle
+    //            }
+    //        }
+    //        else
+    //        {
+    //            //find quest
+    //            //Spawn shuttle stored in quest
+    //        }
+    //    }
+    //}
+    public class DrillShuttleIncoming : ShuttleIncoming
     {
-        protected override void Spawn(Map map, IntVec3 loc)
+        public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
-            if (!map.IsPocketMap)
+            base.SpawnSetup(map, respawningAfterLoad);
+
+
+            if (!respawningAfterLoad)
+            {
+                this.secondarySpawnTick = Find.TickManager.TicksGame + this.ResultSpawnDelay;
+                primarySpawnTick = Find.TickManager.TicksGame;
+            }
+            filthTypes.Clear();
+            filthTypes.Add(ThingDefOf.Filth_Dirt);
+            filthTypes.Add(ThingDefOf.Filth_Dirt);
+            filthTypes.Add(ThingDefOf.Filth_Dirt);
+            filthTypes.Add(ThingDefOf.Filth_RubbleRock);
+            LongEventHandler.ExecuteWhenFinished(delegate
+            {
+                SoundDef sustainerSound = this.SustainerSound;
+                this.sustainer = ((sustainerSound != null) ? sustainerSound.TrySpawnSustainer(SoundInfo.InMap(this, MaintenanceType.PerTick)) : null);
+                BuildingProperties building = this.def.building;
+                Effecter effecter;
+                if (building == null)
+                {
+                    effecter = null;
+                }
+                else
+                {
+                    EffecterDef groundSpawnerSustainedEffecter = building.groundSpawnerSustainedEffecter;
+                    effecter = ((groundSpawnerSustainedEffecter != null) ? groundSpawnerSustainedEffecter.Spawn(this.Position, base.Map, 1f) : null);
+                }
+                this.sustainedFx = effecter;
+                effecter.Cleanup();
+            });
+        }
+        protected override void Tick()
+        {
+            base.Tick();
+            if (!base.Spawned)
+            {
+                return;
+            }
+            Sustainer sustainer = this.sustainer;
+            if (sustainer != null && !sustainer.Ended)
+            {
+                this.sustainer.Maintain();
+            }
+
+            if (this.primarySpawnTick + this.primarySpawnTickDuration <= Find.TickManager.TicksGame) //if primary effectes's time is up
+            {
+                sustainer.End();
+            }
+
+            Effecter effecter = this.sustainedFx;
+            if (effecter != null)
+            {
+                //effecter.EffectTick(this, this);
+                TargetInfo targetInfo = new TargetInfo(base.Position + breachXOffset, Map, false);
+                effecter.EffectTick(targetInfo, targetInfo);
+            }
+
+            if (Rand.MTBEventOccurs(this.filthSpawnMTB, 60f, 1f))
+            {
+                IntVec3 c;
+                if (CellFinder.TryFindRandomReachableNearbyCell(this.OccupiedRect().RandomCell, base.Map, this.filthSpawnRadius, TraverseParms.For(TraverseMode.NoPassClosedDoors, Danger.Deadly, false, false, false, true, false), null, null, out c, 999999))
+                {
+                    FilthMaker.TryMakeFilth(c, base.Map, DrillShuttleIncoming.filthTypes.RandomElement<ThingDef>(), 1, FilthSourceFlags.None, true);
+                }
+                Plant plant = this.OccupiedRect().RandomCell.GetPlant(base.Map);
+                if (plant != null)
+                {
+                    plant.Destroy(DestroyMode.Vanish);
+                }
+            }
+            if (this.secondarySpawnTick <= Find.TickManager.TicksGame && this.secondarySpawnTick + this.secondarySpawnDurationTick > Find.TickManager.TicksGame)
+            {
+                Sustainer sustainer2 = this.sustainer;
+                if (sustainer2 != null)
+                {
+                    sustainer2.End();
+                }
+                Map map = base.Map;
+                IntVec3 position = base.Position;
+                BuildingProperties building = this.def.building;
+                if (building != null)
+                {
+                    EffecterDef groundSpawnerCompleteEffecter = building.groundSpawnerCompleteEffecter;
+                    if (groundSpawnerCompleteEffecter != null)
+                    {
+                        groundSpawnerCompleteEffecter.SpawnMaintained(Position + breachXOffset, map, 1f);
+                    }
+                }
+            }
+        }
+        protected IntVec3 breachXOffset = new IntVec3(-3,0,-1);
+        protected int primarySpawnTick;
+        protected int primarySpawnTickDuration = 200;
+        protected int secondarySpawnTick;
+        protected int secondarySpawnDurationTick = 20;
+        protected float dustMoteSpawnMTB = 0.2f;
+        protected float filthSpawnMTB = 0.3f;
+        protected float filthSpawnRadius = 3f;
+        private Sustainer sustainer;
+        private Effecter sustainedFx;
+        private readonly int ResultSpawnDelay = 100;
+        private static List<ThingDef> filthTypes = new List<ThingDef>();
+        protected virtual SoundDef SustainerSound
+        {
+            get
+            {
+                return SoundDefOf.Tunnel;
+            }
+        }
+        protected override void Impact()
+        {
+            Map thisMap = Map;
+            IntVec3 thisPosition = Position;
+
+            //base.Impact();
+            this.hasImpacted = true;
+            if (this.def.skyfaller.CausesExplosion)
+            {
+                IntVec3 position = base.Position;
+                Map map = base.Map;
+                float explosionRadius = this.def.skyfaller.explosionRadius;
+                DamageDef explosionDamage = this.def.skyfaller.explosionDamage;
+                Thing instigator = null;
+                int damAmount = GenMath.RoundRandom((float)this.def.skyfaller.explosionDamage.defaultDamage * this.def.skyfaller.explosionDamageFactor);
+                float armorPenetration = -1f;
+                SoundDef explosionSound = null;
+                ThingDef weapon = null;
+                ThingDef projectile = null;
+                Thing intendedTarget = null;
+                ThingDef postExplosionSpawnThingDef = null;
+                float postExplosionSpawnChance = 0f;
+                int postExplosionSpawnThingCount = 1;
+                List<Thing> ignoredThings = (!this.def.skyfaller.damageSpawnedThings) ? this.innerContainer.ToList<Thing>() : null;
+                GenExplosion.DoExplosion(position, map, explosionRadius, explosionDamage, instigator, damAmount, armorPenetration, explosionSound, weapon, projectile, intendedTarget, postExplosionSpawnThingDef, postExplosionSpawnChance, postExplosionSpawnThingCount, null, null, 255, false, null, 0f, 1, 0f, false, null, ignoredThings, null, true, 1f, 0f, true, null, 1f, null, null, null, null);
+            }
+            this.SpawnThings();
+            this.innerContainer.ClearAndDestroyContents(DestroyMode.Vanish);
+            CellRect cellRect = this.OccupiedRect();
+            for (int i = 0; i < cellRect.Area * this.def.skyfaller.motesPerCell; i++)
+            {
+                FleckMaker.ThrowDustPuff(cellRect.RandomVector3, base.Map, 2f);
+            }
+            if (this.def.skyfaller.MakesShrapnel)
+            {
+                SkyfallerShrapnelUtility.MakeShrapnel(base.Position, base.Map, this.shrapnelDirection, this.def.skyfaller.shrapnelDistanceFactor, this.def.skyfaller.metalShrapnelCountRange.RandomInRange, this.def.skyfaller.rubbleShrapnelCountRange.RandomInRange, true);
+            }
+            if (this.def.skyfaller.cameraShake > 0f && base.Map == Find.CurrentMap)
+            {
+                Find.CameraDriver.shaker.DoShake(this.def.skyfaller.cameraShake);
+            }
+            if (this.def.skyfaller.impactSound != null)
+            {
+                this.def.skyfaller.impactSound.PlayOneShot(SoundInfo.InMap(new TargetInfo(base.Position, base.Map, false), MaintenanceType.None));
+            }
+            if (this.impactLetter != null)
+            {
+                Find.LetterStack.ReceiveLetter(this.impactLetter, null, 0, true);
+            }
+            Map map2 = base.Map;
+            this.Destroy(DestroyMode.Vanish);
+
+            if (!thisMap.IsPocketMap)
             {
                 Quest quest = Find.QuestManager.QuestsListForReading.FirstOrDefault(q => q.QuestLookTargets.Contains(this));
                 if (quest != null)//if this isn't the return shuttle
                 {
-                    quest.Notify_SignalReceived(new Signal("Quest" + quest.id + ".ShuttleArrived"));//when emerging done, send signal for quest to spawn shuttle
+                    GenSpawn.TrySpawn(this.def.skyfaller.spawnThing, thisPosition, thisMap, out Thing thing, WipeMode.Vanish, true);
+                    quest.PartsListForReading.OfType<QuestPart_MiningQuota>().FirstOrDefault().shuttle = thing;//sets the QuestPart_MiningQuota's shuttle to the shuttle we just spawned, and thus adding it to the quest's QuestLookTargets
+                }
+
+                //Log.Warning("Testing");
+                //GenSpawn.TrySpawn(this.def.skyfaller.spawnThing, thisPosition, thisMap, out Thing thing, WipeMode.Vanish, true);
+                //quest.PartsListForReading.OfType<QuestPart_MiningQuota>().FirstOrDefault().shuttle = thing;//sets the QuestPart_MiningQuota's shuttle to the shuttle we just spawned, and thus adding it to the quest's QuestLookTargets
+                //if (quest != null)//if this isn't the return shuttle
+                //{
+
+                //}
+            }
+
+            //Log.Warning("I existed for: " + (Find.TickManager.TicksGame - primarySpawnTick) + " Ticks");
+
+            //if (this.def.skyfaller.spawnThing != null)
+            //{
+            //    Thing thing;
+            //    GenSpawn.TrySpawn(this.def.skyfaller.spawnThing, base.Position, map2, out thing, WipeMode.Vanish, true);
+            //}
+
+            //if (!thisMap.IsPocketMap)//we want to do this after base.Impact(); had deleted this so it's not in the way of the thing we're spawning, but need to save the variables before we delete it so we can actually get them.
+            //{
+            //    Quest quest = Find.QuestManager.QuestsListForReading.FirstOrDefault(q => q.QuestLookTargets.Contains(this));
+            //    //if (quest != null)//if this isn't the return shuttle
+            //    //{
+            //    //    Log.Warning("Testing");
+            //    //    GenSpawn.TrySpawn(this.def.skyfaller.spawnThing, thisPosition, thisMap, out Thing thing, WipeMode.Vanish, true);
+            //    //    quest.PartsListForReading.OfType<QuestPart_MiningQuota>().FirstOrDefault().shuttle = thing;//sets the QuestPart_MiningQuota's shuttle to the shuttle we just spawned, and thus adding it to the quest's QuestLookTargets
+            //    //}
+
+            //    //Log.Warning("Testing");
+            //    //GenSpawn.TrySpawn(this.def.skyfaller.spawnThing, thisPosition, thisMap, out Thing thing, WipeMode.Vanish, true);
+            //    //quest.PartsListForReading.OfType<QuestPart_MiningQuota>().FirstOrDefault().shuttle = thing;//sets the QuestPart_MiningQuota's shuttle to the shuttle we just spawned, and thus adding it to the quest's QuestLookTargets
+            //    //if (quest != null)//if this isn't the return shuttle
+            //    //{
+
+            //    //}
+            //}
+        }
+        protected override void DrawDropSpotShadow() { } //no shadow
+        protected override void HitRoof() { } //can't hit roof
+        protected override void DrawAt(Vector3 drawLoc, bool flip = false)
+        {
+            float extraRotation;
+            this.GetDrawPositionAndRotation(ref drawLoc, out extraRotation);
+            if (WorldComponent_GravshipController.GravshipRenderInProgess)
+            {
+                return;
+            }
+
+            Graphic_Single_GroundClipped graphic = (Graphic_Single_GroundClipped)Graphic; //get graphic which should be set to our custom graphic class
+            //graphic.SetGroundZ(Position.ToVector3Shifted().z); //set _GroundZ cutoff in our graphic
+
+            graphic.SetGroundZ(Position.z - 1); //set _GroundZ cutoff in our graphic Get half of height of sprite - 0.5 rather than hard coded 1
+
+            //Log.Message("SetGroundZ: " + Position.ToVector3Shifted().z);
+            //Log.Message("Shuttly Z: " + Position.z);
+
+            this.Graphic.Draw(drawLoc, flip ? Rotation.Opposite : Rotation, this, extraRotation);
+        }
+    }
+    public class DrillShuttleOutgoing : Skyfaller
+    {
+        public override void SpawnSetup(Map map, bool respawningAfterLoad)
+        {
+            base.SpawnSetup(map, respawningAfterLoad);
+            filthTypes.Clear();
+            filthTypes.Add(ThingDefOf.Filth_Dirt);
+            filthTypes.Add(ThingDefOf.Filth_Dirt);
+            filthTypes.Add(ThingDefOf.Filth_Dirt);
+            filthTypes.Add(ThingDefOf.Filth_RubbleRock);
+            LongEventHandler.ExecuteWhenFinished(delegate
+            {
+                SoundDef sustainerSound = this.SustainerSound;
+                this.sustainer = ((sustainerSound != null) ? sustainerSound.TrySpawnSustainer(SoundInfo.InMap(this, MaintenanceType.PerTick)) : null);
+                BuildingProperties building = this.def.building;
+                Effecter effecter;
+                if (building == null)
+                {
+                    effecter = null;
+                }
+                else
+                {
+                    EffecterDef groundSpawnerSustainedEffecter = building.groundSpawnerSustainedEffecter;
+                    effecter = ((groundSpawnerSustainedEffecter != null) ? groundSpawnerSustainedEffecter.Spawn(this.Position, base.Map, 1f) : null);
+                }
+                this.sustainedFx = effecter;
+                effecter.Cleanup();
+            });
+        }
+        protected override void Tick()
+        {
+            base.Tick();
+            if (!base.Spawned)
+            {
+                return;
+            }
+            Sustainer sustainer = this.sustainer;
+            if (sustainer != null && !sustainer.Ended)
+            {
+                this.sustainer.Maintain();
+            }
+
+            Effecter effecter = this.sustainedFx;
+            if (effecter != null)
+            {
+                //effecter.EffectTick(this, this);
+                TargetInfo targetInfo = new TargetInfo(base.Position + breachXOffset, Map, false);
+                effecter.EffectTick(targetInfo, targetInfo);
+            }
+
+            if (Rand.MTBEventOccurs(this.filthSpawnMTB, 60f, 1f))
+            {
+                IntVec3 c;
+                if (CellFinder.TryFindRandomReachableNearbyCell(this.OccupiedRect().RandomCell, base.Map, this.filthSpawnRadius, TraverseParms.For(TraverseMode.NoPassClosedDoors, Danger.Deadly, false, false, false, true, false), null, null, out c, 999999))
+                {
+                    FilthMaker.TryMakeFilth(c, base.Map, DrillShuttleOutgoing.filthTypes.RandomElement<ThingDef>(), 1, FilthSourceFlags.None, true);
+                }
+                Plant plant = this.OccupiedRect().RandomCell.GetPlant(base.Map);
+                if (plant != null)
+                {
+                    plant.Destroy(DestroyMode.Vanish);
                 }
             }
-            else
+        }
+        protected IntVec3 breachXOffset = new IntVec3(3, 0, -1);
+        protected float dustMoteSpawnMTB = 0.2f;
+        protected float filthSpawnMTB = 0.3f;
+        protected float filthSpawnRadius = 3f;
+        private Sustainer sustainer;
+        private Effecter sustainedFx;
+        private readonly int ResultSpawnDelay = 100;
+        private static List<ThingDef> filthTypes = new List<ThingDef>();
+        protected virtual SoundDef SustainerSound
+        {
+            get
             {
-                //find quest
-                //Spawn shuttle stored in quest
+                return SoundDefOf.Tunnel;
             }
+        }
+        protected override void DrawDropSpotShadow() { } //no shadow
+        protected override void HitRoof() { } //can't hit roof
+        protected override void DrawAt(Vector3 drawLoc, bool flip = false)
+        {
+            float extraRotation;
+            this.GetDrawPositionAndRotation(ref drawLoc, out extraRotation);
+            if (WorldComponent_GravshipController.GravshipRenderInProgess)
+            {
+                return;
+            }
+
+            Graphic_Single_GroundClipped graphic = (Graphic_Single_GroundClipped)Graphic; //get graphic which should be set to our custom graphic class
+            //graphic.SetGroundZ(Position.ToVector3Shifted().z); //set _GroundZ cutoff in our graphic
+
+            graphic.SetGroundZ(Position.z - 1); //set _GroundZ cutoff in our graphic Get half of height of sprite - 0.5 rather than hard coded 1
+
+            //Log.Message("SetGroundZ: " + Position.ToVector3Shifted().z);
+            //Log.Message("Shuttly Z: " + Position.z);
+
+            this.Graphic.Draw(drawLoc, flip ? Rotation.Opposite : Rotation, this, extraRotation);
         }
     }
     public class LTS_GenStep_FindStartShuttleMap : GenStep
@@ -2104,6 +2449,58 @@ namespace LTS_StonebornSiteGeneration
 
                 //CameraJumper.TryJump(new GlobalTargetInfo(validCell, map));
             }
+        }
+    }
+    public class Graphic_Single_GroundClipped : Graphic_Single
+    {
+        private Material groundClippedMaterial;
+
+        public Material GroundClippedMaterial
+        {
+            get
+            {
+                if (groundClippedMaterial == null)
+                {
+                    groundClippedMaterial = new Material(MatSingle)
+                    {
+                        name = MatSingle.name + "_GroundClipped",
+                        //shader = Shader.Find("det.stonebornfaction/LTS_CutoutFlyingAboveZ")
+                        shader = Shader
+                    };
+                }
+
+                return groundClippedMaterial;
+            }
+        }
+
+        public void SetGroundZ(float groundZ)
+        {
+            GroundClippedMaterial.SetFloat("_GroundZ", groundZ);
+        }
+
+        public override void DrawWorker(Vector3 loc, Rot4 rot, ThingDef thingDef, Thing thing, float extraRotation)
+        {
+            Mesh mesh = MeshAt(rot);
+            Quaternion quaternion = QuatFromRot(rot);
+
+            if (extraRotation != 0f)
+            {
+                quaternion *= Quaternion.Euler(Vector3.up * extraRotation);
+            }
+
+            if (data != null && data.addTopAltitudeBias)
+            {
+                quaternion *= Quaternion.Euler(Vector3.left * 2f);
+            }
+
+            loc += DrawOffset(rot);
+
+            Material mat = GroundClippedMaterial;
+
+            DrawMeshInt(mesh, loc, quaternion, mat);
+
+            if (ShadowGraphic != null)
+                ShadowGraphic.DrawWorker(loc,rot,thingDef,thing,extraRotation);
         }
     }
 

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ShaderTypeDef>
+    <defName>LTS_CutoutFlyingAboveZ</defName>
+    <shaderPath>LTS_CutoutFlyingAboveZ</shaderPath>
+  </ShaderTypeDef>
+  
+</Defs>
