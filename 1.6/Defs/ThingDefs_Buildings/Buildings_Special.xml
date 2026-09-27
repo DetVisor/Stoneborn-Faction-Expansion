@@ -60,7 +60,7 @@
 	<!--<drawHighlight>true</drawHighlight>
 	<highlightColor>(0.56, 0.62, 0.9)</highlightColor>-->
 	<graphicData>
-	  <texPath>Things/Special/CaveShuttle</texPath>
+	  <texPath>Things/Special/CaveShuttle_Parked</texPath>
 	  <graphicClass>Graphic_Single</graphicClass>
 	  <drawSize>(6,3)</drawSize>
 	  <!--<color>(162,164,149)</color>-->
@@ -159,7 +159,7 @@
     <label>caveshuttle (emerging)</label>
     <thingClass>LTS_StonebornSiteGeneration.DrillShuttleIncoming</thingClass>
 	<!--<altitudeLayer IsNull="True" />-->
-	<altitudeLayer>Building</altitudeLayer>
+	<altitudeLayer>MoteLow</altitudeLayer>
 	<size>(5,3)</size>
     <graphicData>
       <texPath>Things/Special/CaveShuttle</texPath>
@@ -262,7 +262,7 @@
     <defName>LTS_DrillShuttleOutgoing</defName>
     <label>caveshuttle (submerging)</label>
     <thingClass>LTS_StonebornSiteGeneration.DrillShuttleOutgoing</thingClass>
-	<altitudeLayer>Building</altitudeLayer>
+	<altitudeLayer>MoteLow</altitudeLayer>
 	<size>(5,3)</size>
     <graphicData>
       <texPath>Things/Special/CaveShuttle</texPath>
@@ -308,11 +308,20 @@
           <!--<li>(0,0)</li>
           <li>(1,-1)</li>-->
 		  
-		  <li>(0,0)</li>
+		  <!--<li>(0,0)</li>
 		  <li>(0.2,-0.02)</li>
 		  <li>(0.4,-0.08)</li>
 		  <li>(0.6,-0.2)</li>
 		  <li>(0.8,-0.4)</li>
+          <li>(1,-1)</li>-->
+		  
+		  <!-- -x^2 + 1 = (1-y)^3 where x = progress and y = -z position-->
+		  <li>(0,0)</li> 
+		  <li>(0.2,-0.01)</li>
+		  <li>(0.4,-0.05)</li>
+		  <li>(0.6,-0.14)</li>
+		  <li>(0.8,-0.29)</li>
+		  <li>(0.9,-0.43)</li>
           <li>(1,-1)</li>
         </points>
       </zPositionCurve>
