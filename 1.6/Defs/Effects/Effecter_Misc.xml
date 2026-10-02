@@ -123,7 +123,7 @@
             <rotation>0</rotation>
             <rotationRate>-10~10</rotationRate>
             <absoluteAngle>False</absoluteAngle>
-            <positionOffset>(-.5, 0, 0)</positionOffset>
+            <positionOffset>(-.71, 0, 0)</positionOffset>
             <angle>0~360</angle>
             <fleckUsesAngleForVelocity>True</fleckUsesAngleForVelocity>
             <speed>.2~.3</speed>
