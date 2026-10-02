@@ -2,9 +2,51 @@
 <Defs>
 
   <AbilityDef>
+    <defName>DV_Player_PsychicBlast</defName>
+    <label>psychic blast</label>
+    <description>There was a description here.</description>
+    <iconPath>UI/Abilities/Player_PsychicBlast</iconPath>
+    <jobDef>CastAbilityOnThingWithoutWeapon</jobDef>
+    <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+    <ai_SearchAOEForTargets>true</ai_SearchAOEForTargets>
+    <targetRequired>false</targetRequired>
+    <showCastingProgressBar>true</showCastingProgressBar>
+    <aiCanUse>True</aiCanUse>
+    <cooldownTicksRange>250</cooldownTicksRange>
+    <warmupMoteSocialSymbol>UI/Abilities/Player_PsychicBlast</warmupMoteSocialSymbol>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <warmupEffecter>DV_Player_PsychicBlastCoreo</warmupEffecter>
+      <warmupTime>3</warmupTime>
+      <requireLineOfSight>false</requireLineOfSight>
+      <range>3.9</range>
+      <drawAimPie>false</drawAimPie>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+        <canTargetPawns>false</canTargetPawns>
+      </targetParams>
+      <soundCast>DV_BlastCast</soundCast>
+    </verbProperties>
+    <comps>
+      <li Class="EBSGFramework.CompProperties_EBSGBurst">
+        <explosion>
+          <radius>3.9</radius>
+          <damageDef>Stun</damageDef>
+          <explosionSound>Explosion_Vaporize</explosionSound>
+          <damageAmount>10</damageAmount>
+        </explosion>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+      </li>
+    </comps>
+  </AbilityDef>
+
+  <AbilityDef>
     <defName>DV_Exemplar_Firebolts</defName>
-    <label>heatspikes</label>
+    <label>knyfebolts</label>
     <description>Fire a burst of low-accuracy energy bolts.</description>
+    <iconPath>UI/Abilities/Exemplar_Knyfebolts</iconPath>
     <writeCombatLog>True</writeCombatLog>
     <aiCanUse>true</aiCanUse>
     <ai_SearchAOEForTargets>true</ai_SearchAOEForTargets>
@@ -58,7 +100,7 @@
     <defName>DV_Exemplar_PsychicBlast</defName>
     <label>psychic blast</label>
     <description>There was a description here.</description>
-    <iconPath>UI/Icons/Genes/Gene_Bloodfeeder</iconPath>
+    <iconPath>UI/Abilities/Exemplar_PsychicBlast</iconPath>
     <jobDef>CastAbilityOnThingWithoutWeapon</jobDef>
     <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
     <ai_SearchAOEForTargets>true</ai_SearchAOEForTargets>
@@ -66,7 +108,7 @@
     <showCastingProgressBar>true</showCastingProgressBar>
     <aiCanUse>True</aiCanUse>
     <cooldownTicksRange>250</cooldownTicksRange>
-    <warmupMoteSocialSymbol>UI/Abilities/BerserkTrance</warmupMoteSocialSymbol>
+    <warmupMoteSocialSymbol>UI/Abilities/Exemplar_PsychicBlast</warmupMoteSocialSymbol>
     <verbProperties>
       <verbClass>Verb_CastAbility</verbClass>
       <warmupEffecter>DV_Exemplar_PsychicBlastCoreo</warmupEffecter>
@@ -100,7 +142,8 @@
     <label>elven dash</label>
     <description>Jump to a distant location using special ultrafast mechanoid muscles.</description>
     <jobDef>CastAbilityOnThing</jobDef>
-    <iconPath>UI/Abilities/FireBurst</iconPath>
+    <iconPath>UI/Abilities/Exemplar_Dash</iconPath>
+    <warmupMoteSocialSymbol>UI/Abilities/Exemplar_Dash</warmupMoteSocialSymbol>
     <cooldownTicksRange>120</cooldownTicksRange>
     <aiCanUse>true</aiCanUse>
     <ai_SearchAOEForTargets>true</ai_SearchAOEForTargets>
@@ -109,11 +152,11 @@
     <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
     <verbProperties>
       <verbClass>LTS_StonebornSiteGeneration.Verb_CastAbilityDash</verbClass>
-      <label>jump</label>
+      <label>dash</label>
       <violent>false</violent>
       <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
-      <warmupTime>0.5</warmupTime>
-      <minRange>5.9</minRange>
+      <warmupTime>0.1</warmupTime>
+      <minRange>3.9</minRange>
       <range>30.9</range>
       <requireLineOfSight>true</requireLineOfSight>
       <soundCast>Longjump_Jump</soundCast>
@@ -165,10 +208,11 @@
 
   <AbilityDef>
     <defName>DV_Exemplar_SkipAway</defName>
-    <label>skip away</label>
+    <label>scatterskip</label>
     <description>Emit a burst of burning fuel in all directions to form puddles of ignited liquid on the ground.</description>
     <jobDef>CastAbilityOnThingWithoutWeapon</jobDef>
-    <iconPath>UI/Abilities/FireBurst</iconPath>
+    <iconPath>UI/Abilities/Exemplar_Skip</iconPath>
+    <warmupMoteSocialSymbol>UI/Abilities/Exemplar_Skip</warmupMoteSocialSymbol>
     <cooldownTicksRange>400</cooldownTicksRange>
     <aiCanUse>true</aiCanUse>
     <ai_SearchAOEForTargets>true</ai_SearchAOEForTargets>
