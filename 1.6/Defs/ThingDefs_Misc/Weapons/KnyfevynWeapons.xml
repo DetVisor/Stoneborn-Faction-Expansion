@@ -175,7 +175,7 @@
                     <li>Cut</li>
                     <li>Stab</li>
                 </capacities>
-                <power>24</power>
+                <power>30</power>
                 <cooldownTime>2.2</cooldownTime>
             </li>
         </tools>

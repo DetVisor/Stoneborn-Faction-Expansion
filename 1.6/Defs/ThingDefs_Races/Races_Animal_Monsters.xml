@@ -1327,8 +1327,8 @@
     <description>The skeletal remains a vile, ancient warrior, carapaced in a set of corroded power armour. Despite their death centuries ago, a cruel psychic presence still clings to the armaments, animating them to inflict further suffering.\n\nThis suit in particular is adorned with with the gilded accents and ornementation of a knyfevyn exemplar, and seems to crackle with psychic potential.</description>
     <statBases>
       <MoveSpeed>6</MoveSpeed>
-      <MeleeDodgeChance>0.5</MeleeDodgeChance>
-      <MeleeHitChance>1</MeleeHitChance>
+      <MeleeDodgeChance>0.75</MeleeDodgeChance>
+      <MeleeHitChance>2</MeleeHitChance>
       <ArmorRating_Blunt>0.55</ArmorRating_Blunt>
       <ArmorRating_Sharp>0.70</ArmorRating_Sharp>
       <ArmorRating_Heat>1.2</ArmorRating_Heat>
