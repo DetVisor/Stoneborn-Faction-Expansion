@@ -166,6 +166,7 @@
       <graphicClass>LTS_StonebornSiteGeneration.Graphic_Single_GroundClipped</graphicClass>
 	  <shaderType>LTS_CutoutFlyingAboveZ</shaderType>
       <drawSize>(6,3)</drawSize>
+	  <color>(255,255,255)</color>
     </graphicData>
 	<building>
       <groundSpawnerSustainedEffecter>LTS_DrillShuttleEmergencePoint3x3</groundSpawnerSustainedEffecter>
@@ -269,6 +270,7 @@
       <graphicClass>LTS_StonebornSiteGeneration.Graphic_Single_GroundClipped</graphicClass>
       <shaderType>LTS_CutoutFlyingAboveZ</shaderType>
       <drawSize>(6,3)</drawSize>
+	  <color>(255,255,255)</color>
     </graphicData>
 	<building>
       <groundSpawnerSustainedEffecter>LTS_DrillShuttleSubmergencePoint3x3</groundSpawnerSustainedEffecter>

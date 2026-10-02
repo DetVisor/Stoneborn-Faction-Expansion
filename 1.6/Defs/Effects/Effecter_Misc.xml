@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
+
+  <EffecterDef>
+    <defName>DV_Player_PsychicBlastCoreo</defName>
+    <children>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+        <moteDef>DV_ExemplarAttachedMoteBlast</moteDef>
+        <burstCount>1</burstCount>
+        <rotation>-150~150</rotation>
+        <ticksBetweenMotes>76</ticksBetweenMotes>
+        <positionRadius>0</positionRadius>
+        <attachToSpawnThing>true</attachToSpawnThing>
+        <spawnLocType>OnSource</spawnLocType>
+        <scale>10</scale>
+      </li>
+    </children>
+  </EffecterDef>
+
+
   <EffecterDef>
     <defName>LTS_DrillpodEmergencePointComplete2X2</defName>
     <maintainTicks>10</maintainTicks>
@@ -123,7 +142,7 @@
             <rotation>0</rotation>
             <rotationRate>-10~10</rotationRate>
             <absoluteAngle>False</absoluteAngle>
-            <positionOffset>(-.5, 0, 0)</positionOffset>
+            <positionOffset>(-.71, 0, 0)</positionOffset>
             <angle>0~360</angle>
             <fleckUsesAngleForVelocity>True</fleckUsesAngleForVelocity>
             <speed>.2~.3</speed>
