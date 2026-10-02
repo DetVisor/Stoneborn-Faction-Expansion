@@ -204,6 +204,7 @@ namespace LTS_StonebornSiteGeneration
         public static ThingDef DV_Raid_DrillPod;
         public static ThingDef DV_Ethereal_DrillPod;
         public static ApparelLayerDef LTS_Necklace;
+        public static ThingDef LTS_Knyfevyn_Standard;
 
         static LTS_SFE_DefOf()
         {
@@ -1847,7 +1848,7 @@ namespace LTS_StonebornSiteGeneration
         {
             get
             {
-                return ticksUntilAutoLaunch < 60000; // && ticksUntilAutoLaunch > 0
+                return ticksUntilAutoLaunch < 60000 && ticksUntilAutoLaunch > -1;
             }
         }
 
@@ -2479,6 +2480,27 @@ namespace LTS_StonebornSiteGeneration
     }
 
     // -------------------------------------------------------------------------------------
+
+    public class ThoughtWorker_PsychicStandardWhisper : ThoughtWorker
+    {
+        protected override ThoughtState CurrentStateInternal(Pawn p)
+        {
+            if (!p.Spawned)
+            {
+                return false;
+            }
+            List<Thing> list = p.Map.listerThings.ThingsOfDef(LTS_SFE_DefOf.LTS_Knyfevyn_Standard);
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (p.Position.InHorDistOf(list[i].Position, Radius))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        private const float Radius = 15f;
+    }
 
 
 

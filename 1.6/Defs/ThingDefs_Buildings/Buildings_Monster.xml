@@ -233,8 +233,8 @@
     <label>knyfevyn standard</label>
     <thingClass>Building</thingClass>
     <category>Building</category>
-    <description>A sturdy wooden support. Keeps the ceiling from falling.</description>
-    <noRightClickDraftAttack>true</noRightClickDraftAttack>
+    <description>The bonewrought battle standard of the knyfevyn, bearing the icon of their dead archotech across a stiched sheet of humanoid skin.</description>
+    <noRightClickDraftAttack>false</noRightClickDraftAttack>
     <!--<altitudeLayer>MoteOverhead</altitudeLayer>-->
     <graphicData>
       <texPath>Things/Building/Ruins/Knyfevyn_Standard</texPath>
