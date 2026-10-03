@@ -125,6 +125,9 @@
           <baseHungerRate>0.32</baseHungerRate>
           <foodType>OmnivoreRoughAnimal, OvivoreAnimal</foodType>
           <trainability>Advanced</trainability>
+		  <specialTrainables MayRequire="Ludeon.RimWorld.Odyssey">
+			<li>Dig</li>
+		  </specialTrainables>
           <meatLabel>molemutt meat</meatLabel>
           <leatherDef>Leather_Heavy</leatherDef>
           <nuzzleMtbHours>15</nuzzleMtbHours>

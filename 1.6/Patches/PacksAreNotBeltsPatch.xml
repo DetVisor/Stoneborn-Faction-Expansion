@@ -3,7 +3,7 @@
 <Patch>
 	<Operation Class="PatchOperationSequence">
 	  <operations>
-		<li Class="PatchOperationReplace" MayRequire="turnovus.submod.backpacksarenotbelt">
+		<li Class="PatchOperationReplace" MayRequire="turnovus.submod.backpacksarenotbelts">
 		  <xpath>Defs/ThingDef[defName="LTS_Apparel_Exemplar_DimensionalBag"]/apparel/layers/li</xpath>
 		  <value>
             <li>PacksAreNotBelts_Artifact</li>
