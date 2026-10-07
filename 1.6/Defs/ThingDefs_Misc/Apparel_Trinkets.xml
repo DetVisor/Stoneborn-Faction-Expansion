@@ -502,7 +502,18 @@
     </tradeTags>
   </ThingDef>
   
-  <ThingDef ParentName="ApparelNoQualityBase">
+  <ThingDef Name="LTS_ApparelUnmakeableBase" ParentName="ApparelNoQualityBase" Abstract="True">
+    <apparel>
+      <canBeGeneratedToSatisfyWarmth>false</canBeGeneratedToSatisfyWarmth>
+	  <canBeGeneratedToSatisfyToxicEnvironmentResistance>false</canBeGeneratedToSatisfyToxicEnvironmentResistance>
+	  <canBeDesiredForIdeo>false</canBeDesiredForIdeo>
+	  <careIfWornByCorpse>false</careIfWornByCorpse>
+    </apparel>
+	<generateAllowChance>0</generateAllowChance>
+	<tradeTags Inherit="False" />
+  </ThingDef>
+  
+  <ThingDef ParentName="LTS_ApparelUnmakeableBase">
     <defName>LTS_Apparel_Exemplar_DimensionalBag</defName>
     <label>dimensional bag</label>
     <description>A portable gateway to a pocket dimension, used for storing items. Its inner workings are a mystery to all human minds.</description>
@@ -512,37 +523,18 @@
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>1</drawSize>
     </graphicData>
-	<!--<recipeMaker>
-      <unfinishedThingDef>UnfinishedPack</unfinishedThingDef>
-      <researchPrerequisite>DisruptorFlares</researchPrerequisite>
-      <recipeUsers>
-        <li>BioferriteShaper</li>
-      </recipeUsers>
-      <useIngredientsForColor>false</useIngredientsForColor>
-      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-      <workSkill>Crafting</workSkill>
-      <effectWorking>Smith</effectWorking>
-      <soundWorking>Recipe_Smith</soundWorking>
-      <skillRequirements>
-        <Crafting>4</Crafting>
-      </skillRequirements>
-      <displayPriority>30</displayPriority>
-    </recipeMaker>
     <costList>
-      <ComponentIndustrial>1</ComponentIndustrial>
-      <Bioferrite>30</Bioferrite>
-    </costList>-->
-    <!--<tickerType>Normal</tickerType>-->
-	
-	<smeltable>false</smeltable>
+      <Leather_Human>30</Leather_Human>
+      <Plasteel>10</Plasteel>
+	  <Gold>10</Gold>
+    </costList>
 	<equippedStatOffsets>
 		<CarryingCapacity>500</CarryingCapacity>
 		<VEF_MassCarryCapacity>500</VEF_MassCarryCapacity>
 	</equippedStatOffsets>
-	
     <statBases>
-      <Mass>3</Mass>
-      <Flammability>0.4</Flammability>
+      <Mass>0.5</Mass>
+      <Flammability>0</Flammability>
       <EquipDelay>2</EquipDelay>
     </statBases>
     <thingCategories>
@@ -561,7 +553,6 @@
       </layers>
     </apparel>
     <allowedArchonexusCount>1</allowedArchonexusCount>
-	<generateAllowChance>0</generateAllowChance>
   </ThingDef>
   
 </Defs>

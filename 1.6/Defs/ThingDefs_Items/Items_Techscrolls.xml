@@ -23,7 +23,7 @@
         </tradeTags>
         <intricate>true</intricate>
         <thingCategories>
-          <li>Manufactured</li>
+          <li>LTS_Techscrolls</li>
         </thingCategories>
         <techLevel>Ultra</techLevel>
         <tradeTags>
@@ -33,7 +33,7 @@
 
       <ThingDef ParentName="TechscrollBase">
         <defName>DV_YellowTechscroll</defName>
-        <label>engineering techscroll</label>
+        <label>techscroll (engineering)</label>
         <description>A plasteel-polymer storage device which houses an extensive sheet of gold alloy weave, every inch of the substrate is etched with microscopic lines of data which when read correctly can grant your researchers the required information to complete a specific research project.\n\nThis scroll appears to be contain knowledge on complex dwarven constructions and designs, like core drills, dwarven turrets and even automatons.</description>
         <graphicData>
           <color>(201, 177, 60)</color>
@@ -73,7 +73,7 @@
 
       <ThingDef ParentName="TechscrollBase">
         <defName>DV_BlueTechscroll</defName>
-        <label>armor techscroll</label>
+        <label>techscroll (armor)</label>
         <description>A plasteel-polymer storage device which houses an extensive sheet of gold alloy weave, every inch of the substrate is etched with microscopic lines of data which when read correctly can grant your researchers the required information to complete a specific research project.\n\nThis scroll appears to be contain knowledge on powerful dwarven power-armors, capable of stopping the mightiest of blows.</description>
         <graphicData>
           <color>(66, 134, 148)</color>
@@ -113,7 +113,7 @@
 
       <ThingDef ParentName="TechscrollBase">
         <defName>DV_RedTechscroll</defName>
-        <label>weapons techscroll</label>
+        <label>techscroll (weapons)</label>
         <description>A plasteel-polymer storage device which houses an extensive sheet of gold alloy weave, every inch of the substrate is etched with microscopic lines of data which when read correctly can grant your researchers the required information to complete a specific research project.\n\nThis scroll appears to be contain knowledge on legendary dwarven weapons, from simple axes and hammers to unique ranged weaponry.</description>
         <graphicData>
           <color>(148, 66, 66)</color>
@@ -153,7 +153,7 @@
 
       <ThingDef ParentName="TechscrollBase">
         <defName>DV_GreenTechscroll</defName>
-        <label>medical techscroll</label>
+        <label>techscroll (medical)</label>
         <description>A plasteel-polymer storage device which houses an extensive sheet of gold alloy weave, every inch of the substrate is etched with microscopic lines of data which when read correctly can grant your researchers the required information to complete a specific research project.\n\nThis scroll appears to be contain knowledge on advanced dwarven bionics, some that can spit fire or stun mechanoids, and some that can enhance the physical capabilities of the subject.</description>
         <graphicData>
           <color>(66, 148, 66)</color>

@@ -9,6 +9,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.NetworkInformation;
+using System.Reflection.Emit;
 using System.Resources;
 using System.Security.Cryptography;
 using System.Security.Policy;
@@ -180,7 +181,34 @@ namespace LTS_StonebornSiteGeneration
             }
         }
     }
+    [HarmonyPatch(typeof(Need_Food), nameof(Need_Food.FoodFallPerTickAssumingCategory))]
+    class Need_Food_FoodFallPerTickAssumingCategory_Patch //multiply result by pawn's LTS_SFE_HungerRateFactor right before return
+    {
+        //public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> baseCodeInstructions)
+        //{
+        //    List<CodeInstruction> newCodeInstructions = new List<CodeInstruction>(baseCodeInstructions);
 
+        //    for (int i = 0; i < newCodeInstructions.Count; i++)
+        //    {
+        //        if (newCodeInstructions[i].opcode == OpCodes.Ret)//if this is the return
+        //        {
+        //            newCodeInstructions.Insert(i, new CodeInstruction(OpCodes.Ldarg_0));//load pawn
+        //            newCodeInstructions.Insert(i + 1, new CodeInstruction(OpCodes.Ldfld,AccessTools.Field(typeof(LTS_SFE_DefOf), nameof(LTS_SFE_DefOf.LTS_SFE_HungerRateFactor))));
+        //            newCodeInstructions.Insert(i + 2, new CodeInstruction(OpCodes.Call,AccessTools.Method(typeof(StatExtension), nameof(StatExtension.GetStatValue))));
+        //            newCodeInstructions.Insert(i + 3, new CodeInstruction(OpCodes.Mul));//multiply reult by pawn's LTS_SFE_HungerRateFactor
+        //            return newCodeInstructions;
+        //        }
+        //    }
+
+        //    Log.Error("Stoneborn - Faction Expansion: Need_Food.FoodFallPerTickAssumingCategory patch failed");
+        //    return baseCodeInstructions;
+        //}
+        [HarmonyPostfix]
+        public static void Need_Food_FoodFallPerTickAssumingCategory_Postfix(Need_Food __instance, ref float __result, Pawn ___pawn)
+        {
+            __result *= ___pawn.GetStatValue(LTS_SFE_DefOf.LTS_SFE_HungerRateFactor);
+        }
+    }
 
 
 
@@ -205,6 +233,7 @@ namespace LTS_StonebornSiteGeneration
         public static ThingDef DV_Ethereal_DrillPod;
         public static ApparelLayerDef LTS_Necklace;
         public static ThingDef LTS_Knyfevyn_Standard;
+        public static StatDef LTS_SFE_HungerRateFactor;
 
         static LTS_SFE_DefOf()
         {

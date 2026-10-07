@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Patch>
+	<Operation Class="PatchOperationSequence">
+	  <operations>
+		<!--<li Class="PatchOperationReplace" MayRequire="turnovus.submod.backpacksarenotbelts">
+		  <xpath>Defs/ThingDef[defName="LTS_Apparel_Exemplar_DimensionalBag"]/apparel/layers/li</xpath>
+		  <value>
+            <li>PacksAreNotBelts_Artifact</li>
+		  </value>
+	    </li>-->
+		<li Class="PatchOperationReplace" MayRequireAnyOf="yy.capesandarmor,Yy.hoodsandhelmets">
+		  <xpath>Defs/ThingDef[defName="DV_Apparel_CrystalCrown"]/apparel/layers</xpath>
+		  <value>
+		    <layers>
+              <li>EyeCover</li>
+			</layers>
+		  </value>
+	    </li>
+		<li Class="PatchOperationReplace" MayRequireAnyOf="yy.capesandarmor,Yy.hoodsandhelmets">
+		  <xpath>Defs/ThingDef[defName="DV_Apparel_AnvilProphetHood"]/apparel/layers</xpath>
+		  <value>
+		    <layers>
+              <li>EyeCover</li>
+			</layers>
+		  </value>
+	    </li>
+		<li Class="PatchOperationReplace" MayRequireAnyOf="yy.capesandarmor,Yy.hoodsandhelmets">
+		  <xpath>Defs/ThingDef[defName="DV_Apparel_CrownMountan"]/apparel/layers</xpath>
+		  <value>
+		    <layers>
+              <li>Overhead</li>
+			  <li>EyeCover</li>
+			</layers>
+		  </value>
+	    </li>
+		<li Class="PatchOperationReplace" MayRequire="yy.capesandarmor">
+		  <xpath>Defs/ThingDef[defName="DV_Apparel_GildedRobe"]/apparel/layers</xpath>
+		  <value>
+            <layers>
+              <li>Cape</li>
+			  <li>Armor_Cape</li>
+			</layers>
+		  </value>
+	    </li>
+	  </operations>
+	</Operation>
+</Patch>

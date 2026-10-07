@@ -1,41 +1,22 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <ThingDef ParentName="ApparelNoQualityBase">
-    <defName>DV_Exemplar_AmuletOfIllyavrith</defName>
-    <label>amulet of Illyavrith</label>
-    <description>A single-person burst rocket for short-ranged flight. With its integrated harness and guidance assistant, the jump pack allows anyone to leap long distances at high speed, even over obstacles. It must be recharged after several uses.\n\nSome spacer tech militaries have melee combat specialists who use jump packs to bypass obstacles and rapidly close with the enemy.</description>
-    <techLevel>Archotech</techLevel>
-    <recipeMaker IsNull="True" />
-    <costList>
-      <Steel>30</Steel>
-    </costList>
-    <graphicData>
-      <texPath>Things/Item/Equipment/Loot/Exemplar/Exemplar_Amulet</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-    </graphicData>
-    <tickerType>Normal</tickerType>
+  <ThingDef Name="LTS_ApparelMakeableNecklaceBase" ParentName="ApparelMakeableBase" Abstract="True">
     <statBases>
-      <WorkToMake>14000</WorkToMake>
-      <Mass>3</Mass>
-      <Flammability>0.4</Flammability>
+      <Mass>0.3</Mass>
       <EquipDelay>2</EquipDelay>
+	  <WorkToMake>5000</WorkToMake>
     </statBases>
-    <thingSetMakerTags>
-      <li>RewardStandardQualitySuper</li>
-    </thingSetMakerTags>
-    <thingCategories>
-      <li>ApparelUtility</li>
+	<thingCategories>
+      <li>LTS_Necklace</li>
     </thingCategories>
-    <apparel>
-      <abilities>
-        <li>DV_Exemplar_PsychicBlast</li>
-      </abilities>
+	<apparel>
       <countsAsClothingForNudity>false</countsAsClothingForNudity>
-      <scoreOffset>4</scoreOffset>
-      <wornGraphicPath>Things/Item/Equipment/Loot/Exemplar/Exemplar_Amulet</wornGraphicPath>
-      <useWornGraphicMask>false</useWornGraphicMask>
-      <wornGraphicData>
+	  <canBeGeneratedToSatisfyWarmth>false</canBeGeneratedToSatisfyWarmth>
+	  <canBeGeneratedToSatisfyToxicEnvironmentResistance>false</canBeGeneratedToSatisfyToxicEnvironmentResistance>
+	  <developmentalStageFilter>Adult</developmentalStageFilter>
+	  <canBeDesiredForIdeo>false</canBeDesiredForIdeo>
+	  <wornGraphicData>
         <renderUtilityAsPack>true</renderUtilityAsPack>
         <south>
           <offset>(0,0.17)</offset>
@@ -74,22 +55,145 @@
         <hulk><scale>(0.7,0.7)</scale></hulk>
         <fat><scale>(0.7,0.7)</scale></fat>
       </wornGraphicData>
-      <careIfWornByCorpse>false</careIfWornByCorpse>
+	  <drawData>
+		<dataNorth>
+		  <layer>-3</layer>
+		</dataNorth>
+	  </drawData>
+	  <careIfWornByCorpse>false</careIfWornByCorpse>
       <careIfDamaged>false</careIfDamaged>
       <wearPerDay>0</wearPerDay>
       <bodyPartGroups>
         <li>Neck</li>
       </bodyPartGroups>
       <layers>
-        <li>Belt</li>
+        <li>LTS_Necklace</li>
       </layers>
-    </apparel>
-    <tradeTags>
+	</apparel>
+	<tradeTags>
       <li>ExoticMisc</li>
       <li>Clothing</li>
     </tradeTags>
+    <burnableByRecipe>false</burnableByRecipe>
+  </ThingDef>
+  
+  <ThingDef Name="LTS_ApparelUnmakeableNecklaceBase" ParentName="LTS_ApparelUnmakeableBase" Abstract="True">
+    <statBases>
+      <Mass>0.3</Mass>
+      <EquipDelay>2</EquipDelay>
+    </statBases>
+	<thingCategories>
+      <li>LTS_Necklace</li>
+    </thingCategories>
+	<apparel>
+      <countsAsClothingForNudity>false</countsAsClothingForNudity>
+	  <developmentalStageFilter>Adult</developmentalStageFilter>
+	  <wornGraphicData>
+        <renderUtilityAsPack>true</renderUtilityAsPack>
+        <south>
+          <offset>(0,0.17)</offset>
+          <thin><offset>(0,-0.13)</offset></thin>
+          <female><offset>(0,-0.08)</offset></female>
+          <hulk><offset>(0,-0.14)</offset></hulk>
+          <fat><offset>(0,-0.10)</offset></fat>
+        </south>
+        <north>
+          <offset>(0,-0.17)</offset>
+          <thin><offset>(0,-0.13)</offset></thin>
+          <male><offset>(0,-0.12)</offset></male>
+          <hulk><offset>(0,-0.20)</offset></hulk>
+          <female><offset>(0,-0.12)</offset></female>
+          <fat><offset>(0,-0.14)</offset></fat>
+        </north>
+        <east>
+          <offset>(0.05, 0.05)</offset>
+          <thin><offset>(0.12,-0.10)</offset></thin>
+          <male><offset>(0.12,-0.05)</offset></male>
+          <hulk><offset>(-0.04,-0.12)</offset></hulk>
+          <fat><offset>(-0.15,0)</offset></fat>
+          <female><offset>(0.08,-0.05)</offset></female>
+        </east>
+        <west>
+          <offset>(0.35,-0.17)</offset>
+          <thin><offset>(-0.12,-0.10)</offset></thin>
+          <male><offset>(-0.12,-0.05)</offset></male>
+          <hulk><offset>(0.04,-0.12)</offset></hulk>
+          <fat><offset>(0.15,0)</offset></fat>
+          <female><offset>(-0.08,-0.05)</offset></female>
+        </west>
+        <male><scale>(0.5,0.5)</scale></male>
+        <female><scale>(0.5,0.5)</scale></female>
+        <thin><scale>(0.4,0.4)</scale></thin>
+        <hulk><scale>(0.7,0.7)</scale></hulk>
+        <fat><scale>(0.7,0.7)</scale></fat>
+      </wornGraphicData>
+	  <drawData>
+		<dataNorth>
+		  <layer>-3</layer>
+		</dataNorth>
+	  </drawData>
+	  <careIfWornByCorpse>false</careIfWornByCorpse>
+      <careIfDamaged>false</careIfDamaged>
+      <wearPerDay>0</wearPerDay>
+      <bodyPartGroups>
+        <li>Neck</li>
+      </bodyPartGroups>
+      <layers>
+        <li>LTS_Necklace</li>
+      </layers>
+	</apparel>
+    <burnableByRecipe>false</burnableByRecipe>
+    <comps Inherit="False">
+      <li Class="CompProperties_Forbiddable"/>
+	  <!--<li>
+        <compClass>CompQuality</compClass>
+      </li>
+      <li Class="CompProperties_Styleable" />
+      <li>
+        <compClass>CompColorable</compClass>
+      </li>-->
+    </comps>
+  </ThingDef>
+  
+  <ThingDef ParentName="LTS_ApparelUnmakeableNecklaceBase">
+    <defName>DV_Exemplar_AmuletOfIllyavrith</defName>
+    <label>amulet of Illyavrith</label>
+    <description>An ornate knyfevyn amulet emblazoned with the icon of their archotech god. It radiates sinister psychic energies.\n\nArtefacts such as these are found exclusively among the ranks of the ancient knyfevyn empire's elite exemplar.</description>
+    <techLevel>Archotech</techLevel>
+    <costList>
+      <Plasteel>20</Plasteel>
+	  <Gold>10</Gold>
+    </costList>
+    <graphicData>
+      <texPath>Things/Item/Equipment/Loot/Exemplar/Exemplar_Amulet</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <!--<tickerType>Normal</tickerType>-->
+    <statBases>
+	  <MarketValue>1200</MarketValue>
+      <Flammability>0</Flammability>
+	  <DeteriorationRate>0.1</DeteriorationRate>
+	  <EquipDelay>5</EquipDelay>
+    </statBases>
+    <apparel>
+      <abilities>
+        <li>DV_Exemplar_PsychicBlast</li>
+      </abilities>
+      <!--<scoreOffset>4</scoreOffset>-->
+      <wornGraphicPath>Things/Item/Equipment/Loot/Exemplar/Exemplar_Amulet</wornGraphicPath>
+      <useWornGraphicMask>false</useWornGraphicMask>
+    </apparel>
     <allowedArchonexusCount>1</allowedArchonexusCount>
 	<generateAllowChance>0</generateAllowChance>
+	<tradeTags Inherit="False" />
+	<equippedStatOffsets>
+      <LTS_SFE_HungerRateFactor>0.5</LTS_SFE_HungerRateFactor>
+    </equippedStatOffsets>
+	<modExtensions>
+      <li Class="VEF.Apparels.ApparelExtension">
+        <traitsOnEquip><li>Cannibal</li></traitsOnEquip>
+      </li>
+    </modExtensions>
   </ThingDef>
 
 </Defs>
